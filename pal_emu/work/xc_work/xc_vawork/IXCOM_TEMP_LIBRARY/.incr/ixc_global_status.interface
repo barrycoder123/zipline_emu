@@ -1,0 +1,4 @@
+module ixc_global_status ixc_global_status 2 1
+NUM_CHANNELS NUM_CHANNELS
+DEPTH DEPTH
+status status

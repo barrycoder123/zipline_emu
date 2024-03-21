@@ -1,0 +1,12 @@
+*** SHALLOW_SECTION_BEGIN
+*** SHALLOW_SECTION_END
+*** MERGED_MEMORY_SECTION_BEGIN
+QTLA%SDL.top.tsm_0.main_instr.cnt1.cnt_cmpval_OPT QTLA%SDL.top.tsm_0.main_instr.cnt1.cnt_cmpval_OPT.Merger1 0 39
+QTLA%SDL.top.tsm_0.main_instr.cnt2.cnt_cmpval_OPT QTLA%SDL.top.tsm_0.main_instr.cnt1.cnt_cmpval_OPT.Merger1 40 79
+*** MERGED_MEMORY_SECTION_END
+*** SQUEEZE_SECTION_BEGIN
+*** SQUEEZE_SECTION_END
+*** COMPACTION_SECTION_BEGIN
+*** COMPACTION_SECTION_END
+*** SPLIT_SECTION_BEGIN
+*** SPLIT_SECTION_END

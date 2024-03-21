@@ -1,0 +1,3 @@
+V O V r_rsp SIZE=2
+P O nx_indirect_access_cntrl_v2_xcm124 u_cntrl ./xc_work/xc_vawork/xc_vawork/nx_indirect_access_cntrl_v2_xcm124
+P O nx_ram_1rw_xcm107 u_ram ./xc_work/xc_vawork/xc_vawork/nx_ram_1rw_xcm107

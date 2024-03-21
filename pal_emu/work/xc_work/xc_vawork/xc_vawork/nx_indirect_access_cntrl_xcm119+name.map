@@ -1,0 +1,25 @@
+DUMMY1 0ENABLE
+DUMMY2 0RESET
+DUMMY3 1_zy_simnet_stat_code_0_w$ 0 2
+DUMMY4 1_zy_simnet_stat_datawords_1_w$ 0 4
+DUMMY5 1_zy_simnet_stat_addr_2_w$ 0 8
+DUMMY6 0_zy_simnet_stat_table_id_3_w$
+DUMMY7 1_zy_simnet_capability_lst_4_w$ 0 15
+DUMMY8 1_zy_simnet_capability_type_5_w$ 0 3
+DUMMY9 0_zy_simnet_enable_6_w$
+DUMMY10 1_zy_simnet_rd_dat_7_w$ 0 95
+DUMMY11 0_zy_simnet_sw_cs_8_w$
+DUMMY12 0_zy_simnet_sw_ce_9_w$
+DUMMY13 0_zy_simnet_sw_we_10_w$
+DUMMY14 1_zy_simnet_sw_add_11_w$ 0 8
+DUMMY15 1_zy_simnet_sw_wdat_12_w$ 0 95
+DUMMY16 0_zy_simnet_yield_13_w$
+DUMMY17 0_zy_simnet_reset_14_w$
+DUMMY18 0ack_error
+DUMMY19 0{}
+DUMMY20 0{}
+DUMMY21 0{}
+DUMMY22 0{}
+DUMMY23 0{}
+DUMMY24 0{}
+DUMMY25 0@cntrlr.state_v

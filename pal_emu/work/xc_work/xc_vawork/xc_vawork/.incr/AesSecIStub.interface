@@ -1,0 +1,17 @@
+module AesSecIStub AesSecIStub 0 16
+AesCiphOutR AesCiphOutR
+AesCiphOutVldR AesCiphOutVldR
+KeyInitStall KeyInitStall
+CiphInStall CiphInStall
+Aes128 Aes128
+Aes192 Aes192
+Aes256 Aes256
+CiphIn CiphIn
+CiphInVldR CiphInVldR
+CiphInLastR CiphInLastR
+EncryptEn EncryptEn
+KeyIn KeyIn
+KeyInitVldR KeyInitVldR
+AesCiphOutStall AesCiphOutStall
+clk clk
+rst_n rst_n

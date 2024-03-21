@@ -1,0 +1,17 @@
+module cr_kme_tlv_parser cr_kme_tlv_parser 4 12
+CKV_NUM_ENTRIES CKV_NUM_ENTRIES
+CKV_DATA_WIDTH CKV_DATA_WIDTH
+KIM_NUM_ENTRIES KIM_NUM_ENTRIES
+KIM_DATA_WIDTH KIM_DATA_WIDTH
+stitcher_rd stitcher_rd
+parser_kimreader_valid parser_kimreader_valid
+parser_kimreader_data parser_kimreader_data
+tlv_parser_idle tlv_parser_idle
+tlv_parser_int_tlv_start_pulse tlv_parser_int_tlv_start_pulse
+clk clk
+rst_n rst_n
+disable_debug_cmd_q disable_debug_cmd_q
+always_validate_kim_ref always_validate_kim_ref
+stitcher_out stitcher_out
+stitcher_empty stitcher_empty
+kimreader_parser_ack kimreader_parser_ack

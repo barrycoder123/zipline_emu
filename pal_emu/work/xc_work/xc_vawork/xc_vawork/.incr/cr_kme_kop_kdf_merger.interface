@@ -1,0 +1,20 @@
+module cr_kme_kop_kdf_merger cr_kme_kop_kdf_merger 4 15
+CKV_NUM_ENTRIES CKV_NUM_ENTRIES
+CKV_DATA_WIDTH CKV_DATA_WIDTH
+KIM_NUM_ENTRIES KIM_NUM_ENTRIES
+KIM_DATA_WIDTH KIM_DATA_WIDTH
+kdf_cmdfifo_ack kdf_cmdfifo_ack
+sha_tag_stall sha_tag_stall
+merger_keyfifo_ack merger_keyfifo_ack
+kdf_keybuilder_data kdf_keybuilder_data
+kdf_keybuilder_valid kdf_keybuilder_valid
+clk clk
+rst_n rst_n
+cmdfifo_kdf_valid cmdfifo_kdf_valid
+cmdfifo_kdf_cmd cmdfifo_kdf_cmd
+sha_tag_data sha_tag_data
+sha_tag_valid sha_tag_valid
+sha_tag_last sha_tag_last
+keyfifo_merger_data keyfifo_merger_data
+keyfifo_merger_valid keyfifo_merger_valid
+keybuilder_kdf_stall keybuilder_kdf_stall

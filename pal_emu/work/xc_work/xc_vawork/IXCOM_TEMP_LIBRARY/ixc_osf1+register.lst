@@ -1,0 +1,3 @@
+P O axis_tbcall_1_0_1 tbcx ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/axis_tbcall_1_0_1
+P O ixc_osfTbc_buf us ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_osftbc_buf
+P O IXC_OSF_MB_20 OMB_0 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_osf_mb_20

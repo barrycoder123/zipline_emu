@@ -1,0 +1,12 @@
+get_bip2_DUMMY0 0get_bip2
+DUMMY0 0BUFFER
+DUMMY1 0label
+DUMMY2 0label
+DUMMY3 0_zy_simnet_kme_slv_rd_0_w$
+DUMMY4 1_zy_simnet_stitcher_out_1_w$ 0 82
+DUMMY5 0_zy_simnet_stitcher_empty_2_w$
+DUMMY6 0_zy_simnet_set_tlv_bip2_error_int_3_w$
+DUMMY7 1_zy_simnet_fifo_out_5_w$ 0 82
+DUMMY8 1_zy_simnet_fifo_in_8_w$ 0 82
+DUMMY9 0_zy_simnet_fifo_in_valid_9_w$
+DUMMY10 0_zy_simnet_fifo_out_ack_10_w$

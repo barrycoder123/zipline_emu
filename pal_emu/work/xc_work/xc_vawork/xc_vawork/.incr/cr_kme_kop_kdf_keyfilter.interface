@@ -1,0 +1,17 @@
+module cr_kme_kop_kdf_keyfilter cr_kme_kop_kdf_keyfilter 4 12
+CKV_NUM_ENTRIES CKV_NUM_ENTRIES
+CKV_DATA_WIDTH CKV_DATA_WIDTH
+KIM_NUM_ENTRIES KIM_NUM_ENTRIES
+KIM_DATA_WIDTH KIM_DATA_WIDTH
+keyfilter_cmdfifo_ack keyfilter_cmdfifo_ack
+keyfilter_upsizer_stall keyfilter_upsizer_stall
+hash_key_in hash_key_in
+hash_key_in_valid hash_key_in_valid
+clk clk
+rst_n rst_n
+cmdfifo_keyfilter_valid cmdfifo_keyfilter_valid
+cmdfifo_keyfilter_cmd cmdfifo_keyfilter_cmd
+upsizer_keyfilter_data upsizer_keyfilter_data
+upsizer_keyfilter_valid upsizer_keyfilter_valid
+upsizer_keyfilter_eof upsizer_keyfilter_eof
+hash_key_in_stall hash_key_in_stall

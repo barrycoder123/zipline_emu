@@ -1,0 +1,8 @@
+DUMMY0 1xcva_top.my_clks.ixcg_0._zyiscTdM1 10 0
+DUMMY1 1xc_top.simTime 63 0
+DUMMY2 1xc_top._ET3_COMPILER_RESERVED_NAME_QT_CURR_EMUL_CYCLE_ 63 0
+DUMMY3 1xc_top.mioPOW_0 63 0
+DUMMY4 1xc_top.mioPOW_2 63 0
+DUMMY5 0xc_top.mioPIW_0
+DUMMY6 0xc_top.mioPIW_1
+DUMMY8 0{}

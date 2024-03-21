@@ -1,0 +1,5 @@
+module ixc_capLoopXp ixc_capLoopXp 0 4
+bClk bClk
+en en
+bcLatchEn bcLatchEn
+bpHalt bpHalt

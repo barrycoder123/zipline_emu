@@ -1,0 +1,22 @@
+module ixc_cmd_q ixc_cmd_q 14 7
+NUM_QS NUM_QS
+DEPTH DEPTH
+LEVEL LEVEL
+ROOT ROOT
+IS_SV IS_SV
+ARCH ARCH
+GF2_1XCB GF2_1XCB
+WIDTH WIDTH
+SIZE SIZE
+ADDR_SIZE ADDR_SIZE
+BUF_SIZE BUF_SIZE
+P2C_DLY P2C_DLY
+LG_WIDTH LG_WIDTH
+MAX_MEM_PORTS MAX_MEM_PORTS
+cmdEnIn cmdEnIn
+cmdDataIn cmdDataIn
+cmdEnOut cmdEnOut
+cmdDataOut cmdDataOut
+pollReq pollReq
+pollEn pollEn
+nrqsBusy nrqsBusy

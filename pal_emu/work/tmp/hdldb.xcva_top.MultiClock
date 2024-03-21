@@ -1,0 +1,3099 @@
+### hdldb.xcva_top.MultiClock ### START: Tue Mar 19 15:22:41 2024
+
+Found IXCOM RTL cell hdldb:ASSERTION
+
+TraverseAdjustTernToBin.ForEachCell {
+elapsed time: 1 sec.
+} // TraverseAdjustTernToBin.ForEachCell
+Memory size before 'design' command: 63 MB.
+Statically allocated memory: 0 MB.
+
+Importing User Data {
+elapsed time: 0 sec.
+} // Importing User Data
+
+Flattening design hdldb xcva_top {
+flat nets = 0, primitives = 0, nodes = 0; resident memory size: 267 MB (PDB pools size: 432 MB).
+Processing UPF data elapsed time: 0 sec.
+Building 'Feed Through' associations elapsed time: 0 sec.
+Clean iScopedNets elapsed time: 0 sec.
+Cell Markers elapsed time: 0 sec.
+AssignGlobalNetTerms elapsed time: 0 sec.
+UCDB_INPUT_NO_DELAY Terminal UA@.IXC_GFIFO.ISF._zyevPio[0] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.IXC_GFIFO.ISF._zyevPio[1] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.apb_xactor.clk has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.apb_xactor.prdata[0] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.apb_xactor.prdata[10] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.apb_xactor.prdata[11] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.apb_xactor.prdata[12] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.apb_xactor.prdata[13] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.apb_xactor.prdata[14] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.apb_xactor.prdata[15] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.apb_xactor.prdata[16] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.apb_xactor.prdata[17] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.apb_xactor.prdata[18] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.apb_xactor.prdata[19] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.apb_xactor.prdata[1] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.apb_xactor.prdata[20] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.apb_xactor.prdata[21] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.apb_xactor.prdata[22] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.apb_xactor.prdata[23] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.apb_xactor.prdata[24] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.apb_xactor.prdata[25] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.apb_xactor.prdata[26] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.apb_xactor.prdata[27] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.apb_xactor.prdata[28] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.apb_xactor.prdata[29] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.apb_xactor.prdata[2] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.apb_xactor.prdata[30] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.apb_xactor.prdata[31] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.apb_xactor.prdata[3] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.apb_xactor.prdata[4] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.apb_xactor.prdata[5] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.apb_xactor.prdata[6] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.apb_xactor.prdata[7] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.apb_xactor.prdata[8] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.apb_xactor.prdata[9] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.apb_xactor.pready has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.apb_xactor.pslverr has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.apb_xactor.reset_n has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.apb_paddr[0] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.apb_paddr[10] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.apb_paddr[11] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.apb_paddr[12] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.apb_paddr[13] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.apb_paddr[14] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.apb_paddr[15] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.apb_paddr[1] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.apb_paddr[2] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.apb_paddr[3] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.apb_paddr[4] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.apb_paddr[5] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.apb_paddr[6] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.apb_paddr[7] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.apb_paddr[8] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.apb_paddr[9] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.apb_penable has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.apb_psel has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.apb_pwdata[0] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.apb_pwdata[10] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.apb_pwdata[11] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.apb_pwdata[12] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.apb_pwdata[13] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.apb_pwdata[14] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.apb_pwdata[15] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.apb_pwdata[16] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.apb_pwdata[17] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.apb_pwdata[18] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.apb_pwdata[19] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.apb_pwdata[1] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.apb_pwdata[20] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.apb_pwdata[21] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.apb_pwdata[22] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.apb_pwdata[23] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.apb_pwdata[24] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.apb_pwdata[25] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.apb_pwdata[26] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.apb_pwdata[27] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.apb_pwdata[28] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.apb_pwdata[29] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.apb_pwdata[2] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.apb_pwdata[30] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.apb_pwdata[31] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.apb_pwdata[3] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.apb_pwdata[4] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.apb_pwdata[5] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.apb_pwdata[6] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.apb_pwdata[7] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.apb_pwdata[8] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.apb_pwdata[9] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.apb_pwrite has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.disable_debug_cmd has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.disable_unencrypted_keys has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_cceip0_ob_tready has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[0] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[10] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[11] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[12] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[13] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[14] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[15] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[16] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[17] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[18] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[19] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[1] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[20] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[21] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[22] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[23] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[24] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[25] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[26] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[27] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[28] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[29] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[2] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[30] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[31] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[32] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[33] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[34] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[35] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[36] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[37] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[38] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[39] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[3] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[40] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[41] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[42] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[43] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[44] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[45] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[46] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[47] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[48] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[49] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[4] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[50] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[51] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[52] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[53] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[54] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[55] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[56] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[57] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[58] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[59] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[5] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[60] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[61] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[62] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[63] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[6] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[7] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[8] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tdata[9] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tid[0] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tlast has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tstrb[0] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tstrb[1] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tstrb[2] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tstrb[3] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tstrb[4] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tstrb[5] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tstrb[6] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tstrb[7] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tuser[0] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tuser[1] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tuser[2] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tuser[3] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tuser[4] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tuser[5] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tuser[6] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tuser[7] has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.kme_ib_tvalid has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.rst_n has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.scan_mode has been created for top-cell
+UCDB_INPUT Terminal UA@.kme_tb.kme_dut.scan_rst_n has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.callEmuPI has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.ckgHoldPI has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[0] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[10] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[11] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[12] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[13] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[14] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[15] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[16] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[17] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[18] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[19] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[1] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[20] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[21] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[22] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[23] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[24] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[25] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[26] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[27] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[28] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[29] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[2] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[30] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[31] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[32] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[33] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[34] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[35] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[36] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[37] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[38] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[39] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[3] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[40] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[41] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[42] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[43] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[44] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[45] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[46] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[47] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[48] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[49] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[4] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[50] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[51] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[52] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[53] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[54] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[55] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[56] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[57] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[58] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[59] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[5] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[60] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[61] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[62] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[63] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[6] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[7] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[8] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.evalStepPI[9] has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.noOutputPI has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.oneStepPI has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.stopEmuPI has been created for top-cell
+UCDB_INPUT_NO_DELAY Terminal UA@.xc_top.tbcHoldPI has been created for top-cell
+CAs elapsed time: 0 sec.
+Scoped Nets elapsed time: 0 sec.
+Fix Scoped Nets elapsed time: 0 sec.
+Init Stubs elapsed time: 0 sec.
+Build Hierarchy elapsed time: 0 sec.
+Clear Stubs elapsed time: 0 sec.
+Build Nets elapsed time: 0 sec.
+Presort Nets elapsed time: 0 sec.
+Setup UD elapsed time: 0 sec.
+OOMRs elapsed time: 0 sec.
+Info : Have 0 misses when searching nodes/nets in the presorted container.
+Unsort Nets elapsed time: 0 sec.
+Fix OWTIs elapsed time: 0 sec.
+Flattener(CreateRoot) elapsed time: 0 sec.
+Unnamed nets: 46608, unnamed prims = 157613 (qtref = 157613)
+elapsed time: 0 sec.
+flat nets = 470678, primitives = 386916, nodes = 312082; resident memory size: 1857 MB (PDB pools size: 560 MB).
+} // Flattening design hdldb xcva_top
+
+Calculate gate count (primitives) mt-16 {
+
+Calculate gate count (subaction: finish) {
+elapsed time: 0 sec.
+} // Calculate gate count (subaction: finish)
+elapsed time: 0 sec.
+} // Calculate gate count (primitives) mt-16
+
+Calculate gate count (nets) mt-16 {
+
+Calculate gate count (subaction: finish) {
+elapsed time: 0 sec.
+} // Calculate gate count (subaction: finish)
+elapsed time: 0 sec.
+} // Calculate gate count (nets) mt-16
+Partition groups are OFF; hierarchical partitioning is OFF.
+
+Collecting special properties {
+Net xc_top.sdlStop is found.
+Net xc_top.FvUseOnly is found.
+Net xc_top.cpfStop is found.
+Net xc_top.cpfAssert not found.
+Net xc_top.hwClkDbgEn is found.
+Net xc_top.hotSwapOnPI is found.
+elapsed time: 0 sec.
+} // Collecting special properties
+
+Keeping IXCOM state devices {
+elapsed time: 0 sec.
+} // Keeping IXCOM state devices
+Bi-directional I/O is supposed to be delayed by fclk cycle
+REPORT (legacy-45668): File /lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/etc/triggers.list: trigger net QTLA%hdl_break not found.
+
+Marking FV enabled regions {
+elapsed time: 0 sec.
+} // Marking FV enabled regions
+
+Reading UPF data {
+flat nets = 470683, primitives = 386918, nodes = 312087; resident memory size: 356 MB (PDB pools size: 560 MB).
+
+power domains {
+flat nets = 470683, primitives = 386918, nodes = 312087; resident memory size: 356 MB (PDB pools size: 560 MB).
+set_partial_on_translation OFF
+elapsed time: 0 sec.
+flat nets = 470683, primitives = 386918, nodes = 312087; resident memory size: 356 MB (PDB pools size: 560 MB).
+} // power domains
+elapsed time: 0 sec.
+flat nets = 470683, primitives = 386918, nodes = 312087; resident memory size: 356 MB (PDB pools size: 560 MB).
+} // Reading UPF data
+
+TraverseUA1Xmarkings.ForEachPrim {
+Q_NOT_TOUCH DLYE (Q_NOT_TOUCH) IXC_GFIFO.DUMMY._zzqnthw.U0 (ixcEcmHoldOtb)
+  <-- O IXC_GFIFO.DUMMY._zzqnthw.dummy
+  --> I IXC_GFIFO.DUMMY._zzqnthw.sig
+  --> E IXC_GFIFO.DUMMY._zzqnthw.dummy
+---
+Q_NOT_TOUCH DLYE (Q_NOT_TOUCH) IXC_GFIFO.HOLDTOP._zzqnthw.U0 (ixcEcmHold)
+  <-- O IXC_GFIFO.HOLDTOP._zzqnthw.dummy
+  --> I IXC_GFIFO.HOLDTOP._zzqnthw.sig
+  --> E IXC_GFIFO.HOLDTOP._zzqnthw.dummy
+---
+Q_NOT_TOUCH DLYE (Q_NOT_TOUCH) IXC_GFIFO.I.I._zzqnthw.U0 (IXC_SV_SFIFO_VXE_256)
+  <-- O IXC_GFIFO.I.I._zzqnthw.dummy
+  --> I IXC_GFIFO.I.I._zzqnthw.sig
+  --> E IXC_GFIFO.I.I._zzqnthw.dummy
+---
+Q_NOT_TOUCH DLYE (Q_NOT_TOUCH) IXC_GFIFO.I.O._zzqnthw.U0 (IXC_SV_SCG_GFIFO_VXE_64)
+  <-- O IXC_GFIFO.I.O._zzqnthw.dummy
+  --> I IXC_GFIFO.I.O._zzqnthw.sig
+  --> E IXC_GFIFO.I.O._zzqnthw.dummy
+---
+Q_NOT_TOUCH DLYE (Q_NOT_TOUCH) IXC_GFIFO.ISF._zzqnthw.U0 (IXC_ISF)
+  <-- O IXC_GFIFO.ISF._zzqnthw.dummy
+  --> I IXC_GFIFO.ISF._zzqnthw.sig
+  --> E IXC_GFIFO.ISF._zzqnthw.dummy
+---
+Q_NOT_TOUCH DLYE (Q_NOT_TOUCH) IXC_GFIFO.O.O._zzqnthw.U0 (IXC_SV_GFIFO_VXE_256)
+  <-- O IXC_GFIFO.O.O._zzqnthw.dummy
+  --> I IXC_GFIFO.O.O._zzqnthw.sig
+  --> E IXC_GFIFO.O.O._zzqnthw.dummy
+---
+Q_NOT_TOUCH DLYE (Q_NOT_TOUCH) IXC_GFIFO.OSF._zzqnthw.U0 (IXC_OSF)
+  <-- O IXC_GFIFO.OSF._zzqnthw.dummy
+  --> I IXC_GFIFO.OSF._zzqnthw.sig
+  --> E IXC_GFIFO.OSF._zzqnthw.dummy
+---
+Q_NOT_TOUCH DLYE (Q_NOT_TOUCH) IXC_GFIFO.OSF.tbcx.soC.U0 (axis_tbcall_BP_1)
+  <-- O IXC_GFIFO.OSF.tbcx.soC.dummy
+  --> I IXC_GFIFO.OSF.tbcx.soC.sig
+  --> E IXC_GFIFO.OSF.tbcx.soC.dummy
+---
+Q_NOT_TOUCH DLYE (Q_NOT_TOUCH) IXC_GFIFO.OSF1.OMB_0._zzqnthw.U0 (IXC_OSF_MB_20)
+  <-- O IXC_GFIFO.OSF1.OMB_0._zzqnthw.dummy
+  --> I IXC_GFIFO.OSF1.OMB_0._zzqnthw.sig
+  --> E IXC_GFIFO.OSF1.OMB_0._zzqnthw.dummy
+---
+Q_NOT_TOUCH DLYE (Q_NOT_TOUCH) IXC_GFIFO.OSF1._zzqnthw.U0 (IXC_OSF1)
+  <-- O IXC_GFIFO.OSF1._zzqnthw.dummy
+  --> I IXC_GFIFO.OSF1._zzqnthw.sig
+  --> E IXC_GFIFO.OSF1._zzqnthw.dummy
+---
+Q_NOT_TOUCH DLYE (Q_NOT_TOUCH) IXC_GFIFO.OSF1.tbcx.soC.U0 (axis_tbcall_1_0_1)
+  <-- O IXC_GFIFO.OSF1.tbcx.soC.dummy
+  --> I IXC_GFIFO.OSF1.tbcx.soC.sig
+  --> E IXC_GFIFO.OSF1.tbcx.soC.dummy
+---
+Q_NOT_TOUCH DLYE (Q_NOT_TOUCH) kme_tb.apb_xactor._zzM2L33_mdxP0_OnP._zzqnthw.U0 (apb_xactor)
+  <-- O kme_tb.apb_xactor._zzM2L33_mdxP0_OnP._zzqnthw.dummy
+  --> I kme_tb.apb_xactor._zzM2L33_mdxP0_OnP._zzqnthw.sig
+  --> E kme_tb.apb_xactor._zzM2L33_mdxP0_OnP._zzqnthw.dummy
+---
+Q_NOT_TOUCH DLYE (Q_NOT_TOUCH) kme_tb.apb_xactor._zzM2L48_pbcMevClk4._zzqnthw.U0 (apb_xactor)
+  <-- O kme_tb.apb_xactor._zzM2L48_pbcMevClk4._zzqnthw.dummy
+  --> I kme_tb.apb_xactor._zzM2L48_pbcMevClk4._zzqnthw.sig
+  --> E kme_tb.apb_xactor._zzM2L48_pbcMevClk4._zzqnthw.dummy
+---
+Q_NOT_TOUCH DLYE (Q_NOT_TOUCH) kme_tb.apb_xactor._zzixc_tfport_0_0._zzqnthw.U0 (apb_xactor)
+  <-- O kme_tb.apb_xactor._zzixc_tfport_0_0._zzqnthw.dummy
+  --> I kme_tb.apb_xactor._zzixc_tfport_0_0._zzqnthw.sig
+  --> E kme_tb.apb_xactor._zzixc_tfport_0_0._zzqnthw.dummy
+---
+Q_NOT_TOUCH DLYE (Q_NOT_TOUCH) kme_tb.apb_xactor._zzixc_tfport_0_1._zzqnthw.U0 (apb_xactor)
+  <-- O kme_tb.apb_xactor._zzixc_tfport_0_1._zzqnthw.dummy
+  --> I kme_tb.apb_xactor._zzixc_tfport_0_1._zzqnthw.sig
+  --> E kme_tb.apb_xactor._zzixc_tfport_0_1._zzqnthw.dummy
+---
+Q_NOT_TOUCH DLYE (Q_NOT_TOUCH) kme_tb.apb_xactor._zzqnt.U0 (apb_xactor)
+  <-- O kme_tb.apb_xactor._zzqnt.dummy
+  --> I kme_tb.apb_xactor._zzqnt.sig
+  --> E kme_tb.apb_xactor._zzqnt.dummy
+---
+Q_NOT_TOUCH DLYE (Q_NOT_TOUCH) kme_tb.kme_dut.u_cr_kme_regfile.ckv_indirect_access.u_cntrl._zzixc_ctxrd_0._zzqnthw.U0 (nx_indirect_access_cntrl_v2_xcm125)
+  <-- O kme_tb.kme_dut.u_cr_kme_regfile.ckv_indirect_access.u_cntrl._zzixc_ctxrd_0._zzqnthw.dummy
+  --> I kme_tb.kme_dut.u_cr_kme_regfile.ckv_indirect_access.u_cntrl._zzixc_ctxrd_0._zzqnthw.sig
+  --> E kme_tb.kme_dut.u_cr_kme_regfile.ckv_indirect_access.u_cntrl._zzixc_ctxrd_0._zzqnthw.dummy
+---
+Q_NOT_TOUCH DLYE (Q_NOT_TOUCH) kme_tb.kme_dut.u_cr_kme_regfile.u_SA_COUNT._zzixc_ctxrd_0._zzqnthw.U0 (nx_roreg_indirect_access_xcm129)
+  <-- O kme_tb.kme_dut.u_cr_kme_regfile.u_SA_COUNT._zzixc_ctxrd_0._zzqnthw.dummy
+  --> I kme_tb.kme_dut.u_cr_kme_regfile.u_SA_COUNT._zzixc_ctxrd_0._zzqnthw.sig
+  --> E kme_tb.kme_dut.u_cr_kme_regfile.u_SA_COUNT._zzixc_ctxrd_0._zzqnthw.dummy
+---
+Q_NOT_TOUCH DLYE (Q_NOT_TOUCH) kme_tb.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzM131L132_bcMevClkP0._zzqnthw.U0 (nx_reg_indirect_access)
+  <-- O kme_tb.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzM131L132_bcMevClkP0._zzqnthw.dummy
+  --> I kme_tb.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzM131L132_bcMevClkP0._zzqnthw.sig
+  --> E kme_tb.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzM131L132_bcMevClkP0._zzqnthw.dummy
+---
+Q_NOT_TOUCH DLYE (Q_NOT_TOUCH) kme_tb.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzixc_ctxrd_0._zzqnthw.U0 (nx_reg_indirect_access)
+  <-- O kme_tb.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzixc_ctxrd_0._zzqnthw.dummy
+  --> I kme_tb.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzixc_ctxrd_0._zzqnthw.sig
+  --> E kme_tb.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzixc_ctxrd_0._zzqnthw.dummy
+---
+Q_NOT_TOUCH DLYE (Q_NOT_TOUCH) kme_tb.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzixc_ctxwr_1._zzfrcD._zzqnthw.U0 (nx_reg_indirect_access)
+  <-- O kme_tb.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzixc_ctxwr_1._zzfrcD._zzqnthw.dummy
+  --> I kme_tb.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzixc_ctxwr_1._zzfrcD._zzqnthw.sig
+  --> E kme_tb.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzixc_ctxwr_1._zzfrcD._zzqnthw.dummy
+---
+Q_NOT_TOUCH DLYE (Q_NOT_TOUCH) kme_tb.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzixc_ctxwr_1._zzqnthw.U0 (nx_reg_indirect_access)
+  <-- O kme_tb.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzixc_ctxwr_1._zzqnthw.dummy
+  --> I kme_tb.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzixc_ctxwr_1._zzqnthw.sig
+  --> E kme_tb.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzixc_ctxwr_1._zzqnthw.dummy
+---
+Q_NOT_TOUCH DLYE (Q_NOT_TOUCH) kme_tb.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzqnt.U0 (nx_reg_indirect_access)
+  <-- O kme_tb.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzqnt.dummy
+  --> I kme_tb.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzqnt.sig
+  --> E kme_tb.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzqnt.dummy
+---
+Q_NOT_TOUCH DLYE (Q_NOT_TOUCH) kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip0._zzixc_ctxrd_0._zzqnthw.U0 (nx_interface_monitor_xcm104)
+  <-- O kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip0._zzixc_ctxrd_0._zzqnthw.dummy
+  --> I kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip0._zzixc_ctxrd_0._zzqnthw.sig
+  --> E kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip0._zzixc_ctxrd_0._zzqnthw.dummy
+---
+DLYE (Q_CLKSRC) my_clks.ixcb_0.\genblk1.s .U0 (ixc_cakebind)
+  <-- O my_clks.ixcb_0.\genblk1.s .dummy
+  --> I kme_tb.kme_dut.clock
+  --> E my_clks.ixcb_0.\genblk1.s .dummy
+---
+DLYE (Q_CLKSRC) my_clks.ixcg_0._zy_inst_0.U0 (ixc_master_clock)
+  <-- O my_clks.ixcg_0._zy_inst_0.dummy
+  --> I my_clks.ixcg_0.clk
+  --> E my_clks.ixcg_0._zy_inst_0.dummy
+---
+DLYE (Q_CLKDRV) my_clks.ixcg_0.m1.c.U0 (ixc_1xbufsrc)
+  <-- O my_clks.ixcg_0.m1.c.dummy
+  --> I kme_tb.kme_dut.clock
+  --> E my_clks.ixcg_0.m1.c.dummy
+---
+
+Clear main markers (nodes) mt-16 {
+
+Clear main markers (subaction: finish) {
+elapsed time: 0 sec.
+} // Clear main markers (subaction: finish)
+elapsed time: 0 sec.
+} // Clear main markers (nodes) mt-16
+DLYE (Q_CLKSRC) my_clks.ixcg_0.m1.s.U0 (ixc_1xbufsrc)
+  <-- O my_clks.ixcg_0.m1.s.dummy
+  --> I kme_tb.kme_dut.clock
+  --> E my_clks.ixcg_0.m1.s.dummy
+---
+Q_NOT_TOUCH DLYE (Q_NOT_TOUCH) xc_top._zzqnthw.U0 (xc_top_1)
+  <-- O xc_top._zzqnthw.dummy
+  --> I xc_top._zzqnthw.sig
+  --> E xc_top._zzqnthw.dummy
+---
+elapsed time: 0 sec.
+} // TraverseUA1Xmarkings.ForEachPrim
+
+Disconnecting sourceless buffers {
+
+Clear secondary markers (nets) mt-16 {
+
+Clear secondary markers (subaction: finish) {
+elapsed time: 0 sec.
+} // Clear secondary markers (subaction: finish)
+elapsed time: 0 sec.
+} // Clear secondary markers (nets) mt-16
+
+Collect sourceless nets (nets) mt-16 {
+
+Collect sourceless nets (subaction: finish) {
+elapsed time: 0 sec.
+} // Collect sourceless nets (subaction: finish)
+elapsed time: 0 sec.
+} // Collect sourceless nets (nets) mt-16
+INFO (multclk-1946): Disconnected 159 sourceless buffers.
+elapsed time: 0 sec.
+} // Disconnecting sourceless buffers
+
+Reading CLOCK_SOURCES {
+elapsed time: 0 sec.
+} // Reading CLOCK_SOURCES
+
+DRC {
+flat nets = 470683, primitives = 386918, nodes = 312087; resident memory size: 358 MB (PDB pools size: 560 MB).
+
+unset UCDB keepnets (nets) mt-16 {
+
+unset UCDB keepnets (subaction: finish) {
+elapsed time: 0 sec.
+} // unset UCDB keepnets (subaction: finish)
+elapsed time: 0 sec.
+} // unset UCDB keepnets (nets) mt-16
+
+set UCDB keepnets (nets) mt-16 {
+
+set UCDB keepnets (subaction: finish) {
+elapsed time: 0 sec.
+} // set UCDB keepnets (subaction: finish)
+elapsed time: 0 sec.
+} // set UCDB keepnets (nets) mt-16
+elapsed time: 1 sec.
+created 5120 unnamed nets and 3072 unnamed primitives.
+flat nets = 369870, primitives = 361299, nodes = 313159; resident memory size: 3325 MB (PDB pools size: 656 MB).
+} // DRC
+
+Compressing PDB {
+elapsed time: 0 sec.
+} // Compressing PDB
+
+Mark Q_LPULSE (primitives) mt-16 {
+
+Mark Q_LPULSE (subaction: finish) {
+elapsed time: 0 sec.
+} // Mark Q_LPULSE (subaction: finish)
+elapsed time: 0 sec.
+} // Mark Q_LPULSE (primitives) mt-16
+
+Clear not-forcible markings (nets) mt-16 {
+
+Clear not-forcible markings (subaction: finish) {
+elapsed time: 0 sec.
+} // Clear not-forcible markings (subaction: finish)
+elapsed time: 0 sec.
+} // Clear not-forcible markings (nets) mt-16
+
+Cleaning {
+flat nets = 369870, primitives = 361299, nodes = 313159; resident memory size: 374 MB (PDB pools size: 560 MB).
+Common expressions are merged.
+
+unset UCDB keepnets (nets) mt-16 {
+
+unset UCDB keepnets (subaction: finish) {
+elapsed time: 0 sec.
+} // unset UCDB keepnets (subaction: finish)
+elapsed time: 0 sec.
+} // unset UCDB keepnets (nets) mt-16
+Clear all markers (primitives) mt-16 {
+Clear all markers (subaction: finish) {
+elapsed time: 0 sec; resident memory size: 374 MB.
+} // Clear all markers (subaction: finish)
+elapsed time: 0 sec; resident memory size: 374 MB.
+} // Clear all markers (primitives) mt-16
+InitNetsQueueMT {
+Initialize cleaning (nets) mt-16 {
+Initialize cleaning (subaction: finish) {
+elapsed time: 0 sec; resident memory size: 374 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 374 MB.
+} // Initialize cleaning (nets) mt-16
+Initialize cleaning (primitives) mt-16 {
+Initialize cleaning (subaction: finish) {
+elapsed time: 0 sec; resident memory size: 381 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 381 MB.
+} // Initialize cleaning (primitives) mt-16
+Reconnect buf/inv mt-16 {
+Reconnect buf/inv (subaction: finish) {
+Number of nets processed: 42536
+elapsed time: 0 sec; resident memory size: 381 MB.
+} // Reconnect buf/inv (subaction: finish)
+elapsed time: 0 sec; resident memory size: 381 MB.
+} // Reconnect buf/inv mt-16
+elapsed time: 0 sec; resident memory size: 388 MB.
+} // InitNetsQueueMT
+Merge common expressions (primitives) mt-16 {
+Merge common expressions (subaction: finish) {
+elapsed time: 0 sec; resident memory size: 388 MB.
+} // Merge common expressions (subaction: finish)
+elapsed time: 0 sec; resident memory size: 388 MB.
+} // Merge common expressions (primitives) mt-16
+Merge common expressions (nets) mt-16 {
+Merge common expressions (subaction: finish) {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Merge common expressions (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Merge common expressions (nets) mt-16
+AssignConstantsAndMerge {
+Assign constants mt-16 {
+Assign constants (subaction: finish) {
+Number of nets processed: 5855
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Assign constants (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Assign constants mt-16
+Reconnect buf/inv mt-16 {
+Reconnect buf/inv (subaction: finish) {
+Number of nets processed: 515
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // AssignConstantsAndMerge
+ProcessMergeMT {
+Merge common expressions mt-16 {
+Merge common expressions (subaction: finish) {
+Number of primitives processed: 9504
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Merge common expressions (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Merge common expressions mt-16
+Merge common expressions mt-16 {
+Merge common expressions (subaction: finish) {
+Number of nets processed: 2117
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Merge common expressions (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Merge common expressions mt-16
+AssignConstantsAndMerge {
+Assign constants mt-16 {
+Assign constants (subaction: finish) {
+Number of nets processed: 2970
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Assign constants (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Assign constants mt-16
+Reconnect buf/inv mt-16 {
+Reconnect buf/inv (subaction: finish) {
+Number of nets processed: 129
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // AssignConstantsAndMerge
+Merge common expressions mt-16 {
+Merge common expressions (subaction: finish) {
+Number of primitives processed: 3799
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Merge common expressions (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Merge common expressions mt-16
+Merge common expressions mt-16 {
+Merge common expressions (subaction: finish) {
+Number of nets processed: 2035
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Merge common expressions (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Merge common expressions mt-16
+AssignConstantsAndMerge {
+Assign constants mt-16 {
+Assign constants (subaction: finish) {
+Number of nets processed: 1458
+elapsed time: 1 sec; resident memory size: 691 MB.
+} // Assign constants (subaction: finish)
+elapsed time: 1 sec; resident memory size: 691 MB.
+} // Assign constants mt-16
+Reconnect buf/inv mt-16 {
+Reconnect buf/inv (subaction: finish) {
+Number of nets processed: 54
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+elapsed time: 1 sec; resident memory size: 691 MB.
+} // AssignConstantsAndMerge
+Merge common expressions mt-16 {
+Merge common expressions (subaction: finish) {
+Number of primitives processed: 1787
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Merge common expressions (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Merge common expressions mt-16
+Merge common expressions mt-16 {
+Merge common expressions (subaction: finish) {
+Number of nets processed: 945
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Merge common expressions (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Merge common expressions mt-16
+AssignConstantsAndMerge {
+Assign constants mt-16 {
+Assign constants (subaction: finish) {
+Number of nets processed: 707
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Assign constants (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Assign constants mt-16
+Reconnect buf/inv mt-16 {
+Reconnect buf/inv (subaction: finish) {
+Number of nets processed: 93
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // AssignConstantsAndMerge
+Merge common expressions mt-16 {
+Merge common expressions (subaction: finish) {
+Number of primitives processed: 839
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Merge common expressions (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Merge common expressions mt-16
+Merge common expressions mt-16 {
+Merge common expressions (subaction: finish) {
+Number of nets processed: 800
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Merge common expressions (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Merge common expressions mt-16
+AssignConstantsAndMerge {
+Assign constants mt-16 {
+Assign constants (subaction: finish) {
+Number of nets processed: 26
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Assign constants (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Assign constants mt-16
+Reconnect buf/inv mt-16 {
+Reconnect buf/inv (subaction: finish) {
+Number of nets processed: 8
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // AssignConstantsAndMerge
+Merge common expressions mt-16 {
+Merge common expressions (subaction: finish) {
+Number of primitives processed: 63
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Merge common expressions (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Merge common expressions mt-16
+Merge common expressions mt-16 {
+Merge common expressions (subaction: finish) {
+Number of nets processed: 10
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Merge common expressions (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Merge common expressions mt-16
+AssignConstantsAndMerge {
+Assign constants mt-16 {
+Assign constants (subaction: finish) {
+Number of nets processed: 25
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Assign constants (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Assign constants mt-16
+Reconnect buf/inv mt-16 {
+Reconnect buf/inv (subaction: finish) {
+Number of nets processed: 19
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // AssignConstantsAndMerge
+Merge common expressions mt-16 {
+Merge common expressions (subaction: finish) {
+Number of primitives processed: 174
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Merge common expressions (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Merge common expressions mt-16
+Merge common expressions mt-16 {
+Merge common expressions (subaction: finish) {
+Number of nets processed: 89
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Merge common expressions (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Merge common expressions mt-16
+AssignConstantsAndMerge {
+Assign constants mt-16 {
+Assign constants (subaction: finish) {
+Number of nets processed: 68
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Assign constants (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Assign constants mt-16
+Reconnect buf/inv mt-16 {
+Reconnect buf/inv (subaction: finish) {
+Number of nets processed: 10
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // AssignConstantsAndMerge
+Merge common expressions mt-16 {
+Merge common expressions (subaction: finish) {
+Number of primitives processed: 285
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Merge common expressions (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Merge common expressions mt-16
+Merge common expressions mt-16 {
+Merge common expressions (subaction: finish) {
+Number of nets processed: 24
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Merge common expressions (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Merge common expressions mt-16
+AssignConstantsAndMerge {
+Assign constants mt-16 {
+Assign constants (subaction: finish) {
+Number of nets processed: 116
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Assign constants (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Assign constants mt-16
+Reconnect buf/inv mt-16 {
+Reconnect buf/inv (subaction: finish) {
+Number of nets processed: 123
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // AssignConstantsAndMerge
+Number of merging steps: 8.
+ProcessNetsQueueMT {
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 572
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+Reconnect buf/inv mt-16 {
+Reconnect buf/inv (subaction: finish) {
+Number of nets processed: 115
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 250
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+Reconnect buf/inv mt-16 {
+Reconnect buf/inv (subaction: finish) {
+Number of nets processed: 11
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 26
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+Reconnect buf/inv mt-16 {
+Reconnect buf/inv (subaction: finish) {
+Number of nets processed: 3
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 26
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+Reconnect buf/inv mt-16 {
+Reconnect buf/inv (subaction: finish) {
+Number of nets processed: 11
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 26
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+Reconnect buf/inv mt-16 {
+Reconnect buf/inv (subaction: finish) {
+Number of nets processed: 3
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 26
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+Reconnect buf/inv mt-16 {
+Reconnect buf/inv (subaction: finish) {
+Number of nets processed: 11
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 26
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+Reconnect buf/inv mt-16 {
+Reconnect buf/inv (subaction: finish) {
+Number of nets processed: 3
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 10
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+Reconnect buf/inv mt-16 {
+Reconnect buf/inv (subaction: finish) {
+Number of nets processed: 3
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 10
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+Reconnect buf/inv mt-16 {
+Reconnect buf/inv (subaction: finish) {
+Number of nets processed: 3
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 10
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+Reconnect buf/inv mt-16 {
+Reconnect buf/inv (subaction: finish) {
+Number of nets processed: 3
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 10
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+Reconnect buf/inv mt-16 {
+Reconnect buf/inv (subaction: finish) {
+Number of nets processed: 3
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 10
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+Reconnect buf/inv mt-16 {
+Reconnect buf/inv (subaction: finish) {
+Number of nets processed: 3
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 10
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+Reconnect buf/inv mt-16 {
+Reconnect buf/inv (subaction: finish) {
+Number of nets processed: 3
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 10
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+Reconnect buf/inv mt-16 {
+Reconnect buf/inv (subaction: finish) {
+Number of nets processed: 3
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 10
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+Reconnect buf/inv mt-16 {
+Reconnect buf/inv (subaction: finish) {
+Number of nets processed: 3
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 10
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+Reconnect buf/inv mt-16 {
+Reconnect buf/inv (subaction: finish) {
+Number of nets processed: 3
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 10
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+Reconnect buf/inv mt-16 {
+Reconnect buf/inv (subaction: finish) {
+Number of nets processed: 3
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 10
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+Reconnect buf/inv mt-16 {
+Reconnect buf/inv (subaction: finish) {
+Number of nets processed: 3
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 10
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+Reconnect buf/inv mt-16 {
+Reconnect buf/inv (subaction: finish) {
+Number of nets processed: 3
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 10
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+Reconnect buf/inv mt-16 {
+Reconnect buf/inv (subaction: finish) {
+Number of nets processed: 3
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 10
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+Reconnect buf/inv mt-16 {
+Reconnect buf/inv (subaction: finish) {
+Number of nets processed: 3
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 10
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+Reconnect buf/inv mt-16 {
+Reconnect buf/inv (subaction: finish) {
+Number of nets processed: 3
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 10
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+Reconnect buf/inv mt-16 {
+Reconnect buf/inv (subaction: finish) {
+Number of nets processed: 3
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 10
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+Reconnect buf/inv mt-16 {
+Reconnect buf/inv (subaction: finish) {
+Number of nets processed: 3
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 10
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+Reconnect buf/inv mt-16 {
+Reconnect buf/inv (subaction: finish) {
+Number of nets processed: 3
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 8
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+Reconnect buf/inv mt-16 {
+Reconnect buf/inv (subaction: finish) {
+Number of nets processed: 3
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 6
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+Reconnect buf/inv mt-16 {
+Reconnect buf/inv (subaction: finish) {
+Number of nets processed: 1
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 3
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+Reconnect buf/inv mt-16 {
+Reconnect buf/inv (subaction: finish) {
+Number of nets processed: 1
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Reconnect buf/inv mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 2
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 1
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 1
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 1
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 1
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 1
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 1
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 1
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 1
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 1
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 1
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 1
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 1
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 1
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 1
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 1
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 1
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 1
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 1
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 1
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 1
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 1
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 1
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 1
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 1
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Initialize cleaning mt-16 {
+Initialize cleaning (subaction: finish) {
+Number of primitives processed: 1
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // Initialize cleaning mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // CollectParentNets
+Number of cleaning steps: 63.
+elapsed time: 0 sec; resident memory size: 691 MB.
+} // ProcessNetsQueueMT
+elapsed time: 1 sec; resident memory size: 691 MB.
+} // ProcessMergeMT
+Collect disabled RAMs (primitives) mt-16 {
+Collect disabled RAMs (subaction: finish) {
+elapsed time: 0 sec; resident memory size: 388 MB.
+} // Collect disabled RAMs (subaction: finish)
+elapsed time: 0 sec; resident memory size: 388 MB.
+} // Collect disabled RAMs (primitives) mt-16
+MT base (disconnect) mt-16 {
+MT base (subaction: finish) {
+elapsed time: 0 sec; resident memory size: 388 MB.
+} // MT base (subaction: finish)
+elapsed time: 0 sec; resident memory size: 388 MB.
+} // MT base (disconnect) mt-16
+MT base (detach) mt-16 {
+MT base (subaction: finish) {
+elapsed time: 0 sec; resident memory size: 389 MB.
+} // MT base (subaction: finish)
+elapsed time: 0 sec; resident memory size: 389 MB.
+} // MT base (detach) mt-16
+
+MC cross-bucket constant propagation {
+flat nets = 162340, primitives = 153203, nodes = 313159; resident memory size: 389 MB (PDB pools size: 560 MB).
+
+Clear all markers (nets) mt-16 {
+
+Clear all markers (subaction: finish) {
+elapsed time: 0 sec.
+} // Clear all markers (subaction: finish)
+elapsed time: 0 sec.
+} // Clear all markers (nets) mt-16
+elapsed time: 0 sec.
+flat nets = 162340, primitives = 153203, nodes = 313159; resident memory size: 389 MB (PDB pools size: 560 MB).
+} // MC cross-bucket constant propagation
+
+set UCDB keepnets (nets) mt-16 {
+
+set UCDB keepnets (subaction: finish) {
+elapsed time: 0 sec.
+} // set UCDB keepnets (subaction: finish)
+elapsed time: 0 sec.
+} // set UCDB keepnets (nets) mt-16
+elapsed time: 1 sec.
+flat nets = 162340, primitives = 153203, nodes = 313159; resident memory size: 389 MB (PDB pools size: 560 MB).
+} // Cleaning
+
+Compressing PDB {
+elapsed time: 0 sec.
+} // Compressing PDB
+
+Building Registry {
+elapsed time: 0 sec.
+} // Building Registry
+
+Checking syncs {
+flat nets = 162340, primitives = 153203, nodes = 313159; resident memory size: 359 MB (PDB pools size: 528 MB).
+
+Check bad syncs (primitives) mt-16 {
+
+Check bad syncs (subaction: close pools) {
+flat nets = 162356, primitives = 153203, nodes = 313175; resident memory size: 359 MB (PDB pools size: 544 MB).
+elapsed time: 0 sec.
+flat nets = 162422, primitives = 153203, nodes = 313175; resident memory size: 375 MB (PDB pools size: 544 MB).
+} // Check bad syncs (subaction: close pools)
+
+Check bad syncs (subaction: finish) {
+flat nets = 162422, primitives = 153203, nodes = 313175; resident memory size: 375 MB (PDB pools size: 544 MB).
+elapsed time: 0 sec.
+flat nets = 162422, primitives = 153203, nodes = 313175; resident memory size: 375 MB (PDB pools size: 544 MB).
+} // Check bad syncs (subaction: finish)
+elapsed time: 0 sec.
+flat nets = 162422, primitives = 153203, nodes = 313175; resident memory size: 375 MB (PDB pools size: 544 MB).
+} // Check bad syncs (primitives) mt-16
+elapsed time: 0 sec.
+flat nets = 162422, primitives = 153203, nodes = 313175; resident memory size: 375 MB (PDB pools size: 544 MB).
+} // Checking syncs
+INFO (multclk-1277): Detected Z1 hardware configuration.
+/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/qtlib/mclk.llib elapsed time: 0 sec.
+
+Initializing MultiClock {
+flat nets = 162423, primitives = 153204, nodes = 313175; resident memory size: 377 MB (PDB pools size: 544 MB).
+
+unset unnamed keepnets (nets) mt-16 {
+flat nets = 162423, primitives = 153204, nodes = 313175; resident memory size: 377 MB (PDB pools size: 544 MB).
+
+unset unnamed keepnets (subaction: finish) {
+elapsed time: 0 sec.
+} // unset unnamed keepnets (subaction: finish)
+elapsed time: 0 sec.
+} // unset unnamed keepnets (nets) mt-16
+Cleared 0 unnamed keepnets.
+
+Collecting exclusivity points {
+Netlist allocation: 288666 nets.
+
+Building CNF/DNF {
+
+Clear secondary markers by mask (nets) mt-16 {
+
+Clear secondary markers by mask (subaction: finish) {
+elapsed time: 0 sec.
+} // Clear secondary markers by mask (subaction: finish)
+elapsed time: 0 sec.
+} // Clear secondary markers by mask (nets) mt-16
+
+Clear main markers (primitives) mt-16 {
+
+Clear main markers (subaction: finish) {
+elapsed time: 0 sec.
+} // Clear main markers (subaction: finish)
+elapsed time: 0 sec.
+} // Clear main markers (primitives) mt-16
+
+SearchExclusiveCD_B (primitives) mt-16 {
+
+SearchExclusiveCD_B (subaction: finish) {
+elapsed time: 0 sec.
+} // SearchExclusiveCD_B (subaction: finish)
+elapsed time: 0 sec.
+} // SearchExclusiveCD_B (primitives) mt-16
+Found 3880 nets in combo cones that drive clocks.
+
+SearchExclusiveCNF.ForEachNet {
+elapsed time: 0 sec.
+} // SearchExclusiveCNF.ForEachNet
+Maximum CNF/DNF width: 32.
+Total allocated memory: 64 MB, used: 0 MB.
+elapsed time: 0 sec.
+} // Building CNF/DNF
+
+Clear secondary markers by mask (nets) mt-16 {
+
+Clear secondary markers by mask (subaction: finish) {
+elapsed time: 0 sec.
+} // Clear secondary markers by mask (subaction: finish)
+elapsed time: 0 sec.
+} // Clear secondary markers by mask (nets) mt-16
+
+Clear main markers (nets) mt-16 {
+
+Clear main markers (subaction: finish) {
+elapsed time: 0 sec.
+} // Clear main markers (subaction: finish)
+elapsed time: 0 sec.
+} // Clear main markers (nets) mt-16
+
+SearchExclusiveCD_C0 (nets) mt-16 {
+
+SearchExclusiveCD_C0 (subaction: finish) {
+elapsed time: 0 sec.
+} // SearchExclusiveCD_C0 (subaction: finish)
+elapsed time: 0 sec.
+} // SearchExclusiveCD_C0 (nets) mt-16
+Marked 143583 nets that do not belong to clock domains.
+
+SearchExclusiveCD_C {
+
+SearchExclusiveCD_C.ForEachPrim {
+elapsed time: 0 sec.
+} // SearchExclusiveCD_C.ForEachPrim
+elapsed time: 0 sec.
+} // SearchExclusiveCD_C
+Found 15738 nets in clock domains (maximum number of clocks in a domain: 33).
+Total allocated memory: 64 MB, used: 0 MB.
+
+Optimizing nets for exclusivity analysis (nets) mt-16 {
+
+Optimizing nets for exclusivity analysis (subaction: finish) {
+elapsed time: 0 sec.
+} // Optimizing nets for exclusivity analysis (subaction: finish)
+elapsed time: 0 sec.
+} // Optimizing nets for exclusivity analysis (nets) mt-16
+
+SearchExclusiveCD_B2.ForEachNet {
+elapsed time: 0 sec.
+} // SearchExclusiveCD_B2.ForEachNet
+
+Exclusivity what-if analysis (nets) mt-16 {
+
+TraverseSetInstrMarkers.ForEachCell {
+
+TraverseSetInstrMarkers.ForEachCell {
+elapsed time: 0 sec.
+} // TraverseSetInstrMarkers.ForEachCell
+elapsed time: 0 sec.
+} // TraverseSetInstrMarkers.ForEachCell
+
+Exclusivity what-if analysis (subaction: finish) {
+elapsed time: 0 sec.
+} // Exclusivity what-if analysis (subaction: finish)
+elapsed time: 0 sec.
+} // Exclusivity what-if analysis (nets) mt-16
+Visited 1113 nets during constant propagations.
+
+TraverseClearMarkers.ForEachCell {
+elapsed time: 0 sec.
+} // TraverseClearMarkers.ForEachCell
+Found 0 exclusivity points.
+
+Marking nets in SCCs {
+
+Clear main markers (nets) mt-16 {
+
+Clear main markers (subaction: finish) {
+elapsed time: 0 sec.
+} // Clear main markers (subaction: finish)
+elapsed time: 0 sec.
+} // Clear main markers (nets) mt-16
+
+Initialize Bucketing (primitives) mt-16 {
+
+Initialize Bucketing (subaction: finish) {
+elapsed time: 0 sec.
+} // Initialize Bucketing (subaction: finish)
+elapsed time: 0 sec.
+} // Initialize Bucketing (primitives) mt-16
+
+Clear secondary markers (nets) mt-16 {
+
+Clear secondary markers (subaction: finish) {
+elapsed time: 0 sec.
+} // Clear secondary markers (subaction: finish)
+elapsed time: 0 sec.
+} // Clear secondary markers (nets) mt-16
+
+Clear high markers (nets) mt-16 {
+
+Clear high markers (subaction: finish) {
+elapsed time: 0 sec.
+} // Clear high markers (subaction: finish)
+elapsed time: 0 sec.
+} // Clear high markers (nets) mt-16
+elapsed time: 0 sec.
+} // Marking nets in SCCs
+elapsed time: 0 sec.
+} // Collecting exclusivity points
+
+Inserting invertors {
+flat nets = 162423, primitives = 153204, nodes = 313175; resident memory size: 379 MB (PDB pools size: 544 MB).
+
+Insert D-input invertors (nets) mt-16 {
+
+Insert D-input invertors (subaction: close pools) {
+flat nets = 162439, primitives = 153204, nodes = 313191; resident memory size: 386 MB (PDB pools size: 672 MB).
+elapsed time: 0 sec.
+flat nets = 163658, primitives = 154423, nodes = 313191; resident memory size: 441 MB (PDB pools size: 672 MB).
+} // Insert D-input invertors (subaction: close pools)
+
+Insert D-input invertors (subaction: finish) {
+flat nets = 163658, primitives = 154423, nodes = 313191; resident memory size: 441 MB (PDB pools size: 672 MB).
+elapsed time: 0 sec.
+flat nets = 163658, primitives = 154423, nodes = 313191; resident memory size: 441 MB (PDB pools size: 672 MB).
+} // Insert D-input invertors (subaction: finish)
+elapsed time: 0 sec.
+flat nets = 163658, primitives = 154423, nodes = 313191; resident memory size: 441 MB (PDB pools size: 672 MB).
+} // Insert D-input invertors (nets) mt-16
+elapsed time: 0 sec.
+flat nets = 163658, primitives = 154423, nodes = 313191; resident memory size: 3341 MB (PDB pools size: 672 MB).
+} // Inserting invertors
+
+Initializing nets {
+flat nets = 163658, primitives = 154423, nodes = 313191; resident memory size: 441 MB (PDB pools size: 672 MB).
+
+Initialize MultiClock (nets) mt-16 {
+flat nets = 163658, primitives = 154423, nodes = 313191; resident memory size: 441 MB (PDB pools size: 672 MB).
+
+Initialize MultiClock (subaction: finish) {
+elapsed time: 0 sec.
+} // Initialize MultiClock (subaction: finish)
+elapsed time: 0 sec.
+} // Initialize MultiClock (nets) mt-16
+elapsed time: 0 sec.
+flat nets = 163658, primitives = 154423, nodes = 313191; resident memory size: 441 MB (PDB pools size: 672 MB).
+} // Initializing nets
+
+Reading clock info {
+elapsed time: 0 sec.
+} // Reading clock info
+
+Initializing primitives {
+flat nets = 163658, primitives = 154423, nodes = 313191; resident memory size: 441 MB (PDB pools size: 672 MB).
+Write-enable is blocked for level sensitive memories only.
+Q_CCLKCHK primitive: (Q_CCLKCHK) IXC_GFIFO.OSF.tbcx.\genblk1.cchk .U0 (axis_tbcall_BP_1)
+   attached to net: IXC_GFIFO.OSF.osfTbc
+Q_CCLKCHK primitive: (Q_CCLKCHK) IXC_GFIFO.OSF1.tbcx.\genblk1.cchk .U0 (axis_tbcall_1_0_1)
+   attached to net: IXC_GFIFO.OSF1.osfTbc
+Q_CCLKCHK primitive: (Q_CCLKCHK) kme_tb.apb_xactor._zzixc_tfport_0_0.cchk.U0 (apb_xactor)
+   attached to net: kme_tb.apb_xactor._zyixc_port_0_0_ack
+Q_CCLKCHK primitive: (Q_CCLKCHK) kme_tb.apb_xactor._zzixc_tfport_0_1.cchk.U0 (apb_xactor)
+   attached to net: kme_tb.apb_xactor._zyixc_port_0_1_ack
+Q_CCLKCHK primitive: (Q_CCLKCHK) kme_tb.kme_dut._zyclock_1_x$tbcp.\genblk1[0].cchk .U0 (cr_kme)
+   attached to net: kme_tb.kme_dut.clock_1
+Q_CCLKCHK primitive: (Q_CCLKCHK) kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip0_key_tlv_rsm .u_cr_tlvp2_rsm.u_cr_fifo_wrap2_tob.\ram_fifo.u_nx_fifo_ram_1r1w .fifo_ctrl._zzixc_tfport_1_0.cchk.U0 (nx_fifo_ctrl_ram_1r1w_xcm17)
+   attached to net: kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip0_key_tlv_rsm .u_cr_tlvp2_rsm.u_cr_fifo_wrap2_tob.\ram_fifo.u_nx_fifo_ram_1r1w .fifo_ctrl._zyixc_port_1_0_req
+Q_CCLKCHK primitive: (Q_CCLKCHK) kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop_fifo .ram_fifo.\ram_fifo.u_nx_fifo_ram_1r1w .fifo_ctrl._zzixc_tfport_1_0.cchk.U0 (nx_fifo_ctrl_ram_1r1w_xcm16)
+   attached to net: kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop_fifo .ram_fifo.\ram_fifo.u_nx_fifo_ram_1r1w .fifo_ctrl._zyixc_port_1_0_req
+Q_CCLKCHK primitive: (Q_CCLKCHK) kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop_fifo .ram_fifo.\ram_fifo.u_nx_fifo_ram_1r1w .fifo_ctrl._zzixc_tfport_1_0.cchk.U0 (nx_fifo_ctrl_ram_1r1w_xcm16)
+   attached to net: kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop_fifo .ram_fifo.\ram_fifo.u_nx_fifo_ram_1r1w .fifo_ctrl._zyixc_port_1_0_req
+Q_CCLKCHK primitive: (Q_CCLKCHK) kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.txc_axi_intf .u_cr_fifo_wrap2.\ram_fifo.u_nx_fifo_ram_1r1w .fifo_ctrl._zzixc_tfport_1_0.cchk.U0 (nx_fifo_ctrl_ram_1r1w_xcm17)
+   attached to net: kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.txc_axi_intf .u_cr_fifo_wrap2.\ram_fifo.u_nx_fifo_ram_1r1w .fifo_ctrl._zyixc_port_1_0_req
+Q_CCLKCHK primitive: (Q_CCLKCHK) kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip0.u_nx_credit_manager._zzixc_tfport_1_0.cchk.U0 (nx_credit_manager)
+   attached to net: kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip0.u_nx_credit_manager._zyixc_port_1_0_req
+Q_CCLKCHK primitive: (Q_CCLKCHK) kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip0.u_nx_credit_manager._zzixc_tfport_1_1.cchk.U0 (nx_credit_manager)
+   attached to net: kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip0.u_nx_credit_manager._zyixc_port_1_1_req
+Q_CCLKCHK primitive: (Q_CCLKCHK) kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip1.u_nx_credit_manager._zzixc_tfport_1_0.cchk.U0 (nx_credit_manager)
+   attached to net: kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip1.u_nx_credit_manager._zyixc_port_1_0_req
+Q_CCLKCHK primitive: (Q_CCLKCHK) kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip1.u_nx_credit_manager._zzixc_tfport_1_1.cchk.U0 (nx_credit_manager)
+   attached to net: kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip1.u_nx_credit_manager._zyixc_port_1_1_req
+Q_CCLKCHK primitive: (Q_CCLKCHK) kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip2.u_nx_credit_manager._zzixc_tfport_1_0.cchk.U0 (nx_credit_manager)
+   attached to net: kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip2.u_nx_credit_manager._zyixc_port_1_0_req
+Q_CCLKCHK primitive: (Q_CCLKCHK) kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip2.u_nx_credit_manager._zzixc_tfport_1_1.cchk.U0 (nx_credit_manager)
+   attached to net: kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip2.u_nx_credit_manager._zyixc_port_1_1_req
+Q_CCLKCHK primitive: (Q_CCLKCHK) kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip3.u_nx_credit_manager._zzixc_tfport_1_0.cchk.U0 (nx_credit_manager)
+   attached to net: kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip3.u_nx_credit_manager._zyixc_port_1_0_req
+Q_CCLKCHK primitive: (Q_CCLKCHK) kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip3.u_nx_credit_manager._zzixc_tfport_1_1.cchk.U0 (nx_credit_manager)
+   attached to net: kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip3.u_nx_credit_manager._zyixc_port_1_1_req
+Q_CCLKCHK primitive: (Q_CCLKCHK) kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip0.u_nx_credit_manager._zzixc_tfport_1_0.cchk.U0 (nx_credit_manager)
+   attached to net: kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip0.u_nx_credit_manager._zyixc_port_1_0_req
+Q_CCLKCHK primitive: (Q_CCLKCHK) kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip0.u_nx_credit_manager._zzixc_tfport_1_1.cchk.U0 (nx_credit_manager)
+   attached to net: kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip0.u_nx_credit_manager._zyixc_port_1_1_req
+Q_CCLKCHK primitive: (Q_CCLKCHK) kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip1.u_nx_credit_manager._zzixc_tfport_1_0.cchk.U0 (nx_credit_manager)
+   attached to net: kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip1.u_nx_credit_manager._zyixc_port_1_0_req
+Q_CCLKCHK primitive: (Q_CCLKCHK) kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip1.u_nx_credit_manager._zzixc_tfport_1_1.cchk.U0 (nx_credit_manager)
+   attached to net: kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip1.u_nx_credit_manager._zyixc_port_1_1_req
+Q_CCLKCHK primitive: (Q_CCLKCHK) kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip2.u_nx_credit_manager._zzixc_tfport_1_0.cchk.U0 (nx_credit_manager)
+   attached to net: kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip2.u_nx_credit_manager._zyixc_port_1_0_req
+Q_CCLKCHK primitive: (Q_CCLKCHK) kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip2.u_nx_credit_manager._zzixc_tfport_1_1.cchk.U0 (nx_credit_manager)
+   attached to net: kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip2.u_nx_credit_manager._zyixc_port_1_1_req
+Q_CCLKCHK primitive: (Q_CCLKCHK) kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip3.u_nx_credit_manager._zzixc_tfport_1_0.cchk.U0 (nx_credit_manager)
+   attached to net: kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip3.u_nx_credit_manager._zyixc_port_1_0_req
+Q_CCLKCHK primitive: (Q_CCLKCHK) kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip3.u_nx_credit_manager._zzixc_tfport_1_1.cchk.U0 (nx_credit_manager)
+   attached to net: kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip3.u_nx_credit_manager._zyixc_port_1_1_req
+REPORT (legacy-38382): Flip-flops: 32064 (R: 21005 S: 221 RS: 0); latches: 3891 (R: 0 S: 2 RS: 1024);
+       triregs: 0; delays (sourceless keepnets, edge detectors and Q_FDP0B): 3483; memory ports: 118.
+       Total number of state devices: 39438; clock edges: 12; primary inputs: 248; memory outputs: 6792.
+Total UCDB V-entries: 0.
+elapsed time: 0 sec.
+flat nets = 163658, primitives = 154423, nodes = 313191; resident memory size: 441 MB (PDB pools size: 672 MB).
+} // Initializing primitives
+REPORT (legacy-1311): Internal database gate count originally (for statistics only): 622953 (including memory access instrumentation: 643304).
+REPORT (legacy-1311): Internal database gate count after remodeling and cleaning (for statistics only): 425173 (including memory access instrumentation: 445524).
+elapsed time: 0 sec.
+flat nets = 163658, primitives = 154423, nodes = 313191; resident memory size: 3341 MB (PDB pools size: 672 MB).
+} // Initializing MultiClock
+
+Setting clock and data paths {
+REPORT (legacy-38387): Pure clock nets: 2284; pure data nets: 137827; both: 5757.
+Pure clock inputs:
+UA@.kme_tb.apb_xactor.clk
+
+Mixed clock-data inputs:
+UA@.IXC_GFIFO.ISF._zyevPio[0]
+UA@.IXC_GFIFO.ISF._zyevPio[1]
+UA@.kme_tb.kme_dut.rst_n
+UA@.kme_tb.kme_dut.scan_mode
+UA@.kme_tb.kme_dut.scan_rst_n
+UA@.xc_top.callEmuPI
+UA@.xc_top.ckgHoldPI
+UA@.xc_top.evalStepPI[0]
+UA@.xc_top.evalStepPI[10]
+UA@.xc_top.evalStepPI[11]
+UA@.xc_top.evalStepPI[12]
+UA@.xc_top.evalStepPI[13]
+UA@.xc_top.evalStepPI[14]
+UA@.xc_top.evalStepPI[15]
+UA@.xc_top.evalStepPI[16]
+UA@.xc_top.evalStepPI[17]
+UA@.xc_top.evalStepPI[18]
+UA@.xc_top.evalStepPI[19]
+UA@.xc_top.evalStepPI[1]
+UA@.xc_top.evalStepPI[20]
+UA@.xc_top.evalStepPI[21]
+UA@.xc_top.evalStepPI[22]
+UA@.xc_top.evalStepPI[23]
+UA@.xc_top.evalStepPI[24]
+UA@.xc_top.evalStepPI[25]
+UA@.xc_top.evalStepPI[26]
+UA@.xc_top.evalStepPI[27]
+UA@.xc_top.evalStepPI[28]
+UA@.xc_top.evalStepPI[29]
+UA@.xc_top.evalStepPI[2]
+UA@.xc_top.evalStepPI[30]
+UA@.xc_top.evalStepPI[31]
+UA@.xc_top.evalStepPI[32]
+UA@.xc_top.evalStepPI[33]
+UA@.xc_top.evalStepPI[34]
+UA@.xc_top.evalStepPI[35]
+UA@.xc_top.evalStepPI[36]
+UA@.xc_top.evalStepPI[37]
+UA@.xc_top.evalStepPI[38]
+UA@.xc_top.evalStepPI[39]
+UA@.xc_top.evalStepPI[3]
+UA@.xc_top.evalStepPI[40]
+UA@.xc_top.evalStepPI[41]
+UA@.xc_top.evalStepPI[42]
+UA@.xc_top.evalStepPI[43]
+UA@.xc_top.evalStepPI[44]
+UA@.xc_top.evalStepPI[45]
+UA@.xc_top.evalStepPI[46]
+UA@.xc_top.evalStepPI[47]
+UA@.xc_top.evalStepPI[48]
+UA@.xc_top.evalStepPI[49]
+UA@.xc_top.evalStepPI[4]
+UA@.xc_top.evalStepPI[50]
+UA@.xc_top.evalStepPI[51]
+UA@.xc_top.evalStepPI[52]
+UA@.xc_top.evalStepPI[53]
+UA@.xc_top.evalStepPI[54]
+UA@.xc_top.evalStepPI[55]
+UA@.xc_top.evalStepPI[56]
+UA@.xc_top.evalStepPI[57]
+UA@.xc_top.evalStepPI[58]
+UA@.xc_top.evalStepPI[59]
+UA@.xc_top.evalStepPI[5]
+UA@.xc_top.evalStepPI[60]
+UA@.xc_top.evalStepPI[61]
+UA@.xc_top.evalStepPI[62]
+UA@.xc_top.evalStepPI[63]
+UA@.xc_top.evalStepPI[6]
+UA@.xc_top.evalStepPI[7]
+UA@.xc_top.evalStepPI[8]
+UA@.xc_top.evalStepPI[9]
+UA@.xc_top.oneStepPI
+UA@.xc_top.stopEmuPI
+elapsed time: 0 sec.
+} // Setting clock and data paths
+
+Setting exclusivity points {
+
+Clear secondary markers by mask (primitives) mt-16 {
+
+Clear secondary markers by mask (subaction: finish) {
+elapsed time: 0 sec.
+} // Clear secondary markers by mask (subaction: finish)
+elapsed time: 0 sec.
+} // Clear secondary markers by mask (primitives) mt-16
+
+Clear secondary markers by mask (primitives) mt-16 {
+
+Clear secondary markers by mask (subaction: finish) {
+elapsed time: 0 sec.
+} // Clear secondary markers by mask (subaction: finish)
+elapsed time: 0 sec.
+} // Clear secondary markers by mask (primitives) mt-16
+elapsed time: 0 sec.
+} // Setting exclusivity points
+
+TraverseConnectUCDBswap.ForEachPrimSafe {
+flat nets = 163658, primitives = 154423, nodes = 313191; resident memory size: 442 MB (PDB pools size: 672 MB).
+elapsed time: 0 sec.
+created 34 unnamed nets and 0 unnamed primitives.
+flat nets = 163692, primitives = 154457, nodes = 313191; resident memory size: 442 MB (PDB pools size: 672 MB).
+} // TraverseConnectUCDBswap.ForEachPrimSafe
+
+TraverseConnectUCDBswap.ForEachNetSafe {
+flat nets = 163692, primitives = 154457, nodes = 313191; resident memory size: 442 MB (PDB pools size: 672 MB).
+elapsed time: 0 sec.
+created 1152 unnamed nets and 1152 unnamed primitives.
+flat nets = 164844, primitives = 155609, nodes = 313191; resident memory size: 442 MB (PDB pools size: 672 MB).
+} // TraverseConnectUCDBswap.ForEachNetSafe
+
+Delete data (nets) mt-16 {
+
+Delete data (subaction: finish) {
+elapsed time: 0 sec.
+} // Delete data (subaction: finish)
+elapsed time: 0 sec.
+} // Delete data (nets) mt-16
+
+Breaking feedback loops {
+
+TraverseConvertTriRegLatches.ForEachPrimSafe {
+flat nets = 164844, primitives = 155609, nodes = 313191; resident memory size: 442 MB (PDB pools size: 672 MB).
+elapsed time: 0 sec.
+created 1024 unnamed nets and 2048 unnamed primitives.
+flat nets = 165868, primitives = 157657, nodes = 313191; resident memory size: 442 MB (PDB pools size: 672 MB).
+} // TraverseConvertTriRegLatches.ForEachPrimSafe
+REPORT (legacy-38385): Total number of IXCOM and CAKE clocks: 2.
+
+Clocks with zero frequency {
+kme_tb.kme_dut.clock
+my_clks.ixcg_0.clk
+} // Clocks with zero frequency
+REPORT (legacy-44524): Clock sources cone: 4948 nets.
+
+Clear logical markers {
+
+TraverseClearHierMarkers.ForEachCell {
+elapsed time: 0 sec.
+} // TraverseClearHierMarkers.ForEachCell
+elapsed time: 0 sec.
+} // Clear logical markers
+
+Duplicating and breaking combinational feedback loops {
+flat nets = 165868, primitives = 157657, nodes = 313191; resident memory size: 442 MB (PDB pools size: 672 MB).
+
+Clear secondary markers (nets) mt-16 {
+
+Clear secondary markers (subaction: finish) {
+elapsed time: 0 sec.
+} // Clear secondary markers (subaction: finish)
+elapsed time: 0 sec.
+} // Clear secondary markers (nets) mt-16
+
+SearchTarjan.ForEachNet {
+elapsed time: 0 sec.
+} // SearchTarjan.ForEachNet
+
+Clear high markers (nets) mt-16 {
+
+Clear high markers (subaction: finish) {
+elapsed time: 0 sec.
+} // Clear high markers (subaction: finish)
+elapsed time: 0 sec.
+} // Clear high markers (nets) mt-16
+*** start SCC log ***
+*** end SCC log ***
+elapsed time: 0 sec.
+flat nets = 165868, primitives = 157657, nodes = 313191; resident memory size: 442 MB (PDB pools size: 672 MB).
+} // Duplicating and breaking combinational feedback loops
+
+Breaking clock feedback loops {
+
+Clear secondary markers (nets) mt-16 {
+
+Clear secondary markers (subaction: finish) {
+elapsed time: 0 sec.
+} // Clear secondary markers (subaction: finish)
+elapsed time: 0 sec.
+} // Clear secondary markers (nets) mt-16
+
+Marking pins for clock loops (primitives) mt-16 {
+
+Marking pins for clock loops (subaction: finish) {
+elapsed time: 0 sec.
+} // Marking pins for clock loops (subaction: finish)
+elapsed time: 0 sec.
+} // Marking pins for clock loops (primitives) mt-16
+
+SearchTarjan.ForEachNet {
+elapsed time: 0 sec.
+} // SearchTarjan.ForEachNet
+
+Clear high markers (nets) mt-16 {
+
+Clear high markers (subaction: finish) {
+elapsed time: 0 sec.
+} // Clear high markers (subaction: finish)
+elapsed time: 0 sec.
+} // Clear high markers (nets) mt-16
+*** start SCC log ***
+*** end SCC log ***
+elapsed time: 0 sec.
+} // Breaking clock feedback loops
+
+Breaking data feedback loops {
+
+Clear secondary markers (nets) mt-16 {
+
+Clear secondary markers (subaction: finish) {
+elapsed time: 0 sec.
+} // Clear secondary markers (subaction: finish)
+elapsed time: 0 sec.
+} // Clear secondary markers (nets) mt-16
+
+Marking pins for data loops (primitives) mt-16 {
+
+Marking pins for data loops (subaction: finish) {
+elapsed time: 0 sec.
+} // Marking pins for data loops (subaction: finish)
+elapsed time: 0 sec.
+} // Marking pins for data loops (primitives) mt-16
+
+SearchTarjan.ForEachNet {
+elapsed time: 1 sec.
+} // SearchTarjan.ForEachNet
+
+Clear high markers (nets) mt-16 {
+
+Clear high markers (subaction: finish) {
+elapsed time: 0 sec.
+} // Clear high markers (subaction: finish)
+elapsed time: 0 sec.
+} // Clear high markers (nets) mt-16
+*** start SCC log ***
+*** end SCC log ***
+elapsed time: 1 sec.
+} // Breaking data feedback loops
+
+Breaking set/reset feedback loops {
+
+Clear secondary markers (nets) mt-16 {
+
+Clear secondary markers (subaction: finish) {
+elapsed time: 0 sec.
+} // Clear secondary markers (subaction: finish)
+elapsed time: 0 sec.
+} // Clear secondary markers (nets) mt-16
+
+Marking pins for set/reset loops (primitives) mt-16 {
+
+Marking pins for set/reset loops (subaction: finish) {
+elapsed time: 0 sec.
+} // Marking pins for set/reset loops (subaction: finish)
+elapsed time: 0 sec.
+} // Marking pins for set/reset loops (primitives) mt-16
+
+SearchTarjan.ForEachNet {
+elapsed time: 0 sec.
+} // SearchTarjan.ForEachNet
+
+Clear high markers (nets) mt-16 {
+
+Clear high markers (subaction: finish) {
+elapsed time: 0 sec.
+} // Clear high markers (subaction: finish)
+elapsed time: 0 sec.
+} // Clear high markers (nets) mt-16
+*** start SCC log ***
+*** end SCC log ***
+elapsed time: 0 sec.
+} // Breaking set/reset feedback loops
+DuplicateSCC was called 0 times, elapsed time: 0 sec.
+DumpSCC was called 0 times, elapsed time: 0 sec.
+HasLoop(<pin>) was called 0 times, elapsed time: 0 sec.
+HasLoop(<range>) was called 0 times, elapsed time: 0 sec.
+Total number of breaks (additional state devices): 0.
+elapsed time: 1 sec.
+} // Breaking feedback loops
+
+Synthesizing registers {
+flat nets = 165868, primitives = 157657, nodes = 313191; resident memory size: 442 MB (PDB pools size: 672 MB).
+Converted 1621 pulse-driven flip-flops to latches.
+
+Clear data (nets) mt-16 {
+
+Clear data (subaction: finish) {
+elapsed time: 0 sec.
+} // Clear data (subaction: finish)
+elapsed time: 0 sec.
+} // Clear data (nets) mt-16
+Created 0 invertors.
+
+Set main markers (primitives) mt-16 {
+
+Set main markers (subaction: finish) {
+elapsed time: 0 sec.
+} // Set main markers (subaction: finish)
+elapsed time: 0 sec.
+} // Set main markers (primitives) mt-16
+
+TraverseBuildPrims.ForEachPrimSafe {
+flat nets = 165869, primitives = 157658, nodes = 313191; resident memory size: 442 MB (PDB pools size: 672 MB).
+elapsed time: 0 sec.
+created 67828 unnamed nets and 101263 unnamed primitives.
+flat nets = 233700, primitives = 260420, nodes = 313191; resident memory size: 455 MB (PDB pools size: 672 MB).
+} // TraverseBuildPrims.ForEachPrimSafe
+Created 119 invertors.
+
+Disconnect marked terminals (nets) mt-16 {
+
+Disconnect marked terminals (subaction: finish) {
+elapsed time: 0 sec.
+} // Disconnect marked terminals (subaction: finish)
+elapsed time: 0 sec.
+} // Disconnect marked terminals (nets) mt-16
+/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/qtlib/qtCAKE.llib elapsed time: 0 sec.
+
+Flattening {
+flat nets = 233703, primitives = 260422, nodes = 313191; resident memory size: 457 MB (PDB pools size: 672 MB).
+
+Flattening (nodes) mt-16 {
+
+Flattening (subaction: finish) {
+elapsed time: 0 sec.
+} // Flattening (subaction: finish)
+elapsed time: 0 sec.
+} // Flattening (nodes) mt-16
+
+Flattening (nets) mt-16 {
+
+Flattening (subaction: finish) {
+elapsed time: 0 sec.
+} // Flattening (subaction: finish)
+elapsed time: 0 sec.
+} // Flattening (nets) mt-16
+
+Delete saved prims {
+flat nets = 238748, primitives = 266961, nodes = 317212; resident memory size: 458 MB (PDB pools size: 672 MB).
+elapsed time: 0 sec.
+flat nets = 238748, primitives = 265465, nodes = 317212; resident memory size: 458 MB (PDB pools size: 672 MB).
+} // Delete saved prims
+elapsed time: 0 sec.
+flat nets = 238748, primitives = 265465, nodes = 317212; resident memory size: 458 MB (PDB pools size: 672 MB).
+} // Flattening
+
+Generating lps report {
+elapsed time: 0 sec.
+} // Generating lps report
+
+Cleaning {
+flat nets = 238749, primitives = 265466, nodes = 317212; resident memory size: 458 MB (PDB pools size: 672 MB).
+Common expressions are merged.
+
+unset UCDB keepnets (nets) mt-16 {
+
+unset UCDB keepnets (subaction: finish) {
+elapsed time: 0 sec.
+} // unset UCDB keepnets (subaction: finish)
+elapsed time: 0 sec.
+} // unset UCDB keepnets (nets) mt-16
+Clear all markers (primitives) mt-16 {
+Clear all markers (subaction: finish) {
+elapsed time: 0 sec; resident memory size: 458 MB.
+} // Clear all markers (subaction: finish)
+elapsed time: 0 sec; resident memory size: 458 MB.
+} // Clear all markers (primitives) mt-16
+InitNetsQueueMT {
+Initialize cleaning (nets) mt-16 {
+Initialize cleaning (subaction: finish) {
+elapsed time: 0 sec; resident memory size: 458 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 458 MB.
+} // Initialize cleaning (nets) mt-16
+Initialize cleaning (primitives) mt-16 {
+Initialize cleaning (subaction: finish) {
+elapsed time: 0 sec; resident memory size: 458 MB.
+} // Initialize cleaning (subaction: finish)
+elapsed time: 0 sec; resident memory size: 458 MB.
+} // Initialize cleaning (primitives) mt-16
+Reconnect buf/inv mt-16 {
+Reconnect buf/inv (subaction: finish) {
+Number of nets processed: 1340
+elapsed time: 0 sec; resident memory size: 458 MB.
+} // Reconnect buf/inv (subaction: finish)
+elapsed time: 0 sec; resident memory size: 458 MB.
+} // Reconnect buf/inv mt-16
+elapsed time: 0 sec; resident memory size: 458 MB.
+} // InitNetsQueueMT
+Merge common expressions (primitives) mt-16 {
+Merge common expressions (subaction: finish) {
+elapsed time: 0 sec; resident memory size: 458 MB.
+} // Merge common expressions (subaction: finish)
+elapsed time: 0 sec; resident memory size: 458 MB.
+} // Merge common expressions (primitives) mt-16
+Merge common expressions (nets) mt-16 {
+Merge common expressions (subaction: finish) {
+elapsed time: 0 sec; resident memory size: 760 MB.
+} // Merge common expressions (subaction: finish)
+elapsed time: 0 sec; resident memory size: 3351 MB.
+} // Merge common expressions (nets) mt-16
+AssignConstantsAndMerge {
+Reconnect buf/inv mt-16 {
+Reconnect buf/inv (subaction: finish) {
+Number of nets processed: 1703
+elapsed time: 0 sec; resident memory size: 760 MB.
+} // Reconnect buf/inv (subaction: finish)
+elapsed time: 0 sec; resident memory size: 760 MB.
+} // Reconnect buf/inv mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 760 MB.
+} // CollectParentNets
+elapsed time: 0 sec; resident memory size: 760 MB.
+} // AssignConstantsAndMerge
+ProcessMergeMT {
+Merge common expressions mt-16 {
+Merge common expressions (subaction: finish) {
+Number of primitives processed: 20890
+elapsed time: 0 sec; resident memory size: 760 MB.
+} // Merge common expressions (subaction: finish)
+elapsed time: 0 sec; resident memory size: 3351 MB.
+} // Merge common expressions mt-16
+Merge common expressions mt-16 {
+Merge common expressions (subaction: finish) {
+Number of nets processed: 4483
+elapsed time: 0 sec; resident memory size: 760 MB.
+} // Merge common expressions (subaction: finish)
+elapsed time: 0 sec; resident memory size: 760 MB.
+} // Merge common expressions mt-16
+AssignConstantsAndMerge {
+Reconnect buf/inv mt-16 {
+Reconnect buf/inv (subaction: finish) {
+Number of nets processed: 388
+elapsed time: 0 sec; resident memory size: 760 MB.
+} // Reconnect buf/inv (subaction: finish)
+elapsed time: 0 sec; resident memory size: 760 MB.
+} // Reconnect buf/inv mt-16
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 760 MB.
+} // CollectParentNets
+elapsed time: 0 sec; resident memory size: 760 MB.
+} // AssignConstantsAndMerge
+Merge common expressions mt-16 {
+Merge common expressions (subaction: finish) {
+Number of primitives processed: 2439
+elapsed time: 0 sec; resident memory size: 760 MB.
+} // Merge common expressions (subaction: finish)
+elapsed time: 0 sec; resident memory size: 760 MB.
+} // Merge common expressions mt-16
+Merge common expressions mt-16 {
+Merge common expressions (subaction: finish) {
+Number of nets processed: 2068
+elapsed time: 0 sec; resident memory size: 760 MB.
+} // Merge common expressions (subaction: finish)
+elapsed time: 0 sec; resident memory size: 760 MB.
+} // Merge common expressions mt-16
+AssignConstantsAndMerge {
+CollectParentNets {
+elapsed time: 0 sec; resident memory size: 760 MB.
+} // CollectParentNets
+elapsed time: 0 sec; resident memory size: 760 MB.
+} // AssignConstantsAndMerge
+Number of merging steps: 3.
+elapsed time: 0 sec; resident memory size: 3351 MB.
+} // ProcessMergeMT
+MT base (disconnect) mt-16 {
+MT base (subaction: finish) {
+elapsed time: 0 sec; resident memory size: 760 MB.
+} // MT base (subaction: finish)
+elapsed time: 0 sec; resident memory size: 760 MB.
+} // MT base (disconnect) mt-16
+Set main markers (nets) mt-16 {
+Set main markers (subaction: finish) {
+elapsed time: 0 sec; resident memory size: 760 MB.
+} // Set main markers (subaction: finish)
+elapsed time: 0 sec; resident memory size: 760 MB.
+} // Set main markers (nets) mt-16
+MT base (detach) mt-16 {
+MT base (subaction: finish) {
+elapsed time: 0 sec; resident memory size: 760 MB.
+} // MT base (subaction: finish)
+elapsed time: 0 sec; resident memory size: 760 MB.
+} // MT base (detach) mt-16
+
+set UCDB keepnets (nets) mt-16 {
+
+set UCDB keepnets (subaction: finish) {
+elapsed time: 0 sec.
+} // set UCDB keepnets (subaction: finish)
+elapsed time: 0 sec.
+} // set UCDB keepnets (nets) mt-16
+elapsed time: 0 sec.
+created 0 unnamed nets and 11 unnamed primitives.
+flat nets = 195818, primitives = 187661, nodes = 317212; resident memory size: 3351 MB (PDB pools size: 672 MB).
+} // Cleaning
+
+Insert invertors (nets) mt-16 {
+
+Insert invertors (subaction: close pools) {
+flat nets = 195834, primitives = 187661, nodes = 317228; resident memory size: 767 MB (PDB pools size: 736 MB).
+elapsed time: 0 sec.
+flat nets = 196026, primitives = 187853, nodes = 317228; resident memory size: 791 MB (PDB pools size: 736 MB).
+} // Insert invertors (subaction: close pools)
+
+Insert invertors (subaction: finish) {
+flat nets = 196026, primitives = 187853, nodes = 317228; resident memory size: 791 MB (PDB pools size: 736 MB).
+elapsed time: 0 sec.
+flat nets = 196026, primitives = 187926, nodes = 317228; resident memory size: 791 MB (PDB pools size: 736 MB).
+} // Insert invertors (subaction: finish)
+elapsed time: 0 sec.
+flat nets = 196026, primitives = 187926, nodes = 317228; resident memory size: 791 MB (PDB pools size: 736 MB).
+} // Insert invertors (nets) mt-16
+
+Presorting nets {
+flat nets = 196026, primitives = 187926, nodes = 317228; resident memory size: 791 MB (PDB pools size: 736 MB).
+elapsed time: 0 sec.
+flat nets = 196026, primitives = 187926, nodes = 317228; resident memory size: 803 MB (PDB pools size: 768 MB).
+} // Presorting nets
+
+Collecting internal probes {
+flat nets = 196026, primitives = 187926, nodes = 317228; resident memory size: 803 MB (PDB pools size: 768 MB).
+Marked 0 internal probes.
+elapsed time: 0 sec.
+flat nets = 196026, primitives = 187926, nodes = 317228; resident memory size: 803 MB (PDB pools size: 768 MB).
+} // Collecting internal probes
+Info : Have 0 misses when searching nodes/nets in the presorted container.
+elapsed time: 0 sec.
+created 67828 unnamed nets and 101350 unnamed primitives.
+flat nets = 196026, primitives = 187926, nodes = 317228; resident memory size: 3403 MB (PDB pools size: 736 MB).
+} // Synthesizing registers
+
+Setting keepnets and probes {
+flat nets = 196026, primitives = 187926, nodes = 317228; resident memory size: 803 MB (PDB pools size: 736 MB).
+
+FV instrumentation {
+flat nets = 196039, primitives = 187935, nodes = 317228; resident memory size: 803 MB (PDB pools size: 736 MB).
+Connected IXCOM cycle counter bus xc_top._ET3_COMPILER_RESERVED_NAME_QT_CURR_EMUL_CYCLE_.
+
+Set probes (primitives) mt-16 {
+flat nets = 196681, primitives = 187994, nodes = 317228; resident memory size: 803 MB (PDB pools size: 736 MB).
+
+Set probes (subaction: finish) {
+MTsetProbesMc: added 145 user nets for memory inputs.
+elapsed time: 0 sec.
+} // Set probes (subaction: finish)
+elapsed time: 0 sec.
+} // Set probes (primitives) mt-16
+Total memory probes set: 6792 (45 MPR ports).
+May be cleared away 408 probes (6 MPR ports).
+
+Reduce probes (primitives) mt-16 {
+
+Reduce probes (subaction: finish) {
+elapsed time: 0 sec.
+} // Reduce probes (subaction: finish)
+elapsed time: 0 sec.
+} // Reduce probes (primitives) mt-16
+Number of virtual probes: 62904 (32461 + 30443) -> 39044 (37.9% reduction).
+
+Clearing internal probes {
+
+Clear secondary markers by mask (nets) mt-16 {
+
+Clear secondary markers by mask (subaction: finish) {
+elapsed time: 0 sec.
+} // Clear secondary markers by mask (subaction: finish)
+elapsed time: 0 sec.
+} // Clear secondary markers by mask (nets) mt-16
+
+TraverseMarkUser.ForEachNet {
+elapsed time: 0 sec.
+} // TraverseMarkUser.ForEachNet
+
+TraverseClearProbes.ForEachNet {
+elapsed time: 0 sec.
+} // TraverseClearProbes.ForEachNet
+Number of virtual probes: 39044 -> 39020 (0.1% reduction).
+elapsed time: 0 sec.
+} // Clearing internal probes
+
+Marking FV enabled regions {
+elapsed time: 0 sec.
+} // Marking FV enabled regions
+
+Setting ECM probes {
+} // Setting ECM probes
+
+Storing probes {
+
+Fixing FV probes in ECM {
+Added 0 PI probes in module xc_top.
+Added 0 PI probes in module ixc_time.
+} // Fixing FV probes in ECM
+
+TraversePhysProbes.ForEachNet {
+elapsed time: 0 sec.
+} // TraversePhysProbes.ForEachNet
+
+Initializing RT data {
+Init smNetIDs) elapsed time: 0 sec.
+elapsed time: 0 sec.
+} // Initializing RT data
+REPORT (legacy-38397): Precompiler set 7044 input and 38351 virtual probes.
+elapsed time: 0 sec.
+} // Storing probes
+elapsed time: 1 sec.
+created 2 unnamed nets and 125 unnamed primitives.
+flat nets = 196685, primitives = 187998, nodes = 317228; resident memory size: 3415 MB (PDB pools size: 736 MB).
+} // FV instrumentation
+elapsed time: 1 sec.
+created 4 unnamed nets and 133 unnamed primitives.
+flat nets = 196685, primitives = 187998, nodes = 317228; resident memory size: 3415 MB (PDB pools size: 736 MB).
+} // Setting keepnets and probes
+
+Inserting instrumentation logic {
+flat nets = 196685, primitives = 187998, nodes = 317228; resident memory size: 804 MB (PDB pools size: 736 MB).
+/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/qtlib/sdl_ua.llib elapsed time: 0 sec.
+REPORT (legacy-47659): Inserted 1 SDL instance for dynamic events.
+
+Flattening {
+flat nets = 196893, primitives = 188194, nodes = 317228; resident memory size: 847 MB (PDB pools size: 752 MB).
+
+Flattening (nodes) mt-16 {
+
+Flattening (subaction: finish) {
+elapsed time: 0 sec.
+} // Flattening (subaction: finish)
+elapsed time: 1 sec.
+} // Flattening (nodes) mt-16
+
+Flattening (nets) mt-16 {
+
+Flattening (subaction: finish) {
+elapsed time: 0 sec.
+} // Flattening (subaction: finish)
+elapsed time: 0 sec.
+} // Flattening (nets) mt-16
+
+Delete saved prims {
+flat nets = 229085, primitives = 215486, nodes = 342487; resident memory size: 850 MB (PDB pools size: 752 MB).
+elapsed time: 0 sec.
+flat nets = 229085, primitives = 215482, nodes = 342487; resident memory size: 850 MB (PDB pools size: 752 MB).
+} // Delete saved prims
+elapsed time: 1 sec.
+flat nets = 229085, primitives = 215482, nodes = 342487; resident memory size: 3431 MB (PDB pools size: 752 MB).
+} // Flattening
+
+Setting SDL keepnets {
+elapsed time: 1 sec.
+} // Setting SDL keepnets
+elapsed time: 2 sec.
+created 1832 unnamed nets and 2041 unnamed primitives.
+flat nets = 241782, primitives = 223810, nodes = 342487; resident memory size: 3431 MB (PDB pools size: 752 MB).
+} // Inserting instrumentation logic
+
+Fixing IO {
+flat nets = 241782, primitives = 223810, nodes = 342487; resident memory size: 850 MB (PDB pools size: 752 MB).
+elapsed time: 0 sec.
+created 43 unnamed nets and 1541 unnamed primitives.
+flat nets = 243363, primitives = 225391, nodes = 342487; resident memory size: 850 MB (PDB pools size: 752 MB).
+} // Fixing IO
+
+Building enables {
+
+Creating and connecting enables {
+
+Clear main markers (primitives) mt-16 {
+
+Clear main markers (subaction: finish) {
+elapsed time: 0 sec.
+} // Clear main markers (subaction: finish)
+elapsed time: 0 sec.
+} // Clear main markers (primitives) mt-16
+
+Connecting enables {
+
+Connect enables (nets) mt-16 {
+
+Connect enables (subaction: close pools) {
+flat nets = 243389, primitives = 225402, nodes = 342503; resident memory size: 850 MB (PDB pools size: 816 MB).
+elapsed time: 0 sec.
+flat nets = 243399, primitives = 225412, nodes = 342503; resident memory size: 873 MB (PDB pools size: 816 MB).
+} // Connect enables (subaction: close pools)
+
+Connect enables (subaction: finish) {
+flat nets = 243399, primitives = 225412, nodes = 342503; resident memory size: 873 MB (PDB pools size: 816 MB).
+elapsed time: 0 sec.
+flat nets = 243399, primitives = 225412, nodes = 342503; resident memory size: 873 MB (PDB pools size: 816 MB).
+} // Connect enables (subaction: finish)
+elapsed time: 0 sec.
+flat nets = 243399, primitives = 225412, nodes = 342503; resident memory size: 873 MB (PDB pools size: 816 MB).
+} // Connect enables (nets) mt-16
+
+Connect enables (primitives) mt-16 {
+flat nets = 243399, primitives = 225412, nodes = 342503; resident memory size: 873 MB (PDB pools size: 816 MB).
+
+Connect enables (subaction: close pools) {
+flat nets = 243415, primitives = 225412, nodes = 342519; resident memory size: 873 MB (PDB pools size: 912 MB).
+elapsed time: 0 sec.
+flat nets = 243420, primitives = 225417, nodes = 342519; resident memory size: 921 MB (PDB pools size: 912 MB).
+} // Connect enables (subaction: close pools)
+
+Connect enables (subaction: finish) {
+flat nets = 243420, primitives = 225417, nodes = 342519; resident memory size: 921 MB (PDB pools size: 912 MB).
+elapsed time: 0 sec.
+flat nets = 243420, primitives = 225417, nodes = 342519; resident memory size: 921 MB (PDB pools size: 912 MB).
+} // Connect enables (subaction: finish)
+elapsed time: 0 sec.
+flat nets = 243420, primitives = 225417, nodes = 342519; resident memory size: 3579 MB (PDB pools size: 912 MB).
+} // Connect enables (primitives) mt-16
+elapsed time: 0 sec.
+flat nets = 243420, primitives = 225417, nodes = 342519; resident memory size: 921 MB (PDB pools size: 912 MB).
+} // Connecting enables
+elapsed time: 0 sec.
+flat nets = 243420, primitives = 225417, nodes = 342519; resident memory size: 921 MB (PDB pools size: 912 MB).
+} // Creating and connecting enables
+elapsed time: 0 sec.
+flat nets = 243423, primitives = 225419, nodes = 342519; resident memory size: 921 MB (PDB pools size: 912 MB).
+} // Building enables
+
+Unset FV probes (nets) mt-16 {
+flat nets = 243423, primitives = 225420, nodes = 342519; resident memory size: 921 MB (PDB pools size: 912 MB).
+
+Unset FV probes (subaction: finish) {
+elapsed time: 0 sec.
+} // Unset FV probes (subaction: finish)
+elapsed time: 0 sec.
+} // Unset FV probes (nets) mt-16
+
+Disconnecting dangling buffers {
+flat nets = 243423, primitives = 225420, nodes = 342519; resident memory size: 921 MB (PDB pools size: 912 MB).
+elapsed time: 0 sec.
+flat nets = 243423, primitives = 225420, nodes = 342519; resident memory size: 921 MB (PDB pools size: 912 MB).
+} // Disconnecting dangling buffers
+
+Fixing sourceless nets {
+flat nets = 243423, primitives = 225420, nodes = 342519; resident memory size: 921 MB (PDB pools size: 912 MB).
+
+fix sourceless nets (nets) mt-16 {
+
+fix sourceless nets (subaction: finish) {
+elapsed time: 0 sec.
+} // fix sourceless nets (subaction: finish)
+elapsed time: 0 sec.
+} // fix sourceless nets (nets) mt-16
+elapsed time: 0 sec.
+created 0 unnamed nets and 7790 unnamed primitives.
+flat nets = 243423, primitives = 233210, nodes = 342519; resident memory size: 922 MB (PDB pools size: 912 MB).
+} // Fixing sourceless nets
+
+Saving deep logic {
+flat nets = 243423, primitives = 233210, nodes = 342519; resident memory size: 922 MB (PDB pools size: 912 MB).
+elapsed time: 0 sec.
+flat nets = 243424, primitives = 233210, nodes = 342520; resident memory size: 922 MB (PDB pools size: 912 MB).
+} // Saving deep logic
+
+Calculate gate count (primitives) mt-16 {
+
+Calculate gate count (subaction: finish) {
+elapsed time: 0 sec.
+} // Calculate gate count (subaction: finish)
+elapsed time: 0 sec.
+} // Calculate gate count (primitives) mt-16
+
+Calculate gate count (nets) mt-16 {
+
+Calculate gate count (subaction: finish) {
+elapsed time: 0 sec.
+} // Calculate gate count (subaction: finish)
+elapsed time: 0 sec.
+} // Calculate gate count (nets) mt-16
+REPORT (legacy-1311): Internal database gate count after transformations (for statistics only): 412737 (including memory access instrumentation: 438088).
+Number of DLY/DLYE = 53984; Number of PI probes = 9332; Number of FF probes = 38351 (out of which 84 are PI probes for verification).
+
+Marking auto partitions {
+flat nets = 243424, primitives = 233210, nodes = 342520; resident memory size: 922 MB (PDB pools size: 912 MB).
+
+Saving net markers {
+
+Saving net markers (nets) mt-16 {
+
+Saving net markers (subaction: finish) {
+elapsed time: 0 sec.
+} // Saving net markers (subaction: finish)
+elapsed time: 0 sec.
+} // Saving net markers (nets) mt-16
+elapsed time: 0 sec.
+} // Saving net markers
+
+Saving net secondary markers {
+
+Saving net secondary markers (nets) mt-16 {
+
+Saving net secondary markers (subaction: finish) {
+elapsed time: 0 sec.
+} // Saving net secondary markers (subaction: finish)
+elapsed time: 0 sec.
+} // Saving net secondary markers (nets) mt-16
+elapsed time: 0 sec.
+} // Saving net secondary markers
+
+Restoring net secondary markers {
+
+Restoring net secondaty markers (nets) mt-16 {
+
+Restoring net secondaty markers (subaction: finish) {
+elapsed time: 0 sec.
+} // Restoring net secondaty markers (subaction: finish)
+elapsed time: 0 sec.
+} // Restoring net secondaty markers (nets) mt-16
+elapsed time: 0 sec.
+} // Restoring net secondary markers
+
+Restoring net markers {
+
+Restoring net markers (nets) mt-16 {
+
+Restoring net markers (subaction: finish) {
+elapsed time: 0 sec.
+} // Restoring net markers (subaction: finish)
+elapsed time: 0 sec.
+} // Restoring net markers (nets) mt-16
+elapsed time: 0 sec.
+} // Restoring net markers
+
+Post partition optimization {
+elapsed time: 0 sec.
+} // Post partition optimization
+elapsed time: 1 sec.
+created 2 unnamed nets and 2 unnamed primitives.
+flat nets = 243426, primitives = 233212, nodes = 342520; resident memory size: 3641 MB (PDB pools size: 992 MB).
+} // Marking auto partitions
+
+Setting partition groups {
+
+Creating partitions infrastructure {
+Creating MDC directories elapsed time: 0 sec.
+elapsed time: 0 sec.
+} // Creating partitions infrastructure
+
+Marking auto partitions {
+flat nets = 243426, primitives = 233212, nodes = 342520; resident memory size: 931 MB (PDB pools size: 992 MB).
+
+Saving net markers {
+
+Saving net markers (nets) mt-16 {
+
+Saving net markers (subaction: finish) {
+elapsed time: 0 sec.
+} // Saving net markers (subaction: finish)
+elapsed time: 0 sec.
+} // Saving net markers (nets) mt-16
+elapsed time: 0 sec.
+} // Saving net markers
+
+Saving net secondary markers {
+
+Saving net secondary markers (nets) mt-16 {
+
+Saving net secondary markers (subaction: finish) {
+elapsed time: 0 sec.
+} // Saving net secondary markers (subaction: finish)
+elapsed time: 0 sec.
+} // Saving net secondary markers (nets) mt-16
+elapsed time: 0 sec.
+} // Saving net secondary markers
+
+Restoring net secondary markers {
+
+Restoring net secondaty markers (nets) mt-16 {
+
+Restoring net secondaty markers (subaction: finish) {
+elapsed time: 0 sec.
+} // Restoring net secondaty markers (subaction: finish)
+elapsed time: 0 sec.
+} // Restoring net secondaty markers (nets) mt-16
+elapsed time: 0 sec.
+} // Restoring net secondary markers
+
+Restoring net markers {
+
+Restoring net markers (nets) mt-16 {
+
+Restoring net markers (subaction: finish) {
+elapsed time: 0 sec.
+} // Restoring net markers (subaction: finish)
+elapsed time: 0 sec.
+} // Restoring net markers (nets) mt-16
+elapsed time: 0 sec.
+} // Restoring net markers
+
+Post partition optimization {
+elapsed time: 0 sec.
+} // Post partition optimization
+elapsed time: 0 sec.
+created 2 unnamed nets and 2 unnamed primitives.
+flat nets = 243428, primitives = 233212, nodes = 342520; resident memory size: 980 MB (PDB pools size: 992 MB).
+} // Marking auto partitions
+
+Update cross partition nets properties {
+
+Marking additional cross-partition nets {
+
+collect extra cross-partitions (nets) mt-16 {
+
+collect extra cross-partitions (subaction: finish) {
+elapsed time: 0 sec.
+} // collect extra cross-partitions (subaction: finish)
+elapsed time: 0 sec.
+} // collect extra cross-partitions (nets) mt-16
+elapsed time: 0 sec.
+} // Marking additional cross-partition nets
+elapsed time: 0 sec.
+} // Update cross partition nets properties
+
+Logging partitions information {
+
+collect partitions stat (primitives) mt-16 {
+
+collect partitions stat (subaction: finish) {
+elapsed time: 0 sec.
+} // collect partitions stat (subaction: finish)
+elapsed time: 0 sec.
+} // collect partitions stat (primitives) mt-16
+elapsed time: 1 sec.
+} // Logging partitions information
+
+Saving partition markers {
+elapsed time: 0 sec.
+} // Saving partition markers
+elapsed time: 1 sec.
+} // Setting partition groups
+
+Building Registry {
+elapsed time: 0 sec.
+} // Building Registry
+
+Optimizing Registry {
+elapsed time: 0 sec.
+} // Optimizing Registry
+
+Collecting ids and names {
+flat nets = 243428, primitives = 233212, nodes = 342520; resident memory size: 981 MB (PDB pools size: 992 MB).
+
+Initializing RT data {
+Init smNetIDs) elapsed time: 0 sec.
+Collecting 30302 names: 0 sec.
+elapsed time: 0 sec.
+} // Initializing RT data
+
+Collecting IXCOM instrumentation nets {
+elapsed time: 0 sec.
+} // Collecting IXCOM instrumentation nets
+
+Writing deep logic {
+flat nets = 243428, primitives = 233212, nodes = 342520; resident memory size: 981 MB (PDB pools size: 992 MB).
+elapsed time: 0 sec.
+flat nets = 243428, primitives = 233212, nodes = 342520; resident memory size: 981 MB (PDB pools size: 992 MB).
+} // Writing deep logic
+elapsed time: 0 sec.
+flat nets = 243428, primitives = 233212, nodes = 342520; resident memory size: 981 MB (PDB pools size: 992 MB).
+} // Collecting ids and names
+
+Saving netlist {
+flat nets = 243428, primitives = 233212, nodes = 342520; resident memory size: 981 MB (PDB pools size: 992 MB).
+
+Special nets {
+qt_runback_ff_enable : '_ET3_COMPILER_RESERVED_NAME_DESIGN_FREEZE_'
+qt_runback_ff_enable_ip : '_ET3_COMPILER_RESERVED_NAME_DESIGN_FREEZE_'
+qt_runback_ff_enable_other : '_ET3_COMPILER_RESERVED_NAME_DESIGN_FREEZE_'
+} // Special nets
+
+Saving net markers {
+
+Saving net markers (nets) mt-16 {
+
+Saving net markers (subaction: finish) {
+elapsed time: 0 sec.
+} // Saving net markers (subaction: finish)
+elapsed time: 0 sec.
+} // Saving net markers (nets) mt-16
+elapsed time: 0 sec.
+} // Saving net markers
+
+Creating BEDB {
+flat nets = 243428, primitives = 233212, nodes = 342520; resident memory size: 995 MB (PDB pools size: 992 MB).
+Create Side Files elapsed time: 0 sec.
+
+Creating MDC infrastructure {
+
+Restoring partition markers {
+elapsed time: 0 sec.
+} // Restoring partition markers
+
+Clear main markers by mask (primitives) mt-16 {
+
+Clear main markers by mask (subaction: finish) {
+elapsed time: 0 sec.
+} // Clear main markers by mask (subaction: finish)
+elapsed time: 0 sec.
+} // Clear main markers by mask (primitives) mt-16
+Number of edge detectors: 3.
+Number of instrumented resets: 1.
+
+Running MDC jobs {
+
+Restoring net markers {
+
+Restoring net markers (nets) mt-16 {
+
+Restoring net markers (subaction: finish) {
+elapsed time: 0 sec.
+} // Restoring net markers (subaction: finish)
+elapsed time: 0 sec.
+} // Restoring net markers (nets) mt-16
+elapsed time: 0 sec.
+} // Restoring net markers
+elapsed time: 0 sec.
+} // Running MDC jobs
+Create Initial Proto elapsed time: 1 sec.
+elapsed time: 1 sec.
+} // Creating MDC infrastructure
+elapsed time: 1 sec.
+flat nets = 243428, primitives = 233212, nodes = 342520; resident memory size: 3645 MB (PDB pools size: 992 MB).
+} // Creating BEDB
+
+Creating RT PDB {
+BuildTopSignalsMap elapsed time: 0 sec.
+SetupRtSynonyms elapsed time: 0 sec.
+SetupIntIDs elapsed time: 0 sec.
+Calculate Size elapsed time: 0 sec.
+CalcSize elapsed time: 0 sec.
+Initialization elapsed time: 0 sec.
+Map Hierarchy elapsed time: 0 sec.
+Traverse Registry 1 elapsed time: 0 sec.
+Traverse Global Nets elapsed time: 0 sec.
+Traverse Registry 2 elapsed time: 0 sec.
+Map Registry elapsed time: 0 sec.
+Expand Synonyms elapsed time: 0 sec.
+Extra Synonyms elapsed time: 0 sec.
+BuildSignalsMap elapsed time: 0 sec.
+Correct Top Map elapsed time: 0 sec.
+Correct Syn Map elapsed time: 0 sec.
+Fix Flat2Syn elapsed time: 0 sec.
+CorrectMaps elapsed time: 0 sec.
+Save LogicalView elapsed time: 2 sec.
+Save PoolVector elapsed time: 0 sec.
+Saving rtPoolVector core1 elapsed time: 0 sec.
+Saving rtPoolVector core2 elapsed time: 0 sec.
+Saving rtPoolVector core0 elapsed time: 0 sec.
+Saving rtPoolVector core3 elapsed time: 0 sec.
+Save Nets elapsed time: 0 sec.
+Saving rtPoolVector core4 elapsed time: 0 sec.
+Saving rtPoolVector core5 elapsed time: 0 sec.
+Saving rtPoolVector core6 elapsed time: 0 sec.
+Save Flat2SynVector elapsed time: 0 sec.
+Save TopSignalsMap elapsed time: 0 sec.
+Saving rtPoolVector core7 elapsed time: 0 sec.
+Save Prims elapsed time: 0 sec.
+Saving trConns core0 elapsed time: 0 sec.
+Save Signalsmap elapsed time: 0 sec.
+Saving trConns core1 elapsed time: 0 sec.
+Saving trConns core2 elapsed time: 0 sec.
+Saving trConns core3 elapsed time: 0 sec.
+Saving trConns core4 elapsed time: 0 sec.
+Saving trConns core5 elapsed time: 0 sec.
+Saving trConns core6 elapsed time: 0 sec.
+Saving trConns core7 elapsed time: 0 sec.
+Save Connectivity elapsed time: 0 sec.
+SaveRunTimeDB elapsed time: 2 sec.
+
+Saving CRT data {
+
+Restoring net markers {
+
+Restoring net markers (nets) mt-16 {
+
+Restoring net markers (subaction: finish) {
+elapsed time: 0 sec.
+} // Restoring net markers (subaction: finish)
+elapsed time: 0 sec.
+} // Restoring net markers (nets) mt-16
+elapsed time: 0 sec.
+} // Restoring net markers
+
+Marking NORANDOM logic {
+elapsed time: 0 sec.
+} // Marking NORANDOM logic
+
+Calculate FF probes (nets) mt-16 {
+
+Calculate FF probes (subaction: finish) {
+elapsed time: 0 sec.
+} // Calculate FF probes (subaction: finish)
+elapsed time: 0 sec.
+} // Calculate FF probes (nets) mt-16
+
+TraverseWriteRandInit.ForEachNet {
+elapsed time: 0 sec.
+} // TraverseWriteRandInit.ForEachNet
+
+TraverseWriteInit0.ForEachNet {
+elapsed time: 0 sec.
+} // TraverseWriteInit0.ForEachNet
+elapsed time: 0 sec.
+} // Saving CRT data
+elapsed time: 3 sec.
+} // Creating RT PDB
+elapsed time: 4 sec.
+flat nets = 243428, primitives = 233212, nodes = 342520; resident memory size: 4194 MB (PDB pools size: 1056 MB).
+} // Saving netlist
+
+Saving DADB snapshot {
+Init smNetIDs) elapsed time: 0 sec.
+elapsed time: 0 sec.
+} // Saving DADB snapshot
+Precompiler elapsed time: 10 sec
+  Flattening DUT: 1 sec (10.0%)
+  DRC: 1 sec (10.0%)
+  Cleaning: 1 sec (10.0%)
+  Ternary operation: 1 sec (10.0%)
+  Breaking loops: 1 sec (10.0%)
+  Setting probes: 1 sec (10.0%)
+  SDL instrumentation: 1 sec (10.0%)
+  Partitioning: 2 sec (20.0%)
+  Saving BEDB: 1 sec (10.0%)
+Resident memory peak 3645 MB is reached at exit from 'Creating BEDB'.
+--------
+Post-precompiler extras (+3 sec):
+  Saving PDB: +3 sec (+30.0%)
+Resident memory peak 4194 MB is reached at exit from 'Saving netlist'.
+--------
+
+### STOP: Tue Mar 19 15:22:54 2024
+

@@ -1,0 +1,4 @@
+
+module IXC_OSF_MB_20 ;
+//pragma CVASTRPROP MODULE SKELETON MODULEINFO "291.000000"
+endmodule

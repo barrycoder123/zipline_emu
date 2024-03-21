@@ -1,0 +1,13 @@
+DUMMY0 0_zy_simnet_axi4s_ib_out_0_w$
+DUMMY1 1_zy_simnet_axi4s_slv_out_1_w$ 0 82
+DUMMY2 0_zy_simnet_axi4s_slv_bimc_odat_2_w$
+DUMMY3 0_zy_simnet_axi4s_slv_bimc_osync_3_w$
+DUMMY4 0_zy_simnet_axi4s_slv_ro_uncorrectable_ecc_error_4_w$
+DUMMY5 0_zy_simnet_axi4s_slv_full_5_w$
+DUMMY6 0_zy_simnet_axi4s_slv_afull_6_w$
+DUMMY7 1_zy_simnet_axi4s_slv_out_7_w$ 0 82
+DUMMY8 0_zy_simnet_axi4s_slv_bimc_odat_8_w$
+DUMMY9 0_zy_simnet_axi4s_slv_bimc_osync_9_w$
+DUMMY10 0_zy_simnet_axi4s_slv_ro_uncorrectable_ecc_error_10_w$
+DUMMY11 1_zy_simnet_axi4s_slv_datain_11_w$ 0 82
+DUMMY12 0_zy_simnet_axi4s_slv_wen_12_w$

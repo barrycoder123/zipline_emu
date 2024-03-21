@@ -1,0 +1,10 @@
+DUMMY0 0xc_top.hasGFIFO1
+DUMMY1 0xc_top.GFReset
+DUMMY2 0xc_top.anyStop
+DUMMY3 1xc_top.ixcSimTime 63 0
+DUMMY4 0xc_top.svGFbusy
+DUMMY5 0xc_top.GFLBfull
+DUMMY6 0xc_top.GFGBfull
+DUMMY7 0xc_top.GFLock2
+DUMMY8 0xc_top.tbcPO
+DUMMY9 0xc_top.GFAck

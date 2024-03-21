@@ -1,0 +1,9 @@
+module ixc_gfifo_cico ixc_gfifo_cico 4 4
+N N
+G G
+M M
+R R
+ci ci
+co co
+GFLock GFLock
+anyReq anyReq

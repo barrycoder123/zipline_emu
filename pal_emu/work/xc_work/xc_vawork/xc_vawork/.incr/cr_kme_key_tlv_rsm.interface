@@ -1,0 +1,16 @@
+module cr_kme_key_tlv_rsm cr_kme_key_tlv_rsm 4 11
+CKV_NUM_ENTRIES CKV_NUM_ENTRIES
+CKV_DATA_WIDTH CKV_DATA_WIDTH
+KIM_NUM_ENTRIES KIM_NUM_ENTRIES
+KIM_DATA_WIDTH KIM_DATA_WIDTH
+usr_ob_full usr_ob_full
+usr_ob_afull usr_ob_afull
+axi4s_ob_out axi4s_ob_out
+stat_stall_on_valid_key stat_stall_on_valid_key
+key_tlv_rsm_end_pulse key_tlv_rsm_end_pulse
+key_tlv_rsm_idle key_tlv_rsm_idle
+clk clk
+rst_n rst_n
+usr_ob_wr usr_ob_wr
+usr_ob_tlv usr_ob_tlv
+axi4s_ob_in axi4s_ob_in

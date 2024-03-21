@@ -1,0 +1,15 @@
+module cr_tlvp2_rsm_core cr_tlvp2_rsm_core 0 14
+pt_ob_rd pt_ob_rd
+tlvp_rsm_usr_ob_ren tlvp_rsm_usr_ob_ren
+tlvp_rsm_ob_wen tlvp_rsm_ob_wen
+tlvp_rsm_ob_wdata tlvp_rsm_ob_wdata
+clk clk
+rst_n rst_n
+pt_ob_empty pt_ob_empty
+pt_ob_aempty pt_ob_aempty
+pt_ob_tlv pt_ob_tlv
+tlvp_rsm_usr_ob_rdata tlvp_rsm_usr_ob_rdata
+usr_ob_empty usr_ob_empty
+usr_ob_aempty usr_ob_aempty
+tlvp_ob_full tlvp_ob_full
+tlvp_ob_afull tlvp_ob_afull

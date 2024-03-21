@@ -1,0 +1,6 @@
+module ixc_clkXp ixc_clkXp 1 4
+DIR DIR
+clk clk
+rtlClk rtlClk
+PeEn PeEn
+NeEn NeEn

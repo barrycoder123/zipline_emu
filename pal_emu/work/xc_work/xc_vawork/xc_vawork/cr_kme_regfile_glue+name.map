@@ -1,0 +1,29 @@
+DUMMY0 0label
+DUMMY1 0label
+DUMMY2 1_zy_simnet_ckv_ia_capability_0_w$ 0 19
+DUMMY3 1_zy_simnet_ckv_ia_status_1_w$ 0 22
+DUMMY4 1_zy_simnet_kim_ia_capability_2_w$ 0 19
+DUMMY5 1_zy_simnet_kim_ia_status_3_w$ 0 21
+DUMMY6 1_zy_simnet_engine_sticky_status_4_w$ 0 7
+DUMMY7 0_zy_simnet_disable_ckv_kim_ism_reads_5_w$
+DUMMY8 0_zy_simnet_send_kme_ib_beat_6_w$
+DUMMY9 0_zy_simnet_debug_kme_ib_tvalid_7_w$
+DUMMY10 0_zy_simnet_debug_kme_ib_tlast_8_w$
+DUMMY11 0_zy_simnet_debug_kme_ib_tid_9_w$
+DUMMY12 1_zy_simnet_debug_kme_ib_tstrb_10_w$ 0 7
+DUMMY13 1_zy_simnet_debug_kme_ib_tuser_11_w$ 0 7
+DUMMY14 1_zy_simnet_debug_kme_ib_tdata_12_w$ 0 63
+DUMMY15 1_zy_simnet_kme_cceip0_ob_out_13_w$ 0 82
+DUMMY16 1_zy_simnet_kme_cceip1_ob_out_14_w$ 0 82
+DUMMY17 1_zy_simnet_kme_cceip2_ob_out_15_w$ 0 82
+DUMMY18 1_zy_simnet_kme_cceip3_ob_out_16_w$ 0 82
+DUMMY19 1_zy_simnet_kme_cddip0_ob_out_17_w$ 0 82
+DUMMY20 1_zy_simnet_kme_cddip1_ob_out_18_w$ 0 82
+DUMMY21 1_zy_simnet_kme_cddip2_ob_out_19_w$ 0 82
+DUMMY22 1_zy_simnet_kme_cddip3_ob_out_20_w$ 0 82
+DUMMY23 3ckv_ia_rdata_part1 31 0  ckv_ia_rdata_part0 31 0
+DUMMY24 3kim_ia_rdata_part0 20 0  kim_ia_rdata_part1 16 0
+DUMMY25 0{}
+DUMMY26 0{}
+DUMMY27 0{}
+DUMMY28 0{}

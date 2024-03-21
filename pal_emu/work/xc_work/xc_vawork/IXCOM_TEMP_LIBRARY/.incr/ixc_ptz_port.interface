@@ -1,0 +1,19 @@
+module ixc_ptz_port ixc_ptz_port 13 5
+PTYPE PTYPE
+S2H_W S2H_W
+H2S_W H2S_W
+SF_BL SF_BL
+S2HW S2HW
+S2H_ML S2H_ML
+S2H_ML1 S2H_ML1
+S2H_PW S2H_PW
+S2H_PL S2H_PL
+S2H_SL S2H_SL
+S2H_SL1 S2H_SL1
+S2H_SA S2H_SA
+S2H_EN_LAST S2H_EN_LAST
+s2h_notify s2h_notify
+s2h s2h
+h2s_notify h2s_notify
+call_gf call_gf
+h2s h2s

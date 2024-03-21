@@ -1,0 +1,12 @@
+P O cr_kme_kop_tlv_inspector_xcm69 tlv_inspector ./xc_work/xc_vawork/xc_vawork/cr_kme_kop_tlv_inspector_xcm69
+P O cr_kme_kop_upsizer_x2_xcm72 upsizer ./xc_work/xc_vawork/xc_vawork/cr_kme_kop_upsizer_x2_xcm72
+P O cr_kme_kop_gcm gcm ./xc_work/xc_vawork/xc_vawork/cr_kme_kop_gcm
+P O cr_kme_kop_kdf kdf ./xc_work/xc_vawork/xc_vawork/cr_kme_kop_kdf
+P O cr_kme_kop_keybuilder key_builder ./xc_work/xc_vawork/xc_vawork/cr_kme_kop_keybuilder
+P O cr_kme_fifo_xcm50 gcm_cmd_fifo ./xc_work/xc_vawork/xc_vawork/cr_kme_fifo_xcm50
+P O cr_kme_fifo_xcm49 keyfilter_cmd_fifo ./xc_work/xc_vawork/xc_vawork/cr_kme_fifo_xcm49
+P O cr_kme_fifo_xcm48 kdf_cmd_fifo ./xc_work/xc_vawork/xc_vawork/cr_kme_fifo_xcm48
+P O cr_kme_fifo_xcm47 kdfstream_cmd_fifo ./xc_work/xc_vawork/xc_vawork/cr_kme_fifo_xcm47
+P O cr_kme_fifo_xcm46 tlv_sb_data_fifo ./xc_work/xc_vawork/xc_vawork/cr_kme_fifo_xcm46
+P O cr_kme_fifo_xcm45 gcm_tag_data_fifo ./xc_work/xc_vawork/xc_vawork/cr_kme_fifo_xcm45
+P O cr_kme_fifo_xcm49 gcm_status_data_fifo ./xc_work/xc_vawork/xc_vawork/cr_kme_fifo_xcm49

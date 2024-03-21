@@ -1,0 +1,8 @@
+module ixc_context_4s_write ixc_context_4s_write 6 1
+DWIDTH DWIDTH
+NVEC NVEC
+WIDTH WIDTH
+WIDTH4S WIDTH4S
+MEMWIDTH MEMWIDTH
+MEMDEPTH MEMDEPTH
+wdata wdata

@@ -1,0 +1,13 @@
+V O V sw_rdat SIZE=32
+U O V _zzM131_bcBehEval SIZE=32
+U O V mem_a[%s] LB=0 RB=31 SIZE=32
+P O nx_indirect_access_cntrl_xcm110 u_cntrl ./xc_work/xc_vawork/xc_vawork/nx_indirect_access_cntrl_xcm110
+P O ixc_capLoopXp _zzM131L34_bcBehEvalP0 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_caploopxp
+P O ixc_sample_logic _zz_zy_simnet_reset_26_w$_M131_bcSp5 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic
+P O ixc_sample_logic_32 _zz_zy_simnet_sw_wdat_20_w$_M131_bcSp4 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_32
+P O ixc_sample_logic_5 _zz_zy_simnet_sw_add_19_w$_M131_bcSp3 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_5
+P O ixc_sample_logic _zz_zy_simnet_sw_we_18_w$_M131_bcSp2 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic
+P O ixc_sample_logic _zz_zy_simnet_sw_cs_16_w$_M131_bcSp1 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic
+P O ixc_mevClk_2_0_0_3_1_0_1 _zzM131L132_bcMevClkP0 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_mevclk_2_0_0_3_1_0_1
+P O ixc_context_write_1024 _zzixc_ctxwr_1 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_context_write_1024
+P O ixc_context_read_1024 _zzixc_ctxrd_0 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_context_read_1024

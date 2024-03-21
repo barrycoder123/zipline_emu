@@ -1,0 +1,18 @@
+module cr_kme_ram_fifo cr_kme_ram_fifo 3 14
+DATA_SIZE DATA_SIZE
+FIFO_DEPTH FIFO_DEPTH
+SPECIALIZE SPECIALIZE
+fifo_in_stall fifo_in_stall
+fifo_out fifo_out
+fifo_out_valid fifo_out_valid
+fifo_bimc_osync fifo_bimc_osync
+fifo_bimc_odat fifo_bimc_odat
+fifo_mbe fifo_mbe
+clk clk
+rst_n rst_n
+fifo_in fifo_in
+fifo_in_valid fifo_in_valid
+fifo_out_ack fifo_out_ack
+bimc_rst_n bimc_rst_n
+fifo_bimc_isync fifo_bimc_isync
+fifo_bimc_idat fifo_bimc_idat

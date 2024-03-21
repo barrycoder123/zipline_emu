@@ -1,0 +1,11 @@
+SW	kme_tb
+HW	kme_tb.apb_xactor
+HW	kme_tb.kme_dut
+HW	my_clks
+HW	IXC_GFIFO
+HW	ixc_time
+HW	_ixc_isc
+HW	cr_kme_regfilePKG::
+HW	nx_mem_typePKG::
+HW	nx_mem_typePKG_v2::
+HW	xc_top

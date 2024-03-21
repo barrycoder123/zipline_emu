@@ -1,0 +1,25 @@
+DUMMY0 0xc_top.simTime
+DUMMY1 0xc_top.GFReset
+DUMMY2 0xc_top.svGFbusy
+DUMMY3 0xc_top.otbGFbusy
+DUMMY4 0xc_top.GFGBfull
+DUMMY5 1xc_top.GF2LevelMask 12 0
+DUMMY6 0xc_top.xc1xEcm
+DUMMY8 0pollState
+DUMMY9 0i
+DUMMY10 0{}
+DUMMY11 0{}
+DUMMY12 0{}
+DUMMY13 0genblk1
+DUMMY14 0genblk2
+DUMMY15 0genblk1
+DUMMY16 0genblk4
+DUMMY17 0i
+DUMMY18 0genblk5
+DUMMY19 0genblk1
+DUMMY20 0genblk7
+DUMMY21 0genblk1
+DUMMY22 0genblk9
+cmdEnInC_DUMMY0 0cmdEnInC
+cmdEn8C_DUMMY1 0cmdEn8C
+wptr_DUMMY2 0wptr

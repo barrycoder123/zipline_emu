@@ -1,0 +1,9 @@
+module ixc_nba2BpE ixc_nba2BpE 3 5
+DWIDTH DWIDTH
+EWIDTH EWIDTH
+RESET RESET
+drOn drOn
+drOut drOut
+enNxt enNxt
+drIn drIn
+en en

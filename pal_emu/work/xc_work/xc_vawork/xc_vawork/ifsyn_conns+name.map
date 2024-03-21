@@ -1,0 +1,48 @@
+DUMMY0 0kme_tb.apb_xactor._zyixc_port_0_0_isf
+DUMMY1 0xcva_top.IXC_GFIFO.ISF.pvec[0]
+DUMMY2 0xcva_top.IXC_GFIFO.OSF.pvecEv[0]
+DUMMY3 0kme_tb.apb_xactor._zyixc_port_0_0_osf
+DUMMY4 0kme_tb.apb_xactor._zyixc_port_0_1_isf
+DUMMY5 0xcva_top.IXC_GFIFO.ISF.pvec[1]
+DUMMY6 0xcva_top.IXC_GFIFO.OSF.pvecEv[1]
+DUMMY7 0kme_tb.apb_xactor._zyixc_port_0_1_osf
+DUMMY8 0xcva_top.IXC_GFIFO.OSF1.pvecEv[0]
+DUMMY9 0kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.txc_axi_intf .u_cr_fifo_wrap2.\ram_fifo.u_nx_fifo_ram_1r1w .fifo_ctrl._zyixc_port_1_0_osf
+DUMMY10 0xcva_top.IXC_GFIFO.OSF1.pvecEv[1]
+DUMMY11 0kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop_fifo .ram_fifo.\ram_fifo.u_nx_fifo_ram_1r1w .fifo_ctrl._zyixc_port_1_0_osf
+DUMMY12 0xcva_top.IXC_GFIFO.OSF1.pvecEv[2]
+DUMMY13 0kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop_fifo .ram_fifo.\ram_fifo.u_nx_fifo_ram_1r1w .fifo_ctrl._zyixc_port_1_0_osf
+DUMMY14 0xcva_top.IXC_GFIFO.OSF1.pvecEv[3]
+DUMMY15 0kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip0_key_tlv_rsm .u_cr_tlvp2_rsm.u_cr_fifo_wrap2_tob.\ram_fifo.u_nx_fifo_ram_1r1w .fifo_ctrl._zyixc_port_1_0_osf
+DUMMY16 0xcva_top.IXC_GFIFO.OSF1.pvecEv[4]
+DUMMY17 0kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip0.u_nx_credit_manager._zyixc_port_1_0_osf
+DUMMY18 0xcva_top.IXC_GFIFO.OSF1.pvecEv[5]
+DUMMY19 0kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip0.u_nx_credit_manager._zyixc_port_1_1_osf
+DUMMY20 0xcva_top.IXC_GFIFO.OSF1.pvecEv[6]
+DUMMY21 0kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip1.u_nx_credit_manager._zyixc_port_1_0_osf
+DUMMY22 0xcva_top.IXC_GFIFO.OSF1.pvecEv[7]
+DUMMY23 0kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip1.u_nx_credit_manager._zyixc_port_1_1_osf
+DUMMY24 0xcva_top.IXC_GFIFO.OSF1.pvecEv[8]
+DUMMY25 0kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip2.u_nx_credit_manager._zyixc_port_1_0_osf
+DUMMY26 0xcva_top.IXC_GFIFO.OSF1.pvecEv[9]
+DUMMY27 0kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip2.u_nx_credit_manager._zyixc_port_1_1_osf
+DUMMY28 0xcva_top.IXC_GFIFO.OSF1.pvecEv[10]
+DUMMY29 0kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip3.u_nx_credit_manager._zyixc_port_1_0_osf
+DUMMY30 0xcva_top.IXC_GFIFO.OSF1.pvecEv[11]
+DUMMY31 0kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip3.u_nx_credit_manager._zyixc_port_1_1_osf
+DUMMY32 0xcva_top.IXC_GFIFO.OSF1.pvecEv[12]
+DUMMY33 0kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip0.u_nx_credit_manager._zyixc_port_1_0_osf
+DUMMY34 0xcva_top.IXC_GFIFO.OSF1.pvecEv[13]
+DUMMY35 0kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip0.u_nx_credit_manager._zyixc_port_1_1_osf
+DUMMY36 0xcva_top.IXC_GFIFO.OSF1.pvecEv[14]
+DUMMY37 0kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip1.u_nx_credit_manager._zyixc_port_1_0_osf
+DUMMY38 0xcva_top.IXC_GFIFO.OSF1.pvecEv[15]
+DUMMY39 0kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip1.u_nx_credit_manager._zyixc_port_1_1_osf
+DUMMY40 0xcva_top.IXC_GFIFO.OSF1.pvecEv[16]
+DUMMY41 0kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip2.u_nx_credit_manager._zyixc_port_1_0_osf
+DUMMY42 0xcva_top.IXC_GFIFO.OSF1.pvecEv[17]
+DUMMY43 0kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip2.u_nx_credit_manager._zyixc_port_1_1_osf
+DUMMY44 0xcva_top.IXC_GFIFO.OSF1.pvecEv[18]
+DUMMY45 0kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip3.u_nx_credit_manager._zyixc_port_1_0_osf
+DUMMY46 0xcva_top.IXC_GFIFO.OSF1.pvecEv[19]
+DUMMY47 0kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip3.u_nx_credit_manager._zyixc_port_1_1_osf

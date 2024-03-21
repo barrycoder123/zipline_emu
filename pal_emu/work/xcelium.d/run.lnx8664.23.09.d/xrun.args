@@ -1,0 +1,13 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-elaborate
+-nowarn
+DLNCML
+-xmerror
+CUNOTB
+-f
+./xc_work/xrun.f
+-logfile
+./xc_work/xmelab.log

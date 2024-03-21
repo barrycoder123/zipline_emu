@@ -1,0 +1,26 @@
+module cr_kme_kop_kdf_stream_gen cr_kme_kop_kdf_stream_gen 4 21
+CKV_NUM_ENTRIES CKV_NUM_ENTRIES
+CKV_DATA_WIDTH CKV_DATA_WIDTH
+KIM_NUM_ENTRIES KIM_NUM_ENTRIES
+KIM_DATA_WIDTH KIM_DATA_WIDTH
+kdfstream_cmdfifo_ack kdfstream_cmdfifo_ack
+cmdfifo_hash_valid cmdfifo_hash_valid
+cmdfifo_hash_skip cmdfifo_hash_skip
+cmdfifo_hash_small_size cmdfifo_hash_small_size
+hash_len_data_out hash_len_data_out
+hash_len_data_out_valid hash_len_data_out_valid
+in_hash_valid in_hash_valid
+in_hash_eof in_hash_eof
+in_hash_eoc in_hash_eoc
+in_hash_num_bytes in_hash_num_bytes
+in_hash_data in_hash_data
+clk clk
+rst_n rst_n
+cmdfifo_kdfstream_valid cmdfifo_kdfstream_valid
+cmdfifo_kdfstream_cmd cmdfifo_kdfstream_cmd
+labels labels
+hash_cmdfifo_ack hash_cmdfifo_ack
+hash_len_data_out_ack hash_len_data_out_ack
+hash_in_stall hash_in_stall
+kdf_test_key_size kdf_test_key_size
+kdf_test_mode_en kdf_test_mode_en

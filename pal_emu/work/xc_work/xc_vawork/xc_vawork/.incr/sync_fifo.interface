@@ -1,0 +1,17 @@
+module sync_fifo sync_fifo 7 9
+DATAWIDTH DATAWIDTH
+DEPTH DEPTH
+RD_REG_MODE RD_REG_MODE
+RD_LATCH_MODE RD_LATCH_MODE
+L2DEPTH L2DEPTH
+PTRW PTRW
+DW DW
+dout dout
+full full
+empty empty
+clk clk
+rst_n rst_n
+din din
+wr_en wr_en
+rd_en rd_en
+space_avail space_avail

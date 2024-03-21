@@ -1,0 +1,9 @@
+# Auto-generated file. YOU MUST REMOVE THIS LINE IF YOU MODIFY THIS FILE!!!
+# Note: if the above line is removed, the file is considered user-generated. 
+#       The compiler ignores any clock source related user data if the presence
+#       of a user generated file is detected.
+technology none;
+
+
+active posedge;
+

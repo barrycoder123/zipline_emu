@@ -1,0 +1,61 @@
+`begin_keywords "1800-2012"
+module cr_kme_core_glue ( disable_debug_cmd_q, set_gcm_tag_fail_int, set_txc_bp_int, set_rsm_is_backpressuring, kme_ib_out, sa_snapshot, sa_count, kme_idle, idle_components, clk, rst_n, disable_debug_cmd, cceip_encrypt_gcm_tag_fail_int, cceip_validate_gcm_tag_fail_int, cddip_decrypt_gcm_tag_fail_int, cceip_ob_full, cddip_ob_full, tready_override, core_kme_ib_out, sa_global_ctrl, sa_ctrl, stat_drbg_reseed, stat_req_with_expired_seed, stat_aux_key_type_0, stat_aux_key_type_1, stat_aux_key_type_2, stat_aux_key_type_3, stat_aux_key_type_4, stat_aux_key_type_5, stat_aux_key_type_6, stat_aux_key_type_7, stat_aux_key_type_8, stat_aux_key_type_9, stat_aux_key_type_10, stat_aux_key_type_11, stat_aux_key_type_12, stat_aux_key_type_13, stat_cceip0_stall_on_valid_key, stat_cceip1_stall_on_valid_key, stat_cceip2_stall_on_valid_key, stat_cceip3_stall_on_valid_key, stat_cddip0_stall_on_valid_key, stat_cddip1_stall_on_valid_key, stat_cddip2_stall_on_valid_key, stat_cddip3_stall_on_valid_key, stat_aux_cmd_with_vf_pf_fail, kme_slv_empty, drng_idle, tlv_parser_idle, tlv_parser_int_tlv_start_pulse, cceip_key_tlv_rsm_end_pulse, cddip_key_tlv_rsm_end_pulse, cceip_key_tlv_rsm_idle, cddip_key_tlv_rsm_idle );
+typedef struct packed {logic tready ;} axi4s_dp_rdy_t ;
+output logic disable_debug_cmd_q ;
+output wire logic set_gcm_tag_fail_int ;
+output logic set_txc_bp_int ;
+output wire logic [7 : 0] set_rsm_is_backpressuring ;
+output axi4s_dp_rdy_t kme_ib_out ;
+output cr_kme_regfilePKG::sa_snapshot_t sa_snapshot[31 : 0] ;
+output cr_kme_regfilePKG::sa_count_t sa_count[31 : 0] ;
+output logic kme_idle ;
+output cr_kme_regfilePKG::idle_t idle_components ;
+input wire logic clk ;
+input wire logic rst_n ;
+input wire logic disable_debug_cmd ;
+input wire logic cceip_encrypt_gcm_tag_fail_int ;
+input wire logic cceip_validate_gcm_tag_fail_int ;
+input wire logic cddip_decrypt_gcm_tag_fail_int ;
+input wire logic [3 : 0] cceip_ob_full ;
+input wire logic [3 : 0] cddip_ob_full ;
+input cr_kme_regfilePKG::tready_override_t tready_override ;
+input axi4s_dp_rdy_t core_kme_ib_out ;
+input cr_kme_regfilePKG::sa_global_ctrl_t sa_global_ctrl ;
+input cr_kme_regfilePKG::sa_ctrl_t sa_ctrl[31 : 0] ;
+input wire logic stat_drbg_reseed ;
+input wire logic stat_req_with_expired_seed ;
+input wire logic stat_aux_key_type_0 ;
+input wire logic stat_aux_key_type_1 ;
+input wire logic stat_aux_key_type_2 ;
+input wire logic stat_aux_key_type_3 ;
+input wire logic stat_aux_key_type_4 ;
+input wire logic stat_aux_key_type_5 ;
+input wire logic stat_aux_key_type_6 ;
+input wire logic stat_aux_key_type_7 ;
+input wire logic stat_aux_key_type_8 ;
+input wire logic stat_aux_key_type_9 ;
+input wire logic stat_aux_key_type_10 ;
+input wire logic stat_aux_key_type_11 ;
+input wire logic stat_aux_key_type_12 ;
+input wire logic stat_aux_key_type_13 ;
+input wire logic stat_cceip0_stall_on_valid_key ;
+input wire logic stat_cceip1_stall_on_valid_key ;
+input wire logic stat_cceip2_stall_on_valid_key ;
+input wire logic stat_cceip3_stall_on_valid_key ;
+input wire logic stat_cddip0_stall_on_valid_key ;
+input wire logic stat_cddip1_stall_on_valid_key ;
+input wire logic stat_cddip2_stall_on_valid_key ;
+input wire logic stat_cddip3_stall_on_valid_key ;
+input wire logic stat_aux_cmd_with_vf_pf_fail ;
+input wire logic kme_slv_empty ;
+input wire logic drng_idle ;
+input wire logic tlv_parser_idle ;
+input wire logic tlv_parser_int_tlv_start_pulse ;
+input wire logic [3 : 0] cceip_key_tlv_rsm_end_pulse ;
+input wire logic [3 : 0] cddip_key_tlv_rsm_end_pulse ;
+input wire logic [3 : 0] cceip_key_tlv_rsm_idle ;
+input wire logic [3 : 0] cddip_key_tlv_rsm_idle ;
+endmodule
+`end_keywords
+/**portGenericDumpBegin axi4s_dp_rdy_t tready DUMMY0 DUMMY1 DUMMY2 disable_debug_cmd_q set_gcm_tag_fail_int set_txc_bp_int set_rsm_is_backpressuring kme_ib_out sa_snapshot sa_count kme_idle idle_components clk rst_n disable_debug_cmd cceip_encrypt_gcm_tag_fail_int cceip_validate_gcm_tag_fail_int cddip_decrypt_gcm_tag_fail_int cceip_ob_full cddip_ob_full tready_override core_kme_ib_out sa_global_ctrl sa_ctrl stat_drbg_reseed stat_req_with_expired_seed stat_aux_key_type_0 stat_aux_key_type_1 stat_aux_key_type_2 stat_aux_key_type_3 stat_aux_key_type_4 stat_aux_key_type_5 stat_aux_key_type_6 stat_aux_key_type_7 stat_aux_key_type_8 stat_aux_key_type_9 stat_aux_key_type_10 stat_aux_key_type_11 stat_aux_key_type_12 stat_aux_key_type_13 stat_cceip0_stall_on_valid_key stat_cceip1_stall_on_valid_key stat_cceip2_stall_on_valid_key stat_cceip3_stall_on_valid_key stat_cddip0_stall_on_valid_key stat_cddip1_stall_on_valid_key stat_cddip2_stall_on_valid_key stat_cddip3_stall_on_valid_key stat_aux_cmd_with_vf_pf_fail kme_slv_empty drng_idle tlv_parser_idle tlv_parser_int_tlv_start_pulse cceip_key_tlv_rsm_end_pulse cddip_key_tlv_rsm_end_pulse cceip_key_tlv_rsm_idle cddip_key_tlv_rsm_idle portGenericDumpEnd**/
+/**ParamPreferVectorBegin ParamPreferVectorEnd**/

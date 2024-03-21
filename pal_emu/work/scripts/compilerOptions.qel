@@ -1,0 +1,2 @@
+emulatorConfiguration -add {host hsv-scd107} {boards 2}
+compilerOption -add {visionMode FV}

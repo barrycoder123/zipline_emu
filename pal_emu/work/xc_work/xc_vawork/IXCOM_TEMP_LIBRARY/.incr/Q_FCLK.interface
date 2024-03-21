@@ -1,0 +1,3 @@
+module Q_FCLK Q_FCLK 0 2
+fClk fClk
+level level

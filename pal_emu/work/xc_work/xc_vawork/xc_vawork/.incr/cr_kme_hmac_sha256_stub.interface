@@ -1,0 +1,26 @@
+module cr_kme_hmac_sha256_stub cr_kme_hmac_sha256_stub 0 25
+hash_cmdfifo_ack hash_cmdfifo_ack
+hash_keyfifo_ack hash_keyfifo_ack
+hash_len_data_out_ack hash_len_data_out_ack
+hash_in_stall hash_in_stall
+sha_tag_data sha_tag_data
+sha_tag_valid sha_tag_valid
+sha_tag_last sha_tag_last
+clk clk
+rst_n rst_n
+scan_en scan_en
+scan_mode scan_mode
+scan_rst_n scan_rst_n
+cmdfifo_hash_valid cmdfifo_hash_valid
+cmdfifo_hash_skip cmdfifo_hash_skip
+cmdfifo_hash_small_size cmdfifo_hash_small_size
+keyfifo_hash_data keyfifo_hash_data
+keyfifo_hash_valid keyfifo_hash_valid
+hash_len_data_out hash_len_data_out
+hash_len_data_out_valid hash_len_data_out_valid
+in_hash_valid in_hash_valid
+in_hash_eof in_hash_eof
+in_hash_eoc in_hash_eoc
+in_hash_num_bytes in_hash_num_bytes
+in_hash_data in_hash_data
+sha_tag_stall sha_tag_stall

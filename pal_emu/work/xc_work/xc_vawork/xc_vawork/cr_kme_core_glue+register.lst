@@ -1,0 +1,40 @@
+V O S disable_debug_cmd_q
+V O S set_txc_bp_int
+V O S sa_snap
+V O S sa_clear
+V O S regs_sa_snap_r
+V O S regs_sa_clear_live_r
+V O V num_key_tlv_in_flight SIZE=32
+V O S kme_idle
+P O cr_sa_counter num_0_.sa_counter_i ./xc_work/xc_vawork/xc_vawork/cr_sa_counter
+P O cr_sa_counter num_1_.sa_counter_i ./xc_work/xc_vawork/xc_vawork/cr_sa_counter
+P O cr_sa_counter num_2_.sa_counter_i ./xc_work/xc_vawork/xc_vawork/cr_sa_counter
+P O cr_sa_counter num_3_.sa_counter_i ./xc_work/xc_vawork/xc_vawork/cr_sa_counter
+P O cr_sa_counter num_4_.sa_counter_i ./xc_work/xc_vawork/xc_vawork/cr_sa_counter
+P O cr_sa_counter num_5_.sa_counter_i ./xc_work/xc_vawork/xc_vawork/cr_sa_counter
+P O cr_sa_counter num_6_.sa_counter_i ./xc_work/xc_vawork/xc_vawork/cr_sa_counter
+P O cr_sa_counter num_7_.sa_counter_i ./xc_work/xc_vawork/xc_vawork/cr_sa_counter
+P O cr_sa_counter num_8_.sa_counter_i ./xc_work/xc_vawork/xc_vawork/cr_sa_counter
+P O cr_sa_counter num_9_.sa_counter_i ./xc_work/xc_vawork/xc_vawork/cr_sa_counter
+P O cr_sa_counter num_10_.sa_counter_i ./xc_work/xc_vawork/xc_vawork/cr_sa_counter
+P O cr_sa_counter num_11_.sa_counter_i ./xc_work/xc_vawork/xc_vawork/cr_sa_counter
+P O cr_sa_counter num_12_.sa_counter_i ./xc_work/xc_vawork/xc_vawork/cr_sa_counter
+P O cr_sa_counter num_13_.sa_counter_i ./xc_work/xc_vawork/xc_vawork/cr_sa_counter
+P O cr_sa_counter num_14_.sa_counter_i ./xc_work/xc_vawork/xc_vawork/cr_sa_counter
+P O cr_sa_counter num_15_.sa_counter_i ./xc_work/xc_vawork/xc_vawork/cr_sa_counter
+P O cr_sa_counter num_16_.sa_counter_i ./xc_work/xc_vawork/xc_vawork/cr_sa_counter
+P O cr_sa_counter num_17_.sa_counter_i ./xc_work/xc_vawork/xc_vawork/cr_sa_counter
+P O cr_sa_counter num_18_.sa_counter_i ./xc_work/xc_vawork/xc_vawork/cr_sa_counter
+P O cr_sa_counter num_19_.sa_counter_i ./xc_work/xc_vawork/xc_vawork/cr_sa_counter
+P O cr_sa_counter num_20_.sa_counter_i ./xc_work/xc_vawork/xc_vawork/cr_sa_counter
+P O cr_sa_counter num_21_.sa_counter_i ./xc_work/xc_vawork/xc_vawork/cr_sa_counter
+P O cr_sa_counter num_22_.sa_counter_i ./xc_work/xc_vawork/xc_vawork/cr_sa_counter
+P O cr_sa_counter num_23_.sa_counter_i ./xc_work/xc_vawork/xc_vawork/cr_sa_counter
+P O cr_sa_counter num_24_.sa_counter_i ./xc_work/xc_vawork/xc_vawork/cr_sa_counter
+P O cr_sa_counter num_25_.sa_counter_i ./xc_work/xc_vawork/xc_vawork/cr_sa_counter
+P O cr_sa_counter num_26_.sa_counter_i ./xc_work/xc_vawork/xc_vawork/cr_sa_counter
+P O cr_sa_counter num_27_.sa_counter_i ./xc_work/xc_vawork/xc_vawork/cr_sa_counter
+P O cr_sa_counter num_28_.sa_counter_i ./xc_work/xc_vawork/xc_vawork/cr_sa_counter
+P O cr_sa_counter num_29_.sa_counter_i ./xc_work/xc_vawork/xc_vawork/cr_sa_counter
+P O cr_sa_counter num_30_.sa_counter_i ./xc_work/xc_vawork/xc_vawork/cr_sa_counter
+P O cr_sa_counter num_31_.sa_counter_i ./xc_work/xc_vawork/xc_vawork/cr_sa_counter

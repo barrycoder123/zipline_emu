@@ -1,0 +1,6 @@
+module ixc_cov_latch ixc_cov_latch 2 3
+WIDTH WIDTH
+USE_RESET USE_RESET
+cout cout
+cin cin
+rst rst

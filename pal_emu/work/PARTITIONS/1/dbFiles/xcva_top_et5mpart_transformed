@@ -1,0 +1,199 @@
+---------------------------------------------------------------------------------
+Sliced but unassigned user memories: 191
+---------------------------------------------------------------------------------
+Addr  Data  Port  Type      Name
+---------------------------------------------------------------------------------
+   1    32     1  INTRAM    ET5_V1_H1.kme_tb.apb_xactor._zzixc_tfport_0_0._zyh2smem
+   1    32     1  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.ckv_indirect_access.u_cntrl._zzixc_ctxrd_0._zymem
+   1    32     1  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.kim_indirect_access.u_cntrl._zzixc_ctxrd_0._zymem
+   1    32     1  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_COUNT.u_cntrl._zzixc_ctxrd_0._zymem
+   1    32     1  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_CTRL.u_cntrl._zzixc_ctxrd_0._zymem
+   1    32     1  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_SNAPSHOT.u_cntrl._zzixc_ctxrd_0._zymem
+   1    32     1  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip0.u_cntrl._zzixc_ctxrd_0._zymem
+   1    32     1  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip1.u_cntrl._zzixc_ctxrd_0._zymem
+   1    32     1  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip2.u_cntrl._zzixc_ctxrd_0._zymem
+   1    32     1  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip3.u_cntrl._zzixc_ctxrd_0._zymem
+   1    32     1  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip0.u_cntrl._zzixc_ctxrd_0._zymem
+   1    32     1  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip1.u_cntrl._zzixc_ctxrd_0._zymem
+   1    32     1  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip2.u_cntrl._zzixc_ctxrd_0._zymem
+   1    32     1  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip3.u_cntrl._zzixc_ctxrd_0._zymem
+   1    64     1  INTRAM    ET5_V1_H1.kme_tb.apb_xactor._zzixc_tfport_0_1._zyh2smem
+   1    64     2  INTRAM    ET5_V1_H1.IXC_GFIFO.OSF1.OMB_0._zyevMem
+   1    64     2  INTRAM    ET5_V1_H1.kme_tb.apb_xactor._zzixc_tfport_0_1._zys2hmem
+   2     7     2  INTRAM    ET5_V5_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .kdfstream_cmd_fifo.std_fifo.\depth_n.r_data 
+   2     7     2  INTRAM    ET5_V5_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .kdfstream_cmd_fifo.std_fifo.\depth_n.r_data 
+   2    32     2  INTRAM    ET5_V2_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .gcm_tag_data_fifo.std_fifo.\depth_n.r_data 
+   2    32     2  INTRAM    ET5_V2_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .gcm_tag_data_fifo.std_fifo.\depth_n.r_data 
+   2    35     2  INTRAM    ET5_V10_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .gcm_cmd_fifo.std_fifo.\depth_n.r_data 
+   2    35     2  INTRAM    ET5_V10_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .gcm_cmd_fifo.std_fifo.\depth_n.r_data 
+   2    64     2  INTRAM    ET5_V1_H1.ixc_time._zzcmds
+   2    64     2  INTRAM    ET5_V1_H1.ixc_time._zzmiopis
+   2    64     2  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .gcm_cmd_fifo.std_fifo.\depth_n.r_data 
+   2    64     2  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .gcm_tag_data_fifo.std_fifo.\depth_n.r_data 
+   2    64     2  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .kdf.gcm_key_fifo.std_fifo.\depth_n.r_data 
+   2    64     2  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .kdf.hash_key_fifo.std_fifo.\depth_n.r_data 
+   2    64     2  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .kdfstream_cmd_fifo.std_fifo.\depth_n.r_data 
+   2    64     2  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .gcm_cmd_fifo.std_fifo.\depth_n.r_data 
+   2    64     2  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .gcm_tag_data_fifo.std_fifo.\depth_n.r_data 
+   2    64     2  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .kdf.gcm_key_fifo.std_fifo.\depth_n.r_data 
+   2    64     2  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .kdf.hash_key_fifo.std_fifo.\depth_n.r_data 
+   2    64     2  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .kdfstream_cmd_fifo.std_fifo.\depth_n.r_data 
+   2    64     2  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip0._zzixc_ctxrd_0._zymem
+   2    64     2  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip1._zzixc_ctxrd_0._zymem
+   2    64     2  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip2._zzixc_ctxrd_0._zymem
+   2    64     2  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip3._zzixc_ctxrd_0._zymem
+   2    64     2  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip0._zzixc_ctxrd_0._zymem
+   2    64     2  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip1._zzixc_ctxrd_0._zymem
+   2    64     2  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip2._zzixc_ctxrd_0._zymem
+   2    64     2  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip3._zzixc_ctxrd_0._zymem
+   2    64     2  INTRAM    ET5_V2_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .gcm_cmd_fifo.std_fifo.\depth_n.r_data 
+   2    64     2  INTRAM    ET5_V2_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .kdf.gcm_key_fifo.std_fifo.\depth_n.r_data 
+   2    64     2  INTRAM    ET5_V2_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .kdf.hash_key_fifo.std_fifo.\depth_n.r_data 
+   2    64     2  INTRAM    ET5_V2_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .kdfstream_cmd_fifo.std_fifo.\depth_n.r_data 
+   2    64     2  INTRAM    ET5_V2_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .gcm_cmd_fifo.std_fifo.\depth_n.r_data 
+   2    64     2  INTRAM    ET5_V2_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .kdf.gcm_key_fifo.std_fifo.\depth_n.r_data 
+   2    64     2  INTRAM    ET5_V2_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .kdf.hash_key_fifo.std_fifo.\depth_n.r_data 
+   2    64     2  INTRAM    ET5_V2_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .kdfstream_cmd_fifo.std_fifo.\depth_n.r_data 
+   2    64     2  INTRAM    ET5_V3_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .gcm_cmd_fifo.std_fifo.\depth_n.r_data 
+   2    64     2  INTRAM    ET5_V3_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .kdf.hash_key_fifo.std_fifo.\depth_n.r_data 
+   2    64     2  INTRAM    ET5_V3_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .kdfstream_cmd_fifo.std_fifo.\depth_n.r_data 
+   2    64     2  INTRAM    ET5_V3_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .gcm_cmd_fifo.std_fifo.\depth_n.r_data 
+   2    64     2  INTRAM    ET5_V3_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .kdf.hash_key_fifo.std_fifo.\depth_n.r_data 
+   2    64     2  INTRAM    ET5_V3_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .kdfstream_cmd_fifo.std_fifo.\depth_n.r_data 
+   2    64     2  INTRAM    ET5_V4_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .gcm_cmd_fifo.std_fifo.\depth_n.r_data 
+   2    64     2  INTRAM    ET5_V4_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .kdf.hash_key_fifo.std_fifo.\depth_n.r_data 
+   2    64     2  INTRAM    ET5_V4_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .kdfstream_cmd_fifo.std_fifo.\depth_n.r_data 
+   2    64     2  INTRAM    ET5_V4_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .gcm_cmd_fifo.std_fifo.\depth_n.r_data 
+   2    64     2  INTRAM    ET5_V4_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .kdf.hash_key_fifo.std_fifo.\depth_n.r_data 
+   2    64     2  INTRAM    ET5_V4_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .kdfstream_cmd_fifo.std_fifo.\depth_n.r_data 
+   2    64     2  INTRAM    ET5_V5_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .gcm_cmd_fifo.std_fifo.\depth_n.r_data 
+   2    64     2  INTRAM    ET5_V5_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .gcm_cmd_fifo.std_fifo.\depth_n.r_data 
+   2    64     2  INTRAM    ET5_V6_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .gcm_cmd_fifo.std_fifo.\depth_n.r_data 
+   2    64     2  INTRAM    ET5_V6_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .gcm_cmd_fifo.std_fifo.\depth_n.r_data 
+   2    64     2  INTRAM    ET5_V7_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .gcm_cmd_fifo.std_fifo.\depth_n.r_data 
+   2    64     2  INTRAM    ET5_V7_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .gcm_cmd_fifo.std_fifo.\depth_n.r_data 
+   2    64     2  INTRAM    ET5_V8_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .gcm_cmd_fifo.std_fifo.\depth_n.r_data 
+   2    64     2  INTRAM    ET5_V8_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .gcm_cmd_fifo.std_fifo.\depth_n.r_data 
+   2    64     2  INTRAM    ET5_V9_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .gcm_cmd_fifo.std_fifo.\depth_n.r_data 
+   2    64     2  INTRAM    ET5_V9_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .gcm_cmd_fifo.std_fifo.\depth_n.r_data 
+   2    64     3  INTRAM    ET5_V1_H1.ixc_time._zzmiopos
+   3    64     2  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.drng .drng.rnd_fifo.std_fifo.\depth_n.r_data 
+   3    64     2  INTRAM    ET5_V2_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.drng .drng.rnd_fifo.std_fifo.\depth_n.r_data 
+   3    64     4  INTRAM    ET5_V1_H1.kme_tb.apb_xactor._zzixc_tfport_0_0._zys2hmem
+   4     4     2  INTRAM    ET5_V3_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .gcm.bypass_fifo.std_fifo.\depth_n.r_data 
+   4     4     2  INTRAM    ET5_V3_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .gcm.bypass_fifo.std_fifo.\depth_n.r_data 
+   4    42     2  INTRAM    ET5_V2_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip0_key_tlv_rsm .u_cr_tlvp2_rsm.u_cr_fifo_wrap2_uobf.\reg_fifo.u_nx_fifo .\depth_n.r_data 
+   4    64     2  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .gcm.bypass_fifo.std_fifo.\depth_n.r_data 
+   4    64     2  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .tlv_sb_data_fifo.std_fifo.\depth_n.r_data 
+   4    64     2  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .gcm.bypass_fifo.std_fifo.\depth_n.r_data 
+   4    64     2  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .tlv_sb_data_fifo.std_fifo.\depth_n.r_data 
+   4    64     2  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip0_key_tlv_rsm .u_cr_tlvp2_rsm.u_cr_fifo_wrap2_uobf.\reg_fifo.u_nx_fifo .\depth_n.r_data 
+   4    64     2  INTRAM    ET5_V2_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .gcm.bypass_fifo.std_fifo.\depth_n.r_data 
+   4    64     2  INTRAM    ET5_V2_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .gcm.bypass_fifo.std_fifo.\depth_n.r_data 
+   4    64     8  INTRAM    ET5_V1_H1.IXC_GFIFO.DUMMY.ctrl
+   4    64     8  INTRAM    ET5_V1_H1.IXC_GFIFO.HOLDTOP.ctrl
+   4    64    16  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzixc_ctxrd_0._zymem
+   5    19     2  INTRAM    ET5_V2_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.ckv_pipeline .guid_stitcher.aux_cmd_fifo.std_fifo.\depth_n.r_data 
+   5    64     2  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.ckv_pipeline .guid_stitcher.aux_cmd_fifo.std_fifo.\depth_n.r_data 
+   5    64    24  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzixc_ctxwr_1._zymem
+   5    64    32  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_COUNT._zzixc_ctxrd_0._zymem
+   5    64    32  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_SNAPSHOT._zzixc_ctxrd_0._zymem
+   6    16     1  INTRAM    ET5_V2_H1.QTLA%SDL.top.tsm_0.main_instr.cnt1.cnt_cmpval_OPT.Merger1
+   6    64     1  INTRAM    ET5_V1_H1.QTLA%SDL.top.tsm_0.main_instr.cnt1.cnt_cmpval_OPT.Merger1
+   8    19     3  INTRAM    ET5_V2_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip0_key_tlv_rsm .u_cr_tlvp2_rsm.u_cr_fifo_wrap2_tob.\ram_fifo.u_nx_fifo_ram_1r1w .ram.\_1r1wramDxWb.mem 
+   8    19     3  INTRAM    ET5_V2_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.txc_axi_intf .u_cr_fifo_wrap2.\ram_fifo.u_nx_fifo_ram_1r1w .ram.\_1r1wramDxWb.mem 
+   8    64     3  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip0_key_tlv_rsm .u_cr_tlvp2_rsm.u_cr_fifo_wrap2_tob.\ram_fifo.u_nx_fifo_ram_1r1w .ram.\_1r1wramDxWb.mem 
+   8    64     3  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.txc_axi_intf .u_cr_fifo_wrap2.\ram_fifo.u_nx_fifo_ram_1r1w .ram.\_1r1wramDxWb.mem 
+   9    32     2  INTRAM    ET5_V2_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip0.u_ram.\g.mem 
+   9    32     2  INTRAM    ET5_V2_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip1.u_ram.\g.mem 
+   9    32     2  INTRAM    ET5_V2_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip2.u_ram.\g.mem 
+   9    32     2  INTRAM    ET5_V2_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip3.u_ram.\g.mem 
+   9    32     2  INTRAM    ET5_V2_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip0.u_ram.\g.mem 
+   9    32     2  INTRAM    ET5_V2_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip1.u_ram.\g.mem 
+   9    32     2  INTRAM    ET5_V2_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip2.u_ram.\g.mem 
+   9    32     2  INTRAM    ET5_V2_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip3.u_ram.\g.mem 
+   9    64     2  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip0.u_ram.\g.mem 
+   9    64     2  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip1.u_ram.\g.mem 
+   9    64     2  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip2.u_ram.\g.mem 
+   9    64     2  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip3.u_ram.\g.mem 
+   9    64     2  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip0.u_ram.\g.mem 
+   9    64     2  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip1.u_ram.\g.mem 
+   9    64     2  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip2.u_ram.\g.mem 
+   9    64     2  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip3.u_ram.\g.mem 
+  11     7     3  INTRAM    ET5_V2_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop_fifo .ram_fifo.\ram_fifo.u_nx_fifo_ram_1r1w .ram.\_1r1wramDxWb.mem 
+  11     7     3  INTRAM    ET5_V2_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop_fifo .ram_fifo.\ram_fifo.u_nx_fifo_ram_1r1w .ram.\_1r1wramDxWb.mem 
+  11    64     3  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop_fifo .ram_fifo.\ram_fifo.u_nx_fifo_ram_1r1w .ram.\_1r1wramDxWb.mem 
+  11    64     3  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop_fifo .ram_fifo.\ram_fifo.u_nx_fifo_ram_1r1w .ram.\_1r1wramDxWb.mem 
+  14    16     1  INTRAM    ET5_V1_H1.QTLA%SDL.top.tsm_0.main_instr.tsm_display_ram
+  14    38     2  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.kim_indirect_access.u_ram.\g.mem 
+  14    40     1  INTRAM    ET5_V3_H1.QTLA%SDL.top.tsm_0.tracer.trace_ram_OPT
+  14    64     1  INTRAM    ET5_V1_H1.QTLA%SDL.top.display.args_display_ram
+  14    64     1  INTRAM    ET5_V1_H1.QTLA%SDL.top.display.global_display_ram
+  14    64     1  INTRAM    ET5_V1_H1.QTLA%SDL.top.tsm_0.tracer.trace_ram_OPT
+  14    64     1  INTRAM    ET5_V2_H1.QTLA%SDL.top.display.args_display_ram
+  14    64     1  INTRAM    ET5_V2_H1.QTLA%SDL.top.display.global_display_ram
+  14    64     1  INTRAM    ET5_V2_H1.QTLA%SDL.top.tsm_0.tracer.trace_ram_OPT
+  14    64     1  INTRAM    ET5_V3_H1.QTLA%SDL.top.display.args_display_ram
+  14    64     1  INTRAM    ET5_V3_H1.QTLA%SDL.top.display.global_display_ram
+  14    64     1  INTRAM    ET5_V4_H1.QTLA%SDL.top.display.args_display_ram
+  14    64     1  INTRAM    ET5_V4_H1.QTLA%SDL.top.display.global_display_ram
+  14    64     1  INTRAM    ET5_V5_H1.QTLA%SDL.top.display.args_display_ram
+  14    64     1  INTRAM    ET5_V6_H1.QTLA%SDL.top.display.args_display_ram
+  14    64     1  INTRAM    ET5_V7_H1.QTLA%SDL.top.display.args_display_ram
+  14    64     1  INTRAM    ET5_V8_H1.QTLA%SDL.top.display.args_display_ram
+  14    64     1  INTRAM    ET5_V9_H1.QTLA%SDL.top.display.args_display_ram
+  14    64     1  INTRAM    ET5_V10_H1.QTLA%SDL.top.display.args_display_ram
+  14    64     1  INTRAM    ET5_V11_H1.QTLA%SDL.top.display.args_display_ram
+  14    64     1  INTRAM    ET5_V12_H1.QTLA%SDL.top.display.args_display_ram
+  14    64     1  INTRAM    ET5_V13_H1.QTLA%SDL.top.display.args_display_ram
+  14    64     1  INTRAM    ET5_V14_H1.QTLA%SDL.top.display.args_display_ram
+  14    64     1  INTRAM    ET5_V15_H1.QTLA%SDL.top.display.args_display_ram
+  14    64     1  INTRAM    ET5_V16_H1.QTLA%SDL.top.display.args_display_ram
+  14    64     1  INTRAM    ET5_V17_H1.QTLA%SDL.top.display.args_display_ram
+  14    64     1  INTRAM    ET5_V18_H1.QTLA%SDL.top.display.args_display_ram
+  14    64     1  INTRAM    ET5_V19_H1.QTLA%SDL.top.display.args_display_ram
+  14    64     1  INTRAM    ET5_V20_H1.QTLA%SDL.top.display.args_display_ram
+  14    64     1  INTRAM    ET5_V21_H1.QTLA%SDL.top.display.args_display_ram
+  14    64     1  INTRAM    ET5_V22_H1.QTLA%SDL.top.display.args_display_ram
+  14    64     1  INTRAM    ET5_V23_H1.QTLA%SDL.top.display.args_display_ram
+  14    64     1  INTRAM    ET5_V24_H1.QTLA%SDL.top.display.args_display_ram
+  14    64     1  INTRAM    ET5_V25_H1.QTLA%SDL.top.display.args_display_ram
+  14    64     1  INTRAM    ET5_V26_H1.QTLA%SDL.top.display.args_display_ram
+  14    64     1  INTRAM    ET5_V27_H1.QTLA%SDL.top.display.args_display_ram
+  14    64     1  INTRAM    ET5_V28_H1.QTLA%SDL.top.display.args_display_ram
+  14    64     1  INTRAM    ET5_V29_H1.QTLA%SDL.top.display.args_display_ram
+  14    64     1  INTRAM    ET5_V30_H1.QTLA%SDL.top.display.args_display_ram
+  14    64     1  INTRAM    ET5_V31_H1.QTLA%SDL.top.display.args_display_ram
+  14    64     1  INTRAM    ET5_V32_H1.QTLA%SDL.top.display.args_display_ram
+  15    64     1  INTRAM    ET5_V1_H1.QTLA%SDL.top.stwave_tstamp_ram
+  15    64     1  INTRAM    ET5_V1_H1.QTLA%SDL.top.stwave_0_ram
+  15    64     1  INTRAM    ET5_V1_H1.QTLA%SDL.top.stwave_1_ram
+  15    64     1  INTRAM    ET5_V1_H1.QTLA%SDL.top.stwave_2_ram
+  15    64     1  INTRAM    ET5_V1_H1.QTLA%SDL.top.stwave_3_ram
+  15    64     1  INTRAM    ET5_V1_H1.QTLA%SDL.top.stwave_4_ram
+  15    64     1  INTRAM    ET5_V1_H1.QTLA%SDL.top.stwave_5_ram
+  15    64     1  INTRAM    ET5_V1_H1.QTLA%SDL.top.stwave_6_ram
+  15    64     1  INTRAM    ET5_V1_H1.QTLA%SDL.top.stwave_7_ram
+  15    64     1  INTRAM    ET5_V1_H1.QTLA%SDL.top.stwave_8_ram
+  15    64     1  INTRAM    ET5_V1_H1.QTLA%SDL.top.stwave_9_ram
+  15    64     1  INTRAM    ET5_V1_H1.QTLA%SDL.top.stwave_10_ram
+  15    64     1  INTRAM    ET5_V1_H1.QTLA%SDL.top.stwave_11_ram
+  15    64     1  INTRAM    ET5_V1_H1.QTLA%SDL.top.stwave_12_ram
+  15    64     1  INTRAM    ET5_V1_H1.QTLA%SDL.top.stwave_13_ram
+  15    64     1  INTRAM    ET5_V1_H1.QTLA%SDL.top.stwave_14_ram
+  15    64     1  INTRAM    ET5_V1_H1.QTLA%SDL.top.stwave_15_ram
+  15    64     2  INTRAM    ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.ckv_indirect_access.u_ram.\g.mem 
+  16    40     1  INTRAM    ET5_V2_H1.QTLA%SDL.top.tsm_0.main_instr.tsm_lut_OPT
+  16    64     1  INTRAM    ET5_V1_H1.QTLA%SDL.top.run_stop_ctl.debug_trace.debug_ram
+  16    64     1  INTRAM    ET5_V1_H1.QTLA%SDL.top.tsm_0.main_instr.tsm_lut_OPT
+  16    64     1  INTRAM    ET5_V2_H1.QTLA%SDL.top.run_stop_ctl.debug_trace.debug_ram
+  16    64     1  INTRAM    ET5_V3_H1.QTLA%SDL.top.run_stop_ctl.debug_trace.debug_ram
+  16    64     1  INTRAM    ET5_V4_H1.QTLA%SDL.top.run_stop_ctl.debug_trace.debug_ram
+  16    64     1  INTRAM    ET5_V5_H1.QTLA%SDL.top.run_stop_ctl.debug_trace.debug_ram
+  16    64     1  INTRAM    ET5_V6_H1.QTLA%SDL.top.run_stop_ctl.debug_trace.debug_ram
+  16    64     1  INTRAM    ET5_V7_H1.QTLA%SDL.top.run_stop_ctl.debug_trace.debug_ram
+  16    64     1  INTRAM    ET5_V8_H1.QTLA%SDL.top.run_stop_ctl.debug_trace.debug_ram
+  16    64     4  INTRAM    ET5_V1_H1.QTLA%SDL.top.run_stop_ctl._sdlcmds
+---------------------------------------------------------------------------------
+---------------- End of List ----------------------------------------------------
+---------------------------------------------------------------------------------

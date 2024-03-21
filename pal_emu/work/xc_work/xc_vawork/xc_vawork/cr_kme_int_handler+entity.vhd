@@ -1,0 +1,37 @@
+library ieee, quickturn ;
+use ieee.std_logic_1164.all ;
+use quickturn.verilog.all ;
+use work.cr_kme_regfilePKG.all ;
+entity cr_kme_int_handler is
+  port (
+    kme_interrupt : out std_logic ;
+    interrupt_status : out std_logic_vector(4 downto 0) ;
+    suppress_key_tlvs : out std_logic ;
+    clk : in std_logic ;
+    rst_n : in std_logic ;
+    set_drbg_expired_int : in std_logic ;
+    set_txc_bp_int : in std_logic ;
+    set_gcm_tag_fail_int : in std_logic ;
+    set_key_tlv_miscmp_int : in std_logic ;
+    set_tlv_bip2_error_int : in std_logic ;
+    cceip0_ism_mbe : in std_logic ;
+    cceip1_ism_mbe : in std_logic ;
+    cceip2_ism_mbe : in std_logic ;
+    cceip3_ism_mbe : in std_logic ;
+    cddip0_ism_mbe : in std_logic ;
+    cddip1_ism_mbe : in std_logic ;
+    cddip2_ism_mbe : in std_logic ;
+    cddip3_ism_mbe : in std_logic ;
+    kim_mbe : in std_logic ;
+    ckv_mbe : in std_logic ;
+    cceip_encrypt_mbe : in std_logic ;
+    cceip_validate_mbe : in std_logic ;
+    cddip_decrypt_mbe : in std_logic ;
+    axi_mbe : in std_logic ;
+    bimc_interrupt : in std_logic ;
+    wr_stb : in std_logic ;
+    wr_data : in std_logic_vector(31 downto 0) ;
+    reg_addr : in std_logic_vector(10 downto 0) ;
+  o_interrupt_mask : in std_logic_vector(4 downto 0) ) ;
+  attribute _2_state_: integer;
+end cr_kme_int_handler ;

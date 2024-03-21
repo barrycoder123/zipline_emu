@@ -1,0 +1,14 @@
+module cr_crc cr_crc 4 9
+POLYNOMIAL POLYNOMIAL
+N_CRC_WIDTH N_CRC_WIDTH
+N_DATA_WIDTH N_DATA_WIDTH
+N_VBYTES_WIDTH N_VBYTES_WIDTH
+crc crc
+clk clk
+rst_n rst_n
+data_in data_in
+data_valid data_valid
+data_vbytes data_vbytes
+enable enable
+init_value init_value
+init init

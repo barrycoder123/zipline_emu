@@ -1,0 +1,14 @@
+DUMMY0 0xc_top.bpWait
+DUMMY1 0xc_top.eventOn
+DUMMY2 0xc_top.bClkHold
+DUMMY3 0LOOP
+DUMMY4 0loop
+DUMMY5 0loop
+DUMMY6 0hold
+DUMMY7 0hold
+DUMMY8 0genblk1
+DUMMY9 0genblk1
+DUMMY10 0genblk1
+DUMMY11 0genblk2
+DUMMY12 0genblk3
+DUMMY13 0genblk4

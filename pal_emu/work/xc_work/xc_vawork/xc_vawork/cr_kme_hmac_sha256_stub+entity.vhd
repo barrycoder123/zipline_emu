@@ -1,0 +1,32 @@
+library ieee, quickturn ;
+use ieee.std_logic_1164.all ;
+use quickturn.verilog.all ;
+entity cr_kme_hmac_sha256_stub is
+  port (
+    hash_cmdfifo_ack : out std_logic ;
+    hash_keyfifo_ack : out std_logic ;
+    hash_len_data_out_ack : out std_logic ;
+    hash_in_stall : out std_logic ;
+    sha_tag_data : out std_logic_vector(127 downto 0) ;
+    sha_tag_valid : out std_logic ;
+    sha_tag_last : out std_logic ;
+    clk : in std_logic ;
+    rst_n : in std_logic ;
+    scan_en : in std_logic ;
+    scan_mode : in std_logic ;
+    scan_rst_n : in std_logic ;
+    cmdfifo_hash_valid : in std_logic ;
+    cmdfifo_hash_skip : in std_logic ;
+    cmdfifo_hash_small_size : in std_logic ;
+    keyfifo_hash_data : in std_logic_vector(255 downto 0) ;
+    keyfifo_hash_valid : in std_logic ;
+    hash_len_data_out : in std_logic_vector(31 downto 0) ;
+    hash_len_data_out_valid : in std_logic ;
+    in_hash_valid : in std_logic ;
+    in_hash_eof : in std_logic ;
+    in_hash_eoc : in std_logic ;
+    in_hash_num_bytes : in std_logic_vector(4 downto 0) ;
+    in_hash_data : in std_logic_vector(127 downto 0) ;
+  sha_tag_stall : in std_logic ) ;
+  attribute _2_state_: integer;
+end cr_kme_hmac_sha256_stub ;

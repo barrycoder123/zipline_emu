@@ -1,0 +1,14 @@
+module ixc_scg_gfifo_port ixc_scg_gfifo_port 7 6
+DW DW
+SHARE SHARE
+USETIME USETIME
+BUFL BUFL
+IS_SV_CHANNEL IS_SV_CHANNEL
+XW XW
+SEL1 SEL1
+tkout tkout
+tkin tkin
+ireq ireq
+cbid cbid
+len len
+idata idata

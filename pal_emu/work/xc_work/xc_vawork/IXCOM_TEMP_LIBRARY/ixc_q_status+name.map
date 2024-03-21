@@ -1,0 +1,12 @@
+DUMMY0 0xc_top.GFReset
+DUMMY1 0xc_top.tbcPO
+DUMMY2 1xc_top.simTime 47 0
+DUMMY4 0pollState
+DUMMY5 0{}
+DUMMY6 0genblk2
+wptr_DUMMY0 0wptr
+Qen3_DUMMY1 0Qen3
+scan_DUMMY2 0scan
+reqId_DUMMY3 0reqId
+scan_DUMMY4 0scan
+reqId_DUMMY5 0reqId

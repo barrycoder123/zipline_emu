@@ -1,0 +1,14 @@
+DUMMY0 0_zy_simnet_axi4s_mstr_rd_0_w$
+DUMMY1 1_zy_simnet_axi4s_ob_out_1_w$ 0 82
+DUMMY2 0_zy_simnet_axi4s_ib_in_2_w$
+DUMMY3 0_zy_simnet_axi4s_ob_out_3_w$
+DUMMY4 1_zy_simnet_axi4s_ob_out_payload_4_w$ 0 81
+DUMMY5 0_zy_simnet_axi4s_ib_out_5_w$
+DUMMY6 1_zy_simnet_axi4s_ib_out_payload_6_w$ 0 81
+DUMMY7 0{}
+DUMMY8 0{}
+DUMMY9 0{}
+DUMMY10 0{}
+DUMMY11 0{}
+DUMMY12 0{}
+DUMMY13 0{}

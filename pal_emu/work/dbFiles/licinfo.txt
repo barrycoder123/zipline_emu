@@ -1,0 +1,4 @@
+# This is auto-generated file for license information at run time.
+# FORMAT: <Key/feature name> <version number> <number of license required>
+
+Palladium_Z1_Domain 23.0 1 | Palladium_Z1_Domain 22.0 1

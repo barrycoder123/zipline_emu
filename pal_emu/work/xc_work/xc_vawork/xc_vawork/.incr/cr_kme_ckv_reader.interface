@@ -1,0 +1,17 @@
+module cr_kme_ckv_reader cr_kme_ckv_reader 4 12
+CKV_NUM_ENTRIES CKV_NUM_ENTRIES
+CKV_DATA_WIDTH CKV_DATA_WIDTH
+KIM_NUM_ENTRIES KIM_NUM_ENTRIES
+KIM_DATA_WIDTH KIM_DATA_WIDTH
+ckvreader_kimreader_ack ckvreader_kimreader_ack
+ckvreader_kopassigner_valid ckvreader_kopassigner_valid
+ckvreader_kopassigner_data ckvreader_kopassigner_data
+ckv_rd ckv_rd
+ckv_addr ckv_addr
+clk clk
+rst_n rst_n
+kimreader_ckvreader_valid kimreader_ckvreader_valid
+kimreader_ckvreader_data kimreader_ckvreader_data
+kopassigner_ckvreader_ack kopassigner_ckvreader_ack
+ckv_dout ckv_dout
+ckv_mbe ckv_mbe

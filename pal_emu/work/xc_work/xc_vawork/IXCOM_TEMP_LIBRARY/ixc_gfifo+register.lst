@@ -1,0 +1,9 @@
+P O IXC_OSF OSF ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_osf
+P O IXC_ISF ISF ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_isf
+P O IXC_OSF1 OSF1 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_osf1
+P O IXC_PTXTOP PTXTOP ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_ptxtop
+P O ixcEcmHold HOLDTOP ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixcecmhold
+P O ixcEcmHoldOtb DUMMY ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixcecmholdotb
+P O IXC_SV_GFIFO O ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sv_gfifo
+P O IXC_SV_SFIFO I ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sv_sfifo
+P O ifsyn_conns _ifsyn_conns ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ifsyn_conns

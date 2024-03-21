@@ -1,0 +1,10 @@
+DUMMY0 0xcva_top.IXC_GFIFO.I.O.GFtsReq
+DUMMY1 1xcva_top.IXC_GFIFO.I.O.GFcbid 19 0
+DUMMY2 1xcva_top.IXC_GFIFO.I.O.GFlen 11 0
+DUMMY3 1xcva_top.IXC_GFIFO.I.O.GFidata 511 0
+DUMMY4 0xc_top.GFLock1
+DUMMY5 0xc_top.hasGFIFO2
+DUMMY6 0genblk1
+xdata_DUMMY0 0xdata
+xlen_DUMMY1 0xlen
+sel_DUMMY2 0sel

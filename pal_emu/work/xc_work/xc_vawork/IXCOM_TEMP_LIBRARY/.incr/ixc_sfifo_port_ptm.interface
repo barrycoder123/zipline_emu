@@ -1,0 +1,20 @@
+module ixc_sfifo_port_ptm ixc_sfifo_port_ptm 9 10
+IARGW IARGW
+OARGW OARGW
+IARGW1 IARGW1
+OARGW1 OARGW1
+IARGPL IARGPL
+IARGPL1 IARGPL1
+OARGPL OARGPL
+OARGPL1 OARGPL1
+OFWLEN OFWLEN
+call call
+iarg iarg
+oarg oarg
+tid tid
+fen fen
+CiData CiData
+CtId CtId
+CoData CoData
+CoDataEn CoDataEn
+CoDataLen CoDataLen

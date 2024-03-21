@@ -1,0 +1,19 @@
+module nx_fifo_xcm31 nx_fifo_xcm31 5 13
+DEPTH DEPTH
+WIDTH WIDTH
+DATA_RESET DATA_RESET
+UNDERFLOW_ASSERT UNDERFLOW_ASSERT
+OVERFLOW_ASSERT OVERFLOW_ASSERT
+empty empty
+full full
+underflow underflow
+overflow overflow
+used_slots used_slots
+free_slots free_slots
+rdata rdata
+clk clk
+rst_n rst_n
+wen wen
+ren ren
+clear clear
+wdata wdata

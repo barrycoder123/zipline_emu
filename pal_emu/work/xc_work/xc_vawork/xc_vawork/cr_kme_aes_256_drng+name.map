@@ -1,0 +1,13 @@
+DUMMY0 0SEED_EXPIRED
+DUMMY1 0_zy_simnet_seed_expired_0_w$
+DUMMY2 0_zy_simnet_drng_idle_1_w$
+DUMMY3 1_zy_simnet_AesCiphOutR_2_w$ 0 127
+DUMMY4 0_zy_simnet_AesCiphOutVldR_3_w$
+DUMMY5 1_zy_simnet_CiphIn_7_w$ 0 127
+DUMMY6 0_zy_simnet_CiphInVldR_8_w$
+DUMMY7 0_zy_simnet_CiphInLastR_9_w$
+DUMMY8 1_zy_simnet_KeyIn_11_w$ 0 255
+DUMMY9 0_zy_simnet_KeyInVld_12_w$
+DUMMY10 1_zy_simnet_fifo_in_14_w$ 0 127
+DUMMY11 0_zy_simnet_fifo_in_valid_15_w$
+DUMMY12 0AesSecIStub

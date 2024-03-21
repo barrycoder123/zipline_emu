@@ -1,0 +1,3 @@
+P O cr_tlvp2_rsm_core u_cr_tlvp2_rsm_core ./xc_work/xc_vawork/xc_vawork/cr_tlvp2_rsm_core
+P O cr_fifo_wrap2_xcm9 u_cr_fifo_wrap2_tob ./xc_work/xc_vawork/xc_vawork/cr_fifo_wrap2_xcm9
+P O cr_fifo_wrap2_xcm8 u_cr_fifo_wrap2_uobf ./xc_work/xc_vawork/xc_vawork/cr_fifo_wrap2_xcm8

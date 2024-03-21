@@ -1,0 +1,4 @@
+memoryTransform -add {* SHALLOW off }
+compilerOption -add {mode ice}
+precompileOption -add {keepEmptyCells}
+precompileOption -add {breakECMloops}

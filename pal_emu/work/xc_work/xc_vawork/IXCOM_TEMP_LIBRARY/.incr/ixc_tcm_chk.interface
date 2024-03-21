@@ -1,0 +1,4 @@
+module ixc_tcm_chk ixc_tcm_chk 0 3
+tc tc
+en en
+rst rst

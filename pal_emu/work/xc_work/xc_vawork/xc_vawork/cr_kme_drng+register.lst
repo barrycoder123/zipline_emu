@@ -1,0 +1,5 @@
+V O V seed_entry
+V O S drng_first
+V O V drng_256_last SIZE=128
+V O S drng_health_fail
+P O cr_kme_aes_256_drng drng ./xc_work/xc_vawork/xc_vawork/cr_kme_aes_256_drng

@@ -1,0 +1,3 @@
+# Cross-module net partition connectivity file.
+# <SrcPart> <SnkPart> <Count>
+1 1 0

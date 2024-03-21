@@ -1,0 +1,5 @@
+module ixc_gf2_latch ixc_gf2_latch 1 3
+W W
+q q
+d d
+en en

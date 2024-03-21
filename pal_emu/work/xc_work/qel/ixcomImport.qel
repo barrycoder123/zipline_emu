@@ -1,0 +1,15 @@
+refLib qtref generic
+
+# design -rm
+importOption {mode full}
+importOption {special DELETE_LIBS_ON_FULL}
+importOption {library hdldb}
+importOption {V1995 ON}
+
+importOption {IXCOM_RTL ON}
+importOption {IXCOM_RTL ON}
+importOption {library hdldb}
+refLib qtref generic
+netlistFile {verilog xc_work/xc_va.ver}
+importOption {toplib hdldb} {topcell xcva_top}
+designImport 

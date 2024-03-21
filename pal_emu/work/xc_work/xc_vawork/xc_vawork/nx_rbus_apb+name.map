@@ -1,0 +1,7 @@
+DUMMY0 1_zy_simnet_rbus_addr_o_0_w$ 0 15
+DUMMY1 0_zy_simnet_rbus_wr_strb_o_1_w$
+DUMMY2 1_zy_simnet_rbus_wr_data_o_2_w$ 0 31
+DUMMY3 0_zy_simnet_rbus_rd_strb_o_3_w$
+DUMMY4 1_zy_simnet_apb_prdata_4_w$ 0 31
+DUMMY5 0_zy_simnet_apb_pready_5_w$
+DUMMY6 0_zy_simnet_apb_pslverr_6_w$

@@ -1,0 +1,24 @@
+U O V _zy_sva_fifo_entries_reached_DEPTH_1_ccheck
+U O V _zy_sva_fifo_entries_reached_DEPTH_1_cpass
+U O V _zy_sva_fifo_entries_reached_i_2_ccheck
+U O V _zy_sva_fifo_entries_reached_i_2_cpass
+U O V _zy_sva_fifo_entries_reached_i_3_ccheck
+U O V _zy_sva_fifo_entries_reached_i_3_cpass
+U O V _zy_sva_fifo_entries_reached_i_4_ccheck
+U O V _zy_sva_fifo_entries_reached_i_4_cpass
+U O V _zy_sva_fifo_entries_reached_i_5_ccheck
+U O V _zy_sva_fifo_entries_reached_i_5_cpass
+U O V _zy_sva_fifo_entries_reached_i_6_ccheck
+U O V _zy_sva_fifo_entries_reached_i_6_cpass
+V O S r_empty
+V O S r_full
+V O V r_used_slots SIZE=5
+V O V r_free_slots SIZE=5
+V O V r_rptr SIZE=5
+V O V r_wptr SIZE=5
+P O ixc_sample_logic_1_3 _zz_zy_sva_b5 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O ixc_sample_logic_1_3 _zz_zy_sva_b4 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O ixc_sample_logic_1_3 _zz_zy_sva_b3 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O ixc_sample_logic_1_3 _zz_zy_sva_b2 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O ixc_sample_logic_1_3 _zz_zy_sva_b1 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O ixc_sample_logic_1_3 _zz_zy_sva_b0 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3

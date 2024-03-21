@@ -1,0 +1,2 @@
+# part1 uses 1 domain.
+partitionAssign -add {part1 0.0}

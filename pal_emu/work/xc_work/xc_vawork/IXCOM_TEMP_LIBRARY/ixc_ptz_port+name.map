@@ -1,0 +1,10 @@
+DUMMY0 0xc_top.ptxBusy
+DUMMY1 0xc_top.ptxHoldEcm
+DUMMY3 0genblk1
+DUMMY5 3s2h 31 0   s2h_last 7 0 
+DUMMY6 0genblk1
+DUMMY8 3s2h_last *  s2h 63 0
+s2h_recTs_DUMMY0 0s2h_recTs
+s2h_en_DUMMY1 0s2h_en
+s2h_rptr_DUMMY2 0s2h_rptr
+sf_ptr_DUMMY3 0sf_ptr

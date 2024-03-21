@@ -1,0 +1,2 @@
+V O V axi4s_ib_out SIZE=83
+P O axi_channel_reg_slice u_axi_channel_reg_slice ./xc_work/xc_vawork/xc_vawork/axi_channel_reg_slice

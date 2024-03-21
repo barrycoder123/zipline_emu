@@ -1,0 +1,7 @@
+module ixc_del2clk ixc_del2clk 3 3
+INITP INITP
+PEDGE PEDGE
+TOGGLE TOGGLE
+clko clko
+delay delay
+en en

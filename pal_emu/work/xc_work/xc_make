@@ -1,0 +1,71 @@
+.NOTPARALLEL:
+IXC_DIR	= .
+XHOME	= /lan/cva_rel/ixcom23h1/23.03.131.s001/tools.lnx86
+XMVLOG_OPTIONS 	= -nowarn DLNCML -nowarn TMTPAR
+XMVHDL_OPTIONS 	= -nowarn DLNCML
+XMELAB_OPTIONS 	= -nowarn DLNCML -xmerror CUNOTB
+XMSIM_OPTIONS	=
+VAVLOG_OPTIONS	=  -RefLib qtref +ixcom  -Define USE_IXC_TIME 
+VAVHDL_OPTIONS	=  +ixcom 
+VAELAB_OPTIONS	= -DontStopOnError
+IXC_CCOM	= gcc
+IXC_CPPCOM	= g++
+HM_BITS	= 64
+HM_COPT	= -O
+
+HDLVAR		= -64bit -append_log -logfile $(IXC_DIR)/xc_work/xrun.log -cdslib $(IXC_DIR)/xc_work/cds.lib -hdlvar $(IXC_DIR)/xc_work/hdl.var
+VAELAB_TOP	= xcva_top
+VALIB_T		= -logfile $(IXC_DIR)/xc_work/va.log -valib $(IXC_DIR)/xc_work/va.lib  
+VALIB		= -logfile $(IXC_DIR)/xc_work/va.log -valib $(IXC_DIR)/xc_work/va.lib -F $(IXC_DIR)/xc_work/va_reflib
+VALIB_PAR		= -valib $(IXC_DIR)/xc_work/va.lib -F $(IXC_DIR)/xc_work/va_reflib
+VALIB_ELAB		= -logfile $(IXC_DIR)/xc_work/va.log -valib $(IXC_DIR)/xc_work/va.lib -F $(IXC_DIR)/xc_work/va_reflib_elab 
+
+xmelab : xmvlog
+	/bin/rm -rf xcelium.d/run*.d
+	xrun -elaborate $(XMELAB_OPTIONS) -f $(IXC_DIR)/xc_work/xrun.f  -logfile $(IXC_DIR)/xc_work/xmelab.log
+
+libixcg.so: $(IXC_DIR)/xc_work/xcdpi.c
+	$(IXC_CCOM)  -m64 -fPIC -O -shared -o $(IXC_DIR)/xc_work/libixcg.so $(IXC_DIR)/xc_work/xcdpi.c -I$(XHOME)/etc/ixcom  -I`ncroot`/tools/include 2> $(IXC_DIR)/xc_work/gcc_error.log
+
+xmvlog: xc_pkg xc_cnt libixcg.so
+	@/bin/rm -rf $(IXC_DIR)/xc_work/xrun.log
+	xmvlog $(HDLVAR) $(XMVLOG_OPTIONS) -WORK xc_ncwork  -sv -f $(IXC_DIR)/xc_work/v/SWModel_vlogAnalyzer-xc_ncwork-1-systemverilog.f
+	xmvlog $(HDLVAR) $(XMVLOG_OPTIONS) -WORK xc_ncwork  -sv -f $(IXC_DIR)/xc_work/v/SWModel_vlogAnalyzer-xc_ncwork-94-systemverilog.f
+	xmvlog $(HDLVAR) $(XMVLOG_OPTIONS) -WORK xc_ncwork  -sv -f $(IXC_DIR)/xc_work/v/SWModel_vlogAnalyzer-xc_ncwork-16-systemverilog.f
+	xmvlog $(HDLVAR) $(XMVLOG_OPTIONS) -WORK IXCOM_TEMP_LIBRARY  -f $(IXC_DIR)/xc_work/v/SWModel_vlogAnalyzer-IXCOM_TEMP_LIBRARY-v2001.f
+	xmvlog $(HDLVAR) $(XMVLOG_OPTIONS) -WORK IXCOM_TEMP_LIBRARY  -sv -f $(IXC_DIR)/xc_work/v/SWModel_vlogAnalyzer-IXCOM_TEMP_LIBRARY-15-systemverilog.f
+	xmvlog  -DEFINE IXCOM_UA -DEFINE USE_IXC_TIME -DEFINE USE_IXC_GFIFO  $(HDLVAR) $(XMVLOG_OPTIONS) -WORK xc_ncwork -sv $(IXC_DIR)/xc_work/v/xc_top.v -incdir $(XHOME)/etc/ixcom
+
+VAELAB_CMD = vaelab -append_log $(VALIB_ELAB) $(VAELAB_OPTIONS) -Work xc_ncwork -UCDBnoZZ -keepRtlSymbol -keepAllFlipFlop  -outputVlog $(IXC_DIR)/xc_work/xc_va.ver $(VAELAB_TOP) 
+
+vaelab: vavlog
+	$(VAELAB_CMD)
+
+vaelab_only:
+	$(VAELAB_CMD)
+
+vavlog: xcva_pkg xcva_cnt
+	vavlog $(VAVLOG_OPTIONS) -append_log $(VALIB) +ixcom -Work IXCOM_TEMP_LIBRARY -File $(IXC_DIR)/xc_work/v/vavlog-IXCOM_TEMP_LIBRARY-verilog.f 
+	vavlog $(VAVLOG_OPTIONS) -append_log $(VALIB) +ixcom -Work xc_ncwork -RefLib IXCOM_TEMP_LIBRARY -File $(IXC_DIR)/xc_work/v/vavlog-xc_ncwork-verilog.f 
+
+xc_pkg:
+	echo Compiling packages
+
+
+xcva_pkg:
+	echo Compiling packages
+
+
+siloti_pkg:
+	@echo Compiling packages
+
+xc_cnt:
+	echo Compiling contexts
+
+
+xcva_cnt:
+	echo Compiling contexts
+
+
+siloti_cnt:
+	@echo Compiling contexts

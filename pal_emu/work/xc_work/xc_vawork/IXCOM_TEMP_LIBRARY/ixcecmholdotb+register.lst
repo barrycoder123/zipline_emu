@@ -1,0 +1,4 @@
+U O V _zyL831_meState0
+V O V ctrlR SIZE=256
+M O MEM=1 PAK=2 ctrl[%s] LB=0 RB=3 SIZE=256
+P O ixc_uClkGen ukg ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_uclkgen

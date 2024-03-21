@@ -1,0 +1,2 @@
+M O MEM=0 PAK=2 depth_n.r_data[%s] LB=3 RB=0 SIZE=611
+P O nx_fifo_ctrl_xcm36 depth_n.fifo_ctrl ./xc_work/xc_vawork/xc_vawork/nx_fifo_ctrl_xcm36

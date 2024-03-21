@@ -1,0 +1,4 @@
+U O V _zyL45_iscTdL2 SIZE=10
+U O S clk
+P O axis_eclk _zziscEClk1_pu ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/axis_eclk
+P O ixc_1xbufsrc m1 ./xc_work/xc_vawork/xc_vawork/ixc_1xbufsrc

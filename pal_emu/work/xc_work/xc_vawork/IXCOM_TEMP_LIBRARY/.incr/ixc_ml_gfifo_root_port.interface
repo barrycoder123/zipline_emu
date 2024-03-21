@@ -1,0 +1,7 @@
+module ixc_ml_gfifo_root_port ixc_ml_gfifo_root_port 0 6
+tkout tkout
+tkin tkin
+RGFreq RGFreq
+CGFcbid CGFcbid
+CGFlen CGFlen
+CGFidata CGFidata

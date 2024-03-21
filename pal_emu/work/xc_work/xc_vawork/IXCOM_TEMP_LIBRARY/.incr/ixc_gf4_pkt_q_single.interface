@@ -1,0 +1,15 @@
+module ixc_gf4_pkt_q_single ixc_gf4_pkt_q_single 9 5
+WIDTH WIDTH
+DEPTH DEPTH
+SQ_WIDTH SQ_WIDTH
+IS_SV IS_SV
+ARCH ARCH
+GF2_1XCB GF2_1XCB
+NEEDS_ARGS_IN_FFS NEEDS_ARGS_IN_FFS
+ADDR_SIZE ADDR_SIZE
+TOTAL_WIDTH TOTAL_WIDTH
+pktEn pktEn
+pktData pktData
+pollEn pollEn
+hasData hasData
+pollReq pollReq

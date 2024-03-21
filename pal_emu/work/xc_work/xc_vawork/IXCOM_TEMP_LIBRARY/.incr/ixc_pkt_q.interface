@@ -1,0 +1,15 @@
+module ixc_pkt_q ixc_pkt_q 8 6
+WIDTH WIDTH
+DEPTH DEPTH
+IS_SV IS_SV
+ARCH ARCH
+GF2_1XCB GF2_1XCB
+ADDR_SIZE ADDR_SIZE
+BUF_SIZE BUF_SIZE
+LG_WIDTH LG_WIDTH
+pktEn pktEn
+pktData pktData
+cmdEn cmdEn
+cmdData cmdData
+pollReq pollReq
+pollEn pollEn

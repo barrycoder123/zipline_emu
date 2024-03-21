@@ -1,0 +1,21 @@
+DUMMY1 1_zy_simnet_stat_code_0_w$ 0 2
+DUMMY2 1_zy_simnet_stat_datawords_1_w$ 0 4
+DUMMY3 1_zy_simnet_stat_addr_2_w$ 0 4
+DUMMY4 1_zy_simnet_capability_lst_3_w$ 0 15
+DUMMY5 1_zy_simnet_capability_type_4_w$ 0 3
+DUMMY6 1_zy_simnet_rd_dat_5_w$ 0 63
+DUMMY7 1_zy_simnet_stat_code_7_w$ 0 2
+DUMMY8 1_zy_simnet_stat_datawords_8_w$ 0 4
+DUMMY9 1_zy_simnet_stat_addr_9_w$ 0 4
+DUMMY10 1_zy_simnet_capability_lst_11_w$ 0 15
+DUMMY11 1_zy_simnet_capability_type_12_w$ 0 3
+DUMMY12 1_zy_simnet_addr_limit_14_w$ 0 4
+DUMMY13 1_zy_simnet_rd_dat_16_w$ 0 63
+DUMMY14 0_zy_simnet_sw_cs_17_w$
+DUMMY15 0_zy_simnet_sw_we_19_w$
+DUMMY16 1_zy_simnet_sw_add_20_w$ 0 4
+DUMMY17 1_zy_simnet_sw_wdat_21_w$ 0 63
+DUMMY18 1_zy_simnet_sw_rdat_22_w$ 0 63
+DUMMY19 0_zy_simnet_reset_27_w$
+DUMMY20 0{}
+DUMMY21 1_zy_simnet_addr_limit_14_w$ 0 4

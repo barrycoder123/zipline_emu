@@ -1,0 +1,18 @@
+DEFINE XMVLOGOPTS
+DEFINE XRUNOPTS
+DEFINE XMELABOPTS
+DEFINE XMSIMOPTS
+DEFINE XMSIMRC
+DEFINE VIEW_MAP (.v => module, .sv => module, .v95 => module)
+DEFINE WORK xc_ncwork
+DEFINE XHOME /lan/cva_rel/ixcom23h1/23.03.131.s001/tools.lnx86
+DEFINE IXC_DIR /home/ibarry/Project-Zipline-master/pal_emu/work
+softinclude ../uxc_hdl.var
+DEFINE XRUNOPTS $XRUNOPTS 
+DEFINE XMVLOGOPTS $XMVLOGOPTS 
+DEFINE XMELABOPTS $XMELABOPTS -lib_binding -accwarn -afile $IXC_DIR/xc_work/ixc.af -loadpli1 libotb:otb_pli_boot:export -loadpli1 libxcrt:pli_boot:export  -covfile $IXC_DIR/xc_work/xc_top.ccf  -init_eb  -xm_delayed_update
+DEFINE XMSIMOPTS $XMSIMOPTS -nowarn CKPSDP
+DEFINE XMSIMOPTS $XMSIMOPTS -loadxc libuart.so -loadxc $IXC_DIR/xc_work/libixcg.so -sv_lib $IXC_DIR/xc_work/libixcg.so -loadxc $XHOME/lib/64bit/libotb.so -sv_lib $XHOME/lib/64bit/libxcrt.so  -DPI_XM_VPI
+DEFINE XMSIMOPTS $XMSIMOPTS +scgafap+off -nowarn WSEM2009 -nowarn DSEM2009
+DEFINE XMSIMOPTS $XMSIMOPTS  "+dut+cr_kme+my_clks+apb_xactor" "+gfifoDisp+kme_tb+apb_xactor"
+DEFINE XMSIMRC $XMSIMRC $XHOME/etc/ixcom/xc.tcl

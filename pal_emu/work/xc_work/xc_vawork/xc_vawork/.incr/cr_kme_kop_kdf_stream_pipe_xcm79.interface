@@ -1,0 +1,18 @@
+module cr_kme_kop_kdf_stream_pipe_xcm79 cr_kme_kop_kdf_stream_pipe_xcm79 7 10
+CKV_NUM_ENTRIES CKV_NUM_ENTRIES
+CKV_DATA_WIDTH CKV_DATA_WIDTH
+KIM_NUM_ENTRIES KIM_NUM_ENTRIES
+KIM_DATA_WIDTH KIM_DATA_WIDTH
+IN_DATA_SIZE_IN_BYTES IN_DATA_SIZE_IN_BYTES
+IN_DATA_SIZE_IN_BITS IN_DATA_SIZE_IN_BITS
+LOG_IN_DATA_SIZE LOG_IN_DATA_SIZE
+pipe_valid pipe_valid
+pipe_data pipe_data
+pipe_byte_count pipe_byte_count
+clk clk
+rst_n rst_n
+cmd_valid cmd_valid
+cmd_data_size cmd_data_size
+cmd_data cmd_data
+pipe_ack pipe_ack
+pipe_ack_num_bytes pipe_ack_num_bytes

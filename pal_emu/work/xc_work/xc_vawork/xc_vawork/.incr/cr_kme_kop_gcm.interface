@@ -1,0 +1,25 @@
+module cr_kme_kop_gcm cr_kme_kop_gcm 4 20
+CKV_NUM_ENTRIES CKV_NUM_ENTRIES
+CKV_DATA_WIDTH CKV_DATA_WIDTH
+KIM_NUM_ENTRIES KIM_NUM_ENTRIES
+KIM_DATA_WIDTH KIM_DATA_WIDTH
+set_gcm_tag_fail_int set_gcm_tag_fail_int
+gcm_cmdfifo_ack gcm_cmdfifo_ack
+gcm_upsizer_stall gcm_upsizer_stall
+gcm_tag_data_out_ack gcm_tag_data_out_ack
+gcm_kdf_valid gcm_kdf_valid
+gcm_kdf_eof gcm_kdf_eof
+gcm_kdf_data gcm_kdf_data
+gcm_status_data_in_valid gcm_status_data_in_valid
+gcm_status_data_in gcm_status_data_in
+clk clk
+rst_n rst_n
+cmdfifo_gcm_valid cmdfifo_gcm_valid
+cmdfifo_gcm_cmd cmdfifo_gcm_cmd
+upsizer_gcm_valid upsizer_gcm_valid
+upsizer_gcm_eof upsizer_gcm_eof
+upsizer_gcm_data upsizer_gcm_data
+gcm_tag_data_out gcm_tag_data_out
+gcm_tag_data_out_valid gcm_tag_data_out_valid
+kdf_gcm_stall kdf_gcm_stall
+gcm_status_data_in_stall gcm_status_data_in_stall

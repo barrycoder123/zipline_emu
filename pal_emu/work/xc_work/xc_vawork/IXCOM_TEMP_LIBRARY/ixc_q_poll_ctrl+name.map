@@ -1,0 +1,6 @@
+DUMMY0 0xc_top.hasGFIFO2
+DUMMY1 0xc_top.GFReset
+DUMMY2 0xc_top.GFAck
+DUMMY4 0pollState
+DUMMY5 0genblk2
+ackId_DUMMY0 0ackId

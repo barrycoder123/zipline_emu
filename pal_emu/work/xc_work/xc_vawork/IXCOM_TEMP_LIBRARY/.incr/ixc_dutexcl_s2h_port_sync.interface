@@ -1,0 +1,5 @@
+module ixc_dutexcl_s2h_port_sync ixc_dutexcl_s2h_port_sync 1 3
+WIDTH WIDTH
+hwTriggeredEvalToggle hwTriggeredEvalToggle
+swTriggeredEvalToggle swTriggeredEvalToggle
+swp swp

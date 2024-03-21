@@ -1,0 +1,15 @@
+module ixc_gf4_q_status ixc_gf4_q_status 10 4
+NUM_PKT_QS NUM_PKT_QS
+LEVEL LEVEL
+ROOT ROOT
+IS_SV IS_SV
+ARCH ARCH
+GF2_1XCB GF2_1XCB
+NUM_GRP_64 NUM_GRP_64
+DEPTH DEPTH
+ADDR_SIZE ADDR_SIZE
+PQ2QS_DLY PQ2QS_DLY
+status status
+pollEn pollEn
+statusOut statusOut
+pollReq pollReq

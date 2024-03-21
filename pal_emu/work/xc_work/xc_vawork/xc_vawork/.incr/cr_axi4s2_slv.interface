@@ -1,0 +1,20 @@
+module cr_axi4s2_slv cr_axi4s2_slv 5 14
+N_ENTRIES N_ENTRIES
+N_AFULL_VAL N_AFULL_VAL
+N_AEMPTY_VAL N_AEMPTY_VAL
+USE_RAM USE_RAM
+N_DATA_BITS N_DATA_BITS
+axi4s_ib_out axi4s_ib_out
+axi4s_slv_out axi4s_slv_out
+axi4s_slv_empty axi4s_slv_empty
+axi4s_slv_aempty axi4s_slv_aempty
+axi4s_slv_bimc_odat axi4s_slv_bimc_odat
+axi4s_slv_bimc_osync axi4s_slv_bimc_osync
+axi4s_slv_ro_uncorrectable_ecc_error axi4s_slv_ro_uncorrectable_ecc_error
+clk clk
+rst_n rst_n
+axi4s_ib_in axi4s_ib_in
+axi4s_slv_rd axi4s_slv_rd
+axi4s_slv_bimc_idat axi4s_slv_bimc_idat
+axi4s_slv_bimc_isync axi4s_slv_bimc_isync
+bimc_rst_n bimc_rst_n

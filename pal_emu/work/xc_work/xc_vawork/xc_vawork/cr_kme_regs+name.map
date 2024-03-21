@@ -1,0 +1,5 @@
+DUMMY0 0WAIT
+DUMMY1 0_zy_simnet_o_reg_written_0_w$
+DUMMY2 0_zy_simnet_o_reg_read_1_w$
+DUMMY3 1_zy_simnet_o_reg_addr_2_w$ 0 10
+DUMMY4 1_zy_simnet_f32_data_3_w$ 0 31

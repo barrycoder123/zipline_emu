@@ -1,0 +1,13 @@
+module ixc_dutexcl_h2s_port_sync ixc_dutexcl_h2s_port_sync 3 9
+MODE MODE
+BA_WIDTH BA_WIDTH
+NBA_WIDTH NBA_WIDTH
+h2s_trigger h2s_trigger
+triggerClk triggerClk
+swp_ba swp_ba
+swp_nba swp_nba
+reqSwFailSafe reqSwFailSafe
+h2sPortEvent h2sPortEvent
+runModeIsNBRUN runModeIsNBRUN
+currentRunModeWasNBRUN currentRunModeWasNBRUN
+gfifoReqAck gfifoReqAck

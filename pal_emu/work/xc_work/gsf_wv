@@ -1,0 +1,4 @@
+database -event -open -shm trace
+probe -create -depth all xc_top -allnets
+probe -create -depth all IXC_GFIFO -allnets
+

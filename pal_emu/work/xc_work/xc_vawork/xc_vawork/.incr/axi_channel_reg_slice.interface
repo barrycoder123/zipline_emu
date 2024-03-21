@@ -1,0 +1,13 @@
+module axi_channel_reg_slice axi_channel_reg_slice 4 8
+PAYLD_WIDTH PAYLD_WIDTH
+HNDSHK_MODE HNDSHK_MODE
+BITS_PER_CHUNK BITS_PER_CHUNK
+CHUNKS CHUNKS
+ready_src ready_src
+valid_dst valid_dst
+payload_dst payload_dst
+aclk aclk
+aresetn aresetn
+valid_src valid_src
+payload_src payload_src
+ready_dst ready_dst

@@ -1,0 +1,16 @@
+module ixc_q_status ixc_q_status 10 5
+NUM_QS NUM_QS
+ROOT ROOT
+MAX_MEM_PORTS MAX_MEM_PORTS
+IS_SV IS_SV
+ARCH ARCH
+N3 N3
+SBLK SBLK
+LG_SBLK LG_SBLK
+BUF_SIZE BUF_SIZE
+IS_PTM IS_PTM
+Qwptr Qwptr
+pollQ pollQ
+cqBusy cqBusy
+qsBusy qsBusy
+nrqsBusy nrqsBusy

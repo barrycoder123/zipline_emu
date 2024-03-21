@@ -1,0 +1,5 @@
+module ixc_rec_ts ixc_rec_ts 0 4
+recTs recTs
+ecmTs ecmTs
+tbSync tbSync
+recAck recAck

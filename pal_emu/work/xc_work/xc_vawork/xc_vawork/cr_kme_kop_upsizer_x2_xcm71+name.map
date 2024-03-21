@@ -1,0 +1,7 @@
+DUMMY0 0label
+DUMMY1 0label
+DUMMY2 0_zy_simnet_upsizer_in_stall_0_w$
+DUMMY3 0_zy_simnet_upsizer_out_valid_1_w$
+DUMMY4 0_zy_simnet_upsizer_out_eof_2_w$
+DUMMY5 1_zy_simnet_upsizer_out_data_3_w$ 0 255
+DUMMY6 0buffer

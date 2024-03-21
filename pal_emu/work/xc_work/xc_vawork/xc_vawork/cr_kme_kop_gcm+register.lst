@@ -1,0 +1,8 @@
+V O V h_value SIZE=128
+V O V beat_num SIZE=2
+V O V iv_counter SIZE=128
+V O V auth_tag SIZE=128
+V O S combo_dek512
+V O V cur_state SIZE=3
+P O AesSecIStub AesSecI ./xc_work/xc_vawork/xc_vawork/aessecistub
+P O cr_kme_fifo_xcm55 bypass_fifo ./xc_work/xc_vawork/xc_vawork/cr_kme_fifo_xcm55

@@ -1,0 +1,4 @@
+* IO_TECHNOLOGY
+* <cable_location> <io_technology> <interfaceType>
+* PRIMARY I/O TIMING
+* <cable_location>.<pin> <mode> <tif> <signal name>

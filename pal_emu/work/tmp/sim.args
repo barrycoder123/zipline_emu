@@ -1,0 +1,9 @@
+-log
+tmp/xrun.log
+-nokey
+-tcl
+-loadvpisim
+libncrun:register_systfs
+-input
+"@source /lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/etc/qel/xmrun.qel"
++xelog+xeDebug.log

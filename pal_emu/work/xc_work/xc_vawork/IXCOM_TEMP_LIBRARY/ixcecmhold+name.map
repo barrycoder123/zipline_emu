@@ -1,0 +1,16 @@
+DUMMY0 0xcva_top.xc_top.ptxStop
+DUMMY1 0xcva_top.xc_top.evalOnC
+DUMMY2 0xcva_top.xc_top.ecmOnD
+DUMMY3 0xcva_top.xc_top.ecmSync
+DUMMY4 0xcva_top.xc_top.holdEcmTb
+DUMMY5 1xcva_top.xc_top.simTime 63 0
+DUMMY6 0xcva_top.xc_top.ecmHoldBusy
+DUMMY7 0xcva_top.xc_top.sdlStopRply
+DUMMY9 0@_zyL692_meSwitch0._zyL692_meEn0
+DUMMY10 0@_zyL739_meSwitch1._zyL739_meEn1
+ecmTs_DUMMY0 0ecmTs
+hc_DUMMY1 0hc
+hs_DUMMY2 0hs
+newCtrl_DUMMY3 0newCtrl
+holdEcmD_DUMMY4 0holdEcmD
+syncId_DUMMY5 0syncId

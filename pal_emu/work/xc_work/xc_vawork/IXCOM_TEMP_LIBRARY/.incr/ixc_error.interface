@@ -1,0 +1,4 @@
+module ixc_error ixc_error 2 1
+SIZE SIZE
+UCLK_COND UCLK_COND
+errCond errCond

@@ -1,0 +1,24 @@
+module nx_ram_1rw_xcm109 nx_ram_1rw_xcm109 5 18
+WIDTH WIDTH
+BWEWIDTH BWEWIDTH
+DEPTH DEPTH
+SPECIALIZE SPECIALIZE
+LATCH LATCH
+clk clk
+rst_n rst_n
+ovstb ovstb
+lvm lvm
+mlvm mlvm
+mrdten mrdten
+bimc_rst_n bimc_rst_n
+bimc_isync bimc_isync
+bimc_idat bimc_idat
+bimc_odat bimc_odat
+bimc_osync bimc_osync
+ro_uncorrectable_ecc_error ro_uncorrectable_ecc_error
+bwe bwe
+din din
+add add
+cs cs
+we we
+dout dout

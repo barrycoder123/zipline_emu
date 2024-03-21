@@ -1,0 +1,6 @@
+module ixc_sample_logic ixc_sample_logic 3 2
+WIDTH WIDTH
+RD_TYPE RD_TYPE
+StateType StateType
+sv sv
+v v

@@ -1,0 +1,14 @@
+module ixc_pkt_q_single_buf ixc_pkt_q_single_buf 6 7
+WIDTH WIDTH
+ADDR_SIZE ADDR_SIZE
+ARCH ARCH
+NUM_WORDS_PER_FCLK NUM_WORDS_PER_FCLK
+LOG_NUM_WORDS_PER_FCLK LOG_NUM_WORDS_PER_FCLK
+BUF_SIZE BUF_SIZE
+wen wen
+wptrP wptrP
+data data
+pushEn pushEn
+pushAddr pushAddr
+pushLen pushLen
+pushId pushId

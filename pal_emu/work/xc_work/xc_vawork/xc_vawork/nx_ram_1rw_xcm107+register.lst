@@ -1,0 +1,2 @@
+V O V g.dat_r SIZE=38
+M O MEM=0 PAK=2 g.mem[%s] LB=0 RB=16383 SIZE=38

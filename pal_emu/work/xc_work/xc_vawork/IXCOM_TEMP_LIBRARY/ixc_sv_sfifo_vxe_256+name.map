@@ -1,0 +1,10 @@
+DUMMY0 0xc_top.hasSFIFO
+DUMMY1 0xc_top.GFReset
+DUMMY2 0xc_top.svAsyncCall
+DUMMY3 0xc_top.GFLock1
+DUMMY4 0xc_top.SFIFOLock2
+DUMMY6 1_zy_simnet_rdCnt_0_w$ 0 63
+DUMMY7 0tId
+DUMMY8 0vlen
+DUMMY9 0odly
+DUMMY10 0vmode

@@ -1,0 +1,26 @@
+module ixc_gfifo_port ixc_gfifo_port 9 16
+DW DW
+SHARE SHARE
+USETIME USETIME
+BUFL BUFL
+IS_SV_CHANNEL IS_SV_CHANNEL
+BW BW
+XW XW
+SEL1 SEL1
+LBADW LBADW
+tkout tkout
+tkin tkin
+ireq ireq
+cbid cbid
+len len
+idata idata
+CGFtsReq CGFtsReq
+CGFcbid CGFcbid
+CGFlen CGFlen
+CGFidata CGFidata
+CGFfull CGFfull
+CLBreq CLBreq
+CLBrd CLBrd
+CLBwr CLBwr
+CLBfull CLBfull
+Rtkin Rtkin

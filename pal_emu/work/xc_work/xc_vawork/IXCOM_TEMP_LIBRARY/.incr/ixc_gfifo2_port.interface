@@ -1,0 +1,11 @@
+module ixc_gfifo2_port ixc_gfifo2_port 4 6
+DATA_WIDTH DATA_WIDTH
+SHARE_FLAG SHARE_FLAG
+PACKET_WIDTH PACKET_WIDTH
+PACKET_WORDS PACKET_WORDS
+req req
+cbid cbid
+len len
+data data
+pktEn pktEn
+pktData pktData

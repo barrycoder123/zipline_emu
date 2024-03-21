@@ -1,0 +1,7 @@
+s1(19Mar2024:12:25:07):  xrun -elaborate -nowarn DLNCML -xmerror CUNOTB -f ./xc_work/xrun.f -logfile ./xc_work/xmelab.log 
+s2(19Mar2024:12:29:10):  xrun -elaborate -nowarn DLNCML -xmerror CUNOTB -f ./xc_work/xrun.f -logfile ./xc_work/xmelab.log 
+s3(19Mar2024:12:32:06):  xrun -elaborate -nowarn DLNCML -xmerror CUNOTB -f ./xc_work/xrun.f -logfile ./xc_work/xmelab.log 
+s4(19Mar2024:12:37:29):  xrun -elaborate -nowarn DLNCML -xmerror CUNOTB -f ./xc_work/xrun.f -logfile ./xc_work/xmelab.log 
+s5(19Mar2024:14:31:52):  xrun -elaborate -nowarn DLNCML -xmerror CUNOTB -f ./xc_work/xrun.f -logfile ./xc_work/xmelab.log 
+s6(19Mar2024:15:09:18):  xrun -elaborate -nowarn DLNCML -xmerror CUNOTB -f ./xc_work/xrun.f -logfile ./xc_work/xmelab.log 
+s7(19Mar2024:15:21:49):  xrun -elaborate -nowarn DLNCML -xmerror CUNOTB -f ./xc_work/xrun.f -logfile ./xc_work/xmelab.log 

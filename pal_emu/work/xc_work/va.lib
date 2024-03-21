@@ -1,0 +1,7 @@
+set IXC_DIR .
+DEFINE xc_ncwork $IXC_DIR/xc_work/xc_vawork/xc_vawork
+ DEFINE WORK $IXC_DIR/xc_work/xc_vawork/xc_vawork
+DEFINE AXIS $IXC_DIR/xc_work/xc_vawork/AXIS
+DEFINE NCUTILS $IXC_DIR/xc_work/xc_vawork/NCUTILS
+DEFINE XMUTILS $IXC_DIR/xc_work/xc_vawork/XMUTILS
+DEFINE IXCOM_TEMP_LIBRARY $IXC_DIR/xc_work/xc_vawork/IXCOM_TEMP_LIBRARY

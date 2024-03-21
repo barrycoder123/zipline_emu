@@ -1,0 +1,6 @@
+V O V full.r_payload[%s] LB=1 RB=0 SIZE=82
+V O S full.r_enable
+V O S full.r_empty
+V O S full.r_full
+V O V full.r_rptr SIZE=11
+V O S full.r_wptr

@@ -1,0 +1,44 @@
+kme_tb.apb_xactor
+ 0 0 0
+kme_tb.apb_xactor
+ 0 1 1
+kme_tb.kme_dut.u_cr_kme_core.kme_is_core.txc_axi_intf.u_cr_fifo_wrap2.ram_fifo.u_nx_fifo_ram_1r1w.fifo_ctrl
+ 1 0 0
+kme_tb.kme_dut.u_cr_kme_core.kme_is_core.cceip_encrypt_kop_fifo.ram_fifo.ram_fifo.u_nx_fifo_ram_1r1w.fifo_ctrl
+ 1 0 1
+kme_tb.kme_dut.u_cr_kme_core.kme_is_core.cceip_validate_kop_fifo.ram_fifo.ram_fifo.u_nx_fifo_ram_1r1w.fifo_ctrl
+ 1 0 2
+kme_tb.kme_dut.u_cr_kme_core.kme_is_core.cceip0_key_tlv_rsm.u_cr_tlvp2_rsm.u_cr_fifo_wrap2_tob.ram_fifo.u_nx_fifo_ram_1r1w.fifo_ctrl
+ 1 0 3
+kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip0.u_nx_credit_manager
+ 1 0 4
+kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip0.u_nx_credit_manager
+ 1 1 5
+kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip1.u_nx_credit_manager
+ 1 0 6
+kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip1.u_nx_credit_manager
+ 1 1 7
+kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip2.u_nx_credit_manager
+ 1 0 8
+kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip2.u_nx_credit_manager
+ 1 1 9
+kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip3.u_nx_credit_manager
+ 1 0 10
+kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip3.u_nx_credit_manager
+ 1 1 11
+kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip0.u_nx_credit_manager
+ 1 0 12
+kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip0.u_nx_credit_manager
+ 1 1 13
+kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip1.u_nx_credit_manager
+ 1 0 14
+kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip1.u_nx_credit_manager
+ 1 1 15
+kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip2.u_nx_credit_manager
+ 1 0 16
+kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip2.u_nx_credit_manager
+ 1 1 17
+kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip3.u_nx_credit_manager
+ 1 0 18
+kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip3.u_nx_credit_manager
+ 1 1 19

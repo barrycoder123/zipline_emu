@@ -1,0 +1,16 @@
+module cr_kme_fifo_xcm50 cr_kme_fifo_xcm50 4 11
+DATA_SIZE DATA_SIZE
+FIFO_DEPTH FIFO_DEPTH
+OVERRIDE_EN OVERRIDE_EN
+STALL_AT STALL_AT
+fifo_in_stall fifo_in_stall
+fifo_out fifo_out
+fifo_out_valid fifo_out_valid
+fifo_overflow fifo_overflow
+fifo_underflow fifo_underflow
+clk clk
+rst_n rst_n
+fifo_in fifo_in
+fifo_in_valid fifo_in_valid
+fifo_out_ack fifo_out_ack
+fifo_in_stall_override fifo_in_stall_override

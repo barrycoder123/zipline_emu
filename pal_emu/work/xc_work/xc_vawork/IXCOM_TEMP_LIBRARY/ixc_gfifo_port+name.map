@@ -1,0 +1,27 @@
+DUMMY0 0xc_top.GFLock2
+DUMMY1 0xc_top.GFLBfull
+DUMMY2 0IXC_GFIFO.O.O.GFtsReq
+DUMMY3 0IXC_GFIFO.O.O.GFfull
+DUMMY4 0IXC_GFIFO.O.O.LBreq
+DUMMY5 1IXC_GFIFO.O.O.LBrd 3 0
+DUMMY6 1IXC_GFIFO.O.O.LBwr 3 0
+DUMMY7 0IXC_GFIFO.O.O.LBfull
+DUMMY9 0genblk1
+DUMMY11 3oreq *  odata *
+DUMMY12 0genblk2
+DUMMY14 3oreq *  odata *  olen *
+DUMMY15 0genblk2
+DUMMY17 3oreq *  odata *  ocbid *
+DUMMY18 0genblk2
+DUMMY20 3oreq *  odata *  ocbid *  olen *
+CGFfull_DUMMY0 0CGFfull
+CLBrd_DUMMY1 0CLBrd
+CLBwr_DUMMY2 0CLBwr
+CLBfull_DUMMY3 0CLBfull
+xdata_DUMMY4 0xdata
+xlen_DUMMY5 0xlen
+sel_DUMMY6 0sel
+_zzLB_DUMMY7 0_zzLB
+_zzLB_DUMMY8 0_zzLB
+_zzLB_DUMMY9 0_zzLB
+_zzLB_DUMMY10 0_zzLB

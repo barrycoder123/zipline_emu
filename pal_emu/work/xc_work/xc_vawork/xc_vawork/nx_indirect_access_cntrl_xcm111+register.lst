@@ -1,0 +1,15 @@
+V O V stat_code SIZE=3
+V O V rd_dat SIZE=64
+V O S init_r
+V O V inc_r
+V O S init_inc_r
+V O S sw_cs_r
+V O S sw_ce_r
+V O S rst_r
+V O S rst_or_ini_r
+V O V rst_addr_r SIZE=5
+V O S sw_we_r
+V O V state_r SIZE=4
+V O V timer_r
+V O S sim_tmo_r
+P O ixc_context_read_6 _zzixc_ctxrd_0 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_context_read_6

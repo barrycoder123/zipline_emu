@@ -1,0 +1,8 @@
+P O kme_tb kme_tb ./xc_work/xc_vawork/xc_vawork/kme_tb
+P O my_clks my_clks ./xc_work/xc_vawork/xc_vawork/my_clks
+P O IXC_GFIFO IXC_GFIFO ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_gfifo
+P O ixc_time ixc_time ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_time
+P O _ixc_isc _ixc_isc ./xc_work/xc_vawork/xc_vawork/_ixc_isc
+P O xc_top_1 xc_top ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/xc_top_1
+P O ASSERTION ASSERTION ./xc_work/xc_vawork/xc_vawork/assertion
+P O Q_HDL_ROOT Q_HDL_ROOT ./xc_work/xc_vawork/xc_vawork/q_hdl_root

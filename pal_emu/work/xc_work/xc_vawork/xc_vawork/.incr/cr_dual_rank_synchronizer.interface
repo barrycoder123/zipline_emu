@@ -1,0 +1,7 @@
+module cr_dual_rank_synchronizer cr_dual_rank_synchronizer 2 4
+WIDTH WIDTH
+RESET_VAL RESET_VAL
+clk clk
+rst_n rst_n
+din din
+dout dout

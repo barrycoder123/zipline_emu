@@ -1,0 +1,4 @@
+V O V sw_rdat SIZE=64
+U O V _zyixc_ctx_rdata_29[%s] LB=0 RB=31 SIZE=64
+P O nx_indirect_access_cntrl_xcm111 u_cntrl ./xc_work/xc_vawork/xc_vawork/nx_indirect_access_cntrl_xcm111
+P O ixc_context_read_2048 _zzixc_ctxrd_0 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_context_read_2048

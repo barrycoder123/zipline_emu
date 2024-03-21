@@ -1,0 +1,7 @@
+module ixc_q_poll_ctrl ixc_q_poll_ctrl 3 3
+IS_SV IS_SV
+ARCH ARCH
+IS_PTM IS_PTM
+pollReq pollReq
+pollEn pollEn
+reqId0 reqId0

@@ -1,0 +1,62 @@
+U O V _zy_sva_disable_unenc_keys_1_ccheck
+U O V _zy_sva_disable_unenc_keys_1_cpass
+U O V _zy_sva_enable_unenc_keys_2_ccheck
+U O V _zy_sva_enable_unenc_keys_2_cpass
+U O V _zy_sva_disable_unenc_keys_3_ccheck
+U O V _zy_sva_disable_unenc_keys_3_cpass
+U O V _zy_sva_enable_unenc_keys_4_ccheck
+U O V _zy_sva_enable_unenc_keys_4_cpass
+U O V _zy_sva_disable_unenc_keys_5_ccheck
+U O V _zy_sva_disable_unenc_keys_5_cpass
+U O V _zy_sva_enable_unenc_keys_6_ccheck
+U O V _zy_sva_enable_unenc_keys_6_cpass
+U O V _zy_sva_disable_unenc_keys_7_ccheck
+U O V _zy_sva_disable_unenc_keys_7_cpass
+U O V _zy_sva_enable_unenc_keys_8_ccheck
+U O V _zy_sva_enable_unenc_keys_8_cpass
+U O V _zy_sva_disable_unenc_keys_9_ccheck
+U O V _zy_sva_disable_unenc_keys_9_cpass
+U O V _zy_sva_enable_unenc_keys_10_ccheck
+U O V _zy_sva_enable_unenc_keys_10_cpass
+V O V cur_state SIZE=3
+V O S kim_rd_q
+V O V kim_errors_q SIZE=8
+V O S stat_req_with_expired_seed
+V O S stat_aux_key_type_0
+V O S stat_aux_key_type_1
+V O S stat_aux_key_type_2
+V O S stat_aux_key_type_3
+V O S stat_aux_key_type_4
+V O S stat_aux_key_type_5
+V O S stat_aux_key_type_6
+V O S stat_aux_key_type_7
+V O S stat_aux_key_type_8
+V O S stat_aux_key_type_9
+V O S stat_aux_key_type_10
+V O S stat_aux_key_type_11
+V O S stat_aux_key_type_12
+V O S stat_aux_key_type_13
+V O S stat_aux_cmd_with_vf_pf_fail
+V O V dek_ref_q SIZE=14
+V O V dak_ref_q SIZE=14
+V O S dek_is_kdf_key_q
+V O S dak_is_kdf_key_q
+V O V aux_key_type SIZE=6
+V O S _zyL438_tfiRv4
+V O S _zyL444_tfiRv5
+V O S _zyL468_tfiRv6
+V O S _zyL473_tfiRv7
+V O V dek_kim_entry_q SIZE=38
+V O V dak_kim_entry_q SIZE=38
+V O S dek_kim_mbe_q
+V O S dak_kim_mbe_q
+P O ixc_sample_logic_1_3 _zz_zy_sva_b9 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O ixc_sample_logic_1_3 _zz_zy_sva_b8 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O ixc_sample_logic_1_3 _zz_zy_sva_b7 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O ixc_sample_logic_1_3 _zz_zy_sva_b6 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O ixc_sample_logic_1_3 _zz_zy_sva_b5 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O ixc_sample_logic_1_3 _zz_zy_sva_b4 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O ixc_sample_logic_1_3 _zz_zy_sva_b3 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O ixc_sample_logic_1_3 _zz_zy_sva_b2 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O ixc_sample_logic_1_3 _zz_zy_sva_b1 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O ixc_sample_logic_1_3 _zz_zy_sva_b0 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3

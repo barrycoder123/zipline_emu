@@ -1,0 +1,6 @@
+DUMMY0 0_zy_simnet_bimc_ecc_error_0_w$
+DUMMY1 0_zy_simnet_bimc_interrupt_1_w$
+DUMMY2 0_zy_simnet_bimc_odat_2_w$
+DUMMY3 0_zy_simnet_bimc_osync_3_w$
+DUMMY4 0_zy_simnet_bimc_rst_n_4_w$
+DUMMY5 0{}

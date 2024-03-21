@@ -1,0 +1,16 @@
+# *************************************************************************
+#
+# Copyright © Microsoft Corporation. All rights reserved.
+# Copyright © Broadcom Inc. All rights reserved.
+# Licensed under the MIT License.
+#
+# *************************************************************************
+
+-f $RTL_ROOT/cr_kme/cr_kme.vlist
+
++incdir+$DV_ROOT/agents/apb
++incdir+$DV_ROOT/CCE_64/tb_top
+$DV_ROOT/agents/apb/apb_xactor.v
+#$IXCOM_HOME/share/etc/ixcom/IXCclkgen.sv
+#my_clks.sv
+$DV_ROOT/KME/run/kme_tb.sv

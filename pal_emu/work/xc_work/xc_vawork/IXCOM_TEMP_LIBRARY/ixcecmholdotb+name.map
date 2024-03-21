@@ -1,0 +1,10 @@
+DUMMY0 0xcva_top.xc_top.ptxStop
+DUMMY1 0xcva_top.xc_top.evalOnC
+DUMMY2 0xcva_top.xc_top.ecmOnD
+DUMMY3 0xcva_top.xc_top.holdEcmTb
+DUMMY4 1xcva_top.xc_top.simTime 63 0
+DUMMY5 0xcva_top.xc_top.ecmSync
+DUMMY6 0xcva_top.xc_top.ecmHoldBusy
+DUMMY8 0@_zyL831_meSwitch0._zyL831_meEn0
+ecmTs_DUMMY0 0ecmTs
+newCtrl_DUMMY1 0newCtrl

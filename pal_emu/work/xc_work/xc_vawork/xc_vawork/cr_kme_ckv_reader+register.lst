@@ -1,0 +1,33 @@
+V O V tlv_word9 SIZE=64
+V O V tlv_word8 SIZE=64
+V O V cur_state
+V O S report_kme_error
+V O V ckv_read_num SIZE=4
+V O V ckv_addr SIZE=15
+V O S ktype_is_aux_key_only
+V O S ckv_rd_q
+U O V _zy_sva_brcm_dak_key_8_cpass
+U O V _zy_sva_brcm_dak_key_8_ccheck
+U O V _zy_sva_brcm_dek_key_7_cpass
+U O V _zy_sva_brcm_dek_key_7_ccheck
+U O V _zy_sva_brcm_dak_key_6_cpass
+U O V _zy_sva_brcm_dak_key_6_ccheck
+U O V _zy_sva_brcm_dek_key_5_cpass
+U O V _zy_sva_brcm_dek_key_5_ccheck
+U O V _zy_sva_brcm_dak_key_4_cpass
+U O V _zy_sva_brcm_dak_key_4_ccheck
+U O V _zy_sva_brcm_dek_key_3_cpass
+U O V _zy_sva_brcm_dek_key_3_ccheck
+U O V _zy_sva_brcm_dak_key_2_cpass
+U O V _zy_sva_brcm_dak_key_2_ccheck
+U O V _zy_sva_brcm_dek_key_1_cpass
+U O V _zy_sva_brcm_dek_key_1_ccheck
+P O ixc_sample_logic_1_3 _zz_zy_sva_b0 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O ixc_sample_logic_1_3 _zz_zy_sva_b1 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O ixc_sample_logic_1_3 _zz_zy_sva_b2 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O ixc_sample_logic_1_3 _zz_zy_sva_b3 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O ixc_sample_logic_1_3 _zz_zy_sva_b4 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O ixc_sample_logic_1_3 _zz_zy_sva_b5 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O ixc_sample_logic_1_3 _zz_zy_sva_b6 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O ixc_sample_logic_1_3 _zz_zy_sva_b7 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O cr_kme_fifo_xcm56 ckv_data_fifo ./xc_work/xc_vawork/xc_vawork/cr_kme_fifo_xcm56

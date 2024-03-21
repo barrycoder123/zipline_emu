@@ -1,0 +1,6 @@
+module ixc_gfifo_pg ixc_gfifo_pg 1 4
+R R
+so so
+ci ci
+co co
+si si

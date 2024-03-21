@@ -1,0 +1,20 @@
+module cr_kme_kop_keybuilder cr_kme_kop_keybuilder 4 15
+CKV_NUM_ENTRIES CKV_NUM_ENTRIES
+CKV_DATA_WIDTH CKV_DATA_WIDTH
+KIM_NUM_ENTRIES KIM_NUM_ENTRIES
+KIM_DATA_WIDTH KIM_DATA_WIDTH
+tlv_sb_data_out_ack tlv_sb_data_out_ack
+keybuilder_kdf_stall keybuilder_kdf_stall
+gcm_status_data_out_ack gcm_status_data_out_ack
+key_tlv_ob_wr key_tlv_ob_wr
+key_tlv_ob_tlv key_tlv_ob_tlv
+clk clk
+rst_n rst_n
+tlv_sb_data_out tlv_sb_data_out
+tlv_sb_data_out_valid tlv_sb_data_out_valid
+kdf_keybuilder_data kdf_keybuilder_data
+kdf_keybuilder_valid kdf_keybuilder_valid
+gcm_status_data_out_valid gcm_status_data_out_valid
+gcm_status_data_out gcm_status_data_out
+key_tlv_ob_full key_tlv_ob_full
+key_tlv_ob_afull key_tlv_ob_afull

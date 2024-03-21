@@ -1,0 +1,19 @@
+module ixc_mevClk ixc_mevClk 10 8
+WIDTH WIDTH
+LOOP DUMMY3
+HOLD HOLD
+IS_EDGED IS_EDGED
+POLARITY POLARITY
+DS DS
+DM DM
+EVOUT EVOUT
+WAIT_EV WAIT_EV
+DMS DMS
+xclk xclk
+clks clks
+ens ens
+loop DUMMY5
+hold DUMMY7
+active active
+busy busy
+bwOn bwOn

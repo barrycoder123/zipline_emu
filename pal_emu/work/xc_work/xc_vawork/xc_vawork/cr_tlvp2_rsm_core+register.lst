@@ -1,0 +1,12 @@
+V O S tlvp_rsm_usr_insert
+V O V tlvp_rsm_last_typen SIZE=8
+V O V tlvp_rsm_nxt_ordern SIZE=13
+V O V tlvp_rsm_ob_datain SIZE=106
+V O S tlvp_rsm_ob_wen
+V O V current_state SIZE=32
+V O V tlvp_rsm_pt_tlv_ordern SIZE=13
+V O V tlvp_rsm_usr_ob_tlv_ordern SIZE=13
+V O V tlvp_rsm_pt_tlv SIZE=106
+V O S tlvp_rsm_pt_valid
+V O V tlvp_rsm_usr_ob_tlv SIZE=106
+V O S tlvp_rsm_usr_ob_valid

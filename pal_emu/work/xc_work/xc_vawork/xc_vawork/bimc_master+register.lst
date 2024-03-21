@@ -1,0 +1,77 @@
+V O S bimc_cmd2_sent_din
+V O V bimc_parity_error_cnt SIZE=32
+V O V bimc_ecc_correctable_error_cnt SIZE=32
+V O V bimc_ecc_uncorrectable_error_cnt SIZE=32
+V O S bimc_cmd2_sent
+V O S bimc_eccpar_debug_sent
+V O V poll_ecc_par_timer SIZE=26
+V O S auto_poll_ecc_par_ev
+V O V cputx_dat SIZE=32
+V O V cputx_addr SIZE=16
+V O V cputx_mem SIZE=12
+V O V cputx_op SIZE=8
+V O V cputx_type SIZE=4
+V O V r_reg_send SIZE=73
+V O S cpu_transmit_ev
+V O S eccpar_debug_ev
+V O S mem_wr_init_ev
+V O S mem_wr_init_dly
+V O S cmd_cnt
+V O V sync_cnt SIZE=7
+V O V tstate SIZE=4
+V O V r_bimc_cmd2_write_notify_ev SIZE=3
+V O S bimc_cmd2_send
+V O S bimc_eccpar_debug_sent_din
+V O V r_bimc_eccpar_debug_write_notify_ev SIZE=3
+V O S bimc_eccpar_debug_send
+V O S bimc_rst_n
+V O S bimc_osync
+V O S bimc_odat
+V O S bimc_interrupt
+V O S bimc_ecc_error
+V O S bimc_global_config_bimc_mem_init_done_din
+V O V rstate SIZE=4
+V O V rx_chk SIZE=2
+V O S rx_frm
+V O S rx_resp
+V O V rx_dat SIZE=32
+V O V rx_addr SIZE=16
+V O V rx_mem SIZE=12
+V O V rx_op SIZE=8
+V O V rx_type SIZE=4
+V O V bimc_dbgcmd2_opcode_din SIZE=8
+V O V bimc_dbgcmd1_memtype_din SIZE=4
+V O V bimc_dbgcmd1_mem_din SIZE=12
+V O V bimc_dbgcmd1_addr_din SIZE=16
+V O V bimc_dbgcmd0_data_din SIZE=32
+V O S bimc_dbgcmd2_rxflag_din
+V O V bimc_rxcmd2_opcode_din SIZE=8
+V O V bimc_rxcmd1_memtype_din SIZE=4
+V O V bimc_rxcmd1_mem_din SIZE=12
+V O V bimc_rxcmd1_addr_din SIZE=16
+V O V bimc_rxcmd0_data_din SIZE=32
+V O S bimc_rxcmd2_rxflag_din
+V O V bimc_pollrsp2_data_din SIZE=8
+V O V bimc_pollrsp1_data_din SIZE=32
+V O V bimc_pollrsp0_data_din SIZE=32
+V O S bimc_pollrsp2_rxflag_din
+V O V bimc_rxrsp2_data_din SIZE=8
+V O V bimc_rxrsp1_data_din SIZE=32
+V O V bimc_rxrsp0_data_din SIZE=32
+V O S bimc_rxrsp2_rxflag_din
+V O V number_of_memories SIZE=12
+V O S bimc_parity_error_cnt_parity_errors_en
+V O S bimc_ecc_correctable_error_cnt_correctable_ecc_en
+V O S bimc_ecc_uncorrectable_error_cnt_uncorrectable_ecc_en
+V O S bimc_monitor_unanswered_read_din
+V O S bimc_monitor_rcv_invalid_opcode_din
+V O S bimc_monitor_bimc_chain_rcv_error_din
+V O S bimc_monitor_parity_error_din
+V O S bimc_monitor_correctable_ecc_error_din
+V O S bimc_monitor_uncorrectable_ecc_error_din
+V O V bm_cnt SIZE=7
+V O S bm_resp
+V O S bimc_chk
+V O S bimc_frm
+V O V bimc_dat SIZE=72
+V O V bimc_rdat SIZE=72

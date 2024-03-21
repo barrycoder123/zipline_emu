@@ -1,0 +1,4 @@
+V O S _mem_ren
+V O V _mem_raddr SIZE=11
+P O nx_fifo_ctrl_ram_1r1w_xcm16 fifo_ctrl ./xc_work/xc_vawork/xc_vawork/nx_fifo_ctrl_ram_1r1w_xcm16
+P O nx_ram_1r1w_xcm14 ram ./xc_work/xc_vawork/xc_vawork/nx_ram_1r1w_xcm14

@@ -1,0 +1,7 @@
+DUMMY0 0_zy_simnet_bimc_odat_0_w$
+DUMMY1 0_zy_simnet_bimc_osync_1_w$
+DUMMY2 0_zy_simnet_ro_uncorrectable_ecc_error_2_w$
+DUMMY3 0_zy_simnet_underflow_3_w$
+DUMMY4 0_zy_simnet_overflow_4_w$
+DUMMY5 1_zy_simnet_used_slots_5_w$ 0 4
+DUMMY6 1_zy_simnet_free_slots_6_w$ 0 4

@@ -1,0 +1,14 @@
+V O V rbus_addr_o SIZE=16
+V O S rbus_wr_strb_o
+V O V rbus_wr_data_o SIZE=32
+V O S rbus_rd_strb_o
+V O V apb_prdata SIZE=32
+V O S apb_pready
+V O S apb_pslverr
+V O V apb_paddr_reg SIZE=16
+V O S apb_penable_reg
+V O S apb_psel_reg
+V O V apb_pwdata_reg SIZE=32
+V O S apb_pwrite_reg
+V O S apb_active
+V O S apb_active_reg

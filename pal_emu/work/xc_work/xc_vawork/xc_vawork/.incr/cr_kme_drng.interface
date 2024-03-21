@@ -1,0 +1,24 @@
+module cr_kme_drng cr_kme_drng 4 19
+CKV_NUM_ENTRIES CKV_NUM_ENTRIES
+CKV_DATA_WIDTH CKV_DATA_WIDTH
+KIM_NUM_ENTRIES KIM_NUM_ENTRIES
+KIM_DATA_WIDTH KIM_DATA_WIDTH
+drng_health_fail drng_health_fail
+drng_seed_expired drng_seed_expired
+drng_256_out drng_256_out
+drng_valid drng_valid
+seed0_invalidate seed0_invalidate
+seed1_invalidate seed1_invalidate
+stat_drbg_reseed stat_drbg_reseed
+drng_idle drng_idle
+clk clk
+rst_n rst_n
+drng_ack drng_ack
+seed0_valid seed0_valid
+seed0_internal_state_key seed0_internal_state_key
+seed0_internal_state_value seed0_internal_state_value
+seed0_reseed_interval seed0_reseed_interval
+seed1_valid seed1_valid
+seed1_internal_state_key seed1_internal_state_key
+seed1_internal_state_value seed1_internal_state_value
+seed1_reseed_interval seed1_reseed_interval

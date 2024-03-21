@@ -1,0 +1,23 @@
+module cr_kme_kop_xcm68 cr_kme_kop_xcm68 5 17
+CKV_NUM_ENTRIES CKV_NUM_ENTRIES
+CKV_DATA_WIDTH CKV_DATA_WIDTH
+KIM_NUM_ENTRIES KIM_NUM_ENTRIES
+KIM_DATA_WIDTH KIM_DATA_WIDTH
+CCEIP_ENCRYPT_KOP CCEIP_ENCRYPT_KOP
+kme_internal_out_ack kme_internal_out_ack
+key_tlv_ob_wr key_tlv_ob_wr
+key_tlv_ob_tlv key_tlv_ob_tlv
+set_gcm_tag_fail_int set_gcm_tag_fail_int
+clk clk
+rst_n rst_n
+scan_en scan_en
+scan_mode scan_mode
+scan_rst_n scan_rst_n
+labels labels
+kme_internal_out kme_internal_out
+kme_internal_out_valid kme_internal_out_valid
+key_tlv_ob_full key_tlv_ob_full
+key_tlv_ob_afull key_tlv_ob_afull
+kop_fifo_override kop_fifo_override
+kdf_test_key_size kdf_test_key_size
+kdf_test_mode_en kdf_test_mode_en

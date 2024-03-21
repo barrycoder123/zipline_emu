@@ -1,0 +1,6 @@
+DUMMY1 0_zy_simnet_bimc_odat_0_w$
+DUMMY2 0_zy_simnet_bimc_osync_1_w$
+DUMMY3 0_zy_simnet_ro_uncorrectable_ecc_error_2_w$
+DUMMY4 1_zy_simnet_dout_3_w$ 0 82
+DUMMY5 0writethrough
+DUMMY6 0@_1r1wramDxWb.unmblk0.i

@@ -1,0 +1,21 @@
+module ixc_gfifo_merge_port ixc_gfifo_merge_port 5 15
+FIRST_IN_CHAIN FIRST_IN_CHAIN
+LAST_IN_CHAIN LAST_IN_CHAIN
+I1_DW I1_DW
+I2_DW I2_DW
+O_DW O_DW
+i1req i1req
+i1cbid i1cbid
+i1len i1len
+i1data i1data
+i2req i2req
+i2cbid i2cbid
+i2len i2len
+i2data i2data
+i2tgl i2tgl
+LBfull LBfull
+mreq mreq
+mcbid mcbid
+mlen mlen
+mdata mdata
+mtgl mtgl

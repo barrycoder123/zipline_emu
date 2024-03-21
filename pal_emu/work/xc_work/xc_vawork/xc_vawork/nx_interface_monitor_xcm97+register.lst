@@ -1,0 +1,10 @@
+V O V im_available SIZE=2
+V O V hw_add SIZE=9
+V O S bank_status
+V O S overflow
+V O V im_consumed_reg SIZE=2
+P O nx_indirect_access_cntrl_xcm113 u_cntrl ./xc_work/xc_vawork/xc_vawork/nx_indirect_access_cntrl_xcm113
+P O nx_ram_1rw_xcm109 u_ram ./xc_work/xc_vawork/xc_vawork/nx_ram_1rw_xcm109
+P O nx_credit_manager u_nx_credit_manager ./xc_work/xc_vawork/xc_vawork/nx_credit_manager
+P O sync_fifo u_sync_fifo ./xc_work/xc_vawork/xc_vawork/sync_fifo
+P O ixc_context_read_105 _zzixc_ctxrd_0 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_context_read_105

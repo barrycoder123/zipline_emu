@@ -1,0 +1,9 @@
+module cr_sa_counter cr_sa_counter 0 8
+sa_count sa_count
+sa_snapshot sa_snapshot
+clk clk
+rst_n rst_n
+sa_event_sel sa_event_sel
+sa_events sa_events
+sa_clear sa_clear
+sa_snap sa_snap

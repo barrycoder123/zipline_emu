@@ -1,0 +1,3 @@
+M O MEM=1 PAK=2 _zyh2smem[%s] LB=0 RB=0 SIZE=32
+M O MEM=1 PAK=2 _zys2hmem[%s] LB=0 RB=0 SIZE=256
+P O ixc_osf_evcap genblk1.osfevcap ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_osf_evcap

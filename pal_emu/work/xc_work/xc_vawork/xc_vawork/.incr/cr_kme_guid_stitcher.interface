@@ -1,0 +1,15 @@
+module cr_kme_guid_stitcher cr_kme_guid_stitcher 4 10
+CKV_NUM_ENTRIES CKV_NUM_ENTRIES
+CKV_DATA_WIDTH CKV_DATA_WIDTH
+KIM_NUM_ENTRIES KIM_NUM_ENTRIES
+KIM_DATA_WIDTH KIM_DATA_WIDTH
+kme_slv_rd kme_slv_rd
+stitcher_out stitcher_out
+stitcher_empty stitcher_empty
+set_tlv_bip2_error_int set_tlv_bip2_error_int
+clk clk
+rst_n rst_n
+kme_slv_out kme_slv_out
+kme_slv_aempty kme_slv_aempty
+kme_slv_empty kme_slv_empty
+stitcher_rd stitcher_rd

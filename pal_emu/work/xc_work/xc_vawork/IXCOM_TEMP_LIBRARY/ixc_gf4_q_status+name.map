@@ -1,0 +1,13 @@
+DUMMY0 0xc_top.simTime
+DUMMY1 0xc_top.GFReset
+DUMMY2 0xc_top.tbcPO
+DUMMY3 0xc_top.svGFbusy
+DUMMY4 0xc_top.otbGFbusy
+DUMMY6 0pollState
+DUMMY7 0genblk2
+DUMMY8 0genblk3
+DUMMY9 0genblk1
+DUMMY10 0genblk1
+DUMMY11 0genblk6
+DUMMY12 0genblk1
+wptr_DUMMY0 0wptr

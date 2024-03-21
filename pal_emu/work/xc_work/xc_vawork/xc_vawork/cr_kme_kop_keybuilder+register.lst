@@ -1,0 +1,8 @@
+V O S needs_dak
+V O S needs_dek
+V O S corrupt_crc
+V O S dak_gcm_err
+V O S dek_gcm_err
+V O V cur_state SIZE=3
+V O V key_tlv_beat_num SIZE=3
+P O cr_crc crc32 ./xc_work/xc_vawork/xc_vawork/cr_crc

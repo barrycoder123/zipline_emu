@@ -1,0 +1,7 @@
+module ixc_context_4s_read ixc_context_4s_read 5 1
+WIDTH WIDTH
+WIDTH4S WIDTH4S
+NWORDS NWORDS
+MEMWIDTH MEMWIDTH
+MEMDEPTH MEMDEPTH
+rdata rdata

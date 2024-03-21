@@ -1,0 +1,7 @@
+V O V _1r1wramDxWb.dout_r[%s] LB=0 RB=0 SIZE=71
+V O V _1r1wramDxWb.genblk3.dout_rr SIZE=71
+V O V _1r1wramDxWb.genblk1.bwe_r SIZE=71
+V O V _1r1wramDxWb.genblk1.din_r SIZE=71
+V O V _1r1wramDxWb.genblk1.wa_r SIZE=11
+V O S _1r1wramDxWb.genblk1.web_r
+M O MEM=0 PAK=2 _1r1wramDxWb.mem[%s] LB=0 RB=2047 SIZE=71

@@ -1,0 +1,18 @@
+V O V sync_io.rbus_addr_i_reg SIZE=16
+V O S sync_io.rbus_wr_strb_i_reg
+V O V sync_io.rbus_wr_data_i_reg SIZE=32
+V O S sync_io.rbus_rd_strb_i_reg
+V O V sync_io.rbus_rd_data_i_reg SIZE=32
+V O S sync_io.rbus_ack_i_reg
+V O S sync_io.rbus_err_ack_i_reg
+V O S rbus_err_ack_o
+V O S rbus_ack_o
+V O V rbus_rd_data_o SIZE=32
+V O S locl_rd_strb_o
+V O V locl_wr_data_o SIZE=32
+V O S locl_wr_strb_o
+V O V locl_addr_o SIZE=11
+V O S rbus_rd_strb_o
+V O V rbus_wr_data_o SIZE=32
+V O S rbus_wr_strb_o
+V O V rbus_addr_o SIZE=16

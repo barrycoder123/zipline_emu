@@ -1,0 +1,27 @@
+module nx_ram_1r1w_xcm15 nx_ram_1r1w_xcm15 8 18
+WIDTH WIDTH
+DEPTH DEPTH
+BWEWIDTH BWEWIDTH
+SPECIALIZE SPECIALIZE
+IN_FLOP IN_FLOP
+OUT_FLOP OUT_FLOP
+RD_LATENCY RD_LATENCY
+WRITETHROUGH WRITETHROUGH
+rst_n rst_n
+clk clk
+lvm lvm
+mlvm mlvm
+mrdten mrdten
+bimc_rst_n bimc_rst_n
+bimc_isync bimc_isync
+bimc_idat bimc_idat
+bimc_odat bimc_odat
+bimc_osync bimc_osync
+ro_uncorrectable_ecc_error ro_uncorrectable_ecc_error
+reb reb
+ra ra
+dout dout
+web web
+wa wa
+din din
+bwe bwe

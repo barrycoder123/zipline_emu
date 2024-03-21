@@ -1,0 +1,14 @@
+module nx_credit_manager nx_credit_manager 5 8
+N_MAX_CREDITS N_MAX_CREDITS
+N_USED_LAG_CYCLES N_USED_LAG_CYCLES
+N_MAX_CREDITS_PER_CYCLE N_MAX_CREDITS_PER_CYCLE
+N_OUTSTANDING_CREDITS N_OUTSTANDING_CREDITS
+RESERVED_CREDIT RESERVED_CREDIT
+credit_available credit_available
+hw_status hw_status
+clk clk
+rst_n rst_n
+sw_init sw_init
+credit_return credit_return
+credit_used credit_used
+sw_config sw_config

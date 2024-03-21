@@ -1,0 +1,43 @@
+U O V bus_timer SIZE=8
+U O V pwdata SIZE=32
+U O V paddr SIZE=20
+U O S pwrite
+U O S penable
+U O S psel
+U O V _zzM2_bcBehEval SIZE=32
+V O S _zyM2L81_pbcEn11
+U O V _zyM2L81_pbcFsm3_s SIZE=3
+U O S _zyM2L108_pbcCapEn8
+U O S _zyM2L97_pbcCapEn7
+U O S _zyM2L91_pbcCapEn6
+U O S _zyM2L81_pbcCapEn5
+V O S _zyresponse_L84_tfiV5_M2_pbcG5
+V O V _zydata_L83_tfiV4_M2_pbcG4 SIZE=32
+V O V _zyaddr_L82_tfiV3_M2_pbcG3 SIZE=64
+V O S _zyixc_port_0_1_ack
+V O V _zyixc_port_0_1_h2s SIZE=40
+V O S _zyM2L48_pbcEn10
+U O V _zyM2L48_pbcFsm0_s SIZE=3
+U O S _zyM2L77_pbcCapEn3
+U O S _zyM2L66_pbcCapEn2
+U O S _zyM2L60_pbcCapEn1
+U O S _zyM2L48_pbcCapEn0
+V O S _zyresponse_L51_tfiV2_M2_pbcG2
+V O V _zydata_L50_tfiV1_M2_pbcG1 SIZE=32
+V O V _zyaddr_L49_tfiV0_M2_pbcG0 SIZE=64
+V O S _zyixc_port_0_0_ack
+V O V _zyixc_port_0_0_h2s SIZE=8
+P O ixc_mem_call_96_8 _zzixc_tfport_0_0 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_mem_call_96_8
+P O ixc_mem_call_64_40 _zzixc_tfport_0_1 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_mem_call_64_40
+P O ixc_mevClk_2_0_0_1 _zzM2L48_pbcMevClk4 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_mevclk_2_0_0_1
+P O ixc_mevClk_2_0_0_1 _zzM2L81_pbcMevClk9 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_mevclk_2_0_0_1
+P O ixc_capLoopXp _zzM2L10_bcBehEvalP0 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_caploopxp
+P O ixc_mdrOn _zzM2L33_mdxP0_OnP ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_mdron
+P O ixc_mdrOn _zzM2L48_mdxP1_OnP ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_mdron
+P O ixc_mdrOn _zzM2L81_mdxP2_OnP ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_mdron
+P O ixc_sampleLT _zzpsel_M2L19_mdxSpLt6 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_samplelt
+P O ixc_sampleLT _zzpenable_M2L20_mdxSpLt7 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_samplelt
+P O ixc_sampleLT _zzpwrite_M2L23_mdxSpLt8 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_samplelt
+P O ixc_sampleLT_20 _zzpaddr_M2L21_mdxSpLt9 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_samplelt_20
+P O ixc_sampleLT_32 _zzpwdata_M2L22_mdxSpLt10 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_samplelt_32
+P O ixc_sampleLT_8 _zzbus_timer_M2L29_mdxSpLt11 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_samplelt_8

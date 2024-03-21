@@ -1,0 +1,19 @@
+V O S n_write
+V O S o_reg_written
+V O S o_reg_read
+V O V o_reg_addr SIZE=11
+V O V f_state SIZE=3
+V O S f_prev_do_read
+V O S f_ack
+V O S f_err_ack
+V O V f32_mux_0_data SIZE=32
+V O V f32_mux_1_data SIZE=32
+V O V f32_mux_2_data SIZE=32
+V O V f32_mux_3_data SIZE=32
+V O V f32_mux_4_data SIZE=32
+V O V f32_mux_5_data SIZE=32
+V O V f32_mux_6_data SIZE=32
+V O V f32_mux_7_data SIZE=32
+V O V f32_mux_8_data SIZE=32
+V O V f32_data SIZE=32
+P O cr_kme_regs_flops u_cr_kme_regs_flops ./xc_work/xc_vawork/xc_vawork/cr_kme_regs_flops

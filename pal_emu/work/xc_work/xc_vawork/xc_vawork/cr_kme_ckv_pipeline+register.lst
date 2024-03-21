@@ -1,0 +1,5 @@
+P O cr_kme_guid_stitcher guid_stitcher ./xc_work/xc_vawork/xc_vawork/cr_kme_guid_stitcher
+P O cr_kme_tlv_parser tlv_parser ./xc_work/xc_vawork/xc_vawork/cr_kme_tlv_parser
+P O cr_kme_kim_drng_reader kim_drng_reader ./xc_work/xc_vawork/xc_vawork/cr_kme_kim_drng_reader
+P O cr_kme_ckv_reader ckv_reader ./xc_work/xc_vawork/xc_vawork/cr_kme_ckv_reader
+P O cr_kme_kop_assigner kop_assigner ./xc_work/xc_vawork/xc_vawork/cr_kme_kop_assigner

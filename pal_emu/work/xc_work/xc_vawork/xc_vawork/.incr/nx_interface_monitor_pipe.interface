@@ -1,0 +1,9 @@
+module nx_interface_monitor_pipe nx_interface_monitor_pipe 0 8
+ob_in_mod ob_in_mod
+ob_out ob_out
+im_vld im_vld
+clk clk
+rst_n rst_n
+ob_out_pre ob_out_pre
+ob_in ob_in
+im_rdy im_rdy
