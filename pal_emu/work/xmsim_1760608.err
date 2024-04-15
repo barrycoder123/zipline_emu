@@ -1,0 +1,99 @@
+csi-xmsim - CSI: Command line:
+xmsim
+    -f /home/ibarry/Project-Zipline-master/pal_emu/work/xcelium.d/run.lnx8664.23.09.d/hsv-sc49_1ede8bd5-5de2-4de1-b1e1-abb6eb117550/xmsim.args
+        +xcprof
+        +TESTNAME=kme_key_type_0
+        +xelog+xeDebug.log
+        -disxedebug
+        -sv_lib libdpi.so
+        -NOKEY
+        -TCL
+        -LOADVPI libncrun:register_systfs
+        -INPUT @source /lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/etc/qel/xmrun.qel
+        -MESSAGES
+        +EMGRLOG tmp/xrun.log
+        -XLSTIME 1712168647
+        -XLKEEP
+        -XLMODE ./xcelium.d/run.lnx8664.23.09.d
+        -RUNMODE
+        -CDSLIB ./xcelium.d/run.lnx8664.23.09.d/cds.lib
+        -HDLVAR ./xcelium.d/run.lnx8664.23.09.d/hdl.var
+        -XLNAME xrun
+        -XLVERSION TOOL:	xrun(64)	23.09-a071
+        -CMDPSIM
+        -XLNAME ./xcelium.d/run.lnx8664.23.09.d/hsv-sc49_1ede8bd5-5de2-4de1-b1e1-abb6eb117550
+    -CHECK_VERSION TOOL:	xrun(64)	23.09-a071
+    -LOG_FD 4
+    -LOG_FD_NAME tmp/xrun.log
+    -cmdnopsim
+    -runlock /home/ibarry/Project-Zipline-master/pal_emu/work/xcelium.d/run.lnx8664.23.09.d/.xmlib.lock
+    -runscratch /home/ibarry/Project-Zipline-master/pal_emu/work/xcelium.d/run.lnx8664.23.09.d/hsv-sc49_1ede8bd5-5de2-4de1-b1e1-abb6eb117550
+    -nowarn CKPSDP
+    -loadxc libuart.so
+    -loadxc /home/ibarry/Project-Zipline-master/pal_emu/work/xc_work/libixcg.so
+    -sv_lib /home/ibarry/Project-Zipline-master/pal_emu/work/xc_work/libixcg.so
+    -loadxc /lan/cva_rel/ixcom23h1/23.03.131.s001/tools.lnx86/lib/64bit/libotb.so
+    -sv_lib /lan/cva_rel/ixcom23h1/23.03.131.s001/tools.lnx86/lib/64bit/libxcrt.so
+    -DPI_XM_VPI
+    +scgafap+off
+    -nowarn WSEM2009
+    -nowarn DSEM2009
+    +dut+cr_kme+my_clks+apb_xactor
+    +gfifoDisp+kme_tb+apb_xactor
+
+csi-xmsim - CSI: *F,INTERR: INTERNAL EXCEPTION
+Observed simulation time : 625 PS + 2
+-----------------------------------------------------------------
+The tool has encountered an unexpected condition and must exit.
+Contact Cadence Design Systems customer support about this
+problem and provide enough information to help us reproduce it,
+including the logfile that contains this error message.
+  TOOL:	xmsim(64)	23.09-a071 (CL: 540461 )
+  HOSTNAME: hsv-sc49
+  OPERATING SYSTEM: Linux 4.18.0-305.el8.x86_64 #1 SMP Thu Apr 29 08:54:30 EDT 2021 x86_64
+  MESSAGE: sv_seghandler - trapno -1 addr((nil))
+-----------------------------------------------------------------
+
+csi-xmsim - CSI: Cadence Support Investigation, recording details
+External Code in function: <unavailable> offset -65511
+External Code in function: <unavailable> offset -65519
+External Code in function: <unavailable> offset -65535
+External Code in function: <unavailable> offset -65536
+Simulator Snap Shot: gd (SSS_GD) in snapshot xc_ncwork.kme_tb:module (SSS)
+Verilog Syntax Tree: register declaration (VST_D_REG) in module xc_ncwork.kme_tb:module (VST)
+	File: /home/ibarry/Project-Zipline-master/pal_emu/work/xc_work/v/1n.sv, line 47, position 9
+	Scope: kme_tb
+	Decompile: int retval
+	Source  : int retval;
+	Position:          ^
+Intermediate File: root (IF_ROOT) in module xc_ncwork.kme_tb:module (VST)
+Verilog Syntax Tree: function declaration (VST_D_FUNCTION) in module xc_ncwork.kme_tb:module (VST)
+	File: /home/ibarry/Project-Zipline-master/pal_emu/work/xc_work/v/1n.sv, line 496, position 30
+	Scope: kme_tb.translate_tuser
+	Decompile: logic translate_tuser
+	Source  : function  [7:0] translate_tuser;
+	Position:                               ^
+Error: Error processing stack frame(9) - skipping rest of frame!
+Error: Error processing stack frame(10) - skipping rest of frame!
+Intermediate File: string (IF_STRING) in module xc_ncwork.kme_tb:module (VST)
+	Decompile: kme_tb
+Verilog Syntax Tree: genvar declaration (VST_D_GENVAR) in module xc_ncwork.cr_kme_tlv_parser:module (VST)
+	File: /home/ibarry/Project-Zipline-master/pal_emu/work/xc_work/v/23n.sv, line 9421, position 11
+	Scope: cr_kme_tlv_parser
+	Decompile: unable to decompile type 554
+	Source  : genvar ii$21; 
+	Position:            ^
+Verilog Syntax Tree: number expression (VST_E_NUMBER) in module xc_ncwork.cr_kme_tlv_parser:module (VST)
+	File: /home/ibarry/Project-Zipline-master/pal_emu/work/xc_work/v/23n.sv, line 9422, position 28
+	Decompile: 3
+	Source  : for ( ii$21 = 0 ; (ii$21 <= 3) ; ii$21 = (ii$21 + 1) ) begin: kdf_mode
+	Position:                             ^
+Verilog Syntax Tree: module declaration (VST_D_MODULE) in module xc_ncwork.kme_tb:module (VST)
+	File: /home/ibarry/Project-Zipline-master/pal_emu/work/xc_work/v/1n.sv, line 5, position 12
+	Scope: kme_tb
+	Decompile: kme_tb
+	Source  : module kme_tb;
+	Position:             ^
+Simulator Snap Shot: top level instance (SSS_TLI) in snapshot xc_ncwork.kme_tb:module (SSS)
+External Code in function: <unavailable> offset -64535
+csi-xmsim - CSI: investigation complete took 0.030 secs, send this file to Cadence Support

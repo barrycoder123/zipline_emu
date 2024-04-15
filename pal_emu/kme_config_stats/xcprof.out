@@ -1,0 +1,318 @@
+Log started on host: hsv-sc49 pid: 12266 at: Fri Apr 12 15:13:45 2024
+
+libxcrt IXCOM, V23.03.131.s001             (compiled with XCELIUM-22.09-s001, loaded with  XCELIUM-23.09-a071)
+
+INFO: target platform:Z1, execution platform:Z1
+--- xc status: @ simTime=0 FS, IN SOFTWARE MODE going to be IN TBRUN MODE, xt0, zt0.
+--- xc status: @ simTime=0 FS, IN TBRUN MODE, xt0, zt0.
+--- xc status: @ simTime=46904375 PS (End-Of-Simulation), IN TBRUN MODE, xt0, zt0.
+
+=========================================================================
+IXCOM Performance and Design Profile
+-------------------------------------------------------------------------
+--- Maximum HW operating speed (compiler fclk freq): 2929.70 KHz
+--- HW executed total fclk cycles  (     5804627 ) : time = 1.98 sec, (cfclks/fclks: 5.28%)
+--- Clocking Mode: Default (2X).
+
+--- HW execution command line session time: 2.18 sec (1.89 CPU sec)
+
+--- HW execution wall clock time          : 2.18 sec (1.89 CPU sec)
+--- HW execution emulator busy time       : 0.10 sec (4.79%)
+
+--- Simulation acceleration speed achieved: 34.36 KHz (34356.90 evals/sec)
+
+--- HW executed
+    --     306705 ECM controlled fclk cycles      @ 140.41 KHz (140411.10 cfclks/sec)
+    --      75047 Eval (or sim-timestep) cycles   @ 34.36 KHz (34356.90 evals/sec)
+
+
+--- Total number of HW-SW Synchronizations(tbSyncs) : 78304 (0.96 evals/tbSync)
+    |-- Synchronizations due to tbcalls(tbcallSyncs): 78303 (0.96 evals/tbcallSync)
+
+
+--- xc Profile: (%)
+	    49.32          SW-SIM (Elapsed: 1.08 sec)
+	                    |----  MARG (7.40 %, 0.08 sec)
+
+	    45.57    HW-EMU-TBRUN (Elapsed: 1.00 sec)
+
+	     5.11         XCRT-OH (Elapsed: 0.11 sec)
+
+
+	--- SW-SIM     : TB and TBCall execution in sw simulator.
+	--- HW-EMU     : HW evaluations and Synchronization Latency.
+	--- XCRT-OH    : IXCOM runtime overhead.
+
+
+--- Primary Inputs  (bits): INPUT(176) FORCE(0)DEPOSIT(4 :dut=2 + dpi=2 + ixcom=0).
+--- Primary Outputs (bits): OUTPUT(246 :dut=176  dpi=68 + ixcom=2).
+=========================================================================
+
+=========================================================================
+--- Synchronizations due to TB/DPI/SVA/SysTask calls (tbcallSyncs): 78303.
+
+-------------------------------------------------------------------------
+	TBCALL statistics: 3256 tb-calls
+-------------------------------------------------------------------------
+     Count Scope
+-------------------------------------------------------------------------
+      3256 IXC_GFIFO.OSF.OSF_flushAll
+              Loc: (/lan/cva_rel/ixcom23h1/23.03.131.s001/tools.lnx86/etc/ixcom/IXCSF.sv, 268)
+
+
+-------------------------------------------------------------------------
+    Synchronous task and function call profile, Total #calls = 3256
+-------------------------------------------------------------------------
+     Count Scope
+-------------------------------------------------------------------------
+      1968 kme_tb.apb_xactor.write (task, tb_export:tb_mem, iArgW=96, oArgW=8)
+              Total life-time = 0.98 sec,  Loc:(/home/ibarry/Project-Zipline-master/dv/agents/apb/apb_xactor.v, 61)
+
+      1288 kme_tb.apb_xactor.read (task, tb_export:tb_mem, iArgW=64, oArgW=40)
+              Total life-time = 0.69 sec,  Loc:(/home/ibarry/Project-Zipline-master/dv/agents/apb/apb_xactor.v, 94)
+
+=========================================================================
+
+=========================================================================
+	Memory Read statistics: 3269 mem reads
+-------------------------------------------------------------------------
+         Count           Bytes            sec     MB/sec  Name
+-------------------------------------------------------------------------
+          3269           18228         0.0444      0.411  IXCOM Generated Internal Memories
+-------------------------------------------------------------------------
+---       3269           18228         0.0444      0.411  Total
+-------------------------------------------------------------------------
+
+
+	Memory Writes statistics: 3256 mem writes
+-------------------------------------------------------------------------
+         Count           Bytes            sec     MB/sec  Name
+-------------------------------------------------------------------------
+          3256           83584         0.0336      2.484  IXCOM Generated Internal Memories
+-------------------------------------------------------------------------
+---       3256           83584         0.0336      2.484  Total
+=========================================================================
+
+=========================================================================
+	Output event statistics: 111277 output events
+-------------------------------------------------------------------------
+     Count Name
+-------------------------------------------------------------------------
+     75047 kme_tb.kme_dut.clock_1
+      6512 kme_tb.apb_xactor.psel
+      6512 kme_tb.apb_xactor.penable
+      6512 kme_tb.apb_xactor.paddr
+      6512 kme_tb.kme_dut.apb_pready
+      3936 kme_tb.apb_xactor.pwrite
+      3648 kme_tb.apb_xactor.pwdata
+      2566 kme_tb.kme_dut.apb_prdata
+        21 kme_tb.kme_dut.kme_cceip0_ob_tdata
+         6 kme_tb.kme_dut.kme_cceip0_ob_tvalid
+         3 kme_tb.kme_dut.kme_cceip0_ob_tuser
+         1 kme_tb.kme_dut.kme_cceip0_ob_tlast
+         1 kme_tb.kme_dut.kme_cceip0_ob_tstrb
+=========================================================================
+
+
+=========================================================================
+	Input event statistics: 186429 Input events
+-------------------------------------------------------------------------
+     Count Name
+-------------------------------------------------------------------------
+     75046 kme_tb.apb_xactor.clk (SA clock)
+      6513 kme_tb.kme_dut.apb_psel
+      6513 kme_tb.kme_dut.apb_penable
+      6512 kme_tb.apb_xactor.pready
+      6233 kme_tb.kme_dut.apb_paddr(8)
+      6203 kme_tb.kme_dut.apb_paddr(7)
+      5793 kme_tb.kme_dut.apb_paddr(4)
+      3937 kme_tb.kme_dut.apb_pwrite
+      3829 kme_tb.kme_dut.apb_paddr(3)
+      3329 kme_tb.kme_dut.apb_paddr(2)
+      3021 kme_tb.kme_dut.apb_paddr(5)
+      1936 kme_tb.apb_xactor.prdata(9)
+      1922 kme_tb.apb_xactor.prdata(0)
+      1920 kme_tb.apb_xactor.prdata(1)
+      1918 kme_tb.apb_xactor.prdata(2)
+      1912 kme_tb.apb_xactor.prdata(10)
+      1902 kme_tb.apb_xactor.prdata(3)
+      1890 kme_tb.apb_xactor.prdata(4)
+      1856 kme_tb.apb_xactor.prdata(7)
+      1851 kme_tb.kme_dut.apb_pwdata(29)
+      1844 kme_tb.apb_xactor.prdata(6)
+      1810 kme_tb.apb_xactor.prdata(13)
+      1808 kme_tb.apb_xactor.prdata(5)
+      1804 kme_tb.apb_xactor.prdata(8)
+      1750 kme_tb.apb_xactor.prdata(11)
+      1669 kme_tb.kme_dut.apb_pwdata(9)
+      1626 kme_tb.apb_xactor.prdata(12)
+      1559 kme_tb.kme_dut.apb_pwdata(3)
+      1553 kme_tb.kme_dut.apb_pwdata(1)
+      1449 kme_tb.kme_dut.apb_pwdata(2)
+      1381 kme_tb.kme_dut.apb_pwdata(31)
+      1365 kme_tb.kme_dut.apb_pwdata(10)
+      1345 kme_tb.kme_dut.apb_pwdata(11)
+      1305 kme_tb.kme_dut.apb_pwdata(4)
+      1278 kme_tb.apb_xactor.prdata(29)
+      1267 kme_tb.kme_dut.apb_pwdata(8)
+      1235 kme_tb.kme_dut.apb_pwdata(7)
+      1234 kme_tb.apb_xactor.prdata(24)
+      1223 kme_tb.kme_dut.apb_pwdata(6)
+      1127 kme_tb.kme_dut.apb_pwdata(28)
+      1117 kme_tb.kme_dut.apb_pwdata(0)
+      1097 kme_tb.kme_dut.apb_pwdata(5)
+      1079 kme_tb.kme_dut.apb_pwdata(13)
+       913 kme_tb.kme_dut.apb_pwdata(26)
+       835 kme_tb.kme_dut.apb_pwdata(12)
+       752 kme_tb.apb_xactor.prdata(14)
+       617 kme_tb.kme_dut.apb_pwdata(27)
+       565 kme_tb.kme_dut.apb_pwdata(25)
+       551 kme_tb.kme_dut.apb_pwdata(17)
+       549 kme_tb.kme_dut.apb_pwdata(30)
+       539 kme_tb.kme_dut.apb_pwdata(19)
+       507 kme_tb.kme_dut.apb_pwdata(14)
+       359 kme_tb.kme_dut.apb_pwdata(15)
+       355 kme_tb.kme_dut.apb_pwdata(18)
+       341 kme_tb.kme_dut.apb_pwdata(21)
+       339 kme_tb.kme_dut.apb_pwdata(16)
+       339 kme_tb.kme_dut.apb_pwdata(24)
+       303 kme_tb.kme_dut.apb_pwdata(22)
+       301 kme_tb.kme_dut.apb_pwdata(23)
+       297 kme_tb.kme_dut.apb_paddr(6)
+       283 kme_tb.kme_dut.apb_pwdata(20)
+       217 kme_tb.kme_dut.apb_paddr(10)
+       127 kme_tb.kme_dut.apb_paddr(9)
+         9 kme_tb.kme_dut.kme_ib_tdata(0)
+         9 kme_tb.kme_dut.kme_ib_tdata(48)
+         7 kme_tb.kme_dut.kme_ib_tdata(3)
+         7 kme_tb.kme_dut.kme_ib_tdata(16)
+         7 kme_tb.kme_dut.kme_ib_tdata(24)
+         7 kme_tb.kme_dut.kme_ib_tdata(32)
+         7 kme_tb.kme_dut.kme_ib_tdata(37)
+         7 kme_tb.kme_dut.kme_ib_tdata(40)
+         7 kme_tb.kme_dut.kme_ib_tdata(41)
+         7 kme_tb.kme_dut.kme_ib_tdata(56)
+         7 kme_tb.kme_dut.kme_ib_tdata(60)
+         7 kme_tb.kme_dut.kme_ib_tdata(63)
+         6 kme_tb.apb_xactor.prdata(28)
+         6 kme_tb.kme_dut.kme_ib_tdata(4)
+         6 kme_tb.kme_dut.kme_ib_tdata(8)
+         6 kme_tb.kme_dut.kme_ib_tdata(12)
+         6 kme_tb.kme_dut.kme_ib_tdata(20)
+         6 kme_tb.kme_dut.kme_ib_tdata(28)
+         5 kme_tb.kme_dut.kme_ib_tuser(0)
+         5 kme_tb.kme_dut.kme_ib_tdata(5)
+         5 kme_tb.kme_dut.kme_ib_tdata(7)
+         5 kme_tb.kme_dut.kme_ib_tdata(14)
+         5 kme_tb.kme_dut.kme_ib_tdata(15)
+         5 kme_tb.kme_dut.kme_ib_tdata(19)
+         5 kme_tb.kme_dut.kme_ib_tdata(21)
+         5 kme_tb.kme_dut.kme_ib_tdata(31)
+         5 kme_tb.kme_dut.kme_ib_tdata(33)
+         5 kme_tb.kme_dut.kme_ib_tdata(35)
+         5 kme_tb.kme_dut.kme_ib_tdata(36)
+         5 kme_tb.kme_dut.kme_ib_tdata(38)
+         5 kme_tb.kme_dut.kme_ib_tdata(39)
+         5 kme_tb.kme_dut.kme_ib_tdata(43)
+         5 kme_tb.kme_dut.kme_ib_tdata(44)
+         5 kme_tb.kme_dut.kme_ib_tdata(45)
+         5 kme_tb.kme_dut.kme_ib_tdata(46)
+         5 kme_tb.kme_dut.kme_ib_tdata(47)
+         5 kme_tb.kme_dut.kme_ib_tdata(49)
+         5 kme_tb.kme_dut.kme_ib_tdata(51)
+         5 kme_tb.kme_dut.kme_ib_tdata(52)
+         5 kme_tb.kme_dut.kme_ib_tdata(53)
+         5 kme_tb.kme_dut.kme_ib_tdata(54)
+         5 kme_tb.kme_dut.kme_ib_tdata(55)
+         5 kme_tb.kme_dut.kme_ib_tdata(57)
+         5 kme_tb.kme_dut.kme_ib_tdata(59)
+         5 kme_tb.kme_dut.kme_ib_tdata(61)
+         5 kme_tb.kme_dut.kme_ib_tdata(62)
+         4 kme_tb.kme_dut.kme_ib_tuser(1)
+         4 kme_tb.kme_dut.kme_ib_tdata(1)
+         4 kme_tb.kme_dut.kme_ib_tdata(6)
+         4 kme_tb.kme_dut.kme_ib_tdata(9)
+         4 kme_tb.kme_dut.kme_ib_tdata(10)
+         4 kme_tb.kme_dut.kme_ib_tdata(11)
+         4 kme_tb.kme_dut.kme_ib_tdata(13)
+         4 kme_tb.kme_dut.kme_ib_tdata(17)
+         4 kme_tb.kme_dut.kme_ib_tdata(22)
+         4 kme_tb.kme_dut.kme_ib_tdata(23)
+         4 kme_tb.kme_dut.kme_ib_tdata(25)
+         4 kme_tb.kme_dut.kme_ib_tdata(26)
+         4 kme_tb.kme_dut.kme_ib_tdata(27)
+         4 kme_tb.kme_dut.kme_ib_tdata(29)
+         4 kme_tb.kme_dut.kme_ib_tdata(30)
+         3 kme_tb.kme_dut.kme_ib_tvalid
+         3 kme_tb.kme_dut.kme_ib_tdata(2)
+         3 kme_tb.kme_dut.kme_ib_tdata(18)
+         3 kme_tb.kme_dut.kme_ib_tdata(34)
+         3 kme_tb.kme_dut.kme_ib_tdata(42)
+         3 kme_tb.kme_dut.kme_ib_tdata(50)
+         3 kme_tb.kme_dut.kme_ib_tdata(58)
+         2 kme_tb.kme_dut.kme_ib_tstrb(0)
+         2 kme_tb.kme_dut.kme_ib_tstrb(1)
+         2 kme_tb.kme_dut.kme_ib_tstrb(2)
+         2 kme_tb.kme_dut.kme_ib_tstrb(3)
+         2 kme_tb.kme_dut.kme_ib_tstrb(4)
+         2 kme_tb.kme_dut.kme_ib_tstrb(5)
+         2 kme_tb.kme_dut.kme_ib_tstrb(6)
+         2 kme_tb.kme_dut.kme_ib_tstrb(7)
+         1 kme_tb.apb_xactor.reset_n
+         1 kme_tb.kme_dut.rst_n
+         1 kme_tb.kme_dut.kme_ib_tlast
+         1 kme_tb.kme_dut.kme_ib_tid
+         1 kme_tb.kme_dut.kme_ib_tuser(2)
+         1 kme_tb.kme_dut.kme_ib_tuser(3)
+         1 kme_tb.kme_dut.kme_ib_tuser(4)
+         1 kme_tb.kme_dut.kme_ib_tuser(5)
+         1 kme_tb.kme_dut.kme_ib_tuser(6)
+         1 kme_tb.kme_dut.kme_ib_tuser(7)
+         1 kme_tb.kme_dut.kme_cceip0_ob_tready
+         1 kme_tb.kme_dut.apb_paddr(0)
+         1 kme_tb.kme_dut.apb_paddr(1)
+         1 kme_tb.kme_dut.apb_paddr(11)
+         1 kme_tb.kme_dut.apb_paddr(12)
+         1 kme_tb.kme_dut.apb_paddr(13)
+         1 kme_tb.kme_dut.apb_paddr(14)
+         1 kme_tb.kme_dut.apb_paddr(15)
+=========================================================================
+
+
+xcProfiler report generated on: Fri Apr 12 15:14:11 2024
+
+=========================================================================
+
+--- pollEmu PO usec: avg:9.27, max:16738.89, min:0.96 #polls:78305 (>1ms 1), tot:0.73s
+======================================================
+	get resource usage report
+------------------------------------------------------
+user time used: 1.89 sec
+system time used: 0.04 sec
+maximum resident set size: 780388 (1400)
+integral shared memory size: 0
+integral unshared data size: 0
+integral unshared stack size: 0
+page reclaims: 1299
+page faults: 0
+swaps: 0
+block input operations: 0
+block output operations: 968
+messages sent: 0
+messages received: 0
+signals received: 0
+voluntary context switches: 165
+involuntary context switches: 5
+======================================================
+
+================= xcib statistics ====================
+                   UART     BYPASS           
+      thread      count      count   cpu time
+--------------------------------------------------------
+        main          0          0       2.33
+--------------------------------------------------------
+
+xcmempio = 0.
+
+Log end: Fri Apr 12 15:14:11 2024
+

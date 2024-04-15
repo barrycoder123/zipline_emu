@@ -1,7 +1,7 @@
 /*************************************************************************
 *
-* Copyright © Microsoft Corporation. All rights reserved.
-* Copyright © Broadcom Inc. All rights reserved.
+* Copyright ?? Microsoft Corporation. All rights reserved.
+* Copyright ?? Broadcom Inc. All rights reserved.
 * Licensed under the MIT License.
 *
 *************************************************************************/
@@ -202,6 +202,14 @@ module kme_tb;
                   .kme_idle(),
 		  .disable_unencrypted_keys(1'b0)
 		  );
+      // IMPORT DPI-C functions here
+      import "DPI-C" function int get_config_data(output bit[31: 0] operation, output bit [31: 0] address, output bit
+      [31: 0] data);
+      // TODO: these outputs can be used in the do_kme_config() to get data 
+      // write/read() sent to sfifo so will run in HW
+      initial begin
+          $ixc_ctrl("gsf_is", "get_config_data");
+      end
 
    initial begin
 
@@ -267,7 +275,7 @@ module kme_tb;
       //#100;
 
       @(posedge clk);
-
+      
       do_kme_config();
 
       fork
@@ -294,71 +302,63 @@ module kme_tb;
       
    end // initial
 
-   task do_kme_config();
-      reg[31:0]      address;
-      reg [31:0]     data;
+task do_kme_config();
+      //reg[31:0]      address;
+      //reg [31:0]     data;
       reg [31:0]     returned_data;
       //string         operation;
-      //string         file_name;
-      //string         vector;
-      reg [35*8-1:0] operation;
-      reg [35*8-1:0] file_name;
-      reg [35*8-1:0] vector;
-      integer        str_get;
-      integer        file_descriptor;
+      // string         file_name;
+      //string         vector; // file processing happens in import func 
+      // integer        str_get;
+      // integer        file_descriptor;
       reg            response;
-
-      // we are running ours from a different makefile dir path so change this
-      // path here
-      //file_name = $psprintf("../tests/kme.config");
-      file_name = $psprintf("../../dv/KME/tests/kme.config");
-      file_descriptor = $fopen(file_name, "r");
-      if ( file_descriptor == 0 ) begin
-	 $display ("\nAPB_INFO:  @time:%-d File %s NOT found!\n", $time, file_name );
-	 return;
-      end else begin
-	 $display ("APB_INFO:  @time:%-d Openned test file -->  %s", $time, file_name );
-      end
-
-      while( !$feof(file_descriptor) ) begin
-	 if ( $fgets(vector,file_descriptor) ) begin
-            $display ("APB_INFO:  @time:%-d vector --> %s", $time, vector );
-            str_get = $sscanf(vector, "%s 0x%h 0x%h", operation, address, data);
-	        $display ("APB_INFO:  @time:%-d parsed vector --> %s 0x%h 0x%h    %d", $time, operation, address, data, str_get ); 
-            if ( str_get == 3 && (operation == "r" || operation == "R" || operation == "w" || operation == "W") ) begin
-               if ( operation == "r" || operation == "R" ) begin
-		  apb_xactor.read(address, returned_data, response);
-		  if ( response !== 0 ) begin
-		     $display ("\n\nAPB_FATAL:  @time:%-d   Slave ERROR and/or TIMEOUT on the READ operation to address 0x%h\n\n",
-                               $time, address );
-		     $finish;
-		  end
-		  if ( returned_data !== data ) begin
-		     $display ("APB_ERROR:  @time:%-d   Data MISMATCH --> Actual: 0x%h  Expect: 0x%h", $time, returned_data, data ); 
-		     ++error_cntr;
-		     if ( error_cntr > 10 ) begin
-			$finish;
-		     end
-		  end
-               end else begin
-		  apb_xactor.write(address, data, response);
-		  if ( response !== 0 ) begin
-		     $display ("\n\nAPB_FATAL:  @time:%-d   Slave ERROR and/or TIMEOUT on the WRITE operation to address 0x%h\n\n",
-                               $time, address );
-		     $finish;
-		  end
-               end
-               @(posedge clk);
-            end else if ( operation !== "#" ) begin
-               $display ("APB_FATAL:  @time:%-d vector --> %s NOT valid!", $time, vector );
-               $finish;
+      bit [31:0] operation;
+      bit [31:0] address;
+      bit [31:0] data;
+      int retval = 1;
+        // fetched
+        retval = get_config_data(operation, address, data);
+        // if retval[0] == 1 output args are valid 
+        // if retval[1] == 1 end of stream reached
+        // if retval == 1 valid 
+        // if retval == 2 eos
+        while(retval !== 2) begin
+            retval = get_config_data(operation, address, data);
+            $display("curr value of retval --> 0x%x", retval);
+            if (retval == 1) begin
+              // new algo
+              $display("operation = %d, address = 0x%h, data = 0x%h\n", operation, address, data);
+              if ( (operation == "r" || operation == "R" || operation == "w" || operation == "W") ) begin
+                  if ( operation == "r" || operation == "R" ) begin
+                      apb_xactor.read(address, returned_data, response);
+                      $display("MY INFO: curr address: 0x%h --> data_from_config: 0x%h --> data_from_apb: 0x%h\n", address, data, returned_data);
+                      if ( response !== 0 ) begin
+                         $display ("\n\nAPB_FATAL:  @time:%-d   Slave ERROR and/or TIMEOUT on the READ operation to address 0x%h\n\n",
+                                           $time, address );
+                         $finish;
+                      end 
+                      if ( returned_data !== data ) begin
+                         $display ("APB_ERROR:  @time:%-d   Data MISMATCH --> Actual: 0x%h  Expect: 0x%h", $time, returned_data, data ); 
+                         ++error_cntr;
+                         if ( error_cntr > 10 ) begin
+                            $finish;
+                         end
+                      end
+                  end 
+                  else if (operation == "w" || operation == "W") begin
+                      apb_xactor.write(address, data, response);
+                      if ( response !== 0 ) begin
+                         $display ("\n\nAPB_FATAL:  @time:%-d   Slave ERROR and/or TIMEOUT on the WRITE operation to address 0x%h\n\n", $time, address );
+                         $finish;
+                      end
+                  end
+                  @(posedge clk);
+              end         
             end
-	 end
-      end
+        end
+        @(posedge clk);
+        $display ("APB_INFO:  @time:%-d Exiting APB engine config ...", $time );
 
-      @(posedge clk);
-
-      $display ("APB_INFO:  @time:%-d Exiting APB engine config ...", $time );
 
    endtask // do_kme_config
 
@@ -499,6 +499,7 @@ module kme_tb;
 		  rc = $fgets(vector,file_descriptor);
                end
                $display ("OUTBOUND_INFO:  @time:%-d vector --> %s", $time, vector );
+	       $display ("OUTBOUND_INFO_MINE:  @time:%-d   kme_ob_tdata: 0x%h", $time, kme_ob_tdata);
                str_get = $sscanf(vector, "0x%h %s 0x%h", tdata, tuser_string, tstrb);
 	       //        $display ("OUTBOUND_INFO:  @time:%-d parsed vector --> 0x%h %s 0x%h %d", $time, tdata, tuser_string, tstrb, str_get ); 
                if ( str_get == 3 ) begin

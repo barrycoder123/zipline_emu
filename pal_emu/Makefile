@@ -1,4 +1,6 @@
 SHELL           = /bin/sh
+IXCOM_HOME      = /lan/cva_rel/ixcom23h1/23.03.131.s001
+SIMTOOL_HOME    = /grid/avs/install/xcelium/AGILE7/23.09.071
 BITS           ?= 64
 HWFILES         = -f scripts/kme.vlist
 HWTOP           = cr_kme
@@ -22,6 +24,15 @@ help:
 	@echo "make sim_comp     compile for simulation"
 
 ################################# EMU ######################################
+# simtool home is where the svdpi.h header file is
+c_comp_2 : 
+	gcc -m64 -c -fPIC -g -DIXCOM_COMPILE \ 
+	-I${IXCOM_HOME}/share/uxe/etc/ixcom \
+	I${SIMTOOL_HOME}/tools/include \
+ 	$(DV_ROOT)/KME/run/tb.c && \
+	gcc -m64 -shared -o libdpi.so tb.o
+c_comp : 
+	gcc -shared -o libdpi.so $(DV_ROOT)/KME/run/tb.c -g -fPIC -I$(SIMTOOL_HOME)/tools/include -m64
 clk_gen :
 	@ixclkgen -input $(CLOCK_OPTS) -o $(CLOCK_TOP).sv -module $(CLOCK_TOP) -timescale 1ps/1ps
 
@@ -33,14 +44,15 @@ ixcom : vlan
 	@ixcom -$(BITS) $(IXCOM_OPTS) -top $(TBTOP) -top $(CLOCK_TOP) +dut+$(HWTOP)+$(CLOCK_TOP)+$(APB) +gfifoDisp+$(TBTOP)+$(APB) -l ixcom.log 
 
 xrun : ixcom 
-	@xrun -vtimescale 1ns/1ns -c $(DV_ROOT)/KME/run/$(TBTOP).sv -top $(TBTOP) -f xc_work/$(SIMULATOR).f -incdir $(RTL_ROOT)/common/include
+	@xrun -vtimescale 1ns/1ns -c $(DV_ROOT)/KME/run/$(TBTOP).sv -top $(TBTOP) -dpi -sv_lib libdpi.so -f xc_work/$(SIMULATOR).f -incdir $(RTL_ROOT)/common/include
 run : 
 	@read -p "Enter the testname to run: " testname && \
-	xeDebug --xmsim +xcprof +TESTNAME=$$testname -- $(RUN_SCRIPT)
+	xeDebug --xmsim +xcprof -sv_lib libdpi.so +TESTNAME=$$testname -- $(RUN_SCRIPT)
 clean :
 
 test_user_input :
-	@echo "testname is : $(TESTNAME)"
+	@setenv TESTNAME  && \
+
 	
 .PHONY: clean 
 

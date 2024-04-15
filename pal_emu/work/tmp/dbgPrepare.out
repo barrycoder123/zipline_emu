@@ -1,47 +1,47 @@
 INFO (legacy-0): pass1: clearAllStep() in standalone dbgPrepare, isLSF is 0, isNC is 0, isSpawn is 1
 INFO (legacy-0): dbgPrepstatus file get cleared
-INFO (legacy-0): updatePass1Stat status: 0, pid_t: 2890731
+INFO (legacy-0): updatePass1Stat status: 0, pid_t: 2594046
 dbgPrepare - 23H1_VXE, V23.03.131.s001            
 
 dbgPrepare pre-selected instances top N = 10000
 INFO (legacy-39111): Opening PDB hdldb xcva_top (of=0).
 INFO (legacy-0): 30302 critical net names have been restored: elapsed time 0 sec
-INFO (legacy-0): strtab(segs and data) has been restored: elapsed time 0 sec
-INFO (legacy-0): sigmap has been restored: elapsed time 1 sec
-INFO (legacy-0): 1396 cells have been restored: elapsed time 1 sec
+INFO (legacy-0): strtab(segs and data) has been restored: elapsed time 1 sec
+INFO (legacy-0): sigmap has been restored: elapsed time 0 sec
+INFO (legacy-0): 1396 cells have been restored: elapsed time 0 sec
 INFO (legacy-0): 243428 smTrNets have been restored: elapsed time 0 sec
 INFO (legacy-0): 233212 smTrPrims have been restored: elapsed time 0 sec
-INFO (legacy-0): flat-conns have been restored: elapsed time 1 sec
+INFO (legacy-0): flat-conns have been restored: elapsed time 0 sec
 INFO (legacy-0): 967639 synonyms have been setup: elapsed time 0 sec
 INFO (legacy-0): smNetIDs have been setup: elapsed time 0 sec
 INFO (legacy-0): CRT-FULL has been restored: elapsed time 0 sec
 ConstructInfoFile 117 cells (2907 constructs) which has 2706 records 72 arrays 155401 name size.
 INFO (legacy-45793): Collected construct info.
 WARNING (legacy-55183): Mode 'FV' detected, dsnGen only support FV and CP mode.
-INFO (legacy-0): pass1: start to prepare memory,current time is Tue Mar 19 15:22:57 2024
-INFO (legacy-0): pass1: start to prepare ucdb,current time is Tue Mar 19 15:22:57 2024
-INFO (legacy-0): pass1: start to prepare swfv, current time is Tue Mar 19 15:22:57 2024 
+INFO (legacy-0): pass1: start to prepare memory,current time is Mon Apr 15 11:32:15 2024
+INFO (legacy-0): pass1: start to prepare ucdb,current time is Mon Apr 15 11:32:15 2024
+INFO (legacy-0): pass1: start to prepare swfv, current time is Mon Apr 15 11:32:15 2024 
 INFO (legacy-0): Reading BIN ucdb
 building swfv DB...
 INFO (legacy-0): #PPC partitions = 1
 INFO (legacy-0): maxPDBnets 243429 #FD01s 53984 #PIprobes 9332 #FFprobes 38351
 INFO (legacy-73921): Created sourceless net sidefile, total nets 2 (#3:36, #2:51710, #1:30479, #0:71030, 243429)
-INFO (legacy-0): pass1: finish preparing memory, current time is Tue Mar 19 15:22:57 2024, Elapsed time 0.13 real, 0.86 cpu(0.78u+0.08s), 662%, memory 3994M
+INFO (legacy-0): pass1: finish preparing memory, current time is Mon Apr 15 11:32:16 2024, Elapsed time 0.13 real, 0.83 cpu(0.77u+0.06s), 638%, memory 4298M
 INFO (legacy-1): setStepDone: memory
 INFO (legacy-1): Start to write back to dbgPrepStatus
 INFO (legacy-0): pass1: finish memory preparing
 total 31498 FF, 9248 PI, 153628 Comb, 142 back-to-back FF in PDB
-INFO (legacy-0): pass1: finish preparing ucdb, current time is Tue Mar 19 15:22:57 2024, Elapsed time 0.24 real, 1.13 cpu(1.03u+0.1s), 471%, memory 3994M
+INFO (legacy-0): pass1: finish preparing ucdb, current time is Mon Apr 15 11:32:16 2024, Elapsed time 0.22 real, 1.07 cpu(1u+0.07s), 486%, memory 4298M
 INFO (legacy-1): setStepDone: ucdb
 INFO (legacy-1): Start to write back to dbgPrepStatus
 INFO (legacy-0): Total Wire Cap = 0.000000(pf)
 INFO (legacy-0): Total Pin Cap = 0.000000(pf)
 INFO (legacy-0): Full swfvDB details: #FF = 31498, #PI = 9248, #Gates = 194378
 INFO (legacy-54218): The number of comb is 153628, the number of breaking points is 0
-INFO (legacy-54218): Find breaking points total time 0.01 real, 0.02 cpu(0.02u+0s), 200%, memory 8782M
-INFO (legacy-26751): Created swfvIdset with 194232 fv nets in 0.010000 seconds, 1.253422 bits/id, skipped 146 artificial nets.
-INFO (legacy-26752): Created dccMaskFilePass1 in 0.010000 seconds.
-INFO (legacy-0): pass1: finish preparing swfvDB, current time is Tue Mar 19 15:22:58 2024, Elapsed time 0.93 real, 2.16 cpu(1.85u+0.31s), 232%, memory 8993M
+INFO (legacy-54218): Find breaking points total time 0.01 real, 0.01 cpu(0.01u+0s), 100%, memory 8826M
+INFO (legacy-26751): Created swfvIdset with 194232 fv nets in 0.000000 seconds, 1.253422 bits/id, skipped 146 artificial nets.
+INFO (legacy-26752): Created dccMaskFilePass1 in 0.000000 seconds.
+INFO (legacy-0): pass1: finish preparing swfvDB, current time is Mon Apr 15 11:32:16 2024, Elapsed time 0.7 real, 1.95 cpu(1.75u+0.2s), 279%, memory 9157M
 INFO (legacy-1): setStepDone: swfvDB
 INFO (legacy-1): Start to write back to dbgPrepStatus
 INFO (legacy-0): pass1: finish swfvDB preparing
@@ -55,10 +55,9 @@ INFO (legacy-1): Start to write back to dbgPrepStatus
 INFO (legacy-0): pass1: finish abart preparing
 INFO (legacy-1): setStepDone: dccmaskmd5
 INFO (legacy-1): Start to write back to dbgPrepStatus
-INFO (legacy-0): pass1: calculate dccMaskFilePass1 md5sum takes 0.040000 seconds.
+INFO (legacy-0): pass1: calculate dccMaskFilePass1 md5sum takes 0.010000 seconds.
 INFO (legacy-1): setStepDone: memorymd5
 INFO (legacy-1): Start to write back to dbgPrepStatus
-INFO (legacy-0): pass1: calculate memInfo_pass1 md5sum takes 0.030000 seconds.
+INFO (legacy-0): pass1: calculate memInfo_pass1 md5sum takes 0.020000 seconds.
 INFO (dbgPrep-1052): dbgPrepare done.
-INFO (legacy-0): updatePass1Stat status: 1, pid_t: 2890731
-WARNING (legacy-54241): The workstation was running low on memory (free memory dropped to 5 GB), therefore the performance might be impacted.
+INFO (legacy-0): updatePass1Stat status: 1, pid_t: 2594046

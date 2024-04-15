@@ -1,9 +1,9 @@
-Computation started on Tue Mar 19 15:24:17 2024
+Computation started on Mon Apr 15 11:35:23 2024
 Update every 60 seconds
-4 tasks are distributed to 1 hosts:
+2 tasks are distributed to 1 hosts:
 Host(wide bit)                tasks(%)    time(s)  compNetTime(s)  outputTime(s)  IOtime(s) sockTime(s) sockData(K) sockSpeed(M/s) numCPU   mem(M) phyFileMem(M) CPUTime(s) activeTasks
 ---------------------------------------------------------------------------------------------------------------------
-hsv-sc49(64)                 4 (100%)      0.190       0.105          0.052      0.028       0.000           0          0.000          8     9617        0           3           8
+hsv-sc49(64)                 2 (100%)      0.170       0.100          0.050      0.010       0.000           0          0.000          8     9601        0           1           7
 more than 17 tasks to run
 17 tasks to collect result
   task 0 started 0 seconds ago

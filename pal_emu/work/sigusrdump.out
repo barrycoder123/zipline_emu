@@ -1,0 +1,7 @@
+*** Current stack trace:
+--> 0x1502e4339ef0 _IO_getline_info     + c0       /usr/lib64/libc.so.6
+--> 0x1502e4c25b20 <don't know>         + 12b20    /usr/lib64/libpthread.so.0
+--> 0x1502e4339ef0 _IO_getline_info     + c0       /usr/lib64/libc.so.6
+--> 0x1502e4338edf fgets                + af       /usr/lib64/libc.so.6
+--> 0x15029bece2e4 get_config_data      + 17f      ./libdpi.so
+--> 0x1502d8baf6f0 get_config_data      + 3cce158b ./libdpi.so

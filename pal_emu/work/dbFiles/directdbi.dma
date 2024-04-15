@@ -1,4 +1,4 @@
 //ET6 DBI_adr_offset board module ISB_adr_offset length
 2 0 0
-0 0 0 0 8
-8 0 0 256 8
+0 0 0 128 8
+8 0 0 320 8

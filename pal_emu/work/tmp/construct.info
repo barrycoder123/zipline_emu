@@ -1,56 +1,8 @@
 
-===Collect Construct Signals at Tue Mar 19 12:26:20 2024
-CollectConstructCells(117 cells 524 records 72 arrays) total spend 0.02 real, 0.03 cpu(0.03u+0s), 150%, memory 2452M
-Construct Info Dump total spend 0 real, 0 cpu(0u+0s), 0%, memory 2452M
-BuildConstructFile total spend 0 real, 0 cpu(0u+0s), 0%, memory 2452M
-Construct File Dump total spend 0.01 real, 0 cpu(0u+0s), 0%, memory 2452M
-saveToFile total spend 0 real, 0 cpu(0u+0s), 0%, memory 2452M
-===Collecting Signals done at Tue Mar 19 12:26:20 2024
-
-===Collect Construct Signals at Tue Mar 19 12:29:43 2024
-CollectConstructCells(117 cells 524 records 72 arrays) total spend 0.02 real, 0.02 cpu(0.02u+0s), 100%, memory 2452M
-Construct Info Dump total spend 0 real, 0 cpu(0u+0s), 0%, memory 2452M
-BuildConstructFile total spend 0 real, 0 cpu(0u+0s), 0%, memory 2452M
-Construct File Dump total spend 0.01 real, 0 cpu(0u+0s), 0%, memory 2452M
-saveToFile total spend 0.01 real, 0.01 cpu(0.01u+0s), 100%, memory 2452M
-===Collecting Signals done at Tue Mar 19 12:29:43 2024
-
-===Collect Construct Signals at Tue Mar 19 12:32:37 2024
-CollectConstructCells(117 cells 524 records 72 arrays) total spend 0.02 real, 0.03 cpu(0.03u+0s), 150%, memory 2452M
+===Collect Construct Signals at Mon Apr 15 11:32:15 2024
+CollectConstructCells(117 cells 524 records 72 arrays) total spend 0.03 real, 0.03 cpu(0.03u+0s), 100%, memory 2452M
 Construct Info Dump total spend 0 real, 0 cpu(0u+0s), 0%, memory 2452M
 BuildConstructFile total spend 0.01 real, 0 cpu(0u+0s), 0%, memory 2452M
 Construct File Dump total spend 0 real, 0 cpu(0u+0s), 0%, memory 2452M
-saveToFile total spend 0.01 real, 0.01 cpu(0.01u+0s), 100%, memory 2452M
-===Collecting Signals done at Tue Mar 19 12:32:37 2024
-
-===Collect Construct Signals at Tue Mar 19 12:38:01 2024
-CollectConstructCells(117 cells 524 records 72 arrays) total spend 0.03 real, 0.02 cpu(0.02u+0s), 67%, memory 2468M
-Construct Info Dump total spend 0 real, 0 cpu(0u+0s), 0%, memory 2468M
-BuildConstructFile total spend 0 real, 0 cpu(0u+0s), 0%, memory 2468M
-Construct File Dump total spend 0 real, 0.01 cpu(0.01u+0s), 0%, memory 2468M
-saveToFile total spend 0.01 real, 0.01 cpu(0u+0.01s), 100%, memory 2468M
-===Collecting Signals done at Tue Mar 19 12:38:01 2024
-
-===Collect Construct Signals at Tue Mar 19 14:32:50 2024
-CollectConstructCells(117 cells 524 records 72 arrays) total spend 0.02 real, 0.03 cpu(0.03u+0s), 150%, memory 2468M
-Construct Info Dump total spend 0 real, 0 cpu(0u+0s), 0%, memory 2468M
-BuildConstructFile total spend 0.01 real, 0 cpu(0u+0s), 0%, memory 2468M
-Construct File Dump total spend 0 real, 0.01 cpu(0.01u+0s), 0%, memory 2468M
-saveToFile total spend 0.02 real, 0 cpu(0u+0s), 0%, memory 2468M
-===Collecting Signals done at Tue Mar 19 14:32:50 2024
-
-===Collect Construct Signals at Tue Mar 19 15:10:07 2024
-CollectConstructCells(117 cells 524 records 72 arrays) total spend 0.03 real, 0.03 cpu(0.03u+0s), 100%, memory 2452M
-Construct Info Dump total spend 0 real, 0 cpu(0u+0s), 0%, memory 2452M
-BuildConstructFile total spend 0 real, 0 cpu(0u+0s), 0%, memory 2452M
-Construct File Dump total spend 0 real, 0.01 cpu(0u+0.01s), 0%, memory 2452M
-saveToFile total spend 0.02 real, 0 cpu(0u+0s), 0%, memory 2452M
-===Collecting Signals done at Tue Mar 19 15:10:07 2024
-
-===Collect Construct Signals at Tue Mar 19 15:22:57 2024
-CollectConstructCells(117 cells 524 records 72 arrays) total spend 0.03 real, 0.02 cpu(0.02u+0s), 67%, memory 2468M
-Construct Info Dump total spend 0 real, 0 cpu(0u+0s), 0%, memory 2468M
-BuildConstructFile total spend 0 real, 0.01 cpu(0u+0.01s), 0%, memory 2468M
-Construct File Dump total spend 0 real, 0 cpu(0u+0s), 0%, memory 2468M
-saveToFile total spend 0.02 real, 0.01 cpu(0.01u+0s), 50%, memory 2468M
-===Collecting Signals done at Tue Mar 19 15:22:57 2024
+saveToFile total spend 0.01 real, 0 cpu(0u+0s), 0%, memory 2452M
+===Collecting Signals done at Mon Apr 15 11:32:15 2024

@@ -35,8 +35,8 @@ logic [31:0] kme_apb_pwdata ;
 logic [31:0] kme_apb_prdata ;
 logic kme_apb_pready;
 logic kme_apb_pslverr;
-integer _zz_56_213_0;
-integer _zz_56_219_1;
+integer _zz_56_221_0;
+integer _zz_56_227_1;
 wire  _zy_simnet_kme_apb_psel_0_w$;
 wire  _zy_simnet_kme_apb_penable_1_w$;
 wire  [0:19] _zy_simnet_kme_apb_paddr_2_w$ ;
@@ -170,41 +170,30 @@ cr_kme kme_dut(
   .apb_penable(_zy_simnet_kme_apb_penable_41_w$) ,
   .apb_pwrite(_zy_simnet_kme_apb_pwrite_42_w$) ,
   .apb_pwdata(_zy_simnet_kme_apb_pwdata_43_w$) ); 
+import "DPI-C" function int get_config_data (output bit [31:0] operation ,output bit [31:0] address ,output bit [31:0] data );
 
 task do_kme_config;
- reg [31:0] address ;
- reg [31:0] data ;
  reg [31:0] returned_data ;
- reg [279:0] operation ;
- reg [279:0] file_name ;
- reg [279:0] vector ;
- integer str_get;
- integer file_descriptor;
  reg response;
+ bit [31:0] operation ;
+ bit [31:0] address ;
+ bit [31:0] data ;
+ static int retval = 1;
  begin
-  file_name = 280'b010111000101110001011110010111000101110001011110110010001110110001011110100101101001101010001010010111101110100011001010111001101110100011100110010111101101011011011010110010100101110011000110110111101101110011001100110100101100111;
-  file_descriptor = $fopen(file_name,"r");
-  if ((file_descriptor == 0))
+  retval = get_config_data(operation,address,data);
+  while ((retval !== 2))
    begin
-    $display("\nAPB_INFO:  @time:%-d File %s NOT found!\n",$time,file_name);
-    return;
-   end
-  else
-   begin
-    $display("APB_INFO:  @time:%-d Openned test file -->  %s",$time,file_name);
-   end
-  while (( !$feof(file_descriptor) ))
-   begin
-    if ($fgets(vector,file_descriptor))
+    retval = get_config_data(operation,address,data);
+    $display("curr value of retval --> 0x%x",retval);
+    if ((retval == 1))
      begin
-      $display("APB_INFO:  @time:%-d vector --> %s",$time,vector);
-      str_get = $sscanf(vector,"%s 0x%h 0x%h",operation,address,data);
-      $display("APB_INFO:  @time:%-d parsed vector --> %s 0x%h 0x%h    %d",$time,operation,address,data,str_get);
-      if (((str_get == 3) && ((((operation == 280'b01110010) || (operation == 280'b01010010)) || (operation == 280'b01110111)) || (operation == 280'b01010111))))
+      $display("operation = %d, address = 0x%h, data = 0x%h\n",operation,address,data);
+      if (((((operation == 32'b01110010) || (operation == 32'b01010010)) || (operation == 32'b01110111)) || (operation == 32'b01010111)))
        begin
-        if (((operation == 280'b01110010) || (operation == 280'b01010010)))
+        if (((operation == 32'b01110010) || (operation == 32'b01010010)))
          begin
           apb_xactor.read(address,returned_data,response);
+          $display("MY INFO: curr address: 0x%h --> data_from_config: 0x%h --> data_from_apb: 0x%h\n",address,data,returned_data);
           if ((response !== 32'b0))
           begin
           $display("\n\nAPB_FATAL:  @time:%-d   Slave ERROR and/or TIMEOUT on the READ operation to address 0x%h\n\n",$time,address);
@@ -223,24 +212,19 @@ task do_kme_config;
           end
          end
         else
-         begin
+         if (((operation == 32'b01110111) || (operation == 32'b01010111)))
+          begin
           apb_xactor.write(address,data,response);
           if ((response !== 32'b0))
           begin
           $display("\n\nAPB_FATAL:  @time:%-d   Slave ERROR and/or TIMEOUT on the WRITE operation to address 0x%h\n\n",$time,address);
           $finish;
           end
-         end
+          end
         @(posedge clk)
          begin
          end
        end
-      else
-       if ((operation !== 280'b0100011))
-        begin
-         $display("APB_FATAL:  @time:%-d vector --> %s NOT valid!",$time,vector);
-         $finish;
-        end
      end
    end
   @(posedge clk)
@@ -408,6 +392,7 @@ task service_ob_interface;
           rc = $fgets(vector,file_descriptor);
          end
         $display("OUTBOUND_INFO:  @time:%-d vector --> %s",$time,vector);
+        $display("OUTBOUND_INFO_MINE:  @time:%-d   kme_ob_tdata: 0x%h",$time,kme_ob_tdata);
         str_get = $sscanf(vector,"0x%h %s 0x%h",tdata,tuser_string,tstrb);
         if ((str_get == 3))
          begin
@@ -524,7 +509,7 @@ initial
   rst_n = 1'b0;
   if ($test$plusargs("SEED"))
    begin
-    _zz_56_213_0 = $value$plusargs("SEED=%d",seed);
+    _zz_56_221_0 = $value$plusargs("SEED=%d",seed);
    end
   else
    begin
@@ -532,7 +517,7 @@ initial
    end
   if ($test$plusargs("TESTNAME"))
    begin
-    _zz_56_219_1 = $value$plusargs("TESTNAME=%s",testname);
+    _zz_56_227_1 = $value$plusargs("TESTNAME=%s",testname);
     $display("TESTNAME=%s SEED=%s",testname,seed);
    end
   else

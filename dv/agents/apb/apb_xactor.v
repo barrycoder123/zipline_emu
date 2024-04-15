@@ -28,7 +28,20 @@ module apb_xactor #( parameter ADDR_WIDTH = 32, DATA_WIDTH = 32 ) (/*AUTOARG*/
    
    reg [7:0] 		    bus_timer;
    parameter 		    BUS_TIMER_EXPIRATION = 100;
-
+   
+   /*// DPI-C exporting
+   export "DPI-C" task write;
+   export "DPI-C" task read;
+    */
+   // mark as SFIFO send to hardware 
+   /*initial begin
+       $ixc_ctrl("sfifo", "read");
+       $ixc_ctrl("sfifo", "write");
+   end*/
+  initial begin
+      $ixc_ctrl("tb_export", "read");
+      $ixc_ctrl("tb_export", "write");
+  end
    
    always @(posedge clk)
      begin
@@ -108,10 +121,5 @@ module apb_xactor #( parameter ADDR_WIDTH = 32, DATA_WIDTH = 32 ) (/*AUTOARG*/
 	 @(posedge clk);
       end
    endtask
-
-   initial begin
-       $ixc_ctrl("tb_export", "read");
-       $ixc_ctrl("tb_export", "write");
-   end
 
 endmodule // apb_xactor

@@ -2,9 +2,17 @@ architecture module of xcva_top is
   -- quickturn CVASTRPROP MODULE HDLICE PROP_IXCOM_MOD TRUE
   -- quickturn user_defined_generate_suffix bxcm 
   component kme_tb
+    -- quickturn verilog_black_box
+    generic (
+
+    ) ;
   end component ;
 
   component my_clks
+    -- quickturn verilog_black_box
+    generic (
+
+    ) ;
   end component ;
 
   component IXC_GFIFO
@@ -20,6 +28,10 @@ architecture module of xcva_top is
   end component ;
 
   component _ixc_isc
+    -- quickturn verilog_black_box
+    generic (
+
+    ) ;
   end component ;
 
   component xc_top

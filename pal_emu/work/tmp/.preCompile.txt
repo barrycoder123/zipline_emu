@@ -1,1 +1,1 @@
-PreCompile Time: 10 sec
+PreCompile Time: 7 sec

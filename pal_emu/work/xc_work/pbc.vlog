@@ -3,21 +3,21 @@
 //   id:2, beh export task
 //
 
-// Proc at line F1:48 before fsm:
+// Proc at line F1:61 before fsm:
 always 
  begin
   @(_zyixc_port_0_0_req)
    begin
    end
   begin:_zzblk_0_0
-   begin:_zyifsyneCscp0_L48
-    _zyaddr_L49_tfiV0_M2_pbcG0 = _zyixc_port_0_0_s2h[63:0];
-    _zydata_L50_tfiV1_M2_pbcG1 = _zyixc_port_0_0_s2h[95:64];
+   begin:_zyifsyneCscp0_L61
+    _zyaddr_L62_tfiV0_M2_pbcG0 = _zyixc_port_0_0_s2h[63:0];
+    _zydata_L63_tfiV1_M2_pbcG1 = _zyixc_port_0_0_s2h[95:64];
     psel <= 1'b1;
     penable <= 1'b0;
     pwrite <= 1'b1;
-    paddr <= _zyaddr_L49_tfiV0_M2_pbcG0[31:0];
-    pwdata <= _zydata_L50_tfiV1_M2_pbcG1[31:0];
+    paddr <= _zyaddr_L62_tfiV0_M2_pbcG0[31:0];
+    pwdata <= _zydata_L63_tfiV1_M2_pbcG1[31:0];
     @(posedge clk)
      begin
      end
@@ -35,29 +35,29 @@ always
     pwrite <= 1'b0;
     paddr <= 20'b0;
     pwdata <= 32'b0;
-    _zyresponse_L51_tfiV2_M2_pbcG2 <= (pslverr | (bus_timer == 32'b01100100));
+    _zyresponse_L64_tfiV2_M2_pbcG2 <= (pslverr | (bus_timer == 32'b01100100));
     @(posedge clk)
      begin
      end
-    _zyixc_port_0_0_h2s[7:0] = _zyresponse_L51_tfiV2_M2_pbcG2;
+    _zyixc_port_0_0_h2s[7:0] = _zyresponse_L64_tfiV2_M2_pbcG2;
    end
    _zyixc_port_0_0_ack = ( ~_zyixc_port_0_0_ack );
   end
  end
 
-// Proc at line F1:81 before fsm:
+// Proc at line F1:94 before fsm:
 always 
  begin
   @(_zyixc_port_0_1_req)
    begin
    end
   begin:_zzblk_0_1
-   begin:_zyifsyneCscp1_L81
-    _zyaddr_L82_tfiV3_M2_pbcG3 = _zyixc_port_0_1_s2h[63:0];
+   begin:_zyifsyneCscp1_L94
+    _zyaddr_L95_tfiV3_M2_pbcG3 = _zyixc_port_0_1_s2h[63:0];
     psel <= 1'b1;
     penable <= 1'b0;
     pwrite <= 1'b0;
-    paddr <= _zyaddr_L82_tfiV3_M2_pbcG3[31:0];
+    paddr <= _zyaddr_L95_tfiV3_M2_pbcG3[31:0];
     @(posedge clk)
      begin
      end
@@ -74,13 +74,13 @@ always
     penable <= 1'b0;
     pwrite <= 1'b0;
     paddr <= 20'b0;
-    _zydata_L83_tfiV4_M2_pbcG4 <= prdata;
-    _zyresponse_L84_tfiV5_M2_pbcG5 <= (pslverr | (bus_timer == 32'b01100100));
+    _zydata_L96_tfiV4_M2_pbcG4 <= prdata;
+    _zyresponse_L97_tfiV5_M2_pbcG5 <= (pslverr | (bus_timer == 32'b01100100));
     @(posedge clk)
      begin
      end
-    _zyixc_port_0_1_h2s[31:0] = _zydata_L83_tfiV4_M2_pbcG4;
-    _zyixc_port_0_1_h2s[39:32] = _zyresponse_L84_tfiV5_M2_pbcG5;
+    _zyixc_port_0_1_h2s[31:0] = _zydata_L96_tfiV4_M2_pbcG4;
+    _zyixc_port_0_1_h2s[39:32] = _zyresponse_L97_tfiV5_M2_pbcG5;
    end
    _zyixc_port_0_1_ack = ( ~_zyixc_port_0_1_ack );
   end

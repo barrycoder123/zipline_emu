@@ -92,7 +92,7 @@ import "DPI-C" function int xcNextEclk(output longint delay, input int flags);
 
 always@(posedge nullClk) void'(xcDesSig());
 
-const int xcinit = xcInit(1710886895);
+const int xcinit = xcInit(1713205856);
 
 function void xcvtf_bufDispFlush;
  fork

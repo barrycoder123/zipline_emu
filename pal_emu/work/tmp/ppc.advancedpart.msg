@@ -1,1 +1,1 @@
-Leaf instance selection took 1 second.
+Leaf instance selection took less than a second.

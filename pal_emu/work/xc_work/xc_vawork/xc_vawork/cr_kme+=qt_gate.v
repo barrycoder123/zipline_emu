@@ -1,4 +1,12 @@
 
+`ifndef _2_                      
+`ifdef CBV                      
+`define _2_                      
+`else                      
+`define _2_ (* _2_state_ *)                      
+`endif                      
+`endif
+
 module cr_kme ( kme_interrupt, kme_ib_tready, kme_cceip0_ob_tvalid, 
 	kme_cceip0_ob_tlast, kme_cceip0_ob_tid, kme_cceip0_ob_tstrb, 
 	kme_cceip0_ob_tuser, kme_cceip0_ob_tdata, apb_prdata, apb_pready, 

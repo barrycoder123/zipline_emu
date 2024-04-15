@@ -1,2 +1,2 @@
-s1(19Mar2024:11:42:01):  xrun -vtimescale 1ns/1ns -c /home/ibarry/Project-Zipline-master/dv/KME/run/kme_tb.sv -top kme_tb -f xc_work/xrun.f -incdir /home/ibarry/Project-Zipline-master/rtl/common/include 
-s2(19Mar2024:11:45:36):  xrun -vtimescale 1ns/1ns -c /home/ibarry/Project-Zipline-master/dv/KME/run/kme_tb.sv /home/ibarry/Project-Zipline-master/dv/agents/apb/apb_xactor.v -top kme_tb -f xc_work/xrun.f -incdir /home/ibarry/Project-Zipline-master/rtl/common/include 
+s1(02Apr2024:17:25:03):  xrun -elaborate -nowarn DLNCML -xmerror CUNOTB -f ./xc_work/xrun.f -logfile ./xc_work/xmelab.log 
+s2(02Apr2024:17:27:01):  xrun -vtimescale 1ns/1ns -c /home/ibarry/Project-Zipline-master/dv/KME/run/kme_tb.sv -top kme_tb -sv_lib libdpi.so -f xc_work/xrun.f -incdir /home/ibarry/Project-Zipline-master/rtl/common/include 

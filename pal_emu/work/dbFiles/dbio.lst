@@ -43,17 +43,17 @@ GAS for SCIOP dbio.s 			page 1
   40                      	    .equ ECM_FINISH_TIMEOUT,   0x0000000000000100
   41                      	
   42                      	    .include "dbi.s"
-   1                      	    .equ CAPTURE_MASK, 0x1
-   2                      	    .equ CAPTURE_ISB_OFFSET, 0x0
-   3                      	    .equ APPLY_MASK, 0x1
-   4                      	    .equ APPLY_ISB_OFFSET, 0x100
+   1                      	    .equ APPLY_MASK, 0x1
+   2                      	    .equ APPLY_ISB_OFFSET, 0x80
+   3                      	    .equ CAPTURE_MASK, 0x1
+   4                      	    .equ CAPTURE_ISB_OFFSET, 0x140
    5                      	    .macro dbi_isb_write
-   6                      	isbwr 3, (DBI_IOBA + 0), (DBI_ISB_ADRS + 8)
+   6                      	isbwr 3, (DBI_IOBA + 0), (DBI_ISB_ADRS + 0)
    7                      	isbwr 1, (DBI_IOBA + 3), (DBI_ISB_ADRS + 64)
-   8                      	isbwr 2, (DBI_IOBA + 4), (DBI_ISB_ADRS + 128)
+   8                      	isbwr 2, (DBI_IOBA + 4), (DBI_ISB_ADRS + 136)
    9                      	isbwr 1, (DBI_IOBA + 6), (DBI_ISB_ADRS + 192)
-  10                      	isbwr 1, (DBI_IOBA + 7), (DBI_ISB_ADRS + 264)
-  11                      	isbwr 1, (DBI_IOBA + 8), (DBI_ISB_ADRS + 320)
+  10                      	isbwr 1, (DBI_IOBA + 7), (DBI_ISB_ADRS + 256)
+  11                      	isbwr 1, (DBI_IOBA + 8), (DBI_ISB_ADRS + 328)
   12                      	    .endm
   13                      	.equ DBI_BYTES, 72
   14                      	.equ SA_DONE, (1 << 1)
@@ -113,7 +113,7 @@ GAS for SCIOP dbio.s 			page 1
   85                      	
   86 0080 03000000FDFCFE60 	    dbi_isb_write
   86      0014010000000000 
-  86      0800001005000000 
+  86      0000001005000000 
   86      01000000FDFCFE60 
   86      0314010000000000 
   86      4000001005000000 
@@ -124,14 +124,14 @@ GAS for SCIOP dbio.s 			page 1
   88                      	write_set_capture:
   89                      	    # set DBO_CAPTURE signal to one in the "staged" DBI to setup for later reads
   90 0110 0000000000FC1801 	    load R8, (DBI_ISB_ADRS + CAPTURE_ISB_OFFSET)
-  90      0000001005000000 
+  90      4001001005000000 
   91 0120 000000001800116A 	    isbrdp R1, R8
   92 0128 0000000001111127 	    or R1, R1, CAPTURE_MASK
   93 0130 0000000018110062 	    isbwrp R1, R8
   94                      	
   95                      	    # set DBI_APPLY signal to one in the "staged" DBI
   96 0138 0000000000FC1B01 	    load R11, (DBI_ISB_ADRS + APPLY_ISB_OFFSET)
-  96      0001001005000000 
+  96      8000001005000000 
   97 0148 000000001B00116A 	    isbrdp R1, R11
   98 0150 0000000001111127 	    or R1, R1, APPLY_MASK
   99 0158 000000001B110062 	    isbwrp R1, R11
@@ -186,7 +186,7 @@ GAS for SCIOP dbio.s 			page 1
  144                      	read_reset_capture:
  145                      	    # set DBO_CAPTURE signal to zero in the staged DBI
  146 01f8 0000000000FC1801 	    load R8, (DBI_ISB_ADRS + CAPTURE_ISB_OFFSET)
- 146      0000001005000000 
+ 146      4001001005000000 
  147 0208 000000001800116A 	    isbrdp R1, R8
  148 0210 0000000001111122 	    andb R1, R1, CAPTURE_MASK
  149 0218 0000000018110062 	    isbwrp R1, R8
@@ -222,7 +222,7 @@ GAS for SCIOP dbio.s 			page 1
  174                      	    # Set module DBO_CAPTURE to 1 staged DBI
  175                      	    # set DBO_CAPTURE signal to one in the "staged" DBI
  176 0270 0000000000FC1801 	    load R8, (DBI_ISB_ADRS + CAPTURE_ISB_OFFSET)
- 176      0000001005000000 
+ 176      4001001005000000 
  177 0280 000000001800116A 	    isbrdp R1, R8
  178                      	    # set the bit
  179 0288 0000000001111127 	    or R1, R1, CAPTURE_MASK
@@ -291,10 +291,10 @@ DEFINED SYMBOLS
               dbio.s:37     *ABS*:0000000550000000 DBO_ISB_ADRS
               dbio.s:39     *ABS*:0000000000000080 ECM_START_TIMEOUT
               dbio.s:40     *ABS*:0000000000000100 ECM_FINISH_TIMEOUT
-               dbi.s:1      *ABS*:0000000000000001 CAPTURE_MASK
-               dbi.s:2      *ABS*:0000000000000000 CAPTURE_ISB_OFFSET
-               dbi.s:3      *ABS*:0000000000000001 APPLY_MASK
-               dbi.s:4      *ABS*:0000000000000100 APPLY_ISB_OFFSET
+               dbi.s:1      *ABS*:0000000000000001 APPLY_MASK
+               dbi.s:2      *ABS*:0000000000000080 APPLY_ISB_OFFSET
+               dbi.s:3      *ABS*:0000000000000001 CAPTURE_MASK
+               dbi.s:4      *ABS*:0000000000000140 CAPTURE_ISB_OFFSET
                dbi.s:13     *ABS*:0000000000000048 DBI_BYTES
                dbi.s:14     *ABS*:0000000000000002 SA_DONE
                dbo.s:5      *ABS*:0000000000000058 DBO_BYTES
@@ -353,31 +353,31 @@ Disassembly of section .text:
 0000000000000080 <write_post_program>:
       80:	60fefcfd00000003 	isbwr SLF,LLF0,LLF1
       88:	0000000000011400 
-      90:	0000000510000008 
+      90:	0000000510000000 
       98:	60fefcfd00000001 	isbwr SLF,LLF0,LLF1
       a0:	0000000000011403 
       a8:	0000000510000040 
       b0:	60fefcfd00000002 	isbwr SLF,LLF0,LLF1
       b8:	0000000000011404 
-      c0:	0000000510000080 
+      c0:	0000000510000088 
       c8:	60fefcfd00000001 	isbwr SLF,LLF0,LLF1
       d0:	0000000000011406 
       d8:	00000005100000c0 
       e0:	60fefcfd00000001 	isbwr SLF,LLF0,LLF1
       e8:	0000000000011407 
-      f0:	0000000510000108 
+      f0:	0000000510000100 
       f8:	60fefcfd00000001 	isbwr SLF,LLF0,LLF1
      100:	0000000000011408 
-     108:	0000000510000140 
+     108:	0000000510000148 
 
 0000000000000110 <write_set_capture>:
      110:	0118fc0000000000 	load R8,LLF0
-     118:	0000000510000000 
+     118:	0000000510000140 
      120:	6a11001800000000 	isbrdp R1,R8
      128:	2711110100000000 	or R1,R1,ONE
      130:	6200111800000000 	isbwrp R1,R8
      138:	011bfc0000000000 	load R11,LLF0
-     140:	0000000510000100 
+     140:	0000000510000080 
      148:	6a11001b00000000 	isbrdp R1,R11
      150:	2711110100000000 	or R1,R1,ONE
      158:	6200111b00000000 	isbwrp R1,R11
@@ -413,7 +413,7 @@ Disassembly of section .text:
 
 00000000000001f8 <read_reset_capture>:
      1f8:	0118fc0000000000 	load R8,LLF0
-     200:	0000000510000000 
+     200:	0000000510000140 
      208:	6a11001800000000 	isbrdp R1,R8
      210:	2211110100000000 	andb R1,R1,ONE
      218:	6200111800000000 	isbwrp R1,R8
@@ -434,7 +434,7 @@ Disassembly of section .text:
 
 0000000000000270 <read_post_program>:
      270:	0118fc0000000000 	load R8,LLF0
-     278:	0000000510000000 
+     278:	0000000510000140 
      280:	6a11001800000000 	isbrdp R1,R8
      288:	2711110100000000 	or R1,R1,ONE
      290:	6200111800000000 	isbwrp R1,R8
