@@ -51,7 +51,7 @@ run :
 clean :
 
 test_user_input :
-	@setenv TESTNAME  && \
+	@echo "testname = $(TESTNAME)"
 
 	
 .PHONY: clean 

@@ -1,0 +1,155 @@
+# SimVision Command Script (Thu Apr 18 03:47:05 PM PDT 2024)
+#
+# Version 23.09.a071
+#
+# You can restore this configuration with:
+#
+#     simvision -input ob_ib.svcf
+#  or simvision -input ob_ib.svcf database1 database2 ...
+#
+
+
+#
+# Preferences
+#
+preferences set toolbar-UserTB0-WaveWindow {
+  usual
+  add pd_xe_action
+  add pd_display_action
+  add pd_upload_action
+  add pd_probe_stream_action
+  add pd_enablefold_action1
+  add pd_showfold_action1
+  add pd_dpa_action
+  shown 1
+  position -row 0 -pos 4 -anchor w
+  name PdBar
+}
+preferences set plugin-enable-svdatabrowser-new 1
+preferences set user-toolbar-list {WatchList {} WaveWindow {}}
+preferences set toolbar-Standard-WaveWindow {
+  usual
+  position -pos 1
+}
+preferences set plugin-enable-groupscope 0
+preferences set plugin-enable-interleaveandcompare 0
+preferences set plugin-enable-waveformfrequencyplot 0
+
+#
+# Databases
+#
+array set dbNames ""
+set dbNames(realName1) [ database require trace -hints {
+	file ./trace.shm/trace.trn
+	file /home/ibarry/Project-Zipline-master/pal_emu/work/trace.shm/trace.trn
+}]
+if {$dbNames(realName1) == ""} {
+    set dbNames(realName1) trace
+}
+set dbNames(realName2) [ database require {trace (2)} -hints {
+	file ./trace.shm/trace_hw.trn
+	file /home/ibarry/Project-Zipline-master/pal_emu/work/trace.shm/trace_hw.trn
+}]
+if {$dbNames(realName2) == ""} {
+    set dbNames(realName2) {"trace (2)"}
+}
+
+#
+# Mnemonic Maps
+#
+mmap new  -reuse -name {Boolean as Logic} -radix %b -contents {{%c=FALSE -edgepriority 1 -shape low}
+{%c=TRUE -edgepriority 1 -shape high}}
+mmap new  -reuse -name {Example Map} -radix %x -contents {{%b=11???? -bgcolor orange -label REG:%x -linecolor yellow -shape bus}
+{%x=1F -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=2C -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=* -label %x -linecolor gray -shape bus}}
+
+#
+# Waveform windows
+#
+if {[catch {window new WaveWindow -name "Waveform 1" -geometry 2430x998+85+95}] != ""} {
+    window geometry "Waveform 1" 2430x998+85+95
+}
+window target "Waveform 1" on
+waveform using {Waveform 1}
+waveform sidebar select designbrowser
+waveform set \
+    -primarycursor TimeA \
+    -signalnames name \
+    -signalwidth 175 \
+    -units ns \
+    -valuewidth 178
+waveform baseline set -time 0
+
+set id [waveform add -signals [subst  {
+	{$dbNames(realName1)::[format {kme_tb.kme_ib_tdata[63:0]}]}
+	} ]]
+waveform format $id -color #ff9900
+waveform hierarchy collapse $id
+set id [waveform add -signals [subst  {
+	{$dbNames(realName1)::[format {kme_tb.kme_ib_tid[0:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{$dbNames(realName1)::[format {kme_tb.kme_ib_tlast}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{$dbNames(realName1)::[format {kme_tb.kme_ib_tready}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{$dbNames(realName1)::[format {kme_tb.kme_ib_tstrb[7:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{$dbNames(realName1)::[format {kme_tb.kme_ib_tuser[7:0]}]}
+	} ]]
+waveform format $id -color #0099ff
+set id [waveform add -signals [subst  {
+	{$dbNames(realName1)::[format {kme_tb.kme_ib_tvalid}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{$dbNames(realName1)::[format {kme_tb.kme_ob_tready}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{$dbNames(realName1)::[format {kme_tb.kme_ob_tvalid}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{$dbNames(realName1)::[format {kme_tb.kme_ob_tlast}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{$dbNames(realName1)::[format {kme_tb.kme_ob_tid[0:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{$dbNames(realName1)::[format {kme_tb.kme_ob_tstrb[7:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{$dbNames(realName1)::[format {kme_tb.kme_ob_tuser[7:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{$dbNames(realName1)::[format {kme_tb.kme_ob_tdata[63:0]}]}
+	} ]]
+waveform format $id -color #ffff00
+set id [waveform add -signals [subst  {
+	{$dbNames(realName2)::[format {kme_tb.kme_dut.kme_cceip0_ob_out}]}
+	} ]]
+waveform format $id -color #ff0000
+waveform hierarchy expand $id
+set id2 [lindex [waveform hierarchy content $id] 5]
+waveform format $id2 -color #ffff00
+waveform hierarchy collapse $id2
+
+waveform xview limits 46763.113ns 46893.125ns
+
+# Time Folds
+set foldH [waveform fold add -signals {"trace (2)"::dbgap}]
+
+
+
+#
+# Waveform Window Links
+#
+
+#
+# Console windows
+#
+console set -windowname Console
+window geometry Console 600x250+0+0
+

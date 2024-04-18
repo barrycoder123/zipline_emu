@@ -8,7 +8,6 @@ Q_BUFZN Q_BUFZN 2441 2446 /home/ibarry/Project-Zipline-master/pal_emu/work/xc_wo
 X_STR0WE0 X_STR0WE0 1342 1347 /home/ibarry/Project-Zipline-master/pal_emu/work/xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/.libvlog/qtref.v 0 0 0
 X_STR0WE1 X_STR0WE1 1347 1352 /home/ibarry/Project-Zipline-master/pal_emu/work/xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/.libvlog/qtref.v 0 0 0
 Q_EV_WOR Q_EV_WOR 1385 1389 /home/ibarry/Project-Zipline-master/pal_emu/work/xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/.libvlog/qtref.v 0 0 0
-_ixc_isc _ixc_isc 2487 2487 xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/.incr/_ixc_isc.sh 0 0 0
 ixc_time ixc_time 5 118 /home/ibarry/Project-Zipline-master/pal_emu/work/xc_work/v/148.v 0 0 0
 axis_eclk axis_eclk 2663 2680 /lan/cva_rel/ixcom23h1/23.03.131.s001/tools.lnx86/etc/ixcom/xcva_prims_base.sv 0 0 0
 IXC_GFIFO IXC_GFIFO 5 20 /home/ibarry/Project-Zipline-master/pal_emu/work/xc_work/v/135.sv 0 0 0
@@ -30,8 +29,6 @@ ixc_assign ixc_assign 46 83 /lan/cva_rel/ixcom23h1/23.03.131.s001/tools.lnx86/et
 axis_tbcall axis_tbcall 3809 3857 /lan/cva_rel/ixcom23h1/23.03.131.s001/tools.lnx86/etc/ixcom/xcva_prims_base.sv 0 0 0
 Q_LDP0 Q_LDP0 2027 2032 /home/ibarry/Project-Zipline-master/pal_emu/work/xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/.libvlog/qtref.v 0 0 0
 Q_PEDECT Q_PEDECT 156 161 /home/ibarry/Project-Zipline-master/pal_emu/work/xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/.libvlog/qtref.v 0 0 0
-my_clks my_clks 2487 2487 xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/.incr/my_clks.sh 0 0 0
-kme_tb kme_tb 2487 2487 xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/.incr/kme_tb.sh 0 0 0
 ixc_gf4_pkt_q_single ixc_gf4_pkt_q_single 1598 1787 /lan/cva_rel/ixcom23h1/23.03.131.s001/tools.lnx86/etc/ixcom/xcva_prims_ice.sv 0 0 0
 ixc_gf4_pkt_q ixc_gf4_pkt_q 1402 1597 /lan/cva_rel/ixcom23h1/23.03.131.s001/tools.lnx86/etc/ixcom/xcva_prims_ice.sv 0 0 0
 ixc_gf4_q_status ixc_gf4_q_status 1230 1401 /lan/cva_rel/ixcom23h1/23.03.131.s001/tools.lnx86/etc/ixcom/xcva_prims_ice.sv 0 0 0
@@ -142,3 +139,6 @@ axis_latch axis_latch 1283 1304 /lan/cva_rel/ixcom23h1/23.03.131.s001/tools.lnx8
 axis_busreg axis_busreg 1270 1282 /lan/cva_rel/ixcom23h1/23.03.131.s001/tools.lnx86/etc/ixcom/xcva_prims_2x.sv 0 0 0
 axis_delay axis_delay 1259 1269 /lan/cva_rel/ixcom23h1/23.03.131.s001/tools.lnx86/etc/ixcom/xcva_prims_2x.sv 0 0 0
 axis_mux2 axis_mux2 1248 1258 /lan/cva_rel/ixcom23h1/23.03.131.s001/tools.lnx86/etc/ixcom/xcva_prims_2x.sv 0 0 0
+_ixc_isc _ixc_isc 2487 2487 xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/.incr/_ixc_isc.sh 0 0 0
+my_clks my_clks 2487 2487 xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/.incr/my_clks.sh 0 0 0
+kme_tb kme_tb 2487 2487 xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/.incr/kme_tb.sh 0 0 0

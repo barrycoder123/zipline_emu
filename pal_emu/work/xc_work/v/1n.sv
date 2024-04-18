@@ -35,8 +35,8 @@ logic [31:0] kme_apb_pwdata ;
 logic [31:0] kme_apb_prdata ;
 logic kme_apb_pready;
 logic kme_apb_pslverr;
-integer _zz_56_221_0;
-integer _zz_56_227_1;
+integer _zz_56_223_0;
+integer _zz_56_229_1;
 wire  _zy_simnet_kme_apb_psel_0_w$;
 wire  _zy_simnet_kme_apb_penable_1_w$;
 wire  [0:19] _zy_simnet_kme_apb_paddr_2_w$ ;
@@ -170,12 +170,13 @@ cr_kme kme_dut(
   .apb_penable(_zy_simnet_kme_apb_penable_41_w$) ,
   .apb_pwrite(_zy_simnet_kme_apb_pwrite_42_w$) ,
   .apb_pwdata(_zy_simnet_kme_apb_pwdata_43_w$) ); 
-import "DPI-C" function int get_config_data (output bit [31:0] operation ,output bit [31:0] address ,output bit [31:0] data );
+import "DPI-C" function int get_config_data (output byte operation,output bit [31:0] address ,output bit [31:0] data );
+import "DPI-C" function int ib_service_data (output bit [31:0] tdata ,output bit [31:0] tuser_string ,output bit [31:0] tstrb ,output int str_get);
 
 task do_kme_config;
  reg [31:0] returned_data ;
  reg response;
- bit [31:0] operation ;
+ byte operation;
  bit [31:0] address ;
  bit [31:0] data ;
  static int retval = 1;
@@ -187,10 +188,10 @@ task do_kme_config;
     $display("curr value of retval --> 0x%x",retval);
     if ((retval == 1))
      begin
-      $display("operation = %d, address = 0x%h, data = 0x%h\n",operation,address,data);
-      if (((((operation == 32'b01110010) || (operation == 32'b01010010)) || (operation == 32'b01110111)) || (operation == 32'b01010111)))
+      $display("operation = %s, address = 0x%h, data = 0x%h\n",operation,address,data);
+      if (((((operation == 8'b01110010) || (operation == 8'b01010010)) || (operation == 8'b01110111)) || (operation == 8'b01010111)))
        begin
-        if (((operation == 32'b01110010) || (operation == 32'b01010010)))
+        if (((operation == 8'b01110010) || (operation == 8'b01010010)))
          begin
           apb_xactor.read(address,returned_data,response);
           $display("MY INFO: curr address: 0x%h --> data_from_config: 0x%h --> data_from_apb: 0x%h\n",address,data,returned_data);
@@ -212,7 +213,7 @@ task do_kme_config;
           end
          end
         else
-         if (((operation == 32'b01110111) || (operation == 32'b01010111)))
+         if (((operation == 8'b01110111) || (operation == 8'b01010111)))
           begin
           apb_xactor.write(address,data,response);
           if ((response !== 32'b0))
@@ -236,47 +237,33 @@ endtask
 
 
 task service_ib_interface;
- reg [7:0] tstrb ;
- reg [63:0] tdata ;
- string tuser_string;
- string file_name;
- string vector;
- integer str_get;
- integer file_descriptor;
  logic saw_mega;
  logic saw_guid_tlv;
  logic have_guid_tlv;
- integer mega_tlv_word_count;
+ int mega_tlv_word_count;
+ bit [7:0] tstrb ;
+ bit [63:0] tdata ;
+ bit [4:0] tuser_string ;
+ int str_get;
+ int retval;
  begin
-  file_name = $psprintf("../../dv/KME/tests/%s.inbound",testname);
-  file_descriptor = $fopen(file_name,"r");
-  if ((file_descriptor == 0))
-   begin
-    $display("INBOUND_FATAL:  @time:%-d File %s NOT found!",$time,file_name);
-    $finish;
-   end
-  else
-   begin
-    $display("INBOUND_INFO:  @time:%-d Openned test file -->  %s",$time,file_name);
-   end
+  retval = ib_service_data(tdata,tuser_string,tstrb,str_get);
   saw_mega = 1'b0;
   saw_guid_tlv = 1'b0;
   mega_tlv_word_count = 0;
   have_guid_tlv = 1'b0;
-  while (( !$feof(file_descriptor) ))
+  do
    begin
-    if ((kme_ib_tready === 1'b1))
+    retval = ib_service_data(tdata,tuser_string,tstrb,str_get);
+    if ((retval == 1))
      begin
-      kme_ib_tlast <= 1'b0;
-      if ($fgets(vector,file_descriptor))
+      if ((kme_ib_tready === 1'b1))
        begin
-        str_get = $sscanf(vector,"0x%h %s 0x%h",tdata,tuser_string,tstrb);
-        if ((str_get >= 2))
+        kme_ib_tlast <= 1'b0;
+        kme_ib_tvalid <= 1'b0;
+        if ((str_get == 3))
          begin
-          $display("INBOUND_INFO:  @time:%-d vector --> %s",$time,vector);
-          if ((str_get == 3))
-          begin
-          if (((tuser_string == "SoT") && (tdata[7:0] >= 8'b010101)))
+          if (((tuser_string == 24'b010100110110111101010100) && (tdata[7:0] >= 8'b010101)))
           begin
           saw_mega = 1'b1;
           end
@@ -297,7 +284,7 @@ task service_ib_interface;
           end
           end
           end
-          if (((tuser_string == "EoT") && (saw_mega == 32'b01)))
+          if (((tuser_string == 24'b010001010110111101010100) && (saw_mega == 32'b01)))
           begin
           if ((have_guid_tlv == 32'b0))
           begin
@@ -306,35 +293,27 @@ task service_ib_interface;
           saw_mega = 1'b0;
           end
           else
-          if (((tuser_string == "EoT") && (saw_guid_tlv == 32'b01)))
+          if (((tuser_string == 24'b010001010110111101010100) && (saw_guid_tlv == 32'b01)))
           begin
           kme_ib_tlast <= 1'b1;
           saw_guid_tlv = 1'b0;
           end
-          kme_ib_tuser <= translate_tuser(tuser_string);
-          end
-          else
-          begin
-          kme_ib_tuser <= 8'b0;
-          end
-          kme_ib_tvalid <= 1'b1;
-          kme_ib_tdata <= tdata;
-          kme_ib_tstrb <= tstrb;
+          kme_ib_tuser <= translate_tuser_t(tuser_string);
          end
         else
          begin
-          kme_ib_tvalid <= 1'b0;
+          kme_ib_tuser <= 8'b0;
          end
+        kme_ib_tvalid <= 1'b1;
+        kme_ib_tdata <= tdata;
+        kme_ib_tstrb <= tstrb;
        end
-      else
+      @(posedge clk)
        begin
-        kme_ib_tvalid <= 1'b0;
        end
-     end
-    @(posedge clk)
-     begin
      end
    end
+  while ((retval != 2));
   kme_ib_tvalid <= 1'b0;
   kme_ib_tlast <= 1'b0;
   @(posedge clk)
@@ -503,13 +482,31 @@ function  [7:0] translate_tuser;
    end
 endfunction
 
+
+function  [7:0] translate_tuser_t;
+ input bit [4:0] tuser ;
+ if ((tuser == 24'b010100110110111101010100))
+  begin
+   return 8'b01;
+  end
+ else
+  if ((tuser == 24'b010001010110111101010100))
+   begin
+    return 8'b010;
+   end
+  else
+   begin
+    return 8'b011;
+   end
+endfunction
+
 initial 
  begin
   error_cntr = 0;
   rst_n = 1'b0;
   if ($test$plusargs("SEED"))
    begin
-    _zz_56_221_0 = $value$plusargs("SEED=%d",seed);
+    _zz_56_223_0 = $value$plusargs("SEED=%d",seed);
    end
   else
    begin
@@ -517,7 +514,7 @@ initial
    end
   if ($test$plusargs("TESTNAME"))
    begin
-    _zz_56_227_1 = $value$plusargs("TESTNAME=%s",testname);
+    _zz_56_229_1 = $value$plusargs("TESTNAME=%s",testname);
     $display("TESTNAME=%s SEED=%s",testname,seed);
    end
   else

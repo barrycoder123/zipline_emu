@@ -88,46 +88,50 @@ NOTE: net names followed by ' **' belong to nets that
 00 ET5ANAL* | --------------------------------------------------------------------------------------
 00 ET5ANAL* | Breakpoint 68198 will add 101 steps after it is scheduled.
 00 ET5ANAL* | Critical net starts from an actual critical location.
-00 ET5ANAL* |    . [000,000,273,6]   61 +   0         NET      98230      0  ET6_SYNC.QTLA%break_0
-00 ET5ANAL* |    1 [000,000,273,6]   61 +   0    102  XBOB     68198   2: 1  ET6_XBOB_141
-00 ET5ANAL* |    . [000,000,273,0]   60 +   1         NET      98231      1  QTLA%break
-00 ET5ANAL* |    2 [000,000,259,1]   57 +   3    108  LOGIC    82517   2: 2  
-00 ET5ANAL* |    . [000,000,259,0]   57 +   0         NET      97781      1  _ET3_COMPILER_RESERVED_NAME_COMBINED_BREAK_
-00 ET5ANAL* |    3 [000,000,259,0]   57 +   0    109  LOGIC    85486   1: 1  
-00 ET5ANAL* |    . [000,000,262,0]   55 +   2         NET      98261      2  _ET3_COMPILER_RESERVED_NAME_SDL_BREAK_
-00 ET5ANAL* |    4 [000,000,262,0]   55 +   0    111  LOGIC    82516   4: 1  
-00 ET5ANAL* |    . [000,000,262,0]   54 +   1         NET      98451      2  QTLA%SDL.top.run_stop_ctl.sa_infini_break
-00 ET5ANAL* |    5 [000,000,245,2]   49 +   5    117  LOGIC    82124   4: 3  
-00 ET5ANAL* |    . [000,000,245,0]   49 +   0         NET      89056      1  QTLA%SDL.top.run_stop_ctl.n1432
-00 ET5ANAL* |    6 [000,000,245,0]   49 +   0    118  LOGIC    82029   4: 1  
-00 ET5ANAL* |    . [000,000,240,0]   44 +   5         NET      89737      1  
-00 ET5ANAL* |    7 [000,000,240,0]   44 +   0    121  LOGICx   81243   4: 2  
-00 ET5ANAL* |    . [000,000,240,0]   39 +   5         NET      90176      1  QTLA%SDL.top.run_stop_ctl.n1641$inv5153
-00 ET5ANAL* |    8 [000,000,228,0]   36 +   3    125  LOGIC    80824   4: 3  
-00 ET5ANAL* |    . [000,000,228,1]   35 +   1         NET      90194      2  QTLA%SDL.top.run_stop_ctl.n1646
-00 ET5ANAL* |    9 [000,000,228,1]   35 +   0    128  LOGIC    80807   3: 2  
-00 ET5ANAL* |    . [000,000,228,0]   35 +   0         NET      90210      2  QTLA%SDL.top.run_stop_ctl.n1647
-00 ET5ANAL* |   10 [000,000,228,0]   35 +   0    129  LOGIC    80791   4: 3  
-00 ET5ANAL* |    . [000,000,228,0]   34 +   1         NET     118977     13  QTLA%cycle_num[59]
-00 ET5ANAL* |   11 [000,000,270,0]   29 +   5    135  LOGIC    85522   1: 1  
-00 ET5ANAL* |    . [000,000,270,0]   28 +   1         NET     100779      9  xc_top.simTime[59] **
-00 ET5ANAL* |   12 [000,000,240,0]   23 +   5    141  LOGIC    80775   3: 1  
-00 ET5ANAL* |    . [000,000,243,0]   21 +   2         NET     148970     64  qt_other_dummy_node.smUNNAMED_241768
-00 ET5ANAL* |   13 [000,000,243,0]   21 +   0    143  LOGIC    39335   4: 2  
-00 ET5ANAL* |    . [000,000,245,1]   19 +   2         NET     147028      1  xc_top.n3844 **
-00 ET5ANAL* |   14 [000,000,245,1]   19 +   0    145  LOGIC    23885   4: 3  
-00 ET5ANAL* |    . [000,000,245,0]   19 +   0         NET     147032      4  xc_top.ckgHoldPIi **
-00 ET5ANAL* |   15 [000,000,245,0]   19 +   0    146  LOGIC    23871   3: 2  
-00 ET5ANAL* |    . [000,000,245,0]   18 +   1         NET     147033      2  xc_top.ckgHoldPI **
-00 ET5ANAL* |   16 [000,000,021,1]   13 +   5    147  LOGIC    46140   1: 1  
-00 ET5ANAL* |    . [000,000,021,0]   13 +   0         NET     150810      2  UA@.xc_top.ckgHoldPI **
-00 ET5ANAL* |   17 [000,000,021,0]   13 +   0    153  LOGIC    21609   3: 3  
-00 ET5ANAL* |    . [000,000,021,0]   12 +   1         NET     100753    249  
-00 ET5ANAL* |   18 [000,000,198,2]    7 +   5    159  LOGIC    80642   2: 1  
-00 ET5ANAL* |    . [000,000,198,0]    0 +   7         NET     100533      2  _ET3_COMPILER_RESERVED_NAME_SLOW_MODE_ENABLE_
-00 ET5ANAL* |   19 [000,000,198,0]    0 +   0    160  LOGIC    85444   1: 1  
-00 ET5ANAL* |    . [000,000,198,0]    0 +   0         NET     131566      1  qt_slow_mode_flex_ena_inp
-00 ET5ANAL* |   20 [000,000,198,0]    0 +   0    166  FD01     47434   4: 0  
+00 ET5ANAL* |    . [000,000,017,6]   62 +   0         NET      98230      0  ET6_SYNC.QTLA%break_0
+00 ET5ANAL* |    1 [000,000,017,6]   62 +   0    102  XBOB     68198   2: 1  ET6_XBOB_141
+00 ET5ANAL* |    . [000,000,017,0]   61 +   1         NET      98231      1  QTLA%break
+00 ET5ANAL* |    2 [000,000,016,1]   60 +   1    104  LOGIC    82517   2: 2  
+00 ET5ANAL* |    . [000,000,016,0]   60 +   0         NET      97781      1  _ET3_COMPILER_RESERVED_NAME_COMBINED_BREAK_
+00 ET5ANAL* |    3 [000,000,016,0]   60 +   0    105  LOGIC    85486   1: 1  
+00 ET5ANAL* |    . [000,000,016,0]   59 +   1         NET      98261      2  _ET3_COMPILER_RESERVED_NAME_SDL_BREAK_
+00 ET5ANAL* |    4 [000,000,085,3]   54 +   5    111  LOGIC    82516   4: 1  
+00 ET5ANAL* |    . [000,000,085,0]   47 +   7         NET      98451      2  QTLA%SDL.top.run_stop_ctl.sa_infini_break
+00 ET5ANAL* |    5 [000,000,076,0]   44 +   3    115  LOGIC    82124   4: 4  
+00 ET5ANAL* |    . [000,000,076,2]   43 +   1         NET      88902      1  QTLA%SDL.top.run_stop_ctl.n1198
+00 ET5ANAL* |    6 [000,000,114,0]   40 +   3    119  LOGIC    82123   4: 2  
+00 ET5ANAL* |    . [000,000,112,0]   38 +   2         NET      89729      1  QTLA%SDL.top.run_stop_ctl.n1199$inv5248
+00 ET5ANAL* |    7 [000,000,112,0]   38 +   0    121  LOGIC    81251   3: 1  
+00 ET5ANAL* |    . [000,000,112,3]   37 +   1         NET      89730      1  
+00 ET5ANAL* |    8 [000,000,112,3]   37 +   0    122  LOGIC    81250   4: 1  
+00 ET5ANAL* |    . [000,000,112,2]   37 +   0         NET      90023      1  QTLA%SDL.top.run_stop_ctl.n1221$inv5186
+00 ET5ANAL* |    9 [000,000,112,2]   37 +   0    123  LOGIC    80970   4: 3  
+00 ET5ANAL* |    . [000,000,112,1]   37 +   0         NET      90101      1  QTLA%SDL.top.run_stop_ctl.n1394$inv5167
+00 ET5ANAL* |   10 [000,000,112,1]   37 +   0    124  LOGIC    80896   4: 1  
+00 ET5ANAL* |    . [000,000,112,0]   37 +   0         NET      90102      1  
+00 ET5ANAL* |   11 [000,000,112,0]   37 +   0    125  LOGIC    80895   4: 3  
+00 ET5ANAL* |    . [000,000,112,0]   36 +   1         NET      90139      1  QTLA%SDL.top.run_stop_ctl.n1395$inv5160
+00 ET5ANAL* |   12 [000,000,078,0]   33 +   3    129  LOGIC    80859   4: 3  
+00 ET5ANAL* |    . [000,000,078,0]   32 +   1         NET     117555      4  QTLA%cycle_num_shadow[55]
+00 ET5ANAL* |   13 [000,000,113,0]   29 +   3    133  LOGIC    85531   1: 1  
+00 ET5ANAL* |    . [000,000,113,0]   28 +   1         NET     100787     10  xc_top.simTime[55] **
+00 ET5ANAL* |   14 [000,000,078,0]   25 +   3    137  LOGIC    80839   3: 1  
+00 ET5ANAL* |    . [000,000,078,0]   24 +   1         NET     148970     64  qt_other_dummy_node.smUNNAMED_241768
+00 ET5ANAL* |   15 [000,000,117,0]   21 +   3    141  LOGIC    39335   4: 2  
+00 ET5ANAL* |    . [000,000,117,0]   20 +   1         NET     147028      1  xc_top.n3844 **
+00 ET5ANAL* |   16 [000,000,080,0]   17 +   3    145  LOGIC    23885   4: 2  
+00 ET5ANAL* |    . [000,000,080,0]   13 +   4         NET     147030     12  xc_top.callEmuEv$inv496 **
+00 ET5ANAL* |   17 [000,000,049,2]    8 +   5    151  LOGIC    23874   4: 2  
+00 ET5ANAL* |    . [000,000,049,1]    8 +   0         NET     147031      2  xc_top.callEmuPI **
+00 ET5ANAL* |   18 [000,000,049,1]    8 +   0    152  LOGIC    46139   1: 1  
+00 ET5ANAL* |    . [000,000,049,0]    8 +   0         NET     150812      2  UA@.xc_top.callEmuPI **
+00 ET5ANAL* |   19 [000,000,049,0]    8 +   0    153  LOGIC    21608   3: 3  
+00 ET5ANAL* |    . [000,000,049,2]    7 +   1         NET     100753    249  
+00 ET5ANAL* |   20 [000,000,049,2]    7 +   0    157  LOGIC    80642   2: 1  
+00 ET5ANAL* |    . [000,000,049,2]    5 +   2         NET     100533      2  _ET3_COMPILER_RESERVED_NAME_SLOW_MODE_ENABLE_
+00 ET5ANAL* |   21 [000,000,080,4]    0 +   5    163  LOGIC    85444   1: 1  
+00 ET5ANAL* |    . [000,000,080,4]    0 +   0         NET     131566      1  qt_slow_mode_flex_ena_inp
+00 ET5ANAL* |   22 [000,000,080,4]    0 +   0    164  FD01     47434   4: 0  
 00 ET5ANAL* | ======================================================================================
 00 ET5ANAL* | 
 00 ET5ANAL* | Critical paths by steps
@@ -137,41 +141,47 @@ NOTE: net names followed by ' **' belong to nets that
 00 ET5ANAL* | --------------------------------------------------------------------------------------
 00 ET5ANAL* | Breakpoint 68198 will add 101 steps after it is scheduled.
 00 ET5ANAL* | Critical net starts from an actual critical location.
-00 ET5ANAL* |    . [000,000,273,6]   61 +   0  NET      98230      0  ET6_SYNC.QTLA%break_0
-00 ET5ANAL* |    1 [000,000,273,6]   61 +   0  XBOB     68198   2: 1  ET6_XBOB_141
-00 ET5ANAL* |    . [000,000,273,0]   60 +   1  NET      98231      1  QTLA%break
-00 ET5ANAL* |    2 [000,000,259,1]   57 +   3  LOGIC    82517   2: 2  
-00 ET5ANAL* |    . [000,000,259,0]   57 +   0  NET      97781      1  _ET3_COMPILER_RESERVED_NAME_COMBINED_BREAK_
-00 ET5ANAL* |    3 [000,000,259,0]   57 +   0  LOGIC    85486   1: 1  
-00 ET5ANAL* |    . [000,000,262,0]   55 +   2  NET      98261      2  _ET3_COMPILER_RESERVED_NAME_SDL_BREAK_
-00 ET5ANAL* |    4 [000,000,262,0]   55 +   0  LOGIC    82516   4: 1  
-00 ET5ANAL* |    . [000,000,262,0]   54 +   1  NET      98451      2  QTLA%SDL.top.run_stop_ctl.sa_infini_break
-00 ET5ANAL* |    5 [000,000,245,2]   49 +   5  LOGIC    82124   4: 3  
-00 ET5ANAL* |    . [000,000,245,0]   49 +   0  NET      89056      1  QTLA%SDL.top.run_stop_ctl.n1432
-00 ET5ANAL* |    6 [000,000,245,0]   49 +   0  LOGICx   82029   4: 1  
-00 ET5ANAL* |    . [000,000,245,3]   48 +   1  NET      89057      1  
-00 ET5ANAL* |    7 [000,000,245,3]   48 +   0  LOGIC    85232   3: 2  
-00 ET5ANAL* |    . [000,000,245,4]   48 +   0  NET      89448      1  
-00 ET5ANAL* |    8 [000,000,245,4]   48 +   0  LOGIC    81524   4: 4  
-00 ET5ANAL* |    . [000,000,245,0]   47 +   1  NET     119105     13  QTLA%cycle_num[16]
-00 ET5ANAL* |    9 [000,000,266,0]   42 +   5  LOGIC    85608   1: 1  
-00 ET5ANAL* |    . [000,000,266,0]   41 +   1  NET     100869     10  xc_top.simTime[16] **
-00 ET5ANAL* |   10 [000,000,246,0]   36 +   5  LOGICx   81511   3: 3  
-00 ET5ANAL* |    . [000,000,246,0]   35 +   1  NET      89462      1  xc_top.ixcSimTime[16] **
-00 ET5ANAL* |   11 [000,000,000,3]   20 +  15  LOGIC    81508   3: 1  
-00 ET5ANAL* |    . [000,000,000,4]   20 +   0  NET      89471      6  xc_top.evalStepPIi[16] **
-00 ET5ANAL* |   12 [000,000,000,4]   20 +   0  LOGIC    81503   3: 1  
-00 ET5ANAL* |    . [000,000,000,0]   19 +   1  NET      89472      1  xc_top.evalStepPI[16] **
-00 ET5ANAL* |   13 [000,000,000,0]   19 +   0  LOGIC    85786   1: 1  
-00 ET5ANAL* |    . [000,000,000,1]   18 +   1  NET     100722      2  UA@.xc_top.evalStepPI[16] **
-00 ET5ANAL* |   14 [000,000,000,1]   18 +   0  LOGIC    68059   3: 3  
-00 ET5ANAL* |    . [000,000,000,0]   12 +   6  NET     100753    249  
-00 ET5ANAL* |   15 [000,000,198,2]    7 +   5  LOGIC    80642   2: 2  
-00 ET5ANAL* |    . [000,000,198,0]    7 +   0  NET     100534      2  
-00 ET5ANAL* |   16 [000,000,198,0]    7 +   0  LOGIC    84104   4: 4  
-00 ET5ANAL* |    . [000,000,198,0]    6 +   1  NET     100538      2  DBI_APPLY
-00 ET5ANAL* |   17 [000,000,128,0]    0 +   6  DBIB     68197   0: 0  ET6_DBIB_0_0_0
+00 ET5ANAL* |    . [000,000,017,6]   62 +   0  NET      98230      0  ET6_SYNC.QTLA%break_0
+00 ET5ANAL* |    1 [000,000,017,6]   62 +   0  XBOB     68198   2: 1  ET6_XBOB_141
+00 ET5ANAL* |    . [000,000,017,0]   61 +   1  NET      98231      1  QTLA%break
+00 ET5ANAL* |    2 [000,000,016,1]   60 +   1  LOGIC    82517   2: 2  
+00 ET5ANAL* |    . [000,000,016,0]   60 +   0  NET      97781      1  _ET3_COMPILER_RESERVED_NAME_COMBINED_BREAK_
+00 ET5ANAL* |    3 [000,000,016,0]   60 +   0  LOGIC    85486   1: 1  
+00 ET5ANAL* |    . [000,000,016,0]   59 +   1  NET      98261      2  _ET3_COMPILER_RESERVED_NAME_SDL_BREAK_
+00 ET5ANAL* |    4 [000,000,085,3]   54 +   5  LOGIC    82516   4: 4  
+00 ET5ANAL* |    . [000,000,085,2]   54 +   0  NET      88592      1  
+00 ET5ANAL* |    5 [000,000,085,2]   54 +   0  LOGIC    82515   4: 1  
+00 ET5ANAL* |    . [000,000,085,4]   54 +   0  NET      88593      1  QTLA%SDL.top.run_stop_ctl.n806$inv5462
+00 ET5ANAL* |    6 [000,000,085,4]   54 +   0  LOGIC    82514   4: 3  
+00 ET5ANAL* |    . [000,000,085,0]   53 +   1  NET     118119     12  QTLA%SDL.top.run_stop_ctl.stop_request
+00 ET5ANAL* |    7 [000,000,074,0]   50 +   3  LOGIC    82209   4: 3  
+00 ET5ANAL* |    . [000,000,074,3]   49 +   1  NET     117154      3  QTLA%SDL.top.run_stop_ctl.stop_request_sum
+00 ET5ANAL* |    8 [000,000,074,3]   49 +   0  LOGIC    82206   3: 2  
+00 ET5ANAL* |    . [000,000,074,2]   49 +   0  NET      88772      2  QTLA%SDL.top.run_stop_ctl.stop_on_trigger
+00 ET5ANAL* |    9 [000,000,074,2]   49 +   0  LOGIC    82203   3: 1  
+00 ET5ANAL* |    . [000,000,074,1]   49 +   0  NET     118123     67  QTLA%SDL.top.run_stop_ctl.latched_trigger
+00 ET5ANAL* |   10 [000,000,074,1]   49 +   0  LOGIC    82143   4: 4  
+00 ET5ANAL* |    . [000,000,074,0]   49 +   0  NET      88891      1  QTLA%SDL.top.run_stop_ctl.n797
+00 ET5ANAL* |   11 [000,000,074,0]   49 +   0  LOGIC    82142   4: 3  
+00 ET5ANAL* |    . [000,000,074,0]   48 +   1  NET      96385      1  QTLA%SDL.top.trigger_sum
+00 ET5ANAL* |   12 [000,000,085,1]   45 +   3  LOGIC    70166   4: 3  
+00 ET5ANAL* |    . [000,000,085,0]   45 +   0  NET      96387      2  QTLA%SDL.top.tsm_0.lut_trigger
+00 ET5ANAL* |   13 [000,000,085,0]   45 +   0  LOGIC    91163   1: 1  
+00 ET5ANAL* |    . [000,000,085,0]   44 +   1  NET      62008      1  QTLA%SDL.top.tsm_0.main_instr.lut_data[1]
+00 ET5ANAL* |   14 [000,000,000,0]   33 +  11  XMPRe   173916  18:16  ET5_V1_H1.QTLA%SDL.top.tsm_0.main_instr.tsm_lut_OPT
+00 ET5ANAL* |    . [000,000,082,0]   32 +   1  NET      67030      7  QTLA%SDL.top.tsm_0.tc2
+00 ET5ANAL* |   15 [000,000,034,0]   27 +   5  LOGIC   124069   4: 4  
+00 ET5ANAL* |    . [000,000,034,0]   26 +   1  NET      44962      1  QTLA%SDL.top.tsm_0.main_instr.cnt2.n4
+00 ET5ANAL* |   16 [000,000,034,0]   26 +   0  LOGIC   124068   4: 3  
+00 ET5ANAL* |    . [000,000,038,3]   24 +   2  NET      44974      1  
+00 ET5ANAL* |   17 [000,000,038,3]   24 +   0  LOGIC   124056   4: 1  
+00 ET5ANAL* |    . [000,000,038,5]   23 +   1  NET      45006      2  QTLA%SDL.top.tsm_0.main_instr.cnt2.n50
+00 ET5ANAL* |   18 [000,000,038,5]   23 +   0  LOGIC   124024   3: 2  
+00 ET5ANAL* |    . [000,000,038,4]   22 +   1  NET      61887      2  QTLA%SDL.top.tsm_0.main_instr.cnt2.comp_val[9]
+00 ET5ANAL* |   19 [000,000,000,0]    8 +  14  XMPRe   174128  18:15  ET5_V1_H1.QTLA%SDL.top.tsm_0.main_instr.cnt1.cnt_cmpval_OPT.Merger1
+00 ET5ANAL* |    . [000,000,018,0]    7 +   1  NET      67198     43  QTLA%SDL.top.tsm_0.tsm_state[2]
+00 ET5ANAL* |   20 [000,000,080,3]    0 +   7  FD01    105773   4: 0  
 00 ET5ANAL* | --------------------------------------------------------------------------------------
-00 ET5ANAL* | Maximum jump of 15 steps occurs at step 20
+00 ET5ANAL* | Maximum jump of 14 steps occurs at step 8
 00 ET5ANAL* | 0 inter-chip hops, 0 steps inter-chip delay
 00 ET5ANAL* | ======================================================================================

@@ -203,12 +203,14 @@ module kme_tb;
 		  .disable_unencrypted_keys(1'b0)
 		  );
       // IMPORT DPI-C functions here
-      import "DPI-C" function int get_config_data(output bit[31: 0] operation, output bit [31: 0] address, output bit
-      [31: 0] data);
+      import "DPI-C" function int get_config_data(output byte operation, output bit [31:0] address, output bit[31:0] data);
+      import "DPI-C" function int ib_service_data(output bit[31:0] tdata, output
+      bit[31:0] tuser_string, output bit[31:0] tstrb, output int str_get);
       // TODO: these outputs can be used in the do_kme_config() to get data 
       // write/read() sent to sfifo so will run in HW
       initial begin
           $ixc_ctrl("gsf_is", "get_config_data");
+          $ixc_ctrl("gsf_is", "ib_service_data");
       end
 
    initial begin
@@ -312,7 +314,8 @@ task do_kme_config();
       // integer        str_get;
       // integer        file_descriptor;
       reg            response;
-      bit [31:0] operation;
+      //bit [31:0] operation;
+      byte operation;
       bit [31:0] address;
       bit [31:0] data;
       int retval = 1;
@@ -327,7 +330,7 @@ task do_kme_config();
             $display("curr value of retval --> 0x%x", retval);
             if (retval == 1) begin
               // new algo
-              $display("operation = %d, address = 0x%h, data = 0x%h\n", operation, address, data);
+              $display("operation = %s, address = 0x%h, data = 0x%h\n", operation, address, data);
               if ( (operation == "r" || operation == "R" || operation == "w" || operation == "W") ) begin
                   if ( operation == "r" || operation == "R" ) begin
                       apb_xactor.read(address, returned_data, response);
@@ -363,85 +366,90 @@ task do_kme_config();
    endtask // do_kme_config
 
    task service_ib_interface();
-      reg[7:0]       tstrb;
-      reg [63:0]     tdata;
-      string         tuser_string;
-      string         file_name;
-      string         vector;
-      integer        str_get;
-      integer        file_descriptor; 
+      //reg[7:0]       tstrb;
+      //reg [63:0]     tdata;
+      //string         tuser_string;
+      //string         file_name;
+      //string         vector;
+      //integer        str_get;
+      //integer        file_descriptor; 
       logic 	     saw_mega;
       logic 	     saw_guid_tlv;
       logic 	     have_guid_tlv;
-      integer 	     mega_tlv_word_count;
+      int            mega_tlv_word_count;
       
+      bit [7:0]     tstrb;
+      bit [63:0]    tdata;
+      bit [4:0]     tuser_string;
+      int str_get;
+      int retval;
+      retval = ib_service_data(tdata, tuser_string, tstrb, str_get);
+      // if retval[0] == 1 output args are valid 
+      // if retval[1] == 1 end of stream reached
+      // if retval == 1 valid 
+      // if retval == 2 eos
       
+
       // pathing is wrong we dont run from the makefile here
       // file_name = $psprintf("../tests/%s.inbound", testname);
-      file_name = $psprintf("../../dv/KME/tests/%s.inbound", testname);
+      /*file_name = $psprintf("../../dv/KME/tests/%s.inbound", testname);
       file_descriptor = $fopen(file_name, "r");
       if ( file_descriptor == 0 ) begin
 	 $display ("INBOUND_FATAL:  @time:%-d File %s NOT found!", $time, file_name );
 	 $finish;
       end else begin
 	 $display ("INBOUND_INFO:  @time:%-d Openned test file -->  %s", $time, file_name );
-      end
+      end*/
 
       saw_mega = 0;
       saw_guid_tlv = 0;
       mega_tlv_word_count = 0;
       have_guid_tlv = 0;
-      
-      while( !$feof(file_descriptor) ) begin
-	 if ( kme_ib_tready === 1'b1 ) begin
-            kme_ib_tlast <= 1'b0;
-            if ( $fgets(vector,file_descriptor) ) begin
-               str_get = $sscanf(vector, "0x%h %s 0x%h", tdata, tuser_string, tstrb);
-	       //        $display ("INBOUND_INFO:  @time:%-d parsed vector --> 0x%h %s 0x%h %d", $time, tdata, tuser_string, tstrb, str_get ); 
-               if ( str_get >= 2 ) begin
-		  $display ("INBOUND_INFO:  @time:%-d vector --> %s", $time, vector ); 
-		  if ( str_get == 3 ) begin
-		     if ( tuser_string == "SoT" && tdata[7:0] >= 8'd21 ) begin
-			saw_mega = 1;
-		     end 
-		     else if(tdata[7:0] == 8'd10) begin
-			saw_guid_tlv = 1;
-		     end
-		     if (saw_mega == 1 ) begin
-			mega_tlv_word_count = mega_tlv_word_count + 1;
-			if(mega_tlv_word_count == 2) begin
-			   $display("mega tlv word #2: %x", tdata);
-			   if(tdata[4] == 1) begin
-			      have_guid_tlv = 1;
-			   end
-			end
-		     end
-		     if ( tuser_string == "EoT" && saw_mega == 1 ) begin
-			if( have_guid_tlv == 0 ) begin
-			   kme_ib_tlast <= 1'b1;
-			end
-			saw_mega = 0;
-		     end
-		     else if(tuser_string == "EoT" && saw_guid_tlv == 1) begin
-			kme_ib_tlast <= 1'b1;
-			saw_guid_tlv = 0;
-		     end
-		     kme_ib_tuser <= translate_tuser( tuser_string );
-		  end else begin
-		     kme_ib_tuser <= 8'h00;
-		  end
-		  kme_ib_tvalid <= 1'b1;
-		  kme_ib_tdata <= tdata;
-		  kme_ib_tstrb <= tstrb;
-               end else begin
-		  kme_ib_tvalid <= 1'b0;
-               end
-            end else begin
-               kme_ib_tvalid <= 1'b0;
+      //retval = ib_service_data(tdata, tuser_string, tstrb, str_get);
+      do begin
+        retval = ib_service_data(tdata, tuser_string, tstrb, str_get);
+        if (retval == 1) begin
+            if ( kme_ib_tready === 1'b1 ) begin
+                kme_ib_tlast <= 1'b0;
+                kme_ib_tvalid <= 1'b0;
+                if ( str_get == 3 ) begin
+                    if ( tuser_string == "SoT" && tdata[7:0] >= 8'd21 ) begin
+                        saw_mega = 1;
+                    end 
+                    else if(tdata[7:0] == 8'd10) begin
+                        saw_guid_tlv = 1;
+                    end
+                    if (saw_mega == 1 ) begin
+                        mega_tlv_word_count = mega_tlv_word_count + 1;
+                        if(mega_tlv_word_count == 2) begin
+                            $display("mega tlv word #2: %x", tdata);
+                            if(tdata[4] == 1) begin
+                                have_guid_tlv = 1;
+                            end
+                        end
+                    end
+                    if ( tuser_string == "EoT" && saw_mega == 1 ) begin
+                        if( have_guid_tlv == 0 ) begin
+                            kme_ib_tlast <= 1'b1;
+                        end
+                        saw_mega = 0;
+                    end
+                    else if(tuser_string == "EoT" && saw_guid_tlv == 1) begin
+                        kme_ib_tlast <= 1'b1;
+                        saw_guid_tlv = 0;
+                    end
+                        kme_ib_tuser <= translate_tuser_t( tuser_string );
+                end else begin
+                    kme_ib_tuser <= 8'h00;
+                end
+                kme_ib_tvalid <= 1'b1;
+                kme_ib_tdata <= tdata;
+                kme_ib_tstrb <= tstrb;
+                //kme_ib_tvalid <= 1'b0;
             end
-	 end
-	 @(posedge clk);
-      end
+            @(posedge clk);
+        end
+      end while (retval != 2);
 
       kme_ib_tvalid <= 1'b0;
       kme_ib_tlast <= 1'b0;
@@ -563,6 +571,16 @@ task do_kme_config();
    endtask // service_ob_interface
    
    function logic[7:0] translate_tuser (string tuser);
+      if ( tuser == "SoT" ) begin
+         return 8'h01;
+      end else if ( tuser == "EoT" ) begin
+         return 8'h02;
+      end else begin
+         return 8'h03;
+      end
+   endfunction : translate_tuser
+
+   function logic[7:0] translate_tuser_t (bit[4:0] tuser);
       if ( tuser == "SoT" ) begin
          return 8'h01;
       end else if ( tuser == "EoT" ) begin

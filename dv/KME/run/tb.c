@@ -11,15 +11,18 @@
 #define VALID 0x1 // valid data
 #define EOS   0x2 // end of stream 
 #define MAX_TRANSACTIONS 3258 // number of data points in kme.config file
+#define CONFIG_VEC_SIZE 70  // size of lines in inbound files
+#define INBOUND_VEC_SIZE 35  // size of lines in inbound files
 int num_transactions = 0;
 static FILE *file_descriptor = NULL;
+static FILE *ib_file = NULL;
 
 /*extern void tb_task (char* testname, char *seed, int *error_cntr, int argc, char *argv[]) {
 extern void write(unsigned int *addr, unsigned int *data, unsigned int *response);
 extern void read(unsigned int *addr, unsigned int *r_data, unsigned int *response);
 */
-extern int get_config_data(svBitVecVal *operation, svBitVecVal *address, svBitVecVal *data);
-extern int get_config_data(svBitVecVal *tdata, svBitVecVal *tuser_string, svBitVecVal *tstrb);
+extern int get_config_data(char *operation, svBitVecVal *address, svBitVecVal *data);
+extern int ib_service_data(svBitVecVal *tdata, svBitVecVal *tuser_string, svBitVecVal *tstrb, int *str_get);
 
 /*int error_cntr;
 char *testname;
@@ -44,19 +47,17 @@ void apb_read (char *a, char *r_d, int *r) {
     read(&a, &r_d, &r);
 }*/
 
-int get_config_data(svBitVecVal *operation, svBitVecVal *address, svBitVecVal *data) {
+int get_config_data(char *operation, svBitVecVal *address, svBitVecVal *data) {
     // TODO: File processing for kme.config
     // most file IO functions from sys v -> c are equivalent 
     int str_get;
-    int MAX = 70;
-    char vector [MAX];
+    char vector [CONFIG_VEC_SIZE];
     if (file_descriptor == NULL) {
-        printf("am i opening file\n");
         file_descriptor = fopen("../../dv/KME/tests/kme.config", "r");
     } 
-    while (fgets(vector, MAX, file_descriptor) != NULL) {
+    while (fgets(vector, CONFIG_VEC_SIZE, file_descriptor) != NULL) {
         str_get = sscanf(vector, "%c %016x %016x\n", operation, address, data);
-        printf("vector --> %s", vector);
+        //printf("vector --> %s", vector);
         if (num_transactions++ == MAX_TRANSACTIONS - 1) {
             return EOS;
         } else {
@@ -66,8 +67,38 @@ int get_config_data(svBitVecVal *operation, svBitVecVal *address, svBitVecVal *d
     return EOS;
 }
 
-int get_config_data(svBitVecVal *tdata, svBitVecVal *tuser_string, svBitVecVal *tstrb) {
-        // TO DO: 
+int ib_service_data(svBitVecVal *tdata, svBitVecVal *tuser_string, svBitVecVal *tstrb, int *str_get) {
+        // TODO:
+        //int str_get;
+        char *testname = getenv("TESTNAME");
+        char filename[1000];
+        strcpy(filename, "../../dv/KME/tests/");
+        strcat(filename, testname);
+        strcat(filename, ".inbound");
+        char wc_command[1000];
+        strcpy(wc_command, "wc -l < ");
+        strcat(wc_command, filename);
+        FILE *wc = popen(wc_command, "r");
+        char buf[25];
+        int line_count;
+        int num_transactions;
+        fgets(buf, sizeof(buf), wc);
+        line_count = atoi(buf);
+        pclose(wc);
+        char vector[INBOUND_VEC_SIZE];
+        if (ib_file == NULL) {
+            ib_file = fopen(filename, "r");
+        } 
+        while(fgets(vector, INBOUND_VEC_SIZE, ib_file) != NULL) {
+            *str_get = sscanf(vector, "%016x %s %016x\n", tdata, tuser_string, tstrb);
+            printf("ib vector is --> %s\n", vector);
+            if (num_transactions++ == line_count - 1) {
+                return EOS;
+            } else {
+                return VALID;
+            }
+        }
+        return EOS;
 }
 
 

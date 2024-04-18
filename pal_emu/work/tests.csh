@@ -1,0 +1,1 @@
+setenv TESTNAME kme_key_type_1

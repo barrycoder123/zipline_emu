@@ -8,3 +8,13 @@ Proc @132   _zzM131L132_bcMevClk0
 
    ixc_mevClk #(2,0,0,2'b11,2'b01,2'b0,2'b01,2'b0) _zzM131L132_bcMevClkP0 (_zzM131L132_bcMevClk0,{clk,rst_n},{2{1'b1}},1'b0,1'b0,_zzM131L132_bcReq0,_zzM131L132_bcBusy0,_zzM131L132_bcWait0);
 
+//
+// Module nx_reg_indirect_access at line 34 in /home/ibarry/Project-Zipline-master/rtl/common/nx_library/nx_reg_indirect_access.v 
+//   id:130, bcMod
+//
+
+Proc @132   _zzM131L132_bcMevClk0
+   delayed events:   rst_n
+
+   ixc_mevClk #(2,0,0,2'b11,2'b01,2'b0,2'b01,2'b0) _zzM131L132_bcMevClkP0 (_zzM131L132_bcMevClk0,{clk,rst_n},{2{1'b1}},1'b0,1'b0,_zzM131L132_bcReq0,_zzM131L132_bcBusy0,_zzM131L132_bcWait0);
+

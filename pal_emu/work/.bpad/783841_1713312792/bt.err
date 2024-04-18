@@ -1,0 +1,12 @@
+/grid/avs/install/xcelium/AGILE7/23.09.071/tools.lnx86/inca/bin/64bit/xmsim
+Obtained 10 stack frames.
+/grid/avs/install/xcelium/AGILE7/23.09.071/tools.lnx86/inca/bin/64bit/../../../lib/64bit/libcbreakpad.so(_Z13use_backtracev+0x9d) [0x14904b1371a3]
+/grid/avs/install/xcelium/AGILE7/23.09.071/tools.lnx86/inca/bin/64bit/../../../lib/64bit/libcbreakpad.so(cbpad_generate_dump_on_demand+0x66) [0x14904b137630]
+xmsim() [0x1b9181a]
+xmsim(serror+0x95) [0x1b91d55]
+xmsim() [0xcbe9df]
+xmsim() [0xcc11a7]
+xmsim() [0xcc170d]
+/usr/lib64/libpthread.so.0(+0x12b20) [0x14904bad5b20]
+./libdpi.so(ib_service_data+0x67) [0x149002d712dd]
+[0x14903fa53a41]
