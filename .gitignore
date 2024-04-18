@@ -1,0 +1,5 @@
+*.swp
+pal_emu/work/QTDB/hdldb.llib
+*.ndb
+*.db
+*.sdb
