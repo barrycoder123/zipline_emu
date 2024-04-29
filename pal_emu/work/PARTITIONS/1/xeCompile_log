@@ -9,11 +9,11 @@ oomr - 23H1_VXE, V23.03.131.s001
 
 INFO (legacy-765432): ./AxisWork/xeCompile.args Path not found 
 hdldb xcva_top
-XEC> compile -etOnly -noDbgPrepare -seed 96974518 
+XEC> compile -etOnly -noDbgPrepare -seed 883221817 
 INFO: Peak Memory Usage of the program (compile) is 1307  MB 
 INFO (legacy-46435): Successfully generate memory rules file.
 INFO (legacy-31228): Running core compile with ice mode
-et3compile xcva_top -seed 96974518 -mode ice <Version> V23.03.131.s001
+et3compile xcva_top -seed 883221817 -mode ice <Version> V23.03.131.s001
 
 INFO (qt2dadb-1035): ***COMPILING FOR IN-CIRCUIT EMULATION MODE***
 WARNING (qt2dadb-1064): Using user defined database configuration file `/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/etc/et3/et3compile.cfg'.
@@ -32,10 +32,10 @@ Running CBL module...
 ---- ET5CBL: Maximum 4 threads to run concurrently    ---- 
 ---- ET5CBL: Converting database to netlists          ---- 
 ---- ET5CBL: Clearing database                        ---- 
----- ET5CBL: Thread 1: Started                        ---- 
 ---- ET5CBL: Thread 0: Started                        ---- 
 ---- ET5CBL: Thread 2: Started                        ---- 
 ---- ET5CBL: Thread 3: Started                        ---- 
+---- ET5CBL: Thread 1: Started                        ---- 
 ---- ET5CBL: Thread 3: Adding name listener           ---- 
 ---- ET5CBL: Thread 2: Adding name listener           ---- 
 ---- ET5CBL: Thread 1: Adding name listener           ---- 
@@ -60,8 +60,8 @@ Running CBL module...
 ---- ET5CBL: Thread 2: Eliminating forcible gates     ---- 
 ---- ET5CBL: Thread 1: Technology mapping             ---- 
 ---- ET5CBL: Thread 3: Technology mapping             ---- 
----- ET5CBL: Thread 1: Eliminating forcible gates     ---- 
 ---- ET5CBL: Thread 0: Technology mapping             ---- 
+---- ET5CBL: Thread 1: Eliminating forcible gates     ---- 
 ---- ET5CBL: Thread 3: Eliminating forcible gates     ---- 
 ---- ET5CBL: Thread 0: Eliminating forcible gates     ---- 
 ---- ET5CBL: Thread 0: Recreating final database      ---- 
@@ -122,7 +122,7 @@ In total, 2 memory instances were merged into 1 merger.
 Evaluated for compaction 91 memory instances.
 Targeted 91 memory instances to INTRAM, 0 to EXTRAM.
 Instruction usage after memory transformation: 11.3 %
-INFO (db2util-1115): Compilation seed is 96974518
+INFO (db2util-1115): Compilation seed is 883221817
 
     Systems:     1 .
       Racks:     1 .
@@ -132,28 +132,16 @@ BrdClusters:     1 .
       P512s:     6 ......
        P64s:    48 ................................................
 Reducing hop at epc level.
-CPR round  1, maxlvl 126, path head  68197 lvl 111, tail  25803, len  43, m_is_marked   0, moved 26, NC 0 
-CPR round  2, maxlvl  96, path head  86446 lvl  88, tail  25696, len  34, m_is_marked   0, moved 20, NC 0 
-CPR round  3, maxlvl 101, path head 174073 lvl  98, tail  25903, len  49, m_is_marked   5, moved 19, NC 0 
-CPR round  4, maxlvl  86, path head 174131 lvl  86, tail  25696, len  48, m_is_marked   6, moved  1, NC 0 
-CPR round  5, maxlvl  86, path head 174131 lvl  85, tail  25696, len  48, m_is_marked   6, moved  1, NC 1 
-CPR round  6, maxlvl  86, path head 174073 lvl  85, tail  25696, len  48, m_is_marked   6, moved  1, NC 2 
-CPR round  7, maxlvl  85, path head 174131 lvl  84, tail  25696, len  47, m_is_marked   6, moved  1, NC 0 
-CPR round  8, maxlvl  85, path head 174073 lvl  84, tail  25696, len  47, m_is_marked   6, moved  1, NC 1 
-CPR round  9, maxlvl  84, path head 174131 lvl  83, tail  25696, len  46, m_is_marked   6, moved  1, NC 0 
-CPR round 10, maxlvl  84, path head 174073 lvl  83, tail  25696, len  46, m_is_marked   6, moved  1, NC 1 
-CPR round 11, maxlvl  83, path head 174073 lvl  83, tail  25696, len  45, m_is_marked   6, moved  1, NC 0 
-CPR round 12, maxlvl  83, path head 174073 lvl  83, tail  25696, len  48, m_is_marked   6, moved  0, NC 1 
-CPR round 13, maxlvl  83, path head  67851 lvl  83, tail  25696, len  48, m_is_marked  44, moved  0, NC 1 
-CPR round 14, maxlvl  83, path head  67641 lvl  83, tail  25696, len  48, m_is_marked  44, moved  0, NC 1 
-CPR round 15, maxlvl  83, path head 174131 lvl  83, tail  25696, len  45, m_is_marked  43, moved  1, NC 1 
-CPR round 16, maxlvl  83, path head 174131 lvl  83, tail  25696, len  48, m_is_marked  46, moved  0, NC 2 
-CPR round 17, maxlvl  83, path head  67640 lvl  83, tail  25696, len  48, m_is_marked  47, moved  0, NC 1 
-CPR round 18, maxlvl  83, path head  67638 lvl  83, tail  25696, len  48, m_is_marked  47, moved  0, NC 1 
-CPR round 19, maxlvl  83, path head  67639 lvl  83, tail  25696, len  48, m_is_marked  47, moved  0, NC 1 
-CPR round 20, maxlvl  83, path head  47333 lvl  83, tail  25696, len  48, m_is_marked  47, moved  0, NC 1 
-CPR round 21, maxlvl  83, path head  47322 lvl  83, tail  25696, len  48, m_is_marked  47, moved  0, NC 1 
-Total relocated = 69
-Maximum number of hops in all paths = 83
-0 96974518 -1 0 0
+CPR round  1, maxlvl 115, path head  68197 lvl 108, tail 164746, len  42, m_is_marked   0, moved 22, NC 0 
+CPR round  2, maxlvl 109, path head  68197 lvl 107, tail 164749, len  36, m_is_marked   0, moved 19, NC 0 
+CPR round  3, maxlvl  91, path head 141162 lvl  57, tail 164746, len  33, m_is_marked   0, moved 20, NC 0 
+CPR round  4, maxlvl  88, path head 174073 lvl  88, tail 164746, len  51, m_is_marked   0, moved 23, NC 0 
+CPR round  5, maxlvl  80, path head  22123 lvl  74, tail 117524, len  36, m_is_marked   0, moved 10, NC 0 
+CPR round  6, maxlvl  77, path head  68197 lvl  74, tail 155290, len  34, m_is_marked   0, moved  8, NC 0 
+CPR round  7, maxlvl  76, path head 174073 lvl  75, tail 155290, len  52, m_is_marked   0, moved  2, NC 0 
+CPR round  8, maxlvl  74, path head 174073 lvl  74, tail 155290, len  51, m_is_marked   0, moved  2, NC 0 
+CPR round  9, maxlvl  73, path head 174073 lvl  73, tail 155290, len  51, m_is_marked   0, moved  1, NC 0 
+Total relocated = 94
+Maximum number of hops in all paths = 73
+0 883221817 -1 0 0
 ^D

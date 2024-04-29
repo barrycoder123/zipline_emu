@@ -12,7 +12,10 @@
 #define EOS   0x2 // end of stream 
 #define MAX_TRANSACTIONS 3258 // number of data points in kme.config file
 #define CONFIG_VEC_SIZE 70  // size of lines in inbound files
-#define INBOUND_VEC_SIZE 35  // size of lines in inbound files
+//#define INBOUND_VEC_SIZE 35  // size of lines in inbound files
+#define INBOUND_VEC_SIZE 85 // size of lines in inbound files
+#define EoT 10
+#define SoT 11
 int num_transactions = 0;
 static FILE *file_descriptor = NULL;
 static FILE *ib_file = NULL;
@@ -22,7 +25,7 @@ extern void write(unsigned int *addr, unsigned int *data, unsigned int *response
 extern void read(unsigned int *addr, unsigned int *r_data, unsigned int *response);
 */
 extern int get_config_data(char *operation, svBitVecVal *address, svBitVecVal *data);
-extern int ib_service_data(svBitVecVal *tdata, svBitVecVal *tuser_string, svBitVecVal *tstrb, int *str_get);
+extern int ib_service_data(uint64_t *tdata, int *tuser_string, svBitVecVal *tstrb, int *str_get);
 
 /*int error_cntr;
 char *testname;
@@ -56,8 +59,9 @@ int get_config_data(char *operation, svBitVecVal *address, svBitVecVal *data) {
         file_descriptor = fopen("../../dv/KME/tests/kme.config", "r");
     } 
     while (fgets(vector, CONFIG_VEC_SIZE, file_descriptor) != NULL) {
-        str_get = sscanf(vector, "%c %016x %016x\n", operation, address, data);
+        str_get = sscanf(vector, "%s %016x %016x\n", operation, address, data);
         //printf("vector --> %s", vector);
+        //printf("vector operation --> %s\n", operation);
         if (num_transactions++ == MAX_TRANSACTIONS - 1) {
             return EOS;
         } else {
@@ -67,14 +71,16 @@ int get_config_data(char *operation, svBitVecVal *address, svBitVecVal *data) {
     return EOS;
 }
 
-int ib_service_data(svBitVecVal *tdata, svBitVecVal *tuser_string, svBitVecVal *tstrb, int *str_get) {
+int ib_service_data(uint64_t *tdata, int *tuser_string, svBitVecVal *tstrb, int *str_get) {
         // TODO:
         //int str_get;
         char *testname = getenv("TESTNAME");
         char filename[1000];
-        strcpy(filename, "../../dv/KME/tests/");
+        sprintf(filename, "../../dv/KME/tests/%s.inbound", testname);
+        /*strcpy(filename, "../../dv/KME/tests/");
         strcat(filename, testname);
         strcat(filename, ".inbound");
+        
         char wc_command[1000];
         strcpy(wc_command, "wc -l < ");
         strcat(wc_command, filename);
@@ -85,18 +91,55 @@ int ib_service_data(svBitVecVal *tdata, svBitVecVal *tuser_string, svBitVecVal *
         fgets(buf, sizeof(buf), wc);
         line_count = atoi(buf);
         pclose(wc);
+        */
         char vector[INBOUND_VEC_SIZE];
+        char user_string[12];
+        int num_items;
         if (ib_file == NULL) {
             ib_file = fopen(filename, "r");
         } 
         while(fgets(vector, INBOUND_VEC_SIZE, ib_file) != NULL) {
-            *str_get = sscanf(vector, "%016x %s %016x\n", tdata, tuser_string, tstrb);
-            printf("ib vector is --> %s\n", vector);
-            if (num_transactions++ == line_count - 1) {
-                return EOS;
+            //*str_get = sscanf(vector, "%llx %s %02x\n", tdata, tuser_string, tstrb);
+            //*str_get = sscanf(vector, "%" SCNu64 "%s %016x\n", tdata, tuser_string, tstrb);
+            //*str_get = sscanf(vector, "%s");
+            // TODO: if u have str_get less than 3 then only two items to read
+            //num_items = sscanf(vector, "%llx %s %02x\n", tdata, user_string, tstrb);
+            //*str_get = num_items;
+            //printf("num items read: %i\n", num_items);
+            if (sscanf(vector, "%llx %s %016x\n", tdata, user_string, tstrb) == 3) {
+                //sscanf(vector, "%llx %s %02x\n", tdata, user_string, tstrb);
+                //sscanf(vector, "%llx %s %02x\n", tdata, user_string, tstrb);
+                printf("read 3 items\n");
+                *str_get = 3;
+                //strncpy(tstrb, user_string, sizeof(tstrb));
+                printf("ib vector is --> %s\n", vector);
+                printf("ib vector tdata --> %llx\n", *tdata);
+                printf("ib vector tuser_string --> %s\n", user_string);
+                printf("ib vector tstrb --> %02x\n", *tstrb);
+                if (strcmp(user_string, "EoT") == 0) {
+                    *tuser_string = EoT;
+                } else if (strcmp(user_string, "SoT") == 0) {
+                    *tuser_string = SoT;
+                }
+                return VALID;
+            } else if (sscanf(vector, "%llx %016x\n", tdata, tstrb) == 2) {
+                // num items read is 2
+                //printf("I only read in 2 items\n");
+                printf("read 2 items\n");
+                //sscanf(vector, "%llx %02x\n", tdata, tstrb);
+                user_string[0] = '\0';
+                *tuser_string = 0;
+                printf("ib vector is --> %s\n", vector);
+                printf("ib vector tdata --> %llx\n", *tdata);
+                printf("ib vector tuser_string --> %s\n", user_string);
+                printf("ib vector tstrb --> %02x\n", *tstrb);
+            }
+            /*if (num_transactions++ == line_count - 1) {
+               return EOS;
             } else {
                 return VALID;
-            }
+            }*/
+            return VALID;
         }
         return EOS;
 }

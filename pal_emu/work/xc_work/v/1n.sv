@@ -171,7 +171,7 @@ cr_kme kme_dut(
   .apb_pwrite(_zy_simnet_kme_apb_pwrite_42_w$) ,
   .apb_pwdata(_zy_simnet_kme_apb_pwdata_43_w$) ); 
 import "DPI-C" function int get_config_data (output byte operation,output bit [31:0] address ,output bit [31:0] data );
-import "DPI-C" function int ib_service_data (output bit [31:0] tdata ,output bit [31:0] tuser_string ,output bit [31:0] tstrb ,output int str_get);
+import "DPI-C" function int ib_service_data (output bit [63:0] tdata ,output bit [31:0] tuser_string ,output bit [7:0] tstrb ,output int str_get);
 
 task do_kme_config;
  reg [31:0] returned_data ;
@@ -243,11 +243,11 @@ task service_ib_interface;
  int mega_tlv_word_count;
  bit [7:0] tstrb ;
  bit [63:0] tdata ;
- bit [4:0] tuser_string ;
+ bit [31:0] tuser_string ;
  int str_get;
  int retval;
+ static reg [24:0] user_string  = 25'b0;
  begin
-  retval = ib_service_data(tdata,tuser_string,tstrb,str_get);
   saw_mega = 1'b0;
   saw_guid_tlv = 1'b0;
   mega_tlv_word_count = 0;
@@ -255,16 +255,20 @@ task service_ib_interface;
   do
    begin
     retval = ib_service_data(tdata,tuser_string,tstrb,str_get);
+    user_string = reverse_translate_tuser(tuser_string);
+    $display("user_string is %s\n",user_string);
     if ((retval == 1))
      begin
+      $display("tdata = 0x%h, tuser_string = %d, tstrb = 0x%h, str_get = %d\n",tdata,tuser_string,tstrb,str_get);
       if ((kme_ib_tready === 1'b1))
        begin
         kme_ib_tlast <= 1'b0;
         kme_ib_tvalid <= 1'b0;
         if ((str_get == 3))
          begin
-          if (((tuser_string == 24'b010100110110111101010100) && (tdata[7:0] >= 8'b010101)))
+          if (((user_string == 25'b010100110110111101010100) && (tdata[7:0] >= 8'b010101)))
           begin
+          $display("I should be here after seeing SoT\n");
           saw_mega = 1'b1;
           end
           else
@@ -284,7 +288,7 @@ task service_ib_interface;
           end
           end
           end
-          if (((tuser_string == 24'b010001010110111101010100) && (saw_mega == 32'b01)))
+          if (((user_string == 25'b010001010110111101010100) && (saw_mega == 32'b01)))
           begin
           if ((have_guid_tlv == 32'b0))
           begin
@@ -293,12 +297,12 @@ task service_ib_interface;
           saw_mega = 1'b0;
           end
           else
-          if (((tuser_string == 24'b010001010110111101010100) && (saw_guid_tlv == 32'b01)))
+          if (((user_string == 25'b010001010110111101010100) && (saw_guid_tlv == 32'b01)))
           begin
           kme_ib_tlast <= 1'b1;
           saw_guid_tlv = 1'b0;
           end
-          kme_ib_tuser <= translate_tuser_t(tuser_string);
+          kme_ib_tuser <= translate_tuser_t(user_string);
          end
         else
          begin
@@ -306,6 +310,7 @@ task service_ib_interface;
          end
         kme_ib_tvalid <= 1'b1;
         kme_ib_tdata <= tdata;
+        $display("am i getting correct tstrb values: 0x%x",tstrb);
         kme_ib_tstrb <= tstrb;
        end
       @(posedge clk)
@@ -483,14 +488,33 @@ function  [7:0] translate_tuser;
 endfunction
 
 
+function  [24:0] reverse_translate_tuser;
+ input bit [31:0] tuser ;
+ if ((tuser == 32'b01011))
+  begin
+   $display("am i translating\n");
+   return 25'b010100110110111101010100;
+  end
+ else
+  if ((tuser == 32'b01010))
+   begin
+    return 25'b010001010110111101010100;
+   end
+  else
+   begin
+    return 25'b0;
+   end
+endfunction
+
+
 function  [7:0] translate_tuser_t;
- input bit [4:0] tuser ;
- if ((tuser == 24'b010100110110111101010100))
+ input bit [24:0] tuser ;
+ if ((tuser == 25'b010100110110111101010100))
   begin
    return 8'b01;
   end
  else
-  if ((tuser == 24'b010001010110111101010100))
+  if ((tuser == 25'b010001010110111101010100))
    begin
     return 8'b010;
    end

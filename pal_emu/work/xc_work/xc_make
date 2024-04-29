@@ -30,7 +30,7 @@ libixcg.so: $(IXC_DIR)/xc_work/xcdpi.c
 xmvlog: xc_pkg xc_cnt libixcg.so
 	@/bin/rm -rf $(IXC_DIR)/xc_work/xrun.log
 	xmvlog $(HDLVAR) $(XMVLOG_OPTIONS) -WORK xc_ncwork  -sv -f $(IXC_DIR)/xc_work/v/SWModel_vlogAnalyzer-xc_ncwork-1-systemverilog.f
-	xmvlog $(HDLVAR) $(XMVLOG_OPTIONS) -WORK xc_ncwork  -sv -f $(IXC_DIR)/xc_work/v/SWModel_vlogAnalyzer-xc_ncwork-170-systemverilog.f
+	xmvlog $(HDLVAR) $(XMVLOG_OPTIONS) -WORK xc_ncwork  -sv -f $(IXC_DIR)/xc_work/v/SWModel_vlogAnalyzer-xc_ncwork-215-systemverilog.f
 	xmvlog $(HDLVAR) $(XMVLOG_OPTIONS) -WORK xc_ncwork  -sv -f $(IXC_DIR)/xc_work/v/SWModel_vlogAnalyzer-xc_ncwork-16-systemverilog.f
 	xmvlog $(HDLVAR) $(XMVLOG_OPTIONS) -WORK IXCOM_TEMP_LIBRARY  -f $(IXC_DIR)/xc_work/v/SWModel_vlogAnalyzer-IXCOM_TEMP_LIBRARY-v2001.f
 	xmvlog $(HDLVAR) $(XMVLOG_OPTIONS) -WORK IXCOM_TEMP_LIBRARY  -sv -f $(IXC_DIR)/xc_work/v/SWModel_vlogAnalyzer-IXCOM_TEMP_LIBRARY-3-systemverilog.f

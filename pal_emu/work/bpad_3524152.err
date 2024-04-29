@@ -1,0 +1,618 @@
+Operating system: Linux
+                  0.0.0 Linux 4.18.0-305.el8.x86_64 #1 SMP Thu Apr 29 08:54:30 EDT 2021 x86_64
+CPU: amd64
+     family 6 model 63 stepping 4
+     1 CPU
+
+GPU: UNKNOWN
+
+Crash reason:  DUMP_REQUESTED
+Crash address: 0x14feb0837406
+Process uptime: not available
+
+Thread 0 (crashed)
+ 0  libcbreakpad.so + 0x36406
+    rax = 0x0000000000000007   rdx = 0x0000000000000000
+    rcx = 0x000014feb0835cb2   rbx = 0x000014fea61a41a0
+    rsi = 0x0000000000000001   rdi = 0x000014fea61a3b28
+    rbp = 0x000014fea61a40e0   rsp = 0x000014fea61a3a90
+     r8 = 0x0000000000000000    r9 = 0x0000000000000000
+    r10 = 0x000014fea61a3ca8   r11 = 0x0000000000000000
+    r12 = 0x000000000f514ba0   r13 = 0x00000000032d7f60
+    r14 = 0x000014fea61a4120   r15 = 0x000014feb08e2e4f
+    rip = 0x000014feb0837406
+    Found by: given as instruction pointer in context
+ 1  libcbreakpad.so + 0x34672
+    rbp = 0x000014fea61a4230   rsp = 0x000014fea61a40f0
+    rip = 0x000014feb0835672
+    Found by: previous frame's frame pointer
+ 2  libc-2.28.so + 0x59008
+    rbp = 0x000014fea61a4230   rsp = 0x000014fea61a4140
+    rip = 0x000014feb08cb008
+    Found by: stack scanning
+ 3  xmsim + 0x2467eef
+    rbp = 0x000014fea61a4230   rsp = 0x000014fea61a4168
+    rip = 0x0000000002867eef
+    Found by: stack scanning
+ 4  xmsim + 0x292526e
+    rbp = 0x000014fea61a4230   rsp = 0x000014fea61a4180
+    rip = 0x0000000002d2526e
+    Found by: stack scanning
+ 5  libc-2.28.so + 0x180580
+    rbp = 0x000014fea61a4230   rsp = 0x000014fea61a4190
+    rip = 0x000014feb09f2580
+    Found by: stack scanning
+ 6  xmsim + 0x179181a
+    rsp = 0x000014fea61a4240   rip = 0x0000000001b9181a
+    Found by: stack scanning
+ 7  xmsim + 0xbf0000
+    rsp = 0x000014fea61a4250   rip = 0x0000000000ff0000
+    Found by: stack scanning
+ 8  xmsim + 0x57f60
+    rsp = 0x000014fea61a4260   rip = 0x00000000032d7f60
+    Found by: stack scanning
+ 9  xmsim + 0x57f60
+    rsp = 0x000014fea61a4268   rip = 0x00000000032d7f60
+    Found by: stack scanning
+
+Thread 1
+ 0  libpthread-2.28.so + 0xe64a
+    rax = 0xfffffffffffffdfc   rdx = 0x0000000000000000
+    rcx = 0x000014feb11cb64a   rbx = 0x000014feae7f8670
+    rsi = 0x0000000000000189   rdi = 0x000014feae7f8698
+    rbp = 0x0000000000000000   rsp = 0x000014fe3e9a3580
+     r8 = 0x0000000000000000    r9 = 0x00000000ffffffff
+    r10 = 0x000014fe3e9a36f0   r11 = 0x0000000000000246
+    r12 = 0x000014feae7f8648   r13 = 0x000014feae7f8698
+    r14 = 0x000014fe3e9a36f0   r15 = 0x0000000000000000
+    rip = 0x000014feb11cb64a
+    Found by: given as instruction pointer in context
+ 1  libpthread-2.28.so + 0xe070
+    rsp = 0x000014fe3e9a35e8   rip = 0x000014feb11cb070
+    Found by: stack scanning
+ 2  xmsim + 0x250060
+    rsp = 0x000014fe3e9a3660   rip = 0x0000000000650060
+    Found by: stack scanning
+ 3  libsideFile_xlm.so + 0xdda97
+    rsp = 0x000014fe3e9a3670   rip = 0x000014feae7bca97
+    Found by: stack scanning
+ 4  libdbgutil_xlm.so + 0xc6e40
+    rsp = 0x000014fe3e9a36b8   rip = 0x000014feae4f8e40
+    Found by: stack scanning
+ 5  libstdc++.so.6.0.28 + 0xcfb10
+    rsp = 0x000014fe3e9a3760   rip = 0x000014feb14fcb10
+    Found by: stack scanning
+ 6  libpthread-2.28.so + 0x814a
+    rsp = 0x000014fe3e9a3780   rip = 0x000014feb11c514a
+    Found by: stack scanning
+ 7  libc-2.28.so + 0xfcdc3
+    rsp = 0x000014fe3e9a3840   rip = 0x000014feb096edc3
+    Found by: stack scanning
+
+Thread 2
+ 0  libpthread-2.28.so + 0xe64a
+    rax = 0xfffffffffffffdfc   rdx = 0x0000000000000000
+    rcx = 0x000014feb11cb64a   rbx = 0x000014feae7f8670
+    rsi = 0x0000000000000189   rdi = 0x000014feae7f8698
+    rbp = 0x0000000000000000   rsp = 0x000014fe37ffd580
+     r8 = 0x0000000000000000    r9 = 0x00000000ffffffff
+    r10 = 0x000014fe37ffd6f0   r11 = 0x0000000000000246
+    r12 = 0x000014feae7f8648   r13 = 0x000014feae7f8698
+    r14 = 0x000014fe37ffd6f0   r15 = 0x0000000000000000
+    rip = 0x000014feb11cb64a
+    Found by: given as instruction pointer in context
+ 1  libpthread-2.28.so + 0xe070
+    rsp = 0x000014fe37ffd5e8   rip = 0x000014feb11cb070
+    Found by: stack scanning
+ 2  xmsim + 0x250060
+    rsp = 0x000014fe37ffd660   rip = 0x0000000000650060
+    Found by: stack scanning
+ 3  libsideFile_xlm.so + 0xdda97
+    rsp = 0x000014fe37ffd670   rip = 0x000014feae7bca97
+    Found by: stack scanning
+ 4  libdbgutil_xlm.so + 0xc6e40
+    rsp = 0x000014fe37ffd6b8   rip = 0x000014feae4f8e40
+    Found by: stack scanning
+ 5  libstdc++.so.6.0.28 + 0xcfb10
+    rsp = 0x000014fe37ffd760   rip = 0x000014feb14fcb10
+    Found by: stack scanning
+ 6  libpthread-2.28.so + 0x814a
+    rsp = 0x000014fe37ffd780   rip = 0x000014feb11c514a
+    Found by: stack scanning
+ 7  libc-2.28.so + 0xfcdc3
+    rsp = 0x000014fe37ffd840   rip = 0x000014feb096edc3
+    Found by: stack scanning
+
+Thread 3
+ 0  libpthread-2.28.so + 0xe64a
+    rax = 0xfffffffffffffdfc   rdx = 0x0000000000000000
+    rcx = 0x000014feb11cb64a   rbx = 0x000014feae7f8670
+    rsi = 0x0000000000000189   rdi = 0x000014feae7f8698
+    rbp = 0x0000000000000000   rsp = 0x000014fe3e7a2580
+     r8 = 0x0000000000000000    r9 = 0x00000000ffffffff
+    r10 = 0x000014fe3e7a26f0   r11 = 0x0000000000000246
+    r12 = 0x000014feae7f8648   r13 = 0x000014feae7f8698
+    r14 = 0x000014fe3e7a26f0   r15 = 0x0000000000000000
+    rip = 0x000014feb11cb64a
+    Found by: given as instruction pointer in context
+ 1  libpthread-2.28.so + 0xe070
+    rsp = 0x000014fe3e7a25e8   rip = 0x000014feb11cb070
+    Found by: stack scanning
+ 2  xmsim + 0x250060
+    rsp = 0x000014fe3e7a2660   rip = 0x0000000000650060
+    Found by: stack scanning
+ 3  libsideFile_xlm.so + 0xdda97
+    rsp = 0x000014fe3e7a2670   rip = 0x000014feae7bca97
+    Found by: stack scanning
+ 4  libdbgutil_xlm.so + 0xc6e40
+    rsp = 0x000014fe3e7a26b8   rip = 0x000014feae4f8e40
+    Found by: stack scanning
+ 5  libstdc++.so.6.0.28 + 0xcfb10
+    rsp = 0x000014fe3e7a2760   rip = 0x000014feb14fcb10
+    Found by: stack scanning
+ 6  libpthread-2.28.so + 0x814a
+    rsp = 0x000014fe3e7a2780   rip = 0x000014feb11c514a
+    Found by: stack scanning
+ 7  libc-2.28.so + 0xfcdc3
+    rsp = 0x000014fe3e7a2840   rip = 0x000014feb096edc3
+    Found by: stack scanning
+
+Thread 4
+ 0  libpthread-2.28.so + 0xe64a
+    rax = 0xfffffffffffffdfc   rdx = 0x0000000000000000
+    rcx = 0x000014feb11cb64a   rbx = 0x000014feae7f8670
+    rsi = 0x0000000000000189   rdi = 0x000014feae7f8698
+    rbp = 0x0000000000000000   rsp = 0x000014fe3e5a1580
+     r8 = 0x0000000000000000    r9 = 0x00000000ffffffff
+    r10 = 0x000014fe3e5a16f0   r11 = 0x0000000000000246
+    r12 = 0x000014feae7f8648   r13 = 0x000014feae7f8698
+    r14 = 0x000014fe3e5a16f0   r15 = 0x0000000000000000
+    rip = 0x000014feb11cb64a
+    Found by: given as instruction pointer in context
+ 1  libpthread-2.28.so + 0xe070
+    rsp = 0x000014fe3e5a15e8   rip = 0x000014feb11cb070
+    Found by: stack scanning
+ 2  xmsim + 0x250060
+    rsp = 0x000014fe3e5a1660   rip = 0x0000000000650060
+    Found by: stack scanning
+ 3  libsideFile_xlm.so + 0xdda97
+    rsp = 0x000014fe3e5a1670   rip = 0x000014feae7bca97
+    Found by: stack scanning
+ 4  libdbgutil_xlm.so + 0xc6e40
+    rsp = 0x000014fe3e5a16b8   rip = 0x000014feae4f8e40
+    Found by: stack scanning
+ 5  libstdc++.so.6.0.28 + 0xcfb10
+    rsp = 0x000014fe3e5a1760   rip = 0x000014feb14fcb10
+    Found by: stack scanning
+ 6  libpthread-2.28.so + 0x814a
+    rsp = 0x000014fe3e5a1780   rip = 0x000014feb11c514a
+    Found by: stack scanning
+ 7  libc-2.28.so + 0xfcdc3
+    rsp = 0x000014fe3e5a1840   rip = 0x000014feb096edc3
+    Found by: stack scanning
+
+Thread 5
+ 0  libpthread-2.28.so + 0xe64a
+    rax = 0xfffffffffffffdfc   rdx = 0x0000000000000000
+    rcx = 0x000014feb11cb64a   rbx = 0x000014feae7f8670
+    rsi = 0x0000000000000189   rdi = 0x000014feae7f8698
+    rbp = 0x0000000000000000   rsp = 0x000014fe3e3a0580
+     r8 = 0x0000000000000000    r9 = 0x00000000ffffffff
+    r10 = 0x000014fe3e3a06f0   r11 = 0x0000000000000246
+    r12 = 0x000014feae7f8648   r13 = 0x000014feae7f8698
+    r14 = 0x000014fe3e3a06f0   r15 = 0x0000000000000000
+    rip = 0x000014feb11cb64a
+    Found by: given as instruction pointer in context
+ 1  libpthread-2.28.so + 0xe070
+    rsp = 0x000014fe3e3a05e8   rip = 0x000014feb11cb070
+    Found by: stack scanning
+ 2  xmsim + 0x250060
+    rsp = 0x000014fe3e3a0660   rip = 0x0000000000650060
+    Found by: stack scanning
+ 3  libsideFile_xlm.so + 0xdda97
+    rsp = 0x000014fe3e3a0670   rip = 0x000014feae7bca97
+    Found by: stack scanning
+ 4  libdbgutil_xlm.so + 0xc6e40
+    rsp = 0x000014fe3e3a06b8   rip = 0x000014feae4f8e40
+    Found by: stack scanning
+ 5  libstdc++.so.6.0.28 + 0xcfb10
+    rsp = 0x000014fe3e3a0760   rip = 0x000014feb14fcb10
+    Found by: stack scanning
+ 6  libpthread-2.28.so + 0x814a
+    rsp = 0x000014fe3e3a0780   rip = 0x000014feb11c514a
+    Found by: stack scanning
+ 7  libc-2.28.so + 0xfcdc3
+    rsp = 0x000014fe3e3a0840   rip = 0x000014feb096edc3
+    Found by: stack scanning
+
+Thread 6
+ 0  libpthread-2.28.so + 0xe64a
+    rax = 0xfffffffffffffdfc   rdx = 0x0000000000000000
+    rcx = 0x000014feb11cb64a   rbx = 0x000014feae7f8670
+    rsi = 0x0000000000000189   rdi = 0x000014feae7f8698
+    rbp = 0x0000000000000000   rsp = 0x000014fe3e19f580
+     r8 = 0x0000000000000000    r9 = 0x00000000ffffffff
+    r10 = 0x000014fe3e19f6f0   r11 = 0x0000000000000246
+    r12 = 0x000014feae7f8648   r13 = 0x000014feae7f8698
+    r14 = 0x000014fe3e19f6f0   r15 = 0x0000000000000000
+    rip = 0x000014feb11cb64a
+    Found by: given as instruction pointer in context
+ 1  libpthread-2.28.so + 0xe070
+    rsp = 0x000014fe3e19f5e8   rip = 0x000014feb11cb070
+    Found by: stack scanning
+ 2  xmsim + 0x250060
+    rsp = 0x000014fe3e19f660   rip = 0x0000000000650060
+    Found by: stack scanning
+ 3  libsideFile_xlm.so + 0xdda97
+    rsp = 0x000014fe3e19f670   rip = 0x000014feae7bca97
+    Found by: stack scanning
+ 4  libdbgutil_xlm.so + 0xc6e40
+    rsp = 0x000014fe3e19f6b8   rip = 0x000014feae4f8e40
+    Found by: stack scanning
+ 5  libstdc++.so.6.0.28 + 0xcfb10
+    rsp = 0x000014fe3e19f760   rip = 0x000014feb14fcb10
+    Found by: stack scanning
+ 6  libpthread-2.28.so + 0x814a
+    rsp = 0x000014fe3e19f780   rip = 0x000014feb11c514a
+    Found by: stack scanning
+ 7  libc-2.28.so + 0xfcdc3
+    rsp = 0x000014fe3e19f840   rip = 0x000014feb096edc3
+    Found by: stack scanning
+
+Thread 7
+ 0  libpthread-2.28.so + 0xe64a
+    rax = 0xfffffffffffffdfc   rdx = 0x0000000000000000
+    rcx = 0x000014feb11cb64a   rbx = 0x000014feae7f8670
+    rsi = 0x0000000000000189   rdi = 0x000014feae7f8698
+    rbp = 0x0000000000000000   rsp = 0x000014fe3df9e580
+     r8 = 0x0000000000000000    r9 = 0x00000000ffffffff
+    r10 = 0x000014fe3df9e6f0   r11 = 0x0000000000000246
+    r12 = 0x000014feae7f8648   r13 = 0x000014feae7f8698
+    r14 = 0x000014fe3df9e6f0   r15 = 0x0000000000000000
+    rip = 0x000014feb11cb64a
+    Found by: given as instruction pointer in context
+ 1  libpthread-2.28.so + 0xe070
+    rsp = 0x000014fe3df9e5e8   rip = 0x000014feb11cb070
+    Found by: stack scanning
+ 2  xmsim + 0x250060
+    rsp = 0x000014fe3df9e660   rip = 0x0000000000650060
+    Found by: stack scanning
+ 3  libsideFile_xlm.so + 0xdda97
+    rsp = 0x000014fe3df9e670   rip = 0x000014feae7bca97
+    Found by: stack scanning
+ 4  libdbgutil_xlm.so + 0xc6e40
+    rsp = 0x000014fe3df9e6b8   rip = 0x000014feae4f8e40
+    Found by: stack scanning
+ 5  libstdc++.so.6.0.28 + 0xcfb10
+    rsp = 0x000014fe3df9e760   rip = 0x000014feb14fcb10
+    Found by: stack scanning
+ 6  libpthread-2.28.so + 0x814a
+    rsp = 0x000014fe3df9e780   rip = 0x000014feb11c514a
+    Found by: stack scanning
+ 7  libc-2.28.so + 0xfcdc3
+    rsp = 0x000014fe3df9e840   rip = 0x000014feb096edc3
+    Found by: stack scanning
+
+Thread 8
+ 0  libpthread-2.28.so + 0xe64a
+    rax = 0xfffffffffffffdfc   rdx = 0x0000000000000000
+    rcx = 0x000014feb11cb64a   rbx = 0x000014feae7f8670
+    rsi = 0x0000000000000189   rdi = 0x000014feae7f8698
+    rbp = 0x0000000000000000   rsp = 0x000014fe3dd9d580
+     r8 = 0x0000000000000000    r9 = 0x00000000ffffffff
+    r10 = 0x000014fe3dd9d6f0   r11 = 0x0000000000000246
+    r12 = 0x000014feae7f8648   r13 = 0x000014feae7f8698
+    r14 = 0x000014fe3dd9d6f0   r15 = 0x0000000000000000
+    rip = 0x000014feb11cb64a
+    Found by: given as instruction pointer in context
+ 1  libpthread-2.28.so + 0xe070
+    rsp = 0x000014fe3dd9d5e8   rip = 0x000014feb11cb070
+    Found by: stack scanning
+ 2  xmsim + 0x250060
+    rsp = 0x000014fe3dd9d660   rip = 0x0000000000650060
+    Found by: stack scanning
+ 3  libsideFile_xlm.so + 0xdda97
+    rsp = 0x000014fe3dd9d670   rip = 0x000014feae7bca97
+    Found by: stack scanning
+ 4  libstdc++.so.6.0.28 + 0xcfb10
+    rsp = 0x000014fe3dd9d760   rip = 0x000014feb14fcb10
+    Found by: stack scanning
+ 5  libpthread-2.28.so + 0x814a
+    rsp = 0x000014fe3dd9d780   rip = 0x000014feb11c514a
+    Found by: stack scanning
+ 6  libc-2.28.so + 0xfcdc3
+    rsp = 0x000014fe3dd9d840   rip = 0x000014feb096edc3
+    Found by: stack scanning
+
+Thread 9
+ 0  libpthread-2.28.so + 0xe64a
+    rax = 0xfffffffffffffdfc   rdx = 0x0000000000000000
+    rcx = 0x000014feb11cb64a   rbx = 0x000014feae7f8670
+    rsi = 0x0000000000000189   rdi = 0x000014feae7f8698
+    rbp = 0x0000000000000000   rsp = 0x000014fe3db9c580
+     r8 = 0x0000000000000000    r9 = 0x00000000ffffffff
+    r10 = 0x000014fe3db9c6f0   r11 = 0x0000000000000246
+    r12 = 0x000014feae7f8648   r13 = 0x000014feae7f8698
+    r14 = 0x000014fe3db9c6f0   r15 = 0x0000000000000000
+    rip = 0x000014feb11cb64a
+    Found by: given as instruction pointer in context
+ 1  libsideFile_xlm.so + 0x116c60
+    rsp = 0x000014fe3db9c5d8   rip = 0x000014feae7f5c60
+    Found by: stack scanning
+ 2  libpthread-2.28.so + 0xe070
+    rsp = 0x000014fe3db9c5e8   rip = 0x000014feb11cb070
+    Found by: stack scanning
+ 3  xmsim + 0x250060
+    rsp = 0x000014fe3db9c660   rip = 0x0000000000650060
+    Found by: stack scanning
+ 4  libsideFile_xlm.so + 0xdda97
+    rsp = 0x000014fe3db9c670   rip = 0x000014feae7bca97
+    Found by: stack scanning
+ 5  libstdc++.so.6.0.28 + 0xcfb10
+    rsp = 0x000014fe3db9c760   rip = 0x000014feb14fcb10
+    Found by: stack scanning
+ 6  libpthread-2.28.so + 0x814a
+    rsp = 0x000014fe3db9c780   rip = 0x000014feb11c514a
+    Found by: stack scanning
+ 7  libc-2.28.so + 0xfcdc3
+    rsp = 0x000014fe3db9c840   rip = 0x000014feb096edc3
+    Found by: stack scanning
+
+Thread 10
+ 0  libpthread-2.28.so + 0xe64a
+    rax = 0xfffffffffffffdfc   rdx = 0x0000000000000000
+    rcx = 0x000014feb11cb64a   rbx = 0x000000000f5565c8
+    rsi = 0x0000000000000189   rdi = 0x000000000f5565f0
+    rbp = 0x0000000000000000   rsp = 0x000014fe3d99b5a0
+     r8 = 0x0000000000000000    r9 = 0x00000000ffffffff
+    r10 = 0x000014fe3d99b6d0   r11 = 0x0000000000000246
+    r12 = 0x000000000f5565a0   r13 = 0x000000000f5565f0
+    r14 = 0x000014fe3d99b6d0   r15 = 0x0000000000000000
+    rip = 0x000014feb11cb64a
+    Found by: given as instruction pointer in context
+ 1  libpthread-2.28.so + 0xe070
+    rsp = 0x000014fe3d99b608   rip = 0x000014feb11cb070
+    Found by: stack scanning
+ 2  xmsim + 0x250060
+    rsp = 0x000014fe3d99b688   rip = 0x0000000000650060
+    Found by: stack scanning
+ 3  libchannel_xlm.so + 0x325e3
+    rsp = 0x000014fe3d99b690   rip = 0x000014fea8cd85e3
+    Found by: stack scanning
+ 4  libstdc++.so.6.0.28 + 0xcfb10
+    rsp = 0x000014fe3d99b760   rip = 0x000014feb14fcb10
+    Found by: stack scanning
+ 5  libpthread-2.28.so + 0x814a
+    rsp = 0x000014fe3d99b780   rip = 0x000014feb11c514a
+    Found by: stack scanning
+ 6  libc-2.28.so + 0xfcdc3
+    rsp = 0x000014fe3d99b840   rip = 0x000014feb096edc3
+    Found by: stack scanning
+
+Thread 11
+ 0  libc-2.28.so + 0xf1a41
+    rax = 0xfffffffffffffdfc   rdx = 0x0000000000002710
+    rcx = 0x000014feb0963a41   rbx = 0x000014fe14000b60
+    rsi = 0x0000000000000002   rdi = 0x000014fe14000b60
+    rbp = 0x0000000000000002   rsp = 0x000014fe3d79a5d0
+     r8 = 0x0000000000000000    r9 = 0x0000000000000001
+    r10 = 0x000000000f48b618   r11 = 0x0000000000000293
+    r12 = 0x0000000000002710   r13 = 0x000000000f4883b0
+    r14 = 0x0000000000000002   r15 = 0x000000000f4883c0
+    rip = 0x000014feb0963a41
+    Found by: given as instruction pointer in context
+ 1  libchannel_xlm.so + 0x3f941
+    rsp = 0x000014fe3d79a600   rip = 0x000014fea8ce5941
+    Found by: stack scanning
+ 2  libchannel_xlm.so + 0x4071b
+    rsp = 0x000014fe3d79a6d0   rip = 0x000014fea8ce671b
+    Found by: stack scanning
+ 3  libstdc++.so.6.0.28 + 0xc80a8
+    rsp = 0x000014fe3d79a6e0   rip = 0x000014feb14f50a8
+    Found by: stack scanning
+ 4  xmsim + 0x250060
+    rsp = 0x000014fe3d79a6f8   rip = 0x0000000000650060
+    Found by: stack scanning
+ 5  libchannel_xlm.so + 0x3f430
+    rsp = 0x000014fe3d79a700   rip = 0x000014fea8ce5430
+    Found by: stack scanning
+ 6  libstdc++.so.6.0.28 + 0xcfb10
+    rsp = 0x000014fe3d79a760   rip = 0x000014feb14fcb10
+    Found by: stack scanning
+ 7  libpthread-2.28.so + 0x814a
+    rsp = 0x000014fe3d79a780   rip = 0x000014feb11c514a
+    Found by: stack scanning
+ 8  libc-2.28.so + 0xfcdc3
+    rsp = 0x000014fe3d79a840   rip = 0x000014feb096edc3
+    Found by: stack scanning
+
+Thread 12
+ 0  libpthread-2.28.so + 0xe64a
+    rax = 0xfffffffffffffdfc   rdx = 0x0000000000000000
+    rcx = 0x000014feb11cb64a   rbx = 0x000000000f572e78
+    rsi = 0x0000000000000189   rdi = 0x000000000f572ea0
+    rbp = 0x0000000000000000   rsp = 0x000014fe3d5995a0
+     r8 = 0x0000000000000000    r9 = 0x00000000ffffffff
+    r10 = 0x000014fe3d5996d0   r11 = 0x0000000000000246
+    r12 = 0x000000000f572e50   r13 = 0x000000000f572ea0
+    r14 = 0x000014fe3d5996d0   r15 = 0x0000000000000000
+    rip = 0x000014feb11cb64a
+    Found by: given as instruction pointer in context
+ 1  libpthread-2.28.so + 0xe070
+    rsp = 0x000014fe3d599608   rip = 0x000014feb11cb070
+    Found by: stack scanning
+ 2  xmsim + 0x250060
+    rsp = 0x000014fe3d599688   rip = 0x0000000000650060
+    Found by: stack scanning
+ 3  libchannel_xlm.so + 0x325e3
+    rsp = 0x000014fe3d599690   rip = 0x000014fea8cd85e3
+    Found by: stack scanning
+ 4  libstdc++.so.6.0.28 + 0xcfb10
+    rsp = 0x000014fe3d599760   rip = 0x000014feb14fcb10
+    Found by: stack scanning
+ 5  libpthread-2.28.so + 0x814a
+    rsp = 0x000014fe3d599780   rip = 0x000014feb11c514a
+    Found by: stack scanning
+ 6  libc-2.28.so + 0xfcdc3
+    rsp = 0x000014fe3d599840   rip = 0x000014feb096edc3
+    Found by: stack scanning
+
+Thread 13
+ 0  libc-2.28.so + 0xf1a41
+    rax = 0xfffffffffffffdfc   rdx = 0x0000000000002710
+    rcx = 0x000014feb0963a41   rbx = 0x000014fe08000c00
+    rsi = 0x0000000000000003   rdi = 0x000014fe08000c00
+    rbp = 0x0000000000000003   rsp = 0x000014fe3d398610
+     r8 = 0x0000000000000000    r9 = 0x000014fe3d398540
+    r10 = 0x000014fe3d398508   r11 = 0x0000000000000293
+    r12 = 0x0000000000002710   r13 = 0x000000000efc2f60
+    r14 = 0x0000000000000003   r15 = 0x000000000efc2f70
+    rip = 0x000014feb0963a41
+    Found by: given as instruction pointer in context
+ 1  libchannel_xlm.so + 0x3f941
+    rsp = 0x000014fe3d398640   rip = 0x000014fea8ce5941
+    Found by: stack scanning
+ 2  libchannel_xlm.so + 0x4071b
+    rsp = 0x000014fe3d398710   rip = 0x000014fea8ce671b
+    Found by: stack scanning
+ 3  libchannel_xlm.so + 0x3ef64
+    rsp = 0x000014fe3d398740   rip = 0x000014fea8ce4f64
+    Found by: stack scanning
+ 4  libstdc++.so.6.0.28 + 0xcfb10
+    rsp = 0x000014fe3d398760   rip = 0x000014feb14fcb10
+    Found by: stack scanning
+ 5  libpthread-2.28.so + 0x814a
+    rsp = 0x000014fe3d398780   rip = 0x000014feb11c514a
+    Found by: stack scanning
+ 6  libc-2.28.so + 0xfcdc3
+    rsp = 0x000014fe3d398840   rip = 0x000014feb096edc3
+    Found by: stack scanning
+
+Loaded modules:
+0x00400000 - 0x0327efff  xmsim  ???  (main)  (WARNING: No symbols, xmsim, 55FE00425F09A8245D42EFD5BFCCAE040)
+0x03280000 - 0x0348ffff  xmsim  ???  (WARNING: No symbols, xmsim, 000000000000000000000000000000000)
+0x14fe372d0000 - 0x14fe372fdfff  libtbbmalloc.so.2  ???
+0x14fe372fe000 - 0x14fe37500fff  libtbbmalloc.so.2  ???
+0x14fe37524000 - 0x14fe37574fff  libtbb.so.2  ???
+0x14fe37575000 - 0x14fe37778fff  libtbb.so.2  ???
+0x14fe3c020000 - 0x14fe3c03bfff  libtbbshm.so  ???
+0x14fe3c03c000 - 0x14fe3c03efff  libtbbshm.so  ???
+0x14fe3ce8a000 - 0x14fe3ce99fff  trace.dsn  ???
+0x14fe3ce9a000 - 0x14fe3cf0cfff  libdwapi.so  ???
+0x14fe3cf0d000 - 0x14fe3cf11fff  libdwapi.so  ???
+0x14fe3cf13000 - 0x14fe3cf14fff  uverbs1  ???
+0x14fe41a68000 - 0x14fe41ac4fff  libmlx5.so.1.19.35.0  ???
+0x14fe41ac5000 - 0x14fe41cc6fff  libmlx5.so.1.19.35.0  ???
+0x14fe41d6a000 - 0x14fe41d7bfff  libckpt.so  ???
+0x14fe6815f000 - 0x14fe68167fff  libxdt.so  ???
+0x14fe6846e000 - 0x14fe68472fff  libdpi.so  ???
+0x14fe68473000 - 0x14fe68477fff  _sv_export.so  ???
+0x14fe68478000 - 0x14fe6848bfff  libncrun.so  ???
+0x14fe6848c000 - 0x14fe6848efff  libncrun.so  ???
+0x14fe6848f000 - 0x14fe68ba1fff  libxcrt.so  ???
+0x14fea58f8000 - 0x14fea591bfff  libml_uvm.so  ???
+0x14fea61a8000 - 0x14fea61dffff  libgomp.so.1.0.0  ???
+0x14fea61e0000 - 0x14fea622dfff  libotb.so  ???
+0x14fea622f000 - 0x14fea6233fff  libixcg.so  ???
+0x14fea6ab9000 - 0x14fea6b3bfff  libpcre2-8.so.0.7.1  ???
+0x14fea6b3c000 - 0x14fea6d3cfff  libpcre2-8.so.0.7.1  ???
+0x14fea6d3d000 - 0x14fea6d63fff  libselinux.so.1  ???
+0x14fea6d64000 - 0x14fea6f64fff  libselinux.so.1  ???
+0x14fea6f67000 - 0x14fea6f7afff  libresolv-2.28.so  ???
+0x14fea6f7b000 - 0x14fea717bfff  libresolv-2.28.so  ???
+0x14fea717e000 - 0x14fea7430fff  libcrypto.so.1.1.1g  ???
+0x14fea7431000 - 0x14fea765ffff  libcrypto.so.1.1.1g  ???
+0x14fea7664000 - 0x14fea7666fff  libkeyutils.so.1.6  ???
+0x14fea7667000 - 0x14fea7866fff  libkeyutils.so.1.6  ???
+0x14fea7868000 - 0x14fea7876fff  libkrb5support.so.0.1  ???
+0x14fea7877000 - 0x14fea7a78fff  libkrb5support.so.0.1  ???
+0x14fea7a79000 - 0x14fea7b64fff  libzstd_xlm.so  ???
+0x14fea7b65000 - 0x14fea7c72fff  libsqlite3.so.0.8.6  ???
+0x14fea7c73000 - 0x14fea7e78fff  libsqlite3.so.0.8.6  ???
+0x14fea7e79000 - 0x14fea7e7bfff  libcom_err.so.2.1  ???
+0x14fea7e7c000 - 0x14fea807cfff  libcom_err.so.2.1  ???
+0x14fea807d000 - 0x14fea8091fff  libk5crypto.so.3.1  ???
+0x14fea8092000 - 0x14fea8293fff  libk5crypto.so.3.1  ???
+0x14fea8294000 - 0x14fea836cfff  libkrb5.so.3.3  ???
+0x14fea836d000 - 0x14fea857cfff  libkrb5.so.3.3  ???
+0x14fea857d000 - 0x14fea85cefff  libgssapi_krb5.so.2.2  ???
+0x14fea85cf000 - 0x14fea87d1fff  libgssapi_krb5.so.2.2  ???
+0x14fea87d2000 - 0x14fea87f2fff  libnl-3.so.200.26.0  ???
+0x14fea87f3000 - 0x14fea89f4fff  libnl-3.so.200.26.0  ???
+0x14fea89f5000 - 0x14fea8a6ffff  libnl-route-3.so.200.26.0  ???
+0x14fea8a70000 - 0x14fea8c78fff  libnl-route-3.so.200.26.0  ???
+0x14fea8c7b000 - 0x14fea8ca5fff  libcfgmgr_client_xlm.so  ???
+0x14fea8ca6000 - 0x14fea8d22fff  libchannel_xlm.so  ???  (WARNING: No symbols, libchannel_xlm.so, E2DCFE347551AABBFB880B9240B188EA0)
+0x14fea8d23000 - 0x14fea8d26fff  libchannel_xlm.so  ???
+0x14fea8d27000 - 0x14fea8d2dfff  librt-2.28.so  ???
+0x14fea8d2e000 - 0x14fea8f2efff  librt-2.28.so  ???
+0x14fea8f2f000 - 0x14fea8f67fff  libjsoncpp_xlm.so  ???
+0x14fea8f68000 - 0x14fea8fb9fff  libjsoncpp_xlm.so  ???
+0x14fea8fba000 - 0x14fea8fcefff  libcomputeFarm_xlm.so  ???
+0x14fea8fcf000 - 0x14fea8ff6fff  libcomputeFarm_xlm.so  ???
+0x14fea8ff7000 - 0x14fea9027fff  liblz4_xlm.so  ???
+0x14fea9028000 - 0x14fea9032fff  libzcompress_xlm.so  ???
+0x14fea9033000 - 0x14fea906ffff  libnativeutils_xlm.so  ???
+0x14fea9070000 - 0x14fea90bffff  libtbb_xlm.so  ???
+0x14fea90c0000 - 0x14fea90c5fff  libtbb_xlm.so  ???
+0x14fea90c8000 - 0x14fea90f8fff  libtirpc.so.3.0.0  ???
+0x14fea90f9000 - 0x14fea92fafff  libtirpc.so.3.0.0  ???
+0x14fea92fb000 - 0x14fea9318fff  libibverbs.so.1.14.35.0  ???
+0x14fea9319000 - 0x14fea951afff  libibverbs.so.1.14.35.0  ???
+0x14fea951b000 - 0x14fea9530fff  libz.so.1.2.11  ???
+0x14fea9531000 - 0x14fea9730fff  libz.so.1.2.11  ???
+0x14fea9732000 - 0x14fea9752fff  libobjqp_xlm.so  ???
+0x14fea9753000 - 0x14fea975dfff  libnuma.so.1.0.0  ???
+0x14fea975e000 - 0x14fea995efff  libnuma.so.1.0.0  ???
+0x14fea995f000 - 0x14fea996afff  libsd_xlm.so  ???
+0x14fea996c000 - 0x14fea9989fff  libibsupport_real_xlm.so  ???
+0x14feaa622000 - 0x14feaa7a8fff  libet6_thin_api_xlm.so  ???
+0x14feaa7a9000 - 0x14feaa7bbfff  libet6_thin_api_xlm.so  ???
+0x14feae2f8000 - 0x14feae371fff  libqtutil_xlm.so  ???
+0x14feae372000 - 0x14feae375fff  libqtutil_xlm.so  ???
+0x14feae376000 - 0x14feae37afff  libqtThread_xlm.so  ???
+0x14feae37b000 - 0x14feae431fff  libhwConfig_xlm.so  ???
+0x14feae432000 - 0x14feae555fff  libdbgutil_xlm.so  ???  (WARNING: No symbols, libdbgutil_xlm.so, 910EC9384732FEE1E904BBF8BF91C0C20)
+0x14feae656000 - 0x14feae6b4fff  libmembin_xlm.so  ???
+0x14feae6b5000 - 0x14feae6b8fff  libmembin_xlm.so  ???
+0x14feae6ba000 - 0x14feae6dbfff  libllmemory_xlm.so  ???
+0x14feae6dc000 - 0x14feae6defff  libllmemory_xlm.so  ???
+0x14feae6df000 - 0x14feae7f7fff  libsideFile_xlm.so  ???  (WARNING: No symbols, libsideFile_xlm.so, D53B95EEBAB3857B3199746247749B370)
+0x14feae7f9000 - 0x14feae837fff  libinfinifile_xlm.so  ???
+0x14feae838000 - 0x14feae96dfff  libuart.so  ???
+0x14feae96e000 - 0x14feae973fff  libuart.so  ???
+0x14feb024d000 - 0x14feb0409fff  libStrapNC.so  ???
+0x14feb0413000 - 0x14feb04c5fff  libdcapi.so  ???
+0x14feb04c6000 - 0x14feb04d2fff  libdcapi.so  ???
+0x14feb04d4000 - 0x14feb04defff  libnss_files-2.28.so  ???
+0x14feb04df000 - 0x14feb06e0fff  libnss_files-2.28.so  ???
+0x14feb0768000 - 0x14feb0800fff  libxmjudy.so.1.0.3  ???
+0x14feb0801000 - 0x14feb0865fff  libcbreakpad.so  ???  (WARNING: No symbols, libcbreakpad.so, 1A0F7F62185D2C02CF86A6E6B7CC82920)
+0x14feb0866000 - 0x14feb086afff  libcbreakpad.so  ???
+0x14feb0872000 - 0x14feb0a2dfff  libc-2.28.so  ???  (WARNING: No symbols, libc-2.28.so, 517B1DA93AB2E8646B82A91511C446C10)
+0x14feb0a2e000 - 0x14feb0c32fff  libc-2.28.so  ???
+0x14feb0c37000 - 0x14feb0db7fff  libm-2.28.so  ???
+0x14feb0db8000 - 0x14feb0fb8fff  libm-2.28.so  ???
+0x14feb0fb9000 - 0x14feb0fbbfff  libdl-2.28.so  ???
+0x14feb0fbc000 - 0x14feb11bcfff  libdl-2.28.so  ???
+0x14feb11bd000 - 0x14feb11d7fff  libpthread-2.28.so  ???  (WARNING: No symbols, libpthread-2.28.so, CF866DCF5B969E12C9DFDCD756741E430)
+0x14feb11d8000 - 0x14feb13d8fff  libpthread-2.28.so  ???
+0x14feb13dd000 - 0x14feb1408fff  ld-2.28.so  ???
+0x14feb1409000 - 0x14feb140afff  uverbs0  ???
+0x14feb1411000 - 0x14feb142afff  libgcc_s.so.1  ???
+0x14feb142d000 - 0x14feb1603fff  libstdc++.so.6.0.28  ???  (WARNING: No symbols, libstdc++.so.6.0.28, 45962B5304507FBFFC729955451382EF0)
+0x14feb1609000 - 0x14feb160bfff  ld-2.28.so  ???
+0x7ffcf67e1000 - 0x7ffcf67e2fff  linux-gate.so  ???
+
+******BACKTRACE*****
+<unknown> (libcbreakpad.so) [0x14feb08351a3]
+<unknown> (libcbreakpad.so) [0x14feb0835630]
+vserror (xmsim) [0x1b9181a]
+serror (xmsim) [0x1b91d55]
+sv_sigusrdump_info (xmsim) [0xcbe9df]
+sv_seghandler_aux (xmsim) [0xcc11a7]
+sv_seghandler (xmsim) [0xcc170d]
+__restore_rt (libpthread.so.0) [0x14feb11cfb20]
+fgets (libc.so.6) [0x14feb08e2e4f]
+ib_service_data (libdpi.so) [0x14fe6846f3e4]
+******BACKTRACE END*****
