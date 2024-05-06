@@ -35,8 +35,8 @@ logic [31:0] kme_apb_pwdata ;
 logic [31:0] kme_apb_prdata ;
 logic kme_apb_pready;
 logic kme_apb_pslverr;
-integer _zz_56_223_0;
-integer _zz_56_229_1;
+integer _zz_56_225_0;
+integer _zz_56_231_1;
 wire  _zy_simnet_kme_apb_psel_0_w$;
 wire  _zy_simnet_kme_apb_penable_1_w$;
 wire  [0:19] _zy_simnet_kme_apb_paddr_2_w$ ;
@@ -172,6 +172,7 @@ cr_kme kme_dut(
   .apb_pwdata(_zy_simnet_kme_apb_pwdata_43_w$) ); 
 import "DPI-C" function int get_config_data (output byte operation,output bit [31:0] address ,output bit [31:0] data );
 import "DPI-C" function int ib_service_data (output bit [63:0] tdata ,output bit [31:0] tuser_string ,output bit [7:0] tstrb ,output int str_get);
+import "DPI-C" function int ob_service_data (output bit [63:0] tdata ,output bit [31:0] tuser_string ,output bit [7:0] tstrb ,output int str_get);
 
 task do_kme_config;
  reg [31:0] returned_data ;
@@ -330,138 +331,115 @@ endtask
 
 
 task service_ob_interface;
- reg [7:0] tstrb ;
  reg [7:0] tuser ;
- reg [63:0] tdata ;
  reg tlast;
- string tuser_string;
- string file_name;
- string vector;
- integer str_get;
- integer file_descriptor;
  logic saw_cqe;
  logic saw_stats;
  logic ignore_compare_result;
  logic got_next_line;
  integer watchdog_timer;
  integer rc;
+ bit [7:0] tstrb ;
+ bit [63:0] tdata ;
+ bit [31:0] tuser_string ;
+ reg [24:0] user_string ;
+ int str_get;
+ static int retval = 1;
  begin
-  file_name = $psprintf("../../dv/KME/tests/%s.outbound",testname);
-  file_descriptor = $fopen(file_name,"r");
-  if ((file_descriptor == 0))
-   begin
-    $display("OUTBOUND_FATAL:  @time:%-d File %s NOT found!",$time,file_name);
-    $finish;
-   end
-  else
-   begin
-    $display("OUTBOUND_INFO:  @time:%-d Openned test file -->  %s",$time,file_name);
-   end
   saw_cqe = 1'b0;
   saw_stats = 1'b0;
   got_next_line = 1'b0;
   watchdog_timer = 0;
-  while (( !$feof(file_descriptor) ))
+  do
    begin
-    if ((kme_ob_tvalid === 1'b1))
+    retval = ob_service_data(tdata,tuser_string,tstrb,str_get);
+    user_string = reverse_translate_tuser(tuser_string);
+    $display("user_string is %s\n",user_string);
+    if ((retval == 1))
      begin
+      $display("OUTBOUND INFO: tdata = 0x%h, tuser_string = %d, tstrb = 0x%h, str_get = %d\n",tdata,tuser_string,tstrb,str_get);
+      while ((kme_ob_tvalid === 1'b0))
+       begin
+        @(posedge clk)
+         begin
+         end
+        begin
+         watchdog_timer = (watchdog_timer + 1);
+        end
+        if ((watchdog_timer > 10000))
+         begin
+          begin
+          error_cntr = (error_cntr + 1);
+          end
+          $display("\nOUTBOUND_ERROR:  @time:%-d  Watchdog timer EXPIRED!\n",$time);
+          $finish;
+         end
+       end
       watchdog_timer = 0;
       tlast = 1'b0;
       ignore_compare_result = 1'b0;
-      if (((got_next_line == 32'b01) || $fgets(vector,file_descriptor)))
+      $display("OUTBOUND_INFO_MINE:  @time:%-d   kme_ob_tdata: 0x%h",$time,kme_ob_tdata);
+      if ((str_get == 3))
        begin
-        got_next_line = 1'b0;
-        while (((vector[0] === 8'b0100011) && ( !$feof(file_descriptor) )))
+        tuser = translate_tuser_t(user_string);
+        if (((user_string == 25'b010100110110111101010100) && (tdata[7:0] == 8'b01001)))
          begin
-          rc = $fgets(vector,file_descriptor);
-         end
-        $display("OUTBOUND_INFO:  @time:%-d vector --> %s",$time,vector);
-        $display("OUTBOUND_INFO_MINE:  @time:%-d   kme_ob_tdata: 0x%h",$time,kme_ob_tdata);
-        str_get = $sscanf(vector,"0x%h %s 0x%h",tdata,tuser_string,tstrb);
-        if ((str_get == 3))
-         begin
-          tuser = translate_tuser(tuser_string);
-          if (((tuser_string == "SoT") && (tdata[7:0] == 8'b01001)))
-          begin
           saw_cqe = 1'b1;
-          end
-          if ((tuser_string == "EoT"))
-          begin
+         end
+        if ((user_string == 25'b010001010110111101010100))
+         begin
           tlast = 1'b1;
           saw_cqe = 1'b0;
-          rc = $fgets(vector,file_descriptor);
-          got_next_line = 1'b1;
-          end
-          if (((tuser_string == "SoT") && (tdata[7:0] == 8'b01000)))
-          begin
+         end
+        if (((user_string == 25'b010100110110111101010100) && (tdata[7:0] == 8'b01000)))
+         begin
           saw_stats = 1'b1;
-          end
-          if (((tuser_string == "EoT") && (saw_stats == 32'b01)))
-          begin
+         end
+        if (((user_string == 25'b010001010110111101010100) && (saw_stats == 32'b01)))
+         begin
           ignore_compare_result = 1'b1;
           saw_stats = 1'b0;
-          end
-         end
-        else
-         begin
-          tuser = 8'b0;
-         end
-        if (((kme_ob_tdata !== tdata) && (ignore_compare_result == 32'b0)))
-         begin
-          $display("OUTBOUND_ERROR:  @time:%-d   kme_ob_tdata MISMATCH --> Actual: 0x%h  Expect: 0x%h",$time,kme_ob_tdata,tdata);
-          begin
-          error_cntr = (error_cntr + 1);
-          end
-         end
-        if ((kme_ob_tuser !== tuser))
-         begin
-          $display("OUTBOUND_ERROR:  @time:%-d   kme_ob_tuser MISMATCH --> Actual: 0x%h  Expect: 0x%h",$time,kme_ob_tuser,tuser);
-          begin
-          error_cntr = (error_cntr + 1);
-          end
-         end
-        if ((kme_ob_tstrb !== tstrb))
-         begin
-          $display("OUTBOUND_ERROR:  @time:%-d   kme_ob_tstrb MISMATCH --> Actual: 0x%h  Expect: 0x%h",$time,kme_ob_tstrb,tstrb);
-          begin
-          error_cntr = (error_cntr + 1);
-          end
-         end
-        if ((kme_ob_tlast !== tlast))
-         begin
-          $display("OUTBOUND_ERROR:  @time:%-d   kme_ob_tlast MISMATCH --> Actual: 0x%h  Expect: 0x%h",$time,kme_ob_tlast,tlast);
-          begin
-          error_cntr = (error_cntr + 1);
-          end
          end
        end
       else
        begin
-        begin
-         error_cntr = (error_cntr + 1);
-        end
-        $display("\nOUTBOUND_FATAL:  @time:%-d  No corresponding expect vector!\n",$time);
-        $finish;
+        tuser = 8'b0;
        end
-     end
-    else
-     begin
-      begin
-       watchdog_timer = (watchdog_timer + 1);
-      end
-      if ((watchdog_timer > 10000))
+      $display("after seeing str != 3 tuser is %d\n",tuser);
+      if (((kme_ob_tdata !== tdata) && (ignore_compare_result == 32'b0)))
        begin
+        $display("OUTBOUND_ERROR:  @time:%-d   kme_ob_tdata MISMATCH --> Actual: 0x%h  Expect: 0x%h",$time,kme_ob_tdata,tdata);
         begin
          error_cntr = (error_cntr + 1);
         end
-        $display("\nOUTBOUND_ERROR:  @time:%-d  Watchdog timer EXPIRED!\n",$time);
-        $finish;
+       end
+      if ((kme_ob_tuser !== tuser))
+       begin
+        $display("OUTBOUND_ERROR:  @time:%-d   kme_ob_tuser MISMATCH --> Actual: 0x%h  Expect: 0x%h",$time,kme_ob_tuser,tuser);
+        begin
+         error_cntr = (error_cntr + 1);
+        end
+       end
+      if ((kme_ob_tstrb !== tstrb))
+       begin
+        $display("OUTBOUND_ERROR:  @time:%-d   kme_ob_tstrb MISMATCH --> Actual: 0x%h  Expect: 0x%h",$time,kme_ob_tstrb,tstrb);
+        begin
+         error_cntr = (error_cntr + 1);
+        end
+       end
+      if ((kme_ob_tlast !== tlast))
+       begin
+        $display("OUTBOUND_ERROR:  @time:%-d   kme_ob_tlast MISMATCH --> Actual: 0x%h  Expect: 0x%h",$time,kme_ob_tlast,tlast);
+        begin
+         error_cntr = (error_cntr + 1);
+        end
        end
      end
     @(posedge clk)
      begin
      end
    end
+  while ((retval != 2));
   @(posedge clk)
    begin
    end
@@ -498,6 +476,7 @@ function  [24:0] reverse_translate_tuser;
  else
   if ((tuser == 32'b01010))
    begin
+    $display("am i translating\n");
     return 25'b010001010110111101010100;
    end
   else
@@ -509,19 +488,22 @@ endfunction
 
 function  [7:0] translate_tuser_t;
  input bit [24:0] tuser ;
- if ((tuser == 25'b010100110110111101010100))
-  begin
-   return 8'b01;
-  end
- else
-  if ((tuser == 25'b010001010110111101010100))
+ begin
+  $display("inside translate function the tuser is : %s\n",tuser);
+  if ((tuser == 25'b010100110110111101010100))
    begin
-    return 8'b010;
+    return 8'b01;
    end
   else
-   begin
-    return 8'b011;
-   end
+   if ((tuser == 25'b010001010110111101010100))
+    begin
+     return 8'b010;
+    end
+   else
+    begin
+     return 8'b011;
+    end
+ end
 endfunction
 
 initial 
@@ -530,7 +512,7 @@ initial
   rst_n = 1'b0;
   if ($test$plusargs("SEED"))
    begin
-    _zz_56_223_0 = $value$plusargs("SEED=%d",seed);
+    _zz_56_225_0 = $value$plusargs("SEED=%d",seed);
    end
   else
    begin
@@ -538,7 +520,7 @@ initial
    end
   if ($test$plusargs("TESTNAME"))
    begin
-    _zz_56_229_1 = $value$plusargs("TESTNAME=%s",testname);
+    _zz_56_231_1 = $value$plusargs("TESTNAME=%s",testname);
     $display("TESTNAME=%s SEED=%s",testname,seed);
    end
   else

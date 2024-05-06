@@ -1,4 +1,4 @@
-00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et3lib' on 04/25/2024 16:47:19
+00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et3lib' on 05/02/2024 13:39:01
 00 DATABASE | Parms: '-client'
 00 ET3LIB   |                                    
 00 ET3LIB   |                              ET3 LIBRARY
@@ -8,13 +8,13 @@
 00 ET3LIB   |            See files in <rootdir>/share/vxe/install/Copyrights
 00 ET3LIB   |                                    
 00 ET3LIB   | ET3lib created on Aug  3 2023 at 22:13:09.
-00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et3lib' (Elapsed time 0.00s (0.00u+0.00s), Memory used 4209 Mb) on 04/25/2024 16:47:19
-00 DATABASE | Calling 'ldproto' on 04/25/2024 16:47:19
+00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et3lib' (Elapsed time 0.00s (0.00u+0.00s), Memory used 4161 Mb) on 05/02/2024 13:39:01
+00 DATABASE | Calling 'ldproto' on 05/02/2024 13:39:01
 00 DATABASE | Parms: 'qt_modular -combined PARTITIONS -rename xcva_top'
 Info: 174463 ffDB boxes have been restored
 Info: 182512 ffDB nets have been restored
-00 DATABASE | Return from 'ldproto' (Elapsed time 0.14s (0.09u+0.04s), Memory used 4209 Mb) on 04/25/2024 16:47:19
-00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et3confg' on 04/25/2024 16:47:19
+00 DATABASE | Return from 'ldproto' (Elapsed time 0.14s (0.09u+0.01s), Memory used 4161 Mb) on 05/02/2024 13:39:01
+00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et3confg' on 05/02/2024 13:39:01
 00 DATABASE | Parms: '-client xcva_top -reserve_epc 63 -compilerEffort 991010 -visionMode FV -num_cycles_per_capture_frame 32 -discard_proto_config'
 00 ET3CONFG | THIS IS /lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/bin/64bit/xeCompile RUNNING.
 00 ET3CONFG | Proto configuration has been discarded.
@@ -29,13 +29,13 @@ Info: 182512 ffDB nets have been restored
 00 ET3CONFG | et6confg created on Aug  3 2023 at 22:13:09.
 00 ET3CONFG | Reading configuration file "./dbFiles/xcva_top.et3confg"
 00 ET3CONFG | --> USING LD8 CLUSTER TABLES
-00 ET3CONFG | ***** MB/XB wire table initialization took 0.000241 seconds.
+00 ET3CONFG | ***** MB/XB wire table initialization took 0.000212 seconds.
 00 ET3CONFG | ***** Found 0000000  MBO->MBI  possible links in this configuration.
 00 ET3CONFG | ***** HIGHEST board found in emulation configuration is 5
 00 ET3CONFG | load_module_version()          = 30
 00 ET3CONFG | num_cycles_per_capture_frame   = 32
 00 ET3CONFG | das_protocol()                 = 5
-00 ET3CONFG | COMPILED ON 04/25/2024 AT 16:47:19
+00 ET3CONFG | COMPILED ON 05/02/2024 AT 13:39:01
 00 ET3CONFG | +   1 BOARD ET6E
 00 ET3CONFG | +   1 MEMORY_CARD_V1
 00 ET3CONFG | +   1 MEMORY_CARD_V1  on BOARD 0
@@ -54,7 +54,7 @@ Info: 182512 ffDB nets have been restored
 00 ET3CONFG | 
 00 ET3CONFG | Running in little-endian mode
 00 ET3CONFG | BEDB loaded client memutil
-00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/omlib' on 04/25/2024 16:47:19
+00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/omlib' on 05/02/2024 13:39:01
 00 DATABASE | Parms: ''
 00 OMLIB    |                                    
 00 OMLIB    |                           VXE, VEngineering
@@ -64,7 +64,7 @@ Info: 182512 ffDB nets have been restored
 00 OMLIB    |                                    
 00 OMLIB    | omlib created on Aug  3 2023 at 22:05:33
 00 OMLIB    | 
-00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/omlib' (Elapsed time 0.00s (0.00u+0.00s), Memory used 4209 Mb) on 04/25/2024 16:47:19
+00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/omlib' (Elapsed time 0.00s (0.00u+0.00s), Memory used 4161 Mb) on 05/02/2024 13:39:01
 00 ET3CONFG |                                    
 00 ET3CONFG |                           VXE, VEngineering
 00 ET3CONFG |             Copyright(C) 1995-2021, Cadence Design Systems
@@ -75,8 +75,8 @@ Info: 182512 ffDB nets have been restored
 00 ET3CONFG | SCschedlib created on Aug  3 2023 at 22:13:09
 00 ET3CONFG | 
 00 ET3CONFG | BEDB loaded client SCschedlib
-00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et3confg' (Elapsed time 0.02s (0.02u+0.00s), Memory used 4209 Mb) on 04/25/2024 16:47:19
-00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et6ctl' on 04/25/2024 16:47:19
+00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et3confg' (Elapsed time 0.02s (0.02u+0.00s), Memory used 4161 Mb) on 05/02/2024 13:39:01
+00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et6ctl' on 05/02/2024 13:39:01
 00 DATABASE | Parms: '-ppcPhase2'
 00 ET6CTL   | reading compOptions file
 00 ET6CTL   | Number of valid option entries for module etctl = 0
@@ -100,8 +100,8 @@ Info: 182512 ffDB nets have been restored
 00 ET6CTL   | "xcva_top.iodelays": File not found
 00 ET6CTL   | 
 00 ET6CTL   | Validating output sync group dependencies...
-00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et6ctl' (Elapsed time 0.00s (0.00u+0.00s), Memory used 4209 Mb) on 04/25/2024 16:47:19
-00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et5nlopt' on 04/25/2024 16:47:19
+00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et6ctl' (Elapsed time 0.01s (0.00u+0.00s), Memory used 4161 Mb) on 05/02/2024 13:39:01
+00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et5nlopt' on 05/02/2024 13:39:01
 00 DATABASE | Parms: '-ppcPhase2 -min_post_merge_job -retiming ON'
 00 ET5NLOPT |                                    
 00 ET5NLOPT |                         ET5 NETLIST OPTIMIZER
@@ -145,8 +145,8 @@ Info: 182512 ffDB nets have been restored
 00 ET5NLOPT | Reconnected 0 deep logic cones, created 0 boxes,
 00 ET5NLOPT | deleted 0 boxes, optimized out cones 0
 00 ET5NLOPT | Retiming is already done
-00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et5nlopt' (Elapsed time 0.05s (0.06u+0.02s), Memory used 4209 Mb) on 04/25/2024 16:47:19
-00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/SCsched' on 04/25/2024 16:47:19
+00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et5nlopt' (Elapsed time 0.05s (0.07u+0.01s), Memory used 4161 Mb) on 05/02/2024 13:39:01
+00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/SCsched' on 05/02/2024 13:39:01
 00 DATABASE | Parms: '-PPC -multithreadBoxSched'
 00 SCSCHED  | Using DAS protocol 5
 00 SCSCHED  |                                    
@@ -158,7 +158,7 @@ Info: 182512 ffDB nets have been restored
 00 SCSCHED  |                                    
 00 SCSCHED  | SCSCHED created on Aug  3 2023 at 22:13:09
 00 SCSCHED  | 
-00 SCSCHED  | Scheduling begins at 16:47:19...
+00 SCSCHED  | Scheduling begins at 13:39:01...
 00 SCSCHED  | 
 00 SCSCHED  | Number of valid option entries for module SCsched = 0
 00 SCSCHED  | Number of valid option entries for module SCsched = 0
@@ -167,7 +167,7 @@ Info: 182512 ffDB nets have been restored
 00 SCSCHED  | Number of domains is 1.0.
 00 SCSCHED  | PrecompileDesignSizeOriginal = 643304
 00 SCSCHED  | Design utilization: 16.1.
-00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et6loada' on 04/25/2024 16:47:19
+00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et6loada' on 05/02/2024 13:39:01
 00 DATABASE | Parms: ''
 00 ET6LOADA |                                    
 00 ET6LOADA |                           ET6 LOAD ANALYZER
@@ -204,79 +204,79 @@ Info: 182512 ffDB nets have been restored
 00 ET6LOADA | Type                     Peak           Avg/Peak
 00 ET6LOADA | Outputs per ec:          ec[  0,0]      Outputs=0/0
 00 ET6LOADA | Weighted outputs per ec: ec[  0,0]      Outputs=0/0
-00 ET6LOADA | Outputs per ep:          ep[  0,0,2312] Outputs=10/28
-00 ET6LOADA | Weighted outputs per ep: ep[  0,0,2312] Outputs=10/28
+00 ET6LOADA | Outputs per ep:          ep[  0,0,1184] Outputs=11/28
+00 ET6LOADA | Weighted outputs per ep: ep[  0,0,1184] Outputs=11/28
 00 ET6LOADA | Inputs per ec:           ec[  0,0]      Inputs= 0/0
-00 ET6LOADA | Inputs per ep:           ep[  0,0,3032] Inputs= 18/41
+00 ET6LOADA | Inputs per ep:           ep[  0,0,2824] Inputs= 18/39
 00 ET6LOADA | dbis per chip:           ec[  0,0]      dbis=   250/250
 00 ET6LOADA | dbos per chip:           ec[  0,0]      dbos=   321/321
 00 ET6LOADA | xbos per chip:           ec[  0,0]      xbos=   1/1
 00 ET6LOADA | Boxes per eb:            eb[  0]        Boxes=  188220/188220
 00 ET6LOADA | Boxes per ec:            ec[  0,0]      Boxes=  188220/188220
-00 ET6LOADA | Boxes per ep:            ep[  0,0,2448] Boxes=  61/79
-00 ET6LOADA |                                         Peak from memory ports= 0
-00 ET6LOADA | Adjusted boxes per ep:   ep[  0,0, 168] Boxes=  52/62
+00 ET6LOADA | Boxes per ep:            ep[  0,0, 776] Boxes=  61/81
+00 ET6LOADA |                                         Peak from memory ports= 2
+00 ET6LOADA | Adjusted boxes per ep:   ep[  0,0,2824] Boxes=  52/64
 00 ET6LOADA | Adjusted instruction usage: 10.5%
 00 ET6LOADA | The design requires at least 1 domain.
 00 ET6LOADA |  
 00 ET6LOADA |  
 00 ET6LOADA |  
 00 ET6LOADA | Total INTRAM Accesses: 419
-00 ET6LOADA | Accesses per INTRAM:   0 / 8.7 / 32 (min/avg/max)
+00 ET6LOADA | Accesses per INTRAM:   2 / 8.7 / 33 (min/avg/max)
 00 ET6LOADA |  
 00 ET6LOADA | Total EXTRAM Accesses: 0
 00 ET6LOADA | Accesses per EXTRAM:   0 / 0.0 / 0 (min/avg/max)
 00 ET6LOADA |  
 00 ET6LOADA |           Memory Accesses
 00 ET6LOADA | eb  ec  RAM    word/assm/TCAM   banks
-00 ET6LOADA |  0  0   i00    10 /  0 /  0     1   >   >   >   1   >   4   4 
-00 ET6LOADA |         i01    11 /  0 /  0     1   >   >   >   1   1   8   0 
-00 ET6LOADA |         i02    10 /  0 /  0     1   >   >   >   1   1   4   3 
-00 ET6LOADA |         i03     9 /  0 /  0     1   >   >   >   1   1   4   2 
-00 ET6LOADA |         i04    11 /  0 /  0     1   >   >   >   1   1   4   4 
-00 ET6LOADA |         i05    11 /  0 /  0     1   >   >   >   1   1   4   4 
-00 ET6LOADA |         i06    10 /  0 /  0     1   >   >   >   1   1   4   3 
-00 ET6LOADA |         i07    11 /  0 /  0     1   >   >   >   1   1   4   4 
-00 ET6LOADA |         i08     7 /  0 /  0     1   >   >   >   2   2   2   0 
-00 ET6LOADA |         i09     6 /  0 /  0     1   >   >   >   2   2   1   0 
+00 ET6LOADA |  0  0   i00     2 /  0 /  0     1   >   >   >   1   >   >   > 
+00 ET6LOADA |         i01     4 /  0 /  0     1   >   >   >   1   >   1   1 
+00 ET6LOADA |         i02     5 /  0 /  0     1   >   >   >   1   1   1   1 
+00 ET6LOADA |         i03     5 /  0 /  0     1   >   >   >   1   1   1   1 
+00 ET6LOADA |         i04     5 /  0 /  0     1   >   >   >   1   1   1   1 
+00 ET6LOADA |         i05    21 /  0 /  0     1   >   >   >   1   1   1  17 
+00 ET6LOADA |         i06    20 /  0 /  0     1   >   >   >   1   1   1  16 
+00 ET6LOADA |         i07    20 /  0 /  0     1   >   >   >   1   1   1  16 
+00 ET6LOADA |         i08     6 /  0 /  0     1   >   >   >   2   3   0   0 
+00 ET6LOADA |         i09     6 /  0 /  0     1   >   >   2   2   0   0   0 
 00 ET6LOADA |         i10     7 /  0 /  0     1   >   2   2   2   0   0   0 
-00 ET6LOADA |         i11     7 /  0 /  0     1   2   1   2   1   0   0   0 
-00 ET6LOADA |         i12     7 /  0 /  0     1   2   1   2   1   0   0   0 
-00 ET6LOADA |         i13     7 /  0 /  0     1   2   3   1   0   0   0   0 
-00 ET6LOADA |         i14     7 /  0 /  0     1   2   3   1   0   0   0   0 
-00 ET6LOADA |         i15     7 /  0 /  0     2   3   2   0   0   0   0   0 
-00 ET6LOADA |         i16     7 /  0 /  0     2   >   2   2   1   0   0   0 
-00 ET6LOADA |         i17     7 /  0 /  0     2   2   2   1   0   0   0   0 
-00 ET6LOADA |         i18     7 /  0 /  0     3   2   2   0   0   0   0   0 
-00 ET6LOADA |         i19     7 /  0 /  0     3   2   2   0   0   0   0   0 
-00 ET6LOADA |         i20     7 /  0 /  0     3   2   2   0   0   0   0   0 
-00 ET6LOADA |         i21     7 /  0 /  0     3   2   2   0   0   0   0   0 
-00 ET6LOADA |         i22     7 /  0 /  0     2   2   2   1   0   0   0   0 
-00 ET6LOADA |         i23     8 /  0 /  0     2   2   2   1   1   0   0   0 
-00 ET6LOADA |         i24    11 /  0 /  0     1   >   >   2   1   1   1   4 
-00 ET6LOADA |         i25    12 /  0 /  0     1   >   1   >   1   >   1   8 
-00 ET6LOADA |         i26     9 /  0 /  0     1   >   1   >   1   1   1   4 
-00 ET6LOADA |         i27    11 /  0 /  0     1   >   1   >   1   1   1   6 
-00 ET6LOADA |         i28     9 /  0 /  0     1   >   1   >   1   1   1   4 
-00 ET6LOADA |         i29     9 /  0 /  0     1   >   1   >   1   1   1   4 
-00 ET6LOADA |         i30     9 /  0 /  0     1   >   1   >   1   1   1   4 
-00 ET6LOADA |         i31     9 /  0 /  0     1   >   1   >   1   1   1   4 
-00 ET6LOADA |         i32     2 /  0 /  0     2   0   0   0   0   0   0   0 
-00 ET6LOADA |         i33    32 /  0 /  0    32   0   0   0   0   0   0   0 
-00 ET6LOADA |         i34    32 /  0 /  0    32   0   0   0   0   0   0   0 
-00 ET6LOADA |         i35     2 /  0 /  0     2   0   0   0   0   0   0   0 
-00 ET6LOADA |         i36     2 /  0 /  0     2   0   0   0   0   0   0   0 
-00 ET6LOADA |         i37     1 /  0 /  0     1   0   0   0   0   0   0   0 
-00 ET6LOADA |         i38     0 /  0 /  0     0   0   0   0   0   0   0   0 
-00 ET6LOADA |         i39     0 /  0 /  0     0   0   0   0   0   0   0   0 
-00 ET6LOADA |         i40     5 /  0 /  0     2   2   1   0   0   0   0   0 
-00 ET6LOADA |         i41     5 /  0 /  0     3   2   0   0   0   0   0   0 
-00 ET6LOADA |         i42    24 /  0 /  0    24   0   0   0   0   0   0   0 
-00 ET6LOADA |         i43    16 /  0 /  0    16   0   0   0   0   0   0   0 
-00 ET6LOADA |         i44     6 /  0 /  0     2   2   2   0   0   0   0   0 
-00 ET6LOADA |         i45     6 /  0 /  0     3   2   1   0   0   0   0   0 
-00 ET6LOADA |         i46     6 /  0 /  0     2   2   2   0   0   0   0   0 
-00 ET6LOADA |         i47     6 /  0 /  0     2   2   2   0   0   0   0   0 
+00 ET6LOADA |         i11     7 /  0 /  0     1   1   2   2   1   0   0   0 
+00 ET6LOADA |         i12     7 /  0 /  0     1   1   2   2   1   0   0   0 
+00 ET6LOADA |         i13     8 /  0 /  0     1   1   2   2   2   0   0   0 
+00 ET6LOADA |         i14    33 /  0 /  0     1  32   0   0   0   0   0   0 
+00 ET6LOADA |         i15     7 /  0 /  0     1   1   2   2   1   0   0   0 
+00 ET6LOADA |         i16     9 /  0 /  0     1   >   8   0   0   0   0   0 
+00 ET6LOADA |         i17     5 /  0 /  0     1   >   2   2   0   0   0   0 
+00 ET6LOADA |         i18     5 /  0 /  0     1   >   2   2   0   0   0   0 
+00 ET6LOADA |         i19     5 /  0 /  0     1   >   2   2   0   0   0   0 
+00 ET6LOADA |         i20     6 /  0 /  0     1   1   2   2   0   0   0   0 
+00 ET6LOADA |         i21     6 /  0 /  0     1   1   2   2   0   0   0   0 
+00 ET6LOADA |         i22     6 /  0 /  0     1   2   2   1   0   0   0   0 
+00 ET6LOADA |         i23    33 /  0 /  0     1  32   0   0   0   0   0   0 
+00 ET6LOADA |         i24     6 /  0 /  0     1   >   1   >   2   2   0   0 
+00 ET6LOADA |         i25    18 /  0 /  0     1   >   1   >  16   0   0   0 
+00 ET6LOADA |         i26     6 /  0 /  0     1   >   1   >   2   2   0   0 
+00 ET6LOADA |         i27     7 /  0 /  0     1   >   1   3   2   0   0   0 
+00 ET6LOADA |         i28     6 /  0 /  0     1   >   1   3   1   0   0   0 
+00 ET6LOADA |         i29    26 /  0 /  0     1   >   1  24   0   0   0   0 
+00 ET6LOADA |         i30     6 /  0 /  0     1   >   3   2   0   0   0   0 
+00 ET6LOADA |         i31     7 /  0 /  0     1   >   3   2   1   0   0   0 
+00 ET6LOADA |         i32     5 /  0 /  0     2   2   1   0   0   0   0   0 
+00 ET6LOADA |         i33     5 /  0 /  0     2   2   1   0   0   0   0   0 
+00 ET6LOADA |         i34     4 /  0 /  0     2   2   0   0   0   0   0   0 
+00 ET6LOADA |         i35     4 /  0 /  0     2   2   0   0   0   0   0   0 
+00 ET6LOADA |         i36     5 /  0 /  0     2   2   1   0   0   0   0   0 
+00 ET6LOADA |         i37     5 /  0 /  0     2   2   1   0   0   0   0   0 
+00 ET6LOADA |         i38     5 /  0 /  0     2   2   1   0   0   0   0   0 
+00 ET6LOADA |         i39     6 /  0 /  0     2   2   2   0   0   0   0   0 
+00 ET6LOADA |         i40     7 /  0 /  0     2   >   2   2   1   0   0   0 
+00 ET6LOADA |         i41     7 /  0 /  0     2   2   2   1   0   0   0   0 
+00 ET6LOADA |         i42     7 /  0 /  0     3   2   2   0   0   0   0   0 
+00 ET6LOADA |         i43     7 /  0 /  0     3   2   2   0   0   0   0   0 
+00 ET6LOADA |         i44     8 /  0 /  0     3   2   2   1   0   0   0   0 
+00 ET6LOADA |         i45     8 /  0 /  0     3   2   2   1   0   0   0   0 
+00 ET6LOADA |         i46     8 /  0 /  0     2   2   2   2   0   0   0   0 
+00 ET6LOADA |         i47     8 /  0 /  0     2   2   2   2   0   0   0   0 
 00 ET6LOADA |         x0      0 /  0          0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 
 00 ET6LOADA |  
 00 ET6LOADA |  
@@ -284,91 +284,82 @@ Info: 182512 ffDB nets have been restored
 00 ET6LOADA | Instructions per ALU:   0 / 0.0 / 0 (min/avg/max)
 00 ET6LOADA |  
 00 ET6LOADA | 0 seconds
-00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et6loada' (Elapsed time 0.04s (0.12u+0.01s), Memory used 4209 Mb) on 04/25/2024 16:47:19
+00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et6loada' (Elapsed time 0.04s (0.12u+0.00s), Memory used 4161 Mb) on 05/02/2024 13:39:01
 00 SCSCHED  |  
 00 SCSCHED  | Boxes distribution by scheduling levels:
-00 SCSCHED  | Level    184, boxes            1
-00 SCSCHED  | Level    183, boxes            5
-00 SCSCHED  | Level    182, boxes            1
-00 SCSCHED  | Level    181, boxes            0
-00 SCSCHED  | Level    180, boxes            0
-00 SCSCHED  | Level    179, boxes            0
-00 SCSCHED  | Level    178, boxes            1
-00 SCSCHED  | Level    177, boxes            2
-00 SCSCHED  | Level    176, boxes            3
-00 SCSCHED  | Level    175, boxes            0
+00 SCSCHED  | Level    175, boxes            1
 00 SCSCHED  | Level    174, boxes            0
 00 SCSCHED  | Level    173, boxes            0
-00 SCSCHED  | Level    172, boxes            3
-00 SCSCHED  | Level    171, boxes            5
-00 SCSCHED  | Level    170, boxes            3
-00 SCSCHED  | Level    169, boxes            1
-00 SCSCHED  | Level    168, boxes            7
-00 SCSCHED  | Level    167, boxes            1
-00 SCSCHED  | Level    166, boxes            1
-00 SCSCHED  | Level    165, boxes            3
-00 SCSCHED  | Level    164, boxes            3
-00 SCSCHED  | Level    163, boxes            1
-00 SCSCHED  | Level    162, boxes            4
-00 SCSCHED  | Level    161, boxes            9
-00 SCSCHED  | Level    160, boxes           14
-00 SCSCHED  | Level    159, boxes           22
-00 SCSCHED  | Level    158, boxes            7
-00 SCSCHED  | Level    157, boxes           26
-00 SCSCHED  | Level    156, boxes           46
-00 SCSCHED  | Level    155, boxes           76
-00 SCSCHED  | Level    154, boxes          107
-00 SCSCHED  | Level    153, boxes          212
-00 SCSCHED  | Level    152, boxes          271
-00 SCSCHED  | Level    151, boxes          331
-00 SCSCHED  | Level    150, boxes          392
-00 SCSCHED  | Level    149, boxes          355
-00 SCSCHED  | Level    148, boxes          313
-00 SCSCHED  | Level    147, boxes          285
-00 SCSCHED  | Level    146, boxes          314
-00 SCSCHED  | Level    145, boxes          361
-00 SCSCHED  | Level    144, boxes          403
-00 SCSCHED  | Level    143, boxes          368
-00 SCSCHED  | Level    142, boxes          286
-00 SCSCHED  | Level    141, boxes          256
-00 SCSCHED  | Level    140, boxes          251
-00 SCSCHED  | Level    139, boxes          247
-00 SCSCHED  | Level    138, boxes          206
-00 SCSCHED  | Level    137, boxes          171
-00 SCSCHED  | Level    136, boxes          131
-00 SCSCHED  | Level    135, boxes          126
-00 SCSCHED  | Level    134, boxes          115
-00 SCSCHED  | Level    133, boxes          122
-00 SCSCHED  | Level    132, boxes          126
-00 SCSCHED  | Level    131, boxes          141
-00 SCSCHED  | Level    130, boxes          146
-00 SCSCHED  | Level    129, boxes          132
-00 SCSCHED  | Level    128, boxes          112
-00 SCSCHED  | Level    127, boxes           81
-00 SCSCHED  | Level    126, boxes           55
-00 SCSCHED  | Level    125, boxes           57
-00 SCSCHED  | Level    124, boxes           63
-00 SCSCHED  | Level    123, boxes           60
-00 SCSCHED  | Level    122, boxes           31
-00 SCSCHED  | Level    121, boxes           10
-00 SCSCHED  | Level    120, boxes            5
-00 SCSCHED  | Level    119, boxes            6
-00 SCSCHED  | Level    118, boxes            5
-00 SCSCHED  | Level    117, boxes            5
-00 SCSCHED  | Level    116, boxes            3
-00 SCSCHED  | Level    115, boxes           10
-00 SCSCHED  | Level    114, boxes           19
-00 SCSCHED  | Level    113, boxes           32
-00 SCSCHED  | Level    112, boxes           20
+00 SCSCHED  | Level    172, boxes            0
+00 SCSCHED  | Level    171, boxes            1
+00 SCSCHED  | Level    170, boxes            4
+00 SCSCHED  | Level    169, boxes            2
+00 SCSCHED  | Level    168, boxes            0
+00 SCSCHED  | Level    167, boxes            0
+00 SCSCHED  | Level    166, boxes            0
+00 SCSCHED  | Level    165, boxes            1
+00 SCSCHED  | Level    164, boxes            9
+00 SCSCHED  | Level    163, boxes            6
+00 SCSCHED  | Level    162, boxes            8
+00 SCSCHED  | Level    161, boxes           19
+00 SCSCHED  | Level    160, boxes           28
+00 SCSCHED  | Level    159, boxes           40
+00 SCSCHED  | Level    158, boxes           53
+00 SCSCHED  | Level    157, boxes           64
+00 SCSCHED  | Level    156, boxes           96
+00 SCSCHED  | Level    155, boxes           97
+00 SCSCHED  | Level    154, boxes           83
+00 SCSCHED  | Level    153, boxes          113
+00 SCSCHED  | Level    152, boxes          198
+00 SCSCHED  | Level    151, boxes          263
+00 SCSCHED  | Level    150, boxes          255
+00 SCSCHED  | Level    149, boxes          307
+00 SCSCHED  | Level    148, boxes          376
+00 SCSCHED  | Level    147, boxes          370
+00 SCSCHED  | Level    146, boxes          360
+00 SCSCHED  | Level    145, boxes          326
+00 SCSCHED  | Level    144, boxes          262
+00 SCSCHED  | Level    143, boxes          204
+00 SCSCHED  | Level    142, boxes          189
+00 SCSCHED  | Level    141, boxes          171
+00 SCSCHED  | Level    140, boxes          178
+00 SCSCHED  | Level    139, boxes          201
+00 SCSCHED  | Level    138, boxes          200
+00 SCSCHED  | Level    137, boxes          212
+00 SCSCHED  | Level    136, boxes          195
+00 SCSCHED  | Level    135, boxes          207
+00 SCSCHED  | Level    134, boxes          267
+00 SCSCHED  | Level    133, boxes          290
+00 SCSCHED  | Level    132, boxes          240
+00 SCSCHED  | Level    131, boxes          203
+00 SCSCHED  | Level    130, boxes          168
+00 SCSCHED  | Level    129, boxes          157
+00 SCSCHED  | Level    128, boxes          122
+00 SCSCHED  | Level    127, boxes           83
+00 SCSCHED  | Level    126, boxes           70
+00 SCSCHED  | Level    125, boxes           54
+00 SCSCHED  | Level    124, boxes           36
+00 SCSCHED  | Level    123, boxes           30
+00 SCSCHED  | Level    122, boxes           19
+00 SCSCHED  | Level    121, boxes           19
+00 SCSCHED  | Level    120, boxes           16
+00 SCSCHED  | Level    119, boxes           13
+00 SCSCHED  | Level    118, boxes           10
+00 SCSCHED  | Level    117, boxes            4
+00 SCSCHED  | Level    116, boxes            1
+00 SCSCHED  | Level    115, boxes           14
+00 SCSCHED  | Level    114, boxes           23
+00 SCSCHED  | Level    113, boxes           29
+00 SCSCHED  | Level    112, boxes           19
 00 SCSCHED  | Level    111, boxes            7
-00 SCSCHED  | Level    110, boxes            3
-00 SCSCHED  | Level    109, boxes            2
-00 SCSCHED  | Level    108, boxes            1
+00 SCSCHED  | Level    110, boxes            4
+00 SCSCHED  | Level    109, boxes            1
+00 SCSCHED  | Level    108, boxes            0
 00 SCSCHED  | Level    107, boxes            0
 00 SCSCHED  | Level    106, boxes            0
 00 SCSCHED  | Level    105, boxes            0
-00 SCSCHED  | Level    104, boxes            0
-00 SCSCHED  | Level    103, boxes            0
+00 SCSCHED  | Level    104, boxes            1
+00 SCSCHED  | Level    103, boxes            1
 00 SCSCHED  | Level    102, boxes            1
 00 SCSCHED  | Level    101, boxes            0
 00 SCSCHED  | Level    100, boxes            0
@@ -387,93 +378,93 @@ Info: 182512 ffDB nets have been restored
 00 SCSCHED  | Level     87, boxes            0
 00 SCSCHED  | Level     86, boxes            0
 00 SCSCHED  | Level     85, boxes            0
-00 SCSCHED  | Level     84, boxes            7
-00 SCSCHED  | Level     83, boxes            5
-00 SCSCHED  | Level     82, boxes            6
-00 SCSCHED  | Level     81, boxes            9
-00 SCSCHED  | Level     80, boxes            6
-00 SCSCHED  | Level     79, boxes            9
-00 SCSCHED  | Level     78, boxes            6
-00 SCSCHED  | Level     77, boxes           10
-00 SCSCHED  | Level     76, boxes           11
-00 SCSCHED  | Level     75, boxes           10
-00 SCSCHED  | Level     74, boxes           63
-00 SCSCHED  | Level     73, boxes           69
-00 SCSCHED  | Level     72, boxes           41
-00 SCSCHED  | Level     71, boxes           92
-00 SCSCHED  | Level     70, boxes           74
-00 SCSCHED  | Level     69, boxes          217
-00 SCSCHED  | Level     68, boxes          105
-00 SCSCHED  | Level     67, boxes          264
-00 SCSCHED  | Level     66, boxes          171
-00 SCSCHED  | Level     65, boxes          273
-00 SCSCHED  | Level     64, boxes          118
-00 SCSCHED  | Level     63, boxes          237
-00 SCSCHED  | Level     62, boxes          119
-00 SCSCHED  | Level     61, boxes          265
-00 SCSCHED  | Level     60, boxes          130
-00 SCSCHED  | Level     59, boxes          271
-00 SCSCHED  | Level     58, boxes          162
-00 SCSCHED  | Level     57, boxes          280
-00 SCSCHED  | Level     56, boxes          111
-00 SCSCHED  | Level     55, boxes          240
-00 SCSCHED  | Level     54, boxes          133
-00 SCSCHED  | Level     53, boxes          290
-00 SCSCHED  | Level     52, boxes          157
-00 SCSCHED  | Level     51, boxes          346
-00 SCSCHED  | Level     50, boxes          237
-00 SCSCHED  | Level     49, boxes          423
-00 SCSCHED  | Level     48, boxes          292
-00 SCSCHED  | Level     47, boxes          357
-00 SCSCHED  | Level     46, boxes          248
-00 SCSCHED  | Level     45, boxes          518
-00 SCSCHED  | Level     44, boxes          418
-00 SCSCHED  | Level     43, boxes          505
-00 SCSCHED  | Level     42, boxes          359
-00 SCSCHED  | Level     41, boxes          426
-00 SCSCHED  | Level     40, boxes          390
-00 SCSCHED  | Level     39, boxes          519
-00 SCSCHED  | Level     38, boxes          547
-00 SCSCHED  | Level     37, boxes          538
-00 SCSCHED  | Level     36, boxes          594
-00 SCSCHED  | Level     35, boxes          660
-00 SCSCHED  | Level     34, boxes          787
-00 SCSCHED  | Level     33, boxes          888
-00 SCSCHED  | Level     32, boxes          825
-00 SCSCHED  | Level     31, boxes         1142
-00 SCSCHED  | Level     30, boxes         1485
-00 SCSCHED  | Level     29, boxes         1259
-00 SCSCHED  | Level     28, boxes          843
-00 SCSCHED  | Level     27, boxes          697
-00 SCSCHED  | Level     26, boxes          679
-00 SCSCHED  | Level     25, boxes          999
-00 SCSCHED  | Level     24, boxes         1575
-00 SCSCHED  | Level     23, boxes         1414
-00 SCSCHED  | Level     22, boxes         1272
-00 SCSCHED  | Level     21, boxes         1441
-00 SCSCHED  | Level     20, boxes         1779
-00 SCSCHED  | Level     19, boxes         1864
-00 SCSCHED  | Level     18, boxes         2053
-00 SCSCHED  | Level     17, boxes         3270
-00 SCSCHED  | Level     16, boxes         3344
-00 SCSCHED  | Level     15, boxes         2366
-00 SCSCHED  | Level     14, boxes         2546
-00 SCSCHED  | Level     13, boxes         2349
-00 SCSCHED  | Level     12, boxes         2346
-00 SCSCHED  | Level     11, boxes         2887
-00 SCSCHED  | Level     10, boxes         3579
-00 SCSCHED  | Level      9, boxes         4438
-00 SCSCHED  | Level      8, boxes         5434
-00 SCSCHED  | Level      7, boxes         7642
-00 SCSCHED  | Level      6, boxes         5737
-00 SCSCHED  | Level      5, boxes         7179
-00 SCSCHED  | Level      4, boxes         6940
-00 SCSCHED  | Level      3, boxes        11116
-00 SCSCHED  | Level      2, boxes        19367
-00 SCSCHED  | Level      1, boxes        44581
+00 SCSCHED  | Level     84, boxes            0
+00 SCSCHED  | Level     83, boxes            0
+00 SCSCHED  | Level     82, boxes            0
+00 SCSCHED  | Level     81, boxes            2
+00 SCSCHED  | Level     80, boxes            2
+00 SCSCHED  | Level     79, boxes            0
+00 SCSCHED  | Level     78, boxes            0
+00 SCSCHED  | Level     77, boxes            1
+00 SCSCHED  | Level     76, boxes            3
+00 SCSCHED  | Level     75, boxes            3
+00 SCSCHED  | Level     74, boxes           14
+00 SCSCHED  | Level     73, boxes           20
+00 SCSCHED  | Level     72, boxes           11
+00 SCSCHED  | Level     71, boxes          103
+00 SCSCHED  | Level     70, boxes          114
+00 SCSCHED  | Level     69, boxes          253
+00 SCSCHED  | Level     68, boxes          158
+00 SCSCHED  | Level     67, boxes          277
+00 SCSCHED  | Level     66, boxes          111
+00 SCSCHED  | Level     65, boxes          208
+00 SCSCHED  | Level     64, boxes           67
+00 SCSCHED  | Level     63, boxes          241
+00 SCSCHED  | Level     62, boxes          125
+00 SCSCHED  | Level     61, boxes          262
+00 SCSCHED  | Level     60, boxes          182
+00 SCSCHED  | Level     59, boxes          323
+00 SCSCHED  | Level     58, boxes          222
+00 SCSCHED  | Level     57, boxes          304
+00 SCSCHED  | Level     56, boxes          113
+00 SCSCHED  | Level     55, boxes          236
+00 SCSCHED  | Level     54, boxes          155
+00 SCSCHED  | Level     53, boxes          334
+00 SCSCHED  | Level     52, boxes          220
+00 SCSCHED  | Level     51, boxes          316
+00 SCSCHED  | Level     50, boxes          173
+00 SCSCHED  | Level     49, boxes          295
+00 SCSCHED  | Level     48, boxes          127
+00 SCSCHED  | Level     47, boxes          267
+00 SCSCHED  | Level     46, boxes          234
+00 SCSCHED  | Level     45, boxes          445
+00 SCSCHED  | Level     44, boxes          308
+00 SCSCHED  | Level     43, boxes          454
+00 SCSCHED  | Level     42, boxes          469
+00 SCSCHED  | Level     41, boxes          659
+00 SCSCHED  | Level     40, boxes          444
+00 SCSCHED  | Level     39, boxes          564
+00 SCSCHED  | Level     38, boxes          661
+00 SCSCHED  | Level     37, boxes          696
+00 SCSCHED  | Level     36, boxes          705
+00 SCSCHED  | Level     35, boxes          679
+00 SCSCHED  | Level     34, boxes          712
+00 SCSCHED  | Level     33, boxes         1116
+00 SCSCHED  | Level     32, boxes          850
+00 SCSCHED  | Level     31, boxes          965
+00 SCSCHED  | Level     30, boxes          972
+00 SCSCHED  | Level     29, boxes         1090
+00 SCSCHED  | Level     28, boxes         1332
+00 SCSCHED  | Level     27, boxes         1099
+00 SCSCHED  | Level     26, boxes          998
+00 SCSCHED  | Level     25, boxes         1204
+00 SCSCHED  | Level     24, boxes         1670
+00 SCSCHED  | Level     23, boxes         1833
+00 SCSCHED  | Level     22, boxes         1441
+00 SCSCHED  | Level     21, boxes         1389
+00 SCSCHED  | Level     20, boxes         1834
+00 SCSCHED  | Level     19, boxes         1758
+00 SCSCHED  | Level     18, boxes         1824
+00 SCSCHED  | Level     17, boxes         3387
+00 SCSCHED  | Level     16, boxes         3476
+00 SCSCHED  | Level     15, boxes         2252
+00 SCSCHED  | Level     14, boxes         2359
+00 SCSCHED  | Level     13, boxes         2154
+00 SCSCHED  | Level     12, boxes         2176
+00 SCSCHED  | Level     11, boxes         2882
+00 SCSCHED  | Level     10, boxes         3931
+00 SCSCHED  | Level      9, boxes         4778
+00 SCSCHED  | Level      8, boxes         5511
+00 SCSCHED  | Level      7, boxes         6749
+00 SCSCHED  | Level      6, boxes         5090
+00 SCSCHED  | Level      5, boxes         7038
+00 SCSCHED  | Level      4, boxes         6743
+00 SCSCHED  | Level      3, boxes        11179
+00 SCSCHED  | Level      2, boxes        19524
+00 SCSCHED  | Level      1, boxes        44585
 00 SCSCHED  |  
-00 SCSCHED  | Tail      35, boxes         1913
-00 SCSCHED  | Mapped: 5629 5-input LUTs, 374 6-input LUTs, 1 others. Saved 6081
+00 SCSCHED  | Tail      27, boxes         2024
+00 SCSCHED  | Mapped: 5633 5-input LUTs, 373 6-input LUTs, 2 others. Saved 6090
 00 SCSCHED  |  
 00 SCSCHED  | Options:
 00 SCSCHED  |   min_steps                  0
@@ -498,51 +489,51 @@ Info: 182512 ffDB nets have been restored
 00 SCSCHED  | TIF_SYNC will reserve the entire slot 0 for its purpose
 00 SCSCHED  | Generating 1 target test patterns 0xACE on all target output
 00 SCSCHED  | 
-00 SCSCHED  | box scheduling begins at 16:47:19...
+00 SCSCHED  | box scheduling begins at 13:39:01...
 00 SCSCHED  | estimated number of boxes 174462
 00 SCSCHED  | 
-00 SCSCHED  | 100000 placed.  max step 69  16:47:19  [360.00]
-00 SCSCHED  | box scheduling ends at 16:47:20, max step 76
+00 SCSCHED  | 100000 placed.  max step 68  13:39:02  [360.00]
+00 SCSCHED  | box scheduling ends at 13:39:02, max step 73
 00 SCSCHED  | 
-00 SCSCHED  | Relocated 1688 logic boxes (0 between chips), 454 flops
+00 SCSCHED  | Relocated 1788 logic boxes (0 between chips), 352 flops
 00 SCSCHED  | Rescheduled in global scope 0 boxes
-00 SCSCHED  | Unmapped 114 boxes
-00 SCSCHED  | Compacted 25632 FD01 boxes
+00 SCSCHED  | Unmapped 220 boxes
+00 SCSCHED  | Compacted 25633 FD01 boxes
 00 SCSCHED  | Chip two-hop tries 0, success 0
 00 SCSCHED  | 
 00 SCSCHED  | Found DBO_CAPTURE and used it to control SACB capturing.
 00 SCSCHED  | Max DBO capture step = 2
 00 SCSCHED  | Extra 0 step is inserted between max_DBO capture step and interrupt
 00 SCSCHED  | SA DONE signal is routed to GP HCB 1
-00 SCSCHED  | Routed to interrupt HCB at chip 0 (board 0, chip 0, ep 397), at step 19 for signal 150814: xc_top._ET3_COMPILER_RESERVED_NAME_ORION_INTERRUPT_
+00 SCSCHED  | Routed to interrupt HCB at chip 0 (board 0, chip 0, ep 909), at step 32 for signal 150814: xc_top._ET3_COMPILER_RESERVED_NAME_ORION_INTERRUPT_
 00 SCSCHED  | Estimated IO probes = 9396, FF probes = 38351, DYNP probes = 240
 00 SCSCHED  | extra probes per domain = 0
-00 SCSCHED  | Trace control signals increase maxStep from 76 to 99
-00 SCSCHED  | flops input routing begins at 16:47:20, max step 99...
+00 SCSCHED  | Trace control signals increase maxStep from 73 to 100
+00 SCSCHED  | flops input routing begins at 13:39:02, max step 100...
 00 SCSCHED  | 
-00 SCSCHED  | flops input routing ends at 16:47:20, max step 99
+00 SCSCHED  | flops input routing ends at 13:39:02, max step 100
 00 SCSCHED  | 
-00 SCSCHED  | data capturing begins at 16:47:20
+00 SCSCHED  | data capturing begins at 13:39:02
 00 SCSCHED  | 
 00 SCSCHED  | 47683 nets to capture
 00 SCSCHED  | Captured 64 qt_curr_emul_cycle nets in DCC 0
 00 SCSCHED  | Captured 64 xc_top.simTime nets in DCC 0
-00 SCSCHED  | set captured_nets_cycle_1 = 56320
-00 SCSCHED  | set captured_nets_cycle_2_to_n = 13824
-00 SCSCHED  | Trace depth = 4535328 cycles
-00 SCSCHED  | Trace depth in DYNP mode = 4971026 cycles
-00 SCSCHED  | Min step count due to probes is 81
+00 SCSCHED  | set captured_nets_cycle_1 = 55296
+00 SCSCHED  | set captured_nets_cycle_2_to_n = 13312
+00 SCSCHED  | Trace depth = 4699072 cycles
+00 SCSCHED  | Trace depth in DYNP mode = 5368709 cycles
+00 SCSCHED  | Min step count due to probes is 78
 00 SCSCHED  | building DCC_net table in et6confg
-00 SCSCHED  | data capturing ends at 16:47:20, max step 99
+00 SCSCHED  | data capturing ends at 13:39:02, max step 100
 00 SCSCHED  | Captured 47747 nets
-00 SCSCHED  | used DCCs = 1, DCC utilization = 84%
+00 SCSCHED  | used DCCs = 1, DCC utilization = 86%
 00 SCSCHED  | 
 00 SCSCHED  | scheduling complete
 00 SCSCHED  | maximum step: 167.
 00 SCSCHED  | step count: 168
 00 SCSCHED  | 
 00 SCSCHED  | 
-00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et5analyzer' on 04/25/2024 16:47:20
+00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et5analyzer' on 05/02/2024 13:39:02
 00 DATABASE | Parms: '-num_paths 1 -from_scheduler'
 00 ET5ANAL* |                                    
 00 ET5ANAL* |                           VXE, VEngineering
@@ -575,59 +566,56 @@ Info: 182512 ffDB nets have been restored
 00 ET5ANAL* | Count  Location      Step  Jump  Level  Type    ID     ins:cr      Name
 00 ET5ANAL* | --------------------------------------------------------------------------------------
 00 ET5ANAL* | Breakpoint 68198 will add 101 steps after it is scheduled.
-00 ET5ANAL* | Critical net starts from an actual critical location.
-00 ET5ANAL* |    . [000,000,209,6]   64 +   0         NET      98230      0  ET6_SYNC.QTLA%break_0
-00 ET5ANAL* |    1 [000,000,209,6]   64 +   0    102  XBOB     68198   2: 1  ET6_XBOB_141
-00 ET5ANAL* |    . [000,000,209,0]   63 +   1         NET      98231      1  QTLA%break
-00 ET5ANAL* |    2 [000,000,251,1]   60 +   3    108  LOGIC    82517   2: 2  
-00 ET5ANAL* |    . [000,000,251,0]   60 +   0         NET      97781      1  _ET3_COMPILER_RESERVED_NAME_COMBINED_BREAK_
-00 ET5ANAL* |    3 [000,000,251,0]   60 +   0    109  LOGIC    85486   1: 1  
-00 ET5ANAL* |    . [000,000,251,0]   59 +   1         NET      98261      2  _ET3_COMPILER_RESERVED_NAME_SDL_BREAK_
-00 ET5ANAL* |    4 [000,000,245,0]   56 +   3    113  LOGIC    82516   4: 1  
-00 ET5ANAL* |    . [000,000,245,0]   55 +   1         NET      98451      2  QTLA%SDL.top.run_stop_ctl.sa_infini_break
-00 ET5ANAL* |    5 [000,000,067,0]   50 +   5    119  LOGIC    82124   4: 3  
-00 ET5ANAL* |    . [000,000,067,0]   49 +   1         NET      89056      1  _ABbLt
-00 ET5ANAL* |    6 [000,000,067,0]   49 +   0    120  LOGIC    82029   4: 2  
-00 ET5ANAL* |    . [000,000,067,0]   48 +   1         NET      89736      1  _ABbLv$inv5244
-00 ET5ANAL* |    7 [000,000,076,0]   45 +   3    124  LOGIC    81244   3: 3  
-00 ET5ANAL* |    . [000,000,076,0]   44 +   1         NET      90028      2  _ABbMc
-00 ET5ANAL* |    8 [000,000,067,0]   41 +   3    128  LOGIC    80966   4: 3  
-00 ET5ANAL* |    . [000,000,067,0]   40 +   1         NET      90104      1  _ABbMi
-00 ET5ANAL* |    9 [000,000,067,0]   40 +   0    129  LOGIC    80893   4: 3  
-00 ET5ANAL* |    . [000,000,067,2]   39 +   1         NET      90175      2  _ABbMj
-00 ET5ANAL* |   10 [000,000,076,3]   36 +   3    133  LOGIC    80825   4: 3  
-00 ET5ANAL* |    . [000,000,076,2]   36 +   0         NET      90239      2  _ABbTA
-00 ET5ANAL* |   11 [000,000,076,2]   36 +   0    134  LOGIC    80763   3: 2  
-00 ET5ANAL* |    . [000,000,076,1]   36 +   0         NET      90260      2  _ABbTJ
-00 ET5ANAL* |   12 [000,000,076,1]   36 +   0    135  LOGIC    80743   3: 2  
-00 ET5ANAL* |    . [000,000,076,0]   36 +   0         NET      90277      2  _ABbTM
-00 ET5ANAL* |   13 [000,000,076,0]   36 +   0    136  LOGIC    80726   4: 3  
-00 ET5ANAL* |    . [000,000,076,0]   35 +   1         NET     118967     13  QTLA%cycle_num[63]
-00 ET5ANAL* |   14 [000,000,103,0]   32 +   3    140  LOGIC    85514   1: 1  
-00 ET5ANAL* |    . [000,000,103,0]   31 +   1         NET     100769      8  xc_top.simTime[63]
-00 ET5ANAL* |   15 [000,000,222,0]   26 +   5    146  LOGIC    80712   3: 3  
-00 ET5ANAL* |    . [000,000,222,0]   25 +   1         NET      90289      1  _AAAB[57903]
-00 ET5ANAL* |   16 [000,000,019,0]   20 +   5    152  LOGIC    80711   3: 1  
-00 ET5ANAL* |    . [000,000,019,0]   19 +   1         NET      90290      1  _AAAB[57904]$inv5131
-00 ET5ANAL* |   17 [000,000,324,3]   14 +   5    158  LOGIC    80710   4: 2  
-00 ET5ANAL* |    . [000,000,324,2]   14 +   0         NET      90572      1  
-00 ET5ANAL* |   18 [000,000,324,2]   14 +   0    162  LOGIC    79976   4: 3  
-00 ET5ANAL* |    . [000,000,324,4]   14 +   0         NET     148611    128  _AAAB[57899]
-00 ET5ANAL* |   19 [000,000,324,4]   14 +   0    164  LOGIC    23876   4: 2  
-00 ET5ANAL* |    . [000,000,324,0]   13 +   1         NET     147030     12  _AAAB[54821]$inv496
-00 ET5ANAL* |   20 [000,000,042,1]    8 +   5    170  LOGIC    23874   4: 2  
-00 ET5ANAL* |    . [000,000,042,0]    8 +   0         NET     147031      2  xc_top.callEmuPI
-00 ET5ANAL* |   21 [000,000,042,0]    8 +   0    171  LOGIC    46139   1: 1  
-00 ET5ANAL* |    . [000,000,042,3]    7 +   1         NET     150812      2  UA@.xc_top.callEmuPI
-00 ET5ANAL* |   22 [000,000,042,3]    7 +   0    172  LOGIC    21608   3: 3  
-00 ET5ANAL* |    . [000,000,042,2]    7 +   0         NET     100753    249  
-00 ET5ANAL* |   23 [000,000,042,2]    7 +   0    176  LOGIC    80642   2: 2  
-00 ET5ANAL* |    . [000,000,042,0]    7 +   0         NET     100534      2  
-00 ET5ANAL* |   24 [000,000,042,0]    7 +   0    177  LOGIC    84104   4: 1  
-00 ET5ANAL* |    . [000,000,042,0]    5 +   2         NET      97786      1  _ET3_COMPILER_RESERVED_NAME_SLOW_MODE_ACTIVE_
-00 ET5ANAL* |   25 [000,000,324,1]    0 +   5    183  LOGIC    86445   1: 1  
-00 ET5ANAL* |    . [000,000,324,0]    0 +   0         NET     131521      4  qt_slow_mode_TSM_ctrl
-00 ET5ANAL* |   26 [000,000,324,0]    0 +   0    184  LOGIC    86446   0: 0  
+00 ET5ANAL* |    . [000,000,017,6]   65 +   0         NET      98230      0  ET6_SYNC.QTLA%break_0
+00 ET5ANAL* |    1 [000,000,017,6]   65 +   0    102  XBOB     68198   2: 1  ET6_XBOB_141
+00 ET5ANAL* |    . [000,000,017,1]   65 +   0         NET      98231      1  QTLA%break
+00 ET5ANAL* |    2 [000,000,017,1]   65 +   0    103  LOGIC    82517   2: 2  
+00 ET5ANAL* |    . [000,000,017,0]   65 +   0         NET      97781      1  _ET3_COMPILER_RESERVED_NAME_COMBINED_BREAK_
+00 ET5ANAL* |    3 [000,000,017,0]   65 +   0    104  LOGIC    85486   1: 1  
+00 ET5ANAL* |    . [000,000,017,0]   64 +   1         NET      98261      2  _ET3_COMPILER_RESERVED_NAME_SDL_BREAK_
+00 ET5ANAL* |    4 [000,000,160,2]   59 +   5    110  LOGIC    82516   4: 1  
+00 ET5ANAL* |    . [000,000,160,0]   54 +   5         NET      98451      2  QTLA%SDL.top.run_stop_ctl.sa_infini_break
+00 ET5ANAL* |    5 [000,000,176,0]   51 +   3    114  LOGIC    82124   4: 4  
+00 ET5ANAL* |    . [000,000,176,0]   50 +   1         NET      88902      1  _ABbEP
+00 ET5ANAL* |    6 [000,000,138,0]   47 +   3    118  LOGIC    82123   4: 1  
+00 ET5ANAL* |    . [000,000,138,0]   46 +   1         NET      88903      1  
+00 ET5ANAL* |    7 [000,000,176,0]   43 +   3    122  LOGIC    85230   3: 3  
+00 ET5ANAL* |    . [000,000,176,0]   42 +   1         NET      89443      1  _ABcaa$inv5309
+00 ET5ANAL* |    8 [000,000,168,0]   39 +   3    126  LOGIC    81529   4: 1  
+00 ET5ANAL* |    . [000,000,168,0]   38 +   1         NET      89444      1  _ABbEl$inv5308
+00 ET5ANAL* |    9 [000,000,178,1]   35 +   3    130  LOGIC    81528   4: 4  
+00 ET5ANAL* |    . [000,000,178,0]   34 +   1         NET      89590      2  _ABbEq
+00 ET5ANAL* |   10 [000,000,160,2]   31 +   3    134  LOGIC    81386   4: 3  
+00 ET5ANAL* |    . [000,000,160,7]   30 +   1         NET      89653      2  _ABbIG
+00 ET5ANAL* |   11 [000,000,160,7]   30 +   0    135  LOGIC    81325   3: 2  
+00 ET5ANAL* |    . [000,000,160,5]   30 +   0         NET      89679      2  _ABbIR
+00 ET5ANAL* |   12 [000,000,160,5]   30 +   0    136  LOGIC    81300   3: 2  
+00 ET5ANAL* |    . [000,000,160,2]   29 +   1         NET      89692      2  _ABbIS
+00 ET5ANAL* |   13 [000,000,160,2]   29 +   0    137  LOGIC    81287   4: 3  
+00 ET5ANAL* |    . [000,000,160,0]   29 +   0         NET     117607      4  QTLA%cycle_num_shadow[31]
+00 ET5ANAL* |   14 [000,000,160,0]   29 +   0    138  LOGIC    85579   1: 1  
+00 ET5ANAL* |    . [000,000,160,0]   28 +   1         NET     100839     10  xc_top.simTime[31]
+00 ET5ANAL* |   15 [000,000,182,0]   25 +   3    142  LOGIC    81264   3: 3  
+00 ET5ANAL* |    . [000,000,182,2]   23 +   2         NET      89715      1  _AAAB[57974]
+00 ET5ANAL* |   16 [000,000,182,2]   23 +   0    143  LOGIC    81263   3: 1  
+00 ET5ANAL* |    . [000,000,182,1]   23 +   0         NET      89716      1  _AAAB[57975]$inv5253
+00 ET5ANAL* |   17 [000,000,182,1]   23 +   0    144  LOGIC    81262   4: 2  
+00 ET5ANAL* |    . [000,000,182,4]   23 +   0         NET      90604      1  
+00 ET5ANAL* |   18 [000,000,182,4]   23 +   0    145  LOGIC    79944   4: 3  
+00 ET5ANAL* |    . [000,000,182,0]   22 +   1         NET     148611    128  _AAAB[57899]
+00 ET5ANAL* |   19 [000,000,172,0]   19 +   3    149  LOGIC    23876   4: 1  
+00 ET5ANAL* |    . [000,000,172,0]   18 +   1         NET      98271    134  _AAAB[58754]
+00 ET5ANAL* |   20 [000,000,064,2]   13 +   5    155  LOGIC    80643   3: 1  
+00 ET5ANAL* |    . [000,000,064,1]   13 +   0         NET      90294      1  xc_top.oneStepPI
+00 ET5ANAL* |   21 [000,000,064,1]   13 +   0    156  LOGIC    85834   1: 1  
+00 ET5ANAL* |    . [000,000,064,0]   13 +   0         NET     100626      2  UA@.xc_top.oneStepPI
+00 ET5ANAL* |   22 [000,000,064,0]   13 +   0    157  LOGIC    68107   3: 3  
+00 ET5ANAL* |    . [000,000,064,0]   12 +   1         NET     100753    249  
+00 ET5ANAL* |   23 [000,000,028,2]    7 +   5    163  LOGIC    80642   2: 2  
+00 ET5ANAL* |    . [000,000,028,0]    7 +   0         NET     100534      2  
+00 ET5ANAL* |   24 [000,000,028,0]    7 +   0    169  LOGIC    84104   4: 4  
+00 ET5ANAL* |    . [000,000,028,0]    6 +   1         NET     100538      2  DBI_APPLY
+00 ET5ANAL* |   25 [000,000,128,0]    0 +   6    175  DBIB     68197   0: 0  ET6_DBIB_0_0_0
 00 ET5ANAL* | ======================================================================================
 00 ET5ANAL* | 
 00 ET5ANAL* | Critical paths by steps
@@ -636,74 +624,67 @@ Info: 182512 ffDB nets have been restored
 00 ET5ANAL* | Count  Location      Step  Jump  Type    ID     ins:cr      Name
 00 ET5ANAL* | --------------------------------------------------------------------------------------
 00 ET5ANAL* | Breakpoint 68198 will add 101 steps after it is scheduled.
-00 ET5ANAL* | Critical net starts from an actual critical location.
-00 ET5ANAL* |    . [000,000,209,6]   64 +   0  NET      98230      0  ET6_SYNC.QTLA%break_0
-00 ET5ANAL* |    1 [000,000,209,6]   64 +   0  XBOB     68198   2: 1  ET6_XBOB_141
-00 ET5ANAL* |    . [000,000,209,0]   63 +   1  NET      98231      1  QTLA%break
-00 ET5ANAL* |    2 [000,000,251,1]   60 +   3  LOGIC    82517   2: 2  
-00 ET5ANAL* |    . [000,000,251,0]   60 +   0  NET      97781      1  _ET3_COMPILER_RESERVED_NAME_COMBINED_BREAK_
-00 ET5ANAL* |    3 [000,000,251,0]   60 +   0  LOGIC    85486   1: 1  
-00 ET5ANAL* |    . [000,000,251,0]   59 +   1  NET      98261      2  _ET3_COMPILER_RESERVED_NAME_SDL_BREAK_
-00 ET5ANAL* |    4 [000,000,245,0]   56 +   3  LOGIC    82516   4: 1  
-00 ET5ANAL* |    . [000,000,245,0]   55 +   1  NET      98451      2  QTLA%SDL.top.run_stop_ctl.sa_infini_break
-00 ET5ANAL* |    5 [000,000,067,0]   50 +   5  LOGIC    82124   4: 3  
-00 ET5ANAL* |    . [000,000,067,0]   49 +   1  NET      89056      1  _ABbLt
-00 ET5ANAL* |    6 [000,000,067,0]   49 +   0  LOGIC    82029   4: 2  
-00 ET5ANAL* |    . [000,000,067,0]   48 +   1  NET      89736      1  _ABbLv$inv5244
-00 ET5ANAL* |    7 [000,000,076,0]   45 +   3  LOGIC    81244   3: 3  
-00 ET5ANAL* |    . [000,000,076,0]   44 +   1  NET      90028      2  _ABbMc
-00 ET5ANAL* |    8 [000,000,067,0]   41 +   3  LOGIC    80966   4: 2  
-00 ET5ANAL* |    . [000,000,067,0]   40 +   1  NET      90055      2  _ABbRy
-00 ET5ANAL* |    9 [000,000,102,1]   37 +   3  LOGIC    80941   3: 2  
-00 ET5ANAL* |    . [000,000,102,6]   36 +   1  NET      90073      2  _ABbRz
-00 ET5ANAL* |   10 [000,000,102,6]   36 +   0  LOGIC    80923   4: 4  
-00 ET5ANAL* |    . [000,000,102,4]   35 +   1  NET     118995     13  QTLA%cycle_num[50]
-00 ET5ANAL* |   11 [000,000,064,0]   32 +   3  LOGIC    85541   1: 1  
-00 ET5ANAL* |    . [000,000,064,0]   31 +   1  NET     100797      9  xc_top.simTime[50]
-00 ET5ANAL* |   12 [000,000,222,1]   25 +   6  LOGIC    80917   3: 1  
-00 ET5ANAL* |    . [000,000,222,0]   24 +   1  NET     148970     64  _ABlnm
-00 ET5ANAL* |   13 [000,000,042,1]   19 +   5  LOGIC    39335   4: 2  
-00 ET5ANAL* |    . [000,000,042,0]   19 +   0  NET     147028      1  _AAAB[57897]
-00 ET5ANAL* |   14 [000,000,042,0]   19 +   0  LOGIC    23885   4: 1  
-00 ET5ANAL* |    . [000,000,042,0]   18 +   1  NET      98271    134  _AAAB[58754]
-00 ET5ANAL* |   15 [000,000,324,2]   13 +   5  LOGIC    80643   3: 1  
-00 ET5ANAL* |    . [000,000,324,1]   13 +   0  NET      90294      1  xc_top.oneStepPI
-00 ET5ANAL* |   16 [000,000,324,1]   13 +   0  LOGIC    85834   1: 1  
-00 ET5ANAL* |    . [000,000,324,0]   13 +   0  NET     100626      2  UA@.xc_top.oneStepPI
-00 ET5ANAL* |   17 [000,000,324,0]   13 +   0  LOGIC    68107   3: 3  
-00 ET5ANAL* |    . [000,000,324,0]   12 +   1  NET     100753    249  
-00 ET5ANAL* |   18 [000,000,042,2]    7 +   5  LOGIC    80642   2: 2  
-00 ET5ANAL* |    . [000,000,042,0]    7 +   0  NET     100534      2  
-00 ET5ANAL* |   19 [000,000,042,0]    7 +   0  LOGIC    84104   4: 4  
-00 ET5ANAL* |    . [000,000,042,0]    6 +   1  NET     100538      2  DBI_APPLY
-00 ET5ANAL* |   20 [000,000,128,0]    0 +   6  DBIB     68197   0: 0  ET6_DBIB_0_0_0
+00 ET5ANAL* |    . [000,000,017,6]   65 +   0  NET      98230      0  ET6_SYNC.QTLA%break_0
+00 ET5ANAL* |    1 [000,000,017,6]   65 +   0  XBOB     68198   2: 1  ET6_XBOB_141
+00 ET5ANAL* |    . [000,000,017,1]   65 +   0  NET      98231      1  QTLA%break
+00 ET5ANAL* |    2 [000,000,017,1]   65 +   0  LOGIC    82517   2: 2  
+00 ET5ANAL* |    . [000,000,017,0]   65 +   0  NET      97781      1  _ET3_COMPILER_RESERVED_NAME_COMBINED_BREAK_
+00 ET5ANAL* |    3 [000,000,017,0]   65 +   0  LOGIC    85486   1: 1  
+00 ET5ANAL* |    . [000,000,017,0]   64 +   1  NET      98261      2  _ET3_COMPILER_RESERVED_NAME_SDL_BREAK_
+00 ET5ANAL* |    4 [000,000,160,2]   59 +   5  LOGIC    82516   4: 4  
+00 ET5ANAL* |    . [000,000,160,1]   59 +   0  NET      88592      1  
+00 ET5ANAL* |    5 [000,000,160,1]   59 +   0  LOGIC    82515   4: 1  
+00 ET5ANAL* |    . [000,000,160,0]   59 +   0  NET      88593      1  _ABbwg$inv5462
+00 ET5ANAL* |    6 [000,000,160,0]   59 +   0  LOGIC    82514   4: 2  
+00 ET5ANAL* |    . [000,000,160,0]   58 +   1  NET     118113      3  QTLA%SDL.top.run_stop_ctl.latched_exec
+00 ET5ANAL* |    7 [000,000,353,1]   53 +   5  LOGIC    82240   4: 1  
+00 ET5ANAL* |    . [000,000,353,0]   53 +   0  NET      88742      3  QTLA%SDL.top.run_stop_ctl.exec_p
+00 ET5ANAL* |    8 [000,000,353,0]   53 +   0  LOGIC    84340   4: 2  
+00 ET5ANAL* |    . [000,000,354,0]   51 +   2  NET      96382      1  QTLA%SDL.top.exec_sum
+00 ET5ANAL* |    9 [000,000,354,0]   51 +   0  LOGIC    70168   3: 2  
+00 ET5ANAL* |    . [000,000,354,0]   50 +   1  NET      96384      2  QTLA%SDL.top.tsm_0.lut_exec
+00 ET5ANAL* |   10 [000,000,160,4]   45 +   5  LOGIC    91164   1: 1  
+00 ET5ANAL* |    . [000,000,160,2]   44 +   1  NET      62015      1  _ABfnz
+00 ET5ANAL* |   11 [000,000,000,0]   31 +  13  XMPRe   173916  18:11  ET5_V1_H1.QTLA%SDL.top.tsm_0.main_instr.tsm_lut_OPT
+00 ET5ANAL* |    . [000,000,066,0]   30 +   1  NET      67035      7  QTLA%SDL.top.tsm_0.conditions[4]
+00 ET5ANAL* |   12 [000,000,213,1]   25 +   5  LOGIC   109399   4: 4  
+00 ET5ANAL* |    . [000,000,213,0]   25 +   0  NET      54808      1  
+00 ET5ANAL* |   13 [000,000,213,0]   25 +   0  LOGIC   109398   4: 1  
+00 ET5ANAL* |    . [000,000,213,0]   24 +   1  NET      54809      1  _ABffE$inv6020
+00 ET5ANAL* |   14 [000,000,213,0]   24 +   0  LOGIC   109397   4: 2  
+00 ET5ANAL* |    . [000,000,209,5]   22 +   2  NET      54812      1  
+00 ET5ANAL* |   15 [000,000,209,5]   22 +   0  LOGIC   109394   4: 1  
+00 ET5ANAL* |    . [000,000,209,1]   21 +   1  NET      54813      1  _ABfes$inv6018
+00 ET5ANAL* |   16 [000,000,209,1]   21 +   0  LOGIC   109393   4: 3  
+00 ET5ANAL* |    . [000,000,209,2]   19 +   2  NET      67867      1  QTLA%SDL.top.tsm_0.cond.ev4.B[6]
+00 ET5ANAL* |   17 [000,000,209,2]   19 +   0  FD01    105439   4: 0  
 00 ET5ANAL* | --------------------------------------------------------------------------------------
-00 ET5ANAL* | Maximum jump of 6 steps occurs at step 25
+00 ET5ANAL* | Maximum jump of 13 steps occurs at step 31
 00 ET5ANAL* | 0 inter-chip hops, 0 steps inter-chip delay
 00 ET5ANAL* | ======================================================================================
 00 ET5ANAL* | End of critical path
 00 ET5ANAL* | 
 00 ET5ANAL* | 
 00 ET5ANAL* | 
-00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et5analyzer' (Elapsed time 0.01s (0.06u+0.00s), Memory used 4209 Mb) on 04/25/2024 16:47:20
-00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/SCsched' (Elapsed time 0.68s (0.75u+0.12s), Memory used 4209 Mb) on 04/25/2024 16:47:20
-00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et6xtime' on 04/25/2024 16:47:20
+00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et5analyzer' (Elapsed time 0.02s (0.07u+0.01s), Memory used 4161 Mb) on 05/02/2024 13:39:02
+00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/SCsched' (Elapsed time 0.62s (0.78u+0.04s), Memory used 4161 Mb) on 05/02/2024 13:39:02
+00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et6xtime' on 05/02/2024 13:39:02
 00 DATABASE | Parms: ''
 00 ET6XTIME |                                    
 00 ET6XTIME |                ET6 EXTERNAL TIMING ANALYZER AND BITGEN
 00 ET6XTIME |                            RELEASE 6.0.2.6
 00 ET6XTIME |                                    
 00 ET6XTIME | et6xtime created on Aug  3 2023 at 22:13:09.
-00 ET6XTIME | found breakpoint at ep 1678 box 68198 signal QTLA%break
+00 ET6XTIME | found breakpoint at ep 142 box 68198 signal QTLA%break
 00 ET6XTIME | There are no targets defined in the design
 00 ET6XTIME | 
 00 ET6XTIME | Generated xtime and ttime files
-00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et6xtime' (Elapsed time 0.01s (0.01u+0.00s), Memory used 4209 Mb) on 04/25/2024 16:47:20
-00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et3lconf' on 04/25/2024 16:47:20
+00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et6xtime' (Elapsed time 0.01s (0.00u+0.00s), Memory used 4161 Mb) on 05/02/2024 13:39:02
+00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et3lconf' on 05/02/2024 13:39:02
 00 DATABASE | Parms: ''
-00 ET3LCONF | * dbFiles/etapi.mem_slices creation file starts at 16:47:20, finishes at 16:47:20. Saved 191 slices, wrote 15280 bytes. (rc: 0)
+00 ET3LCONF | * dbFiles/etapi.mem_slices creation file starts at 13:39:02, finishes at 13:39:02. Saved 191 slices, wrote 15280 bytes. (rc: 0)
 00 ET3LCONF | * COMPILED without WIRE_DUPLICATION, for a SINGLE_SUBSET, with SIM_ACCEL 
-00 ET3LCONF | COMPILED ON 04/25/2024 AT 16:47:19 WITH SEED 900288402
+00 ET3LCONF | COMPILED ON 05/02/2024 AT 13:39:01 WITH SEED 456157126
 00 ET3LCONF | MINOR_CYCLES_PER_MAJOR_CYCLE  168
 00 ET3LCONF | + 8_CHIP_BOARD           0 ET6E BRD000000000000 0
 00 ET3LCONF | - MEMORY_CARD_V1  0  0
@@ -717,10 +698,10 @@ Info: 182512 ffDB nets have been restored
 00 ET3LCONF | - XBI  0   0  87
 00 ET3LCONF | - XBO  0   0  87
 00 ET3LCONF | - TARGET_LANE  0 0 A
-00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et3lconf' (Elapsed time 0.01s (0.00u+0.00s), Memory used 4209 Mb) on 04/25/2024 16:47:20
-00 DATABASE | Calling 'svproto' on 04/25/2024 16:47:20
+00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et3lconf' (Elapsed time 0.02s (0.00u+0.00s), Memory used 4161 Mb) on 05/02/2024 13:39:02
+00 DATABASE | Calling 'svproto' on 05/02/2024 13:39:02
 00 DATABASE | Parms: 'xcva_top'
-00 DATABASE | Return from 'svproto' (Elapsed time 0.12s (0.08u+0.01s), Memory used 4209 Mb) on 04/25/2024 16:47:20
+00 DATABASE | Return from 'svproto' (Elapsed time 0.16s (0.09u+0.01s), Memory used 4161 Mb) on 05/02/2024 13:39:02
 00 DATABASE | Compiler Statistics:
 00 DATABASE | ENVRN |  ModuleLast      | 8          | OTHER:et3lconf
 00 DATABASE | ENVRN |  ModuleCurrent   | 8          | None

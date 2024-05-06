@@ -1,5 +1,5 @@
 
-## xeCompile starts at 04/25/2024 16:50:41 ibarry V23.03.131.s001, HOST: hsv-sc49, PID: 2432066, DISPLAY: sjcvl-ibarry:1
+## xeCompile starts at 05/02/2024 13:45:09 ibarry V23.03.131.s001, HOST: hsv-sc49, PID: 3495487, DISPLAY: sjcvl-ibarry:1
 xeCompile compilePPC.qel
 ## 64bit program from /lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/bin on Linux 4.18.0-305.el8.x86_64 64bit
 (c) 1991-2021 Cadence Design Systems, Inc. All rights reserved worldwide.
@@ -80,17 +80,17 @@ file locks                      (-x) unlimited
   L1d cache: 32K, L1i cache: 32K, L2 cache: 256K, L3 cache: 30720K
 * Memory info:
               total     used     free   shared  buffers   cached
-Mem  (GB):     1007      468      539        0        0      256
+Mem  (GB):     1007      267      740        0        0      118
 Swap (GB):      127        0      127
 * Load info:
-  1536 threads
+  2436 threads
   Load (avg):    1 min (% CPU) |     5 min (% CPU) |    15 min (% CPU)
-               2.43 (  3% CPU) |   2.16 (  2% CPU) |   1.77 (  2% CPU)
-System info: hsv-sc49 - xeCompile - 2432066 2432056 - qtInit - 2024-04-25 16:50:41 - 2.43 3% 2.16 2% 1.77 2% - 1007 468 539 256 127 0 127
+               3.12 (  3% CPU) |   3.90 (  4% CPU) |   6.23 (  6% CPU)
+System info: hsv-sc49 - xeCompile - 3495487 3495472 - qtInit - 2024-05-02 13:45:09 - 3.12 3% 3.90 4% 6.23 6% - 1007 267 740 118 127 0 127
 000,000 s: XEC> design
 000,000 s: INFO 53652: checking Palladium_Z1_Compile (23.00) ...
 
-## oomr starts at 04/25/2024 16:50:42 ibarry V23.03.131.s001, HOST: hsv-sc49, PID: 2432282, DISPLAY: sjcvl-ibarry:1
+## oomr starts at 05/02/2024 13:45:09 ibarry V23.03.131.s001, HOST: hsv-sc49, PID: 3495675, DISPLAY: sjcvl-ibarry:1
 oomr hdldb xcva_top
 ## 64bit program from /lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/bin on Linux 4.18.0-305.el8.x86_64 64bit
 (c) 1991-2021 Cadence Design Systems, Inc. All rights reserved worldwide.
@@ -108,13 +108,13 @@ See files in <rootdir>/share/vxe/install/Copyrights
 #)libdb.so - 23H1_VXE, V23.03.131.s001            
 #)libtcl.so - 23H1_VXE, V23.03.131.s001            
 #)libqfsutil.so - 23H1_VXE, V23.03.131.s001            
+000,000 s: oomr - 23H1_VXE, V23.03.131.s001            
 #)libqfs.so - 23H1_VXE, V23.03.131.s001            
+000,000 s: 
 #)libnativeutils.so - 23H1_VXE, V23.03.131.s001            
 #)libqt.so - 23H1_VXE, V23.03.131.s001            
 #)libqtutil.so - 23H1_VXE, V23.03.131.s001            
 #)libsd.so - 23H1_VXE, V23.03.131.s001            
-000,000 s: oomr - 23H1_VXE, V23.03.131.s001            
-000,000 s: 
 * System parameters:
 vm/overcommit_memory: 0
 vm/overcommit_ratio: 50
@@ -145,38 +145,38 @@ file locks                      (-x) unlimited
   L1d cache: 32K, L1i cache: 32K, L2 cache: 256K, L3 cache: 30720K
 * Memory info:
               total     used     free   shared  buffers   cached
-Mem  (GB):     1007      468      538        0        0      256
+Mem  (GB):     1007      267      740        0        0      118
 Swap (GB):      127        0      127
 * Load info:
-  1543 threads
+  2439 threads
   Load (avg):    1 min (% CPU) |     5 min (% CPU) |    15 min (% CPU)
-               2.43 (  3% CPU) |   2.16 (  2% CPU) |   1.77 (  2% CPU)
-System info: hsv-sc49 - oomr - 2432282 2432066 - qtInit - 2024-04-25 16:50:42 - 2.43 3% 2.16 2% 1.77 2% - 1007 468 538 256 127 0 127
+               3.12 (  3% CPU) |   3.90 (  4% CPU) |   6.23 (  6% CPU)
+System info: hsv-sc49 - oomr - 3495675 3495487 - qtInit - 2024-05-02 13:45:09 - 3.12 3% 3.90 4% 6.23 6% - 1007 267 740 118 127 0 127
 * Memory info:
               total     used     free   shared  buffers   cached
-Mem  (GB):     1007      468      538        0        0      256
+Mem  (GB):     1007      267      740        0        0      118
 Swap (GB):      127        0      127
 * Load info:
-  1543 threads
+  2439 threads
   Load (avg):    1 min (% CPU) |     5 min (% CPU) |    15 min (% CPU)
-               2.43 (  3% CPU) |   2.16 (  2% CPU) |   1.77 (  2% CPU)
-System info: hsv-sc49 - oomr - 2432282 2432066 - qtExit - 2024-04-25 16:50:42 - 2.43 3% 2.16 2% 1.77 2% - 1007 468 538 256 127 0 127
-Peak usage info for oomr (pid 2432282, ppid 2432066) on hsv-sc49: CPU usage 0.00, Peak mem (Res 0 GB, Virt 1 GB), freePhyMem 539 GB, totalPhyMem 1007 GB, freeSwap 128 GB, totalSwap 128 GB
-DRM memory info: hsv-sc49 - oomr - 2432282 - 2432066 - unknown unlimited
-## oomr exits at 04/25/2024 16:50:42 Status: 0, PID: 2432282
+               3.12 (  3% CPU) |   3.90 (  4% CPU) |   6.23 (  6% CPU)
+System info: hsv-sc49 - oomr - 3495675 3495487 - qtExit - 2024-05-02 13:45:09 - 3.12 3% 3.90 4% 6.23 6% - 1007 267 740 118 127 0 127
+Peak usage info for oomr (pid 3495675, ppid 3495487) on hsv-sc49: CPU usage 0.00, Peak mem (Res 0 GB, Virt 1 GB), freePhyMem 740 GB, totalPhyMem 1007 GB, freeSwap 128 GB, totalSwap 128 GB
+DRM memory info: hsv-sc49 - oomr - 3495675 - 3495487 - unknown unlimited
+## oomr exits at 05/02/2024 13:45:09 Status: 0, PID: 3495675
 ## oomr Elapsed time: 0:00:00, CPU time: 0:00:00.00, Memory Usage: 0.8G
-## Child Proc. CPU time: 0:00:00.14
-000,000 s: INFO (legacy-765432): ./AxisWork/xeCompile.args Path not found 
-000,000 s: design Command: elapsed time 1 sec.
+## Child Proc. CPU time: 0:00:00.13
+000,000 s: design Command: elapsed time 0 sec.INFO (legacy-765432): ./AxisWork/xeCompile.args Path not found 
+000,000 s: 
 000,000 s: hdldb xcva_top
-000,000 s: XEC> compile -etOnly -noDbgPrepare -seed 883221817 
+000,000 s: XEC> compile -etOnly -noDbgPrepare -seed 271448396 
 000,000 s: INFO: Peak Memory Usage of the program (compile) is 1307  MB 
 000,000 s: INFO (legacy-46435): Successfully generate memory rules file.
 000,000 s: INFO (legacy-31228): Running core compile with ice mode
 
-## et3compile starts at 04/25/2024 16:50:42 ibarry V23.03.131.s001, HOST: hsv-sc49, PID: 2432066, DISPLAY: sjcvl-ibarry:1
-et3compile xcva_top -seed 883221817 -mode ice
-000,000 s: et3compile xcva_top -seed 883221817 -mode ice <Version> V23.03.131.s001
+## et3compile starts at 05/02/2024 13:45:09 ibarry V23.03.131.s001, HOST: hsv-sc49, PID: 3495487, DISPLAY: sjcvl-ibarry:1
+et3compile xcva_top -seed 271448396 -mode ice
+000,000 s: et3compile xcva_top -seed 271448396 -mode ice <Version> V23.03.131.s001
 000,000 s: 
 000,000 s: INFO (qt2dadb-1035): ***COMPILING FOR IN-CIRCUIT EMULATION MODE***
 000,000 s: WARNING (qt2dadb-1064): Using user defined database configuration file `/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/etc/et3/et3compile.cfg'.
@@ -186,8 +186,8 @@ et3compile xcva_top -seed 883221817 -mode ice
 000,000 s: Palladium Z1 configuration detected.
 000,000 s: Removing simple redundancies... 8493 boxes removed
 000,000 s: Removing complex redundancies... 72  boxes removed
-000,000 s: Relevelizing after breaking up 64, transforming 5070 and swapping 1723 muxes...
-000,000 s: Saved 5070 logic boxes through muxes optimization
+000,001 s: Relevelizing after breaking up 64, transforming 5070 and swapping 1723 muxes...
+000,001 s: Saved 5070 logic boxes through muxes optimization
 000,001 s: Running CBL module...
 000,001 s: ---- ET5CBL: Parameters: -O2                          ---- 
 000,001 s: ---- ET5CBL: Cleaning up database                     ---- 
@@ -195,22 +195,22 @@ et3compile xcva_top -seed 883221817 -mode ice
 000,001 s: ---- ET5CBL: Maximum 4 threads to run concurrently    ---- 
 000,001 s: ---- ET5CBL: Converting database to netlists          ---- 
 000,001 s: ---- ET5CBL: Clearing database                        ---- 
-000,002 s: ---- ET5CBL: Thread 0: Started                        ---- 
-000,002 s: ---- ET5CBL: Thread 2: Started                        ---- 
-000,002 s: ---- ET5CBL: Thread 3: Started                        ---- 
-000,002 s: ---- ET5CBL: Thread 1: Started                        ---- 
-000,002 s: ---- ET5CBL: Thread 3: Adding name listener           ---- 
-000,002 s: ---- ET5CBL: Thread 2: Adding name listener           ---- 
-000,002 s: ---- ET5CBL: Thread 1: Adding name listener           ---- 
-000,002 s: ---- ET5CBL: Thread 0: Adding name listener           ---- 
-000,002 s: ---- ET5CBL: Thread 3: Checking iterator consistency  ---- 
-000,002 s: ---- ET5CBL: Thread 2: Checking iterator consistency  ---- 
-000,002 s: ---- ET5CBL: Thread 1: Checking iterator consistency  ---- 
-000,002 s: ---- ET5CBL: Thread 0: Checking iterator consistency  ---- 
-000,002 s: ---- ET5CBL: Thread 2: Expanding LUTs into ANDs       ---- 
-000,002 s: ---- ET5CBL: Thread 3: Expanding LUTs into ANDs       ---- 
-000,002 s: ---- ET5CBL: Thread 1: Expanding LUTs into ANDs       ---- 
-000,002 s: ---- ET5CBL: Thread 0: Expanding LUTs into ANDs       ---- 
+000,001 s: ---- ET5CBL: Thread 0: Started                        ---- 
+000,001 s: ---- ET5CBL: Thread 2: Started                        ---- 
+000,001 s: ---- ET5CBL: Thread 3: Started                        ---- 
+000,001 s: ---- ET5CBL: Thread 1: Started                        ---- 
+000,001 s: ---- ET5CBL: Thread 3: Adding name listener           ---- 
+000,001 s: ---- ET5CBL: Thread 2: Adding name listener           ---- 
+000,001 s: ---- ET5CBL: Thread 1: Adding name listener           ---- 
+000,001 s: ---- ET5CBL: Thread 0: Adding name listener           ---- 
+000,001 s: ---- ET5CBL: Thread 2: Checking iterator consistency  ---- 
+000,001 s: ---- ET5CBL: Thread 3: Checking iterator consistency  ---- 
+000,001 s: ---- ET5CBL: Thread 1: Checking iterator consistency  ---- 
+000,001 s: ---- ET5CBL: Thread 0: Checking iterator consistency  ---- 
+000,001 s: ---- ET5CBL: Thread 2: Expanding LUTs into ANDs       ---- 
+000,001 s: ---- ET5CBL: Thread 3: Expanding LUTs into ANDs       ---- 
+000,001 s: ---- ET5CBL: Thread 1: Expanding LUTs into ANDs       ---- 
+000,001 s: ---- ET5CBL: Thread 0: Expanding LUTs into ANDs       ---- 
 000,002 s: ---- ET5CBL: Thread 1: Removing redundant logic       ---- 
 000,002 s: ---- ET5CBL: Thread 2: Removing redundant logic       ---- 
 000,002 s: ---- ET5CBL: Thread 1: Rewriting DAG-aware netlist    ---- 
@@ -234,13 +234,13 @@ et3compile xcva_top -seed 883221817 -mode ice
 000,002 s: ---- ET5CBL: Thread 2: Recreating final database      ---- 
 000,002 s: ---- ET5CBL: Thread 2: Disposing netlist              ---- 
 000,002 s: ---- ET5CBL: Thread 3: Recreating final database      ---- 
-000,003 s: ---- ET5CBL: Thread 3: Disposing netlist              ---- 
-000,003 s: ---- ET5CBL: Joined 4 optimization threads            ---- 
-000,003 s: ---- ET5CBL: Merging DADB database                    ---- 
-000,003 s: ---- ET5CBL: CBL Done                                 ---- 
-000,003 s: Propagation round 1...
-000,003 s: Propagating and accelerating 174459 primitives
-000,003 s: ..
+000,002 s: ---- ET5CBL: Thread 3: Disposing netlist              ---- 
+000,002 s: ---- ET5CBL: Joined 4 optimization threads            ---- 
+000,002 s: ---- ET5CBL: Merging DADB database                    ---- 
+000,002 s: ---- ET5CBL: CBL Done                                 ---- 
+000,002 s: Propagation round 1...
+000,002 s: Propagating and accelerating 174459 primitives
+000,002 s: ..
 000,003 s: Propagation round 2...
 000,003 s: Propagating and accelerating 173810 primitives
 000,003 s: ..
@@ -285,7 +285,7 @@ et3compile xcva_top -seed 883221817 -mode ice
 000,003 s: Evaluated for compaction 91 memory instances.
 000,003 s: Targeted 91 memory instances to INTRAM, 0 to EXTRAM.
 000,003 s: Instruction usage after memory transformation: 11.3 %
-000,003 s: INFO (db2util-1115): Compilation seed is 883221817
+000,003 s: INFO (db2util-1115): Compilation seed is 271448396
 000,003 s: 
 000,003 s:     Systems:     1 .
 000,003 s:       Racks:     1 .
@@ -295,32 +295,29 @@ et3compile xcva_top -seed 883221817 -mode ice
 000,004 s:       P512s:     6 ......
 000,004 s:        P64s:    48 ................................................
 000,004 s: Reducing hop at epc level.
-000,005 s: CPR round  1, maxlvl 115, path head  68197 lvl 108, tail 164746, len  42, m_is_marked   0, moved 22, NC 0 
-000,005 s: CPR round  2, maxlvl 109, path head  68197 lvl 107, tail 164749, len  36, m_is_marked   0, moved 19, NC 0 
-000,005 s: CPR round  3, maxlvl  91, path head 141162 lvl  57, tail 164746, len  33, m_is_marked   0, moved 20, NC 0 
-000,005 s: CPR round  4, maxlvl  88, path head 174073 lvl  88, tail 164746, len  51, m_is_marked   0, moved 23, NC 0 
-000,005 s: CPR round  5, maxlvl  80, path head  22123 lvl  74, tail 117524, len  36, m_is_marked   0, moved 10, NC 0 
-000,005 s: CPR round  6, maxlvl  77, path head  68197 lvl  74, tail 155290, len  34, m_is_marked   0, moved  8, NC 0 
-000,005 s: CPR round  7, maxlvl  76, path head 174073 lvl  75, tail 155290, len  52, m_is_marked   0, moved  2, NC 0 
-000,005 s: CPR round  8, maxlvl  74, path head 174073 lvl  74, tail 155290, len  51, m_is_marked   0, moved  2, NC 0 
-000,005 s: CPR round  9, maxlvl  73, path head 174073 lvl  73, tail 155290, len  51, m_is_marked   0, moved  1, NC 0 
-000,005 s: Total relocated = 94
-000,005 s: Maximum number of hops in all paths = 73
-## et3compile exits at 04/25/2024 16:50:46 Status: 0, PID: 2432066
-## et3compile Elapsed time: 0:00:04, CPU time: 0:00:08.25, Memory Usage: 1.9G
-000,005 s: 0 883221817 -1 0 0
+000,004 s: CPR round  1, maxlvl 125, path head  86446 lvl 121, tail 155290, len  37, m_is_marked   0, moved 20, NC 0 
+000,004 s: CPR round  2, maxlvl 122, path head 174073 lvl 122, tail 164746, len  51, m_is_marked   0, moved 25, NC 0 
+000,004 s: CPR round  3, maxlvl 118, path head  47434 lvl 104, tail 164749, len  43, m_is_marked   0, moved 14, NC 0 
+000,004 s: CPR round  4, maxlvl 102, path head 174073 lvl 101, tail 164746, len  47, m_is_marked   0, moved  6, NC 0 
+000,004 s: CPR round  5, maxlvl 100, path head 174073 lvl 100, tail 164746, len  47, m_is_marked   0, moved  3, NC 0 
+000,004 s: CPR round  6, maxlvl 100, path head 174073 lvl 100, tail 155290, len  48, m_is_marked   0, moved  2, NC 1 
+000,004 s: Total relocated = 62
+000,004 s: Maximum number of hops in all paths = 100
+## et3compile exits at 05/02/2024 13:45:14 Status: 0, PID: 3495487
+## et3compile Elapsed time: 0:00:05, CPU time: 0:00:07.86, Memory Usage: 1.8G
+000,005 s: 0 271448396 -1 0 0
 000,005 s: ^D
 * Memory info:
               total     used     free   shared  buffers   cached
-Mem  (GB):     1007      468      538        0        0      256
+Mem  (GB):     1007      267      739        0        0      118
 Swap (GB):      127        0      127
 * Load info:
-  1537 threads
+  2450 threads
   Load (avg):    1 min (% CPU) |     5 min (% CPU) |    15 min (% CPU)
-               2.39 (  2% CPU) |   2.15 (  2% CPU) |   1.78 (  2% CPU)
-System info: hsv-sc49 - xeCompile - 2432066 2432056 - qtExit - 2024-04-25 16:50:46 - 2.39 2% 2.15 2% 1.78 2% - 1007 468 538 256 127 0 127
-Peak usage info for xeCompile (pid 2432066, ppid 2432056) on hsv-sc49: CPU usage 0.00, Peak mem (Res 0 GB, Virt 2 GB), freePhyMem 539 GB, totalPhyMem 1007 GB, freeSwap 128 GB, totalSwap 128 GB
-DRM memory info: hsv-sc49 - xeCompile - 2432066 - 2432056 - unknown unlimited
-## xeCompile exits at 04/25/2024 16:50:46 Status: 0, PID: 2432066
-## xeCompile Elapsed time: 0:00:05, CPU time: 0:00:08.36, Memory Usage: 1.9G
-## Child Proc. CPU time: 0:00:00.35
+               3.19 (  3% CPU) |   3.90 (  4% CPU) |   6.21 (  6% CPU)
+System info: hsv-sc49 - xeCompile - 3495487 3495472 - qtExit - 2024-05-02 13:45:14 - 3.19 3% 3.90 4% 6.21 6% - 1007 267 739 118 127 0 127
+Peak usage info for xeCompile (pid 3495487, ppid 3495472) on hsv-sc49: CPU usage 0.00, Peak mem (Res 0 GB, Virt 2 GB), freePhyMem 740 GB, totalPhyMem 1007 GB, freeSwap 128 GB, totalSwap 128 GB
+DRM memory info: hsv-sc49 - xeCompile - 3495487 - 3495472 - unknown unlimited
+## xeCompile exits at 05/02/2024 13:45:14 Status: 0, PID: 3495487
+## xeCompile Elapsed time: 0:00:05, CPU time: 0:00:07.97, Memory Usage: 1.8G
+## Child Proc. CPU time: 0:00:00.31

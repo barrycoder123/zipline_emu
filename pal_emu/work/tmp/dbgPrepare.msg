@@ -1,4 +1,4 @@
-00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et3lib' on 04/25/2024 16:50:48
+00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et3lib' on 05/02/2024 13:45:15
 00 DATABASE | Parms: '-client -dontModifyProto'
 00 ET3LIB   |                                    
 00 ET3LIB   |                              ET3 LIBRARY
@@ -8,8 +8,8 @@
 00 ET3LIB   |            See files in <rootdir>/share/vxe/install/Copyrights
 00 ET3LIB   |                                    
 00 ET3LIB   | ET3lib created on Aug  3 2023 at 22:13:09.
-00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et3lib' (Elapsed time 0.01s (0.00u+0.00s), Memory used 4241 Mb) on 04/25/2024 16:50:48
-00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et3confg' on 04/25/2024 16:50:48
+00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et3lib' (Elapsed time 0.00s (0.00u+0.00s), Memory used 4209 Mb) on 05/02/2024 13:45:15
+00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et3confg' on 05/02/2024 13:45:15
 00 DATABASE | Parms: '-client -dontModifyProto'
 00 ET3CONFG | Warning: -dontModifyProto is an unknown option and is ignored.
 00 ET3CONFG | THIS IS /lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/bin/64bit/xeCompile RUNNING.
@@ -23,14 +23,14 @@
 00 ET3CONFG |                                    
 00 ET3CONFG | et6confg created on Aug  3 2023 at 22:13:09.
 00 ET3CONFG | --> USING LD8 CLUSTER TABLES
-00 ET3CONFG | ***** MB/XB wire table initialization took 0.000152 seconds.
+00 ET3CONFG | ***** MB/XB wire table initialization took 0.000173 seconds.
 00 ET3CONFG | ***** Found 0000000  MBO->MBI  possible links in this configuration.
 00 ET3CONFG | ***** HIGHEST board found in emulation configuration is 5
 00 ET3CONFG | load_module_version()          = 30
-00 ET3CONFG | minor_cycles_per_major_cycle() = 164
+00 ET3CONFG | minor_cycles_per_major_cycle() = 160
 00 ET3CONFG | num_cycles_per_capture_frame   = 32
 00 ET3CONFG | das_protocol()                 = 5
-00 ET3CONFG | COMPILED ON ON AT  WITH SEED 883221817
+00 ET3CONFG | COMPILED ON ON AT  WITH SEED 271448396
 00 ET3CONFG | +   1 BOARD ET6E
 00 ET3CONFG | -   7 CHIPs
 00 ET3CONFG |     8 installed chip(s)
@@ -47,7 +47,7 @@
 00 ET3CONFG | 
 00 ET3CONFG | Running in little-endian mode
 00 ET3CONFG | BEDB loaded client memutil
-00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/omlib' on 04/25/2024 16:50:48
+00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/omlib' on 05/02/2024 13:45:15
 00 DATABASE | Parms: ''
 00 OMLIB    |                                    
 00 OMLIB    |                           VXE, VEngineering
@@ -57,7 +57,7 @@
 00 OMLIB    |                                    
 00 OMLIB    | omlib created on Aug  3 2023 at 22:05:33
 00 OMLIB    | 
-00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/omlib' (Elapsed time 0.00s (0.00u+0.00s), Memory used 4241 Mb) on 04/25/2024 16:50:48
+00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/omlib' (Elapsed time 0.00s (0.00u+0.00s), Memory used 4209 Mb) on 05/02/2024 13:45:15
 00 ET3CONFG |                                    
 00 ET3CONFG |                           VXE, VEngineering
 00 ET3CONFG |             Copyright(C) 1995-2021, Cadence Design Systems
@@ -68,9 +68,9 @@
 00 ET3CONFG | SCschedlib created on Aug  3 2023 at 22:13:09
 00 ET3CONFG | 
 00 ET3CONFG | BEDB loaded client SCschedlib
-00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et3confg' (Elapsed time 0.00s (0.00u+0.00s), Memory used 4241 Mb) on 04/25/2024 16:50:48
+00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et3confg' (Elapsed time 0.01s (0.01u+0.00s), Memory used 4209 Mb) on 05/02/2024 13:45:15
 00          | building DCC_net table in et6confg
-00          | building DCC_net table in et6confg done in 0.004985 seconds
+00          | building DCC_net table in et6confg done in 0.004451 seconds
 BEDB: Cleaning all
 BEDB: Cleaning SCschedlib
 BEDB: Cleaning omlib

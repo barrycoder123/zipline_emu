@@ -1,0 +1,105 @@
+CPU-INFO: 
+	 CPU, NumCores, Th/Core:  Intel(R) Xeon(R) CPU E7-4830 v3 @ 2.10GHz, 96, 2
+
+
+DISK-NFS-MOUNT-INFO: 
+1881 510 0:168 / /home/ibarry rw,relatime shared:1023 - nfs sjclapa03-s2:/vols/stor_home12/ibarry rw,vers=3,rsize=65536,wsize=65536,namlen=255,hard,noacl,proto=tcp,timeo=600,retrans=2,sec=sys,mountaddr=172.18.48.8,mountvers=3,mountport=635,mountproto=tcp,local_lock=none,addr=172.18.48.8
+
+MEM-INFO-B: 
+	 Total, Free, Cached: 1056184520 kB, 848736724 kB, 11896288 kB
+	 Swap-Total, Free, Cached: 134217724 kB, 133872220 kB, 23576 kB
+
+
+DISK-INFO-B: 
+	 Avg Read Speed (Bytes/Sec): 1727.77
+	 Avg Write Speed (Bytes/Sec): 4587.51
+
+VMSTAT-INFO-B: 
+	 pgpgin 262613213 kB/Sec
+	 pgpgout 1653113488 kB/Sec
+	 pswpin 61939777 kB/Sec
+	 pswpout 389576968 kB/Sec
+	 thp_swpout 0 kB/Sec
+	 thp_swpout_fallback 119603 kB/Sec
+
+DISK-NFS-INFO-B: 
+
+STAT-INFO-B: 
+cpu  1176610340 140116 228101257 35706644632 106788291 12049066 11548821 0 0 0
+	 (I/O, Total): 106788291    37241882523
+
+MEM-STAT-INFO-B: 
+	 VmPeak:	 1737632 kB
+	 VmSize:	 1737596 kB
+	 VmLck:	       0 kB
+	 VmPin:	       0 kB
+	 VmHWM:	  280776 kB
+	 VmRSS:	  280776 kB
+	 RssAnon:	  239228 kB
+	 RssFile:	   41548 kB
+	 RssShmem:	       0 kB
+	 VmData:	 1427812 kB
+	 VmStk:	    6524 kB
+	 VmExe:	    2596 kB
+	 VmLib:	   79780 kB
+	 VmPTE:	     828 kB
+	 VmSwap:	       0 kB
+	 voluntary_ctxt_switches:	100160
+	 nonvoluntary_ctxt_switches:	19
+
+MEM-INFO-E: 
+	 Total, Free, Cached: 1056184520 kB, 846643180 kB, 11897208 kB
+	 Swap-Total, Free, Cached: 134217724 kB, 133872220 kB, 23576 kB
+
+
+DISK-INFO-E: 
+	 Avg Read Speed (Bytes/Sec): 1727.77
+	 Avg Write Speed (Bytes/Sec): 4587.52
+
+VMSTAT-INFO-E: 
+	 pgpgin 262613213 kB/Sec
+	 pgpgout 1653113528 kB/Sec
+	 pswpin 61939777 kB/Sec
+	 pswpout 389576968 kB/Sec
+	 thp_swpout 0 kB/Sec
+	 thp_swpout_fallback 119603 kB/Sec
+
+DISK-NFS-INFO-E: 
+
+STAT-INFO-E: 
+cpu  1176616079 140116 228101916 35706806697 106788341 12049124 11548901 0 0 0
+	 (I/O, Total): 106788341    37242051174
+
+MEM-STAT-INFO-E: 
+	 VmPeak:	 4294136 kB
+	 VmSize:	 3775532 kB
+	 VmLck:	       0 kB
+	 VmPin:	       0 kB
+	 VmHWM:	 1260092 kB
+	 VmRSS:	  860668 kB
+	 RssAnon:	  804464 kB
+	 RssFile:	   56204 kB
+	 RssShmem:	       0 kB
+	 VmData:	 2083088 kB
+	 VmStk:	    6524 kB
+	 VmExe:	    2596 kB
+	 VmLib:	   86816 kB
+	 VmPTE:	    2164 kB
+	 VmSwap:	       0 kB
+	 voluntary_ctxt_switches:	103811
+	 nonvoluntary_ctxt_switches:	125
+
+MKCIN Cnts (COMPILE) = {650, 2, 24, 206, 0}
+Total Cnt = 882
+Total Samples = 20
+MKCIN Cnts Time  = {12.5283, 0.0385487, 0.462585, 3.97052, 0}
+Number of Cores used = 12
+BioMinMaj = {106, 655533, 0}
+Time: 17 Seconds. 
+
+## xeCompile Elapsed Time Distribution: Memory - 73.70%, Disk I/O - 23.36%, Kernel - 0.23%, CPU - 2.72%, Network - 0.00%
+## System Performance Metric Score: 56.93
+## Score Distribution: {Memory = 45.35; Disk = -0.14; Kernel = 1.00; CPU = 9.71; Network = 0.00; 
+## xeCompile Elapsed Time Bottleneck: Disk I/O
+
+

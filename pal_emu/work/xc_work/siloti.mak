@@ -10,9 +10,9 @@ compile_siloti: siloti_pkg siloti_cnt
 	vericom $(VERICOM_OPTIONS) -2001 -lib xc_ncwork $(XHOME)/etc/ixcom/siloti_stubs.v
 	vericom $(VERICOM_OPTIONS) -lib xc_ncwork -sv -f xc_work/v/vericom-xc_ncwork-1-systemverilog.f
 	vericom $(VERICOM_OPTIONS) -lib xc_ncwork -sv -f xc_work/v/vericom-xc_ncwork-16-systemverilog.f
-	vericom $(VERICOM_OPTIONS) -lib xc_ncwork -sv -f xc_work/v/vericom-xc_ncwork-215-systemverilog.f
+	vericom $(VERICOM_OPTIONS) -lib xc_ncwork -sv -f xc_work/v/vericom-xc_ncwork-235-systemverilog.f
 	vericom $(VERICOM_OPTIONS) -lib IXCOM_TEMP_LIBRARY -2001 -f xc_work/v/vericom-IXCOM_TEMP_LIBRARY-v2001.f
-	vericom $(VERICOM_OPTIONS) -lib IXCOM_TEMP_LIBRARY -sv -f xc_work/v/vericom-IXCOM_TEMP_LIBRARY-3-systemverilog.f
+	vericom $(VERICOM_OPTIONS) -lib IXCOM_TEMP_LIBRARY -sv -f xc_work/v/vericom-IXCOM_TEMP_LIBRARY-31-systemverilog.f
 
 xc_pkg:
 	echo Compiling packages

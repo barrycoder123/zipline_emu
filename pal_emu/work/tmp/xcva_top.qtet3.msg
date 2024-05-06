@@ -1,4 +1,4 @@
-00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et3lib' on 04/25/2024 17:06:43
+00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et3lib' on 05/02/2024 13:48:17
 00 DATABASE | Parms: '-client'
 00 ET3LIB   |                                    
 00 ET3LIB   |                              ET3 LIBRARY
@@ -8,18 +8,18 @@
 00 ET3LIB   |            See files in <rootdir>/share/vxe/install/Copyrights
 00 ET3LIB   |                                    
 00 ET3LIB   | ET3lib created on Aug  3 2023 at 22:13:09.
-00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et3lib' (Elapsed time 0.00s (0.00u+0.00s), Memory used 2039 Mb) on 04/25/2024 17:06:43
-00 DATABASE | Calling 'ldproto' on 04/25/2024 17:06:43
+00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et3lib' (Elapsed time 0.00s (0.00u+0.00s), Memory used 2039 Mb) on 05/02/2024 13:48:17
+00 DATABASE | Calling 'ldproto' on 05/02/2024 13:48:17
 00 DATABASE | Parms: 'xcva_top -ffdb'
-00 DATABASE | Reading file './dbFiles/xcva_top.ffproto' created on Thu Apr 25 16:50:48 2024
+00 DATABASE | Reading file './dbFiles/xcva_top.ffproto' created on Thu May  2 13:45:15 2024
 00 DATABASE | 
-00 DATABASE | Proto size = 1603886
+00 DATABASE | Proto size = 1602689
 Info: 182512 ffDB nets have been restored
 Info: 174463 ffDB boxes have been restored
-00 DATABASE | Return from 'ldproto' (Elapsed time 0.05s (0.14u+0.08s), Memory used 2352 Mb) on 04/25/2024 17:06:43
+00 DATABASE | Return from 'ldproto' (Elapsed time 0.05s (0.13u+0.06s), Memory used 2473 Mb) on 05/02/2024 13:48:17
 Info: 30302 critical net names have been restored: elapsed time 0 sec
 Info: : restored short PDB: elapsed time 0 sec
-00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/etnbcs' on 04/25/2024 17:06:43
+00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/etnbcs' on 05/02/2024 13:48:17
 00 DATABASE | Parms: '-client -hostname hsv-scd107 -skip_defaults -skip_et3mach -hostdir ./tmp'
 00 ETNBCS   |                                    
 00 ETNBCS   |                  ET NETWORK BASED CONTROL SYSTEM API
@@ -54,9 +54,9 @@ Info: : restored short PDB: elapsed time 0 sec
 00 ETNBCS   | ccw_payload_gp set to 1073741824
 00 ETNBCS   | IB Support library is "/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/libibsupport_real.so"
 00 ETNBCS   | calling dlopen("/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/libibsupport_real.so", RTLD_LAZY | RTLD_NOW | RTLD_GLOBAL)
-00 ETNBCS   | Success from dlopen().  dl_handle_g is 0x147c29395000
+00 ETNBCS   | Success from dlopen().  dl_handle_g is 0x1486d85ba000
 00 ETNBCS   | calling dlsym(dl_handle_g, "IB_Memory")
-00 ETNBCS   | Success from dlsym().  IB_Memory is 0x147c286ecede
+00 ETNBCS   | Success from dlsym().  IB_Memory is 0x1486d7911ede
 00 ETNBCS   | Host 158.140.43.81 found on network interface management
 00 ETNBCS   | Initializing the Channel.
 00 ETNBCS   | lower_limit 8194 upper_limit 13000
@@ -258,8 +258,8 @@ Info: : restored short PDB: elapsed time 0 sec
 00 ETNBCS   | 
 00 ETNBCS   | Configmgr Host Name            : hsv-scd107
 00 ETNBCS   | 
-00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/etnbcs' (Elapsed time 1.17s (0.01u+0.04s), Memory used 2352 Mb) on 04/25/2024 17:06:44
-00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et6confg' on 04/25/2024 17:06:44
+00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/etnbcs' (Elapsed time 1.15s (0.01u+0.02s), Memory used 2473 Mb) on 05/02/2024 13:48:18
+00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et6confg' on 05/02/2024 13:48:18
 00 DATABASE | Parms: '-client'
 00 ET6CONFG | et6confg: env ET3MACH_DIR found: Using ./tmp as et3mach dir
 00 ET6CONFG | THIS IS /lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/bin/64bit/DBEngine RUNNING.
@@ -273,21 +273,21 @@ Info: : restored short PDB: elapsed time 0 sec
 00 ET6CONFG |                                    
 00 ET6CONFG | et6confg created on Aug  3 2023 at 22:13:09.
 00 ET6CONFG | --> USING LD8 CLUSTER TABLES
-00 ET6CONFG | ***** MB/XB wire table initialization took 0.000120 seconds.
+00 ET6CONFG | ***** MB/XB wire table initialization took 0.000093 seconds.
 00 ET6CONFG | ***** Found 0000000  MBO->MBI  possible links in this configuration.
 00 ET6CONFG | ***** HIGHEST board found in emulation configuration is 5
 00 ET6CONFG | load_module_version()          = 30
-00 ET6CONFG | minor_cycles_per_major_cycle() = 164
+00 ET6CONFG | minor_cycles_per_major_cycle() = 160
 00 ET6CONFG | num_cycles_per_capture_frame   = 32
 00 ET6CONFG | das_protocol()                 = 5
-00 ET6CONFG | COMPILED ON ON AT  WITH SEED 883221817
+00 ET6CONFG | COMPILED ON ON AT  WITH SEED 271448396
 00 ET6CONFG | +   1 BOARD ET6E
 00 ET6CONFG | -   7 CHIPs
 00 ET6CONFG |     8 installed chip(s)
 00 ET6CONFG |     0 unused connectors out of 36 total
 00 ET6CONFG | END of et6confg.........
-00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et6confg' (Elapsed time 0.00s (0.00u+0.00s), Memory used 2352 Mb) on 04/25/2024 17:06:44
-00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et6api' on 04/25/2024 17:06:44
+00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et6confg' (Elapsed time 0.01s (0.00u+0.01s), Memory used 2473 Mb) on 05/02/2024 13:48:18
+00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et6api' on 05/02/2024 13:48:18
 00 DATABASE | Parms: '-client -i xcva_top -use_all_sa_boards -dcc_test_size 8184'
 00 ET6API   |                                    
 00 ET6API   |                        ET HARDWARE API (HWAPI)
@@ -311,7 +311,7 @@ Info: : restored short PDB: elapsed time 0 sec
 00 ET6API   | Reading configuration file "././tmp/hsv-scd107.et3confg"
 00 ET6API   | Boards skips detected in ./tmp/hsv-scd107.et3confg.  Adjusting tables (boards found:143  board slots needed:144)
 00 ET6API   | --> USING LD8 CLUSTER TABLES
-00 ET6API   | ***** MB/XB wire table initialization took 0.262047 seconds.
+00 ET6API   | ***** MB/XB wire table initialization took 0.254509 seconds.
 00 ET6API   | ***** Found 0046028  MBO->MBI  possible links in this configuration.
 00 ET6API   | ***** Found 0057264  XBO->XBI  possible links in this configuration.
 00 ET6API   | ***** HIGHEST board found in emulation configuration is 143
@@ -321,45 +321,45 @@ Info: : restored short PDB: elapsed time 0 sec
 00 ET6API   | Reading configuration file "././tmp/hsv-scd107.et3confg"
 00 ET6API   | Boards skips detected in ./tmp/hsv-scd107.et3confg.  Adjusting tables (boards found:143  board slots needed:144)
 00 ET6API   | --> USING LD8 CLUSTER TABLES
-00 ET6API   | ***** MB/XB wire table initialization took 0.225570 seconds.
+00 ET6API   | ***** MB/XB wire table initialization took 0.244149 seconds.
 00 ET6API   | ***** Found 0046028  MBO->MBI  possible links in this configuration.
 00 ET6API   | ***** Found 0057264  XBO->XBI  possible links in this configuration.
 00 ET6API   | ***** HIGHEST board found in emulation configuration is 143
 00 ET6API   | END of ET API initialization. (result 00000000)
-00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et6api' (Elapsed time 1.40s (0.99u+0.40s), Memory used 3353 Mb) on 04/25/2024 17:06:46
+00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et6api' (Elapsed time 1.40s (1.01u+0.38s), Memory used 3481 Mb) on 05/02/2024 13:48:20
 00 DATABASE | fastDownload: off -> off
 00 DATABASE | Reading configuration file "././tmp/hsv-scd107.et3confg"
 00 DATABASE | Boards skips detected in ./tmp/hsv-scd107.et3confg.  Adjusting tables (boards found:143  board slots needed:144)
 00 DATABASE | --> USING LD8 CLUSTER TABLES
-00 DATABASE | ***** MB/XB wire table initialization took 0.237328 seconds.
+00 DATABASE | ***** MB/XB wire table initialization took 0.238977 seconds.
 00 DATABASE | ***** Found 0046028  MBO->MBI  possible links in this configuration.
 00 DATABASE | ***** Found 0057264  XBO->XBI  possible links in this configuration.
 00 DATABASE | ***** HIGHEST board found in emulation configuration is 143
-00 DATABASE | >>> DOWNLOAD PROGRESS: 10 PERCENT COMPLETE [17:06:47] <<<
+00 DATABASE | >>> DOWNLOAD PROGRESS: 10 PERCENT COMPLETE [13:48:21] <<<
 00 DATABASE | Reading configuration file "././tmp/hsv-scd107.et3confg"
 00 DATABASE | Boards skips detected in ./tmp/hsv-scd107.et3confg.  Adjusting tables (boards found:143  board slots needed:144)
 00 DATABASE | --> USING LD8 CLUSTER TABLES
-00 DATABASE | ***** MB/XB wire table initialization took 0.209248 seconds.
+00 DATABASE | ***** MB/XB wire table initialization took 0.231281 seconds.
 00 DATABASE | ***** Found 0046028  MBO->MBI  possible links in this configuration.
 00 DATABASE | ***** Found 0057264  XBO->XBI  possible links in this configuration.
 00 DATABASE | ***** HIGHEST board found in emulation configuration is 143
 00 DATABASE | building DCC_net table in et6confg
-00 DATABASE | building DCC_net table in et6confg done in 0.007126 seconds
+00 DATABASE | building DCC_net table in et6confg done in 0.006116 seconds
 00 DATABASE | This design was compiled for best relocation.
-00 DATABASE | ADV_RELOC: Mapping COMPILED 0.0 to PHY 36.5
+00 DATABASE | ADV_RELOC: Mapping COMPILED 0.0 to PHY 37.0
 00 DATABASE |  
-00 DATABASE | NCC_PCI image for board 00(36) is 'RELEASE 6.0.2.6'  IP: 158.140.43.81
-00 DATABASE | Advanced Relocation plugin starts at 17:06:47...
-00 DATABASE | Advanced Relocation plugin ends at 17:06:47...
+00 DATABASE | NCC_PCI image for board 00(37) is 'RELEASE 6.0.2.6'  IP: 158.140.43.81
+00 DATABASE | Advanced Relocation plugin starts at 13:48:21...
+00 DATABASE | Advanced Relocation plugin ends at 13:48:21...
 00 DATABASE | Cannot create file /et3mach/ET3_activity.log.  Using default file path. ERRNO:13 - Permission denied
 00 DATABASE | 
-00 DATABASE | User ibarry, (/home/ibarry/Project-Zipline-master/pal_emu/work/dbFiles/xcva_top(.ffproto), session 31117) 
-00 DATABASE |   is running on board.domain(s): {36.5}
+00 DATABASE | User ibarry, (/home/ibarry/Project-Zipline-master/pal_emu/work/dbFiles/xcva_top(.ffproto), session 14687) 
+00 DATABASE |   is running on board.domain(s): {37.0}
 00 DATABASE | 
 00 DATABASE | Keephot is active
-00 DATABASE | >>> DOWNLOAD PROGRESS: 20 PERCENT COMPLETE [17:06:47] <<<
-00 DATABASE | Success reading DCC training values for board  36 from file "/et3mach/dcc_tune.BRD0239002f000f.dat"
-00 DATABASE | Success reading UMC training values for board  36 from file "/et3mach/umc_tune.BRD0239002f000f.dat"
+00 DATABASE | >>> DOWNLOAD PROGRESS: 20 PERCENT COMPLETE [13:48:21] <<<
+00 DATABASE | Success reading DCC training values for board  37 from file "/et3mach/dcc_tune.BRD024100230013.dat"
+00 DATABASE | Success reading UMC training values for board  37 from file "/et3mach/umc_tune.BRD024100230013.dat"
 00          | DCC CTL filename is "/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/etc/et3/dcc_ctl_conf_2133_S.dat"
 00          | 
 00          | DCC PHY filename is "/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/etc/et3/dcc_phy_conf_2133_S.dat"
@@ -368,21 +368,21 @@ Info: : restored short PDB: elapsed time 0 sec
 00          | 
 00          | UMC PHY filename is "/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/etc/et3/umc_phy_conf_2133_S.dat"
 00          | 
-00 DATABASE | >>> DOWNLOAD PROGRESS: 30 PERCENT COMPLETE [17:06:55] <<<
-00 DATABASE | >>> DOWNLOAD PROGRESS: 40 PERCENT COMPLETE [17:06:55] <<<
-00 DATABASE | >>> DOWNLOAD PROGRESS: 50 PERCENT COMPLETE [17:06:55] <<<
-00 DATABASE | >>> DOWNLOAD PROGRESS: 60 PERCENT COMPLETE [17:06:55] <<<
+00 DATABASE | >>> DOWNLOAD PROGRESS: 30 PERCENT COMPLETE [13:48:29] <<<
+00 DATABASE | >>> DOWNLOAD PROGRESS: 40 PERCENT COMPLETE [13:48:29] <<<
+00 DATABASE | >>> DOWNLOAD PROGRESS: 50 PERCENT COMPLETE [13:48:29] <<<
+00 DATABASE | >>> DOWNLOAD PROGRESS: 60 PERCENT COMPLETE [13:48:29] <<<
 00 DATABASE | DCC Capture Depth is 7 GB
 00 DATABASE |  
 00 DATABASE | fastDownload: off -> off
-00 DATABASE | >>> DOWNLOAD PROGRESS: 70 PERCENT COMPLETE [17:06:55] <<<
-00 DATABASE | >>> DOWNLOAD PROGRESS: 80 PERCENT COMPLETE [17:06:55] <<<
-00 DATABASE | >>> DOWNLOAD PROGRESS: 85 PERCENT COMPLETE [17:06:55] <<<
-00 DATABASE | >>> DOWNLOAD PROGRESS: 90 PERCENT COMPLETE [17:06:55] <<<
-00 DATABASE | >>> DOWNLOAD PROGRESS: 95 PERCENT COMPLETE [17:06:55] <<<
-00 DATABASE | >>> DOWNLOAD PROGRESS: 100 PERCENT COMPLETE [17:06:55] <<<
-00 DATABASE | ET_API  2: KH Board  36: Ramp-UP Performing one-time setup
-00 DATABASE | Runtime speed is 2.997820 MHZ.
+00 DATABASE | >>> DOWNLOAD PROGRESS: 70 PERCENT COMPLETE [13:48:29] <<<
+00 DATABASE | >>> DOWNLOAD PROGRESS: 80 PERCENT COMPLETE [13:48:29] <<<
+00 DATABASE | >>> DOWNLOAD PROGRESS: 85 PERCENT COMPLETE [13:48:29] <<<
+00 DATABASE | >>> DOWNLOAD PROGRESS: 90 PERCENT COMPLETE [13:48:29] <<<
+00 DATABASE | >>> DOWNLOAD PROGRESS: 95 PERCENT COMPLETE [13:48:29] <<<
+00 DATABASE | >>> DOWNLOAD PROGRESS: 100 PERCENT COMPLETE [13:48:29] <<<
+00 DATABASE | ET_API  2: KH Board  37: Ramp-UP Performing one-time setup
+00 DATABASE | Runtime speed is 3.069196 MHZ.
 00 DATABASE | SIM_SET(NO_DCC_FLUSH,0): Will always FLUSH trace to DCC when requested.
 00 DATABASE |  
 00 DATABASE | ET Runtime Statistics
@@ -390,46 +390,46 @@ Info: : restored short PDB: elapsed time 0 sec
 00 DATABASE |  ------------------------------  ------      -------------     -------------
 00 DATABASE |  Command Name                    Calls       Longest Call      Total Time
 00 DATABASE |  ------------------------------  ------      -------------     -------------
-00 DATABASE |       sim_build_symbol_list_net      86      0.000054 secs     0.000823 secs
-00 DATABASE |                   sim_clear_dcc       2      0.558695 secs     1.117345 secs
-00 DATABASE |                       sim_clock      15      0.014322 secs     0.057576 secs
-00 DATABASE |   sim_clock_combinatorial_logic      38      0.015138 secs     0.171400 secs
-00 DATABASE |    sim_configuration_management       1      8.663403 secs     8.663403 secs
-00 DATABASE |            sim_free_symbol_list      62      0.000013 secs     0.000130 secs
-00 DATABASE |                sim_get_board_id       5      0.000013 secs     0.000029 secs
-00 DATABASE |                     sim_get_net      53      0.016247 secs     0.167447 secs
-00 DATABASE |                 sim_get_net_net      39      0.013527 secs     0.019135 secs
-00 DATABASE |                 sim_get_old_new       1      0.025255 secs     0.025255 secs
-00 DATABASE |                     sim_ith_dcc       6      0.000004 secs     0.000013 secs
-00 DATABASE |                  sim_model_load       1      0.701405 secs     0.701405 secs
-00 DATABASE |         sim_num_board_resources       1      0.000008 secs     0.000008 secs
-00 DATABASE |                 sim_query_clock     468      0.000487 secs     0.021391 secs
-00 DATABASE |                   sim_query_dcc       1      0.000471 secs     0.000471 secs
-00 DATABASE |    sim_query_nets_per_dcc_entry      10      0.000002 secs     0.000014 secs
-00 DATABASE |               sim_start_capture       3      0.001286 secs     0.002419 secs
-00 DATABASE |                    sim_stop_et3      20      0.008113 secs     0.106283 secs
-00 DATABASE |              sim_unload_dcc_mem       1      0.000919 secs     0.000919 secs
-00 DATABASE |    sim_unload_dcc_connector_mem       8      0.001016 secs     0.007676 secs
-00 DATABASE |                       sim_flush      38      0.000007 secs     0.000081 secs
-00 DATABASE |                       sim_stick      37      0.000214 secs     0.001044 secs
-00 DATABASE |                   sim_stick_net     130      0.000643 secs     0.008222 secs
-00 DATABASE |                     sim_unstick       9      0.000082 secs     0.000133 secs
-00 DATABASE |                 sim_unstick_net       8      0.000467 secs     0.001822 secs
-00 DATABASE |         sim_get_emulation_speed       3      0.000004 secs     0.000012 secs
-00 DATABASE |                sim_num_dccs_all       6      0.000007 secs     0.000022 secs
+00 DATABASE |       sim_build_symbol_list_net      86      0.000050 secs     0.001083 secs
+00 DATABASE |                   sim_clear_dcc       2      0.562445 secs     1.124206 secs
+00 DATABASE |                       sim_clock      15      0.014696 secs     0.058617 secs
+00 DATABASE |   sim_clock_combinatorial_logic      38      0.022160 secs     0.182236 secs
+00 DATABASE |    sim_configuration_management       1      8.667306 secs     8.667306 secs
+00 DATABASE |            sim_free_symbol_list      62      0.000063 secs     0.000215 secs
+00 DATABASE |                sim_get_board_id       5      0.000013 secs     0.000028 secs
+00 DATABASE |                     sim_get_net      53      0.015821 secs     0.172100 secs
+00 DATABASE |                 sim_get_net_net      39      0.014678 secs     0.020430 secs
+00 DATABASE |                 sim_get_old_new       1      0.026701 secs     0.026701 secs
+00 DATABASE |                     sim_ith_dcc       6      0.000004 secs     0.000012 secs
+00 DATABASE |                  sim_model_load       1      0.696683 secs     0.696683 secs
+00 DATABASE |         sim_num_board_resources       1      0.000011 secs     0.000011 secs
+00 DATABASE |                 sim_query_clock     468      0.000373 secs     0.024919 secs
+00 DATABASE |                   sim_query_dcc       1      0.000507 secs     0.000507 secs
+00 DATABASE |    sim_query_nets_per_dcc_entry      10      0.000001 secs     0.000010 secs
+00 DATABASE |               sim_start_capture       3      0.001225 secs     0.002345 secs
+00 DATABASE |                    sim_stop_et3      20      0.008367 secs     0.108911 secs
+00 DATABASE |              sim_unload_dcc_mem       1      0.001019 secs     0.001019 secs
+00 DATABASE |    sim_unload_dcc_connector_mem      12      0.001420 secs     0.015432 secs
+00 DATABASE |                       sim_flush      38      0.000007 secs     0.000075 secs
+00 DATABASE |                       sim_stick      37      0.001522 secs     0.002808 secs
+00 DATABASE |                   sim_stick_net     130      0.001486 secs     0.012879 secs
+00 DATABASE |                     sim_unstick       9      0.000081 secs     0.000122 secs
+00 DATABASE |                 sim_unstick_net       8      0.000435 secs     0.001698 secs
+00 DATABASE |         sim_get_emulation_speed       3      0.000012 secs     0.000021 secs
+00 DATABASE |                sim_num_dccs_all       6      0.000011 secs     0.000032 secs
 00 DATABASE |           sim_set_capture_delay       1      0.000004 secs     0.000004 secs
-00 DATABASE |                         sim_set      80      0.000079 secs     0.001032 secs
-00 DATABASE |                sim_report_stats       1      0.000069 secs     0.000069 secs
-00 DATABASE |     sim_ith_board_resource_info    1152      0.012794 secs     2.493870 secs
-00 DATABASE |    sim_query_capture_frame_info      10      0.000056 secs     0.000128 secs
-00 DATABASE |          sim_flush_data_capture       4      0.000566 secs     0.001789 secs
-00 DATABASE |             sim_get_symbol_size     132      0.000019 secs     0.000279 secs
-00 DATABASE |             sim_get_symbol_nets     102      0.000002 secs     0.000104 secs
-00 DATABASE |             sim_get_chip_offset       5      0.000003 secs     0.000009 secs
-00 DATABASE |           sim_get_target_owners    1152      0.012304 secs     1.811914 secs
+00 DATABASE |                         sim_set      80      0.000094 secs     0.001005 secs
+00 DATABASE |                sim_report_stats       1      0.000062 secs     0.000062 secs
+00 DATABASE |     sim_ith_board_resource_info    1152      0.010522 secs     5.708222 secs
+00 DATABASE |    sim_query_capture_frame_info      10      0.000049 secs     0.000115 secs
+00 DATABASE |          sim_flush_data_capture       4      0.000879 secs     0.002304 secs
+00 DATABASE |             sim_get_symbol_size     132      0.000038 secs     0.000342 secs
+00 DATABASE |             sim_get_symbol_nets     102      0.000010 secs     0.000119 secs
+00 DATABASE |             sim_get_chip_offset       5      0.000003 secs     0.000010 secs
+00 DATABASE |           sim_get_target_owners    1152      0.006049 secs     3.422665 secs
 00 DATABASE |            sim_get_dsync_config       1      0.000005 secs     0.000005 secs
 00 DATABASE |  
-00 DATABASE |  ---> Total API time was 15.383681 secs
+00 DATABASE |  ---> Total API time was 20.255259 secs
 00 DATABASE | 
 BEDB: Cleaning all
 BEDB: Cleaning et6api

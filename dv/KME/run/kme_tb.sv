@@ -206,11 +206,13 @@ module kme_tb;
       import "DPI-C" function int get_config_data(output byte operation, output bit [31:0] address, output bit[31:0] data);
       import "DPI-C" function int ib_service_data(output bit[63:0] tdata, output
       bit[31:0] tuser_string, output bit[7:0] tstrb, output int str_get);
-      // TODO: these outputs can be used in the do_kme_config() to get data 
+      import "DPI-C" function int ob_service_data(output bit[63:0] tdata, output
+      bit[31:0] tuser_string, output bit[7:0] tstrb, output int str_get);
       // write/read() sent to sfifo so will run in HW
       initial begin
           $ixc_ctrl("gsf_is", "get_config_data");
           $ixc_ctrl("gsf_is", "ib_service_data");
+          $ixc_ctrl("gsf_is", "ob_service_data");
       end
 
    initial begin
@@ -305,16 +307,8 @@ module kme_tb;
    end // initial
 
 task do_kme_config();
-      //reg[31:0]      address;
-      //reg [31:0]     data;
       reg [31:0]     returned_data;
-      //string         operation;
-      // string         file_name;
-      //string         vector; // file processing happens in import func 
-      // integer        str_get;
-      // integer        file_descriptor;
       reg            response;
-      //bit [31:0] operation;
       byte operation;
       bit [31:0] address;
       bit [31:0] data;
@@ -367,50 +361,27 @@ task do_kme_config();
 
 	
    task service_ib_interface();
-      //reg[7:0]       tstrb;
-      //reg [63:0]     tdata;
-      //string         tuser_string;
-      //string         file_name;
-      //string         vector;
-      //integer        str_get;
-      //integer        file_descriptor; 
       logic 	     saw_mega;
       logic 	     saw_guid_tlv;
       logic 	     have_guid_tlv;
       int            mega_tlv_word_count;
       
       bit [7:0]     tstrb;
-      //reg [7:0] tstrb = 8'hff;
       bit [63:0]    tdata;
       bit [31:0]   tuser_string;
       int str_get;
       int retval;
       reg[3*8:0] user_string = "";
-      //retval = ib_service_data(tdata, tuser_string, tstrb, str_get);
       // if retval[0] == 1 output args are valid 
       // if retval[1] == 1 end of stream reached
       // if retval == 1 valid 
       // if retval == 2 eos
-      
-
-      // pathing is wrong we dont run from the makefile here
-      // file_name = $psprintf("../tests/%s.inbound", testname);
-      /*file_name = $psprintf("../../dv/KME/tests/%s.inbound", testname);
-      file_descriptor = $fopen(file_name, "r");
-      if ( file_descriptor == 0 ) begin
-	 $display ("INBOUND_FATAL:  @time:%-d File %s NOT found!", $time, file_name );
-	 $finish;
-      end else begin
-	 $display ("INBOUND_INFO:  @time:%-d Openned test file -->  %s", $time, file_name );
-      end*/
 
       saw_mega = 0;
       saw_guid_tlv = 0;
       mega_tlv_word_count = 0;
       have_guid_tlv = 0;
 
-
-      //retval = ib_service_data(tdata, tuser_string, tstrb, str_get);
       do begin
         retval = ib_service_data(tdata, tuser_string, tstrb, str_get);
         user_string = reverse_translate_tuser(tuser_string);
@@ -470,206 +441,94 @@ task do_kme_config();
 
    endtask // service_ib_interface
 
-  /*task service_ib_interface();
-      reg[7:0]       tstrb;
-      reg [63:0]     tdata;
-      string         tuser_string;
-      string         file_name;
-      string         vector;
-      integer        str_get;
-      integer        file_descriptor; 
-      logic 	     saw_mega;
-      logic 	     saw_guid_tlv;
-      logic 	     have_guid_tlv;
-      integer 	     mega_tlv_word_count;
-      
-      
-
-      //file_name = $psprintf("../tests/%s.inbound", testname);
-      file_name = $psprintf("../../dv/KME/tests/%s.inbound", testname);
-      file_descriptor = $fopen(file_name, "r");
-      if ( file_descriptor == 0 ) begin
-	 $display ("INBOUND_FATAL:  @time:%-d File %s NOT found!", $time, file_name );
-	 $finish;
-      end else begin
-	 $display ("INBOUND_INFO:  @time:%-d Openned test file -->  %s", $time, file_name );
-      end
-
-      saw_mega = 0;
-      saw_guid_tlv = 0;
-      mega_tlv_word_count = 0;
-      have_guid_tlv = 0;
-      
-      while( !$feof(file_descriptor) ) begin
-	 if ( kme_ib_tready === 1'b1 ) begin
-            kme_ib_tlast <= 1'b0;
-            if ( $fgets(vector,file_descriptor) ) begin
-               str_get = $sscanf(vector, "0x%h %s 0x%h", tdata, tuser_string, tstrb);
-	       //        $display ("INBOUND_INFO:  @time:%-d parsed vector --> 0x%h %s 0x%h %d", $time, tdata, tuser_string, tstrb, str_get ); 
-               if ( str_get >= 2 ) begin
-		  $display ("INBOUND_INFO:  @time:%-d vector --> %s", $time, vector ); 
-		  if ( str_get == 3 ) begin
-		     if ( tuser_string == "SoT" && tdata[7:0] >= 8'd21 ) begin
-			saw_mega = 1;
-		     end 
-		     else if(tdata[7:0] == 8'd10) begin
-			saw_guid_tlv = 1;
-		     end
-		     if (saw_mega == 1 ) begin
-			mega_tlv_word_count = mega_tlv_word_count + 1;
-			if(mega_tlv_word_count == 2) begin
-			   $display("mega tlv word #2: %x", tdata);
-			   if(tdata[4] == 1) begin
-			      have_guid_tlv = 1;
-			   end
-			end
-		     end
-		     if ( tuser_string == "EoT" && saw_mega == 1 ) begin
-			if( have_guid_tlv == 0 ) begin
-			   kme_ib_tlast <= 1'b1;
-			end
-			saw_mega = 0;
-		     end
-		     else if(tuser_string == "EoT" && saw_guid_tlv == 1) begin
-			kme_ib_tlast <= 1'b1;
-			saw_guid_tlv = 0;
-		     end
-		     kme_ib_tuser <= translate_tuser( tuser_string );
-		  end else begin
-		     kme_ib_tuser <= 8'h00;
-		  end
-		  kme_ib_tvalid <= 1'b1;
-		  kme_ib_tdata <= tdata;
-		  kme_ib_tstrb <= tstrb;
-               end else begin
-		  kme_ib_tvalid <= 1'b0;
-               end
-            end else begin
-               kme_ib_tvalid <= 1'b0;
-            end
-	 end
-	 @(posedge clk);
-      end
-
-      kme_ib_tvalid <= 1'b0;
-      kme_ib_tlast <= 1'b0;
-
-      @(posedge clk);
-
-      $display ("INBOUND_INFO:  @time:%-d Exiting INBOUND thread...", $time );
-
-   endtask // service_ib_interface*/
-
-
-
-
    task service_ob_interface();
-      reg[7:0]       tstrb;
-      reg [7:0]      tuser;
-      reg [63:0]     tdata;
-      reg            tlast;
-      string         tuser_string;
-      string         file_name;
-      string         vector;
-      integer        str_get;
-      integer        file_descriptor; 
-      logic          saw_cqe;
-      logic          saw_stats;
-      logic          ignore_compare_result;
-      logic          got_next_line;
-      integer        watchdog_timer; 
-      integer        rc; 
+       reg [7:0]      tuser;
+       reg            tlast;
+       logic          saw_cqe;
+       logic          saw_stats;
+       logic          ignore_compare_result;
+       logic          got_next_line;
+       integer        watchdog_timer; 
+       integer        rc; 
 
-      
-      // pathing is wrong we dont run with the makefile here
-      //file_name = $psprintf("../tests/%s.outbound", testname);
-      file_name = $psprintf("../../dv/KME/tests/%s.outbound", testname);
-      file_descriptor = $fopen(file_name, "r");
-      if ( file_descriptor == 0 ) begin
-	 $display ("OUTBOUND_FATAL:  @time:%-d File %s NOT found!", $time, file_name );
-	 $finish;
-      end else begin
-	 $display ("OUTBOUND_INFO:  @time:%-d Openned test file -->  %s", $time, file_name );
-      end
+       bit [7:0]    tstrb;
+       bit [63:0]   tdata;
+       bit [31:0]   tuser_string;
+       reg [3*8:0]  user_string;
+       int str_get;
+       int retval = 1;
 
-      saw_cqe = 0;
-      saw_stats = 0;
-      got_next_line = 0; 
-      watchdog_timer = 0;
-      while( !$feof(file_descriptor) ) begin
-	 if ( kme_ob_tvalid === 1'b1 ) begin
-            watchdog_timer = 0;
-            tlast = 1'b0;
-            ignore_compare_result = 0;
-            if ( got_next_line == 1 || $fgets(vector,file_descriptor) ) begin
-               got_next_line = 0;
-               while ( vector[0] === "#" && !$feof(file_descriptor) ) begin
-		  rc = $fgets(vector,file_descriptor);
+       saw_cqe = 0;
+       saw_stats = 0;
+       got_next_line = 0; 
+       watchdog_timer = 0;
+
+       do begin
+           retval = ob_service_data(tdata, tuser_string, tstrb, str_get);
+           user_string = reverse_translate_tuser(tuser_string);
+           $display("user_string is %s\n", user_string);
+           if (retval == 1 ) begin 
+               $display("OUTBOUND INFO: tdata = 0x%h, tuser_string = %d, tstrb = 0x%h, str_get = %d\n", tdata, tuser_string, tstrb, str_get);
+               while ( kme_ob_tvalid === 1'b0) begin 
+                   @(posedge clk);
+                   ++watchdog_timer;
+                   if ( watchdog_timer > 10000 ) begin
+                       ++error_cntr;
+                       $display ("\nOUTBOUND_ERROR:  @time:%-d  Watchdog timer EXPIRED!\n", $time ); 
+                       $finish;
+                   end
                end
-               $display ("OUTBOUND_INFO:  @time:%-d vector --> %s", $time, vector );
-	       $display ("OUTBOUND_INFO_MINE:  @time:%-d   kme_ob_tdata: 0x%h", $time, kme_ob_tdata);
-               str_get = $sscanf(vector, "0x%h %s 0x%h", tdata, tuser_string, tstrb);
-	       //        $display ("OUTBOUND_INFO:  @time:%-d parsed vector --> 0x%h %s 0x%h %d", $time, tdata, tuser_string, tstrb, str_get ); 
+               watchdog_timer = 0;
+               tlast = 1'b0;
+               ignore_compare_result = 0;
+               $display ("OUTBOUND_INFO_MINE:  @time:%-d   kme_ob_tdata: 0x%h", $time, kme_ob_tdata);
                if ( str_get == 3 ) begin
-		  tuser = translate_tuser( tuser_string );
-		  if ( tuser_string == "SoT" && tdata[7:0] == 8'h09 ) begin
-		     saw_cqe = 1;
-		  end
-		  if ( tuser_string == "EoT") begin
-		     tlast = 1'b1;
-		     saw_cqe = 0;
-		     rc = $fgets(vector,file_descriptor);
-		     got_next_line = 1;
-		  end
-		  if ( tuser_string == "SoT" && tdata[7:0] == 8'h08 ) begin
-		     saw_stats = 1;
-		  end
-		  if ( tuser_string == "EoT" && saw_stats == 1 ) begin
-		     ignore_compare_result = 1;
-		     saw_stats = 0;
-		  end
+                   tuser = translate_tuser_t( user_string );
+                   if ( user_string == "SoT" && tdata[7:0] == 8'h09 ) begin
+                       saw_cqe = 1;
+                   end
+                   if ( user_string == "EoT") begin
+                       tlast = 1'b1;
+                       saw_cqe = 0;
+                   end
+                   if ( user_string == "SoT" && tdata[7:0] == 8'h08 ) begin
+                       saw_stats = 1;
+                   end
+                   if ( user_string == "EoT" && saw_stats == 1 ) begin
+                       ignore_compare_result = 1;
+                       saw_stats = 0;
+                   end
                end else begin
-		  tuser = 8'h00;
+                   tuser = 8'h00;
                end
+               $display("after seeing str != 3 tuser is %d\n", tuser);
                if ( kme_ob_tdata !== tdata && ignore_compare_result == 0 ) begin
-		  $display ("OUTBOUND_ERROR:  @time:%-d   kme_ob_tdata MISMATCH --> Actual: 0x%h  Expect: 0x%h", $time, kme_ob_tdata, tdata ); 
-		  ++error_cntr;
+                   $display ("OUTBOUND_ERROR:  @time:%-d   kme_ob_tdata MISMATCH --> Actual: 0x%h  Expect: 0x%h", $time, kme_ob_tdata, tdata ); 
+                   ++error_cntr;
                end
                if ( kme_ob_tuser !== tuser ) begin
-		  $display ("OUTBOUND_ERROR:  @time:%-d   kme_ob_tuser MISMATCH --> Actual: 0x%h  Expect: 0x%h", $time, kme_ob_tuser, tuser ); 
-		  ++error_cntr;
+                   $display ("OUTBOUND_ERROR:  @time:%-d   kme_ob_tuser MISMATCH --> Actual: 0x%h  Expect: 0x%h", $time, kme_ob_tuser, tuser ); 
+                   ++error_cntr;
                end
                if ( kme_ob_tstrb !== tstrb ) begin
-		  $display ("OUTBOUND_ERROR:  @time:%-d   kme_ob_tstrb MISMATCH --> Actual: 0x%h  Expect: 0x%h", $time, kme_ob_tstrb, tstrb ); 
-		  ++error_cntr;
+                   $display ("OUTBOUND_ERROR:  @time:%-d   kme_ob_tstrb MISMATCH --> Actual: 0x%h  Expect: 0x%h", $time, kme_ob_tstrb, tstrb ); 
+                   ++error_cntr;
                end
                if ( kme_ob_tlast !== tlast ) begin
-		  $display ("OUTBOUND_ERROR:  @time:%-d   kme_ob_tlast MISMATCH --> Actual: 0x%h  Expect: 0x%h", $time, kme_ob_tlast, tlast ); 
-		  ++error_cntr;
-               end
-            end else begin
-               ++error_cntr;
-               $display ("\nOUTBOUND_FATAL:  @time:%-d  No corresponding expect vector!\n", $time ); 
-               $finish;
-            end
-	 end else begin
-            ++watchdog_timer;
-            if ( watchdog_timer > 10000 ) begin
-               ++error_cntr;
-               $display ("\nOUTBOUND_ERROR:  @time:%-d  Watchdog timer EXPIRED!\n", $time ); 
-               $finish;
-            end
-	 end
-	 @(posedge clk);
-      end
+                   $display ("OUTBOUND_ERROR:  @time:%-d   kme_ob_tlast MISMATCH --> Actual: 0x%h  Expect: 0x%h", $time, kme_ob_tlast, tlast ); 
+                   ++error_cntr;
+               end 
+           end 
+           @(posedge clk);
+       end while (retval != 2);
 
 
-      @(posedge clk);
+       @(posedge clk);
 
-      $display ("OUTBOUND_INFO:  @time:%-d Exiting OUTBOUND thread...", $time );
+       $display ("OUTBOUND_INFO:  @time:%-d Exiting OUTBOUND thread...", $time );
 
    endtask // service_ob_interface
-   
+
    function logic[7:0] translate_tuser (string tuser);
       if ( tuser == "SoT" ) begin
          return 8'h01;
@@ -685,6 +544,7 @@ task do_kme_config();
         $display("am i translating\n");
         return "SoT";
       end else if (tuser == 10) begin
+        $display("am i translating\n");
         return "EoT";
       end else begin
         return "";
@@ -692,6 +552,7 @@ task do_kme_config();
    endfunction : reverse_translate_tuser
 
    function logic[7:0] translate_tuser_t (bit[3*8:0] tuser);
+      $display("inside translate function the tuser is : %s\n", tuser);
       if ( tuser == "SoT" ) begin
          return 8'h01;
       end else if ( tuser == "EoT" ) begin

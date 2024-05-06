@@ -1,0 +1,5 @@
+## xeCompile Elapsed Time Distribution: Memory - 55.17%, Disk I/O - 42.10%, Kernel - 0.17%, CPU - 2.56%, Network - 0.00%
+## System Performance Metric Score: 44.60
+## Score Distribution: {Memory = 33.95; Disk = -0.25; Kernel = 0.75; CPU = 9.15; Network = 0.00; 
+## xeCompile Elapsed Time Bottleneck: Disk I/O
+

@@ -1,6 +1,6 @@
 Build construct file 'dbFiles/constructInfoFile'
 117 cells have construct info. Build 69 cells.
- Build construct map total time 0 real, 0.01 cpu(0.01u+0s), 0%, memory 9218M
+ Build construct map total time 0.01 real, 0.01 cpu(0.01u+0s), 100%, memory 9186M
  Build generate map for 0 cells.
 
 m_numConstructs=712 m_numNewProbed=712

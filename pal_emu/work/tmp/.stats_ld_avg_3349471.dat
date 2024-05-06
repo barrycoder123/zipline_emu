@@ -1,0 +1,4 @@
+# Time 		 LdAvg 		 NumCpusUsed 	 TotalCpus 	 UsrSysProcessCnt/CPU 	 CpuUsrSysUtil%
+12:48:36	2.14	11.05	12.41	4	96	0	3
+12:48:50	2.59	10.71	12.27	3	96	36	3
+12:49:02	2.5	10.42	12.16	14	96	7	2
