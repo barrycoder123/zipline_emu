@@ -30,7 +30,7 @@ ixc_assign _zz_strnp_25 ();
 ixc_assign_5 _zz_strnp_26 ();
 ixc_assign_34 _zz_strnp_27 ();
 ixc_assign _zz_strnp_28 ();
-cr_kme_kop_kdf_stream_pipe_xcm79 il_var ();
-cr_kme_kop_kdf_stream_pipe_xcm78 dgl_var ();
-cr_kme_fifo_xcm52 parser_fifo ();
+cr_kme_kop_kdf_stream_pipe_xcm80 il_var ();
+cr_kme_kop_kdf_stream_pipe_xcm79 dgl_var ();
+cr_kme_fifo_xcm53 parser_fifo ();
 endmodule

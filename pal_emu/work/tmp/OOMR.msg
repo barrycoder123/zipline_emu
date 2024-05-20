@@ -3,4 +3,4 @@
 # due to precompileOption dontLogOOMR.           #
 ##################################################
 
-Successfully resolved 921 OOMRs.
+Successfully resolved 4847 OOMRs.

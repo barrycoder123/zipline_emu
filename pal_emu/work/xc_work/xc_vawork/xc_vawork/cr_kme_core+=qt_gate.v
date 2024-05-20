@@ -23209,7 +23209,7 @@ cr_kme_ram_fifo \kme_is_core.cceip_validate_kop_fifo ( .fifo_in_stall(
 	.fifo_out_ack( \kme_is_core.cceip_validate_out_ack ), .bimc_rst_n( 
 	bimc_rst_n), .fifo_bimc_isync( cceip_validate_bimc_isync), 
 	.fifo_bimc_idat( cceip_validate_bimc_idat));
-cr_kme_kop_xcm68 \kme_is_core.cceip_encrypt_kop ( .kme_internal_out_ack( 
+cr_kme_kop_xcm69 \kme_is_core.cceip_encrypt_kop ( .kme_internal_out_ack( 
 	\kme_is_core.cceip_encrypt_out_ack ), .key_tlv_ob_wr( 
 	\kme_is_core.cceip_encrypt_ob_wr ), .key_tlv_ob_tlv( 
 	\kme_is_core._zy_simnet_cceip_encrypt_ob_tlv_18_w$ [0:105]), 
@@ -23879,7 +23879,7 @@ cr_kme_kop_xcm68 \kme_is_core.cceip_encrypt_kop ( .kme_internal_out_ack(
 	\kme_is_core.cceip_encrypt_ob_afull ), .kop_fifo_override( 
 	cceip_encrypt_kop_fifo_override[6:0]), .kdf_test_key_size( 
 	kdf_test_key_size[31:0]), .kdf_test_mode_en( kdf_test_mode_en));
-cr_kme_kop_xcm67 \kme_is_core.cceip_validate_kop ( .kme_internal_out_ack( 
+cr_kme_kop_xcm68 \kme_is_core.cceip_validate_kop ( .kme_internal_out_ack( 
 	\kme_is_core.cceip_validate_out_ack ), .key_tlv_ob_wr( 
 	\kme_is_core.cceip_validate_ob_wr ), .key_tlv_ob_tlv( 
 	\kme_is_core._zy_simnet_cceip_validate_ob_tlv_19_w$ [0:105]), 

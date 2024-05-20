@@ -1,3 +1,3 @@
 V O V in_counter SIZE=3
 V O S out_counter
-P O cr_kme_fifo_xcm51 downsizer_fifo ./xc_work/xc_vawork/xc_vawork/cr_kme_fifo_xcm51
+P O cr_kme_fifo_xcm52 downsizer_fifo ./xc_work/xc_vawork/xc_vawork/cr_kme_fifo_xcm52

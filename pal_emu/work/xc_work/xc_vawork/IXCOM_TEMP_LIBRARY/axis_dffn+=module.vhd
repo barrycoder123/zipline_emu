@@ -3,7 +3,7 @@ architecture module of axis_dffn is
 
 begin
 
-  process --:o1332
+  process --:o1360
   (c,r,s)
   begin
     if (r = '0') then

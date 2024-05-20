@@ -1,43 +1,78 @@
 // xc_work/v/139.sv
-// /lan/cva_rel/ixcom23h1/23.03.131.s001/tools.lnx86/etc/ixcom/IXCSF.sv:447
+// /lan/cva_rel/ixcom23h1/23.03.131.s001/tools.lnx86/etc/ixcom/IXCSF.sv:318
 // NOTE: This file corresponds to a module in the Hardware/DUT partition.
 `timescale 1ps/1ps
- (* upf_always_on = 1, _2_state_ = 1 *) module IXC_OSF1;
-// exported object:  (var) pvecEv (R)  
-parameter WIDTH = 20;
-localparam NMB = 1;
-localparam MBSIZE = 1984;
+ (* upf_always_on = 1, _2_state_ = 1 *) module IXC_ISF;
+// exported object:  (var) pvec (R)  
+// exported object:  (var) pvec (R)  
+parameter WIDTH = 1;
+localparam PIOWIDTH = 1;
+localparam EVMEMW = 512;
+localparam NBLK = 1;
+localparam NBLK1 = 0;
+localparam MDEP = 1;
 wire  fclk;
-bit [19:0] pvecEv ;
-// quickturn external_ref pvecEv
-wire  osfTbc;
-wire  dummyin;
-wire  dummyout;
-wire  osfTbcB;
-// quickturn preserve osfTbcB
-// quickturn external_ref osfTbcB
-bit [0:0] _zyMBEv ;
-// quickturn preserve _zyMBEv
-// quickturn no_hardmacro _zyMBEv
-// quickturn external_ref _zyMBEv
-wire  osfTbcB_x$tbc;
-// quickturn preserve osfTbcB_x$tbc
-// quickturn external_ref osfTbcB_x$tbc
-pulldown (osfTbc);
-axis_tbcall  #(1,0,1) tbcx (osfTbcB,104'b01001111010100110100011000110001010111110110011001101100011101010111001101101000010000010110110001101100,osfTbcB_x$tbc,0);
+wire  [0:0] pvec ;
+// quickturn external_ref pvec
+bit [0:0] pvecEv ;
+bit [63:0] pvecEvD ;
+bit [0:0] _zyevPio ;
+// quickturn keep_net _zyevPio
+// quickturn no_hardmacro _zyevPio
+// quickturn external_ref _zyevPio
+wire  isfWait;
+bit isfBusy;
+bit isfBusyD;
+bit [8:0] rptr ;
+bit mark;
+bit markN;
+bit nd;
+localparam ST_IDLE = 0;
+localparam ST_ACTIVE = 1;
+localparam ST_MRD = 2;
+bit [1:0] state ;
+assign  isfWait = (((nd | isfBusy) | isfBusyD) ? 1'b1 : 1'bz);
+ixc_assign  #(1) _zz_strnp_0 (pvec[0:0],_zyevPio[0:0]);
 
-   ixc_osfTbc_buf us(osfTbcB, osfTbc);           
 
+   always@(posedge fclk) begin 
+      case(state)
+       ST_IDLE:
+         begin
+           if (nd) begin
+             isfBusy <= 1;
+             state <= ST_ACTIVE;
+           end
+           rptr <= 0;
+         end
+       ST_ACTIVE:
+         begin
+             isfBusy <= 1;
+             state <= ST_MRD;
+             rptr <= 0;
+         end
+       ST_MRD:
+         if(rptr == NBLK1) begin
+             isfBusy <= 0;
+             state <= ST_IDLE;
+             rptr <= MDEP-1;
+         end else begin
+             rptr <= rptr+1;
+         end
+      endcase
+      mark <= markN;
+      pvecEvD <= pvecEv;   
+      isfBusyD <= isfBusy; 
+   end
 
    
    Q_NOT_TOUCH _zzqnthw();
-
+   
    //quickturn fast_clock fclk
-   //quickturn external_ref pvecEv
+   //quickturn external_ref _zyevPio
+   //quickturn name_map isfWait xcva_top.xc_top.isfWait
 
 
-
-    IXC_OSF_MB #(20) OMB_0 (pvecEv[19:0], _zyMBEv[0]);
-// pragma CVASTRPROP MODULE IXC_OSF1 PROP_IXCOM_MOD TRUE
+// pragma CVASTRPROP MODULE IXC_ISF PROP_IXCOM_MOD TRUE
 endmodule
 

@@ -5,8 +5,8 @@ use work.nx_mem_typePKG.all ;
 entity nx_indirect_access_cntrl_xcm120 is
   generic (
     MEM_TYPE : std_logic_vector := std_logic_vector'("0000");
-    CMND_ADDRESS : std_logic_vector := std_logic_vector'("00000100000");
-    STAT_ADDRESS : std_logic_vector := std_logic_vector'("00000010000");
+    CMND_ADDRESS : std_logic_vector := std_logic_vector'("00001010000");
+    STAT_ADDRESS : std_logic_vector := std_logic_vector'("00001000000");
     ALIGNMENT : integer := 2;
     N_TIMER_BITS : integer := 6;
     N_REG_ADDR_BITS : integer := 11;

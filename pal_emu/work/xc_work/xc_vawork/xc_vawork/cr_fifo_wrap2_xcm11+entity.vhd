@@ -3,8 +3,8 @@ use ieee.std_logic_1164.all ;
 use quickturn.verilog.all ;
 entity cr_fifo_wrap2_xcm11 is
   generic (
-    N_DATA_BITS : integer := 83;
-    N_ENTRIES : integer := 168;
+    N_DATA_BITS : integer := 71;
+    N_ENTRIES : integer := 2048;
     N_AFULL_VAL : integer := 1;
     N_AEMPTY_VAL : integer := 1;
     USE_RAM : integer := 1
@@ -12,7 +12,7 @@ entity cr_fifo_wrap2_xcm11 is
   port (
     full : out std_logic ;
     afull : out std_logic ;
-    rdata : out std_logic_vector(82 downto 0) ;
+    rdata : out std_logic_vector(70 downto 0) ;
     empty : out std_logic ;
     aempty : out std_logic ;
     bimc_odat : out std_logic ;
@@ -20,7 +20,7 @@ entity cr_fifo_wrap2_xcm11 is
     ro_uncorrectable_ecc_error : out std_logic ;
     clk : in std_logic ;
     rst_n : in std_logic ;
-    wdata : in std_logic_vector(82 downto 0) ;
+    wdata : in std_logic_vector(70 downto 0) ;
     wen : in std_logic ;
     ren : in std_logic ;
     bimc_idat : in std_logic ;

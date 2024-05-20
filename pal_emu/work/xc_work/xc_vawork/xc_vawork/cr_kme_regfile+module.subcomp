@@ -1,6 +1,7 @@
 /cr_kme_regs
 /nx_rbus_ring
 /nx_interface_monitor_pipe
+/nx_interface_monitor_xcm105
 /nx_interface_monitor_xcm104
 /nx_interface_monitor_xcm103
 /nx_interface_monitor_xcm102
@@ -8,13 +9,12 @@
 /nx_interface_monitor_xcm100
 /nx_interface_monitor_xcm99
 /nx_interface_monitor_xcm98
-/nx_interface_monitor_xcm97
 /cr_kme_regfile_glue
+/nx_ram_1rw_indirect_access_xcm124
 /nx_ram_1rw_indirect_access_xcm123
-/nx_ram_1rw_indirect_access_xcm122
 /cr_kme_drbg_reggen
 /bimc_master
 /cr_kme_int_handler
+/nx_roreg_indirect_access_xcm131
 /nx_roreg_indirect_access_xcm130
-/nx_roreg_indirect_access_xcm129
 /nx_reg_indirect_access

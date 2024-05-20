@@ -4,18 +4,18 @@ use quickturn.verilog.all ;
 use work.cr_kme_regfilePKG.all ;
 entity cr_kme_kop_upsizer_x2_xcm72 is
   generic (
-    IN_DATA_SIZE : integer := 64
+    IN_DATA_SIZE : integer := 128
   ) ;
   port (
     upsizer_in_stall : out std_logic ;
     upsizer_out_valid : out std_logic ;
     upsizer_out_eof : out std_logic ;
-    upsizer_out_data : out std_logic_vector(127 downto 0) ;
+    upsizer_out_data : out std_logic_vector(255 downto 0) ;
     clk : in std_logic ;
     rst_n : in std_logic ;
     in_upsizer_valid : in std_logic ;
     in_upsizer_eof : in std_logic ;
-    in_upsizer_data : in std_logic_vector(63 downto 0) ;
+    in_upsizer_data : in std_logic_vector(127 downto 0) ;
   out_upsizer_stall : in std_logic ) ;
   attribute _2_state_: integer;
   constant CKV_NUM_ENTRIES : integer := 32768 ;

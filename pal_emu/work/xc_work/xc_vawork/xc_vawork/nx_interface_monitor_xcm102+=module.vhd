@@ -59,7 +59,7 @@ architecture module of nx_interface_monitor_xcm102 is
     sw_config : in sw_config_t := (others => '0') ) ;
   end component ;
 
-  component nx_ram_1rw_xcm109
+  component nx_ram_1rw_xcm110
     generic (
       WIDTH : integer := signed_int(sxt("00000000000000000000000001100000",32))
        ;
@@ -93,8 +93,8 @@ architecture module of nx_interface_monitor_xcm102 is
   component nx_indirect_access_cntrl_xcm118
     generic (
       MEM_TYPE : std_logic_vector := std_logic_vector'("0000") ;
-      CMND_ADDRESS : std_logic_vector := std_logic_vector'("00010000000") ;
-      STAT_ADDRESS : std_logic_vector := std_logic_vector'("00001110000") ;
+      CMND_ADDRESS : std_logic_vector := std_logic_vector'("00010110000") ;
+      STAT_ADDRESS : std_logic_vector := std_logic_vector'("00010100000") ;
       ALIGNMENT : integer := 2 ;
       N_TIMER_BITS : integer := 6 ;
       N_REG_ADDR_BITS : integer := 11 ;
@@ -1373,7 +1373,7 @@ begin
       ,im_available_pre
     ) ;
   im_rd_stb <= ((boolean_to_std(((wr_stb)='1' and reg_addr = std_logic_vector'
-  ("00010011000"))) or im_consumed_reg(0)) or im_consumed_reg(1)) ;
+  ("00011001000"))) or im_consumed_reg(0)) or im_consumed_reg(1)) ;
   im_rdy <= '1' when im_config(10+1 downto 10) = std_logic_vector'("00") else
    '1' when im_config(10+1 downto 10) = std_logic_vector'("01") else 
   (boolean_to_std(ext(im_din_space_avail,32) > std_logic_vector'
@@ -1732,7 +1732,7 @@ begin
       ,DUMMY21
       ,DUMMY22
     ) ;
-  u_ram : nx_ram_1rw_xcm109
+  u_ram : nx_ram_1rw_xcm110
     port map (
        clk
       ,rst_n

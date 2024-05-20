@@ -2,7 +2,7 @@
 module nx_interface_monitor_xcm101 ;
 //pragma CVASTRPROP MODULE SKELETON MODULEINFO "468.000000"
 nx_indirect_access_cntrl_xcm117 u_cntrl ();
-nx_ram_1rw_xcm109 u_ram ();
+nx_ram_1rw_xcm110 u_ram ();
 nx_credit_manager u_nx_credit_manager ();
 sync_fifo u_sync_fifo ();
 ixc_context_read_105 _zzixc_ctxrd_0 ();

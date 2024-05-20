@@ -12,8 +12,8 @@ architecture module of ifsyn_conns is
   signal DUMMY1 : std_logic ;
   signal DUMMY3 : std_logic ;
   signal DUMMY2 : std_logic ;
-  signal DUMMY4 : std_logic ;
   signal DUMMY5 : std_logic ;
+  signal DUMMY4 : std_logic ;
   signal DUMMY7 : std_logic ;
   signal DUMMY6 : std_logic ;
   signal DUMMY9 : std_logic ;
@@ -52,10 +52,6 @@ architecture module of ifsyn_conns is
   signal DUMMY40 : std_logic ;
   signal DUMMY43 : std_logic ;
   signal DUMMY42 : std_logic ;
-  signal DUMMY45 : std_logic ;
-  signal DUMMY44 : std_logic ;
-  signal DUMMY47 : std_logic ;
-  signal DUMMY46 : std_logic ;
 
 begin
   isfasgn_0_0_0 : ixc_assign
@@ -68,114 +64,104 @@ begin
        DUMMY2
       ,DUMMY3
     ) ;
-  isfasgn_0_1_1 : ixc_assign
+  osfasgn_1_0_0 : ixc_assign
     port map (
        DUMMY4
       ,DUMMY5
     ) ;
-  osfasgn_0_1_1 : ixc_assign
+  osfasgn_1_1_0 : ixc_assign
     port map (
        DUMMY6
       ,DUMMY7
     ) ;
-  osfasgn_1_0_0 : ixc_assign
+  osfasgn_1_2_0 : ixc_assign
     port map (
        DUMMY8
       ,DUMMY9
     ) ;
-  osfasgn_1_1_0 : ixc_assign
+  osfasgn_1_3_0 : ixc_assign
     port map (
        DUMMY10
       ,DUMMY11
     ) ;
-  osfasgn_1_2_0 : ixc_assign
+  osfasgn_1_4_0 : ixc_assign
     port map (
        DUMMY12
       ,DUMMY13
     ) ;
-  osfasgn_1_3_0 : ixc_assign
+  osfasgn_1_5_1 : ixc_assign
     port map (
        DUMMY14
       ,DUMMY15
     ) ;
-  osfasgn_1_4_0 : ixc_assign
+  osfasgn_1_6_0 : ixc_assign
     port map (
        DUMMY16
       ,DUMMY17
     ) ;
-  osfasgn_1_5_1 : ixc_assign
+  osfasgn_1_7_1 : ixc_assign
     port map (
        DUMMY18
       ,DUMMY19
     ) ;
-  osfasgn_1_6_0 : ixc_assign
+  osfasgn_1_8_0 : ixc_assign
     port map (
        DUMMY20
       ,DUMMY21
     ) ;
-  osfasgn_1_7_1 : ixc_assign
+  osfasgn_1_9_1 : ixc_assign
     port map (
        DUMMY22
       ,DUMMY23
     ) ;
-  osfasgn_1_8_0 : ixc_assign
+  osfasgn_1_10_0 : ixc_assign
     port map (
        DUMMY24
       ,DUMMY25
     ) ;
-  osfasgn_1_9_1 : ixc_assign
+  osfasgn_1_11_1 : ixc_assign
     port map (
        DUMMY26
       ,DUMMY27
     ) ;
-  osfasgn_1_10_0 : ixc_assign
+  osfasgn_1_12_0 : ixc_assign
     port map (
        DUMMY28
       ,DUMMY29
     ) ;
-  osfasgn_1_11_1 : ixc_assign
+  osfasgn_1_13_1 : ixc_assign
     port map (
        DUMMY30
       ,DUMMY31
     ) ;
-  osfasgn_1_12_0 : ixc_assign
+  osfasgn_1_14_0 : ixc_assign
     port map (
        DUMMY32
       ,DUMMY33
     ) ;
-  osfasgn_1_13_1 : ixc_assign
+  osfasgn_1_15_1 : ixc_assign
     port map (
        DUMMY34
       ,DUMMY35
     ) ;
-  osfasgn_1_14_0 : ixc_assign
+  osfasgn_1_16_0 : ixc_assign
     port map (
        DUMMY36
       ,DUMMY37
     ) ;
-  osfasgn_1_15_1 : ixc_assign
+  osfasgn_1_17_1 : ixc_assign
     port map (
        DUMMY38
       ,DUMMY39
     ) ;
-  osfasgn_1_16_0 : ixc_assign
+  osfasgn_1_18_0 : ixc_assign
     port map (
        DUMMY40
       ,DUMMY41
     ) ;
-  osfasgn_1_17_1 : ixc_assign
+  osfasgn_1_19_1 : ixc_assign
     port map (
        DUMMY42
       ,DUMMY43
-    ) ;
-  osfasgn_1_18_0 : ixc_assign
-    port map (
-       DUMMY44
-      ,DUMMY45
-    ) ;
-  osfasgn_1_19_1 : ixc_assign
-    port map (
-       DUMMY46
-      ,DUMMY47
     ) ;
 end module;

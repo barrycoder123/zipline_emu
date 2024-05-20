@@ -2,9 +2,9 @@
 module nx_interface_monitor_xcm104 ( stat_code, stat_datawords, stat_addr, capability_lst, capability_type, rd_dat, bimc_odat, bimc_osync, ro_uncorrectable_ecc_error, im_rdy, im_available, im_status, clk, rst_n, reg_addr, cmnd_op, cmnd_addr, wr_stb, wr_dat, ovstb, lvm, mlvm, mrdten, bimc_rst_n, bimc_isync, bimc_idat, im_din, im_vld, im_consumed, im_config );
 parameter IN_FLIGHT = 5 ;
 parameter IN_FLIGHT_USE = 0 ;
-parameter CMND_ADDRESS = 11'b0100000 ;
-parameter STAT_ADDRESS = 11'b010000 ;
-parameter IMRD_ADDRESS = 11'b0111000 ;
+parameter CMND_ADDRESS = 11'b01010000 ;
+parameter STAT_ADDRESS = 11'b01000000 ;
+parameter IMRD_ADDRESS = 11'b01101000 ;
 parameter ALIGNMENT = 2 ;
 parameter N_TIMER_BITS = 6 ;
 parameter N_REG_ADDR_BITS = 11 ;

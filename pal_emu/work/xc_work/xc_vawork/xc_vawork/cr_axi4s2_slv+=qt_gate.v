@@ -313,7 +313,7 @@ tran (axi4s_ib_in[3], \axi4s_ib_in.tdata [3]);
 tran (axi4s_ib_in[2], \axi4s_ib_in.tdata [2]);
 tran (axi4s_ib_in[1], \axi4s_ib_in.tdata [1]);
 tran (axi4s_ib_in[0], \axi4s_ib_in.tdata [0]);
-cr_fifo_wrap2_xcm11 u_cr_fifo_wrap2 ( .full( _zy_simnet_axi4s_slv_full_5_w$), 
+cr_fifo_wrap2_xcm12 u_cr_fifo_wrap2 ( .full( _zy_simnet_axi4s_slv_full_5_w$), 
 	.afull( _zy_simnet_axi4s_slv_afull_6_w$), .rdata( 
 	_zy_simnet_axi4s_slv_out_7_w$[0:82]), .empty( axi4s_slv_empty), 
 	.aempty( axi4s_slv_aempty), .bimc_odat( 

@@ -1,0 +1,166 @@
+Log started on host: hsv-sc49 pid: 3412494 at: Thu May  9 14:39:56 2024
+
+libxcrt IXCOM, V23.03.131.s001             (compiled with XCELIUM-22.09-s001, loaded with  XCELIUM-23.09-a071)
+
+INFO: target platform:Z1, execution platform:Z1
+--- xc status: @ simTime=0 FS, IN SOFTWARE MODE going to be IN TBRUN MODE, xt0, zt0.
+--- xc status: @ simTime=0 FS, IN TBRUN MODE, xt0, zt0.
+--- xc status: @ simTime=395625 PS (End-Of-Simulation), IN TBRUN MODE, xt0, zt0.
+
+=========================================================================
+IXCOM Performance and Design Profile
+-------------------------------------------------------------------------
+--- Maximum HW operating speed (compiler fclk freq): 2929.70 KHz
+--- HW executed total fclk cycles  (      318662 ) : time = 0.11 sec, (cfclks/fclks: 0.20%)
+--- Clocking Mode: Default (2X).
+
+--- HW execution command line session time: 0.30 sec (0.05 CPU sec)
+
+--- HW execution wall clock time          : 0.30 sec (0.05 CPU sec)
+
+--- Simulation acceleration speed achieved: 2.10 KHz (2095.48 evals/sec)
+
+--- HW executed
+    --        638 ECM controlled fclk cycles      @ 2.11 KHz (2112.03 cfclks/sec)
+    --        633 Eval (or sim-timestep) cycles   @ 2.10 KHz (2095.48 evals/sec)
+
+       --         12 Gfifo wait cycles           : 0.00 sec (0.00% total)
+               |--         12 Gfifo tbsync waits : 0.00 sec (0.00% total)
+
+       --        100 Sfifo asyncCall idle cycles  : 0.00 sec (0.01% total)
+
+--- Total number of HW-SW Synchronizations(tbSyncs) : 1 (633.00 evals/tbSync)
+    |-- Synchronizations due to tbcalls(tbcallSyncs): 1 (633.00 evals/tbcallSync)
+
+
+--- xc Profile: (%)
+	    80.77         XCRT-OH (Elapsed: 0.24 sec)
+
+	    19.23          SW-SIM (Elapsed: 0.06 sec)
+	                    |---- GFIFO (20.00 %, 0.01 sec)
+	                             |-- GFIFO-USER-CODE (100.00 %, 0.01 sec)
+	                    |----  MARG (20.00 %, 0.01 sec)
+
+
+	--- XCRT-OH    : IXCOM runtime overhead.
+	--- SW-SIM     : TB and TBCall execution in sw simulator.
+
+
+--- Primary Inputs  (bits): INPUT(0) FORCE(0)DEPOSIT(3 :dut=2 + dpi=1 + ixcom=0).
+--- Primary Outputs (bits): OUTPUT(71 :dut=0  dpi=67 + ixcom=4).
+=========================================================================
+
+=========================================================================
+GFIFO (import) profile
+      Num read xfers = 4, Num bytes read = 288, Time for read xfers = 0.00 sec (0.008 GBytes/sec)
+      Mem write wait time = 0.00 sec
+    16 GFIFO functions executed in 0.00 sec
+-------------------------------------------------------------------------
+               Count    %1-way      Ave      Ave     Saved  Scope
+                               NB-Sfifo  B-Sfifo             
+-------------------------------------------------------------------------
+                   3  100.00%     0.00     0.00         0  tb_top.kme_tb_dut._gfdL331_32_P0
+                   1  100.00%     0.00     0.00         0  tb_top.kme_tb_dut._gfdL556_37_P0
+                   1  100.00%     0.00     0.00         0  tb_top.kme_tb_dut._gfdL317_36_P0
+                   1  100.00%     0.00     0.00         0  tb_top.kme_tb_dut._gfdL708_35_P0
+                   1  100.00%     0.00     0.00         0  tb_top.kme_tb_dut._gfdL322_33_P0
+                   1    0.00%    32.00     0.00         0  tb_top.kme_tb_dut.get_config_data_2_zyprefetch
+                   1    0.00%    21.00     0.00         0  tb_top.kme_tb_dut.ib_service_data_2_zyprefetch
+                   1  100.00%     0.00     0.00         0  tb_top.kme_tb_dut._gfdL425_26_P0
+                   1  100.00%     0.00     0.00         0  tb_top.kme_tb_dut._gfdL427_23_P0
+                   1    0.00%    22.00     0.00         0  tb_top.kme_tb_dut.ob_service_data_2_zyprefetch
+                   1  100.00%     0.00     0.00         0  tb_top.kme_tb_dut._gfdL565_15_P0
+                   1  100.00%     0.00     0.00         0  tb_top.kme_tb_dut._gfdL279_2_P0
+                   1  100.00%     0.00     0.00         0  tb_top.kme_tb_dut._gfdL292_1_P0
+                   1  100.00%     0.00     0.00         0  tb_top.kme_tb_dut._gfdL415_0_P0
+-------------------------------------------------------------------------
+---               16   81.25%     4.69     0.00         0  Total
+-------------------------------------------------------------------------
+      Num polls = 15, Num bytes polled = 360, Time for polls = 0.00 sec, Polling back off time = 0.00 sec
+      Ave poll time = 7.14 us, Min poll time = 5.68 us, Max poll time = 13.09 us
+      Polling distribution:
+          5.00 us to  10.00 us 13 polls
+         10.00 us to  15.00 us 2 polls
+=========================================================================
+
+=========================================================================
+    SFIFO (export) profile
+    Total SFIFO flush time = 0.00 sec
+-------------------------------------------------------------------------
+               Count NB/B  Scope
+-------------------------------------------------------------------------
+                  31   NB  tb_top.kme_tb_dut.get_config_data_zyputf
+                  21   NB  tb_top.kme_tb_dut.ob_service_data_zyputf
+                  20   NB  tb_top.kme_tb_dut.ib_service_data_zyputf
+                   1   NB  tb_top.kme_tb_dut.get_config_data_zyackf
+                   1   NB  tb_top.kme_tb_dut.ib_service_data_zyackf
+                   1   NB  tb_top.kme_tb_dut.ob_service_data_zyackf
+-------------------------------------------------------------------------
+---               75 Total
+-------------------------------------------------------------------------
+      Num polls = 1, Num bytes polled = 32, Time for polls = 0.00 sec
+      Ave poll time = 8.71 us, Min poll time = 8.71 us, Max poll time = 8.71 us
+      Polling distribution:
+        5.00 us to 10.00 us 1 polls
+=========================================================================
+
+=========================================================================
+--- Synchronizations due to TB/DPI/SVA/SysTask calls (tbcallSyncs): 1.
+
+-------------------------------------------------------------------------
+	TBCALL statistics: 1 tb-calls
+-------------------------------------------------------------------------
+     Count Scope
+-------------------------------------------------------------------------
+         1 tb_top.kme_tb_dut._zzictd_finishT_L10_0
+              Loc: (/home/ibarry/Project-Zipline-master/dv/KME/run/kme_tb.sv, 10)
+
+
+=========================================================================
+	Memory Read statistics: 13 mem reads
+-------------------------------------------------------------------------
+         Count           Bytes            sec     MB/sec  Name
+-------------------------------------------------------------------------
+            13              52         0.0216      0.002  IXCOM Generated Internal Memories
+-------------------------------------------------------------------------
+---         13              52         0.0216      0.002  Total
+-------------------------------------------------------------------------
+=========================================================================
+
+xcProfiler report generated on: Thu May  9 14:40:21 2024
+
+=========================================================================
+
+--- pollEmu PO usec: avg:37.77, max:64.32, min:8.53 #polls:4 (>1ms 0), tot:0.00s
+======================================================
+	get resource usage report
+------------------------------------------------------
+user time used: 0.05 sec
+system time used: 0.01 sec
+maximum resident set size: 753852 (1284)
+integral shared memory size: 0
+integral unshared data size: 0
+integral unshared stack size: 0
+page reclaims: 239
+page faults: 0
+swaps: 0
+block input operations: 0
+block output operations: 8
+messages sent: 0
+messages received: 0
+signals received: 0
+voluntary context switches: 129
+involuntary context switches: 1
+======================================================
+
+================= xcib statistics ====================
+                   UART     BYPASS           
+      thread      count      count   cpu time
+--------------------------------------------------------
+        main         27          0       0.49
+--------------------------------------------------------
+
+xcmempio = 0.
+
+Log end: Thu May  9 14:40:21 2024
+

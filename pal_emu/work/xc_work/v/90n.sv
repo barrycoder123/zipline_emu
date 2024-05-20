@@ -1,8 +1,19 @@
 // xc_work/v/90n.sv
-// /home/ibarry/Project-Zipline-master/rtl/cr_cceip_64_sa/cr_sa_counter.v:22
+// /home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_core_glue.v:18
 // NOTE: This file corresponds to a module in the Hardware/DUT partition.
 `timescale 1ns/1ns
-module cr_sa_counter(sa_count,sa_snapshot,clk,rst_n,sa_event_sel,sa_events,sa_clear,sa_snap);
+module cr_kme_core_glue(disable_debug_cmd_q,set_gcm_tag_fail_int,set_txc_bp_int,set_rsm_is_backpressuring,kme_ib_out,sa_snapshot,sa_count,kme_idle,idle_components,clk,
+rst_n,disable_debug_cmd,cceip_encrypt_gcm_tag_fail_int,cceip_validate_gcm_tag_fail_int,cddip_decrypt_gcm_tag_fail_int,cceip_ob_full,cddip_ob_full,tready_override,core_kme_ib_out,sa_global_ctrl,sa_ctrl,stat_drbg_reseed,
+stat_req_with_expired_seed,stat_aux_key_type_0,stat_aux_key_type_1,stat_aux_key_type_2,stat_aux_key_type_3,stat_aux_key_type_4,stat_aux_key_type_5,stat_aux_key_type_6,stat_aux_key_type_7,stat_aux_key_type_8,stat_aux_key_type_9,stat_aux_key_type_10,
+stat_aux_key_type_11,stat_aux_key_type_12,stat_aux_key_type_13,stat_cceip0_stall_on_valid_key,stat_cceip1_stall_on_valid_key,stat_cceip2_stall_on_valid_key,stat_cceip3_stall_on_valid_key,stat_cddip0_stall_on_valid_key,stat_cddip1_stall_on_valid_key,stat_cddip2_stall_on_valid_key,stat_cddip3_stall_on_valid_key,stat_aux_cmd_with_vf_pf_fail,
+kme_slv_empty,drng_idle,tlv_parser_idle,tlv_parser_int_tlv_start_pulse,cceip_key_tlv_rsm_end_pulse,cddip_key_tlv_rsm_end_pulse,cceip_key_tlv_rsm_idle,cddip_key_tlv_rsm_idle);
+// pkg external : PKG - cr_kme_regfilePKG : DTYPE  
+// pkg external : PKG - cr_kme_regfilePKG : DTYPE  
+// pkg external : PKG - cr_kme_regfilePKG : DTYPE  
+// pkg external : PKG - cr_kme_regfilePKG : DTYPE  
+// pkg external : PKG - cr_kme_regfilePKG : DTYPE  
+// pkg external : PKG - cr_kme_regfilePKG : DTYPE  
+// pkg external : PKG - cr_kme_regfilePKG : DTYPE  
 typedef enum logic [1:0] {ENET=0,IPV4=1,IPV6=2,MPLS=3} pkt_hdr_e;
 typedef enum logic [3:0] {CMD_SIMPLE=0,COMPND_4K=5,COMPND_8K=6,COMPND_RSV=15} cmd_compound_cmd_frm_size_e;
 typedef enum logic [0:0] {GUID_NOT_PRESENT=0,GUID_PRESENT=1} cmd_guid_present_e;
@@ -814,84 +825,1155 @@ typedef struct packed {
  zipline_error_e error_code;
  logic [10:0] errored_frame_number ;
 } ftr_error_t;
+typedef struct packed {
+ logic [0:0] valid ;
+ logic [2:0] label_index ;
+ logic [1:0] ckv_length ;
+ logic [14:0] ckv_pointer ;
+ logic [3:0] pf_num ;
+ logic [11:0] vf_num ;
+ logic [0:0] vf_valid ;
+} kim_entry_t;
+typedef struct packed {
+ logic [0:0] guid_size ;
+ logic [5:0] label_size ;
+ logic [255:0] label ;
+ logic [0:0] delimiter_valid ;
+ logic [7:0] delimiter ;
+} label_t;
+typedef struct packed {
+ logic [0:0] valid ;
+ logic [2:0] label_index ;
+ logic [0:0] pf_num ;
+ logic [0:0] vf_valid ;
+ logic [8:0] vf_num ;
+ logic [511:0] ckv_key ;
+} kim_ckv_resp_t;
+typedef enum logic [3:0] {KME_WORD0=4'b0,KME_DEBUG_KEYHDR=4'b01,KME_IVTWEAK=4'b010,KME_GUID=4'b011,KME_KIM=4'b0100,KME_DEK_CKV0=4'b0101,KME_DEK_CKV1=4'b0110,KME_DAK_CKV=4'b0111,KME_EIV=4'b1000,KME_DEK0=4'b1001,
+KME_DEK1=4'b1010,KME_ETAG=4'b1011,KME_AIV=4'b1100,KME_DAK=4'b1101,KME_ATAG=4'b1110,KME_ERROR=4'b1111} kme_internal_id;
+typedef enum logic [5:0] {IDX_KME_WORD0=6'b0,IDX_KME_DEBUG_KEYHDR=6'b01,IDX_KME_GUID=6'b010,IDX_KME_IVTWEAK=6'b0110,IDX_KME_KIM=6'b01000,IDX_KME_DEK_CKV0=6'b01010,IDX_KME_DEK_CKV1=6'b01110,IDX_KME_DAK_CKV=6'b010010,IDX_KME_EIV=6'b010110,IDX_KME_DEK0=6'b011000,
+IDX_KME_DEK1=6'b011100,IDX_KME_ETAG=6'b100000,IDX_KME_AIV=6'b100010,IDX_KME_DAK=6'b100100,IDX_KME_ATAG=6'b101000,IDX_KME_ERROR=6'b101010} kme_internal_idx;
+typedef struct packed {
+ logic [0:0] sot ;
+ logic [0:0] eoi ;
+ logic [0:0] eot ;
+ kme_internal_id id;
+ logic [63:0] tdata ;
+} kme_internal_t;
+typedef struct packed {
+ logic [1:0] tlv_bip2 ;
+ logic [12:0] resv0 ;
+ logic [0:0] kdf_dek_iter ;
+ logic [0:0] keyless_algos ;
+ logic [0:0] needs_dek ;
+ logic [0:0] needs_dak ;
+ aux_key_type_e key_type;
+ logic [10:0] tlv_frame_num ;
+ logic [3:0] tlv_eng_id ;
+ logic [7:0] tlv_seq_num ;
+ logic [7:0] tlv_len ;
+ tlv_types_e tlv_type;
+} kme_internal_word_0_t;
+typedef struct packed {
+ kim_entry_t dek_kim_entry;
+ logic [5:0] unused ;
+ logic [0:0] missing_iv ;
+ logic [0:0] missing_guid ;
+ logic [0:0] validate_dek ;
+ logic [0:0] vf_valid ;
+ logic [3:0] pf_num ;
+ logic [11:0] vf_num ;
+} kme_internal_word_8_t;
+typedef struct packed {
+ kim_entry_t dak_kim_entry;
+ logic [7:0] unused ;
+ logic [0:0] validate_dak ;
+ logic [0:0] vf_valid ;
+ logic [3:0] pf_num ;
+ logic [11:0] vf_num ;
+} kme_internal_word_9_t;
+typedef struct packed {
+ logic [0:0] corrupt_crc32 ;
+ logic [46:0] unused ;
+ zipline_error_e error_code;
+} kme_internal_word_42_t;
+typedef enum logic [2:0] {PT_CKV=3'b0,PT_KEY_BLOB=3'b01,DECRYPT_DEK256=3'b010,DECRYPT_DEK512=3'b011,DECRYPT_DAK=3'b100,DECRYPT_DEK256_COMB=3'b101,DECRYPT_DEK512_COMB=3'b110,DECRYPT_DAK_COMB=3'b111} gcm_op_e;
+typedef struct packed {
+ logic [255:0] key0 ;
+ logic [255:0] key1 ;
+ logic [95:0] iv ;
+ gcm_op_e op;
+} gcm_cmd_t;
+typedef struct packed {
+ logic [0:0] tag_mismatch ;
+} gcm_status_t;
+typedef struct packed {
+ logic [0:0] combo_mode ;
+} keyfilter_cmd_t;
+typedef struct packed {
+ logic [0:0] kdf_dek_iter ;
+ logic [0:0] combo_mode ;
+ aux_key_op_e dek_key_op, dak_key_op;
+} kdf_cmd_t;
+typedef struct packed {
+ logic [0:0] combo_mode ;
+ logic [0:0] skip ;
+ logic [255:0] guid ;
+ logic [2:0] label_index ;
+ logic [1:0] num_iter ;
+} kdfstream_cmd_t;
+import cr_kmePKG::* ;
+import cr_kme_regfilePKG::* ;
+localparam CKV_NUM_ENTRIES = 32768;
+localparam CKV_DATA_WIDTH = 64;
+localparam KIM_NUM_ENTRIES = 16384;
+localparam KIM_DATA_WIDTH = 38;
 input  clk;
 input  rst_n;
-input  [9:0] sa_event_sel ;
-input  [63:0] sa_events [15:0];
-input  sa_clear;
-input  sa_snap;
-output logic [49:0] sa_count ;
-output logic [49:0] sa_snapshot ;
-logic [63:0] sa_mux1 ;
-logic sa_mux2;
-logic [5:0] mux2_sel ;
-wire  [0:49] _zy_simnet_sa_count_0_w$ ;
-wire  [0:49] _zy_simnet_sa_snapshot_1_w$ ;
-assign  mux2_sel = sa_event_sel[5:0];
-assign  sa_mux2 = sa_mux1[mux2_sel];
-assign  _zy_simnet_sa_count_0_w$ = sa_count;
-assign  _zy_simnet_sa_snapshot_1_w$ = sa_snapshot;
-always_comb 
- begin
-  case (sa_event_sel[9:6])
-   4'b0:
-    sa_mux1 = sa_events[0];
-   4'b01:
-    sa_mux1 = sa_events[1];
-   4'b010:
-    sa_mux1 = sa_events[2];
-   4'b011:
-    sa_mux1 = sa_events[3];
-   4'b0100:
-    sa_mux1 = sa_events[4];
-   4'b0101:
-    sa_mux1 = sa_events[5];
-   4'b0110:
-    sa_mux1 = sa_events[6];
-   4'b0111:
-    sa_mux1 = sa_events[7];
-   4'b1000:
-    sa_mux1 = sa_events[8];
-   4'b1001:
-    sa_mux1 = sa_events[9];
-   4'b1010:
-    sa_mux1 = sa_events[10];
-   4'b1011:
-    sa_mux1 = sa_events[11];
-   4'b1100:
-    sa_mux1 = sa_events[12];
-   4'b1101:
-    sa_mux1 = sa_events[13];
-   4'b1110:
-    sa_mux1 = sa_events[14];
-   4'b1111:
-    sa_mux1 = sa_events[15];
-  endcase
- end
+input wire  disable_debug_cmd;
+output reg disable_debug_cmd_q;
+input  cceip_encrypt_gcm_tag_fail_int;
+input  cceip_validate_gcm_tag_fail_int;
+input  cddip_decrypt_gcm_tag_fail_int;
+output  set_gcm_tag_fail_int;
+output reg set_txc_bp_int;
+input  [3:0] cceip_ob_full ;
+input  [3:0] cddip_ob_full ;
+output  [7:0] set_rsm_is_backpressuring ;
+input cr_kme_regfilePKG::tready_override_t tready_override;
+input axi4s_dp_rdy_t core_kme_ib_out;
+output axi4s_dp_rdy_t kme_ib_out;
+input cr_kme_regfilePKG::sa_global_ctrl_t sa_global_ctrl;
+input cr_kme_regfilePKG::sa_ctrl_t sa_ctrl [31:0];
+output cr_kme_regfilePKG::sa_snapshot_t sa_snapshot [31:0];
+output cr_kme_regfilePKG::sa_count_t sa_count [31:0];
+input  stat_drbg_reseed;
+input  stat_req_with_expired_seed;
+input  stat_aux_key_type_0;
+input  stat_aux_key_type_1;
+input  stat_aux_key_type_2;
+input  stat_aux_key_type_3;
+input  stat_aux_key_type_4;
+input  stat_aux_key_type_5;
+input  stat_aux_key_type_6;
+input  stat_aux_key_type_7;
+input  stat_aux_key_type_8;
+input  stat_aux_key_type_9;
+input  stat_aux_key_type_10;
+input  stat_aux_key_type_11;
+input  stat_aux_key_type_12;
+input  stat_aux_key_type_13;
+input  stat_cceip0_stall_on_valid_key;
+input  stat_cceip1_stall_on_valid_key;
+input  stat_cceip2_stall_on_valid_key;
+input  stat_cceip3_stall_on_valid_key;
+input  stat_cddip0_stall_on_valid_key;
+input  stat_cddip1_stall_on_valid_key;
+input  stat_cddip2_stall_on_valid_key;
+input  stat_cddip3_stall_on_valid_key;
+input  stat_aux_cmd_with_vf_pf_fail;
+output reg kme_idle;
+input  kme_slv_empty;
+input  drng_idle;
+input  tlv_parser_idle;
+input  tlv_parser_int_tlv_start_pulse;
+input  [3:0] cceip_key_tlv_rsm_end_pulse ;
+input  [3:0] cddip_key_tlv_rsm_end_pulse ;
+input  [3:0] cceip_key_tlv_rsm_idle ;
+input  [3:0] cddip_key_tlv_rsm_idle ;
+output cr_kme_regfilePKG::idle_t idle_components;
+genvar i;
+integer k;
+reg [63:0] sa_events [15:0];
+reg [31:0] num_key_tlv_in_flight ;
+reg sa_snap;
+reg sa_clear;
+reg regs_sa_snap_r;
+reg regs_sa_clear_live_r;
+wire  _zy_simnet_disable_debug_cmd_q_0_w$;
+wire  _zy_simnet_set_txc_bp_int_1_w$;
+wire  _zy_simnet_kme_ib_out_2_w$;
+wire  _zy_simnet_kme_idle_3_w$;
+wire  [0:31] _zy_simnet_idle_components_4_w$ ;
+assign  set_gcm_tag_fail_int = ((cceip_encrypt_gcm_tag_fail_int | cceip_validate_gcm_tag_fail_int) | cddip_decrypt_gcm_tag_fail_int);
+assign  set_rsm_is_backpressuring = {cddip_ob_full[32'sd3:32'sd0],cceip_ob_full[32'sd3:32'sd0]};
+assign  kme_ib_out.tready = (tready_override.f.txc_tready_override ? 1'b0 : core_kme_ib_out.tready);
+assign  idle_components.f.num_key_tlvs_in_flight = num_key_tlv_in_flight[19:0];
+assign  idle_components.f.cddip0_key_tlv_rsm_idle = cddip_key_tlv_rsm_idle[0];
+assign  idle_components.f.cddip1_key_tlv_rsm_idle = cddip_key_tlv_rsm_idle[1];
+assign  idle_components.f.cddip2_key_tlv_rsm_idle = cddip_key_tlv_rsm_idle[2];
+assign  idle_components.f.cddip3_key_tlv_rsm_idle = cddip_key_tlv_rsm_idle[3];
+assign  idle_components.f.cceip0_key_tlv_rsm_idle = cceip_key_tlv_rsm_idle[0];
+assign  idle_components.f.cceip1_key_tlv_rsm_idle = cceip_key_tlv_rsm_idle[1];
+assign  idle_components.f.cceip2_key_tlv_rsm_idle = cceip_key_tlv_rsm_idle[2];
+assign  idle_components.f.cceip3_key_tlv_rsm_idle = cceip_key_tlv_rsm_idle[3];
+assign  idle_components.f.no_key_tlv_in_flight = (num_key_tlv_in_flight == 32'b0);
+assign  idle_components.f.tlv_parser_idle = tlv_parser_idle;
+assign  idle_components.f.drng_idle = drng_idle;
+assign  idle_components.f.kme_slv_empty = kme_slv_empty;
+assign  _zy_simnet_disable_debug_cmd_q_0_w$ = disable_debug_cmd_q;
+assign  _zy_simnet_set_txc_bp_int_1_w$ = set_txc_bp_int;
+assign  _zy_simnet_kme_ib_out_2_w$ = kme_ib_out;
+assign  _zy_simnet_kme_idle_3_w$ = kme_idle;
+assign  _zy_simnet_idle_components_4_w$ = idle_components;
+
+function  [63:0] endian_switch;
+ input reg [63:0] data ;
+ endian_switch = {data[32'sd7:32'sd0],data[32'sd15:32'sd8],data[32'sd23:32'sd16],data[32'sd31:32'sd24],data[32'sd39:32'sd32],data[32'sd47:32'sd40],data[32'sd55:32'sd48],data[32'sd63:32'sd56]};
+endfunction
+
+
+function  [3:0] strb_to_bytes;
+ input reg [7:0] strb ;
+ case (strb)
+  8'b01:
+   strb_to_bytes = 4'b01;
+  8'b011:
+   strb_to_bytes = 4'b010;
+  8'b0111:
+   strb_to_bytes = 4'b011;
+  8'b01111:
+   strb_to_bytes = 4'b0100;
+  8'b011111:
+   strb_to_bytes = 4'b0101;
+  8'b0111111:
+   strb_to_bytes = 4'b0110;
+  8'b01111111:
+   strb_to_bytes = 4'b0111;
+  8'b11111111:
+   strb_to_bytes = 4'b1000;
+  default:
+   strb_to_bytes = 4'b0;
+ endcase
+endfunction
+
+
+function  [7:0] bytes_to_strb;
+ input reg [3:0] bytes ;
+ case (bytes)
+  4'b01:
+   bytes_to_strb = 8'b01;
+  4'b010:
+   bytes_to_strb = 8'b011;
+  4'b011:
+   bytes_to_strb = 8'b0111;
+  4'b0100:
+   bytes_to_strb = 8'b01111;
+  4'b0101:
+   bytes_to_strb = 8'b011111;
+  4'b0110:
+   bytes_to_strb = 8'b0111111;
+  4'b0111:
+   bytes_to_strb = 8'b01111111;
+  4'b1000:
+   bytes_to_strb = 8'b11111111;
+  default:
+   bytes_to_strb = 8'b0;
+ endcase
+endfunction
+
+
+function  [6:0] strb_to_bits;
+ input reg [7:0] strb ;
+ case (strb)
+  8'b01:
+   strb_to_bits = 7'b01000;
+  8'b011:
+   strb_to_bits = 7'b010000;
+  8'b0111:
+   strb_to_bits = 7'b011000;
+  8'b01111:
+   strb_to_bits = 7'b0100000;
+  8'b011111:
+   strb_to_bits = 7'b0101000;
+  8'b0111111:
+   strb_to_bits = 7'b0110000;
+  8'b01111111:
+   strb_to_bits = 7'b0111000;
+  8'b11111111:
+   strb_to_bits = 7'b1000000;
+  default:
+   strb_to_bits = 7'b0;
+ endcase
+endfunction
+
+always 
+ @(posedge clk or negedge rst_n)
+  begin
+   if (( !rst_n ))
+    begin
+     set_txc_bp_int <= 1'b0;
+     disable_debug_cmd_q <= 1'b0;
+    end
+   else
+    begin
+     set_txc_bp_int <= ( ~kme_ib_out.tready );
+     disable_debug_cmd_q <= disable_debug_cmd;
+    end
+  end
+always 
+ @(*)
+  begin
+   for (k = 0;(k < 16); k = (k + 1))
+    begin
+     sa_events[k] = 64'b0;
+    end
+   sa_events[0][0] = stat_drbg_reseed;
+   sa_events[0][1] = stat_req_with_expired_seed;
+   sa_events[0][2] = stat_aux_key_type_0;
+   sa_events[0][3] = stat_aux_key_type_1;
+   sa_events[0][4] = stat_aux_key_type_2;
+   sa_events[0][5] = stat_aux_key_type_3;
+   sa_events[0][6] = stat_aux_key_type_4;
+   sa_events[0][7] = stat_aux_key_type_5;
+   sa_events[0][8] = stat_aux_key_type_6;
+   sa_events[0][9] = stat_aux_key_type_7;
+   sa_events[0][10] = stat_aux_key_type_8;
+   sa_events[0][11] = stat_aux_key_type_9;
+   sa_events[0][12] = stat_aux_key_type_10;
+   sa_events[0][13] = stat_aux_key_type_11;
+   sa_events[0][14] = stat_aux_key_type_12;
+   sa_events[0][15] = stat_aux_key_type_13;
+   sa_events[0][16] = stat_cceip0_stall_on_valid_key;
+   sa_events[0][17] = stat_cceip1_stall_on_valid_key;
+   sa_events[0][18] = stat_cceip2_stall_on_valid_key;
+   sa_events[0][19] = stat_cceip3_stall_on_valid_key;
+   sa_events[0][20] = stat_cddip0_stall_on_valid_key;
+   sa_events[0][21] = stat_cddip1_stall_on_valid_key;
+   sa_events[0][22] = stat_cddip2_stall_on_valid_key;
+   sa_events[0][23] = stat_cddip3_stall_on_valid_key;
+   sa_events[0][24] = stat_aux_cmd_with_vf_pf_fail;
+  end
 always 
  @(posedge clk or negedge rst_n)
   begin
    if (( ~rst_n ))
     begin
-     sa_count <= 50'b0;
-     sa_snapshot <= 50'b0;
+     sa_snap <= 1'b0;
+     sa_clear <= 1'b0;
+     regs_sa_snap_r <= 1'b0;
+     regs_sa_clear_live_r <= 1'b0;
     end
    else
     begin
-     if (sa_clear)
-      begin
-       sa_count <= 50'b0;
-      end
-     else
-      if (sa_mux2)
-       begin
-        sa_count <= (sa_count + 50'b01);
-       end
-     if (sa_snap)
-      begin
-       sa_snapshot <= sa_count;
-      end
+     regs_sa_snap_r <= sa_global_ctrl.f.sa_snap;
+     regs_sa_clear_live_r <= sa_global_ctrl.f.sa_clear_live;
+     sa_snap <= (sa_global_ctrl.f.sa_snap & ( ~regs_sa_snap_r ));
+     sa_clear <= (sa_global_ctrl.f.sa_clear_live & ( ~regs_sa_clear_live_r ));
     end
   end
+always 
+ @(*)
+  begin
+   for (k = 0;(k < 32); k = (k + 1))
+    begin
+     sa_count[k].f.unused = 14'b0;
+     sa_snapshot[k].f.unused = 14'b0;
+    end
+  end
+always 
+ @(posedge clk or negedge rst_n)
+  begin
+   if (( !rst_n ))
+    begin
+     num_key_tlv_in_flight <= 32'b0;
+    end
+   else
+    begin
+     case ({tlv_parser_int_tlv_start_pulse,(( | cceip_key_tlv_rsm_end_pulse ) | ( | cddip_key_tlv_rsm_end_pulse ))})
+      2'b0:
+       num_key_tlv_in_flight <= num_key_tlv_in_flight;
+      2'b01:
+       num_key_tlv_in_flight <= (num_key_tlv_in_flight - 32'b01);
+      2'b10:
+       num_key_tlv_in_flight <= (num_key_tlv_in_flight + 32'b01);
+      2'b11:
+       num_key_tlv_in_flight <= num_key_tlv_in_flight;
+     endcase
+    end
+  end
+always 
+ @(posedge clk or negedge rst_n)
+  begin
+   if (( !rst_n ))
+    begin
+     kme_idle <= 1'b0;
+    end
+   else
+    begin
+     kme_idle <= (((((kme_slv_empty & drng_idle) & tlv_parser_idle) & (num_key_tlv_in_flight == 32'b0)) & ( &cceip_key_tlv_rsm_idle )) & ( &cddip_key_tlv_rsm_idle ));
+    end
+  end
+genvar i$35; 
+for ( i$35 = 0 ; (i$35 < 32) ; i$35 = (i$35 + 1) ) begin: num
+end
+genvar i$36; 
+// pragma cva_vlog_forgen num 
+for ( i$36 = 0 ; (i$36 <= 0) ; i$36 = (i$36 + 1) ) begin: num_0_
+ localparam integer i = 0;
+ wire  [0:49] _zy_simnet_tvar_5 ;
+ wire  [0:49] _zy_simnet_tvar_6 ;
+ wire  [0:9] _zy_simnet_tvar_7 ;
+ wire  _zy_simnet_sa_clear_8_w$;
+ wire  _zy_simnet_sa_snap_9_w$;
+  assign  {sa_count[32'sd0].f.upper,sa_count[32'sd0].f.lower} = _zy_simnet_tvar_5;
+  assign  {sa_snapshot[32'sd0].f.upper,sa_snapshot[32'sd0].f.lower} = _zy_simnet_tvar_6;
+  assign  _zy_simnet_tvar_7 = {5'b0,sa_ctrl[32'sd0].f.sa_event_sel};
+  assign  _zy_simnet_sa_clear_8_w$ = sa_clear;
+  assign  _zy_simnet_sa_snap_9_w$ = sa_snap;
+  cr_sa_counter sa_counter_i(
+   .sa_count(_zy_simnet_tvar_5) ,
+   .sa_snapshot(_zy_simnet_tvar_6) ,
+   .clk(clk) ,
+   .rst_n(rst_n) ,
+   .sa_event_sel(_zy_simnet_tvar_7) ,
+   .sa_events(sa_events) ,
+   .sa_clear(_zy_simnet_sa_clear_8_w$) ,
+   .sa_snap(_zy_simnet_sa_snap_9_w$) );
+end
+genvar i$37; 
+// pragma cva_vlog_forgen num 
+for ( i$37 = 1 ; (i$37 <= 1) ; i$37 = (i$37 + 1) ) begin: num_1_
+ localparam integer i = 1;
+ wire  [0:49] _zy_simnet_tvar_10 ;
+ wire  [0:49] _zy_simnet_tvar_11 ;
+ wire  [0:9] _zy_simnet_tvar_12 ;
+ wire  _zy_simnet_sa_clear_13_w$;
+ wire  _zy_simnet_sa_snap_14_w$;
+  assign  {sa_count[32'sd1].f.upper,sa_count[32'sd1].f.lower} = _zy_simnet_tvar_10;
+  assign  {sa_snapshot[32'sd1].f.upper,sa_snapshot[32'sd1].f.lower} = _zy_simnet_tvar_11;
+  assign  _zy_simnet_tvar_12 = {5'b0,sa_ctrl[32'sd1].f.sa_event_sel};
+  assign  _zy_simnet_sa_clear_13_w$ = sa_clear;
+  assign  _zy_simnet_sa_snap_14_w$ = sa_snap;
+  cr_sa_counter sa_counter_i(
+   .sa_count(_zy_simnet_tvar_10) ,
+   .sa_snapshot(_zy_simnet_tvar_11) ,
+   .clk(clk) ,
+   .rst_n(rst_n) ,
+   .sa_event_sel(_zy_simnet_tvar_12) ,
+   .sa_events(sa_events) ,
+   .sa_clear(_zy_simnet_sa_clear_13_w$) ,
+   .sa_snap(_zy_simnet_sa_snap_14_w$) );
+end
+genvar i$38; 
+// pragma cva_vlog_forgen num 
+for ( i$38 = 2 ; (i$38 <= 2) ; i$38 = (i$38 + 1) ) begin: num_2_
+ localparam integer i = 2;
+ wire  [0:49] _zy_simnet_tvar_15 ;
+ wire  [0:49] _zy_simnet_tvar_16 ;
+ wire  [0:9] _zy_simnet_tvar_17 ;
+ wire  _zy_simnet_sa_clear_18_w$;
+ wire  _zy_simnet_sa_snap_19_w$;
+  assign  {sa_count[32'sd2].f.upper,sa_count[32'sd2].f.lower} = _zy_simnet_tvar_15;
+  assign  {sa_snapshot[32'sd2].f.upper,sa_snapshot[32'sd2].f.lower} = _zy_simnet_tvar_16;
+  assign  _zy_simnet_tvar_17 = {5'b0,sa_ctrl[32'sd2].f.sa_event_sel};
+  assign  _zy_simnet_sa_clear_18_w$ = sa_clear;
+  assign  _zy_simnet_sa_snap_19_w$ = sa_snap;
+  cr_sa_counter sa_counter_i(
+   .sa_count(_zy_simnet_tvar_15) ,
+   .sa_snapshot(_zy_simnet_tvar_16) ,
+   .clk(clk) ,
+   .rst_n(rst_n) ,
+   .sa_event_sel(_zy_simnet_tvar_17) ,
+   .sa_events(sa_events) ,
+   .sa_clear(_zy_simnet_sa_clear_18_w$) ,
+   .sa_snap(_zy_simnet_sa_snap_19_w$) );
+end
+genvar i$39; 
+// pragma cva_vlog_forgen num 
+for ( i$39 = 3 ; (i$39 <= 3) ; i$39 = (i$39 + 1) ) begin: num_3_
+ localparam integer i = 3;
+ wire  [0:49] _zy_simnet_tvar_20 ;
+ wire  [0:49] _zy_simnet_tvar_21 ;
+ wire  [0:9] _zy_simnet_tvar_22 ;
+ wire  _zy_simnet_sa_clear_23_w$;
+ wire  _zy_simnet_sa_snap_24_w$;
+  assign  {sa_count[32'sd3].f.upper,sa_count[32'sd3].f.lower} = _zy_simnet_tvar_20;
+  assign  {sa_snapshot[32'sd3].f.upper,sa_snapshot[32'sd3].f.lower} = _zy_simnet_tvar_21;
+  assign  _zy_simnet_tvar_22 = {5'b0,sa_ctrl[32'sd3].f.sa_event_sel};
+  assign  _zy_simnet_sa_clear_23_w$ = sa_clear;
+  assign  _zy_simnet_sa_snap_24_w$ = sa_snap;
+  cr_sa_counter sa_counter_i(
+   .sa_count(_zy_simnet_tvar_20) ,
+   .sa_snapshot(_zy_simnet_tvar_21) ,
+   .clk(clk) ,
+   .rst_n(rst_n) ,
+   .sa_event_sel(_zy_simnet_tvar_22) ,
+   .sa_events(sa_events) ,
+   .sa_clear(_zy_simnet_sa_clear_23_w$) ,
+   .sa_snap(_zy_simnet_sa_snap_24_w$) );
+end
+genvar i$40; 
+// pragma cva_vlog_forgen num 
+for ( i$40 = 4 ; (i$40 <= 4) ; i$40 = (i$40 + 1) ) begin: num_4_
+ localparam integer i = 4;
+ wire  [0:49] _zy_simnet_tvar_25 ;
+ wire  [0:49] _zy_simnet_tvar_26 ;
+ wire  [0:9] _zy_simnet_tvar_27 ;
+ wire  _zy_simnet_sa_clear_28_w$;
+ wire  _zy_simnet_sa_snap_29_w$;
+  assign  {sa_count[32'sd4].f.upper,sa_count[32'sd4].f.lower} = _zy_simnet_tvar_25;
+  assign  {sa_snapshot[32'sd4].f.upper,sa_snapshot[32'sd4].f.lower} = _zy_simnet_tvar_26;
+  assign  _zy_simnet_tvar_27 = {5'b0,sa_ctrl[32'sd4].f.sa_event_sel};
+  assign  _zy_simnet_sa_clear_28_w$ = sa_clear;
+  assign  _zy_simnet_sa_snap_29_w$ = sa_snap;
+  cr_sa_counter sa_counter_i(
+   .sa_count(_zy_simnet_tvar_25) ,
+   .sa_snapshot(_zy_simnet_tvar_26) ,
+   .clk(clk) ,
+   .rst_n(rst_n) ,
+   .sa_event_sel(_zy_simnet_tvar_27) ,
+   .sa_events(sa_events) ,
+   .sa_clear(_zy_simnet_sa_clear_28_w$) ,
+   .sa_snap(_zy_simnet_sa_snap_29_w$) );
+end
+genvar i$41; 
+// pragma cva_vlog_forgen num 
+for ( i$41 = 5 ; (i$41 <= 5) ; i$41 = (i$41 + 1) ) begin: num_5_
+ localparam integer i = 5;
+ wire  [0:49] _zy_simnet_tvar_30 ;
+ wire  [0:49] _zy_simnet_tvar_31 ;
+ wire  [0:9] _zy_simnet_tvar_32 ;
+ wire  _zy_simnet_sa_clear_33_w$;
+ wire  _zy_simnet_sa_snap_34_w$;
+  assign  {sa_count[32'sd5].f.upper,sa_count[32'sd5].f.lower} = _zy_simnet_tvar_30;
+  assign  {sa_snapshot[32'sd5].f.upper,sa_snapshot[32'sd5].f.lower} = _zy_simnet_tvar_31;
+  assign  _zy_simnet_tvar_32 = {5'b0,sa_ctrl[32'sd5].f.sa_event_sel};
+  assign  _zy_simnet_sa_clear_33_w$ = sa_clear;
+  assign  _zy_simnet_sa_snap_34_w$ = sa_snap;
+  cr_sa_counter sa_counter_i(
+   .sa_count(_zy_simnet_tvar_30) ,
+   .sa_snapshot(_zy_simnet_tvar_31) ,
+   .clk(clk) ,
+   .rst_n(rst_n) ,
+   .sa_event_sel(_zy_simnet_tvar_32) ,
+   .sa_events(sa_events) ,
+   .sa_clear(_zy_simnet_sa_clear_33_w$) ,
+   .sa_snap(_zy_simnet_sa_snap_34_w$) );
+end
+genvar i$42; 
+// pragma cva_vlog_forgen num 
+for ( i$42 = 6 ; (i$42 <= 6) ; i$42 = (i$42 + 1) ) begin: num_6_
+ localparam integer i = 6;
+ wire  [0:49] _zy_simnet_tvar_35 ;
+ wire  [0:49] _zy_simnet_tvar_36 ;
+ wire  [0:9] _zy_simnet_tvar_37 ;
+ wire  _zy_simnet_sa_clear_38_w$;
+ wire  _zy_simnet_sa_snap_39_w$;
+  assign  {sa_count[32'sd6].f.upper,sa_count[32'sd6].f.lower} = _zy_simnet_tvar_35;
+  assign  {sa_snapshot[32'sd6].f.upper,sa_snapshot[32'sd6].f.lower} = _zy_simnet_tvar_36;
+  assign  _zy_simnet_tvar_37 = {5'b0,sa_ctrl[32'sd6].f.sa_event_sel};
+  assign  _zy_simnet_sa_clear_38_w$ = sa_clear;
+  assign  _zy_simnet_sa_snap_39_w$ = sa_snap;
+  cr_sa_counter sa_counter_i(
+   .sa_count(_zy_simnet_tvar_35) ,
+   .sa_snapshot(_zy_simnet_tvar_36) ,
+   .clk(clk) ,
+   .rst_n(rst_n) ,
+   .sa_event_sel(_zy_simnet_tvar_37) ,
+   .sa_events(sa_events) ,
+   .sa_clear(_zy_simnet_sa_clear_38_w$) ,
+   .sa_snap(_zy_simnet_sa_snap_39_w$) );
+end
+genvar i$43; 
+// pragma cva_vlog_forgen num 
+for ( i$43 = 7 ; (i$43 <= 7) ; i$43 = (i$43 + 1) ) begin: num_7_
+ localparam integer i = 7;
+ wire  [0:49] _zy_simnet_tvar_40 ;
+ wire  [0:49] _zy_simnet_tvar_41 ;
+ wire  [0:9] _zy_simnet_tvar_42 ;
+ wire  _zy_simnet_sa_clear_43_w$;
+ wire  _zy_simnet_sa_snap_44_w$;
+  assign  {sa_count[32'sd7].f.upper,sa_count[32'sd7].f.lower} = _zy_simnet_tvar_40;
+  assign  {sa_snapshot[32'sd7].f.upper,sa_snapshot[32'sd7].f.lower} = _zy_simnet_tvar_41;
+  assign  _zy_simnet_tvar_42 = {5'b0,sa_ctrl[32'sd7].f.sa_event_sel};
+  assign  _zy_simnet_sa_clear_43_w$ = sa_clear;
+  assign  _zy_simnet_sa_snap_44_w$ = sa_snap;
+  cr_sa_counter sa_counter_i(
+   .sa_count(_zy_simnet_tvar_40) ,
+   .sa_snapshot(_zy_simnet_tvar_41) ,
+   .clk(clk) ,
+   .rst_n(rst_n) ,
+   .sa_event_sel(_zy_simnet_tvar_42) ,
+   .sa_events(sa_events) ,
+   .sa_clear(_zy_simnet_sa_clear_43_w$) ,
+   .sa_snap(_zy_simnet_sa_snap_44_w$) );
+end
+genvar i$44; 
+// pragma cva_vlog_forgen num 
+for ( i$44 = 8 ; (i$44 <= 8) ; i$44 = (i$44 + 1) ) begin: num_8_
+ localparam integer i = 8;
+ wire  [0:49] _zy_simnet_tvar_45 ;
+ wire  [0:49] _zy_simnet_tvar_46 ;
+ wire  [0:9] _zy_simnet_tvar_47 ;
+ wire  _zy_simnet_sa_clear_48_w$;
+ wire  _zy_simnet_sa_snap_49_w$;
+  assign  {sa_count[32'sd8].f.upper,sa_count[32'sd8].f.lower} = _zy_simnet_tvar_45;
+  assign  {sa_snapshot[32'sd8].f.upper,sa_snapshot[32'sd8].f.lower} = _zy_simnet_tvar_46;
+  assign  _zy_simnet_tvar_47 = {5'b0,sa_ctrl[32'sd8].f.sa_event_sel};
+  assign  _zy_simnet_sa_clear_48_w$ = sa_clear;
+  assign  _zy_simnet_sa_snap_49_w$ = sa_snap;
+  cr_sa_counter sa_counter_i(
+   .sa_count(_zy_simnet_tvar_45) ,
+   .sa_snapshot(_zy_simnet_tvar_46) ,
+   .clk(clk) ,
+   .rst_n(rst_n) ,
+   .sa_event_sel(_zy_simnet_tvar_47) ,
+   .sa_events(sa_events) ,
+   .sa_clear(_zy_simnet_sa_clear_48_w$) ,
+   .sa_snap(_zy_simnet_sa_snap_49_w$) );
+end
+genvar i$45; 
+// pragma cva_vlog_forgen num 
+for ( i$45 = 9 ; (i$45 <= 9) ; i$45 = (i$45 + 1) ) begin: num_9_
+ localparam integer i = 9;
+ wire  [0:49] _zy_simnet_tvar_50 ;
+ wire  [0:49] _zy_simnet_tvar_51 ;
+ wire  [0:9] _zy_simnet_tvar_52 ;
+ wire  _zy_simnet_sa_clear_53_w$;
+ wire  _zy_simnet_sa_snap_54_w$;
+  assign  {sa_count[32'sd9].f.upper,sa_count[32'sd9].f.lower} = _zy_simnet_tvar_50;
+  assign  {sa_snapshot[32'sd9].f.upper,sa_snapshot[32'sd9].f.lower} = _zy_simnet_tvar_51;
+  assign  _zy_simnet_tvar_52 = {5'b0,sa_ctrl[32'sd9].f.sa_event_sel};
+  assign  _zy_simnet_sa_clear_53_w$ = sa_clear;
+  assign  _zy_simnet_sa_snap_54_w$ = sa_snap;
+  cr_sa_counter sa_counter_i(
+   .sa_count(_zy_simnet_tvar_50) ,
+   .sa_snapshot(_zy_simnet_tvar_51) ,
+   .clk(clk) ,
+   .rst_n(rst_n) ,
+   .sa_event_sel(_zy_simnet_tvar_52) ,
+   .sa_events(sa_events) ,
+   .sa_clear(_zy_simnet_sa_clear_53_w$) ,
+   .sa_snap(_zy_simnet_sa_snap_54_w$) );
+end
+genvar i$46; 
+// pragma cva_vlog_forgen num 
+for ( i$46 = 10 ; (i$46 <= 10) ; i$46 = (i$46 + 1) ) begin: num_10_
+ localparam integer i = 10;
+ wire  [0:49] _zy_simnet_tvar_55 ;
+ wire  [0:49] _zy_simnet_tvar_56 ;
+ wire  [0:9] _zy_simnet_tvar_57 ;
+ wire  _zy_simnet_sa_clear_58_w$;
+ wire  _zy_simnet_sa_snap_59_w$;
+  assign  {sa_count[32'sd10].f.upper,sa_count[32'sd10].f.lower} = _zy_simnet_tvar_55;
+  assign  {sa_snapshot[32'sd10].f.upper,sa_snapshot[32'sd10].f.lower} = _zy_simnet_tvar_56;
+  assign  _zy_simnet_tvar_57 = {5'b0,sa_ctrl[32'sd10].f.sa_event_sel};
+  assign  _zy_simnet_sa_clear_58_w$ = sa_clear;
+  assign  _zy_simnet_sa_snap_59_w$ = sa_snap;
+  cr_sa_counter sa_counter_i(
+   .sa_count(_zy_simnet_tvar_55) ,
+   .sa_snapshot(_zy_simnet_tvar_56) ,
+   .clk(clk) ,
+   .rst_n(rst_n) ,
+   .sa_event_sel(_zy_simnet_tvar_57) ,
+   .sa_events(sa_events) ,
+   .sa_clear(_zy_simnet_sa_clear_58_w$) ,
+   .sa_snap(_zy_simnet_sa_snap_59_w$) );
+end
+genvar i$47; 
+// pragma cva_vlog_forgen num 
+for ( i$47 = 11 ; (i$47 <= 11) ; i$47 = (i$47 + 1) ) begin: num_11_
+ localparam integer i = 11;
+ wire  [0:49] _zy_simnet_tvar_60 ;
+ wire  [0:49] _zy_simnet_tvar_61 ;
+ wire  [0:9] _zy_simnet_tvar_62 ;
+ wire  _zy_simnet_sa_clear_63_w$;
+ wire  _zy_simnet_sa_snap_64_w$;
+  assign  {sa_count[32'sd11].f.upper,sa_count[32'sd11].f.lower} = _zy_simnet_tvar_60;
+  assign  {sa_snapshot[32'sd11].f.upper,sa_snapshot[32'sd11].f.lower} = _zy_simnet_tvar_61;
+  assign  _zy_simnet_tvar_62 = {5'b0,sa_ctrl[32'sd11].f.sa_event_sel};
+  assign  _zy_simnet_sa_clear_63_w$ = sa_clear;
+  assign  _zy_simnet_sa_snap_64_w$ = sa_snap;
+  cr_sa_counter sa_counter_i(
+   .sa_count(_zy_simnet_tvar_60) ,
+   .sa_snapshot(_zy_simnet_tvar_61) ,
+   .clk(clk) ,
+   .rst_n(rst_n) ,
+   .sa_event_sel(_zy_simnet_tvar_62) ,
+   .sa_events(sa_events) ,
+   .sa_clear(_zy_simnet_sa_clear_63_w$) ,
+   .sa_snap(_zy_simnet_sa_snap_64_w$) );
+end
+genvar i$48; 
+// pragma cva_vlog_forgen num 
+for ( i$48 = 12 ; (i$48 <= 12) ; i$48 = (i$48 + 1) ) begin: num_12_
+ localparam integer i = 12;
+ wire  [0:49] _zy_simnet_tvar_65 ;
+ wire  [0:49] _zy_simnet_tvar_66 ;
+ wire  [0:9] _zy_simnet_tvar_67 ;
+ wire  _zy_simnet_sa_clear_68_w$;
+ wire  _zy_simnet_sa_snap_69_w$;
+  assign  {sa_count[32'sd12].f.upper,sa_count[32'sd12].f.lower} = _zy_simnet_tvar_65;
+  assign  {sa_snapshot[32'sd12].f.upper,sa_snapshot[32'sd12].f.lower} = _zy_simnet_tvar_66;
+  assign  _zy_simnet_tvar_67 = {5'b0,sa_ctrl[32'sd12].f.sa_event_sel};
+  assign  _zy_simnet_sa_clear_68_w$ = sa_clear;
+  assign  _zy_simnet_sa_snap_69_w$ = sa_snap;
+  cr_sa_counter sa_counter_i(
+   .sa_count(_zy_simnet_tvar_65) ,
+   .sa_snapshot(_zy_simnet_tvar_66) ,
+   .clk(clk) ,
+   .rst_n(rst_n) ,
+   .sa_event_sel(_zy_simnet_tvar_67) ,
+   .sa_events(sa_events) ,
+   .sa_clear(_zy_simnet_sa_clear_68_w$) ,
+   .sa_snap(_zy_simnet_sa_snap_69_w$) );
+end
+genvar i$49; 
+// pragma cva_vlog_forgen num 
+for ( i$49 = 13 ; (i$49 <= 13) ; i$49 = (i$49 + 1) ) begin: num_13_
+ localparam integer i = 13;
+ wire  [0:49] _zy_simnet_tvar_70 ;
+ wire  [0:49] _zy_simnet_tvar_71 ;
+ wire  [0:9] _zy_simnet_tvar_72 ;
+ wire  _zy_simnet_sa_clear_73_w$;
+ wire  _zy_simnet_sa_snap_74_w$;
+  assign  {sa_count[32'sd13].f.upper,sa_count[32'sd13].f.lower} = _zy_simnet_tvar_70;
+  assign  {sa_snapshot[32'sd13].f.upper,sa_snapshot[32'sd13].f.lower} = _zy_simnet_tvar_71;
+  assign  _zy_simnet_tvar_72 = {5'b0,sa_ctrl[32'sd13].f.sa_event_sel};
+  assign  _zy_simnet_sa_clear_73_w$ = sa_clear;
+  assign  _zy_simnet_sa_snap_74_w$ = sa_snap;
+  cr_sa_counter sa_counter_i(
+   .sa_count(_zy_simnet_tvar_70) ,
+   .sa_snapshot(_zy_simnet_tvar_71) ,
+   .clk(clk) ,
+   .rst_n(rst_n) ,
+   .sa_event_sel(_zy_simnet_tvar_72) ,
+   .sa_events(sa_events) ,
+   .sa_clear(_zy_simnet_sa_clear_73_w$) ,
+   .sa_snap(_zy_simnet_sa_snap_74_w$) );
+end
+genvar i$50; 
+// pragma cva_vlog_forgen num 
+for ( i$50 = 14 ; (i$50 <= 14) ; i$50 = (i$50 + 1) ) begin: num_14_
+ localparam integer i = 14;
+ wire  [0:49] _zy_simnet_tvar_75 ;
+ wire  [0:49] _zy_simnet_tvar_76 ;
+ wire  [0:9] _zy_simnet_tvar_77 ;
+ wire  _zy_simnet_sa_clear_78_w$;
+ wire  _zy_simnet_sa_snap_79_w$;
+  assign  {sa_count[32'sd14].f.upper,sa_count[32'sd14].f.lower} = _zy_simnet_tvar_75;
+  assign  {sa_snapshot[32'sd14].f.upper,sa_snapshot[32'sd14].f.lower} = _zy_simnet_tvar_76;
+  assign  _zy_simnet_tvar_77 = {5'b0,sa_ctrl[32'sd14].f.sa_event_sel};
+  assign  _zy_simnet_sa_clear_78_w$ = sa_clear;
+  assign  _zy_simnet_sa_snap_79_w$ = sa_snap;
+  cr_sa_counter sa_counter_i(
+   .sa_count(_zy_simnet_tvar_75) ,
+   .sa_snapshot(_zy_simnet_tvar_76) ,
+   .clk(clk) ,
+   .rst_n(rst_n) ,
+   .sa_event_sel(_zy_simnet_tvar_77) ,
+   .sa_events(sa_events) ,
+   .sa_clear(_zy_simnet_sa_clear_78_w$) ,
+   .sa_snap(_zy_simnet_sa_snap_79_w$) );
+end
+genvar i$51; 
+// pragma cva_vlog_forgen num 
+for ( i$51 = 15 ; (i$51 <= 15) ; i$51 = (i$51 + 1) ) begin: num_15_
+ localparam integer i = 15;
+ wire  [0:49] _zy_simnet_tvar_80 ;
+ wire  [0:49] _zy_simnet_tvar_81 ;
+ wire  [0:9] _zy_simnet_tvar_82 ;
+ wire  _zy_simnet_sa_clear_83_w$;
+ wire  _zy_simnet_sa_snap_84_w$;
+  assign  {sa_count[32'sd15].f.upper,sa_count[32'sd15].f.lower} = _zy_simnet_tvar_80;
+  assign  {sa_snapshot[32'sd15].f.upper,sa_snapshot[32'sd15].f.lower} = _zy_simnet_tvar_81;
+  assign  _zy_simnet_tvar_82 = {5'b0,sa_ctrl[32'sd15].f.sa_event_sel};
+  assign  _zy_simnet_sa_clear_83_w$ = sa_clear;
+  assign  _zy_simnet_sa_snap_84_w$ = sa_snap;
+  cr_sa_counter sa_counter_i(
+   .sa_count(_zy_simnet_tvar_80) ,
+   .sa_snapshot(_zy_simnet_tvar_81) ,
+   .clk(clk) ,
+   .rst_n(rst_n) ,
+   .sa_event_sel(_zy_simnet_tvar_82) ,
+   .sa_events(sa_events) ,
+   .sa_clear(_zy_simnet_sa_clear_83_w$) ,
+   .sa_snap(_zy_simnet_sa_snap_84_w$) );
+end
+genvar i$52; 
+// pragma cva_vlog_forgen num 
+for ( i$52 = 16 ; (i$52 <= 16) ; i$52 = (i$52 + 1) ) begin: num_16_
+ localparam integer i = 16;
+ wire  [0:49] _zy_simnet_tvar_85 ;
+ wire  [0:49] _zy_simnet_tvar_86 ;
+ wire  [0:9] _zy_simnet_tvar_87 ;
+ wire  _zy_simnet_sa_clear_88_w$;
+ wire  _zy_simnet_sa_snap_89_w$;
+  assign  {sa_count[32'sd16].f.upper,sa_count[32'sd16].f.lower} = _zy_simnet_tvar_85;
+  assign  {sa_snapshot[32'sd16].f.upper,sa_snapshot[32'sd16].f.lower} = _zy_simnet_tvar_86;
+  assign  _zy_simnet_tvar_87 = {5'b0,sa_ctrl[32'sd16].f.sa_event_sel};
+  assign  _zy_simnet_sa_clear_88_w$ = sa_clear;
+  assign  _zy_simnet_sa_snap_89_w$ = sa_snap;
+  cr_sa_counter sa_counter_i(
+   .sa_count(_zy_simnet_tvar_85) ,
+   .sa_snapshot(_zy_simnet_tvar_86) ,
+   .clk(clk) ,
+   .rst_n(rst_n) ,
+   .sa_event_sel(_zy_simnet_tvar_87) ,
+   .sa_events(sa_events) ,
+   .sa_clear(_zy_simnet_sa_clear_88_w$) ,
+   .sa_snap(_zy_simnet_sa_snap_89_w$) );
+end
+genvar i$53; 
+// pragma cva_vlog_forgen num 
+for ( i$53 = 17 ; (i$53 <= 17) ; i$53 = (i$53 + 1) ) begin: num_17_
+ localparam integer i = 17;
+ wire  [0:49] _zy_simnet_tvar_90 ;
+ wire  [0:49] _zy_simnet_tvar_91 ;
+ wire  [0:9] _zy_simnet_tvar_92 ;
+ wire  _zy_simnet_sa_clear_93_w$;
+ wire  _zy_simnet_sa_snap_94_w$;
+  assign  {sa_count[32'sd17].f.upper,sa_count[32'sd17].f.lower} = _zy_simnet_tvar_90;
+  assign  {sa_snapshot[32'sd17].f.upper,sa_snapshot[32'sd17].f.lower} = _zy_simnet_tvar_91;
+  assign  _zy_simnet_tvar_92 = {5'b0,sa_ctrl[32'sd17].f.sa_event_sel};
+  assign  _zy_simnet_sa_clear_93_w$ = sa_clear;
+  assign  _zy_simnet_sa_snap_94_w$ = sa_snap;
+  cr_sa_counter sa_counter_i(
+   .sa_count(_zy_simnet_tvar_90) ,
+   .sa_snapshot(_zy_simnet_tvar_91) ,
+   .clk(clk) ,
+   .rst_n(rst_n) ,
+   .sa_event_sel(_zy_simnet_tvar_92) ,
+   .sa_events(sa_events) ,
+   .sa_clear(_zy_simnet_sa_clear_93_w$) ,
+   .sa_snap(_zy_simnet_sa_snap_94_w$) );
+end
+genvar i$54; 
+// pragma cva_vlog_forgen num 
+for ( i$54 = 18 ; (i$54 <= 18) ; i$54 = (i$54 + 1) ) begin: num_18_
+ localparam integer i = 18;
+ wire  [0:49] _zy_simnet_tvar_95 ;
+ wire  [0:49] _zy_simnet_tvar_96 ;
+ wire  [0:9] _zy_simnet_tvar_97 ;
+ wire  _zy_simnet_sa_clear_98_w$;
+ wire  _zy_simnet_sa_snap_99_w$;
+  assign  {sa_count[32'sd18].f.upper,sa_count[32'sd18].f.lower} = _zy_simnet_tvar_95;
+  assign  {sa_snapshot[32'sd18].f.upper,sa_snapshot[32'sd18].f.lower} = _zy_simnet_tvar_96;
+  assign  _zy_simnet_tvar_97 = {5'b0,sa_ctrl[32'sd18].f.sa_event_sel};
+  assign  _zy_simnet_sa_clear_98_w$ = sa_clear;
+  assign  _zy_simnet_sa_snap_99_w$ = sa_snap;
+  cr_sa_counter sa_counter_i(
+   .sa_count(_zy_simnet_tvar_95) ,
+   .sa_snapshot(_zy_simnet_tvar_96) ,
+   .clk(clk) ,
+   .rst_n(rst_n) ,
+   .sa_event_sel(_zy_simnet_tvar_97) ,
+   .sa_events(sa_events) ,
+   .sa_clear(_zy_simnet_sa_clear_98_w$) ,
+   .sa_snap(_zy_simnet_sa_snap_99_w$) );
+end
+genvar i$55; 
+// pragma cva_vlog_forgen num 
+for ( i$55 = 19 ; (i$55 <= 19) ; i$55 = (i$55 + 1) ) begin: num_19_
+ localparam integer i = 19;
+ wire  [0:49] _zy_simnet_tvar_100 ;
+ wire  [0:49] _zy_simnet_tvar_101 ;
+ wire  [0:9] _zy_simnet_tvar_102 ;
+ wire  _zy_simnet_sa_clear_103_w$;
+ wire  _zy_simnet_sa_snap_104_w$;
+  assign  {sa_count[32'sd19].f.upper,sa_count[32'sd19].f.lower} = _zy_simnet_tvar_100;
+  assign  {sa_snapshot[32'sd19].f.upper,sa_snapshot[32'sd19].f.lower} = _zy_simnet_tvar_101;
+  assign  _zy_simnet_tvar_102 = {5'b0,sa_ctrl[32'sd19].f.sa_event_sel};
+  assign  _zy_simnet_sa_clear_103_w$ = sa_clear;
+  assign  _zy_simnet_sa_snap_104_w$ = sa_snap;
+  cr_sa_counter sa_counter_i(
+   .sa_count(_zy_simnet_tvar_100) ,
+   .sa_snapshot(_zy_simnet_tvar_101) ,
+   .clk(clk) ,
+   .rst_n(rst_n) ,
+   .sa_event_sel(_zy_simnet_tvar_102) ,
+   .sa_events(sa_events) ,
+   .sa_clear(_zy_simnet_sa_clear_103_w$) ,
+   .sa_snap(_zy_simnet_sa_snap_104_w$) );
+end
+genvar i$56; 
+// pragma cva_vlog_forgen num 
+for ( i$56 = 20 ; (i$56 <= 20) ; i$56 = (i$56 + 1) ) begin: num_20_
+ localparam integer i = 20;
+ wire  [0:49] _zy_simnet_tvar_105 ;
+ wire  [0:49] _zy_simnet_tvar_106 ;
+ wire  [0:9] _zy_simnet_tvar_107 ;
+ wire  _zy_simnet_sa_clear_108_w$;
+ wire  _zy_simnet_sa_snap_109_w$;
+  assign  {sa_count[32'sd20].f.upper,sa_count[32'sd20].f.lower} = _zy_simnet_tvar_105;
+  assign  {sa_snapshot[32'sd20].f.upper,sa_snapshot[32'sd20].f.lower} = _zy_simnet_tvar_106;
+  assign  _zy_simnet_tvar_107 = {5'b0,sa_ctrl[32'sd20].f.sa_event_sel};
+  assign  _zy_simnet_sa_clear_108_w$ = sa_clear;
+  assign  _zy_simnet_sa_snap_109_w$ = sa_snap;
+  cr_sa_counter sa_counter_i(
+   .sa_count(_zy_simnet_tvar_105) ,
+   .sa_snapshot(_zy_simnet_tvar_106) ,
+   .clk(clk) ,
+   .rst_n(rst_n) ,
+   .sa_event_sel(_zy_simnet_tvar_107) ,
+   .sa_events(sa_events) ,
+   .sa_clear(_zy_simnet_sa_clear_108_w$) ,
+   .sa_snap(_zy_simnet_sa_snap_109_w$) );
+end
+genvar i$57; 
+// pragma cva_vlog_forgen num 
+for ( i$57 = 21 ; (i$57 <= 21) ; i$57 = (i$57 + 1) ) begin: num_21_
+ localparam integer i = 21;
+ wire  [0:49] _zy_simnet_tvar_110 ;
+ wire  [0:49] _zy_simnet_tvar_111 ;
+ wire  [0:9] _zy_simnet_tvar_112 ;
+ wire  _zy_simnet_sa_clear_113_w$;
+ wire  _zy_simnet_sa_snap_114_w$;
+  assign  {sa_count[32'sd21].f.upper,sa_count[32'sd21].f.lower} = _zy_simnet_tvar_110;
+  assign  {sa_snapshot[32'sd21].f.upper,sa_snapshot[32'sd21].f.lower} = _zy_simnet_tvar_111;
+  assign  _zy_simnet_tvar_112 = {5'b0,sa_ctrl[32'sd21].f.sa_event_sel};
+  assign  _zy_simnet_sa_clear_113_w$ = sa_clear;
+  assign  _zy_simnet_sa_snap_114_w$ = sa_snap;
+  cr_sa_counter sa_counter_i(
+   .sa_count(_zy_simnet_tvar_110) ,
+   .sa_snapshot(_zy_simnet_tvar_111) ,
+   .clk(clk) ,
+   .rst_n(rst_n) ,
+   .sa_event_sel(_zy_simnet_tvar_112) ,
+   .sa_events(sa_events) ,
+   .sa_clear(_zy_simnet_sa_clear_113_w$) ,
+   .sa_snap(_zy_simnet_sa_snap_114_w$) );
+end
+genvar i$58; 
+// pragma cva_vlog_forgen num 
+for ( i$58 = 22 ; (i$58 <= 22) ; i$58 = (i$58 + 1) ) begin: num_22_
+ localparam integer i = 22;
+ wire  [0:49] _zy_simnet_tvar_115 ;
+ wire  [0:49] _zy_simnet_tvar_116 ;
+ wire  [0:9] _zy_simnet_tvar_117 ;
+ wire  _zy_simnet_sa_clear_118_w$;
+ wire  _zy_simnet_sa_snap_119_w$;
+  assign  {sa_count[32'sd22].f.upper,sa_count[32'sd22].f.lower} = _zy_simnet_tvar_115;
+  assign  {sa_snapshot[32'sd22].f.upper,sa_snapshot[32'sd22].f.lower} = _zy_simnet_tvar_116;
+  assign  _zy_simnet_tvar_117 = {5'b0,sa_ctrl[32'sd22].f.sa_event_sel};
+  assign  _zy_simnet_sa_clear_118_w$ = sa_clear;
+  assign  _zy_simnet_sa_snap_119_w$ = sa_snap;
+  cr_sa_counter sa_counter_i(
+   .sa_count(_zy_simnet_tvar_115) ,
+   .sa_snapshot(_zy_simnet_tvar_116) ,
+   .clk(clk) ,
+   .rst_n(rst_n) ,
+   .sa_event_sel(_zy_simnet_tvar_117) ,
+   .sa_events(sa_events) ,
+   .sa_clear(_zy_simnet_sa_clear_118_w$) ,
+   .sa_snap(_zy_simnet_sa_snap_119_w$) );
+end
+genvar i$59; 
+// pragma cva_vlog_forgen num 
+for ( i$59 = 23 ; (i$59 <= 23) ; i$59 = (i$59 + 1) ) begin: num_23_
+ localparam integer i = 23;
+ wire  [0:49] _zy_simnet_tvar_120 ;
+ wire  [0:49] _zy_simnet_tvar_121 ;
+ wire  [0:9] _zy_simnet_tvar_122 ;
+ wire  _zy_simnet_sa_clear_123_w$;
+ wire  _zy_simnet_sa_snap_124_w$;
+  assign  {sa_count[32'sd23].f.upper,sa_count[32'sd23].f.lower} = _zy_simnet_tvar_120;
+  assign  {sa_snapshot[32'sd23].f.upper,sa_snapshot[32'sd23].f.lower} = _zy_simnet_tvar_121;
+  assign  _zy_simnet_tvar_122 = {5'b0,sa_ctrl[32'sd23].f.sa_event_sel};
+  assign  _zy_simnet_sa_clear_123_w$ = sa_clear;
+  assign  _zy_simnet_sa_snap_124_w$ = sa_snap;
+  cr_sa_counter sa_counter_i(
+   .sa_count(_zy_simnet_tvar_120) ,
+   .sa_snapshot(_zy_simnet_tvar_121) ,
+   .clk(clk) ,
+   .rst_n(rst_n) ,
+   .sa_event_sel(_zy_simnet_tvar_122) ,
+   .sa_events(sa_events) ,
+   .sa_clear(_zy_simnet_sa_clear_123_w$) ,
+   .sa_snap(_zy_simnet_sa_snap_124_w$) );
+end
+genvar i$60; 
+// pragma cva_vlog_forgen num 
+for ( i$60 = 24 ; (i$60 <= 24) ; i$60 = (i$60 + 1) ) begin: num_24_
+ localparam integer i = 24;
+ wire  [0:49] _zy_simnet_tvar_125 ;
+ wire  [0:49] _zy_simnet_tvar_126 ;
+ wire  [0:9] _zy_simnet_tvar_127 ;
+ wire  _zy_simnet_sa_clear_128_w$;
+ wire  _zy_simnet_sa_snap_129_w$;
+  assign  {sa_count[32'sd24].f.upper,sa_count[32'sd24].f.lower} = _zy_simnet_tvar_125;
+  assign  {sa_snapshot[32'sd24].f.upper,sa_snapshot[32'sd24].f.lower} = _zy_simnet_tvar_126;
+  assign  _zy_simnet_tvar_127 = {5'b0,sa_ctrl[32'sd24].f.sa_event_sel};
+  assign  _zy_simnet_sa_clear_128_w$ = sa_clear;
+  assign  _zy_simnet_sa_snap_129_w$ = sa_snap;
+  cr_sa_counter sa_counter_i(
+   .sa_count(_zy_simnet_tvar_125) ,
+   .sa_snapshot(_zy_simnet_tvar_126) ,
+   .clk(clk) ,
+   .rst_n(rst_n) ,
+   .sa_event_sel(_zy_simnet_tvar_127) ,
+   .sa_events(sa_events) ,
+   .sa_clear(_zy_simnet_sa_clear_128_w$) ,
+   .sa_snap(_zy_simnet_sa_snap_129_w$) );
+end
+genvar i$61; 
+// pragma cva_vlog_forgen num 
+for ( i$61 = 25 ; (i$61 <= 25) ; i$61 = (i$61 + 1) ) begin: num_25_
+ localparam integer i = 25;
+ wire  [0:49] _zy_simnet_tvar_130 ;
+ wire  [0:49] _zy_simnet_tvar_131 ;
+ wire  [0:9] _zy_simnet_tvar_132 ;
+ wire  _zy_simnet_sa_clear_133_w$;
+ wire  _zy_simnet_sa_snap_134_w$;
+  assign  {sa_count[32'sd25].f.upper,sa_count[32'sd25].f.lower} = _zy_simnet_tvar_130;
+  assign  {sa_snapshot[32'sd25].f.upper,sa_snapshot[32'sd25].f.lower} = _zy_simnet_tvar_131;
+  assign  _zy_simnet_tvar_132 = {5'b0,sa_ctrl[32'sd25].f.sa_event_sel};
+  assign  _zy_simnet_sa_clear_133_w$ = sa_clear;
+  assign  _zy_simnet_sa_snap_134_w$ = sa_snap;
+  cr_sa_counter sa_counter_i(
+   .sa_count(_zy_simnet_tvar_130) ,
+   .sa_snapshot(_zy_simnet_tvar_131) ,
+   .clk(clk) ,
+   .rst_n(rst_n) ,
+   .sa_event_sel(_zy_simnet_tvar_132) ,
+   .sa_events(sa_events) ,
+   .sa_clear(_zy_simnet_sa_clear_133_w$) ,
+   .sa_snap(_zy_simnet_sa_snap_134_w$) );
+end
+genvar i$62; 
+// pragma cva_vlog_forgen num 
+for ( i$62 = 26 ; (i$62 <= 26) ; i$62 = (i$62 + 1) ) begin: num_26_
+ localparam integer i = 26;
+ wire  [0:49] _zy_simnet_tvar_135 ;
+ wire  [0:49] _zy_simnet_tvar_136 ;
+ wire  [0:9] _zy_simnet_tvar_137 ;
+ wire  _zy_simnet_sa_clear_138_w$;
+ wire  _zy_simnet_sa_snap_139_w$;
+  assign  {sa_count[32'sd26].f.upper,sa_count[32'sd26].f.lower} = _zy_simnet_tvar_135;
+  assign  {sa_snapshot[32'sd26].f.upper,sa_snapshot[32'sd26].f.lower} = _zy_simnet_tvar_136;
+  assign  _zy_simnet_tvar_137 = {5'b0,sa_ctrl[32'sd26].f.sa_event_sel};
+  assign  _zy_simnet_sa_clear_138_w$ = sa_clear;
+  assign  _zy_simnet_sa_snap_139_w$ = sa_snap;
+  cr_sa_counter sa_counter_i(
+   .sa_count(_zy_simnet_tvar_135) ,
+   .sa_snapshot(_zy_simnet_tvar_136) ,
+   .clk(clk) ,
+   .rst_n(rst_n) ,
+   .sa_event_sel(_zy_simnet_tvar_137) ,
+   .sa_events(sa_events) ,
+   .sa_clear(_zy_simnet_sa_clear_138_w$) ,
+   .sa_snap(_zy_simnet_sa_snap_139_w$) );
+end
+genvar i$63; 
+// pragma cva_vlog_forgen num 
+for ( i$63 = 27 ; (i$63 <= 27) ; i$63 = (i$63 + 1) ) begin: num_27_
+ localparam integer i = 27;
+ wire  [0:49] _zy_simnet_tvar_140 ;
+ wire  [0:49] _zy_simnet_tvar_141 ;
+ wire  [0:9] _zy_simnet_tvar_142 ;
+ wire  _zy_simnet_sa_clear_143_w$;
+ wire  _zy_simnet_sa_snap_144_w$;
+  assign  {sa_count[32'sd27].f.upper,sa_count[32'sd27].f.lower} = _zy_simnet_tvar_140;
+  assign  {sa_snapshot[32'sd27].f.upper,sa_snapshot[32'sd27].f.lower} = _zy_simnet_tvar_141;
+  assign  _zy_simnet_tvar_142 = {5'b0,sa_ctrl[32'sd27].f.sa_event_sel};
+  assign  _zy_simnet_sa_clear_143_w$ = sa_clear;
+  assign  _zy_simnet_sa_snap_144_w$ = sa_snap;
+  cr_sa_counter sa_counter_i(
+   .sa_count(_zy_simnet_tvar_140) ,
+   .sa_snapshot(_zy_simnet_tvar_141) ,
+   .clk(clk) ,
+   .rst_n(rst_n) ,
+   .sa_event_sel(_zy_simnet_tvar_142) ,
+   .sa_events(sa_events) ,
+   .sa_clear(_zy_simnet_sa_clear_143_w$) ,
+   .sa_snap(_zy_simnet_sa_snap_144_w$) );
+end
+genvar i$64; 
+// pragma cva_vlog_forgen num 
+for ( i$64 = 28 ; (i$64 <= 28) ; i$64 = (i$64 + 1) ) begin: num_28_
+ localparam integer i = 28;
+ wire  [0:49] _zy_simnet_tvar_145 ;
+ wire  [0:49] _zy_simnet_tvar_146 ;
+ wire  [0:9] _zy_simnet_tvar_147 ;
+ wire  _zy_simnet_sa_clear_148_w$;
+ wire  _zy_simnet_sa_snap_149_w$;
+  assign  {sa_count[32'sd28].f.upper,sa_count[32'sd28].f.lower} = _zy_simnet_tvar_145;
+  assign  {sa_snapshot[32'sd28].f.upper,sa_snapshot[32'sd28].f.lower} = _zy_simnet_tvar_146;
+  assign  _zy_simnet_tvar_147 = {5'b0,sa_ctrl[32'sd28].f.sa_event_sel};
+  assign  _zy_simnet_sa_clear_148_w$ = sa_clear;
+  assign  _zy_simnet_sa_snap_149_w$ = sa_snap;
+  cr_sa_counter sa_counter_i(
+   .sa_count(_zy_simnet_tvar_145) ,
+   .sa_snapshot(_zy_simnet_tvar_146) ,
+   .clk(clk) ,
+   .rst_n(rst_n) ,
+   .sa_event_sel(_zy_simnet_tvar_147) ,
+   .sa_events(sa_events) ,
+   .sa_clear(_zy_simnet_sa_clear_148_w$) ,
+   .sa_snap(_zy_simnet_sa_snap_149_w$) );
+end
+genvar i$65; 
+// pragma cva_vlog_forgen num 
+for ( i$65 = 29 ; (i$65 <= 29) ; i$65 = (i$65 + 1) ) begin: num_29_
+ localparam integer i = 29;
+ wire  [0:49] _zy_simnet_tvar_150 ;
+ wire  [0:49] _zy_simnet_tvar_151 ;
+ wire  [0:9] _zy_simnet_tvar_152 ;
+ wire  _zy_simnet_sa_clear_153_w$;
+ wire  _zy_simnet_sa_snap_154_w$;
+  assign  {sa_count[32'sd29].f.upper,sa_count[32'sd29].f.lower} = _zy_simnet_tvar_150;
+  assign  {sa_snapshot[32'sd29].f.upper,sa_snapshot[32'sd29].f.lower} = _zy_simnet_tvar_151;
+  assign  _zy_simnet_tvar_152 = {5'b0,sa_ctrl[32'sd29].f.sa_event_sel};
+  assign  _zy_simnet_sa_clear_153_w$ = sa_clear;
+  assign  _zy_simnet_sa_snap_154_w$ = sa_snap;
+  cr_sa_counter sa_counter_i(
+   .sa_count(_zy_simnet_tvar_150) ,
+   .sa_snapshot(_zy_simnet_tvar_151) ,
+   .clk(clk) ,
+   .rst_n(rst_n) ,
+   .sa_event_sel(_zy_simnet_tvar_152) ,
+   .sa_events(sa_events) ,
+   .sa_clear(_zy_simnet_sa_clear_153_w$) ,
+   .sa_snap(_zy_simnet_sa_snap_154_w$) );
+end
+genvar i$66; 
+// pragma cva_vlog_forgen num 
+for ( i$66 = 30 ; (i$66 <= 30) ; i$66 = (i$66 + 1) ) begin: num_30_
+ localparam integer i = 30;
+ wire  [0:49] _zy_simnet_tvar_155 ;
+ wire  [0:49] _zy_simnet_tvar_156 ;
+ wire  [0:9] _zy_simnet_tvar_157 ;
+ wire  _zy_simnet_sa_clear_158_w$;
+ wire  _zy_simnet_sa_snap_159_w$;
+  assign  {sa_count[32'sd30].f.upper,sa_count[32'sd30].f.lower} = _zy_simnet_tvar_155;
+  assign  {sa_snapshot[32'sd30].f.upper,sa_snapshot[32'sd30].f.lower} = _zy_simnet_tvar_156;
+  assign  _zy_simnet_tvar_157 = {5'b0,sa_ctrl[32'sd30].f.sa_event_sel};
+  assign  _zy_simnet_sa_clear_158_w$ = sa_clear;
+  assign  _zy_simnet_sa_snap_159_w$ = sa_snap;
+  cr_sa_counter sa_counter_i(
+   .sa_count(_zy_simnet_tvar_155) ,
+   .sa_snapshot(_zy_simnet_tvar_156) ,
+   .clk(clk) ,
+   .rst_n(rst_n) ,
+   .sa_event_sel(_zy_simnet_tvar_157) ,
+   .sa_events(sa_events) ,
+   .sa_clear(_zy_simnet_sa_clear_158_w$) ,
+   .sa_snap(_zy_simnet_sa_snap_159_w$) );
+end
+genvar i$67; 
+// pragma cva_vlog_forgen num 
+for ( i$67 = 31 ; (i$67 <= 31) ; i$67 = (i$67 + 1) ) begin: num_31_
+ localparam integer i = 31;
+ wire  [0:49] _zy_simnet_tvar_160 ;
+ wire  [0:49] _zy_simnet_tvar_161 ;
+ wire  [0:9] _zy_simnet_tvar_162 ;
+ wire  _zy_simnet_sa_clear_163_w$;
+ wire  _zy_simnet_sa_snap_164_w$;
+  assign  {sa_count[32'sd31].f.upper,sa_count[32'sd31].f.lower} = _zy_simnet_tvar_160;
+  assign  {sa_snapshot[32'sd31].f.upper,sa_snapshot[32'sd31].f.lower} = _zy_simnet_tvar_161;
+  assign  _zy_simnet_tvar_162 = {5'b0,sa_ctrl[32'sd31].f.sa_event_sel};
+  assign  _zy_simnet_sa_clear_163_w$ = sa_clear;
+  assign  _zy_simnet_sa_snap_164_w$ = sa_snap;
+  cr_sa_counter sa_counter_i(
+   .sa_count(_zy_simnet_tvar_160) ,
+   .sa_snapshot(_zy_simnet_tvar_161) ,
+   .clk(clk) ,
+   .rst_n(rst_n) ,
+   .sa_event_sel(_zy_simnet_tvar_162) ,
+   .sa_events(sa_events) ,
+   .sa_clear(_zy_simnet_sa_clear_163_w$) ,
+   .sa_snap(_zy_simnet_sa_snap_164_w$) );
+end
 endmodule
 

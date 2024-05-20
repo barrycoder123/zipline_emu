@@ -3,15 +3,15 @@ use ieee.std_logic_1164.all ;
 use quickturn.verilog.all ;
 entity nx_fifo_ctrl_xcm36 is
   generic (
-    DEPTH : integer := 4;
+    DEPTH : integer := 3;
     OVERFLOW_ASSERT : integer := 1;
     UNDERFLOW_ASSERT : integer := 1
   ) ;
   port (
     empty : out std_logic ;
     full : out std_logic ;
-    used_slots : out std_logic_vector(2 downto 0) ;
-    free_slots : out std_logic_vector(2 downto 0) ;
+    used_slots : out std_logic_vector(1 downto 0) ;
+    free_slots : out std_logic_vector(1 downto 0) ;
     rptr : out std_logic_vector(1 downto 0) ;
     wptr : out std_logic_vector(1 downto 0) ;
     underflow : out std_logic ;

@@ -2,8 +2,8 @@
 /cr_kme_drng
 /cr_kme_ckv_pipeline
 /cr_kme_ram_fifo
+/cr_kme_kop_xcm69
 /cr_kme_kop_xcm68
-/cr_kme_kop_xcm67
 /cr_kme_key_tlv_compare_split
 /cr_kme_key_tlv_rsm
 /cr_kme_core_glue

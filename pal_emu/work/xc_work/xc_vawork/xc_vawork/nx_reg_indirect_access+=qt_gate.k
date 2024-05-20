@@ -1,14 +1,14 @@
 
 module nx_reg_indirect_access ;
 //pragma CVASTRPROP MODULE SKELETON MODULEINFO "12983.000000"
-nx_indirect_access_cntrl_xcm110 u_cntrl ();
-ixc_capLoopXp _zzM131L34_bcBehEvalP0 ();
-ixc_sample_logic _zz_zy_simnet_reset_26_w$_M131_bcSp5 ();
-ixc_sample_logic_32 _zz_zy_simnet_sw_wdat_20_w$_M131_bcSp4 ();
-ixc_sample_logic_5 _zz_zy_simnet_sw_add_19_w$_M131_bcSp3 ();
-ixc_sample_logic _zz_zy_simnet_sw_we_18_w$_M131_bcSp2 ();
-ixc_sample_logic _zz_zy_simnet_sw_cs_16_w$_M131_bcSp1 ();
-ixc_mevClk_2_0_0_3_1_0_1 _zzM131L132_bcMevClkP0 ();
+nx_indirect_access_cntrl_xcm111 u_cntrl ();
+ixc_capLoopXp _zzM132L34_bcBehEvalP0 ();
+ixc_sample_logic _zz_zy_simnet_reset_26_w$_M132_bcSp5 ();
+ixc_sample_logic_32 _zz_zy_simnet_sw_wdat_20_w$_M132_bcSp4 ();
+ixc_sample_logic_5 _zz_zy_simnet_sw_add_19_w$_M132_bcSp3 ();
+ixc_sample_logic _zz_zy_simnet_sw_we_18_w$_M132_bcSp2 ();
+ixc_sample_logic _zz_zy_simnet_sw_cs_16_w$_M132_bcSp1 ();
+ixc_mevClk_2_0_0_3_1_0_1 _zzM132L132_bcMevClkP0 ();
 ixc_context_write_1024 _zzixc_ctxwr_1 ();
 ixc_context_read_1024 _zzixc_ctxrd_0 ();
 ixc_assign _zz_strnp_18 ();

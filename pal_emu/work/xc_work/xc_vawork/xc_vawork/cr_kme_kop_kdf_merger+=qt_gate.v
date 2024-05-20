@@ -496,7 +496,7 @@ ixc_assign _zz_strnp_4 ( _zy_simnet_kdf_keybuilder_valid_4_w$,
 ixc_assign_128 _zz_strnp_5 ( _zy_simnet_fifo_in_7_w$[0:127], fifo_in[127:0]);
 ixc_assign _zz_strnp_6 ( _zy_simnet_fifo_in_vld_8_w$, fifo_in_vld);
 ixc_assign _zz_strnp_7 ( _zy_simnet_fifo_out_ack_9_w$, fifo_out_ack);
-cr_kme_fifo_xcm51 downsizer_fifo ( .fifo_in_stall( fifo_in_stall), 
+cr_kme_fifo_xcm52 downsizer_fifo ( .fifo_in_stall( fifo_in_stall), 
 	.fifo_out( fifo_out[127:0]), .fifo_out_valid( fifo_out_vld), 
 	.fifo_overflow( _zy_simnet_dio_5), .fifo_underflow( 
 	_zy_simnet_dio_6), .clk( clk), .rst_n( rst_n), .fifo_in( 

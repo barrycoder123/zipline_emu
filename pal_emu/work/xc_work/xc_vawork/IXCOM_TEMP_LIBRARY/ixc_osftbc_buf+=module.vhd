@@ -4,5 +4,5 @@ architecture module of ixc_osfTbc_buf is
   end component ;
 
 begin
-  _UnNamed_Inst_28 : buf port map (osfTbcO,osfTbcI) ;
+  _UnNamed_Inst_27 : buf port map (osfTbcO,osfTbcI) ;
 end module;

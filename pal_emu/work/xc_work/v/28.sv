@@ -1,9 +1,10 @@
 // xc_work/v/28.sv
-// /home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_ckv_reader.v:19
+// /home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kim_drng_reader.v:19
 // NOTE: This file corresponds to a module in the Hardware/DUT partition.
 `timescale 1ns/1ns
-module cr_kme_ckv_reader(ckvreader_kimreader_ack,ckvreader_kopassigner_valid,ckvreader_kopassigner_data,ckv_rd,ckv_addr,clk,rst_n,kimreader_ckvreader_valid,kimreader_ckvreader_data,kopassigner_ckvreader_ack,
-ckv_dout,ckv_mbe);
+module cr_kme_kim_drng_reader(kimreader_parser_ack,kimreader_ckvreader_valid,kimreader_ckvreader_data,drng_ack,kim_rd,kim_addr,stat_req_with_expired_seed,stat_aux_key_type_0,stat_aux_key_type_1,stat_aux_key_type_2,
+stat_aux_key_type_3,stat_aux_key_type_4,stat_aux_key_type_5,stat_aux_key_type_6,stat_aux_key_type_7,stat_aux_key_type_8,stat_aux_key_type_9,stat_aux_key_type_10,stat_aux_key_type_11,stat_aux_key_type_12,stat_aux_key_type_13,stat_aux_cmd_with_vf_pf_fail,
+clk,rst_n,parser_kimreader_valid,parser_kimreader_data,ckvreader_kimreader_ack,drng_seed_expired,drng_health_fail,drng_256_out,drng_valid,kim_dout,kim_mbe,disable_unencrypted_keys);
 // pkg external : PKG - cr_kme_regfilePKG : DTYPE  
 // pragma multiple_driver_resolution
 typedef enum logic [1:0] {ENET=0,IPV4=1,IPV6=2,MPLS=3} pkt_hdr_e;
@@ -924,93 +925,138 @@ localparam KIM_NUM_ENTRIES = 16384;
 localparam KIM_DATA_WIDTH = 38;
 input  clk;
 input  rst_n;
-input  kimreader_ckvreader_valid;
-input kme_internal_t kimreader_ckvreader_data;
-output reg ckvreader_kimreader_ack;
-output reg ckvreader_kopassigner_valid;
-output kme_internal_t ckvreader_kopassigner_data;
-input  kopassigner_ckvreader_ack;
-output reg ckv_rd;
-output reg [14:0] ckv_addr ;
-input  [63:0] ckv_dout ;
-input  ckv_mbe;
-typedef enum bit [0:0] {PASSTHROUGH=1'b0,CKV_READS=1'b1} ckv_reader_fsm;
-ckv_reader_fsm cur_state, nxt_state;
-reg ckv_rd_q;
-reg half_dek;
+input  parser_kimreader_valid;
+input kme_internal_t parser_kimreader_data;
+output reg kimreader_parser_ack;
+output reg kimreader_ckvreader_valid;
+output kme_internal_t kimreader_ckvreader_data;
+input  ckvreader_kimreader_ack;
+input  drng_seed_expired;
+input  drng_health_fail;
+input  [127:0] drng_256_out ;
+input  drng_valid;
+output reg drng_ack;
+output reg kim_rd;
+output reg [13:0] kim_addr ;
+input kim_entry_t kim_dout;
+input  kim_mbe;
+output reg stat_req_with_expired_seed;
+output reg stat_aux_key_type_0;
+output reg stat_aux_key_type_1;
+output reg stat_aux_key_type_2;
+output reg stat_aux_key_type_3;
+output reg stat_aux_key_type_4;
+output reg stat_aux_key_type_5;
+output reg stat_aux_key_type_6;
+output reg stat_aux_key_type_7;
+output reg stat_aux_key_type_8;
+output reg stat_aux_key_type_9;
+output reg stat_aux_key_type_10;
+output reg stat_aux_key_type_11;
+output reg stat_aux_key_type_12;
+output reg stat_aux_key_type_13;
+output reg stat_aux_cmd_with_vf_pf_fail;
+input  disable_unencrypted_keys;
+typedef enum bit [2:0] {PASSTHROUGH=3'b0,DEK_KIM_READ=3'b01,DAK_KIM_READ=3'b010,TX_KIM_ENTRIES=3'b011,INSERT_RGUID0=3'b100,INSERT_RGUID1=3'b101,INSERT_RGUID2=3'b110,INSERT_RGUID3=3'b111} kim_drng_reader_fsm;
+kim_drng_reader_fsm cur_state, nxt_state;
+reg [13:0] dek_ref_q ;
+reg [13:0] dak_ref_q ;
+reg dek_is_kdf_key_q;
+reg dak_is_kdf_key_q;
+zipline_error_e kim_errors_q;
+kim_entry_t dek_kim_entry_q, dak_kim_entry_q;
+reg dek_kim_mbe_q;
+reg dak_kim_mbe_q;
+reg kim_rd_q;
 kme_internal_word_0_t tlv_word0;
+kme_internal_word_8_t tlv_word8;
+kme_internal_word_9_t tlv_word9;
 kme_internal_word_42_t tlv_word42;
-kme_internal_word_8_t tlv_word8, nxt_tlv_word8;
-kme_internal_word_9_t tlv_word9, nxt_tlv_word9;
 aux_key_ctrl_t aux_key_ctrl;
-wire  fifo_out_mbe;
-wire  [63:0] fifo_out ;
-wire  fifo_out_valid;
-reg fifo_out_ack;
-wire  fifo_in_stall;
-reg report_kme_error;
-reg [3:0] ckv_read_num ;
-reg ktype_is_aux_key_only;
-reg nxt_ktype_is_aux_key_only;
-genvar ii;
-wire  _zy_simnet_ckvreader_kimreader_ack_0_w$;
-wire  _zy_simnet_ckvreader_kopassigner_valid_1_w$;
-wire  [0:70] _zy_simnet_ckvreader_kopassigner_data_2_w$ ;
-wire  _zy_simnet_ckv_rd_3_w$;
-wire  [0:14] _zy_simnet_ckv_addr_4_w$ ;
-wire  _zy_simnet_dio_5;
-wire  _zy_simnet_dio_6;
-wire  _zy_simnet_ckv_rd_q_7_w$;
-wire  _zy_simnet_fifo_out_ack_8_w$;
-wire  _zy_simnet_cio_9;
-wire  _zy_sva_brcm_dek_key_1_reset_or;
-bit [0:0]  _zy_sva_brcm_dek_key_1_ccheck = 1'b0;
-// quickturn keep_net _zy_sva_brcm_dek_key_1_ccheck
-bit [0:0]  _zy_sva_brcm_dek_key_1_cpass = 1'b0;
-// quickturn keep_net _zy_sva_brcm_dek_key_1_cpass
+aux_key_type_e aux_key_type;
+genvar nn;
+wire  _zy_simnet_kimreader_parser_ack_0_w$;
+wire  _zy_simnet_kimreader_ckvreader_valid_1_w$;
+wire  [0:70] _zy_simnet_kimreader_ckvreader_data_2_w$ ;
+wire  _zy_simnet_drng_ack_3_w$;
+wire  _zy_simnet_kim_rd_4_w$;
+wire  [0:13] _zy_simnet_kim_addr_5_w$ ;
+wire  _zy_simnet_stat_req_with_expired_seed_6_w$;
+wire  _zy_simnet_stat_aux_key_type_0_7_w$;
+wire  _zy_simnet_stat_aux_key_type_1_8_w$;
+wire  _zy_simnet_stat_aux_key_type_2_9_w$;
+wire  _zy_simnet_stat_aux_key_type_3_10_w$;
+wire  _zy_simnet_stat_aux_key_type_4_11_w$;
+wire  _zy_simnet_stat_aux_key_type_5_12_w$;
+wire  _zy_simnet_stat_aux_key_type_6_13_w$;
+wire  _zy_simnet_stat_aux_key_type_7_14_w$;
+wire  _zy_simnet_stat_aux_key_type_8_15_w$;
+wire  _zy_simnet_stat_aux_key_type_9_16_w$;
+wire  _zy_simnet_stat_aux_key_type_10_17_w$;
+wire  _zy_simnet_stat_aux_key_type_11_18_w$;
+wire  _zy_simnet_stat_aux_key_type_12_19_w$;
+wire  _zy_simnet_stat_aux_key_type_13_20_w$;
+wire  _zy_simnet_stat_aux_cmd_with_vf_pf_fail_21_w$;
+wire  _zy_sva_disable_unenc_keys_1_reset_or;
+bit [0:0]  _zy_sva_disable_unenc_keys_1_ccheck = 1'b0;
+// quickturn keep_net _zy_sva_disable_unenc_keys_1_ccheck
+bit [0:0]  _zy_sva_disable_unenc_keys_1_cpass = 1'b0;
+// quickturn keep_net _zy_sva_disable_unenc_keys_1_cpass
 bit _zy_sva_b0;
-wire  _zy_sva_brcm_dak_key_2_reset_or;
-bit [0:0]  _zy_sva_brcm_dak_key_2_ccheck = 1'b0;
-// quickturn keep_net _zy_sva_brcm_dak_key_2_ccheck
-bit [0:0]  _zy_sva_brcm_dak_key_2_cpass = 1'b0;
-// quickturn keep_net _zy_sva_brcm_dak_key_2_cpass
+wire  _zy_sva_enable_unenc_keys_2_reset_or;
+bit [0:0]  _zy_sva_enable_unenc_keys_2_ccheck = 1'b0;
+// quickturn keep_net _zy_sva_enable_unenc_keys_2_ccheck
+bit [0:0]  _zy_sva_enable_unenc_keys_2_cpass = 1'b0;
+// quickturn keep_net _zy_sva_enable_unenc_keys_2_cpass
 bit _zy_sva_b1;
-wire  _zy_sva_brcm_dek_key_3_reset_or;
-bit [0:0]  _zy_sva_brcm_dek_key_3_ccheck = 1'b0;
-// quickturn keep_net _zy_sva_brcm_dek_key_3_ccheck
-bit [0:0]  _zy_sva_brcm_dek_key_3_cpass = 1'b0;
-// quickturn keep_net _zy_sva_brcm_dek_key_3_cpass
+wire  _zy_sva_disable_unenc_keys_3_reset_or;
+bit [0:0]  _zy_sva_disable_unenc_keys_3_ccheck = 1'b0;
+// quickturn keep_net _zy_sva_disable_unenc_keys_3_ccheck
+bit [0:0]  _zy_sva_disable_unenc_keys_3_cpass = 1'b0;
+// quickturn keep_net _zy_sva_disable_unenc_keys_3_cpass
 bit _zy_sva_b2;
-wire  _zy_sva_brcm_dak_key_4_reset_or;
-bit [0:0]  _zy_sva_brcm_dak_key_4_ccheck = 1'b0;
-// quickturn keep_net _zy_sva_brcm_dak_key_4_ccheck
-bit [0:0]  _zy_sva_brcm_dak_key_4_cpass = 1'b0;
-// quickturn keep_net _zy_sva_brcm_dak_key_4_cpass
+wire  _zy_sva_enable_unenc_keys_4_reset_or;
+bit [0:0]  _zy_sva_enable_unenc_keys_4_ccheck = 1'b0;
+// quickturn keep_net _zy_sva_enable_unenc_keys_4_ccheck
+bit [0:0]  _zy_sva_enable_unenc_keys_4_cpass = 1'b0;
+// quickturn keep_net _zy_sva_enable_unenc_keys_4_cpass
 bit _zy_sva_b3;
-wire  _zy_sva_brcm_dek_key_5_reset_or;
-bit [0:0]  _zy_sva_brcm_dek_key_5_ccheck = 1'b0;
-// quickturn keep_net _zy_sva_brcm_dek_key_5_ccheck
-bit [0:0]  _zy_sva_brcm_dek_key_5_cpass = 1'b0;
-// quickturn keep_net _zy_sva_brcm_dek_key_5_cpass
+wire  _zy_sva_disable_unenc_keys_5_reset_or;
+bit [0:0]  _zy_sva_disable_unenc_keys_5_ccheck = 1'b0;
+// quickturn keep_net _zy_sva_disable_unenc_keys_5_ccheck
+bit [0:0]  _zy_sva_disable_unenc_keys_5_cpass = 1'b0;
+// quickturn keep_net _zy_sva_disable_unenc_keys_5_cpass
 bit _zy_sva_b4;
-wire  _zy_sva_brcm_dak_key_6_reset_or;
-bit [0:0]  _zy_sva_brcm_dak_key_6_ccheck = 1'b0;
-// quickturn keep_net _zy_sva_brcm_dak_key_6_ccheck
-bit [0:0]  _zy_sva_brcm_dak_key_6_cpass = 1'b0;
-// quickturn keep_net _zy_sva_brcm_dak_key_6_cpass
+wire  _zy_sva_enable_unenc_keys_6_reset_or;
+bit [0:0]  _zy_sva_enable_unenc_keys_6_ccheck = 1'b0;
+// quickturn keep_net _zy_sva_enable_unenc_keys_6_ccheck
+bit [0:0]  _zy_sva_enable_unenc_keys_6_cpass = 1'b0;
+// quickturn keep_net _zy_sva_enable_unenc_keys_6_cpass
 bit _zy_sva_b5;
-wire  _zy_sva_brcm_dek_key_7_reset_or;
-bit [0:0]  _zy_sva_brcm_dek_key_7_ccheck = 1'b0;
-// quickturn keep_net _zy_sva_brcm_dek_key_7_ccheck
-bit [0:0]  _zy_sva_brcm_dek_key_7_cpass = 1'b0;
-// quickturn keep_net _zy_sva_brcm_dek_key_7_cpass
+wire  _zy_sva_disable_unenc_keys_7_reset_or;
+bit [0:0]  _zy_sva_disable_unenc_keys_7_ccheck = 1'b0;
+// quickturn keep_net _zy_sva_disable_unenc_keys_7_ccheck
+bit [0:0]  _zy_sva_disable_unenc_keys_7_cpass = 1'b0;
+// quickturn keep_net _zy_sva_disable_unenc_keys_7_cpass
 bit _zy_sva_b6;
-wire  _zy_sva_brcm_dak_key_8_reset_or;
-bit [0:0]  _zy_sva_brcm_dak_key_8_ccheck = 1'b0;
-// quickturn keep_net _zy_sva_brcm_dak_key_8_ccheck
-bit [0:0]  _zy_sva_brcm_dak_key_8_cpass = 1'b0;
-// quickturn keep_net _zy_sva_brcm_dak_key_8_cpass
+wire  _zy_sva_enable_unenc_keys_8_reset_or;
+bit [0:0]  _zy_sva_enable_unenc_keys_8_ccheck = 1'b0;
+// quickturn keep_net _zy_sva_enable_unenc_keys_8_ccheck
+bit [0:0]  _zy_sva_enable_unenc_keys_8_cpass = 1'b0;
+// quickturn keep_net _zy_sva_enable_unenc_keys_8_cpass
 bit _zy_sva_b7;
+wire  _zy_sva_disable_unenc_keys_9_reset_or;
+bit [0:0]  _zy_sva_disable_unenc_keys_9_ccheck = 1'b0;
+// quickturn keep_net _zy_sva_disable_unenc_keys_9_ccheck
+bit [0:0]  _zy_sva_disable_unenc_keys_9_cpass = 1'b0;
+// quickturn keep_net _zy_sva_disable_unenc_keys_9_cpass
+bit _zy_sva_b8;
+wire  _zy_sva_enable_unenc_keys_10_reset_or;
+bit [0:0]  _zy_sva_enable_unenc_keys_10_ccheck = 1'b0;
+// quickturn keep_net _zy_sva_enable_unenc_keys_10_ccheck
+bit [0:0]  _zy_sva_enable_unenc_keys_10_cpass = 1'b0;
+// quickturn keep_net _zy_sva_enable_unenc_keys_10_cpass
+bit _zy_sva_b9;
 // synopsys translate_off
 wire  _sva_placeholder_clk;
 wire  _sva_placeholder_expr;
@@ -1023,30 +1069,54 @@ wire  _zy_sva_b4_t;
 wire  _zy_sva_b5_t;
 wire  _zy_sva_b6_t;
 wire  _zy_sva_b7_t;
-ixc_assign  #(1) _zz_strnp_0 (_zy_simnet_ckvreader_kimreader_ack_0_w$,ckvreader_kimreader_ack);
-ixc_assign  #(1) _zz_strnp_1 (_zy_simnet_ckvreader_kopassigner_valid_1_w$,ckvreader_kopassigner_valid);
-ixc_assign  #(71) _zz_strnp_2 (_zy_simnet_ckvreader_kopassigner_data_2_w$,ckvreader_kopassigner_data);
-ixc_assign  #(1) _zz_strnp_3 (_zy_simnet_ckv_rd_3_w$,ckv_rd);
-ixc_assign  #(15) _zz_strnp_4 (_zy_simnet_ckv_addr_4_w$,ckv_addr);
-ixc_assign  #(1) _zz_strnp_5 (_zy_simnet_ckv_rd_q_7_w$,ckv_rd_q);
-ixc_assign  #(1) _zz_strnp_6 (_zy_simnet_fifo_out_ack_8_w$,fifo_out_ack);
-assign  _zy_simnet_cio_9 = 1'b0;
-assign  _zy_sva_brcm_dek_key_1_reset_or = (rst_n !== 32'b01);
-assign  _zy_sva_brcm_dak_key_2_reset_or = (rst_n !== 32'b01);
-assign  _zy_sva_brcm_dek_key_3_reset_or = (rst_n !== 32'b01);
-assign  _zy_sva_brcm_dak_key_4_reset_or = (rst_n !== 32'b01);
-assign  _zy_sva_brcm_dek_key_5_reset_or = (rst_n !== 32'b01);
-assign  _zy_sva_brcm_dak_key_6_reset_or = (rst_n !== 32'b01);
-assign  _zy_sva_brcm_dek_key_7_reset_or = (rst_n !== 32'b01);
-assign  _zy_sva_brcm_dak_key_8_reset_or = (rst_n !== 32'b01);
-assign  _zy_sva_b0_t = (((ckvreader_kopassigner_valid & ktype_is_aux_key_only) & (ckvreader_kopassigner_data.id == KME_ERROR)) & (tlv_word8.dek_kim_entry.ckv_length == 32'b0));
-assign  _zy_sva_b1_t = (((ckvreader_kopassigner_valid & ktype_is_aux_key_only) & (ckvreader_kopassigner_data.id == KME_ERROR)) & (tlv_word9.dak_kim_entry.ckv_length == 32'b0));
-assign  _zy_sva_b2_t = (((ckvreader_kopassigner_valid & ktype_is_aux_key_only) & (ckvreader_kopassigner_data.id == KME_ERROR)) & (tlv_word8.dek_kim_entry.ckv_length == 32'b01));
-assign  _zy_sva_b3_t = (((ckvreader_kopassigner_valid & ktype_is_aux_key_only) & (ckvreader_kopassigner_data.id == KME_ERROR)) & (tlv_word9.dak_kim_entry.ckv_length == 32'b01));
-assign  _zy_sva_b4_t = (((ckvreader_kopassigner_valid & ktype_is_aux_key_only) & (ckvreader_kopassigner_data.id == KME_ERROR)) & (tlv_word8.dek_kim_entry.ckv_length == 32'b010));
-assign  _zy_sva_b5_t = (((ckvreader_kopassigner_valid & ktype_is_aux_key_only) & (ckvreader_kopassigner_data.id == KME_ERROR)) & (tlv_word9.dak_kim_entry.ckv_length == 32'b010));
-assign  _zy_sva_b6_t = (((ckvreader_kopassigner_valid & ktype_is_aux_key_only) & (ckvreader_kopassigner_data.id == KME_ERROR)) & (tlv_word8.dek_kim_entry.ckv_length == 32'b011));
-assign  _zy_sva_b7_t = (((ckvreader_kopassigner_valid & ktype_is_aux_key_only) & (ckvreader_kopassigner_data.id == KME_ERROR)) & (tlv_word9.dak_kim_entry.ckv_length == 32'b011));
+wire  _zy_sva_b8_t;
+wire  _zy_sva_b9_t;
+reg _zyL438_tfiRv4;
+reg _zyL444_tfiRv5;
+reg _zyL468_tfiRv6;
+reg _zyL473_tfiRv7;
+ixc_assign  #(1) _zz_strnp_0 (_zy_simnet_kimreader_parser_ack_0_w$,kimreader_parser_ack);
+ixc_assign  #(1) _zz_strnp_1 (_zy_simnet_kimreader_ckvreader_valid_1_w$,kimreader_ckvreader_valid);
+ixc_assign  #(71) _zz_strnp_2 (_zy_simnet_kimreader_ckvreader_data_2_w$,kimreader_ckvreader_data);
+ixc_assign  #(1) _zz_strnp_3 (_zy_simnet_drng_ack_3_w$,drng_ack);
+ixc_assign  #(1) _zz_strnp_4 (_zy_simnet_kim_rd_4_w$,kim_rd);
+ixc_assign  #(14) _zz_strnp_5 (_zy_simnet_kim_addr_5_w$,kim_addr);
+ixc_assign  #(1) _zz_strnp_6 (_zy_simnet_stat_req_with_expired_seed_6_w$,stat_req_with_expired_seed);
+ixc_assign  #(1) _zz_strnp_7 (_zy_simnet_stat_aux_key_type_0_7_w$,stat_aux_key_type_0);
+ixc_assign  #(1) _zz_strnp_8 (_zy_simnet_stat_aux_key_type_1_8_w$,stat_aux_key_type_1);
+ixc_assign  #(1) _zz_strnp_9 (_zy_simnet_stat_aux_key_type_2_9_w$,stat_aux_key_type_2);
+ixc_assign  #(1) _zz_strnp_10 (_zy_simnet_stat_aux_key_type_3_10_w$,stat_aux_key_type_3);
+ixc_assign  #(1) _zz_strnp_11 (_zy_simnet_stat_aux_key_type_4_11_w$,stat_aux_key_type_4);
+ixc_assign  #(1) _zz_strnp_12 (_zy_simnet_stat_aux_key_type_5_12_w$,stat_aux_key_type_5);
+ixc_assign  #(1) _zz_strnp_13 (_zy_simnet_stat_aux_key_type_6_13_w$,stat_aux_key_type_6);
+ixc_assign  #(1) _zz_strnp_14 (_zy_simnet_stat_aux_key_type_7_14_w$,stat_aux_key_type_7);
+ixc_assign  #(1) _zz_strnp_15 (_zy_simnet_stat_aux_key_type_8_15_w$,stat_aux_key_type_8);
+ixc_assign  #(1) _zz_strnp_16 (_zy_simnet_stat_aux_key_type_9_16_w$,stat_aux_key_type_9);
+ixc_assign  #(1) _zz_strnp_17 (_zy_simnet_stat_aux_key_type_10_17_w$,stat_aux_key_type_10);
+ixc_assign  #(1) _zz_strnp_18 (_zy_simnet_stat_aux_key_type_11_18_w$,stat_aux_key_type_11);
+ixc_assign  #(1) _zz_strnp_19 (_zy_simnet_stat_aux_key_type_12_19_w$,stat_aux_key_type_12);
+ixc_assign  #(1) _zz_strnp_20 (_zy_simnet_stat_aux_key_type_13_20_w$,stat_aux_key_type_13);
+ixc_assign  #(1) _zz_strnp_21 (_zy_simnet_stat_aux_cmd_with_vf_pf_fail_21_w$,stat_aux_cmd_with_vf_pf_fail);
+assign  _zy_sva_disable_unenc_keys_1_reset_or = (rst_n !== 32'b01);
+assign  _zy_sva_enable_unenc_keys_2_reset_or = (rst_n !== 32'b01);
+assign  _zy_sva_disable_unenc_keys_3_reset_or = (rst_n !== 32'b01);
+assign  _zy_sva_enable_unenc_keys_4_reset_or = (rst_n !== 32'b01);
+assign  _zy_sva_disable_unenc_keys_5_reset_or = (rst_n !== 32'b01);
+assign  _zy_sva_enable_unenc_keys_6_reset_or = (rst_n !== 32'b01);
+assign  _zy_sva_disable_unenc_keys_7_reset_or = (rst_n !== 32'b01);
+assign  _zy_sva_enable_unenc_keys_8_reset_or = (rst_n !== 32'b01);
+assign  _zy_sva_disable_unenc_keys_9_reset_or = (rst_n !== 32'b01);
+assign  _zy_sva_enable_unenc_keys_10_reset_or = (rst_n !== 32'b01);
+assign  _zy_sva_b0_t = (((parser_kimreader_data.id == KME_WORD0) && disable_unencrypted_keys) && (tlv_word0.key_type == 32'b010));
+assign  _zy_sva_b1_t = (((parser_kimreader_data.id == KME_WORD0) && ( !disable_unencrypted_keys )) && (tlv_word0.key_type == 32'b010));
+assign  _zy_sva_b2_t = (((parser_kimreader_data.id == KME_WORD0) && disable_unencrypted_keys) && (tlv_word0.key_type == 32'b011));
+assign  _zy_sva_b3_t = (((parser_kimreader_data.id == KME_WORD0) && ( !disable_unencrypted_keys )) && (tlv_word0.key_type == 32'b011));
+assign  _zy_sva_b4_t = (((parser_kimreader_data.id == KME_WORD0) && disable_unencrypted_keys) && (tlv_word0.key_type == 32'b0100));
+assign  _zy_sva_b5_t = (((parser_kimreader_data.id == KME_WORD0) && ( !disable_unencrypted_keys )) && (tlv_word0.key_type == 32'b0100));
+assign  _zy_sva_b6_t = (((parser_kimreader_data.id == KME_WORD0) && disable_unencrypted_keys) && (tlv_word0.key_type == 32'b0101));
+assign  _zy_sva_b7_t = (((parser_kimreader_data.id == KME_WORD0) && ( !disable_unencrypted_keys )) && (tlv_word0.key_type == 32'b0101));
+assign  _zy_sva_b8_t = (((parser_kimreader_data.id == KME_WORD0) && disable_unencrypted_keys) && (tlv_word0.key_type == 32'b0110));
+assign  _zy_sva_b9_t = (((parser_kimreader_data.id == KME_WORD0) && ( !disable_unencrypted_keys )) && (tlv_word0.key_type == 32'b0110));
 ixc_sample_logic #(32'b01,3)_zz_zy_sva_b0 (_zy_sva_b0,_zy_sva_b0_t);
 ixc_sample_logic #(32'b01,3)_zz_zy_sva_b1 (_zy_sva_b1,_zy_sva_b1_t);
 ixc_sample_logic #(32'b01,3)_zz_zy_sva_b2 (_zy_sva_b2,_zy_sva_b2_t);
@@ -1055,151 +1125,175 @@ ixc_sample_logic #(32'b01,3)_zz_zy_sva_b4 (_zy_sva_b4,_zy_sva_b4_t);
 ixc_sample_logic #(32'b01,3)_zz_zy_sva_b5 (_zy_sva_b5,_zy_sva_b5_t);
 ixc_sample_logic #(32'b01,3)_zz_zy_sva_b6 (_zy_sva_b6,_zy_sva_b6_t);
 ixc_sample_logic #(32'b01,3)_zz_zy_sva_b7 (_zy_sva_b7,_zy_sva_b7_t);
-cr_kme_fifo_xcm56 ckv_data_fifo(
-  .fifo_in_stall(fifo_in_stall) ,
-  .fifo_out({fifo_out_mbe,fifo_out}) ,
-  .fifo_out_valid(fifo_out_valid) ,
-  .fifo_overflow(_zy_simnet_dio_5) ,
-  .fifo_underflow(_zy_simnet_dio_6) ,
-  .clk(clk) ,
-  .rst_n(rst_n) ,
-  .fifo_in({ckv_mbe,ckv_dout}) ,
-  .fifo_in_valid(_zy_simnet_ckv_rd_q_7_w$) ,
-  .fifo_out_ack(_zy_simnet_fifo_out_ack_8_w$) ,
-  .fifo_in_stall_override(_zy_simnet_cio_9) ); 
+ixc_sample_logic #(32'b01,3)_zz_zy_sva_b8 (_zy_sva_b8,_zy_sva_b8_t);
+ixc_sample_logic #(32'b01,3)_zz_zy_sva_b9 (_zy_sva_b9,_zy_sva_b9_t);
 always 
- @(posedge clk or posedge _zy_sva_brcm_dek_key_1_reset_or)
+ @(posedge clk or posedge _zy_sva_disable_unenc_keys_1_reset_or)
   begin
-   if (_zy_sva_brcm_dek_key_1_reset_or)
+   if (_zy_sva_disable_unenc_keys_1_reset_or)
     begin
     end
    else
     begin:_zy_sva_sblk_1_1
      bit _zy_sva_nts_1_1_pass;
      _zy_sva_nts_1_1_pass = _zy_sva_b0;
-     _zy_sva_brcm_dek_key_1_ccheck = 1'b1;
+     _zy_sva_disable_unenc_keys_1_ccheck = 1'b1;
      if (_zy_sva_nts_1_1_pass)
       begin
-       _zy_sva_brcm_dek_key_1_cpass = 1'b1;
+       _zy_sva_disable_unenc_keys_1_cpass = 1'b1;
       end
     end
   end
 always 
- @(posedge clk or posedge _zy_sva_brcm_dak_key_2_reset_or)
+ @(posedge clk or posedge _zy_sva_enable_unenc_keys_2_reset_or)
   begin
-   if (_zy_sva_brcm_dak_key_2_reset_or)
+   if (_zy_sva_enable_unenc_keys_2_reset_or)
     begin
     end
    else
     begin:_zy_sva_sblk_2_1
      bit _zy_sva_nts_2_1_pass;
      _zy_sva_nts_2_1_pass = _zy_sva_b1;
-     _zy_sva_brcm_dak_key_2_ccheck = 1'b1;
+     _zy_sva_enable_unenc_keys_2_ccheck = 1'b1;
      if (_zy_sva_nts_2_1_pass)
       begin
-       _zy_sva_brcm_dak_key_2_cpass = 1'b1;
+       _zy_sva_enable_unenc_keys_2_cpass = 1'b1;
       end
     end
   end
 always 
- @(posedge clk or posedge _zy_sva_brcm_dek_key_3_reset_or)
+ @(posedge clk or posedge _zy_sva_disable_unenc_keys_3_reset_or)
   begin
-   if (_zy_sva_brcm_dek_key_3_reset_or)
+   if (_zy_sva_disable_unenc_keys_3_reset_or)
     begin
     end
    else
     begin:_zy_sva_sblk_3_1
      bit _zy_sva_nts_3_1_pass;
      _zy_sva_nts_3_1_pass = _zy_sva_b2;
-     _zy_sva_brcm_dek_key_3_ccheck = 1'b1;
+     _zy_sva_disable_unenc_keys_3_ccheck = 1'b1;
      if (_zy_sva_nts_3_1_pass)
       begin
-       _zy_sva_brcm_dek_key_3_cpass = 1'b1;
+       _zy_sva_disable_unenc_keys_3_cpass = 1'b1;
       end
     end
   end
 always 
- @(posedge clk or posedge _zy_sva_brcm_dak_key_4_reset_or)
+ @(posedge clk or posedge _zy_sva_enable_unenc_keys_4_reset_or)
   begin
-   if (_zy_sva_brcm_dak_key_4_reset_or)
+   if (_zy_sva_enable_unenc_keys_4_reset_or)
     begin
     end
    else
     begin:_zy_sva_sblk_4_1
      bit _zy_sva_nts_4_1_pass;
      _zy_sva_nts_4_1_pass = _zy_sva_b3;
-     _zy_sva_brcm_dak_key_4_ccheck = 1'b1;
+     _zy_sva_enable_unenc_keys_4_ccheck = 1'b1;
      if (_zy_sva_nts_4_1_pass)
       begin
-       _zy_sva_brcm_dak_key_4_cpass = 1'b1;
+       _zy_sva_enable_unenc_keys_4_cpass = 1'b1;
       end
     end
   end
 always 
- @(posedge clk or posedge _zy_sva_brcm_dek_key_5_reset_or)
+ @(posedge clk or posedge _zy_sva_disable_unenc_keys_5_reset_or)
   begin
-   if (_zy_sva_brcm_dek_key_5_reset_or)
+   if (_zy_sva_disable_unenc_keys_5_reset_or)
     begin
     end
    else
     begin:_zy_sva_sblk_5_1
      bit _zy_sva_nts_5_1_pass;
      _zy_sva_nts_5_1_pass = _zy_sva_b4;
-     _zy_sva_brcm_dek_key_5_ccheck = 1'b1;
+     _zy_sva_disable_unenc_keys_5_ccheck = 1'b1;
      if (_zy_sva_nts_5_1_pass)
       begin
-       _zy_sva_brcm_dek_key_5_cpass = 1'b1;
+       _zy_sva_disable_unenc_keys_5_cpass = 1'b1;
       end
     end
   end
 always 
- @(posedge clk or posedge _zy_sva_brcm_dak_key_6_reset_or)
+ @(posedge clk or posedge _zy_sva_enable_unenc_keys_6_reset_or)
   begin
-   if (_zy_sva_brcm_dak_key_6_reset_or)
+   if (_zy_sva_enable_unenc_keys_6_reset_or)
     begin
     end
    else
     begin:_zy_sva_sblk_6_1
      bit _zy_sva_nts_6_1_pass;
      _zy_sva_nts_6_1_pass = _zy_sva_b5;
-     _zy_sva_brcm_dak_key_6_ccheck = 1'b1;
+     _zy_sva_enable_unenc_keys_6_ccheck = 1'b1;
      if (_zy_sva_nts_6_1_pass)
       begin
-       _zy_sva_brcm_dak_key_6_cpass = 1'b1;
+       _zy_sva_enable_unenc_keys_6_cpass = 1'b1;
       end
     end
   end
 always 
- @(posedge clk or posedge _zy_sva_brcm_dek_key_7_reset_or)
+ @(posedge clk or posedge _zy_sva_disable_unenc_keys_7_reset_or)
   begin
-   if (_zy_sva_brcm_dek_key_7_reset_or)
+   if (_zy_sva_disable_unenc_keys_7_reset_or)
     begin
     end
    else
     begin:_zy_sva_sblk_7_1
      bit _zy_sva_nts_7_1_pass;
      _zy_sva_nts_7_1_pass = _zy_sva_b6;
-     _zy_sva_brcm_dek_key_7_ccheck = 1'b1;
+     _zy_sva_disable_unenc_keys_7_ccheck = 1'b1;
      if (_zy_sva_nts_7_1_pass)
       begin
-       _zy_sva_brcm_dek_key_7_cpass = 1'b1;
+       _zy_sva_disable_unenc_keys_7_cpass = 1'b1;
       end
     end
   end
 always 
- @(posedge clk or posedge _zy_sva_brcm_dak_key_8_reset_or)
+ @(posedge clk or posedge _zy_sva_enable_unenc_keys_8_reset_or)
   begin
-   if (_zy_sva_brcm_dak_key_8_reset_or)
+   if (_zy_sva_enable_unenc_keys_8_reset_or)
     begin
     end
    else
     begin:_zy_sva_sblk_8_1
      bit _zy_sva_nts_8_1_pass;
      _zy_sva_nts_8_1_pass = _zy_sva_b7;
-     _zy_sva_brcm_dak_key_8_ccheck = 1'b1;
+     _zy_sva_enable_unenc_keys_8_ccheck = 1'b1;
      if (_zy_sva_nts_8_1_pass)
       begin
-       _zy_sva_brcm_dak_key_8_cpass = 1'b1;
+       _zy_sva_enable_unenc_keys_8_cpass = 1'b1;
+      end
+    end
+  end
+always 
+ @(posedge clk or posedge _zy_sva_disable_unenc_keys_9_reset_or)
+  begin
+   if (_zy_sva_disable_unenc_keys_9_reset_or)
+    begin
+    end
+   else
+    begin:_zy_sva_sblk_9_1
+     bit _zy_sva_nts_9_1_pass;
+     _zy_sva_nts_9_1_pass = _zy_sva_b8;
+     _zy_sva_disable_unenc_keys_9_ccheck = 1'b1;
+     if (_zy_sva_nts_9_1_pass)
+      begin
+       _zy_sva_disable_unenc_keys_9_cpass = 1'b1;
+      end
+    end
+  end
+always 
+ @(posedge clk or posedge _zy_sva_enable_unenc_keys_10_reset_or)
+  begin
+   if (_zy_sva_enable_unenc_keys_10_reset_or)
+    begin
+    end
+   else
+    begin:_zy_sva_sblk_10_1
+     bit _zy_sva_nts_10_1_pass;
+     _zy_sva_nts_10_1_pass = _zy_sva_b9;
+     _zy_sva_enable_unenc_keys_10_ccheck = 1'b1;
+     if (_zy_sva_nts_10_1_pass)
+      begin
+       _zy_sva_enable_unenc_keys_10_cpass = 1'b1;
       end
     end
   end
@@ -1209,18 +1303,12 @@ always
    if (( !rst_n ))
     begin
      cur_state <= PASSTHROUGH;
-     ckv_rd_q <= 1'b0;
-     tlv_word8 <= 64'b0;
-     tlv_word9 <= 64'b0;
-     ktype_is_aux_key_only <= 1'b0;
+     kim_rd_q <= 1'b0;
     end
    else
     begin
      cur_state <= nxt_state;
-     ckv_rd_q <= ckv_rd;
-     tlv_word8 <= nxt_tlv_word8;
-     tlv_word9 <= nxt_tlv_word9;
-     ktype_is_aux_key_only <= nxt_ktype_is_aux_key_only;
+     kim_rd_q <= kim_rd;
     end
   end
 always 
@@ -1230,24 +1318,76 @@ always
    case (cur_state)
     PASSTHROUGH:
      begin
-      if (ckvreader_kimreader_ack)
+      if (kimreader_parser_ack)
        begin
-        if ((kimreader_ckvreader_data.id == KME_KIM))
+        if ((parser_kimreader_data.id == KME_DEBUG_KEYHDR))
          begin
-          if (kimreader_ckvreader_data.eoi)
+          if (((aux_key_ctrl.dek_key_op == KDF) | (aux_key_ctrl.dak_key_op == KDF)))
           begin
-          nxt_state = CKV_READS;
+          if (((aux_key_ctrl.kdf_mode == KDF_MODE_COMB_RGUID) | (aux_key_ctrl.kdf_mode == KDF_MODE_RGUID)))
+          begin
+          nxt_state = INSERT_RGUID0;
+          end
+          end
+         end
+        if ((parser_kimreader_data.id == KME_IVTWEAK))
+         begin
+          if (parser_kimreader_data.eoi)
+          begin
+          nxt_state = DEK_KIM_READ;
           end
          end
        end
      end
-    CKV_READS:
+    INSERT_RGUID0:
      begin
-      if (kopassigner_ckvreader_ack)
+      if (ckvreader_kimreader_ack)
        begin
-        if ((ckvreader_kopassigner_data.id == KME_DAK_CKV))
+        nxt_state = INSERT_RGUID1;
+       end
+     end
+    INSERT_RGUID1:
+     begin
+      if (ckvreader_kimreader_ack)
+       begin
+        nxt_state = INSERT_RGUID2;
+       end
+     end
+    INSERT_RGUID2:
+     begin
+      if (ckvreader_kimreader_ack)
+       begin
+        nxt_state = INSERT_RGUID3;
+       end
+     end
+    INSERT_RGUID3:
+     begin
+      if (ckvreader_kimreader_ack)
+       begin
+        nxt_state = PASSTHROUGH;
+       end
+     end
+    DEK_KIM_READ:
+     begin
+      if (kim_rd)
+       begin
+        nxt_state = DAK_KIM_READ;
+       end
+     end
+    DAK_KIM_READ:
+     begin
+      if (kim_rd)
+       begin
+        nxt_state = TX_KIM_ENTRIES;
+       end
+     end
+    TX_KIM_ENTRIES:
+     begin
+      if (kimreader_ckvreader_valid)
+       begin
+        if (kimreader_ckvreader_data.eoi)
          begin
-          if (ckvreader_kopassigner_data.eoi)
+          if (ckvreader_kimreader_ack)
           begin
           nxt_state = PASSTHROUGH;
           end
@@ -1259,62 +1399,97 @@ always
 always 
  @(*)
   begin
-   fifo_out_ack = 1'b0;
-   ckvreader_kimreader_ack = 1'b0;
-   ckvreader_kopassigner_valid = 1'b0;
-   ckvreader_kopassigner_data = 71'b0;
-   ckv_rd = 1'b0;
-   half_dek = (tlv_word8.dek_kim_entry.ckv_length == 2'b01);
-   nxt_tlv_word8 = tlv_word8;
-   nxt_tlv_word9 = tlv_word9;
-   nxt_ktype_is_aux_key_only = ktype_is_aux_key_only;
-   tlv_word0 = kimreader_ckvreader_data.tdata;
-   tlv_word42 = kimreader_ckvreader_data.tdata;
-   aux_key_ctrl = kimreader_ckvreader_data.tdata[31:0];
-   if (report_kme_error)
-    begin
-     tlv_word42.error_code = KME_ECC_FAIL;
-    end
+   drng_ack = 1'b0;
+   kimreader_parser_ack = 1'b0;
+   kimreader_ckvreader_valid = 1'b0;
+   kimreader_ckvreader_data = 71'b0;
+   kim_rd = 1'b0;
+   kim_addr = 14'b0;
+   aux_key_ctrl = parser_kimreader_data.tdata[31:0];
+   tlv_word0 = parser_kimreader_data.tdata;
+   tlv_word8 = 64'b0;
+   tlv_word9 = 64'b0;
+   tlv_word42 = parser_kimreader_data.tdata;
+   tlv_word42.error_code = kim_errors_q;
    case (cur_state)
     PASSTHROUGH:
      begin
-      ckvreader_kopassigner_valid = kimreader_ckvreader_valid;
-      ckvreader_kopassigner_data = kimreader_ckvreader_data;
-      ckvreader_kimreader_ack = kopassigner_ckvreader_ack;
-      if (kimreader_ckvreader_valid)
+      kimreader_ckvreader_valid = parser_kimreader_valid;
+      kimreader_ckvreader_data = parser_kimreader_data;
+      kimreader_parser_ack = ckvreader_kimreader_ack;
+      if ((parser_kimreader_data.id == KME_ERROR))
        begin
-        if ((kimreader_ckvreader_data.id == KME_WORD0))
-         nxt_tlv_word8 = 64'b0;
-        if ((kimreader_ckvreader_data.id == KME_WORD0))
-         nxt_tlv_word9 = 64'b0;
-        if (((kimreader_ckvreader_data.id == KME_KIM) & (kimreader_ckvreader_data.eoi == 1'b0)))
-         nxt_tlv_word8 = kimreader_ckvreader_data.tdata;
-        if (((kimreader_ckvreader_data.id == KME_KIM) & (kimreader_ckvreader_data.eoi == 1'b1)))
-         nxt_tlv_word9 = kimreader_ckvreader_data.tdata;
-        if ((kimreader_ckvreader_data.id == KME_ERROR))
-         ckvreader_kopassigner_data.tdata = tlv_word42;
-        if ((kimreader_ckvreader_data.id == KME_WORD0))
-         nxt_ktype_is_aux_key_only = (tlv_word0.key_type == AUX_KEY_ONLY);
+        kimreader_ckvreader_data.tdata = tlv_word42;
        end
      end
-    CKV_READS:
+    INSERT_RGUID0,
+    INSERT_RGUID1,
+    INSERT_RGUID2,
+    INSERT_RGUID3:
      begin
-      ckvreader_kopassigner_valid = (kimreader_ckvreader_valid & fifo_out_valid);
-      ckvreader_kopassigner_data = kimreader_ckvreader_data;
-      ckvreader_kimreader_ack = kopassigner_ckvreader_ack;
-      fifo_out_ack = kopassigner_ckvreader_ack;
-      case (kimreader_ckvreader_data.id)
-       KME_DEK_CKV0:
-        if ((tlv_word8.dek_kim_entry.ckv_length == 2'b10))
-         ckvreader_kopassigner_data.tdata = (tlv_word8.validate_dek ? fifo_out : 64'b0);
-       KME_DEK_CKV1:
-        if ((tlv_word8.dek_kim_entry.ckv_length != 2'b0))
-         ckvreader_kopassigner_data.tdata = (tlv_word8.validate_dek ? fifo_out : 64'b0);
-       KME_DAK_CKV:
-        if ((tlv_word9.dak_kim_entry.ckv_length != 2'b0))
-         ckvreader_kopassigner_data.tdata = (tlv_word9.validate_dak ? fifo_out : 64'b0);
-      endcase
-      ckv_rd = ((ckv_read_num != 4'b1100) & (fifo_in_stall ? fifo_out_ack : 1'b1));
+      if (parser_kimreader_valid)
+       begin
+        if (drng_valid)
+         begin
+          kimreader_ckvreader_valid = 1'b1;
+          kimreader_ckvreader_data = parser_kimreader_data;
+          kimreader_parser_ack = ckvreader_kimreader_ack;
+          case (cur_state)
+          INSERT_RGUID0:
+          kimreader_ckvreader_data.tdata = drng_256_out[127:64];
+          INSERT_RGUID1:
+          kimreader_ckvreader_data.tdata = drng_256_out[63:0];
+          INSERT_RGUID2:
+          kimreader_ckvreader_data.tdata = drng_256_out[127:64];
+          INSERT_RGUID3:
+          kimreader_ckvreader_data.tdata = drng_256_out[63:0];
+          endcase
+          case (cur_state)
+          INSERT_RGUID1:
+          drng_ack = ckvreader_kimreader_ack;
+          INSERT_RGUID3:
+          drng_ack = ckvreader_kimreader_ack;
+          endcase
+         end
+        else
+         if (drng_seed_expired)
+          begin
+          kimreader_ckvreader_valid = 1'b1;
+          kimreader_ckvreader_data = parser_kimreader_data;
+          kimreader_parser_ack = ckvreader_kimreader_ack;
+          end
+       end
+     end
+    DEK_KIM_READ:
+     begin
+      kim_rd = 1'b1;
+      kim_addr = dek_ref_q;
+     end
+    DAK_KIM_READ:
+     begin
+      kim_rd = 1'b1;
+      kim_addr = dak_ref_q;
+     end
+    TX_KIM_ENTRIES:
+     begin
+      tlv_word8 = parser_kimreader_data.tdata;
+      tlv_word8.dek_kim_entry = (tlv_word8.validate_dek ? dek_kim_entry_q : 38'b0);
+      tlv_word9 = parser_kimreader_data.tdata;
+      tlv_word9.dak_kim_entry = (tlv_word9.validate_dak ? dak_kim_entry_q : 38'b0);
+      if ((parser_kimreader_data.id == KME_KIM))
+       begin
+        kimreader_ckvreader_valid = 1'b1;
+        kimreader_ckvreader_data = parser_kimreader_data;
+        kimreader_parser_ack = ckvreader_kimreader_ack;
+        if ((parser_kimreader_data.eoi == 1'b0))
+         begin
+          kimreader_ckvreader_data.tdata = tlv_word8;
+         end
+        else
+         begin
+          kimreader_ckvreader_data.tdata = tlv_word9;
+         end
+       end
      end
    endcase
   end
@@ -1323,87 +1498,328 @@ always
   begin
    if (( !rst_n ))
     begin
-     ckv_read_num <= 4'b0;
-     ckv_addr <= 15'b0;
+     aux_key_type <= NO_AUX_KEY;
+     kim_errors_q <= NO_ERRORS;
+     dek_ref_q <= 14'b0;
+     dak_ref_q <= 14'b0;
+     dek_is_kdf_key_q <= 1'b0;
+     dak_is_kdf_key_q <= 1'b0;
+     stat_req_with_expired_seed <= 1'b0;
+     stat_aux_key_type_0 <= 1'b0;
+     stat_aux_key_type_1 <= 1'b0;
+     stat_aux_key_type_2 <= 1'b0;
+     stat_aux_key_type_3 <= 1'b0;
+     stat_aux_key_type_4 <= 1'b0;
+     stat_aux_key_type_5 <= 1'b0;
+     stat_aux_key_type_6 <= 1'b0;
+     stat_aux_key_type_7 <= 1'b0;
+     stat_aux_key_type_8 <= 1'b0;
+     stat_aux_key_type_9 <= 1'b0;
+     stat_aux_key_type_10 <= 1'b0;
+     stat_aux_key_type_11 <= 1'b0;
+     stat_aux_key_type_12 <= 1'b0;
+     stat_aux_key_type_13 <= 1'b0;
+     stat_aux_cmd_with_vf_pf_fail <= 1'b0;
     end
    else
-    if ((cur_state == PASSTHROUGH))
-     begin
-      ckv_read_num <= 4'b0;
-      ckv_addr <= nxt_tlv_word8.dek_kim_entry.ckv_pointer;
-     end
-    else
-     if (ckv_rd)
+    begin
+     stat_req_with_expired_seed <= 1'b0;
+     stat_aux_key_type_0 <= 1'b0;
+     stat_aux_key_type_1 <= 1'b0;
+     stat_aux_key_type_2 <= 1'b0;
+     stat_aux_key_type_3 <= 1'b0;
+     stat_aux_key_type_4 <= 1'b0;
+     stat_aux_key_type_5 <= 1'b0;
+     stat_aux_key_type_6 <= 1'b0;
+     stat_aux_key_type_7 <= 1'b0;
+     stat_aux_key_type_8 <= 1'b0;
+     stat_aux_key_type_9 <= 1'b0;
+     stat_aux_key_type_10 <= 1'b0;
+     stat_aux_key_type_11 <= 1'b0;
+     stat_aux_key_type_12 <= 1'b0;
+     stat_aux_key_type_13 <= 1'b0;
+     stat_aux_cmd_with_vf_pf_fail <= 1'b0;
+     if (kimreader_parser_ack)
       begin
-       ckv_read_num <= (ckv_read_num + 4'b01);
-       if ((half_dek & (ckv_read_num == 4'b011)))
+       if ((parser_kimreader_data.id == KME_WORD0))
         begin
-         ckv_addr <= tlv_word8.dek_kim_entry.ckv_pointer;
+         aux_key_type <= tlv_word0.key_type;
+         case (tlv_word0.key_type)
+          DEK256,
+          DEK512,
+          DAK,
+          DEK256_DAK,
+          DEK512_DAK:
+          kim_errors_q <= (disable_unencrypted_keys ? KME_UNSUPPORTED_KEY_TYPE : NO_ERRORS);
+          NO_AUX_KEY:
+          kim_errors_q <= (tlv_word0.keyless_algos ? NO_ERRORS : KME_UNSUPPORTED_KEY_TYPE);
+          default:
+          kim_errors_q <= NO_ERRORS;
+         endcase
         end
-       else
-        if ((ckv_read_num == 4'b0111))
-         begin
-          ckv_addr <= tlv_word9.dak_kim_entry.ckv_pointer;
-         end
-        else
-         begin
-          ckv_addr <= (ckv_addr + 15'b01);
-         end
+       if ((parser_kimreader_data.id == KME_DEBUG_KEYHDR))
+        begin
+         dek_ref_q <= aux_key_ctrl.dek_key_ref;
+         dak_ref_q <= aux_key_ctrl.dak_key_ref;
+         dek_is_kdf_key_q <= (aux_key_ctrl.dek_key_op == KDF);
+         dak_is_kdf_key_q <= (aux_key_ctrl.dak_key_op == KDF);
+        end
+       if ((parser_kimreader_data.id == KME_KIM))
+        begin
+         if ((aux_key_type != NO_AUX_KEY))
+          begin
+          if ((parser_kimreader_data.eoi == 1'b0))
+          begin
+          if ((tlv_word8.missing_guid || tlv_word8.missing_iv))
+          begin
+          kim_errors_q <= KME_UNSUPPORTED_KEY_TYPE;
+          end
+          else
+          begin
+          if (tlv_word8.validate_dek)
+          begin
+          if (tlv_word8.dek_kim_entry.pf_num[3])
+          begin
+          begin:_zypbctfiCscp0_L438_dek_needs_kek
+          aux_key_type_e _zykey_type_L554_tfiV0;
+          _zykey_type_L554_tfiV0 = aux_key_type;
+          case (_zykey_type_L554_tfiV0)
+          ENC_DEK256,
+          ENC_DEK512,
+          ENC_DEK256_DAK,
+          ENC_DEK512_DAK,
+          ENC_DEK256_DAK_COMB,
+          ENC_DEK512_DAK_COMB:
+          _zyL438_tfiRv4 = 1'b1;
+          default:
+          _zyL438_tfiRv4 = 1'b0;
+          endcase
+          end
+          if (( ~_zyL438_tfiRv4 ))
+          begin
+          kim_errors_q <= KME_DEK_ILLEGAL_KEK_USAGE;
+          end
+          end
+          else
+          begin
+          begin:_zypbctfiCscp1_L444_dek_needs_kek
+          aux_key_type_e _zykey_type_L554_tfiV0;
+          _zykey_type_L554_tfiV0 = aux_key_type;
+          case (_zykey_type_L554_tfiV0)
+          ENC_DEK256,
+          ENC_DEK512,
+          ENC_DEK256_DAK,
+          ENC_DEK512_DAK,
+          ENC_DEK256_DAK_COMB,
+          ENC_DEK512_DAK_COMB:
+          _zyL444_tfiRv5 = 1'b1;
+          default:
+          _zyL444_tfiRv5 = 1'b0;
+          endcase
+          end
+          if (_zyL444_tfiRv5)
+          begin
+          kim_errors_q <= KME_DEK_ILLEGAL_KEK_USAGE;
+          end
+          end
+          if ((tlv_word8.pf_num[0] != tlv_word8.dek_kim_entry.pf_num[0]))
+          kim_errors_q <= KME_DEK_PF_VF_VAL_ERR;
+          if ((tlv_word8.vf_valid != tlv_word8.dek_kim_entry.vf_valid))
+          kim_errors_q <= KME_DEK_PF_VF_VAL_ERR;
+          if (tlv_word8.vf_valid)
+          begin
+          if ((tlv_word8.vf_num != tlv_word8.dek_kim_entry.vf_num))
+          begin
+          kim_errors_q <= KME_DEK_PF_VF_VAL_ERR;
+          end
+          end
+          if ((tlv_word8.dek_kim_entry.valid == 1'b0))
+          kim_errors_q <= KME_DEK_INV_KIM;
+          end
+          end
+          end
+          else
+          begin
+          if (tlv_word9.validate_dak)
+          begin
+          if (tlv_word9.dak_kim_entry.pf_num[3])
+          begin
+          begin:_zypbctfiCscp2_L468_dak_needs_kek
+          aux_key_type_e _zykey_type_L566_tfiV2;
+          _zykey_type_L566_tfiV2 = aux_key_type;
+          case (_zykey_type_L566_tfiV2)
+          ENC_DAK,
+          ENC_DEK256_DAK,
+          ENC_DEK512_DAK,
+          ENC_DEK256_DAK_COMB,
+          ENC_DEK512_DAK_COMB:
+          _zyL468_tfiRv6 = 1'b1;
+          default:
+          _zyL468_tfiRv6 = 1'b0;
+          endcase
+          end
+          if (( ~_zyL468_tfiRv6 ))
+          begin
+          kim_errors_q <= KME_DAK_ILLEGAL_KEK_USAGE;
+          end
+          end
+          else
+          begin
+          begin:_zypbctfiCscp3_L473_dak_needs_kek
+          aux_key_type_e _zykey_type_L566_tfiV2;
+          _zykey_type_L566_tfiV2 = aux_key_type;
+          case (_zykey_type_L566_tfiV2)
+          ENC_DAK,
+          ENC_DEK256_DAK,
+          ENC_DEK512_DAK,
+          ENC_DEK256_DAK_COMB,
+          ENC_DEK512_DAK_COMB:
+          _zyL473_tfiRv7 = 1'b1;
+          default:
+          _zyL473_tfiRv7 = 1'b0;
+          endcase
+          end
+          if (_zyL473_tfiRv7)
+          begin
+          kim_errors_q <= KME_DAK_ILLEGAL_KEK_USAGE;
+          end
+          end
+          if ((tlv_word9.pf_num[0] != tlv_word9.dak_kim_entry.pf_num[0]))
+          kim_errors_q <= KME_DAK_PF_VF_VAL_ERR;
+          if ((tlv_word9.vf_valid != tlv_word9.dak_kim_entry.vf_valid))
+          kim_errors_q <= KME_DAK_PF_VF_VAL_ERR;
+          if (tlv_word9.vf_valid)
+          begin
+          if ((tlv_word9.vf_num != tlv_word9.dak_kim_entry.vf_num))
+          begin
+          kim_errors_q <= KME_DAK_PF_VF_VAL_ERR;
+          end
+          end
+          if ((tlv_word9.dak_kim_entry.valid == 1'b0))
+          kim_errors_q <= KME_DAK_INV_KIM;
+          end
+          end
+          end
+        end
+       if ((parser_kimreader_data.id == KME_DEK_CKV0))
+        begin
+         if (parser_kimreader_data.eoi)
+          begin
+          case (aux_key_type)
+          NO_AUX_KEY:
+          stat_aux_key_type_0 <= 1'b1;
+          AUX_KEY_ONLY:
+          stat_aux_key_type_1 <= 1'b1;
+          DEK256:
+          stat_aux_key_type_2 <= 1'b1;
+          DEK512:
+          stat_aux_key_type_3 <= 1'b1;
+          DAK:
+          stat_aux_key_type_4 <= 1'b1;
+          DEK256_DAK:
+          stat_aux_key_type_5 <= 1'b1;
+          DEK512_DAK:
+          stat_aux_key_type_6 <= 1'b1;
+          ENC_DEK256:
+          stat_aux_key_type_7 <= 1'b1;
+          ENC_DEK512:
+          stat_aux_key_type_8 <= 1'b1;
+          ENC_DAK:
+          stat_aux_key_type_9 <= 1'b1;
+          ENC_DEK256_DAK:
+          stat_aux_key_type_10 <= 1'b1;
+          ENC_DEK512_DAK:
+          stat_aux_key_type_11 <= 1'b1;
+          ENC_DEK256_DAK_COMB:
+          stat_aux_key_type_12 <= 1'b1;
+          ENC_DEK512_DAK_COMB:
+          stat_aux_key_type_13 <= 1'b1;
+          endcase
+          if ((kim_errors_q == KME_DEK_PF_VF_VAL_ERR))
+          stat_aux_cmd_with_vf_pf_fail <= 1'b1;
+          if ((kim_errors_q == KME_DAK_PF_VF_VAL_ERR))
+          stat_aux_cmd_with_vf_pf_fail <= 1'b1;
+          end
+        end
+       if ((parser_kimreader_data.id == KME_DEK_CKV1))
+        begin
+         if ((dek_kim_mbe_q | dak_kim_mbe_q))
+          begin
+          kim_errors_q <= KME_ECC_FAIL;
+          end
+        end
       end
+    end
   end
 always 
  @(posedge clk or negedge rst_n)
   begin
    if (( !rst_n ))
     begin
-     report_kme_error <= 1'b0;
+     dek_kim_entry_q <= 38'b0;
+     dak_kim_entry_q <= 38'b0;
+     dek_kim_mbe_q <= 1'b0;
+     dak_kim_mbe_q <= 1'b0;
     end
    else
-    if (fifo_out_ack)
+    if (kim_rd_q)
      begin
-      if (fifo_out_mbe)
-       begin
-        report_kme_error <= 1'b1;
-       end
+      if ((cur_state == DAK_KIM_READ))
+       {dek_kim_mbe_q,dek_kim_entry_q} <= {kim_mbe,kim_dout};
+      if ((cur_state == TX_KIM_ENTRIES))
+       {dak_kim_mbe_q,dak_kim_entry_q} <= {kim_mbe,kim_dout};
      end
     else
-     if (kopassigner_ckvreader_ack)
+     if (kimreader_ckvreader_valid)
       begin
-       if ((ckvreader_kopassigner_data.id == KME_ERROR))
+       if ((kimreader_ckvreader_data.id == KME_ERROR))
         begin
-         report_kme_error <= 1'b0;
+         if (ckvreader_kimreader_ack)
+          begin
+          dek_kim_entry_q <= 38'b0;
+          dak_kim_entry_q <= 38'b0;
+          dek_kim_mbe_q <= 1'b0;
+          dak_kim_mbe_q <= 1'b0;
+          end
         end
       end
   end
-//pragma CVASTRPROP MODULE HDLICE cva_for_generate "ckv_len[0]"
-//pragma RTLNAME "ckv_len[0]" "ckv_len_0_"
-if(1) begin: ckv_len_0_
- localparam integer ii = 0;
-  axis_assert("brcm_dek_key",1'b0,2'b10,,,,,,,_zy_sva_brcm_dek_key_1_cpass,,_zy_sva_brcm_dek_key_1_ccheck,,"/home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_ckv_reader.v",296,3'b000);
-  axis_assert("brcm_dak_key",1'b0,2'b10,,,,,,,_zy_sva_brcm_dak_key_2_cpass,,_zy_sva_brcm_dak_key_2_ccheck,,"/home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_ckv_reader.v",297,3'b000);
+//pragma CVASTRPROP MODULE HDLICE cva_for_generate "key_type_enc_dek[2]"
+//pragma RTLNAME "key_type_enc_dek[2]" "key_type_enc_dek_2_"
+if(1) begin: key_type_enc_dek_2_
+ localparam integer nn = 2;
+  axis_assert("disable_unenc_keys",1'b0,2'b10,,,,,,,_zy_sva_disable_unenc_keys_1_cpass,,_zy_sva_disable_unenc_keys_1_ccheck,,"/home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kim_drng_reader.v",591,3'b000);
+  axis_assert("enable_unenc_keys",1'b0,2'b10,,,,,,,_zy_sva_enable_unenc_keys_2_cpass,,_zy_sva_enable_unenc_keys_2_ccheck,,"/home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kim_drng_reader.v",596,3'b000);
 end
-//pragma CVASTRPROP MODULE HDLICE cva_for_generate "ckv_len[1]"
-//pragma RTLNAME "ckv_len[1]" "ckv_len_1_"
-if(1) begin: ckv_len_1_
- localparam integer ii = 1;
-  axis_assert("brcm_dek_key",1'b0,2'b10,,,,,,,_zy_sva_brcm_dek_key_3_cpass,,_zy_sva_brcm_dek_key_3_ccheck,,"/home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_ckv_reader.v",296,3'b000);
-  axis_assert("brcm_dak_key",1'b0,2'b10,,,,,,,_zy_sva_brcm_dak_key_4_cpass,,_zy_sva_brcm_dak_key_4_ccheck,,"/home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_ckv_reader.v",297,3'b000);
+//pragma CVASTRPROP MODULE HDLICE cva_for_generate "key_type_enc_dek[3]"
+//pragma RTLNAME "key_type_enc_dek[3]" "key_type_enc_dek_3_"
+if(1) begin: key_type_enc_dek_3_
+ localparam integer nn = 3;
+  axis_assert("disable_unenc_keys",1'b0,2'b10,,,,,,,_zy_sva_disable_unenc_keys_3_cpass,,_zy_sva_disable_unenc_keys_3_ccheck,,"/home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kim_drng_reader.v",591,3'b000);
+  axis_assert("enable_unenc_keys",1'b0,2'b10,,,,,,,_zy_sva_enable_unenc_keys_4_cpass,,_zy_sva_enable_unenc_keys_4_ccheck,,"/home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kim_drng_reader.v",596,3'b000);
 end
-//pragma CVASTRPROP MODULE HDLICE cva_for_generate "ckv_len[2]"
-//pragma RTLNAME "ckv_len[2]" "ckv_len_2_"
-if(1) begin: ckv_len_2_
- localparam integer ii = 2;
-  axis_assert("brcm_dek_key",1'b0,2'b10,,,,,,,_zy_sva_brcm_dek_key_5_cpass,,_zy_sva_brcm_dek_key_5_ccheck,,"/home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_ckv_reader.v",296,3'b000);
-  axis_assert("brcm_dak_key",1'b0,2'b10,,,,,,,_zy_sva_brcm_dak_key_6_cpass,,_zy_sva_brcm_dak_key_6_ccheck,,"/home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_ckv_reader.v",297,3'b000);
+//pragma CVASTRPROP MODULE HDLICE cva_for_generate "key_type_enc_dek[4]"
+//pragma RTLNAME "key_type_enc_dek[4]" "key_type_enc_dek_4_"
+if(1) begin: key_type_enc_dek_4_
+ localparam integer nn = 4;
+  axis_assert("disable_unenc_keys",1'b0,2'b10,,,,,,,_zy_sva_disable_unenc_keys_5_cpass,,_zy_sva_disable_unenc_keys_5_ccheck,,"/home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kim_drng_reader.v",591,3'b000);
+  axis_assert("enable_unenc_keys",1'b0,2'b10,,,,,,,_zy_sva_enable_unenc_keys_6_cpass,,_zy_sva_enable_unenc_keys_6_ccheck,,"/home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kim_drng_reader.v",596,3'b000);
 end
-//pragma CVASTRPROP MODULE HDLICE cva_for_generate "ckv_len[3]"
-//pragma RTLNAME "ckv_len[3]" "ckv_len_3_"
-if(1) begin: ckv_len_3_
- localparam integer ii = 3;
-  axis_assert("brcm_dek_key",1'b0,2'b10,,,,,,,_zy_sva_brcm_dek_key_7_cpass,,_zy_sva_brcm_dek_key_7_ccheck,,"/home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_ckv_reader.v",296,3'b000);
-  axis_assert("brcm_dak_key",1'b0,2'b10,,,,,,,_zy_sva_brcm_dak_key_8_cpass,,_zy_sva_brcm_dak_key_8_ccheck,,"/home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_ckv_reader.v",297,3'b000);
+//pragma CVASTRPROP MODULE HDLICE cva_for_generate "key_type_enc_dek[5]"
+//pragma RTLNAME "key_type_enc_dek[5]" "key_type_enc_dek_5_"
+if(1) begin: key_type_enc_dek_5_
+ localparam integer nn = 5;
+  axis_assert("disable_unenc_keys",1'b0,2'b10,,,,,,,_zy_sva_disable_unenc_keys_7_cpass,,_zy_sva_disable_unenc_keys_7_ccheck,,"/home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kim_drng_reader.v",591,3'b000);
+  axis_assert("enable_unenc_keys",1'b0,2'b10,,,,,,,_zy_sva_enable_unenc_keys_8_cpass,,_zy_sva_enable_unenc_keys_8_ccheck,,"/home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kim_drng_reader.v",596,3'b000);
 end
-// pragma CVASTRPROP MODULE cr_kme_ckv_reader PROP_RANOFF TRUE
-  //pragma CVASTRPROP MODULE HDLICE cva_for_generate_0 "-1 ckv_len 0 3 "
+//pragma CVASTRPROP MODULE HDLICE cva_for_generate "key_type_enc_dek[6]"
+//pragma RTLNAME "key_type_enc_dek[6]" "key_type_enc_dek_6_"
+if(1) begin: key_type_enc_dek_6_
+ localparam integer nn = 6;
+  axis_assert("disable_unenc_keys",1'b0,2'b10,,,,,,,_zy_sva_disable_unenc_keys_9_cpass,,_zy_sva_disable_unenc_keys_9_ccheck,,"/home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kim_drng_reader.v",591,3'b000);
+  axis_assert("enable_unenc_keys",1'b0,2'b10,,,,,,,_zy_sva_enable_unenc_keys_10_cpass,,_zy_sva_enable_unenc_keys_10_ccheck,,"/home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kim_drng_reader.v",596,3'b000);
+end
+// pragma CVASTRPROP MODULE cr_kme_kim_drng_reader PROP_RANOFF TRUE
+  //pragma CVASTRPROP MODULE HDLICE cva_for_generate_0 "-1 key_type_enc_dek 2 6 "
 endmodule
 

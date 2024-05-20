@@ -32,7 +32,7 @@ wire _zy_simnet_dio_0;
 wire _zy_simnet_dio_1;
 Q_INV U0 ( .A(empty), .Z(fifo_out_valid));
 Q_AN02 U1 ( .A0(fifo_out_valid), .A1(fifo_out_ack), .Z(ren));
-cr_fifo_wrap2_xcm10 ram_fifo ( .full( fifo_in_stall), .afull( 
+cr_fifo_wrap2_xcm11 ram_fifo ( .full( fifo_in_stall), .afull( 
 	_zy_simnet_dio_0), .rdata( fifo_out[70:0]), .empty( empty), 
 	.aempty( _zy_simnet_dio_1), .bimc_odat( fifo_bimc_odat), 
 	.bimc_osync( fifo_bimc_osync), .ro_uncorrectable_ecc_error( 

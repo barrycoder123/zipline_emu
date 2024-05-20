@@ -248,7 +248,7 @@ begin
     DUMMY18 <= '0' ;
     cmnd_issued <= '0' ;
     unsupported_op <= '0' ;
-    if (((wr_stb)='1' and reg_addr = std_logic_vector'("00101000000"))) then
+    if (((wr_stb)='1' and reg_addr = std_logic_vector'("00101110000"))) then
       if (cmnd /= SIM_TMO) then
         cmnd_issued <= '1' ;
       end if;

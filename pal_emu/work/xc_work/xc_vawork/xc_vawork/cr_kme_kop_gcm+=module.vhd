@@ -28,7 +28,7 @@ architecture module of cr_kme_kop_gcm is
     rst_n : in std_logic := 'X' ) ;
   end component ;
 
-  component cr_kme_fifo_xcm55
+  component cr_kme_fifo_xcm56
     generic (
       DATA_SIZE : integer := 132 ;
       FIFO_DEPTH : integer := 16 ;
@@ -1422,7 +1422,7 @@ begin
       ,clk => clk
       ,rst_n => rst_n
     ) ;
-  bypass_fifo : cr_kme_fifo_xcm55
+  bypass_fifo : cr_kme_fifo_xcm56
     port map (
        fifo_in_stall => fifo_in_stall
       ,fifo_out => DUMMY16

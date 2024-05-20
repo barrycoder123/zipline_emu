@@ -24,17 +24,17 @@ architecture module of nx_indirect_access_cntrl_v2_xcm125 is
 
   signal DUMMY3 : std_logic_vector(0 to 2) ;
   signal DUMMY4 : std_logic_vector(0 to 4) ;
-  signal DUMMY5 : std_logic_vector(0 to 14) ;
+  signal DUMMY5 : std_logic_vector(0 to 13) ;
   signal DUMMY6 : std_logic ;
   signal DUMMY7 : std_logic_vector(0 to 15) ;
   signal DUMMY8 : std_logic_vector(0 to 3) ;
   signal DUMMY9 : std_logic ;
-  signal DUMMY10 : std_logic_vector(0 to 63) ;
+  signal DUMMY10 : std_logic_vector(0 to 37) ;
   signal DUMMY11 : std_logic ;
   signal DUMMY12 : std_logic ;
   signal DUMMY13 : std_logic ;
-  signal DUMMY14 : std_logic_vector(0 to 14) ;
-  signal DUMMY15 : std_logic_vector(0 to 63) ;
+  signal DUMMY14 : std_logic_vector(0 to 13) ;
+  signal DUMMY15 : std_logic_vector(0 to 37) ;
   signal DUMMY16 : std_logic ;
   signal DUMMY17 : std_logic ;
   signal cmnd : ia_operation_e ;
@@ -45,7 +45,7 @@ architecture module of nx_indirect_access_cntrl_v2_xcm125 is
   signal sw_ce_r : std_logic ;
   signal rst_r : std_logic ;
   signal rst_or_ini_r : std_logic ;
-  signal rst_addr_r : std_logic_vector(14 downto 0) ;
+  signal rst_addr_r : std_logic_vector(13 downto 0) ;
   signal sw_we_r : std_logic ;
   signal cmnd_rd_stb : std_logic ;
   signal cmnd_wr_stb : std_logic ;
@@ -64,7 +64,7 @@ architecture module of nx_indirect_access_cntrl_v2_xcm125 is
   signal timer_r : std_logic_vector(5 downto 0) ;
   signal timeout : std_logic ;
   signal sim_tmo_r : std_logic ;
-  signal maxaddr : std_logic_vector(14 downto 0) ;
+  signal maxaddr : std_logic_vector(13 downto 0) ;
   signal badaddr : std_logic ;
   signal igrant : std_logic ;
   signal stat : ia_status_e ;
@@ -114,14 +114,14 @@ begin
     ) ;
   DUMMY21 <= ext(timer_r(5),1) ;
   timeout <= boolean_to_std(timer_r = std_logic_vector'("111111")) ;
-  maxaddr <= "000000000000000" when (init_r)='1' else addr_limit(conv_integer(
+  maxaddr <= "00000000000000" when (init_r)='1' else addr_limit(conv_integer(
   (ext(cmnd_table_id,32) rem std_logic_vector'
   ("00000000000000000000000000000001")))) ;
   badaddr <= boolean_to_std(((cmnd_issued)='1' and cmnd_addr > maxaddr)) ;
   igrant <= boolean_to_std(((sim_tmo_r = '0') and (grant)='1')) ;
   stat_datawords <= "00001" ;
   _zz_strnp_6 : ixc_assign
-    generic map(W => 15)
+    generic map(W => 14)
     port map (
        stat_addr
       ,maxaddr
@@ -148,7 +148,7 @@ begin
       ,stat_datawords
     ) ;
   _zz_strnp_10 : ixc_assign
-    generic map(W => 15)
+    generic map(W => 14)
     port map (
        DUMMY5
       ,stat_addr
@@ -178,7 +178,7 @@ begin
       ,enable
     ) ;
   _zz_strnp_15 : ixc_assign
-    generic map(W => 64)
+    generic map(W => 38)
     port map (
        DUMMY10
       ,rd_dat
@@ -202,13 +202,13 @@ begin
       ,sw_we
     ) ;
   _zz_strnp_19 : ixc_assign
-    generic map(W => 15)
+    generic map(W => 14)
     port map (
        DUMMY14
       ,sw_add
     ) ;
   _zz_strnp_20 : ixc_assign
-    generic map(W => 64)
+    generic map(W => 38)
     port map (
        DUMMY15
       ,sw_wdat
@@ -248,7 +248,7 @@ begin
     DUMMY18 <= '0' ;
     cmnd_issued <= '0' ;
     unsupported_op <= '0' ;
-    if (((wr_stb)='1' and reg_addr = std_logic_vector'("00110011100"))) then
+    if (((wr_stb)='1' and reg_addr = std_logic_vector'("00110111000"))) then
       if (cmnd /= SIM_TMO) then
         cmnd_issued <= '1' ;
       end if;
@@ -292,15 +292,14 @@ begin
       stat_code <= "111" ;
       state_r <= POWERDOWN ;
       init_r <= '1' ;
-      rd_dat <=
-       "0000000000000000000000000000000000000000000000000000000000000000" ;
+      rd_dat <= "00000000000000000000000000000000000000" ;
       sw_cs_r <= '0' ;
       sw_we_r <= '0' ;
       sw_ce_r <= '0' ;
       timer_r <= "000000" ;
       rst_r <= '0' ;
       rst_or_ini_r <= '0' ;
-      rst_addr_r <= "000000000000000" ;
+      rst_addr_r <= "00000000000000" ;
       inc_r <= "0" ;
       init_inc_r <= '0' ;
       sim_tmo_r <= '0' ;
@@ -315,7 +314,7 @@ begin
       if (cmnd_sis_stb = '1') then
         rst_addr_r <= cmnd_addr ;
       elsif (cmnd_rst_stb = '1') then
-        rst_addr_r <= "000000000000000" ;
+        rst_addr_r <= "00000000000000" ;
       end if;
       if (cmnd_tmo_stb = '1') then
         sim_tmo_r <= '1' ;
@@ -368,12 +367,12 @@ begin
               DUMMY25 := COMPARE_DONE ;
             end if;
           when  "0011"  =>
-            rst_addr_r <= (rst_addr_r + ext(igrant,15)) ;
+            rst_addr_r <= (rst_addr_r + ext(igrant,14)) ;
             if (((igrant)='1' and rst_addr_r = maxaddr)) then
               DUMMY25 := READY ;
             end if;
           when  "0100"  =>
-            rst_addr_r <= (rst_addr_r + ext(igrant,15)) ;
+            rst_addr_r <= (rst_addr_r + ext(igrant,14)) ;
             inc_r <= (inc_r + boolean_to_std(((init_inc_r)='1' and (igrant)='1'
             ),1)) ;
             if (((igrant)='1' and rst_addr_r = cmnd_addr)) then
@@ -386,8 +385,8 @@ begin
             end if;
           when  "1001"  =>
             if (rsp = '1') then
-              rd_dat <= (ext(sw_aindex,64) or shl(ext(sw_match,64
-              ),integer_to_std(14,32))) ;
+              rd_dat <= (ext(sw_aindex,38) or shl(ext(sw_match,38
+              ),integer_to_std(13,32))) ;
               DUMMY25 := READY ;
             end if;
           when others =>
@@ -475,8 +474,7 @@ begin
   end generate ;
   Generate2 : if genblk2 : (TRUE) generate
   begin
-    sw_wdat <=
-     "0000000000000000000000000000000000000000000000000000000000000000" when 
-    (rst_r)='1' else wr_dat ;
+    sw_wdat <= "00000000000000000000000000000000000000" when (rst_r)='1' else
+     wr_dat ;
   end generate ;
 end module;

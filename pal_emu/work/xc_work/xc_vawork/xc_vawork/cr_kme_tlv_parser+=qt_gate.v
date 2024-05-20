@@ -8341,7 +8341,7 @@ ixc_sample_logic_1_3 _zz_zy_sva_b174 ( _zy_sva_b174, _zy_sva_b174_t);
 ixc_sample_logic_1_3 _zz_zy_sva_b175 ( _zy_sva_b175, _zy_sva_b175_t);
 ixc_sample_logic_1_3 _zz_zy_sva_b176 ( _zy_sva_b176, _zy_sva_b176_t);
 ixc_sample_logic_1_3 _zz_zy_sva_b177 ( _zy_sva_b177, _zy_sva_b177_t);
-cr_kme_fifo_xcm57 parser_fifo ( .fifo_in_stall( fifo_in_stall), .fifo_out( 
+cr_kme_fifo_xcm58 parser_fifo ( .fifo_in_stall( fifo_in_stall), .fifo_out( 
 	_zy_simnet_parser_kimreader_data_2_w$[0:70]), .fifo_out_valid( 
 	parser_kimreader_valid), .fifo_overflow( _zy_simnet_dio_3), 
 	.fifo_underflow( _zy_simnet_dio_4), .clk( clk), .rst_n( rst_n), 

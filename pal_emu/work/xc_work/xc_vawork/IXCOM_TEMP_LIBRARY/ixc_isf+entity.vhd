@@ -3,13 +3,13 @@ use ieee.std_logic_1164.all ;
 use quickturn.verilog.all ;
 entity IXC_ISF is
   generic (
-    WIDTH : integer := 2
+    WIDTH : integer := 1
   ) ;
   attribute _2_state_: integer;
   attribute upf_always_on : integer;
   attribute upf_always_on of IXC_ISF: entity is 1 ;
   attribute _2_state_ of IXC_ISF: entity is 1 ;
-  constant PIOWIDTH : integer := 2 ;
+  constant PIOWIDTH : integer := 1 ;
   constant EVMEMW : integer := 512 ;
   constant NBLK : integer := 1 ;
   constant NBLK1 : integer := 0 ;

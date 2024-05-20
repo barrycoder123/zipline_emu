@@ -909,7 +909,7 @@ nx_indirect_access_cntrl_xcm118 u_cntrl ( .clk( clk), .rst_n( rst_n),
 	.sw_match( _zy_simnet_cio_48), .sw_aindex( _zy_simnet_cio_49[0:7]), 
 	.grant( _zy_simnet_tvar_50), .yield( _zy_simnet_yield_51_w$), 
 	.reset( _zy_simnet_dio_52));
-nx_ram_1rw_xcm109 u_ram ( clk, rst_n, ovstb, lvm, mlvm, mrdten, bimc_rst_n, 
+nx_ram_1rw_xcm110 u_ram ( clk, rst_n, ovstb, lvm, mlvm, mrdten, bimc_rst_n, 
 	bimc_isync, bimc_idat, _zy_simnet_bimc_odat_23_w$, 
 	_zy_simnet_bimc_osync_24_w$, 
 	_zy_simnet_ro_uncorrectable_ecc_error_25_w$, 
@@ -1022,11 +1022,11 @@ Q_OR03 U472 ( .A0(n13), .A1(im_consumed_reg[0]), .A2(im_consumed_reg[1]), .Z(im_
 Q_AN02 U473 ( .A0(wr_stb), .A1(n12), .Z(n13));
 Q_NR03 U474 ( .A0(n9), .A1(n10), .A2(n11), .Z(n12));
 Q_OR03 U475 ( .A0(reg_addr[1]), .A1(reg_addr[0]), .A2(n8), .Z(n11));
-Q_OR03 U476 ( .A0(n6), .A1(n5), .A2(reg_addr[2]), .Z(n10));
-Q_OR03 U477 ( .A0(n7), .A1(reg_addr[6]), .A2(reg_addr[5]), .Z(n9));
+Q_OR03 U476 ( .A0(reg_addr[4]), .A1(n5), .A2(reg_addr[2]), .Z(n10));
+Q_OR03 U477 ( .A0(n7), .A1(n6), .A2(reg_addr[5]), .Z(n9));
 Q_OR03 U478 ( .A0(reg_addr[10]), .A1(reg_addr[9]), .A2(reg_addr[8]), .Z(n8));
 Q_INV U479 ( .A(reg_addr[7]), .Z(n7));
-Q_INV U480 ( .A(reg_addr[4]), .Z(n6));
+Q_INV U480 ( .A(reg_addr[6]), .Z(n6));
 Q_INV U481 ( .A(reg_addr[3]), .Z(n5));
 ixc_assign_2 _zz_strnp_5 ( im_status[11:10], im_available_pre[1:0]);
 ixc_assign_9 _zz_strnp_4 ( im_status[8:0], wr_pointer[8:0]);

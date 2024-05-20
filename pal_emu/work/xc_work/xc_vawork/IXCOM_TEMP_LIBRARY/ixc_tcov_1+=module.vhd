@@ -16,7 +16,7 @@ begin
   genblk1 : for ii in 0 to conv_integer(WIDTH) - 1 generate
   begin
 
-    process --:o1663
+    process --:o1698
     (din(ii),DUMMY0)
     begin
       if (DUMMY0 = '1') then
@@ -26,7 +26,7 @@ begin
       end if ;
     end process ;
 
-    process --:o1669
+    process --:o1704
     (din(ii),DUMMY0)
     begin
       if (DUMMY0 = '1') then

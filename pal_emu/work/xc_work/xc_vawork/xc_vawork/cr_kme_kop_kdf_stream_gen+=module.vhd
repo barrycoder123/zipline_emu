@@ -12,7 +12,7 @@ architecture module of cr_kme_kop_kdf_stream_gen is
     R : in std_logic_vector((W - 1) downto 0) := (others => 'X') ) ;
   end component ;
 
-  component cr_kme_kop_kdf_stream_pipe_xcm79
+  component cr_kme_kop_kdf_stream_pipe_xcm80
     generic (
       IN_DATA_SIZE_IN_BYTES : integer := 36
     ) ;
@@ -29,7 +29,7 @@ architecture module of cr_kme_kop_kdf_stream_gen is
     pipe_ack_num_bytes : in std_logic_vector(4 downto 0) := (others => 'X') ) ;
   end component ;
 
-  component cr_kme_kop_kdf_stream_pipe_xcm78
+  component cr_kme_kop_kdf_stream_pipe_xcm79
     generic (
       IN_DATA_SIZE_IN_BYTES : integer := 37
     ) ;
@@ -46,7 +46,7 @@ architecture module of cr_kme_kop_kdf_stream_gen is
     pipe_ack_num_bytes : in std_logic_vector(4 downto 0) := (others => 'X') ) ;
   end component ;
 
-  component cr_kme_fifo_xcm52
+  component cr_kme_fifo_xcm53
     generic (
       DATA_SIZE : integer := 34 ;
       FIFO_DEPTH : integer := 2 ;
@@ -1499,7 +1499,7 @@ begin
       ,hash_cmd_in_valid
     ) ;
   _zy_simnet_cio_25 <= '0' ;
-  il_var : cr_kme_kop_kdf_stream_pipe_xcm79
+  il_var : cr_kme_kop_kdf_stream_pipe_xcm80
     port map (
        pipe_valid => pipe_array_valid(0)
       ,pipe_data => pipe_array_data(0)
@@ -1512,7 +1512,7 @@ begin
       ,pipe_ack => DUMMY21
       ,pipe_ack_num_bytes => DUMMY22
     ) ;
-  dgl_var : cr_kme_kop_kdf_stream_pipe_xcm78
+  dgl_var : cr_kme_kop_kdf_stream_pipe_xcm79
     port map (
        pipe_valid => pipe_array_valid(1)
       ,pipe_data => pipe_array_data(1)
@@ -1525,7 +1525,7 @@ begin
       ,pipe_ack => DUMMY26
       ,pipe_ack_num_bytes => DUMMY27
     ) ;
-  parser_fifo : cr_kme_fifo_xcm52
+  parser_fifo : cr_kme_fifo_xcm53
     port map (
        fifo_in_stall => hash_cmd_in_stall
       ,fifo_out => fifo_out

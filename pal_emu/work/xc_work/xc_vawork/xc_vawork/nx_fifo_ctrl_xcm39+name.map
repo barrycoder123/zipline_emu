@@ -3,8 +3,5 @@ DUMMY1 0_zy_simnet_overflow_1_w$
 DUMMY2 0@_zy_sva_sblk_1_1._zy_sva_nts_1_1_pass
 DUMMY3 0@_zy_sva_sblk_2_1._zy_sva_nts_2_1_pass
 DUMMY4 0@_zy_sva_sblk_3_1._zy_sva_nts_3_1_pass
-DUMMY5 0@_zy_sva_sblk_4_1._zy_sva_nts_4_1_pass
-DUMMY6 0@_zy_sva_sblk_5_1._zy_sva_nts_5_1_pass
-DUMMY7 0@_zy_sva_sblk_6_1._zy_sva_nts_6_1_pass
 c_used_slots_DUMMY0 0c_used_slots
 c_free_slots_DUMMY1 0c_free_slots

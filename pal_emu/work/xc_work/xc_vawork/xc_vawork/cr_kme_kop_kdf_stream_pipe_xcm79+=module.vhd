@@ -1193,14 +1193,14 @@ architecture module of cr_kme_kop_kdf_stream_pipe_xcm79 is
   end record ;
   subtype kdfstream_cmd_t is $_kdfstream_cmd_t std_logic_vector(262 downto 0) ;
   signal DUMMY2 : std_logic_vector(0 to 5) ;
-  signal cmd_data_q : std_logic_vector(287 downto 0) ;
+  signal cmd_data_q : std_logic_vector(295 downto 0) ;
 
 begin
   _zz_strnp_0 : ixc_assign
     generic map(W => 128)
     port map (
        pipe_data
-      ,cmd_data_q(287 downto 160)
+      ,cmd_data_q(295 downto 168)
     ) ;
   pipe_valid <= ext(boolean_to_std(pipe_byte_count /= std_logic_vector'("000000"
   )),1) ;
@@ -1215,7 +1215,7 @@ begin
   (clk,rst_n)
   begin
     if (rst_n = '0') then
-      cmd_data_q <= it_multiple_concat(std_logic'('0'),288) ;
+      cmd_data_q <= it_multiple_concat(std_logic'('0'),296) ;
       pipe_byte_count <= "000000" ;
     elsif (clk'event and clk = '1') then
       if (cmd_valid = '1') then

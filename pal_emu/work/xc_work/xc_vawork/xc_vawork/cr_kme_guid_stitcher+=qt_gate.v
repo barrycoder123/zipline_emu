@@ -645,7 +645,7 @@ tran (fifo_in[1], \fifo_in.tdata [1]);
 tran (fifo_in[0], \fifo_in.tdata [0]);
 Q_BUF U0 ( .A(n1), .Z(_zy_simnet_cio_11));
 Q_INV U1 ( .A(n68), .Z(n2));
-cr_kme_fifo_xcm58 aux_cmd_fifo ( .fifo_in_stall( _zy_simnet_dio_4), 
+cr_kme_fifo_xcm59 aux_cmd_fifo ( .fifo_in_stall( _zy_simnet_dio_4), 
 	.fifo_out( _zy_simnet_fifo_out_5_w$[0:82]), .fifo_out_valid( 
 	fifo_out_valid), .fifo_overflow( _zy_simnet_dio_6), 
 	.fifo_underflow( _zy_simnet_dio_7), .clk( clk), .rst_n( rst_n), 

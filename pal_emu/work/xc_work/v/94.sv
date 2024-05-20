@@ -1,1880 +1,2559 @@
 // xc_work/v/94.sv
-// /home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_regs.sv:2516
+// /home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_regs.sv:25
 // NOTE: This file corresponds to a module in the Hardware/DUT partition.
 `timescale 1ns/1ns
-module cr_kme_regs_flops(input  clk,input  i_reset_,input  i_sw_init,output reg [31:0] o_spare_config ,output reg [31:0] o_cceip0_out_ia_wdata_part0 ,output reg [31:0] o_cceip0_out_ia_wdata_part1 ,output reg [31:0] o_cceip0_out_ia_wdata_part2 ,output reg [12:0] o_cceip0_out_ia_config ,output reg [11:0] o_cceip0_out_im_config ,output reg [1:0] o_cceip0_out_im_read_done ,output reg [31:0] o_cceip1_out_ia_wdata_part0 ,output reg [31:0] o_cceip1_out_ia_wdata_part1 
-,output reg [31:0] o_cceip1_out_ia_wdata_part2 ,output reg [12:0] o_cceip1_out_ia_config ,output reg [11:0] o_cceip1_out_im_config ,output reg [1:0] o_cceip1_out_im_read_done ,output reg [31:0] o_cceip2_out_ia_wdata_part0 ,output reg [31:0] o_cceip2_out_ia_wdata_part1 ,output reg [31:0] o_cceip2_out_ia_wdata_part2 ,output reg [12:0] o_cceip2_out_ia_config ,output reg [11:0] o_cceip2_out_im_config ,output reg [1:0] o_cceip2_out_im_read_done ,output reg [31:0] o_cceip3_out_ia_wdata_part0 ,output reg [31:0] o_cceip3_out_ia_wdata_part1 
-,output reg [31:0] o_cceip3_out_ia_wdata_part2 ,output reg [12:0] o_cceip3_out_ia_config ,output reg [11:0] o_cceip3_out_im_config ,output reg [1:0] o_cceip3_out_im_read_done ,output reg [31:0] o_cddip0_out_ia_wdata_part0 ,output reg [31:0] o_cddip0_out_ia_wdata_part1 ,output reg [31:0] o_cddip0_out_ia_wdata_part2 ,output reg [12:0] o_cddip0_out_ia_config ,output reg [11:0] o_cddip0_out_im_config ,output reg [1:0] o_cddip0_out_im_read_done ,output reg [31:0] o_cddip1_out_ia_wdata_part0 ,output reg [31:0] o_cddip1_out_ia_wdata_part1 
-,output reg [31:0] o_cddip1_out_ia_wdata_part2 ,output reg [12:0] o_cddip1_out_ia_config ,output reg [11:0] o_cddip1_out_im_config ,output reg [1:0] o_cddip1_out_im_read_done ,output reg [31:0] o_cddip2_out_ia_wdata_part0 ,output reg [31:0] o_cddip2_out_ia_wdata_part1 ,output reg [31:0] o_cddip2_out_ia_wdata_part2 ,output reg [12:0] o_cddip2_out_ia_config ,output reg [11:0] o_cddip2_out_im_config ,output reg [1:0] o_cddip2_out_im_read_done ,output reg [31:0] o_cddip3_out_ia_wdata_part0 ,output reg [31:0] o_cddip3_out_ia_wdata_part1 
-,output reg [31:0] o_cddip3_out_ia_wdata_part2 ,output reg [12:0] o_cddip3_out_ia_config ,output reg [11:0] o_cddip3_out_im_config ,output reg [1:0] o_cddip3_out_im_read_done ,output reg [31:0] o_ckv_ia_wdata_part0 ,output reg [31:0] o_ckv_ia_wdata_part1 ,output reg [18:0] o_ckv_ia_config ,output reg [20:0] o_kim_ia_wdata_part0 ,output reg [16:0] o_kim_ia_wdata_part1 ,output reg [17:0] o_kim_ia_config ,output reg [15:0] o_label0_config ,output reg [31:0] o_label0_data7 
-,output reg [31:0] o_label0_data6 ,output reg [31:0] o_label0_data5 ,output reg [31:0] o_label0_data4 ,output reg [31:0] o_label0_data3 ,output reg [31:0] o_label0_data2 ,output reg [31:0] o_label0_data1 ,output reg [31:0] o_label0_data0 ,output reg [15:0] o_label1_config ,output reg [31:0] o_label1_data7 ,output reg [31:0] o_label1_data6 ,output reg [31:0] o_label1_data5 ,output reg [31:0] o_label1_data4 
-,output reg [31:0] o_label1_data3 ,output reg [31:0] o_label1_data2 ,output reg [31:0] o_label1_data1 ,output reg [31:0] o_label1_data0 ,output reg [15:0] o_label2_config ,output reg [31:0] o_label2_data7 ,output reg [31:0] o_label2_data6 ,output reg [31:0] o_label2_data5 ,output reg [31:0] o_label2_data4 ,output reg [31:0] o_label2_data3 ,output reg [31:0] o_label2_data2 ,output reg [31:0] o_label2_data1 
-,output reg [31:0] o_label2_data0 ,output reg [15:0] o_label3_config ,output reg [31:0] o_label3_data7 ,output reg [31:0] o_label3_data6 ,output reg [31:0] o_label3_data5 ,output reg [31:0] o_label3_data4 ,output reg [31:0] o_label3_data3 ,output reg [31:0] o_label3_data2 ,output reg [31:0] o_label3_data1 ,output reg [31:0] o_label3_data0 ,output reg [15:0] o_label4_config ,output reg [31:0] o_label4_data7 
-,output reg [31:0] o_label4_data6 ,output reg [31:0] o_label4_data5 ,output reg [31:0] o_label4_data4 ,output reg [31:0] o_label4_data3 ,output reg [31:0] o_label4_data2 ,output reg [31:0] o_label4_data1 ,output reg [31:0] o_label4_data0 ,output reg [15:0] o_label5_config ,output reg [31:0] o_label5_data7 ,output reg [31:0] o_label5_data6 ,output reg [31:0] o_label5_data5 ,output reg [31:0] o_label5_data4 
-,output reg [31:0] o_label5_data3 ,output reg [31:0] o_label5_data2 ,output reg [31:0] o_label5_data1 ,output reg [31:0] o_label5_data0 ,output reg [15:0] o_label6_config ,output reg [31:0] o_label6_data7 ,output reg [31:0] o_label6_data6 ,output reg [31:0] o_label6_data5 ,output reg [31:0] o_label6_data4 ,output reg [31:0] o_label6_data3 ,output reg [31:0] o_label6_data2 ,output reg [31:0] o_label6_data1 
-,output reg [31:0] o_label6_data0 ,output reg [15:0] o_label7_config ,output reg [31:0] o_label7_data7 ,output reg [31:0] o_label7_data6 ,output reg [31:0] o_label7_data5 ,output reg [31:0] o_label7_data4 ,output reg [31:0] o_label7_data3 ,output reg [31:0] o_label7_data2 ,output reg [31:0] o_label7_data1 ,output reg [31:0] o_label7_data0 ,output reg [1:0] o_kdf_drbg_ctrl ,output reg [31:0] o_kdf_drbg_seed_0_state_key_31_0 
-,output reg [31:0] o_kdf_drbg_seed_0_state_key_63_32 ,output reg [31:0] o_kdf_drbg_seed_0_state_key_95_64 ,output reg [31:0] o_kdf_drbg_seed_0_state_key_127_96 ,output reg [31:0] o_kdf_drbg_seed_0_state_key_159_128 ,output reg [31:0] o_kdf_drbg_seed_0_state_key_191_160 ,output reg [31:0] o_kdf_drbg_seed_0_state_key_223_192 ,output reg [31:0] o_kdf_drbg_seed_0_state_key_255_224 ,output reg [31:0] o_kdf_drbg_seed_0_state_value_31_0 ,output reg [31:0] o_kdf_drbg_seed_0_state_value_63_32 ,output reg [31:0] o_kdf_drbg_seed_0_state_value_95_64 ,output reg [31:0] o_kdf_drbg_seed_0_state_value_127_96 ,output reg [31:0] o_kdf_drbg_seed_0_reseed_interval_0 
-,output reg [15:0] o_kdf_drbg_seed_0_reseed_interval_1 ,output reg [31:0] o_kdf_drbg_seed_1_state_key_31_0 ,output reg [31:0] o_kdf_drbg_seed_1_state_key_63_32 ,output reg [31:0] o_kdf_drbg_seed_1_state_key_95_64 ,output reg [31:0] o_kdf_drbg_seed_1_state_key_127_96 ,output reg [31:0] o_kdf_drbg_seed_1_state_key_159_128 ,output reg [31:0] o_kdf_drbg_seed_1_state_key_191_160 ,output reg [31:0] o_kdf_drbg_seed_1_state_key_223_192 ,output reg [31:0] o_kdf_drbg_seed_1_state_key_255_224 ,output reg [31:0] o_kdf_drbg_seed_1_state_value_31_0 ,output reg [31:0] o_kdf_drbg_seed_1_state_value_63_32 ,output reg [31:0] o_kdf_drbg_seed_1_state_value_95_64 
-,output reg [31:0] o_kdf_drbg_seed_1_state_value_127_96 ,output reg [31:0] o_kdf_drbg_seed_1_reseed_interval_0 ,output reg [15:0] o_kdf_drbg_seed_1_reseed_interval_1 ,output reg [4:0] o_interrupt_status ,output reg [4:0] o_interrupt_mask ,output reg [7:0] o_engine_sticky_status ,output reg [6:0] o_bimc_monitor_mask ,output reg [31:0] o_bimc_ecc_uncorrectable_error_cnt ,output reg [31:0] o_bimc_ecc_correctable_error_cnt ,output reg [31:0] o_bimc_parity_error_cnt ,output reg [31:0] o_bimc_global_config ,output reg [28:0] o_bimc_eccpar_debug 
-,output reg [10:0] o_bimc_cmd2 ,output reg [31:0] o_bimc_cmd1 ,output reg [31:0] o_bimc_cmd0 ,output reg [9:0] o_bimc_rxcmd2 ,output reg [9:0] o_bimc_rxrsp2 ,output reg [9:0] o_bimc_pollrsp2 ,output reg [9:0] o_bimc_dbgcmd2 ,output reg [15:0] o_im_consumed ,output reg [8:0] o_tready_override ,output reg [31:0] o_regs_sa_ctrl ,output reg [31:0] o_sa_snapshot_ia_wdata_part0 ,output reg [31:0] o_sa_snapshot_ia_wdata_part1 
-,output reg [8:0] o_sa_snapshot_ia_config ,output reg [31:0] o_sa_count_ia_wdata_part0 ,output reg [31:0] o_sa_count_ia_wdata_part1 ,output reg [8:0] o_sa_count_ia_config ,output reg [6:0] o_cceip_encrypt_kop_fifo_override ,output reg [6:0] o_cceip_validate_kop_fifo_override ,output reg [6:0] o_cddip_decrypt_kop_fifo_override ,output reg [31:0] o_sa_global_ctrl ,output reg [31:0] o_sa_ctrl_ia_wdata_part0 ,output reg [8:0] o_sa_ctrl_ia_config ,output reg [31:0] o_kdf_test_key_size_config ,input  w_load_spare_config
-,input  w_load_cceip0_out_ia_wdata_part0,input  w_load_cceip0_out_ia_wdata_part1,input  w_load_cceip0_out_ia_wdata_part2,input  w_load_cceip0_out_ia_config,input  w_load_cceip0_out_im_config,input  w_load_cceip0_out_im_read_done,input  w_load_cceip1_out_ia_wdata_part0,input  w_load_cceip1_out_ia_wdata_part1,input  w_load_cceip1_out_ia_wdata_part2,input  w_load_cceip1_out_ia_config,input  w_load_cceip1_out_im_config,input  w_load_cceip1_out_im_read_done
-,input  w_load_cceip2_out_ia_wdata_part0,input  w_load_cceip2_out_ia_wdata_part1,input  w_load_cceip2_out_ia_wdata_part2,input  w_load_cceip2_out_ia_config,input  w_load_cceip2_out_im_config,input  w_load_cceip2_out_im_read_done,input  w_load_cceip3_out_ia_wdata_part0,input  w_load_cceip3_out_ia_wdata_part1,input  w_load_cceip3_out_ia_wdata_part2,input  w_load_cceip3_out_ia_config,input  w_load_cceip3_out_im_config,input  w_load_cceip3_out_im_read_done
-,input  w_load_cddip0_out_ia_wdata_part0,input  w_load_cddip0_out_ia_wdata_part1,input  w_load_cddip0_out_ia_wdata_part2,input  w_load_cddip0_out_ia_config,input  w_load_cddip0_out_im_config,input  w_load_cddip0_out_im_read_done,input  w_load_cddip1_out_ia_wdata_part0,input  w_load_cddip1_out_ia_wdata_part1,input  w_load_cddip1_out_ia_wdata_part2,input  w_load_cddip1_out_ia_config,input  w_load_cddip1_out_im_config,input  w_load_cddip1_out_im_read_done
-,input  w_load_cddip2_out_ia_wdata_part0,input  w_load_cddip2_out_ia_wdata_part1,input  w_load_cddip2_out_ia_wdata_part2,input  w_load_cddip2_out_ia_config,input  w_load_cddip2_out_im_config,input  w_load_cddip2_out_im_read_done,input  w_load_cddip3_out_ia_wdata_part0,input  w_load_cddip3_out_ia_wdata_part1,input  w_load_cddip3_out_ia_wdata_part2,input  w_load_cddip3_out_ia_config,input  w_load_cddip3_out_im_config,input  w_load_cddip3_out_im_read_done
-,input  w_load_ckv_ia_wdata_part0,input  w_load_ckv_ia_wdata_part1,input  w_load_ckv_ia_config,input  w_load_kim_ia_wdata_part0,input  w_load_kim_ia_wdata_part1,input  w_load_kim_ia_config,input  w_load_label0_config,input  w_load_label0_data7,input  w_load_label0_data6,input  w_load_label0_data5,input  w_load_label0_data4,input  w_load_label0_data3
-,input  w_load_label0_data2,input  w_load_label0_data1,input  w_load_label0_data0,input  w_load_label1_config,input  w_load_label1_data7,input  w_load_label1_data6,input  w_load_label1_data5,input  w_load_label1_data4,input  w_load_label1_data3,input  w_load_label1_data2,input  w_load_label1_data1,input  w_load_label1_data0
-,input  w_load_label2_config,input  w_load_label2_data7,input  w_load_label2_data6,input  w_load_label2_data5,input  w_load_label2_data4,input  w_load_label2_data3,input  w_load_label2_data2,input  w_load_label2_data1,input  w_load_label2_data0,input  w_load_label3_config,input  w_load_label3_data7,input  w_load_label3_data6
-,input  w_load_label3_data5,input  w_load_label3_data4,input  w_load_label3_data3,input  w_load_label3_data2,input  w_load_label3_data1,input  w_load_label3_data0,input  w_load_label4_config,input  w_load_label4_data7,input  w_load_label4_data6,input  w_load_label4_data5,input  w_load_label4_data4,input  w_load_label4_data3
-,input  w_load_label4_data2,input  w_load_label4_data1,input  w_load_label4_data0,input  w_load_label5_config,input  w_load_label5_data7,input  w_load_label5_data6,input  w_load_label5_data5,input  w_load_label5_data4,input  w_load_label5_data3,input  w_load_label5_data2,input  w_load_label5_data1,input  w_load_label5_data0
-,input  w_load_label6_config,input  w_load_label6_data7,input  w_load_label6_data6,input  w_load_label6_data5,input  w_load_label6_data4,input  w_load_label6_data3,input  w_load_label6_data2,input  w_load_label6_data1,input  w_load_label6_data0,input  w_load_label7_config,input  w_load_label7_data7,input  w_load_label7_data6
-,input  w_load_label7_data5,input  w_load_label7_data4,input  w_load_label7_data3,input  w_load_label7_data2,input  w_load_label7_data1,input  w_load_label7_data0,input  w_load_kdf_drbg_ctrl,input  w_load_kdf_drbg_seed_0_state_key_31_0,input  w_load_kdf_drbg_seed_0_state_key_63_32,input  w_load_kdf_drbg_seed_0_state_key_95_64,input  w_load_kdf_drbg_seed_0_state_key_127_96,input  w_load_kdf_drbg_seed_0_state_key_159_128
-,input  w_load_kdf_drbg_seed_0_state_key_191_160,input  w_load_kdf_drbg_seed_0_state_key_223_192,input  w_load_kdf_drbg_seed_0_state_key_255_224,input  w_load_kdf_drbg_seed_0_state_value_31_0,input  w_load_kdf_drbg_seed_0_state_value_63_32,input  w_load_kdf_drbg_seed_0_state_value_95_64,input  w_load_kdf_drbg_seed_0_state_value_127_96,input  w_load_kdf_drbg_seed_0_reseed_interval_0,input  w_load_kdf_drbg_seed_0_reseed_interval_1,input  w_load_kdf_drbg_seed_1_state_key_31_0,input  w_load_kdf_drbg_seed_1_state_key_63_32,input  w_load_kdf_drbg_seed_1_state_key_95_64
-,input  w_load_kdf_drbg_seed_1_state_key_127_96,input  w_load_kdf_drbg_seed_1_state_key_159_128,input  w_load_kdf_drbg_seed_1_state_key_191_160,input  w_load_kdf_drbg_seed_1_state_key_223_192,input  w_load_kdf_drbg_seed_1_state_key_255_224,input  w_load_kdf_drbg_seed_1_state_value_31_0,input  w_load_kdf_drbg_seed_1_state_value_63_32,input  w_load_kdf_drbg_seed_1_state_value_95_64,input  w_load_kdf_drbg_seed_1_state_value_127_96,input  w_load_kdf_drbg_seed_1_reseed_interval_0,input  w_load_kdf_drbg_seed_1_reseed_interval_1,input  w_load_interrupt_status
-,input  w_load_interrupt_mask,input  w_load_engine_sticky_status,input  w_load_bimc_monitor_mask,input  w_load_bimc_ecc_uncorrectable_error_cnt,input  w_load_bimc_ecc_correctable_error_cnt,input  w_load_bimc_parity_error_cnt,input  w_load_bimc_global_config,input  w_load_bimc_eccpar_debug,input  w_load_bimc_cmd2,input  w_load_bimc_cmd1,input  w_load_bimc_cmd0,input  w_load_bimc_rxcmd2
-,input  w_load_bimc_rxrsp2,input  w_load_bimc_pollrsp2,input  w_load_bimc_dbgcmd2,input  w_load_im_consumed,input  w_load_tready_override,input  w_load_regs_sa_ctrl,input  w_load_sa_snapshot_ia_wdata_part0,input  w_load_sa_snapshot_ia_wdata_part1,input  w_load_sa_snapshot_ia_config,input  w_load_sa_count_ia_wdata_part0,input  w_load_sa_count_ia_wdata_part1,input  w_load_sa_count_ia_config
-,input  w_load_cceip_encrypt_kop_fifo_override,input  w_load_cceip_validate_kop_fifo_override,input  w_load_cddip_decrypt_kop_fifo_override,input  w_load_sa_global_ctrl,input  w_load_sa_ctrl_ia_wdata_part0,input  w_load_sa_ctrl_ia_config,input  w_load_kdf_test_key_size_config,input  [31:0] f32_data );
-wire  [0:31] _zy_simnet_o_spare_config_0_w$ ;
-wire  [0:31] _zy_simnet_o_cceip0_out_ia_wdata_part0_1_w$ ;
-wire  [0:31] _zy_simnet_o_cceip0_out_ia_wdata_part1_2_w$ ;
-wire  [0:31] _zy_simnet_o_cceip0_out_ia_wdata_part2_3_w$ ;
-wire  [0:12] _zy_simnet_o_cceip0_out_ia_config_4_w$ ;
-wire  [0:11] _zy_simnet_o_cceip0_out_im_config_5_w$ ;
-wire  [0:1] _zy_simnet_o_cceip0_out_im_read_done_6_w$ ;
-wire  [0:31] _zy_simnet_o_cceip1_out_ia_wdata_part0_7_w$ ;
-wire  [0:31] _zy_simnet_o_cceip1_out_ia_wdata_part1_8_w$ ;
-wire  [0:31] _zy_simnet_o_cceip1_out_ia_wdata_part2_9_w$ ;
-wire  [0:12] _zy_simnet_o_cceip1_out_ia_config_10_w$ ;
-wire  [0:11] _zy_simnet_o_cceip1_out_im_config_11_w$ ;
-wire  [0:1] _zy_simnet_o_cceip1_out_im_read_done_12_w$ ;
-wire  [0:31] _zy_simnet_o_cceip2_out_ia_wdata_part0_13_w$ ;
-wire  [0:31] _zy_simnet_o_cceip2_out_ia_wdata_part1_14_w$ ;
-wire  [0:31] _zy_simnet_o_cceip2_out_ia_wdata_part2_15_w$ ;
-wire  [0:12] _zy_simnet_o_cceip2_out_ia_config_16_w$ ;
-wire  [0:11] _zy_simnet_o_cceip2_out_im_config_17_w$ ;
-wire  [0:1] _zy_simnet_o_cceip2_out_im_read_done_18_w$ ;
-wire  [0:31] _zy_simnet_o_cceip3_out_ia_wdata_part0_19_w$ ;
-wire  [0:31] _zy_simnet_o_cceip3_out_ia_wdata_part1_20_w$ ;
-wire  [0:31] _zy_simnet_o_cceip3_out_ia_wdata_part2_21_w$ ;
-wire  [0:12] _zy_simnet_o_cceip3_out_ia_config_22_w$ ;
-wire  [0:11] _zy_simnet_o_cceip3_out_im_config_23_w$ ;
-wire  [0:1] _zy_simnet_o_cceip3_out_im_read_done_24_w$ ;
-wire  [0:31] _zy_simnet_o_cddip0_out_ia_wdata_part0_25_w$ ;
-wire  [0:31] _zy_simnet_o_cddip0_out_ia_wdata_part1_26_w$ ;
-wire  [0:31] _zy_simnet_o_cddip0_out_ia_wdata_part2_27_w$ ;
-wire  [0:12] _zy_simnet_o_cddip0_out_ia_config_28_w$ ;
-wire  [0:11] _zy_simnet_o_cddip0_out_im_config_29_w$ ;
-wire  [0:1] _zy_simnet_o_cddip0_out_im_read_done_30_w$ ;
-wire  [0:31] _zy_simnet_o_cddip1_out_ia_wdata_part0_31_w$ ;
-wire  [0:31] _zy_simnet_o_cddip1_out_ia_wdata_part1_32_w$ ;
-wire  [0:31] _zy_simnet_o_cddip1_out_ia_wdata_part2_33_w$ ;
-wire  [0:12] _zy_simnet_o_cddip1_out_ia_config_34_w$ ;
-wire  [0:11] _zy_simnet_o_cddip1_out_im_config_35_w$ ;
-wire  [0:1] _zy_simnet_o_cddip1_out_im_read_done_36_w$ ;
-wire  [0:31] _zy_simnet_o_cddip2_out_ia_wdata_part0_37_w$ ;
-wire  [0:31] _zy_simnet_o_cddip2_out_ia_wdata_part1_38_w$ ;
-wire  [0:31] _zy_simnet_o_cddip2_out_ia_wdata_part2_39_w$ ;
-wire  [0:12] _zy_simnet_o_cddip2_out_ia_config_40_w$ ;
-wire  [0:11] _zy_simnet_o_cddip2_out_im_config_41_w$ ;
-wire  [0:1] _zy_simnet_o_cddip2_out_im_read_done_42_w$ ;
-wire  [0:31] _zy_simnet_o_cddip3_out_ia_wdata_part0_43_w$ ;
-wire  [0:31] _zy_simnet_o_cddip3_out_ia_wdata_part1_44_w$ ;
-wire  [0:31] _zy_simnet_o_cddip3_out_ia_wdata_part2_45_w$ ;
-wire  [0:12] _zy_simnet_o_cddip3_out_ia_config_46_w$ ;
-wire  [0:11] _zy_simnet_o_cddip3_out_im_config_47_w$ ;
-wire  [0:1] _zy_simnet_o_cddip3_out_im_read_done_48_w$ ;
-wire  [0:31] _zy_simnet_o_ckv_ia_wdata_part0_49_w$ ;
-wire  [0:31] _zy_simnet_o_ckv_ia_wdata_part1_50_w$ ;
-wire  [0:18] _zy_simnet_o_ckv_ia_config_51_w$ ;
-wire  [0:20] _zy_simnet_o_kim_ia_wdata_part0_52_w$ ;
-wire  [0:16] _zy_simnet_o_kim_ia_wdata_part1_53_w$ ;
-wire  [0:17] _zy_simnet_o_kim_ia_config_54_w$ ;
-wire  [0:15] _zy_simnet_o_label0_config_55_w$ ;
-wire  [0:31] _zy_simnet_o_label0_data7_56_w$ ;
-wire  [0:31] _zy_simnet_o_label0_data6_57_w$ ;
-wire  [0:31] _zy_simnet_o_label0_data5_58_w$ ;
-wire  [0:31] _zy_simnet_o_label0_data4_59_w$ ;
-wire  [0:31] _zy_simnet_o_label0_data3_60_w$ ;
-wire  [0:31] _zy_simnet_o_label0_data2_61_w$ ;
-wire  [0:31] _zy_simnet_o_label0_data1_62_w$ ;
-wire  [0:31] _zy_simnet_o_label0_data0_63_w$ ;
-wire  [0:15] _zy_simnet_o_label1_config_64_w$ ;
-wire  [0:31] _zy_simnet_o_label1_data7_65_w$ ;
-wire  [0:31] _zy_simnet_o_label1_data6_66_w$ ;
-wire  [0:31] _zy_simnet_o_label1_data5_67_w$ ;
-wire  [0:31] _zy_simnet_o_label1_data4_68_w$ ;
-wire  [0:31] _zy_simnet_o_label1_data3_69_w$ ;
-wire  [0:31] _zy_simnet_o_label1_data2_70_w$ ;
-wire  [0:31] _zy_simnet_o_label1_data1_71_w$ ;
-wire  [0:31] _zy_simnet_o_label1_data0_72_w$ ;
-wire  [0:15] _zy_simnet_o_label2_config_73_w$ ;
-wire  [0:31] _zy_simnet_o_label2_data7_74_w$ ;
-wire  [0:31] _zy_simnet_o_label2_data6_75_w$ ;
-wire  [0:31] _zy_simnet_o_label2_data5_76_w$ ;
-wire  [0:31] _zy_simnet_o_label2_data4_77_w$ ;
-wire  [0:31] _zy_simnet_o_label2_data3_78_w$ ;
-wire  [0:31] _zy_simnet_o_label2_data2_79_w$ ;
-wire  [0:31] _zy_simnet_o_label2_data1_80_w$ ;
-wire  [0:31] _zy_simnet_o_label2_data0_81_w$ ;
-wire  [0:15] _zy_simnet_o_label3_config_82_w$ ;
-wire  [0:31] _zy_simnet_o_label3_data7_83_w$ ;
-wire  [0:31] _zy_simnet_o_label3_data6_84_w$ ;
-wire  [0:31] _zy_simnet_o_label3_data5_85_w$ ;
-wire  [0:31] _zy_simnet_o_label3_data4_86_w$ ;
-wire  [0:31] _zy_simnet_o_label3_data3_87_w$ ;
-wire  [0:31] _zy_simnet_o_label3_data2_88_w$ ;
-wire  [0:31] _zy_simnet_o_label3_data1_89_w$ ;
-wire  [0:31] _zy_simnet_o_label3_data0_90_w$ ;
-wire  [0:15] _zy_simnet_o_label4_config_91_w$ ;
-wire  [0:31] _zy_simnet_o_label4_data7_92_w$ ;
-wire  [0:31] _zy_simnet_o_label4_data6_93_w$ ;
-wire  [0:31] _zy_simnet_o_label4_data5_94_w$ ;
-wire  [0:31] _zy_simnet_o_label4_data4_95_w$ ;
-wire  [0:31] _zy_simnet_o_label4_data3_96_w$ ;
-wire  [0:31] _zy_simnet_o_label4_data2_97_w$ ;
-wire  [0:31] _zy_simnet_o_label4_data1_98_w$ ;
-wire  [0:31] _zy_simnet_o_label4_data0_99_w$ ;
-wire  [0:15] _zy_simnet_o_label5_config_100_w$ ;
-wire  [0:31] _zy_simnet_o_label5_data7_101_w$ ;
-wire  [0:31] _zy_simnet_o_label5_data6_102_w$ ;
-wire  [0:31] _zy_simnet_o_label5_data5_103_w$ ;
-wire  [0:31] _zy_simnet_o_label5_data4_104_w$ ;
-wire  [0:31] _zy_simnet_o_label5_data3_105_w$ ;
-wire  [0:31] _zy_simnet_o_label5_data2_106_w$ ;
-wire  [0:31] _zy_simnet_o_label5_data1_107_w$ ;
-wire  [0:31] _zy_simnet_o_label5_data0_108_w$ ;
-wire  [0:15] _zy_simnet_o_label6_config_109_w$ ;
-wire  [0:31] _zy_simnet_o_label6_data7_110_w$ ;
-wire  [0:31] _zy_simnet_o_label6_data6_111_w$ ;
-wire  [0:31] _zy_simnet_o_label6_data5_112_w$ ;
-wire  [0:31] _zy_simnet_o_label6_data4_113_w$ ;
-wire  [0:31] _zy_simnet_o_label6_data3_114_w$ ;
-wire  [0:31] _zy_simnet_o_label6_data2_115_w$ ;
-wire  [0:31] _zy_simnet_o_label6_data1_116_w$ ;
-wire  [0:31] _zy_simnet_o_label6_data0_117_w$ ;
-wire  [0:15] _zy_simnet_o_label7_config_118_w$ ;
-wire  [0:31] _zy_simnet_o_label7_data7_119_w$ ;
-wire  [0:31] _zy_simnet_o_label7_data6_120_w$ ;
-wire  [0:31] _zy_simnet_o_label7_data5_121_w$ ;
-wire  [0:31] _zy_simnet_o_label7_data4_122_w$ ;
-wire  [0:31] _zy_simnet_o_label7_data3_123_w$ ;
-wire  [0:31] _zy_simnet_o_label7_data2_124_w$ ;
-wire  [0:31] _zy_simnet_o_label7_data1_125_w$ ;
-wire  [0:31] _zy_simnet_o_label7_data0_126_w$ ;
-wire  [0:1] _zy_simnet_o_kdf_drbg_ctrl_127_w$ ;
-wire  [0:31] _zy_simnet_o_kdf_drbg_seed_0_state_key_31_0_128_w$ ;
-wire  [0:31] _zy_simnet_o_kdf_drbg_seed_0_state_key_63_32_129_w$ ;
-wire  [0:31] _zy_simnet_o_kdf_drbg_seed_0_state_key_95_64_130_w$ ;
-wire  [0:31] _zy_simnet_o_kdf_drbg_seed_0_state_key_127_96_131_w$ ;
-wire  [0:31] _zy_simnet_o_kdf_drbg_seed_0_state_key_159_128_132_w$ ;
-wire  [0:31] _zy_simnet_o_kdf_drbg_seed_0_state_key_191_160_133_w$ ;
-wire  [0:31] _zy_simnet_o_kdf_drbg_seed_0_state_key_223_192_134_w$ ;
-wire  [0:31] _zy_simnet_o_kdf_drbg_seed_0_state_key_255_224_135_w$ ;
-wire  [0:31] _zy_simnet_o_kdf_drbg_seed_0_state_value_31_0_136_w$ ;
-wire  [0:31] _zy_simnet_o_kdf_drbg_seed_0_state_value_63_32_137_w$ ;
-wire  [0:31] _zy_simnet_o_kdf_drbg_seed_0_state_value_95_64_138_w$ ;
-wire  [0:31] _zy_simnet_o_kdf_drbg_seed_0_state_value_127_96_139_w$ ;
-wire  [0:31] _zy_simnet_o_kdf_drbg_seed_0_reseed_interval_0_140_w$ ;
-wire  [0:15] _zy_simnet_o_kdf_drbg_seed_0_reseed_interval_1_141_w$ ;
-wire  [0:31] _zy_simnet_o_kdf_drbg_seed_1_state_key_31_0_142_w$ ;
-wire  [0:31] _zy_simnet_o_kdf_drbg_seed_1_state_key_63_32_143_w$ ;
-wire  [0:31] _zy_simnet_o_kdf_drbg_seed_1_state_key_95_64_144_w$ ;
-wire  [0:31] _zy_simnet_o_kdf_drbg_seed_1_state_key_127_96_145_w$ ;
-wire  [0:31] _zy_simnet_o_kdf_drbg_seed_1_state_key_159_128_146_w$ ;
-wire  [0:31] _zy_simnet_o_kdf_drbg_seed_1_state_key_191_160_147_w$ ;
-wire  [0:31] _zy_simnet_o_kdf_drbg_seed_1_state_key_223_192_148_w$ ;
-wire  [0:31] _zy_simnet_o_kdf_drbg_seed_1_state_key_255_224_149_w$ ;
-wire  [0:31] _zy_simnet_o_kdf_drbg_seed_1_state_value_31_0_150_w$ ;
-wire  [0:31] _zy_simnet_o_kdf_drbg_seed_1_state_value_63_32_151_w$ ;
-wire  [0:31] _zy_simnet_o_kdf_drbg_seed_1_state_value_95_64_152_w$ ;
-wire  [0:31] _zy_simnet_o_kdf_drbg_seed_1_state_value_127_96_153_w$ ;
-wire  [0:31] _zy_simnet_o_kdf_drbg_seed_1_reseed_interval_0_154_w$ ;
-wire  [0:15] _zy_simnet_o_kdf_drbg_seed_1_reseed_interval_1_155_w$ ;
-wire  [0:4] _zy_simnet_o_interrupt_status_156_w$ ;
-wire  [0:4] _zy_simnet_o_interrupt_mask_157_w$ ;
-wire  [0:7] _zy_simnet_o_engine_sticky_status_158_w$ ;
-wire  [0:6] _zy_simnet_o_bimc_monitor_mask_159_w$ ;
-wire  [0:31] _zy_simnet_o_bimc_ecc_uncorrectable_error_cnt_160_w$ ;
-wire  [0:31] _zy_simnet_o_bimc_ecc_correctable_error_cnt_161_w$ ;
-wire  [0:31] _zy_simnet_o_bimc_parity_error_cnt_162_w$ ;
-wire  [0:31] _zy_simnet_o_bimc_global_config_163_w$ ;
-wire  [0:28] _zy_simnet_o_bimc_eccpar_debug_164_w$ ;
-wire  [0:10] _zy_simnet_o_bimc_cmd2_165_w$ ;
-wire  [0:31] _zy_simnet_o_bimc_cmd1_166_w$ ;
-wire  [0:31] _zy_simnet_o_bimc_cmd0_167_w$ ;
-wire  [0:9] _zy_simnet_o_bimc_rxcmd2_168_w$ ;
-wire  [0:9] _zy_simnet_o_bimc_rxrsp2_169_w$ ;
-wire  [0:9] _zy_simnet_o_bimc_pollrsp2_170_w$ ;
-wire  [0:9] _zy_simnet_o_bimc_dbgcmd2_171_w$ ;
-wire  [0:15] _zy_simnet_o_im_consumed_172_w$ ;
-wire  [0:8] _zy_simnet_o_tready_override_173_w$ ;
-wire  [0:31] _zy_simnet_o_regs_sa_ctrl_174_w$ ;
-wire  [0:31] _zy_simnet_o_sa_snapshot_ia_wdata_part0_175_w$ ;
-wire  [0:31] _zy_simnet_o_sa_snapshot_ia_wdata_part1_176_w$ ;
-wire  [0:8] _zy_simnet_o_sa_snapshot_ia_config_177_w$ ;
-wire  [0:31] _zy_simnet_o_sa_count_ia_wdata_part0_178_w$ ;
-wire  [0:31] _zy_simnet_o_sa_count_ia_wdata_part1_179_w$ ;
-wire  [0:8] _zy_simnet_o_sa_count_ia_config_180_w$ ;
-wire  [0:6] _zy_simnet_o_cceip_encrypt_kop_fifo_override_181_w$ ;
-wire  [0:6] _zy_simnet_o_cceip_validate_kop_fifo_override_182_w$ ;
-wire  [0:6] _zy_simnet_o_cddip_decrypt_kop_fifo_override_183_w$ ;
-wire  [0:31] _zy_simnet_o_sa_global_ctrl_184_w$ ;
-wire  [0:31] _zy_simnet_o_sa_ctrl_ia_wdata_part0_185_w$ ;
-wire  [0:8] _zy_simnet_o_sa_ctrl_ia_config_186_w$ ;
-wire  [0:31] _zy_simnet_o_kdf_test_key_size_config_187_w$ ;
-ixc_assign  #(32) _zz_strnp_0 (_zy_simnet_o_spare_config_0_w$,o_spare_config);
-ixc_assign  #(32) _zz_strnp_1 (_zy_simnet_o_cceip0_out_ia_wdata_part0_1_w$,o_cceip0_out_ia_wdata_part0);
-ixc_assign  #(32) _zz_strnp_2 (_zy_simnet_o_cceip0_out_ia_wdata_part1_2_w$,o_cceip0_out_ia_wdata_part1);
-ixc_assign  #(32) _zz_strnp_3 (_zy_simnet_o_cceip0_out_ia_wdata_part2_3_w$,o_cceip0_out_ia_wdata_part2);
-ixc_assign  #(13) _zz_strnp_4 (_zy_simnet_o_cceip0_out_ia_config_4_w$,o_cceip0_out_ia_config);
-ixc_assign  #(12) _zz_strnp_5 (_zy_simnet_o_cceip0_out_im_config_5_w$,o_cceip0_out_im_config);
-ixc_assign  #(2) _zz_strnp_6 (_zy_simnet_o_cceip0_out_im_read_done_6_w$,o_cceip0_out_im_read_done);
-ixc_assign  #(32) _zz_strnp_7 (_zy_simnet_o_cceip1_out_ia_wdata_part0_7_w$,o_cceip1_out_ia_wdata_part0);
-ixc_assign  #(32) _zz_strnp_8 (_zy_simnet_o_cceip1_out_ia_wdata_part1_8_w$,o_cceip1_out_ia_wdata_part1);
-ixc_assign  #(32) _zz_strnp_9 (_zy_simnet_o_cceip1_out_ia_wdata_part2_9_w$,o_cceip1_out_ia_wdata_part2);
-ixc_assign  #(13) _zz_strnp_10 (_zy_simnet_o_cceip1_out_ia_config_10_w$,o_cceip1_out_ia_config);
-ixc_assign  #(12) _zz_strnp_11 (_zy_simnet_o_cceip1_out_im_config_11_w$,o_cceip1_out_im_config);
-ixc_assign  #(2) _zz_strnp_12 (_zy_simnet_o_cceip1_out_im_read_done_12_w$,o_cceip1_out_im_read_done);
-ixc_assign  #(32) _zz_strnp_13 (_zy_simnet_o_cceip2_out_ia_wdata_part0_13_w$,o_cceip2_out_ia_wdata_part0);
-ixc_assign  #(32) _zz_strnp_14 (_zy_simnet_o_cceip2_out_ia_wdata_part1_14_w$,o_cceip2_out_ia_wdata_part1);
-ixc_assign  #(32) _zz_strnp_15 (_zy_simnet_o_cceip2_out_ia_wdata_part2_15_w$,o_cceip2_out_ia_wdata_part2);
-ixc_assign  #(13) _zz_strnp_16 (_zy_simnet_o_cceip2_out_ia_config_16_w$,o_cceip2_out_ia_config);
-ixc_assign  #(12) _zz_strnp_17 (_zy_simnet_o_cceip2_out_im_config_17_w$,o_cceip2_out_im_config);
-ixc_assign  #(2) _zz_strnp_18 (_zy_simnet_o_cceip2_out_im_read_done_18_w$,o_cceip2_out_im_read_done);
-ixc_assign  #(32) _zz_strnp_19 (_zy_simnet_o_cceip3_out_ia_wdata_part0_19_w$,o_cceip3_out_ia_wdata_part0);
-ixc_assign  #(32) _zz_strnp_20 (_zy_simnet_o_cceip3_out_ia_wdata_part1_20_w$,o_cceip3_out_ia_wdata_part1);
-ixc_assign  #(32) _zz_strnp_21 (_zy_simnet_o_cceip3_out_ia_wdata_part2_21_w$,o_cceip3_out_ia_wdata_part2);
-ixc_assign  #(13) _zz_strnp_22 (_zy_simnet_o_cceip3_out_ia_config_22_w$,o_cceip3_out_ia_config);
-ixc_assign  #(12) _zz_strnp_23 (_zy_simnet_o_cceip3_out_im_config_23_w$,o_cceip3_out_im_config);
-ixc_assign  #(2) _zz_strnp_24 (_zy_simnet_o_cceip3_out_im_read_done_24_w$,o_cceip3_out_im_read_done);
-ixc_assign  #(32) _zz_strnp_25 (_zy_simnet_o_cddip0_out_ia_wdata_part0_25_w$,o_cddip0_out_ia_wdata_part0);
-ixc_assign  #(32) _zz_strnp_26 (_zy_simnet_o_cddip0_out_ia_wdata_part1_26_w$,o_cddip0_out_ia_wdata_part1);
-ixc_assign  #(32) _zz_strnp_27 (_zy_simnet_o_cddip0_out_ia_wdata_part2_27_w$,o_cddip0_out_ia_wdata_part2);
-ixc_assign  #(13) _zz_strnp_28 (_zy_simnet_o_cddip0_out_ia_config_28_w$,o_cddip0_out_ia_config);
-ixc_assign  #(12) _zz_strnp_29 (_zy_simnet_o_cddip0_out_im_config_29_w$,o_cddip0_out_im_config);
-ixc_assign  #(2) _zz_strnp_30 (_zy_simnet_o_cddip0_out_im_read_done_30_w$,o_cddip0_out_im_read_done);
-ixc_assign  #(32) _zz_strnp_31 (_zy_simnet_o_cddip1_out_ia_wdata_part0_31_w$,o_cddip1_out_ia_wdata_part0);
-ixc_assign  #(32) _zz_strnp_32 (_zy_simnet_o_cddip1_out_ia_wdata_part1_32_w$,o_cddip1_out_ia_wdata_part1);
-ixc_assign  #(32) _zz_strnp_33 (_zy_simnet_o_cddip1_out_ia_wdata_part2_33_w$,o_cddip1_out_ia_wdata_part2);
-ixc_assign  #(13) _zz_strnp_34 (_zy_simnet_o_cddip1_out_ia_config_34_w$,o_cddip1_out_ia_config);
-ixc_assign  #(12) _zz_strnp_35 (_zy_simnet_o_cddip1_out_im_config_35_w$,o_cddip1_out_im_config);
-ixc_assign  #(2) _zz_strnp_36 (_zy_simnet_o_cddip1_out_im_read_done_36_w$,o_cddip1_out_im_read_done);
-ixc_assign  #(32) _zz_strnp_37 (_zy_simnet_o_cddip2_out_ia_wdata_part0_37_w$,o_cddip2_out_ia_wdata_part0);
-ixc_assign  #(32) _zz_strnp_38 (_zy_simnet_o_cddip2_out_ia_wdata_part1_38_w$,o_cddip2_out_ia_wdata_part1);
-ixc_assign  #(32) _zz_strnp_39 (_zy_simnet_o_cddip2_out_ia_wdata_part2_39_w$,o_cddip2_out_ia_wdata_part2);
-ixc_assign  #(13) _zz_strnp_40 (_zy_simnet_o_cddip2_out_ia_config_40_w$,o_cddip2_out_ia_config);
-ixc_assign  #(12) _zz_strnp_41 (_zy_simnet_o_cddip2_out_im_config_41_w$,o_cddip2_out_im_config);
-ixc_assign  #(2) _zz_strnp_42 (_zy_simnet_o_cddip2_out_im_read_done_42_w$,o_cddip2_out_im_read_done);
-ixc_assign  #(32) _zz_strnp_43 (_zy_simnet_o_cddip3_out_ia_wdata_part0_43_w$,o_cddip3_out_ia_wdata_part0);
-ixc_assign  #(32) _zz_strnp_44 (_zy_simnet_o_cddip3_out_ia_wdata_part1_44_w$,o_cddip3_out_ia_wdata_part1);
-ixc_assign  #(32) _zz_strnp_45 (_zy_simnet_o_cddip3_out_ia_wdata_part2_45_w$,o_cddip3_out_ia_wdata_part2);
-ixc_assign  #(13) _zz_strnp_46 (_zy_simnet_o_cddip3_out_ia_config_46_w$,o_cddip3_out_ia_config);
-ixc_assign  #(12) _zz_strnp_47 (_zy_simnet_o_cddip3_out_im_config_47_w$,o_cddip3_out_im_config);
-ixc_assign  #(2) _zz_strnp_48 (_zy_simnet_o_cddip3_out_im_read_done_48_w$,o_cddip3_out_im_read_done);
-ixc_assign  #(32) _zz_strnp_49 (_zy_simnet_o_ckv_ia_wdata_part0_49_w$,o_ckv_ia_wdata_part0);
-ixc_assign  #(32) _zz_strnp_50 (_zy_simnet_o_ckv_ia_wdata_part1_50_w$,o_ckv_ia_wdata_part1);
-ixc_assign  #(19) _zz_strnp_51 (_zy_simnet_o_ckv_ia_config_51_w$,o_ckv_ia_config);
-ixc_assign  #(21) _zz_strnp_52 (_zy_simnet_o_kim_ia_wdata_part0_52_w$,o_kim_ia_wdata_part0);
-ixc_assign  #(17) _zz_strnp_53 (_zy_simnet_o_kim_ia_wdata_part1_53_w$,o_kim_ia_wdata_part1);
-ixc_assign  #(18) _zz_strnp_54 (_zy_simnet_o_kim_ia_config_54_w$,o_kim_ia_config);
-ixc_assign  #(16) _zz_strnp_55 (_zy_simnet_o_label0_config_55_w$,o_label0_config);
-ixc_assign  #(32) _zz_strnp_56 (_zy_simnet_o_label0_data7_56_w$,o_label0_data7);
-ixc_assign  #(32) _zz_strnp_57 (_zy_simnet_o_label0_data6_57_w$,o_label0_data6);
-ixc_assign  #(32) _zz_strnp_58 (_zy_simnet_o_label0_data5_58_w$,o_label0_data5);
-ixc_assign  #(32) _zz_strnp_59 (_zy_simnet_o_label0_data4_59_w$,o_label0_data4);
-ixc_assign  #(32) _zz_strnp_60 (_zy_simnet_o_label0_data3_60_w$,o_label0_data3);
-ixc_assign  #(32) _zz_strnp_61 (_zy_simnet_o_label0_data2_61_w$,o_label0_data2);
-ixc_assign  #(32) _zz_strnp_62 (_zy_simnet_o_label0_data1_62_w$,o_label0_data1);
-ixc_assign  #(32) _zz_strnp_63 (_zy_simnet_o_label0_data0_63_w$,o_label0_data0);
-ixc_assign  #(16) _zz_strnp_64 (_zy_simnet_o_label1_config_64_w$,o_label1_config);
-ixc_assign  #(32) _zz_strnp_65 (_zy_simnet_o_label1_data7_65_w$,o_label1_data7);
-ixc_assign  #(32) _zz_strnp_66 (_zy_simnet_o_label1_data6_66_w$,o_label1_data6);
-ixc_assign  #(32) _zz_strnp_67 (_zy_simnet_o_label1_data5_67_w$,o_label1_data5);
-ixc_assign  #(32) _zz_strnp_68 (_zy_simnet_o_label1_data4_68_w$,o_label1_data4);
-ixc_assign  #(32) _zz_strnp_69 (_zy_simnet_o_label1_data3_69_w$,o_label1_data3);
-ixc_assign  #(32) _zz_strnp_70 (_zy_simnet_o_label1_data2_70_w$,o_label1_data2);
-ixc_assign  #(32) _zz_strnp_71 (_zy_simnet_o_label1_data1_71_w$,o_label1_data1);
-ixc_assign  #(32) _zz_strnp_72 (_zy_simnet_o_label1_data0_72_w$,o_label1_data0);
-ixc_assign  #(16) _zz_strnp_73 (_zy_simnet_o_label2_config_73_w$,o_label2_config);
-ixc_assign  #(32) _zz_strnp_74 (_zy_simnet_o_label2_data7_74_w$,o_label2_data7);
-ixc_assign  #(32) _zz_strnp_75 (_zy_simnet_o_label2_data6_75_w$,o_label2_data6);
-ixc_assign  #(32) _zz_strnp_76 (_zy_simnet_o_label2_data5_76_w$,o_label2_data5);
-ixc_assign  #(32) _zz_strnp_77 (_zy_simnet_o_label2_data4_77_w$,o_label2_data4);
-ixc_assign  #(32) _zz_strnp_78 (_zy_simnet_o_label2_data3_78_w$,o_label2_data3);
-ixc_assign  #(32) _zz_strnp_79 (_zy_simnet_o_label2_data2_79_w$,o_label2_data2);
-ixc_assign  #(32) _zz_strnp_80 (_zy_simnet_o_label2_data1_80_w$,o_label2_data1);
-ixc_assign  #(32) _zz_strnp_81 (_zy_simnet_o_label2_data0_81_w$,o_label2_data0);
-ixc_assign  #(16) _zz_strnp_82 (_zy_simnet_o_label3_config_82_w$,o_label3_config);
-ixc_assign  #(32) _zz_strnp_83 (_zy_simnet_o_label3_data7_83_w$,o_label3_data7);
-ixc_assign  #(32) _zz_strnp_84 (_zy_simnet_o_label3_data6_84_w$,o_label3_data6);
-ixc_assign  #(32) _zz_strnp_85 (_zy_simnet_o_label3_data5_85_w$,o_label3_data5);
-ixc_assign  #(32) _zz_strnp_86 (_zy_simnet_o_label3_data4_86_w$,o_label3_data4);
-ixc_assign  #(32) _zz_strnp_87 (_zy_simnet_o_label3_data3_87_w$,o_label3_data3);
-ixc_assign  #(32) _zz_strnp_88 (_zy_simnet_o_label3_data2_88_w$,o_label3_data2);
-ixc_assign  #(32) _zz_strnp_89 (_zy_simnet_o_label3_data1_89_w$,o_label3_data1);
-ixc_assign  #(32) _zz_strnp_90 (_zy_simnet_o_label3_data0_90_w$,o_label3_data0);
-ixc_assign  #(16) _zz_strnp_91 (_zy_simnet_o_label4_config_91_w$,o_label4_config);
-ixc_assign  #(32) _zz_strnp_92 (_zy_simnet_o_label4_data7_92_w$,o_label4_data7);
-ixc_assign  #(32) _zz_strnp_93 (_zy_simnet_o_label4_data6_93_w$,o_label4_data6);
-ixc_assign  #(32) _zz_strnp_94 (_zy_simnet_o_label4_data5_94_w$,o_label4_data5);
-ixc_assign  #(32) _zz_strnp_95 (_zy_simnet_o_label4_data4_95_w$,o_label4_data4);
-ixc_assign  #(32) _zz_strnp_96 (_zy_simnet_o_label4_data3_96_w$,o_label4_data3);
-ixc_assign  #(32) _zz_strnp_97 (_zy_simnet_o_label4_data2_97_w$,o_label4_data2);
-ixc_assign  #(32) _zz_strnp_98 (_zy_simnet_o_label4_data1_98_w$,o_label4_data1);
-ixc_assign  #(32) _zz_strnp_99 (_zy_simnet_o_label4_data0_99_w$,o_label4_data0);
-ixc_assign  #(16) _zz_strnp_100 (_zy_simnet_o_label5_config_100_w$,o_label5_config);
-ixc_assign  #(32) _zz_strnp_101 (_zy_simnet_o_label5_data7_101_w$,o_label5_data7);
-ixc_assign  #(32) _zz_strnp_102 (_zy_simnet_o_label5_data6_102_w$,o_label5_data6);
-ixc_assign  #(32) _zz_strnp_103 (_zy_simnet_o_label5_data5_103_w$,o_label5_data5);
-ixc_assign  #(32) _zz_strnp_104 (_zy_simnet_o_label5_data4_104_w$,o_label5_data4);
-ixc_assign  #(32) _zz_strnp_105 (_zy_simnet_o_label5_data3_105_w$,o_label5_data3);
-ixc_assign  #(32) _zz_strnp_106 (_zy_simnet_o_label5_data2_106_w$,o_label5_data2);
-ixc_assign  #(32) _zz_strnp_107 (_zy_simnet_o_label5_data1_107_w$,o_label5_data1);
-ixc_assign  #(32) _zz_strnp_108 (_zy_simnet_o_label5_data0_108_w$,o_label5_data0);
-ixc_assign  #(16) _zz_strnp_109 (_zy_simnet_o_label6_config_109_w$,o_label6_config);
-ixc_assign  #(32) _zz_strnp_110 (_zy_simnet_o_label6_data7_110_w$,o_label6_data7);
-ixc_assign  #(32) _zz_strnp_111 (_zy_simnet_o_label6_data6_111_w$,o_label6_data6);
-ixc_assign  #(32) _zz_strnp_112 (_zy_simnet_o_label6_data5_112_w$,o_label6_data5);
-ixc_assign  #(32) _zz_strnp_113 (_zy_simnet_o_label6_data4_113_w$,o_label6_data4);
-ixc_assign  #(32) _zz_strnp_114 (_zy_simnet_o_label6_data3_114_w$,o_label6_data3);
-ixc_assign  #(32) _zz_strnp_115 (_zy_simnet_o_label6_data2_115_w$,o_label6_data2);
-ixc_assign  #(32) _zz_strnp_116 (_zy_simnet_o_label6_data1_116_w$,o_label6_data1);
-ixc_assign  #(32) _zz_strnp_117 (_zy_simnet_o_label6_data0_117_w$,o_label6_data0);
-ixc_assign  #(16) _zz_strnp_118 (_zy_simnet_o_label7_config_118_w$,o_label7_config);
-ixc_assign  #(32) _zz_strnp_119 (_zy_simnet_o_label7_data7_119_w$,o_label7_data7);
-ixc_assign  #(32) _zz_strnp_120 (_zy_simnet_o_label7_data6_120_w$,o_label7_data6);
-ixc_assign  #(32) _zz_strnp_121 (_zy_simnet_o_label7_data5_121_w$,o_label7_data5);
-ixc_assign  #(32) _zz_strnp_122 (_zy_simnet_o_label7_data4_122_w$,o_label7_data4);
-ixc_assign  #(32) _zz_strnp_123 (_zy_simnet_o_label7_data3_123_w$,o_label7_data3);
-ixc_assign  #(32) _zz_strnp_124 (_zy_simnet_o_label7_data2_124_w$,o_label7_data2);
-ixc_assign  #(32) _zz_strnp_125 (_zy_simnet_o_label7_data1_125_w$,o_label7_data1);
-ixc_assign  #(32) _zz_strnp_126 (_zy_simnet_o_label7_data0_126_w$,o_label7_data0);
-ixc_assign  #(2) _zz_strnp_127 (_zy_simnet_o_kdf_drbg_ctrl_127_w$,o_kdf_drbg_ctrl);
-ixc_assign  #(32) _zz_strnp_128 (_zy_simnet_o_kdf_drbg_seed_0_state_key_31_0_128_w$,o_kdf_drbg_seed_0_state_key_31_0);
-ixc_assign  #(32) _zz_strnp_129 (_zy_simnet_o_kdf_drbg_seed_0_state_key_63_32_129_w$,o_kdf_drbg_seed_0_state_key_63_32);
-ixc_assign  #(32) _zz_strnp_130 (_zy_simnet_o_kdf_drbg_seed_0_state_key_95_64_130_w$,o_kdf_drbg_seed_0_state_key_95_64);
-ixc_assign  #(32) _zz_strnp_131 (_zy_simnet_o_kdf_drbg_seed_0_state_key_127_96_131_w$,o_kdf_drbg_seed_0_state_key_127_96);
-ixc_assign  #(32) _zz_strnp_132 (_zy_simnet_o_kdf_drbg_seed_0_state_key_159_128_132_w$,o_kdf_drbg_seed_0_state_key_159_128);
-ixc_assign  #(32) _zz_strnp_133 (_zy_simnet_o_kdf_drbg_seed_0_state_key_191_160_133_w$,o_kdf_drbg_seed_0_state_key_191_160);
-ixc_assign  #(32) _zz_strnp_134 (_zy_simnet_o_kdf_drbg_seed_0_state_key_223_192_134_w$,o_kdf_drbg_seed_0_state_key_223_192);
-ixc_assign  #(32) _zz_strnp_135 (_zy_simnet_o_kdf_drbg_seed_0_state_key_255_224_135_w$,o_kdf_drbg_seed_0_state_key_255_224);
-ixc_assign  #(32) _zz_strnp_136 (_zy_simnet_o_kdf_drbg_seed_0_state_value_31_0_136_w$,o_kdf_drbg_seed_0_state_value_31_0);
-ixc_assign  #(32) _zz_strnp_137 (_zy_simnet_o_kdf_drbg_seed_0_state_value_63_32_137_w$,o_kdf_drbg_seed_0_state_value_63_32);
-ixc_assign  #(32) _zz_strnp_138 (_zy_simnet_o_kdf_drbg_seed_0_state_value_95_64_138_w$,o_kdf_drbg_seed_0_state_value_95_64);
-ixc_assign  #(32) _zz_strnp_139 (_zy_simnet_o_kdf_drbg_seed_0_state_value_127_96_139_w$,o_kdf_drbg_seed_0_state_value_127_96);
-ixc_assign  #(32) _zz_strnp_140 (_zy_simnet_o_kdf_drbg_seed_0_reseed_interval_0_140_w$,o_kdf_drbg_seed_0_reseed_interval_0);
-ixc_assign  #(16) _zz_strnp_141 (_zy_simnet_o_kdf_drbg_seed_0_reseed_interval_1_141_w$,o_kdf_drbg_seed_0_reseed_interval_1);
-ixc_assign  #(32) _zz_strnp_142 (_zy_simnet_o_kdf_drbg_seed_1_state_key_31_0_142_w$,o_kdf_drbg_seed_1_state_key_31_0);
-ixc_assign  #(32) _zz_strnp_143 (_zy_simnet_o_kdf_drbg_seed_1_state_key_63_32_143_w$,o_kdf_drbg_seed_1_state_key_63_32);
-ixc_assign  #(32) _zz_strnp_144 (_zy_simnet_o_kdf_drbg_seed_1_state_key_95_64_144_w$,o_kdf_drbg_seed_1_state_key_95_64);
-ixc_assign  #(32) _zz_strnp_145 (_zy_simnet_o_kdf_drbg_seed_1_state_key_127_96_145_w$,o_kdf_drbg_seed_1_state_key_127_96);
-ixc_assign  #(32) _zz_strnp_146 (_zy_simnet_o_kdf_drbg_seed_1_state_key_159_128_146_w$,o_kdf_drbg_seed_1_state_key_159_128);
-ixc_assign  #(32) _zz_strnp_147 (_zy_simnet_o_kdf_drbg_seed_1_state_key_191_160_147_w$,o_kdf_drbg_seed_1_state_key_191_160);
-ixc_assign  #(32) _zz_strnp_148 (_zy_simnet_o_kdf_drbg_seed_1_state_key_223_192_148_w$,o_kdf_drbg_seed_1_state_key_223_192);
-ixc_assign  #(32) _zz_strnp_149 (_zy_simnet_o_kdf_drbg_seed_1_state_key_255_224_149_w$,o_kdf_drbg_seed_1_state_key_255_224);
-ixc_assign  #(32) _zz_strnp_150 (_zy_simnet_o_kdf_drbg_seed_1_state_value_31_0_150_w$,o_kdf_drbg_seed_1_state_value_31_0);
-ixc_assign  #(32) _zz_strnp_151 (_zy_simnet_o_kdf_drbg_seed_1_state_value_63_32_151_w$,o_kdf_drbg_seed_1_state_value_63_32);
-ixc_assign  #(32) _zz_strnp_152 (_zy_simnet_o_kdf_drbg_seed_1_state_value_95_64_152_w$,o_kdf_drbg_seed_1_state_value_95_64);
-ixc_assign  #(32) _zz_strnp_153 (_zy_simnet_o_kdf_drbg_seed_1_state_value_127_96_153_w$,o_kdf_drbg_seed_1_state_value_127_96);
-ixc_assign  #(32) _zz_strnp_154 (_zy_simnet_o_kdf_drbg_seed_1_reseed_interval_0_154_w$,o_kdf_drbg_seed_1_reseed_interval_0);
-ixc_assign  #(16) _zz_strnp_155 (_zy_simnet_o_kdf_drbg_seed_1_reseed_interval_1_155_w$,o_kdf_drbg_seed_1_reseed_interval_1);
-ixc_assign  #(5) _zz_strnp_156 (_zy_simnet_o_interrupt_status_156_w$,o_interrupt_status);
-ixc_assign  #(5) _zz_strnp_157 (_zy_simnet_o_interrupt_mask_157_w$,o_interrupt_mask);
-ixc_assign  #(8) _zz_strnp_158 (_zy_simnet_o_engine_sticky_status_158_w$,o_engine_sticky_status);
-ixc_assign  #(7) _zz_strnp_159 (_zy_simnet_o_bimc_monitor_mask_159_w$,o_bimc_monitor_mask);
-ixc_assign  #(32) _zz_strnp_160 (_zy_simnet_o_bimc_ecc_uncorrectable_error_cnt_160_w$,o_bimc_ecc_uncorrectable_error_cnt);
-ixc_assign  #(32) _zz_strnp_161 (_zy_simnet_o_bimc_ecc_correctable_error_cnt_161_w$,o_bimc_ecc_correctable_error_cnt);
-ixc_assign  #(32) _zz_strnp_162 (_zy_simnet_o_bimc_parity_error_cnt_162_w$,o_bimc_parity_error_cnt);
-ixc_assign  #(32) _zz_strnp_163 (_zy_simnet_o_bimc_global_config_163_w$,o_bimc_global_config);
-ixc_assign  #(29) _zz_strnp_164 (_zy_simnet_o_bimc_eccpar_debug_164_w$,o_bimc_eccpar_debug);
-ixc_assign  #(11) _zz_strnp_165 (_zy_simnet_o_bimc_cmd2_165_w$,o_bimc_cmd2);
-ixc_assign  #(32) _zz_strnp_166 (_zy_simnet_o_bimc_cmd1_166_w$,o_bimc_cmd1);
-ixc_assign  #(32) _zz_strnp_167 (_zy_simnet_o_bimc_cmd0_167_w$,o_bimc_cmd0);
-ixc_assign  #(10) _zz_strnp_168 (_zy_simnet_o_bimc_rxcmd2_168_w$,o_bimc_rxcmd2);
-ixc_assign  #(10) _zz_strnp_169 (_zy_simnet_o_bimc_rxrsp2_169_w$,o_bimc_rxrsp2);
-ixc_assign  #(10) _zz_strnp_170 (_zy_simnet_o_bimc_pollrsp2_170_w$,o_bimc_pollrsp2);
-ixc_assign  #(10) _zz_strnp_171 (_zy_simnet_o_bimc_dbgcmd2_171_w$,o_bimc_dbgcmd2);
-ixc_assign  #(16) _zz_strnp_172 (_zy_simnet_o_im_consumed_172_w$,o_im_consumed);
-ixc_assign  #(9) _zz_strnp_173 (_zy_simnet_o_tready_override_173_w$,o_tready_override);
-ixc_assign  #(32) _zz_strnp_174 (_zy_simnet_o_regs_sa_ctrl_174_w$,o_regs_sa_ctrl);
-ixc_assign  #(32) _zz_strnp_175 (_zy_simnet_o_sa_snapshot_ia_wdata_part0_175_w$,o_sa_snapshot_ia_wdata_part0);
-ixc_assign  #(32) _zz_strnp_176 (_zy_simnet_o_sa_snapshot_ia_wdata_part1_176_w$,o_sa_snapshot_ia_wdata_part1);
-ixc_assign  #(9) _zz_strnp_177 (_zy_simnet_o_sa_snapshot_ia_config_177_w$,o_sa_snapshot_ia_config);
-ixc_assign  #(32) _zz_strnp_178 (_zy_simnet_o_sa_count_ia_wdata_part0_178_w$,o_sa_count_ia_wdata_part0);
-ixc_assign  #(32) _zz_strnp_179 (_zy_simnet_o_sa_count_ia_wdata_part1_179_w$,o_sa_count_ia_wdata_part1);
-ixc_assign  #(9) _zz_strnp_180 (_zy_simnet_o_sa_count_ia_config_180_w$,o_sa_count_ia_config);
-ixc_assign  #(7) _zz_strnp_181 (_zy_simnet_o_cceip_encrypt_kop_fifo_override_181_w$,o_cceip_encrypt_kop_fifo_override);
-ixc_assign  #(7) _zz_strnp_182 (_zy_simnet_o_cceip_validate_kop_fifo_override_182_w$,o_cceip_validate_kop_fifo_override);
-ixc_assign  #(7) _zz_strnp_183 (_zy_simnet_o_cddip_decrypt_kop_fifo_override_183_w$,o_cddip_decrypt_kop_fifo_override);
-ixc_assign  #(32) _zz_strnp_184 (_zy_simnet_o_sa_global_ctrl_184_w$,o_sa_global_ctrl);
-ixc_assign  #(32) _zz_strnp_185 (_zy_simnet_o_sa_ctrl_ia_wdata_part0_185_w$,o_sa_ctrl_ia_wdata_part0);
-ixc_assign  #(9) _zz_strnp_186 (_zy_simnet_o_sa_ctrl_ia_config_186_w$,o_sa_ctrl_ia_config);
-ixc_assign  #(32) _zz_strnp_187 (_zy_simnet_o_kdf_test_key_size_config_187_w$,o_kdf_test_key_size_config);
+module cr_kme_regs(input  clk,input  i_reset_,input  i_sw_init,input  [10:0] i_addr ,input  i_wr_strb,input  [31:0] i_wr_data ,input  i_rd_strb,output  [31:0] o_rd_data ,output  o_ack,output  o_err_ack,output  [31:0] o_spare_config ,output  [31:0] o_cceip0_out_ia_wdata_part0 
+,output  [31:0] o_cceip0_out_ia_wdata_part1 ,output  [31:0] o_cceip0_out_ia_wdata_part2 ,output  [12:0] o_cceip0_out_ia_config ,output  [11:0] o_cceip0_out_im_config ,output  [1:0] o_cceip0_out_im_read_done ,output  [31:0] o_cceip1_out_ia_wdata_part0 ,output  [31:0] o_cceip1_out_ia_wdata_part1 ,output  [31:0] o_cceip1_out_ia_wdata_part2 ,output  [12:0] o_cceip1_out_ia_config ,output  [11:0] o_cceip1_out_im_config ,output  [1:0] o_cceip1_out_im_read_done ,output  [31:0] o_cceip2_out_ia_wdata_part0 
+,output  [31:0] o_cceip2_out_ia_wdata_part1 ,output  [31:0] o_cceip2_out_ia_wdata_part2 ,output  [12:0] o_cceip2_out_ia_config ,output  [11:0] o_cceip2_out_im_config ,output  [1:0] o_cceip2_out_im_read_done ,output  [31:0] o_cceip3_out_ia_wdata_part0 ,output  [31:0] o_cceip3_out_ia_wdata_part1 ,output  [31:0] o_cceip3_out_ia_wdata_part2 ,output  [12:0] o_cceip3_out_ia_config ,output  [11:0] o_cceip3_out_im_config ,output  [1:0] o_cceip3_out_im_read_done ,output  [31:0] o_cddip0_out_ia_wdata_part0 
+,output  [31:0] o_cddip0_out_ia_wdata_part1 ,output  [31:0] o_cddip0_out_ia_wdata_part2 ,output  [12:0] o_cddip0_out_ia_config ,output  [11:0] o_cddip0_out_im_config ,output  [1:0] o_cddip0_out_im_read_done ,output  [31:0] o_cddip1_out_ia_wdata_part0 ,output  [31:0] o_cddip1_out_ia_wdata_part1 ,output  [31:0] o_cddip1_out_ia_wdata_part2 ,output  [12:0] o_cddip1_out_ia_config ,output  [11:0] o_cddip1_out_im_config ,output  [1:0] o_cddip1_out_im_read_done ,output  [31:0] o_cddip2_out_ia_wdata_part0 
+,output  [31:0] o_cddip2_out_ia_wdata_part1 ,output  [31:0] o_cddip2_out_ia_wdata_part2 ,output  [12:0] o_cddip2_out_ia_config ,output  [11:0] o_cddip2_out_im_config ,output  [1:0] o_cddip2_out_im_read_done ,output  [31:0] o_cddip3_out_ia_wdata_part0 ,output  [31:0] o_cddip3_out_ia_wdata_part1 ,output  [31:0] o_cddip3_out_ia_wdata_part2 ,output  [12:0] o_cddip3_out_ia_config ,output  [11:0] o_cddip3_out_im_config ,output  [1:0] o_cddip3_out_im_read_done ,output  [31:0] o_ckv_ia_wdata_part0 
+,output  [31:0] o_ckv_ia_wdata_part1 ,output  [18:0] o_ckv_ia_config ,output  [20:0] o_kim_ia_wdata_part0 ,output  [16:0] o_kim_ia_wdata_part1 ,output  [17:0] o_kim_ia_config ,output  [15:0] o_label0_config ,output  [31:0] o_label0_data7 ,output  [31:0] o_label0_data6 ,output  [31:0] o_label0_data5 ,output  [31:0] o_label0_data4 ,output  [31:0] o_label0_data3 ,output  [31:0] o_label0_data2 
+,output  [31:0] o_label0_data1 ,output  [31:0] o_label0_data0 ,output  [15:0] o_label1_config ,output  [31:0] o_label1_data7 ,output  [31:0] o_label1_data6 ,output  [31:0] o_label1_data5 ,output  [31:0] o_label1_data4 ,output  [31:0] o_label1_data3 ,output  [31:0] o_label1_data2 ,output  [31:0] o_label1_data1 ,output  [31:0] o_label1_data0 ,output  [15:0] o_label2_config 
+,output  [31:0] o_label2_data7 ,output  [31:0] o_label2_data6 ,output  [31:0] o_label2_data5 ,output  [31:0] o_label2_data4 ,output  [31:0] o_label2_data3 ,output  [31:0] o_label2_data2 ,output  [31:0] o_label2_data1 ,output  [31:0] o_label2_data0 ,output  [15:0] o_label3_config ,output  [31:0] o_label3_data7 ,output  [31:0] o_label3_data6 ,output  [31:0] o_label3_data5 
+,output  [31:0] o_label3_data4 ,output  [31:0] o_label3_data3 ,output  [31:0] o_label3_data2 ,output  [31:0] o_label3_data1 ,output  [31:0] o_label3_data0 ,output  [15:0] o_label4_config ,output  [31:0] o_label4_data7 ,output  [31:0] o_label4_data6 ,output  [31:0] o_label4_data5 ,output  [31:0] o_label4_data4 ,output  [31:0] o_label4_data3 ,output  [31:0] o_label4_data2 
+,output  [31:0] o_label4_data1 ,output  [31:0] o_label4_data0 ,output  [15:0] o_label5_config ,output  [31:0] o_label5_data7 ,output  [31:0] o_label5_data6 ,output  [31:0] o_label5_data5 ,output  [31:0] o_label5_data4 ,output  [31:0] o_label5_data3 ,output  [31:0] o_label5_data2 ,output  [31:0] o_label5_data1 ,output  [31:0] o_label5_data0 ,output  [15:0] o_label6_config 
+,output  [31:0] o_label6_data7 ,output  [31:0] o_label6_data6 ,output  [31:0] o_label6_data5 ,output  [31:0] o_label6_data4 ,output  [31:0] o_label6_data3 ,output  [31:0] o_label6_data2 ,output  [31:0] o_label6_data1 ,output  [31:0] o_label6_data0 ,output  [15:0] o_label7_config ,output  [31:0] o_label7_data7 ,output  [31:0] o_label7_data6 ,output  [31:0] o_label7_data5 
+,output  [31:0] o_label7_data4 ,output  [31:0] o_label7_data3 ,output  [31:0] o_label7_data2 ,output  [31:0] o_label7_data1 ,output  [31:0] o_label7_data0 ,output  [1:0] o_kdf_drbg_ctrl ,output  [31:0] o_kdf_drbg_seed_0_state_key_31_0 ,output  [31:0] o_kdf_drbg_seed_0_state_key_63_32 ,output  [31:0] o_kdf_drbg_seed_0_state_key_95_64 ,output  [31:0] o_kdf_drbg_seed_0_state_key_127_96 ,output  [31:0] o_kdf_drbg_seed_0_state_key_159_128 ,output  [31:0] o_kdf_drbg_seed_0_state_key_191_160 
+,output  [31:0] o_kdf_drbg_seed_0_state_key_223_192 ,output  [31:0] o_kdf_drbg_seed_0_state_key_255_224 ,output  [31:0] o_kdf_drbg_seed_0_state_value_31_0 ,output  [31:0] o_kdf_drbg_seed_0_state_value_63_32 ,output  [31:0] o_kdf_drbg_seed_0_state_value_95_64 ,output  [31:0] o_kdf_drbg_seed_0_state_value_127_96 ,output  [31:0] o_kdf_drbg_seed_0_reseed_interval_0 ,output  [15:0] o_kdf_drbg_seed_0_reseed_interval_1 ,output  [31:0] o_kdf_drbg_seed_1_state_key_31_0 ,output  [31:0] o_kdf_drbg_seed_1_state_key_63_32 ,output  [31:0] o_kdf_drbg_seed_1_state_key_95_64 ,output  [31:0] o_kdf_drbg_seed_1_state_key_127_96 
+,output  [31:0] o_kdf_drbg_seed_1_state_key_159_128 ,output  [31:0] o_kdf_drbg_seed_1_state_key_191_160 ,output  [31:0] o_kdf_drbg_seed_1_state_key_223_192 ,output  [31:0] o_kdf_drbg_seed_1_state_key_255_224 ,output  [31:0] o_kdf_drbg_seed_1_state_value_31_0 ,output  [31:0] o_kdf_drbg_seed_1_state_value_63_32 ,output  [31:0] o_kdf_drbg_seed_1_state_value_95_64 ,output  [31:0] o_kdf_drbg_seed_1_state_value_127_96 ,output  [31:0] o_kdf_drbg_seed_1_reseed_interval_0 ,output  [15:0] o_kdf_drbg_seed_1_reseed_interval_1 ,output  [4:0] o_interrupt_status ,output  [4:0] o_interrupt_mask 
+,output  [7:0] o_engine_sticky_status ,output  [6:0] o_bimc_monitor_mask ,output  [31:0] o_bimc_ecc_uncorrectable_error_cnt ,output  [31:0] o_bimc_ecc_correctable_error_cnt ,output  [31:0] o_bimc_parity_error_cnt ,output  [31:0] o_bimc_global_config ,output  [28:0] o_bimc_eccpar_debug ,output  [10:0] o_bimc_cmd2 ,output  [31:0] o_bimc_cmd1 ,output  [31:0] o_bimc_cmd0 ,output  [9:0] o_bimc_rxcmd2 ,output  [9:0] o_bimc_rxrsp2 
+,output  [9:0] o_bimc_pollrsp2 ,output  [9:0] o_bimc_dbgcmd2 ,output  [15:0] o_im_consumed ,output  [8:0] o_tready_override ,output  [31:0] o_regs_sa_ctrl ,output  [31:0] o_sa_snapshot_ia_wdata_part0 ,output  [31:0] o_sa_snapshot_ia_wdata_part1 ,output  [8:0] o_sa_snapshot_ia_config ,output  [31:0] o_sa_count_ia_wdata_part0 ,output  [31:0] o_sa_count_ia_wdata_part1 ,output  [8:0] o_sa_count_ia_config ,output  [6:0] o_cceip_encrypt_kop_fifo_override 
+,output  [6:0] o_cceip_validate_kop_fifo_override ,output  [6:0] o_cddip_decrypt_kop_fifo_override ,output  [31:0] o_sa_global_ctrl ,output  [31:0] o_sa_ctrl_ia_wdata_part0 ,output  [8:0] o_sa_ctrl_ia_config ,output  [31:0] o_kdf_test_key_size_config ,input  [31:0] i_blkid_revid_config ,input  [7:0] i_revision_config ,input  [31:0] i_spare_config ,input  [19:0] i_cceip0_out_ia_capability ,input  [16:0] i_cceip0_out_ia_status ,input  [31:0] i_cceip0_out_ia_rdata_part0 
+,input  [31:0] i_cceip0_out_ia_rdata_part1 ,input  [31:0] i_cceip0_out_ia_rdata_part2 ,input  [11:0] i_cceip0_out_im_status ,input  [1:0] i_cceip0_out_im_read_done ,input  [19:0] i_cceip1_out_ia_capability ,input  [16:0] i_cceip1_out_ia_status ,input  [31:0] i_cceip1_out_ia_rdata_part0 ,input  [31:0] i_cceip1_out_ia_rdata_part1 ,input  [31:0] i_cceip1_out_ia_rdata_part2 ,input  [11:0] i_cceip1_out_im_status ,input  [1:0] i_cceip1_out_im_read_done ,input  [19:0] i_cceip2_out_ia_capability 
+,input  [16:0] i_cceip2_out_ia_status ,input  [31:0] i_cceip2_out_ia_rdata_part0 ,input  [31:0] i_cceip2_out_ia_rdata_part1 ,input  [31:0] i_cceip2_out_ia_rdata_part2 ,input  [11:0] i_cceip2_out_im_status ,input  [1:0] i_cceip2_out_im_read_done ,input  [19:0] i_cceip3_out_ia_capability ,input  [16:0] i_cceip3_out_ia_status ,input  [31:0] i_cceip3_out_ia_rdata_part0 ,input  [31:0] i_cceip3_out_ia_rdata_part1 ,input  [31:0] i_cceip3_out_ia_rdata_part2 ,input  [11:0] i_cceip3_out_im_status 
+,input  [1:0] i_cceip3_out_im_read_done ,input  [19:0] i_cddip0_out_ia_capability ,input  [16:0] i_cddip0_out_ia_status ,input  [31:0] i_cddip0_out_ia_rdata_part0 ,input  [31:0] i_cddip0_out_ia_rdata_part1 ,input  [31:0] i_cddip0_out_ia_rdata_part2 ,input  [11:0] i_cddip0_out_im_status ,input  [1:0] i_cddip0_out_im_read_done ,input  [19:0] i_cddip1_out_ia_capability ,input  [16:0] i_cddip1_out_ia_status ,input  [31:0] i_cddip1_out_ia_rdata_part0 ,input  [31:0] i_cddip1_out_ia_rdata_part1 
+,input  [31:0] i_cddip1_out_ia_rdata_part2 ,input  [11:0] i_cddip1_out_im_status ,input  [1:0] i_cddip1_out_im_read_done ,input  [19:0] i_cddip2_out_ia_capability ,input  [16:0] i_cddip2_out_ia_status ,input  [31:0] i_cddip2_out_ia_rdata_part0 ,input  [31:0] i_cddip2_out_ia_rdata_part1 ,input  [31:0] i_cddip2_out_ia_rdata_part2 ,input  [11:0] i_cddip2_out_im_status ,input  [1:0] i_cddip2_out_im_read_done ,input  [19:0] i_cddip3_out_ia_capability ,input  [16:0] i_cddip3_out_ia_status 
+,input  [31:0] i_cddip3_out_ia_rdata_part0 ,input  [31:0] i_cddip3_out_ia_rdata_part1 ,input  [31:0] i_cddip3_out_ia_rdata_part2 ,input  [11:0] i_cddip3_out_im_status ,input  [1:0] i_cddip3_out_im_read_done ,input  [19:0] i_ckv_ia_capability ,input  [22:0] i_ckv_ia_status ,input  [31:0] i_ckv_ia_rdata_part0 ,input  [31:0] i_ckv_ia_rdata_part1 ,input  [19:0] i_kim_ia_capability ,input  [21:0] i_kim_ia_status ,input  [20:0] i_kim_ia_rdata_part0 
+,input  [16:0] i_kim_ia_rdata_part1 ,input  [1:0] i_kdf_drbg_ctrl ,input  [4:0] i_interrupt_status ,input  [7:0] i_engine_sticky_status ,input  [6:0] i_bimc_monitor ,input  [31:0] i_bimc_ecc_uncorrectable_error_cnt ,input  [31:0] i_bimc_ecc_correctable_error_cnt ,input  [31:0] i_bimc_parity_error_cnt ,input  [31:0] i_bimc_global_config ,input  [11:0] i_bimc_memid ,input  [28:0] i_bimc_eccpar_debug ,input  [10:0] i_bimc_cmd2 
+,input  [9:0] i_bimc_rxcmd2 ,input  [31:0] i_bimc_rxcmd1 ,input  [31:0] i_bimc_rxcmd0 ,input  [9:0] i_bimc_rxrsp2 ,input  [31:0] i_bimc_rxrsp1 ,input  [31:0] i_bimc_rxrsp0 ,input  [9:0] i_bimc_pollrsp2 ,input  [31:0] i_bimc_pollrsp1 ,input  [31:0] i_bimc_pollrsp0 ,input  [9:0] i_bimc_dbgcmd2 ,input  [31:0] i_bimc_dbgcmd1 ,input  [31:0] i_bimc_dbgcmd0 
+,input  [15:0] i_im_available ,input  [15:0] i_im_consumed ,input  [8:0] i_tready_override ,input  [31:0] i_regs_sa_ctrl ,input  [19:0] i_sa_snapshot_ia_capability ,input  [12:0] i_sa_snapshot_ia_status ,input  [31:0] i_sa_snapshot_ia_rdata_part0 ,input  [31:0] i_sa_snapshot_ia_rdata_part1 ,input  [19:0] i_sa_count_ia_capability ,input  [12:0] i_sa_count_ia_status ,input  [31:0] i_sa_count_ia_rdata_part0 ,input  [31:0] i_sa_count_ia_rdata_part1 
+,input  [31:0] i_idle_components ,input  [31:0] i_sa_global_ctrl ,input  [19:0] i_sa_ctrl_ia_capability ,input  [12:0] i_sa_ctrl_ia_status ,input  [31:0] i_sa_ctrl_ia_rdata_part0 ,output reg o_reg_written,output reg o_reg_read,output  [31:0] o_reg_wr_data ,output reg [10:0] o_reg_addr );
+wire  [10:0] ws_read_addr ;
+wire  [10:0] ws_addr ;
+wire  n_wr_strobe;
+wire  n_rd_strobe;
+wire  w_32b_aligned;
+wire  w_valid_rd_addr;
+wire  w_valid_wr_addr;
+wire  w_valid_addr;
+parameter IDLE = 3'b0;
+parameter WR_PREP = 3'b01;
+parameter WR_REG = 3'b011;
+parameter WAIT = 3'b100;
+parameter RD_PREP = 3'b101;
+parameter RD_REG = 3'b111;
+reg n_write;
+reg [2:0] f_state ;
+reg f_prev_do_read;
+wire  w_do_write;
+wire  w_do_read;
+wire  [2:0] w_next_state ;
+wire  w_next_ack;
+wire  w_next_err_ack;
+reg f_ack;
+reg f_err_ack;
+reg [31:0] r32_mux_0_data ;
+reg [31:0] f32_mux_0_data ;
+reg [31:0] r32_mux_1_data ;
+reg [31:0] f32_mux_1_data ;
+reg [31:0] r32_mux_2_data ;
+reg [31:0] f32_mux_2_data ;
+reg [31:0] r32_mux_3_data ;
+reg [31:0] f32_mux_3_data ;
+reg [31:0] r32_mux_4_data ;
+reg [31:0] f32_mux_4_data ;
+reg [31:0] r32_mux_5_data ;
+reg [31:0] f32_mux_5_data ;
+reg [31:0] r32_mux_6_data ;
+reg [31:0] f32_mux_6_data ;
+reg [31:0] r32_mux_7_data ;
+reg [31:0] f32_mux_7_data ;
+reg [31:0] r32_mux_8_data ;
+reg [31:0] f32_mux_8_data ;
+wire  [31:0] r32_formatted_reg_data ;
+reg [31:0] f32_data ;
+wire  w_load_spare_config;
+wire  w_load_cceip0_out_ia_wdata_part0;
+wire  w_load_cceip0_out_ia_wdata_part1;
+wire  w_load_cceip0_out_ia_wdata_part2;
+wire  w_load_cceip0_out_ia_config;
+wire  w_load_cceip0_out_im_config;
+wire  w_load_cceip0_out_im_read_done;
+wire  w_load_cceip1_out_ia_wdata_part0;
+wire  w_load_cceip1_out_ia_wdata_part1;
+wire  w_load_cceip1_out_ia_wdata_part2;
+wire  w_load_cceip1_out_ia_config;
+wire  w_load_cceip1_out_im_config;
+wire  w_load_cceip1_out_im_read_done;
+wire  w_load_cceip2_out_ia_wdata_part0;
+wire  w_load_cceip2_out_ia_wdata_part1;
+wire  w_load_cceip2_out_ia_wdata_part2;
+wire  w_load_cceip2_out_ia_config;
+wire  w_load_cceip2_out_im_config;
+wire  w_load_cceip2_out_im_read_done;
+wire  w_load_cceip3_out_ia_wdata_part0;
+wire  w_load_cceip3_out_ia_wdata_part1;
+wire  w_load_cceip3_out_ia_wdata_part2;
+wire  w_load_cceip3_out_ia_config;
+wire  w_load_cceip3_out_im_config;
+wire  w_load_cceip3_out_im_read_done;
+wire  w_load_cddip0_out_ia_wdata_part0;
+wire  w_load_cddip0_out_ia_wdata_part1;
+wire  w_load_cddip0_out_ia_wdata_part2;
+wire  w_load_cddip0_out_ia_config;
+wire  w_load_cddip0_out_im_config;
+wire  w_load_cddip0_out_im_read_done;
+wire  w_load_cddip1_out_ia_wdata_part0;
+wire  w_load_cddip1_out_ia_wdata_part1;
+wire  w_load_cddip1_out_ia_wdata_part2;
+wire  w_load_cddip1_out_ia_config;
+wire  w_load_cddip1_out_im_config;
+wire  w_load_cddip1_out_im_read_done;
+wire  w_load_cddip2_out_ia_wdata_part0;
+wire  w_load_cddip2_out_ia_wdata_part1;
+wire  w_load_cddip2_out_ia_wdata_part2;
+wire  w_load_cddip2_out_ia_config;
+wire  w_load_cddip2_out_im_config;
+wire  w_load_cddip2_out_im_read_done;
+wire  w_load_cddip3_out_ia_wdata_part0;
+wire  w_load_cddip3_out_ia_wdata_part1;
+wire  w_load_cddip3_out_ia_wdata_part2;
+wire  w_load_cddip3_out_ia_config;
+wire  w_load_cddip3_out_im_config;
+wire  w_load_cddip3_out_im_read_done;
+wire  w_load_ckv_ia_wdata_part0;
+wire  w_load_ckv_ia_wdata_part1;
+wire  w_load_ckv_ia_config;
+wire  w_load_kim_ia_wdata_part0;
+wire  w_load_kim_ia_wdata_part1;
+wire  w_load_kim_ia_config;
+wire  w_load_label0_config;
+wire  w_load_label0_data7;
+wire  w_load_label0_data6;
+wire  w_load_label0_data5;
+wire  w_load_label0_data4;
+wire  w_load_label0_data3;
+wire  w_load_label0_data2;
+wire  w_load_label0_data1;
+wire  w_load_label0_data0;
+wire  w_load_label1_config;
+wire  w_load_label1_data7;
+wire  w_load_label1_data6;
+wire  w_load_label1_data5;
+wire  w_load_label1_data4;
+wire  w_load_label1_data3;
+wire  w_load_label1_data2;
+wire  w_load_label1_data1;
+wire  w_load_label1_data0;
+wire  w_load_label2_config;
+wire  w_load_label2_data7;
+wire  w_load_label2_data6;
+wire  w_load_label2_data5;
+wire  w_load_label2_data4;
+wire  w_load_label2_data3;
+wire  w_load_label2_data2;
+wire  w_load_label2_data1;
+wire  w_load_label2_data0;
+wire  w_load_label3_config;
+wire  w_load_label3_data7;
+wire  w_load_label3_data6;
+wire  w_load_label3_data5;
+wire  w_load_label3_data4;
+wire  w_load_label3_data3;
+wire  w_load_label3_data2;
+wire  w_load_label3_data1;
+wire  w_load_label3_data0;
+wire  w_load_label4_config;
+wire  w_load_label4_data7;
+wire  w_load_label4_data6;
+wire  w_load_label4_data5;
+wire  w_load_label4_data4;
+wire  w_load_label4_data3;
+wire  w_load_label4_data2;
+wire  w_load_label4_data1;
+wire  w_load_label4_data0;
+wire  w_load_label5_config;
+wire  w_load_label5_data7;
+wire  w_load_label5_data6;
+wire  w_load_label5_data5;
+wire  w_load_label5_data4;
+wire  w_load_label5_data3;
+wire  w_load_label5_data2;
+wire  w_load_label5_data1;
+wire  w_load_label5_data0;
+wire  w_load_label6_config;
+wire  w_load_label6_data7;
+wire  w_load_label6_data6;
+wire  w_load_label6_data5;
+wire  w_load_label6_data4;
+wire  w_load_label6_data3;
+wire  w_load_label6_data2;
+wire  w_load_label6_data1;
+wire  w_load_label6_data0;
+wire  w_load_label7_config;
+wire  w_load_label7_data7;
+wire  w_load_label7_data6;
+wire  w_load_label7_data5;
+wire  w_load_label7_data4;
+wire  w_load_label7_data3;
+wire  w_load_label7_data2;
+wire  w_load_label7_data1;
+wire  w_load_label7_data0;
+wire  w_load_kdf_drbg_ctrl;
+wire  w_load_kdf_drbg_seed_0_state_key_31_0;
+wire  w_load_kdf_drbg_seed_0_state_key_63_32;
+wire  w_load_kdf_drbg_seed_0_state_key_95_64;
+wire  w_load_kdf_drbg_seed_0_state_key_127_96;
+wire  w_load_kdf_drbg_seed_0_state_key_159_128;
+wire  w_load_kdf_drbg_seed_0_state_key_191_160;
+wire  w_load_kdf_drbg_seed_0_state_key_223_192;
+wire  w_load_kdf_drbg_seed_0_state_key_255_224;
+wire  w_load_kdf_drbg_seed_0_state_value_31_0;
+wire  w_load_kdf_drbg_seed_0_state_value_63_32;
+wire  w_load_kdf_drbg_seed_0_state_value_95_64;
+wire  w_load_kdf_drbg_seed_0_state_value_127_96;
+wire  w_load_kdf_drbg_seed_0_reseed_interval_0;
+wire  w_load_kdf_drbg_seed_0_reseed_interval_1;
+wire  w_load_kdf_drbg_seed_1_state_key_31_0;
+wire  w_load_kdf_drbg_seed_1_state_key_63_32;
+wire  w_load_kdf_drbg_seed_1_state_key_95_64;
+wire  w_load_kdf_drbg_seed_1_state_key_127_96;
+wire  w_load_kdf_drbg_seed_1_state_key_159_128;
+wire  w_load_kdf_drbg_seed_1_state_key_191_160;
+wire  w_load_kdf_drbg_seed_1_state_key_223_192;
+wire  w_load_kdf_drbg_seed_1_state_key_255_224;
+wire  w_load_kdf_drbg_seed_1_state_value_31_0;
+wire  w_load_kdf_drbg_seed_1_state_value_63_32;
+wire  w_load_kdf_drbg_seed_1_state_value_95_64;
+wire  w_load_kdf_drbg_seed_1_state_value_127_96;
+wire  w_load_kdf_drbg_seed_1_reseed_interval_0;
+wire  w_load_kdf_drbg_seed_1_reseed_interval_1;
+wire  w_load_interrupt_status;
+wire  w_load_interrupt_mask;
+wire  w_load_engine_sticky_status;
+wire  w_load_bimc_monitor_mask;
+wire  w_load_bimc_ecc_uncorrectable_error_cnt;
+wire  w_load_bimc_ecc_correctable_error_cnt;
+wire  w_load_bimc_parity_error_cnt;
+wire  w_load_bimc_global_config;
+wire  w_load_bimc_eccpar_debug;
+wire  w_load_bimc_cmd2;
+wire  w_load_bimc_cmd1;
+wire  w_load_bimc_cmd0;
+wire  w_load_bimc_rxcmd2;
+wire  w_load_bimc_rxrsp2;
+wire  w_load_bimc_pollrsp2;
+wire  w_load_bimc_dbgcmd2;
+wire  w_load_im_consumed;
+wire  w_load_tready_override;
+wire  w_load_regs_sa_ctrl;
+wire  w_load_sa_snapshot_ia_wdata_part0;
+wire  w_load_sa_snapshot_ia_wdata_part1;
+wire  w_load_sa_snapshot_ia_config;
+wire  w_load_sa_count_ia_wdata_part0;
+wire  w_load_sa_count_ia_wdata_part1;
+wire  w_load_sa_count_ia_config;
+wire  w_load_cceip_encrypt_kop_fifo_override;
+wire  w_load_cceip_validate_kop_fifo_override;
+wire  w_load_cddip_decrypt_kop_fifo_override;
+wire  w_load_sa_global_ctrl;
+wire  w_load_sa_ctrl_ia_wdata_part0;
+wire  w_load_sa_ctrl_ia_config;
+wire  w_load_kdf_test_key_size_config;
+wire  _zy_simnet_o_reg_written_0_w$;
+wire  _zy_simnet_o_reg_read_1_w$;
+wire  [0:10] _zy_simnet_o_reg_addr_2_w$ ;
+wire  [0:31] _zy_simnet_f32_data_3_w$ ;
+ixc_assign  #(11) _zz_strnp_0 (ws_read_addr,o_reg_addr);
+ixc_assign  #(11) _zz_strnp_1 (ws_addr,o_reg_addr);
+ixc_assign  #(1) _zz_strnp_2 (n_wr_strobe,i_wr_strb);
+ixc_assign  #(1) _zz_strnp_3 (n_rd_strobe,i_rd_strb);
+assign  w_32b_aligned = (o_reg_addr[1:0] == 2'b0);
+assign  w_valid_rd_addr = (((((((((((((w_32b_aligned && (ws_addr >= 11'b0)) && (ws_addr <= 11'b0111000000)) || ((w_32b_aligned && (ws_addr >= 11'b0111001000)) && (ws_addr <= 11'b0111101000))) || ((w_32b_aligned && (ws_addr >= 11'b0111110000)) && (ws_addr <= 11'b01000010000))) || ((w_32b_aligned && (ws_addr >= 11'b01000011000)) && (ws_addr <= 11'b01000111000))) || ((w_32b_aligned && (ws_addr >= 11'b01001000000)) && (ws_addr <= 11'b01001100000))) || ((w_32b_aligned && (ws_addr >= 11'b01001101000)) && (ws_addr <= 11'b01010001000))) || ((w_32b_aligned && (ws_addr >= 11'b01010010000)) && (ws_addr <= 11'b01010110000))) || ((w_32b_aligned && (ws_addr >= 11'b01010111000)) && (ws_addr <= 11'b01011011000))) || ((w_32b_aligned && (ws_addr >= 11'b01011100000)) && (ws_addr <= 11'b01100000000))) || ((w_32b_aligned && (ws_addr >= 11'b01100001000)) && (ws_addr <= 11'b01110000100))) || ((w_32b_aligned && (ws_addr >= 11'b01110001100)) && (ws_addr <= 11'b01111100100))) || ((w_32b_aligned && (ws_addr >= 11'b01111101100)) && (ws_addr <= 11'b10001011100)));
+assign  w_valid_wr_addr = (((((((((((((w_32b_aligned && (ws_addr >= 11'b0)) && (ws_addr <= 11'b0111000000)) || ((w_32b_aligned && (ws_addr >= 11'b0111001000)) && (ws_addr <= 11'b0111101000))) || ((w_32b_aligned && (ws_addr >= 11'b0111110000)) && (ws_addr <= 11'b01000010000))) || ((w_32b_aligned && (ws_addr >= 11'b01000011000)) && (ws_addr <= 11'b01000111000))) || ((w_32b_aligned && (ws_addr >= 11'b01001000000)) && (ws_addr <= 11'b01001100000))) || ((w_32b_aligned && (ws_addr >= 11'b01001101000)) && (ws_addr <= 11'b01010001000))) || ((w_32b_aligned && (ws_addr >= 11'b01010010000)) && (ws_addr <= 11'b01010110000))) || ((w_32b_aligned && (ws_addr >= 11'b01010111000)) && (ws_addr <= 11'b01011011000))) || ((w_32b_aligned && (ws_addr >= 11'b01011100000)) && (ws_addr <= 11'b01100000000))) || ((w_32b_aligned && (ws_addr >= 11'b01100001000)) && (ws_addr <= 11'b01110000100))) || ((w_32b_aligned && (ws_addr >= 11'b01110001100)) && (ws_addr <= 11'b01111100100))) || ((w_32b_aligned && (ws_addr >= 11'b01111101100)) && (ws_addr <= 11'b10001011100)));
+assign  w_valid_addr = (w_valid_wr_addr | w_valid_rd_addr);
+assign  w_do_write = (f_state == 3'b01);
+assign  w_do_read = (f_state == 3'b101);
+assign  w_next_state = (n_wr_strobe ? 3'b01 : (n_rd_strobe ? 3'b101 : ((f_state == 3'b01) ? 3'b011 : ((f_state == 3'b101) ? 3'b111 : 3'b0))));
+assign  w_next_ack = (f_state == 3'b101);
+assign  w_next_err_ack = ((f_state == 3'b101) & ( ~w_valid_rd_addr ));
+assign  o_ack = (f_ack | (f_state == 3'b01));
+assign  o_err_ack = (f_err_ack | ((f_state == 3'b01) & ( ~w_valid_wr_addr )));
+assign  r32_formatted_reg_data = ((((((((f32_mux_0_data | f32_mux_1_data) | f32_mux_2_data) | f32_mux_3_data) | f32_mux_4_data) | f32_mux_5_data) | f32_mux_6_data) | f32_mux_7_data) | f32_mux_8_data);
+ixc_assign  #(32) _zz_strnp_4 (o_reg_wr_data,f32_data);
+assign  o_rd_data = ((o_ack & ( ~n_write )) ? r32_formatted_reg_data : 32'b0);
+assign  w_load_spare_config = (w_do_write & (ws_addr == 11'b01000));
+assign  w_load_cceip0_out_ia_wdata_part0 = (w_do_write & (ws_addr == 11'b010100));
+assign  w_load_cceip0_out_ia_wdata_part1 = (w_do_write & (ws_addr == 11'b011000));
+assign  w_load_cceip0_out_ia_wdata_part2 = (w_do_write & (ws_addr == 11'b011100));
+assign  w_load_cceip0_out_ia_config = (w_do_write & (ws_addr == 11'b0100000));
+assign  w_load_cceip0_out_im_config = (w_do_write & (ws_addr == 11'b0110000));
+assign  w_load_cceip0_out_im_read_done = (w_do_write & (ws_addr == 11'b0111000));
+assign  w_load_cceip1_out_ia_wdata_part0 = (w_do_write & (ws_addr == 11'b01000100));
+assign  w_load_cceip1_out_ia_wdata_part1 = (w_do_write & (ws_addr == 11'b01001000));
+assign  w_load_cceip1_out_ia_wdata_part2 = (w_do_write & (ws_addr == 11'b01001100));
+assign  w_load_cceip1_out_ia_config = (w_do_write & (ws_addr == 11'b01010000));
+assign  w_load_cceip1_out_im_config = (w_do_write & (ws_addr == 11'b01100000));
+assign  w_load_cceip1_out_im_read_done = (w_do_write & (ws_addr == 11'b01101000));
+assign  w_load_cceip2_out_ia_wdata_part0 = (w_do_write & (ws_addr == 11'b01110100));
+assign  w_load_cceip2_out_ia_wdata_part1 = (w_do_write & (ws_addr == 11'b01111000));
+assign  w_load_cceip2_out_ia_wdata_part2 = (w_do_write & (ws_addr == 11'b01111100));
+assign  w_load_cceip2_out_ia_config = (w_do_write & (ws_addr == 11'b010000000));
+assign  w_load_cceip2_out_im_config = (w_do_write & (ws_addr == 11'b010010000));
+assign  w_load_cceip2_out_im_read_done = (w_do_write & (ws_addr == 11'b010011000));
+assign  w_load_cceip3_out_ia_wdata_part0 = (w_do_write & (ws_addr == 11'b010100100));
+assign  w_load_cceip3_out_ia_wdata_part1 = (w_do_write & (ws_addr == 11'b010101000));
+assign  w_load_cceip3_out_ia_wdata_part2 = (w_do_write & (ws_addr == 11'b010101100));
+assign  w_load_cceip3_out_ia_config = (w_do_write & (ws_addr == 11'b010110000));
+assign  w_load_cceip3_out_im_config = (w_do_write & (ws_addr == 11'b011000000));
+assign  w_load_cceip3_out_im_read_done = (w_do_write & (ws_addr == 11'b011001000));
+assign  w_load_cddip0_out_ia_wdata_part0 = (w_do_write & (ws_addr == 11'b011010100));
+assign  w_load_cddip0_out_ia_wdata_part1 = (w_do_write & (ws_addr == 11'b011011000));
+assign  w_load_cddip0_out_ia_wdata_part2 = (w_do_write & (ws_addr == 11'b011011100));
+assign  w_load_cddip0_out_ia_config = (w_do_write & (ws_addr == 11'b011100000));
+assign  w_load_cddip0_out_im_config = (w_do_write & (ws_addr == 11'b011110000));
+assign  w_load_cddip0_out_im_read_done = (w_do_write & (ws_addr == 11'b011111000));
+assign  w_load_cddip1_out_ia_wdata_part0 = (w_do_write & (ws_addr == 11'b0100000100));
+assign  w_load_cddip1_out_ia_wdata_part1 = (w_do_write & (ws_addr == 11'b0100001000));
+assign  w_load_cddip1_out_ia_wdata_part2 = (w_do_write & (ws_addr == 11'b0100001100));
+assign  w_load_cddip1_out_ia_config = (w_do_write & (ws_addr == 11'b0100010000));
+assign  w_load_cddip1_out_im_config = (w_do_write & (ws_addr == 11'b0100100000));
+assign  w_load_cddip1_out_im_read_done = (w_do_write & (ws_addr == 11'b0100101000));
+assign  w_load_cddip2_out_ia_wdata_part0 = (w_do_write & (ws_addr == 11'b0100110100));
+assign  w_load_cddip2_out_ia_wdata_part1 = (w_do_write & (ws_addr == 11'b0100111000));
+assign  w_load_cddip2_out_ia_wdata_part2 = (w_do_write & (ws_addr == 11'b0100111100));
+assign  w_load_cddip2_out_ia_config = (w_do_write & (ws_addr == 11'b0101000000));
+assign  w_load_cddip2_out_im_config = (w_do_write & (ws_addr == 11'b0101010000));
+assign  w_load_cddip2_out_im_read_done = (w_do_write & (ws_addr == 11'b0101011000));
+assign  w_load_cddip3_out_ia_wdata_part0 = (w_do_write & (ws_addr == 11'b0101100100));
+assign  w_load_cddip3_out_ia_wdata_part1 = (w_do_write & (ws_addr == 11'b0101101000));
+assign  w_load_cddip3_out_ia_wdata_part2 = (w_do_write & (ws_addr == 11'b0101101100));
+assign  w_load_cddip3_out_ia_config = (w_do_write & (ws_addr == 11'b0101110000));
+assign  w_load_cddip3_out_im_config = (w_do_write & (ws_addr == 11'b0110000000));
+assign  w_load_cddip3_out_im_read_done = (w_do_write & (ws_addr == 11'b0110001000));
+assign  w_load_ckv_ia_wdata_part0 = (w_do_write & (ws_addr == 11'b0110010100));
+assign  w_load_ckv_ia_wdata_part1 = (w_do_write & (ws_addr == 11'b0110011000));
+assign  w_load_ckv_ia_config = (w_do_write & (ws_addr == 11'b0110011100));
+assign  w_load_kim_ia_wdata_part0 = (w_do_write & (ws_addr == 11'b0110110000));
+assign  w_load_kim_ia_wdata_part1 = (w_do_write & (ws_addr == 11'b0110110100));
+assign  w_load_kim_ia_config = (w_do_write & (ws_addr == 11'b0110111000));
+assign  w_load_label0_config = (w_do_write & (ws_addr == 11'b0111001000));
+assign  w_load_label0_data7 = (w_do_write & (ws_addr == 11'b0111001100));
+assign  w_load_label0_data6 = (w_do_write & (ws_addr == 11'b0111010000));
+assign  w_load_label0_data5 = (w_do_write & (ws_addr == 11'b0111010100));
+assign  w_load_label0_data4 = (w_do_write & (ws_addr == 11'b0111011000));
+assign  w_load_label0_data3 = (w_do_write & (ws_addr == 11'b0111011100));
+assign  w_load_label0_data2 = (w_do_write & (ws_addr == 11'b0111100000));
+assign  w_load_label0_data1 = (w_do_write & (ws_addr == 11'b0111100100));
+assign  w_load_label0_data0 = (w_do_write & (ws_addr == 11'b0111101000));
+assign  w_load_label1_config = (w_do_write & (ws_addr == 11'b0111110000));
+assign  w_load_label1_data7 = (w_do_write & (ws_addr == 11'b0111110100));
+assign  w_load_label1_data6 = (w_do_write & (ws_addr == 11'b0111111000));
+assign  w_load_label1_data5 = (w_do_write & (ws_addr == 11'b0111111100));
+assign  w_load_label1_data4 = (w_do_write & (ws_addr == 11'b01000000000));
+assign  w_load_label1_data3 = (w_do_write & (ws_addr == 11'b01000000100));
+assign  w_load_label1_data2 = (w_do_write & (ws_addr == 11'b01000001000));
+assign  w_load_label1_data1 = (w_do_write & (ws_addr == 11'b01000001100));
+assign  w_load_label1_data0 = (w_do_write & (ws_addr == 11'b01000010000));
+assign  w_load_label2_config = (w_do_write & (ws_addr == 11'b01000011000));
+assign  w_load_label2_data7 = (w_do_write & (ws_addr == 11'b01000011100));
+assign  w_load_label2_data6 = (w_do_write & (ws_addr == 11'b01000100000));
+assign  w_load_label2_data5 = (w_do_write & (ws_addr == 11'b01000100100));
+assign  w_load_label2_data4 = (w_do_write & (ws_addr == 11'b01000101000));
+assign  w_load_label2_data3 = (w_do_write & (ws_addr == 11'b01000101100));
+assign  w_load_label2_data2 = (w_do_write & (ws_addr == 11'b01000110000));
+assign  w_load_label2_data1 = (w_do_write & (ws_addr == 11'b01000110100));
+assign  w_load_label2_data0 = (w_do_write & (ws_addr == 11'b01000111000));
+assign  w_load_label3_config = (w_do_write & (ws_addr == 11'b01001000000));
+assign  w_load_label3_data7 = (w_do_write & (ws_addr == 11'b01001000100));
+assign  w_load_label3_data6 = (w_do_write & (ws_addr == 11'b01001001000));
+assign  w_load_label3_data5 = (w_do_write & (ws_addr == 11'b01001001100));
+assign  w_load_label3_data4 = (w_do_write & (ws_addr == 11'b01001010000));
+assign  w_load_label3_data3 = (w_do_write & (ws_addr == 11'b01001010100));
+assign  w_load_label3_data2 = (w_do_write & (ws_addr == 11'b01001011000));
+assign  w_load_label3_data1 = (w_do_write & (ws_addr == 11'b01001011100));
+assign  w_load_label3_data0 = (w_do_write & (ws_addr == 11'b01001100000));
+assign  w_load_label4_config = (w_do_write & (ws_addr == 11'b01001101000));
+assign  w_load_label4_data7 = (w_do_write & (ws_addr == 11'b01001101100));
+assign  w_load_label4_data6 = (w_do_write & (ws_addr == 11'b01001110000));
+assign  w_load_label4_data5 = (w_do_write & (ws_addr == 11'b01001110100));
+assign  w_load_label4_data4 = (w_do_write & (ws_addr == 11'b01001111000));
+assign  w_load_label4_data3 = (w_do_write & (ws_addr == 11'b01001111100));
+assign  w_load_label4_data2 = (w_do_write & (ws_addr == 11'b01010000000));
+assign  w_load_label4_data1 = (w_do_write & (ws_addr == 11'b01010000100));
+assign  w_load_label4_data0 = (w_do_write & (ws_addr == 11'b01010001000));
+assign  w_load_label5_config = (w_do_write & (ws_addr == 11'b01010010000));
+assign  w_load_label5_data7 = (w_do_write & (ws_addr == 11'b01010010100));
+assign  w_load_label5_data6 = (w_do_write & (ws_addr == 11'b01010011000));
+assign  w_load_label5_data5 = (w_do_write & (ws_addr == 11'b01010011100));
+assign  w_load_label5_data4 = (w_do_write & (ws_addr == 11'b01010100000));
+assign  w_load_label5_data3 = (w_do_write & (ws_addr == 11'b01010100100));
+assign  w_load_label5_data2 = (w_do_write & (ws_addr == 11'b01010101000));
+assign  w_load_label5_data1 = (w_do_write & (ws_addr == 11'b01010101100));
+assign  w_load_label5_data0 = (w_do_write & (ws_addr == 11'b01010110000));
+assign  w_load_label6_config = (w_do_write & (ws_addr == 11'b01010111000));
+assign  w_load_label6_data7 = (w_do_write & (ws_addr == 11'b01010111100));
+assign  w_load_label6_data6 = (w_do_write & (ws_addr == 11'b01011000000));
+assign  w_load_label6_data5 = (w_do_write & (ws_addr == 11'b01011000100));
+assign  w_load_label6_data4 = (w_do_write & (ws_addr == 11'b01011001000));
+assign  w_load_label6_data3 = (w_do_write & (ws_addr == 11'b01011001100));
+assign  w_load_label6_data2 = (w_do_write & (ws_addr == 11'b01011010000));
+assign  w_load_label6_data1 = (w_do_write & (ws_addr == 11'b01011010100));
+assign  w_load_label6_data0 = (w_do_write & (ws_addr == 11'b01011011000));
+assign  w_load_label7_config = (w_do_write & (ws_addr == 11'b01011100000));
+assign  w_load_label7_data7 = (w_do_write & (ws_addr == 11'b01011100100));
+assign  w_load_label7_data6 = (w_do_write & (ws_addr == 11'b01011101000));
+assign  w_load_label7_data5 = (w_do_write & (ws_addr == 11'b01011101100));
+assign  w_load_label7_data4 = (w_do_write & (ws_addr == 11'b01011110000));
+assign  w_load_label7_data3 = (w_do_write & (ws_addr == 11'b01011110100));
+assign  w_load_label7_data2 = (w_do_write & (ws_addr == 11'b01011111000));
+assign  w_load_label7_data1 = (w_do_write & (ws_addr == 11'b01011111100));
+assign  w_load_label7_data0 = (w_do_write & (ws_addr == 11'b01100000000));
+assign  w_load_kdf_drbg_ctrl = (w_do_write & (ws_addr == 11'b01100001000));
+assign  w_load_kdf_drbg_seed_0_state_key_31_0 = (w_do_write & (ws_addr == 11'b01100001100));
+assign  w_load_kdf_drbg_seed_0_state_key_63_32 = (w_do_write & (ws_addr == 11'b01100010000));
+assign  w_load_kdf_drbg_seed_0_state_key_95_64 = (w_do_write & (ws_addr == 11'b01100010100));
+assign  w_load_kdf_drbg_seed_0_state_key_127_96 = (w_do_write & (ws_addr == 11'b01100011000));
+assign  w_load_kdf_drbg_seed_0_state_key_159_128 = (w_do_write & (ws_addr == 11'b01100011100));
+assign  w_load_kdf_drbg_seed_0_state_key_191_160 = (w_do_write & (ws_addr == 11'b01100100000));
+assign  w_load_kdf_drbg_seed_0_state_key_223_192 = (w_do_write & (ws_addr == 11'b01100100100));
+assign  w_load_kdf_drbg_seed_0_state_key_255_224 = (w_do_write & (ws_addr == 11'b01100101000));
+assign  w_load_kdf_drbg_seed_0_state_value_31_0 = (w_do_write & (ws_addr == 11'b01100101100));
+assign  w_load_kdf_drbg_seed_0_state_value_63_32 = (w_do_write & (ws_addr == 11'b01100110000));
+assign  w_load_kdf_drbg_seed_0_state_value_95_64 = (w_do_write & (ws_addr == 11'b01100110100));
+assign  w_load_kdf_drbg_seed_0_state_value_127_96 = (w_do_write & (ws_addr == 11'b01100111000));
+assign  w_load_kdf_drbg_seed_0_reseed_interval_0 = (w_do_write & (ws_addr == 11'b01100111100));
+assign  w_load_kdf_drbg_seed_0_reseed_interval_1 = (w_do_write & (ws_addr == 11'b01101000000));
+assign  w_load_kdf_drbg_seed_1_state_key_31_0 = (w_do_write & (ws_addr == 11'b01101000100));
+assign  w_load_kdf_drbg_seed_1_state_key_63_32 = (w_do_write & (ws_addr == 11'b01101001000));
+assign  w_load_kdf_drbg_seed_1_state_key_95_64 = (w_do_write & (ws_addr == 11'b01101001100));
+assign  w_load_kdf_drbg_seed_1_state_key_127_96 = (w_do_write & (ws_addr == 11'b01101010000));
+assign  w_load_kdf_drbg_seed_1_state_key_159_128 = (w_do_write & (ws_addr == 11'b01101010100));
+assign  w_load_kdf_drbg_seed_1_state_key_191_160 = (w_do_write & (ws_addr == 11'b01101011000));
+assign  w_load_kdf_drbg_seed_1_state_key_223_192 = (w_do_write & (ws_addr == 11'b01101011100));
+assign  w_load_kdf_drbg_seed_1_state_key_255_224 = (w_do_write & (ws_addr == 11'b01101100000));
+assign  w_load_kdf_drbg_seed_1_state_value_31_0 = (w_do_write & (ws_addr == 11'b01101100100));
+assign  w_load_kdf_drbg_seed_1_state_value_63_32 = (w_do_write & (ws_addr == 11'b01101101000));
+assign  w_load_kdf_drbg_seed_1_state_value_95_64 = (w_do_write & (ws_addr == 11'b01101101100));
+assign  w_load_kdf_drbg_seed_1_state_value_127_96 = (w_do_write & (ws_addr == 11'b01101110000));
+assign  w_load_kdf_drbg_seed_1_reseed_interval_0 = (w_do_write & (ws_addr == 11'b01101110100));
+assign  w_load_kdf_drbg_seed_1_reseed_interval_1 = (w_do_write & (ws_addr == 11'b01101111000));
+assign  w_load_interrupt_status = (w_do_write & (ws_addr == 11'b01101111100));
+assign  w_load_interrupt_mask = (w_do_write & (ws_addr == 11'b01110000000));
+assign  w_load_engine_sticky_status = (w_do_write & (ws_addr == 11'b01110000100));
+assign  w_load_bimc_monitor_mask = (w_do_write & (ws_addr == 11'b01110010000));
+assign  w_load_bimc_ecc_uncorrectable_error_cnt = (w_do_write & (ws_addr == 11'b01110010100));
+assign  w_load_bimc_ecc_correctable_error_cnt = (w_do_write & (ws_addr == 11'b01110011000));
+assign  w_load_bimc_parity_error_cnt = (w_do_write & (ws_addr == 11'b01110011100));
+assign  w_load_bimc_global_config = (w_do_write & (ws_addr == 11'b01110100000));
+assign  w_load_bimc_eccpar_debug = (w_do_write & (ws_addr == 11'b01110101000));
+assign  w_load_bimc_cmd2 = (w_do_write & (ws_addr == 11'b01110101100));
+assign  w_load_bimc_cmd1 = (w_do_write & (ws_addr == 11'b01110110000));
+assign  w_load_bimc_cmd0 = (w_do_write & (ws_addr == 11'b01110110100));
+assign  w_load_bimc_rxcmd2 = (w_do_write & (ws_addr == 11'b01110111000));
+assign  w_load_bimc_rxrsp2 = (w_do_write & (ws_addr == 11'b01111000100));
+assign  w_load_bimc_pollrsp2 = (w_do_write & (ws_addr == 11'b01111010000));
+assign  w_load_bimc_dbgcmd2 = (w_do_write & (ws_addr == 11'b01111011100));
+assign  w_load_im_consumed = (w_do_write & (ws_addr == 11'b01111110000));
+assign  w_load_tready_override = (w_do_write & (ws_addr == 11'b01111110100));
+assign  w_load_regs_sa_ctrl = (w_do_write & (ws_addr == 11'b01111111000));
+assign  w_load_sa_snapshot_ia_wdata_part0 = (w_do_write & (ws_addr == 11'b10000000100));
+assign  w_load_sa_snapshot_ia_wdata_part1 = (w_do_write & (ws_addr == 11'b10000001000));
+assign  w_load_sa_snapshot_ia_config = (w_do_write & (ws_addr == 11'b10000001100));
+assign  w_load_sa_count_ia_wdata_part0 = (w_do_write & (ws_addr == 11'b10000100000));
+assign  w_load_sa_count_ia_wdata_part1 = (w_do_write & (ws_addr == 11'b10000100100));
+assign  w_load_sa_count_ia_config = (w_do_write & (ws_addr == 11'b10000101000));
+assign  w_load_cceip_encrypt_kop_fifo_override = (w_do_write & (ws_addr == 11'b10000111000));
+assign  w_load_cceip_validate_kop_fifo_override = (w_do_write & (ws_addr == 11'b10000111100));
+assign  w_load_cddip_decrypt_kop_fifo_override = (w_do_write & (ws_addr == 11'b10001000000));
+assign  w_load_sa_global_ctrl = (w_do_write & (ws_addr == 11'b10001000100));
+assign  w_load_sa_ctrl_ia_wdata_part0 = (w_do_write & (ws_addr == 11'b10001010000));
+assign  w_load_sa_ctrl_ia_config = (w_do_write & (ws_addr == 11'b10001010100));
+assign  w_load_kdf_test_key_size_config = (w_do_write & (ws_addr == 11'b10001011100));
+ixc_assign  #(1) _zz_strnp_5 (_zy_simnet_o_reg_written_0_w$,o_reg_written);
+ixc_assign  #(1) _zz_strnp_6 (_zy_simnet_o_reg_read_1_w$,o_reg_read);
+ixc_assign  #(11) _zz_strnp_7 (_zy_simnet_o_reg_addr_2_w$,o_reg_addr);
+ixc_assign  #(32) _zz_strnp_8 (_zy_simnet_f32_data_3_w$,f32_data);
+cr_kme_regs_flops u_cr_kme_regs_flops(
+  .clk(clk) ,
+  .i_reset_(i_reset_) ,
+  .i_sw_init(i_sw_init) ,
+  .o_spare_config(o_spare_config) ,
+  .o_cceip0_out_ia_wdata_part0(o_cceip0_out_ia_wdata_part0) ,
+  .o_cceip0_out_ia_wdata_part1(o_cceip0_out_ia_wdata_part1) ,
+  .o_cceip0_out_ia_wdata_part2(o_cceip0_out_ia_wdata_part2) ,
+  .o_cceip0_out_ia_config(o_cceip0_out_ia_config) ,
+  .o_cceip0_out_im_config(o_cceip0_out_im_config) ,
+  .o_cceip0_out_im_read_done(o_cceip0_out_im_read_done) ,
+  .o_cceip1_out_ia_wdata_part0(o_cceip1_out_ia_wdata_part0) ,
+  .o_cceip1_out_ia_wdata_part1(o_cceip1_out_ia_wdata_part1) ,
+  .o_cceip1_out_ia_wdata_part2(o_cceip1_out_ia_wdata_part2) ,
+  .o_cceip1_out_ia_config(o_cceip1_out_ia_config) ,
+  .o_cceip1_out_im_config(o_cceip1_out_im_config) ,
+  .o_cceip1_out_im_read_done(o_cceip1_out_im_read_done) ,
+  .o_cceip2_out_ia_wdata_part0(o_cceip2_out_ia_wdata_part0) ,
+  .o_cceip2_out_ia_wdata_part1(o_cceip2_out_ia_wdata_part1) ,
+  .o_cceip2_out_ia_wdata_part2(o_cceip2_out_ia_wdata_part2) ,
+  .o_cceip2_out_ia_config(o_cceip2_out_ia_config) ,
+  .o_cceip2_out_im_config(o_cceip2_out_im_config) ,
+  .o_cceip2_out_im_read_done(o_cceip2_out_im_read_done) ,
+  .o_cceip3_out_ia_wdata_part0(o_cceip3_out_ia_wdata_part0) ,
+  .o_cceip3_out_ia_wdata_part1(o_cceip3_out_ia_wdata_part1) ,
+  .o_cceip3_out_ia_wdata_part2(o_cceip3_out_ia_wdata_part2) ,
+  .o_cceip3_out_ia_config(o_cceip3_out_ia_config) ,
+  .o_cceip3_out_im_config(o_cceip3_out_im_config) ,
+  .o_cceip3_out_im_read_done(o_cceip3_out_im_read_done) ,
+  .o_cddip0_out_ia_wdata_part0(o_cddip0_out_ia_wdata_part0) ,
+  .o_cddip0_out_ia_wdata_part1(o_cddip0_out_ia_wdata_part1) ,
+  .o_cddip0_out_ia_wdata_part2(o_cddip0_out_ia_wdata_part2) ,
+  .o_cddip0_out_ia_config(o_cddip0_out_ia_config) ,
+  .o_cddip0_out_im_config(o_cddip0_out_im_config) ,
+  .o_cddip0_out_im_read_done(o_cddip0_out_im_read_done) ,
+  .o_cddip1_out_ia_wdata_part0(o_cddip1_out_ia_wdata_part0) ,
+  .o_cddip1_out_ia_wdata_part1(o_cddip1_out_ia_wdata_part1) ,
+  .o_cddip1_out_ia_wdata_part2(o_cddip1_out_ia_wdata_part2) ,
+  .o_cddip1_out_ia_config(o_cddip1_out_ia_config) ,
+  .o_cddip1_out_im_config(o_cddip1_out_im_config) ,
+  .o_cddip1_out_im_read_done(o_cddip1_out_im_read_done) ,
+  .o_cddip2_out_ia_wdata_part0(o_cddip2_out_ia_wdata_part0) ,
+  .o_cddip2_out_ia_wdata_part1(o_cddip2_out_ia_wdata_part1) ,
+  .o_cddip2_out_ia_wdata_part2(o_cddip2_out_ia_wdata_part2) ,
+  .o_cddip2_out_ia_config(o_cddip2_out_ia_config) ,
+  .o_cddip2_out_im_config(o_cddip2_out_im_config) ,
+  .o_cddip2_out_im_read_done(o_cddip2_out_im_read_done) ,
+  .o_cddip3_out_ia_wdata_part0(o_cddip3_out_ia_wdata_part0) ,
+  .o_cddip3_out_ia_wdata_part1(o_cddip3_out_ia_wdata_part1) ,
+  .o_cddip3_out_ia_wdata_part2(o_cddip3_out_ia_wdata_part2) ,
+  .o_cddip3_out_ia_config(o_cddip3_out_ia_config) ,
+  .o_cddip3_out_im_config(o_cddip3_out_im_config) ,
+  .o_cddip3_out_im_read_done(o_cddip3_out_im_read_done) ,
+  .o_ckv_ia_wdata_part0(o_ckv_ia_wdata_part0) ,
+  .o_ckv_ia_wdata_part1(o_ckv_ia_wdata_part1) ,
+  .o_ckv_ia_config(o_ckv_ia_config) ,
+  .o_kim_ia_wdata_part0(o_kim_ia_wdata_part0) ,
+  .o_kim_ia_wdata_part1(o_kim_ia_wdata_part1) ,
+  .o_kim_ia_config(o_kim_ia_config) ,
+  .o_label0_config(o_label0_config) ,
+  .o_label0_data7(o_label0_data7) ,
+  .o_label0_data6(o_label0_data6) ,
+  .o_label0_data5(o_label0_data5) ,
+  .o_label0_data4(o_label0_data4) ,
+  .o_label0_data3(o_label0_data3) ,
+  .o_label0_data2(o_label0_data2) ,
+  .o_label0_data1(o_label0_data1) ,
+  .o_label0_data0(o_label0_data0) ,
+  .o_label1_config(o_label1_config) ,
+  .o_label1_data7(o_label1_data7) ,
+  .o_label1_data6(o_label1_data6) ,
+  .o_label1_data5(o_label1_data5) ,
+  .o_label1_data4(o_label1_data4) ,
+  .o_label1_data3(o_label1_data3) ,
+  .o_label1_data2(o_label1_data2) ,
+  .o_label1_data1(o_label1_data1) ,
+  .o_label1_data0(o_label1_data0) ,
+  .o_label2_config(o_label2_config) ,
+  .o_label2_data7(o_label2_data7) ,
+  .o_label2_data6(o_label2_data6) ,
+  .o_label2_data5(o_label2_data5) ,
+  .o_label2_data4(o_label2_data4) ,
+  .o_label2_data3(o_label2_data3) ,
+  .o_label2_data2(o_label2_data2) ,
+  .o_label2_data1(o_label2_data1) ,
+  .o_label2_data0(o_label2_data0) ,
+  .o_label3_config(o_label3_config) ,
+  .o_label3_data7(o_label3_data7) ,
+  .o_label3_data6(o_label3_data6) ,
+  .o_label3_data5(o_label3_data5) ,
+  .o_label3_data4(o_label3_data4) ,
+  .o_label3_data3(o_label3_data3) ,
+  .o_label3_data2(o_label3_data2) ,
+  .o_label3_data1(o_label3_data1) ,
+  .o_label3_data0(o_label3_data0) ,
+  .o_label4_config(o_label4_config) ,
+  .o_label4_data7(o_label4_data7) ,
+  .o_label4_data6(o_label4_data6) ,
+  .o_label4_data5(o_label4_data5) ,
+  .o_label4_data4(o_label4_data4) ,
+  .o_label4_data3(o_label4_data3) ,
+  .o_label4_data2(o_label4_data2) ,
+  .o_label4_data1(o_label4_data1) ,
+  .o_label4_data0(o_label4_data0) ,
+  .o_label5_config(o_label5_config) ,
+  .o_label5_data7(o_label5_data7) ,
+  .o_label5_data6(o_label5_data6) ,
+  .o_label5_data5(o_label5_data5) ,
+  .o_label5_data4(o_label5_data4) ,
+  .o_label5_data3(o_label5_data3) ,
+  .o_label5_data2(o_label5_data2) ,
+  .o_label5_data1(o_label5_data1) ,
+  .o_label5_data0(o_label5_data0) ,
+  .o_label6_config(o_label6_config) ,
+  .o_label6_data7(o_label6_data7) ,
+  .o_label6_data6(o_label6_data6) ,
+  .o_label6_data5(o_label6_data5) ,
+  .o_label6_data4(o_label6_data4) ,
+  .o_label6_data3(o_label6_data3) ,
+  .o_label6_data2(o_label6_data2) ,
+  .o_label6_data1(o_label6_data1) ,
+  .o_label6_data0(o_label6_data0) ,
+  .o_label7_config(o_label7_config) ,
+  .o_label7_data7(o_label7_data7) ,
+  .o_label7_data6(o_label7_data6) ,
+  .o_label7_data5(o_label7_data5) ,
+  .o_label7_data4(o_label7_data4) ,
+  .o_label7_data3(o_label7_data3) ,
+  .o_label7_data2(o_label7_data2) ,
+  .o_label7_data1(o_label7_data1) ,
+  .o_label7_data0(o_label7_data0) ,
+  .o_kdf_drbg_ctrl(o_kdf_drbg_ctrl) ,
+  .o_kdf_drbg_seed_0_state_key_31_0(o_kdf_drbg_seed_0_state_key_31_0) ,
+  .o_kdf_drbg_seed_0_state_key_63_32(o_kdf_drbg_seed_0_state_key_63_32) ,
+  .o_kdf_drbg_seed_0_state_key_95_64(o_kdf_drbg_seed_0_state_key_95_64) ,
+  .o_kdf_drbg_seed_0_state_key_127_96(o_kdf_drbg_seed_0_state_key_127_96) ,
+  .o_kdf_drbg_seed_0_state_key_159_128(o_kdf_drbg_seed_0_state_key_159_128) ,
+  .o_kdf_drbg_seed_0_state_key_191_160(o_kdf_drbg_seed_0_state_key_191_160) ,
+  .o_kdf_drbg_seed_0_state_key_223_192(o_kdf_drbg_seed_0_state_key_223_192) ,
+  .o_kdf_drbg_seed_0_state_key_255_224(o_kdf_drbg_seed_0_state_key_255_224) ,
+  .o_kdf_drbg_seed_0_state_value_31_0(o_kdf_drbg_seed_0_state_value_31_0) ,
+  .o_kdf_drbg_seed_0_state_value_63_32(o_kdf_drbg_seed_0_state_value_63_32) ,
+  .o_kdf_drbg_seed_0_state_value_95_64(o_kdf_drbg_seed_0_state_value_95_64) ,
+  .o_kdf_drbg_seed_0_state_value_127_96(o_kdf_drbg_seed_0_state_value_127_96) ,
+  .o_kdf_drbg_seed_0_reseed_interval_0(o_kdf_drbg_seed_0_reseed_interval_0) ,
+  .o_kdf_drbg_seed_0_reseed_interval_1(o_kdf_drbg_seed_0_reseed_interval_1) ,
+  .o_kdf_drbg_seed_1_state_key_31_0(o_kdf_drbg_seed_1_state_key_31_0) ,
+  .o_kdf_drbg_seed_1_state_key_63_32(o_kdf_drbg_seed_1_state_key_63_32) ,
+  .o_kdf_drbg_seed_1_state_key_95_64(o_kdf_drbg_seed_1_state_key_95_64) ,
+  .o_kdf_drbg_seed_1_state_key_127_96(o_kdf_drbg_seed_1_state_key_127_96) ,
+  .o_kdf_drbg_seed_1_state_key_159_128(o_kdf_drbg_seed_1_state_key_159_128) ,
+  .o_kdf_drbg_seed_1_state_key_191_160(o_kdf_drbg_seed_1_state_key_191_160) ,
+  .o_kdf_drbg_seed_1_state_key_223_192(o_kdf_drbg_seed_1_state_key_223_192) ,
+  .o_kdf_drbg_seed_1_state_key_255_224(o_kdf_drbg_seed_1_state_key_255_224) ,
+  .o_kdf_drbg_seed_1_state_value_31_0(o_kdf_drbg_seed_1_state_value_31_0) ,
+  .o_kdf_drbg_seed_1_state_value_63_32(o_kdf_drbg_seed_1_state_value_63_32) ,
+  .o_kdf_drbg_seed_1_state_value_95_64(o_kdf_drbg_seed_1_state_value_95_64) ,
+  .o_kdf_drbg_seed_1_state_value_127_96(o_kdf_drbg_seed_1_state_value_127_96) ,
+  .o_kdf_drbg_seed_1_reseed_interval_0(o_kdf_drbg_seed_1_reseed_interval_0) ,
+  .o_kdf_drbg_seed_1_reseed_interval_1(o_kdf_drbg_seed_1_reseed_interval_1) ,
+  .o_interrupt_status(o_interrupt_status) ,
+  .o_interrupt_mask(o_interrupt_mask) ,
+  .o_engine_sticky_status(o_engine_sticky_status) ,
+  .o_bimc_monitor_mask(o_bimc_monitor_mask) ,
+  .o_bimc_ecc_uncorrectable_error_cnt(o_bimc_ecc_uncorrectable_error_cnt) ,
+  .o_bimc_ecc_correctable_error_cnt(o_bimc_ecc_correctable_error_cnt) ,
+  .o_bimc_parity_error_cnt(o_bimc_parity_error_cnt) ,
+  .o_bimc_global_config(o_bimc_global_config) ,
+  .o_bimc_eccpar_debug(o_bimc_eccpar_debug) ,
+  .o_bimc_cmd2(o_bimc_cmd2) ,
+  .o_bimc_cmd1(o_bimc_cmd1) ,
+  .o_bimc_cmd0(o_bimc_cmd0) ,
+  .o_bimc_rxcmd2(o_bimc_rxcmd2) ,
+  .o_bimc_rxrsp2(o_bimc_rxrsp2) ,
+  .o_bimc_pollrsp2(o_bimc_pollrsp2) ,
+  .o_bimc_dbgcmd2(o_bimc_dbgcmd2) ,
+  .o_im_consumed(o_im_consumed) ,
+  .o_tready_override(o_tready_override) ,
+  .o_regs_sa_ctrl(o_regs_sa_ctrl) ,
+  .o_sa_snapshot_ia_wdata_part0(o_sa_snapshot_ia_wdata_part0) ,
+  .o_sa_snapshot_ia_wdata_part1(o_sa_snapshot_ia_wdata_part1) ,
+  .o_sa_snapshot_ia_config(o_sa_snapshot_ia_config) ,
+  .o_sa_count_ia_wdata_part0(o_sa_count_ia_wdata_part0) ,
+  .o_sa_count_ia_wdata_part1(o_sa_count_ia_wdata_part1) ,
+  .o_sa_count_ia_config(o_sa_count_ia_config) ,
+  .o_cceip_encrypt_kop_fifo_override(o_cceip_encrypt_kop_fifo_override) ,
+  .o_cceip_validate_kop_fifo_override(o_cceip_validate_kop_fifo_override) ,
+  .o_cddip_decrypt_kop_fifo_override(o_cddip_decrypt_kop_fifo_override) ,
+  .o_sa_global_ctrl(o_sa_global_ctrl) ,
+  .o_sa_ctrl_ia_wdata_part0(o_sa_ctrl_ia_wdata_part0) ,
+  .o_sa_ctrl_ia_config(o_sa_ctrl_ia_config) ,
+  .o_kdf_test_key_size_config(o_kdf_test_key_size_config) ,
+  .w_load_spare_config(w_load_spare_config) ,
+  .w_load_cceip0_out_ia_wdata_part0(w_load_cceip0_out_ia_wdata_part0) ,
+  .w_load_cceip0_out_ia_wdata_part1(w_load_cceip0_out_ia_wdata_part1) ,
+  .w_load_cceip0_out_ia_wdata_part2(w_load_cceip0_out_ia_wdata_part2) ,
+  .w_load_cceip0_out_ia_config(w_load_cceip0_out_ia_config) ,
+  .w_load_cceip0_out_im_config(w_load_cceip0_out_im_config) ,
+  .w_load_cceip0_out_im_read_done(w_load_cceip0_out_im_read_done) ,
+  .w_load_cceip1_out_ia_wdata_part0(w_load_cceip1_out_ia_wdata_part0) ,
+  .w_load_cceip1_out_ia_wdata_part1(w_load_cceip1_out_ia_wdata_part1) ,
+  .w_load_cceip1_out_ia_wdata_part2(w_load_cceip1_out_ia_wdata_part2) ,
+  .w_load_cceip1_out_ia_config(w_load_cceip1_out_ia_config) ,
+  .w_load_cceip1_out_im_config(w_load_cceip1_out_im_config) ,
+  .w_load_cceip1_out_im_read_done(w_load_cceip1_out_im_read_done) ,
+  .w_load_cceip2_out_ia_wdata_part0(w_load_cceip2_out_ia_wdata_part0) ,
+  .w_load_cceip2_out_ia_wdata_part1(w_load_cceip2_out_ia_wdata_part1) ,
+  .w_load_cceip2_out_ia_wdata_part2(w_load_cceip2_out_ia_wdata_part2) ,
+  .w_load_cceip2_out_ia_config(w_load_cceip2_out_ia_config) ,
+  .w_load_cceip2_out_im_config(w_load_cceip2_out_im_config) ,
+  .w_load_cceip2_out_im_read_done(w_load_cceip2_out_im_read_done) ,
+  .w_load_cceip3_out_ia_wdata_part0(w_load_cceip3_out_ia_wdata_part0) ,
+  .w_load_cceip3_out_ia_wdata_part1(w_load_cceip3_out_ia_wdata_part1) ,
+  .w_load_cceip3_out_ia_wdata_part2(w_load_cceip3_out_ia_wdata_part2) ,
+  .w_load_cceip3_out_ia_config(w_load_cceip3_out_ia_config) ,
+  .w_load_cceip3_out_im_config(w_load_cceip3_out_im_config) ,
+  .w_load_cceip3_out_im_read_done(w_load_cceip3_out_im_read_done) ,
+  .w_load_cddip0_out_ia_wdata_part0(w_load_cddip0_out_ia_wdata_part0) ,
+  .w_load_cddip0_out_ia_wdata_part1(w_load_cddip0_out_ia_wdata_part1) ,
+  .w_load_cddip0_out_ia_wdata_part2(w_load_cddip0_out_ia_wdata_part2) ,
+  .w_load_cddip0_out_ia_config(w_load_cddip0_out_ia_config) ,
+  .w_load_cddip0_out_im_config(w_load_cddip0_out_im_config) ,
+  .w_load_cddip0_out_im_read_done(w_load_cddip0_out_im_read_done) ,
+  .w_load_cddip1_out_ia_wdata_part0(w_load_cddip1_out_ia_wdata_part0) ,
+  .w_load_cddip1_out_ia_wdata_part1(w_load_cddip1_out_ia_wdata_part1) ,
+  .w_load_cddip1_out_ia_wdata_part2(w_load_cddip1_out_ia_wdata_part2) ,
+  .w_load_cddip1_out_ia_config(w_load_cddip1_out_ia_config) ,
+  .w_load_cddip1_out_im_config(w_load_cddip1_out_im_config) ,
+  .w_load_cddip1_out_im_read_done(w_load_cddip1_out_im_read_done) ,
+  .w_load_cddip2_out_ia_wdata_part0(w_load_cddip2_out_ia_wdata_part0) ,
+  .w_load_cddip2_out_ia_wdata_part1(w_load_cddip2_out_ia_wdata_part1) ,
+  .w_load_cddip2_out_ia_wdata_part2(w_load_cddip2_out_ia_wdata_part2) ,
+  .w_load_cddip2_out_ia_config(w_load_cddip2_out_ia_config) ,
+  .w_load_cddip2_out_im_config(w_load_cddip2_out_im_config) ,
+  .w_load_cddip2_out_im_read_done(w_load_cddip2_out_im_read_done) ,
+  .w_load_cddip3_out_ia_wdata_part0(w_load_cddip3_out_ia_wdata_part0) ,
+  .w_load_cddip3_out_ia_wdata_part1(w_load_cddip3_out_ia_wdata_part1) ,
+  .w_load_cddip3_out_ia_wdata_part2(w_load_cddip3_out_ia_wdata_part2) ,
+  .w_load_cddip3_out_ia_config(w_load_cddip3_out_ia_config) ,
+  .w_load_cddip3_out_im_config(w_load_cddip3_out_im_config) ,
+  .w_load_cddip3_out_im_read_done(w_load_cddip3_out_im_read_done) ,
+  .w_load_ckv_ia_wdata_part0(w_load_ckv_ia_wdata_part0) ,
+  .w_load_ckv_ia_wdata_part1(w_load_ckv_ia_wdata_part1) ,
+  .w_load_ckv_ia_config(w_load_ckv_ia_config) ,
+  .w_load_kim_ia_wdata_part0(w_load_kim_ia_wdata_part0) ,
+  .w_load_kim_ia_wdata_part1(w_load_kim_ia_wdata_part1) ,
+  .w_load_kim_ia_config(w_load_kim_ia_config) ,
+  .w_load_label0_config(w_load_label0_config) ,
+  .w_load_label0_data7(w_load_label0_data7) ,
+  .w_load_label0_data6(w_load_label0_data6) ,
+  .w_load_label0_data5(w_load_label0_data5) ,
+  .w_load_label0_data4(w_load_label0_data4) ,
+  .w_load_label0_data3(w_load_label0_data3) ,
+  .w_load_label0_data2(w_load_label0_data2) ,
+  .w_load_label0_data1(w_load_label0_data1) ,
+  .w_load_label0_data0(w_load_label0_data0) ,
+  .w_load_label1_config(w_load_label1_config) ,
+  .w_load_label1_data7(w_load_label1_data7) ,
+  .w_load_label1_data6(w_load_label1_data6) ,
+  .w_load_label1_data5(w_load_label1_data5) ,
+  .w_load_label1_data4(w_load_label1_data4) ,
+  .w_load_label1_data3(w_load_label1_data3) ,
+  .w_load_label1_data2(w_load_label1_data2) ,
+  .w_load_label1_data1(w_load_label1_data1) ,
+  .w_load_label1_data0(w_load_label1_data0) ,
+  .w_load_label2_config(w_load_label2_config) ,
+  .w_load_label2_data7(w_load_label2_data7) ,
+  .w_load_label2_data6(w_load_label2_data6) ,
+  .w_load_label2_data5(w_load_label2_data5) ,
+  .w_load_label2_data4(w_load_label2_data4) ,
+  .w_load_label2_data3(w_load_label2_data3) ,
+  .w_load_label2_data2(w_load_label2_data2) ,
+  .w_load_label2_data1(w_load_label2_data1) ,
+  .w_load_label2_data0(w_load_label2_data0) ,
+  .w_load_label3_config(w_load_label3_config) ,
+  .w_load_label3_data7(w_load_label3_data7) ,
+  .w_load_label3_data6(w_load_label3_data6) ,
+  .w_load_label3_data5(w_load_label3_data5) ,
+  .w_load_label3_data4(w_load_label3_data4) ,
+  .w_load_label3_data3(w_load_label3_data3) ,
+  .w_load_label3_data2(w_load_label3_data2) ,
+  .w_load_label3_data1(w_load_label3_data1) ,
+  .w_load_label3_data0(w_load_label3_data0) ,
+  .w_load_label4_config(w_load_label4_config) ,
+  .w_load_label4_data7(w_load_label4_data7) ,
+  .w_load_label4_data6(w_load_label4_data6) ,
+  .w_load_label4_data5(w_load_label4_data5) ,
+  .w_load_label4_data4(w_load_label4_data4) ,
+  .w_load_label4_data3(w_load_label4_data3) ,
+  .w_load_label4_data2(w_load_label4_data2) ,
+  .w_load_label4_data1(w_load_label4_data1) ,
+  .w_load_label4_data0(w_load_label4_data0) ,
+  .w_load_label5_config(w_load_label5_config) ,
+  .w_load_label5_data7(w_load_label5_data7) ,
+  .w_load_label5_data6(w_load_label5_data6) ,
+  .w_load_label5_data5(w_load_label5_data5) ,
+  .w_load_label5_data4(w_load_label5_data4) ,
+  .w_load_label5_data3(w_load_label5_data3) ,
+  .w_load_label5_data2(w_load_label5_data2) ,
+  .w_load_label5_data1(w_load_label5_data1) ,
+  .w_load_label5_data0(w_load_label5_data0) ,
+  .w_load_label6_config(w_load_label6_config) ,
+  .w_load_label6_data7(w_load_label6_data7) ,
+  .w_load_label6_data6(w_load_label6_data6) ,
+  .w_load_label6_data5(w_load_label6_data5) ,
+  .w_load_label6_data4(w_load_label6_data4) ,
+  .w_load_label6_data3(w_load_label6_data3) ,
+  .w_load_label6_data2(w_load_label6_data2) ,
+  .w_load_label6_data1(w_load_label6_data1) ,
+  .w_load_label6_data0(w_load_label6_data0) ,
+  .w_load_label7_config(w_load_label7_config) ,
+  .w_load_label7_data7(w_load_label7_data7) ,
+  .w_load_label7_data6(w_load_label7_data6) ,
+  .w_load_label7_data5(w_load_label7_data5) ,
+  .w_load_label7_data4(w_load_label7_data4) ,
+  .w_load_label7_data3(w_load_label7_data3) ,
+  .w_load_label7_data2(w_load_label7_data2) ,
+  .w_load_label7_data1(w_load_label7_data1) ,
+  .w_load_label7_data0(w_load_label7_data0) ,
+  .w_load_kdf_drbg_ctrl(w_load_kdf_drbg_ctrl) ,
+  .w_load_kdf_drbg_seed_0_state_key_31_0(w_load_kdf_drbg_seed_0_state_key_31_0) ,
+  .w_load_kdf_drbg_seed_0_state_key_63_32(w_load_kdf_drbg_seed_0_state_key_63_32) ,
+  .w_load_kdf_drbg_seed_0_state_key_95_64(w_load_kdf_drbg_seed_0_state_key_95_64) ,
+  .w_load_kdf_drbg_seed_0_state_key_127_96(w_load_kdf_drbg_seed_0_state_key_127_96) ,
+  .w_load_kdf_drbg_seed_0_state_key_159_128(w_load_kdf_drbg_seed_0_state_key_159_128) ,
+  .w_load_kdf_drbg_seed_0_state_key_191_160(w_load_kdf_drbg_seed_0_state_key_191_160) ,
+  .w_load_kdf_drbg_seed_0_state_key_223_192(w_load_kdf_drbg_seed_0_state_key_223_192) ,
+  .w_load_kdf_drbg_seed_0_state_key_255_224(w_load_kdf_drbg_seed_0_state_key_255_224) ,
+  .w_load_kdf_drbg_seed_0_state_value_31_0(w_load_kdf_drbg_seed_0_state_value_31_0) ,
+  .w_load_kdf_drbg_seed_0_state_value_63_32(w_load_kdf_drbg_seed_0_state_value_63_32) ,
+  .w_load_kdf_drbg_seed_0_state_value_95_64(w_load_kdf_drbg_seed_0_state_value_95_64) ,
+  .w_load_kdf_drbg_seed_0_state_value_127_96(w_load_kdf_drbg_seed_0_state_value_127_96) ,
+  .w_load_kdf_drbg_seed_0_reseed_interval_0(w_load_kdf_drbg_seed_0_reseed_interval_0) ,
+  .w_load_kdf_drbg_seed_0_reseed_interval_1(w_load_kdf_drbg_seed_0_reseed_interval_1) ,
+  .w_load_kdf_drbg_seed_1_state_key_31_0(w_load_kdf_drbg_seed_1_state_key_31_0) ,
+  .w_load_kdf_drbg_seed_1_state_key_63_32(w_load_kdf_drbg_seed_1_state_key_63_32) ,
+  .w_load_kdf_drbg_seed_1_state_key_95_64(w_load_kdf_drbg_seed_1_state_key_95_64) ,
+  .w_load_kdf_drbg_seed_1_state_key_127_96(w_load_kdf_drbg_seed_1_state_key_127_96) ,
+  .w_load_kdf_drbg_seed_1_state_key_159_128(w_load_kdf_drbg_seed_1_state_key_159_128) ,
+  .w_load_kdf_drbg_seed_1_state_key_191_160(w_load_kdf_drbg_seed_1_state_key_191_160) ,
+  .w_load_kdf_drbg_seed_1_state_key_223_192(w_load_kdf_drbg_seed_1_state_key_223_192) ,
+  .w_load_kdf_drbg_seed_1_state_key_255_224(w_load_kdf_drbg_seed_1_state_key_255_224) ,
+  .w_load_kdf_drbg_seed_1_state_value_31_0(w_load_kdf_drbg_seed_1_state_value_31_0) ,
+  .w_load_kdf_drbg_seed_1_state_value_63_32(w_load_kdf_drbg_seed_1_state_value_63_32) ,
+  .w_load_kdf_drbg_seed_1_state_value_95_64(w_load_kdf_drbg_seed_1_state_value_95_64) ,
+  .w_load_kdf_drbg_seed_1_state_value_127_96(w_load_kdf_drbg_seed_1_state_value_127_96) ,
+  .w_load_kdf_drbg_seed_1_reseed_interval_0(w_load_kdf_drbg_seed_1_reseed_interval_0) ,
+  .w_load_kdf_drbg_seed_1_reseed_interval_1(w_load_kdf_drbg_seed_1_reseed_interval_1) ,
+  .w_load_interrupt_status(w_load_interrupt_status) ,
+  .w_load_interrupt_mask(w_load_interrupt_mask) ,
+  .w_load_engine_sticky_status(w_load_engine_sticky_status) ,
+  .w_load_bimc_monitor_mask(w_load_bimc_monitor_mask) ,
+  .w_load_bimc_ecc_uncorrectable_error_cnt(w_load_bimc_ecc_uncorrectable_error_cnt) ,
+  .w_load_bimc_ecc_correctable_error_cnt(w_load_bimc_ecc_correctable_error_cnt) ,
+  .w_load_bimc_parity_error_cnt(w_load_bimc_parity_error_cnt) ,
+  .w_load_bimc_global_config(w_load_bimc_global_config) ,
+  .w_load_bimc_eccpar_debug(w_load_bimc_eccpar_debug) ,
+  .w_load_bimc_cmd2(w_load_bimc_cmd2) ,
+  .w_load_bimc_cmd1(w_load_bimc_cmd1) ,
+  .w_load_bimc_cmd0(w_load_bimc_cmd0) ,
+  .w_load_bimc_rxcmd2(w_load_bimc_rxcmd2) ,
+  .w_load_bimc_rxrsp2(w_load_bimc_rxrsp2) ,
+  .w_load_bimc_pollrsp2(w_load_bimc_pollrsp2) ,
+  .w_load_bimc_dbgcmd2(w_load_bimc_dbgcmd2) ,
+  .w_load_im_consumed(w_load_im_consumed) ,
+  .w_load_tready_override(w_load_tready_override) ,
+  .w_load_regs_sa_ctrl(w_load_regs_sa_ctrl) ,
+  .w_load_sa_snapshot_ia_wdata_part0(w_load_sa_snapshot_ia_wdata_part0) ,
+  .w_load_sa_snapshot_ia_wdata_part1(w_load_sa_snapshot_ia_wdata_part1) ,
+  .w_load_sa_snapshot_ia_config(w_load_sa_snapshot_ia_config) ,
+  .w_load_sa_count_ia_wdata_part0(w_load_sa_count_ia_wdata_part0) ,
+  .w_load_sa_count_ia_wdata_part1(w_load_sa_count_ia_wdata_part1) ,
+  .w_load_sa_count_ia_config(w_load_sa_count_ia_config) ,
+  .w_load_cceip_encrypt_kop_fifo_override(w_load_cceip_encrypt_kop_fifo_override) ,
+  .w_load_cceip_validate_kop_fifo_override(w_load_cceip_validate_kop_fifo_override) ,
+  .w_load_cddip_decrypt_kop_fifo_override(w_load_cddip_decrypt_kop_fifo_override) ,
+  .w_load_sa_global_ctrl(w_load_sa_global_ctrl) ,
+  .w_load_sa_ctrl_ia_wdata_part0(w_load_sa_ctrl_ia_wdata_part0) ,
+  .w_load_sa_ctrl_ia_config(w_load_sa_ctrl_ia_config) ,
+  .w_load_kdf_test_key_size_config(w_load_kdf_test_key_size_config) ,
+  .f32_data(_zy_simnet_f32_data_3_w$) ); 
+always_ff 
+ @(posedge clk or negedge i_reset_)
+  begin
+   if (( ~i_reset_ ))
+    n_write <= 1'b0;
+   else
+    if (i_sw_init)
+     n_write <= 1'b0;
+    else
+     if (i_wr_strb)
+      n_write <= 1'b1;
+     else
+      if (o_ack)
+       n_write <= 1'b0;
+  end
+always_comb 
+ begin
+  r32_mux_0_data = 32'b0;
+  r32_mux_1_data = 32'b0;
+  r32_mux_2_data = 32'b0;
+  r32_mux_3_data = 32'b0;
+  r32_mux_4_data = 32'b0;
+  r32_mux_5_data = 32'b0;
+  r32_mux_6_data = 32'b0;
+  r32_mux_7_data = 32'b0;
+  r32_mux_8_data = 32'b0;
+  case (ws_read_addr)
+   11'b0:
+    begin
+     r32_mux_0_data[15:0] = i_blkid_revid_config[15:0];
+     r32_mux_0_data[31:16] = i_blkid_revid_config[31:16];
+    end
+   11'b0100:
+    begin
+     r32_mux_0_data[7:0] = i_revision_config[7:0];
+    end
+   11'b01000:
+    begin
+     r32_mux_0_data[31:0] = i_spare_config[31:0];
+    end
+   11'b01100:
+    begin
+     r32_mux_0_data[0:0] = i_cceip0_out_ia_capability[0:0];
+     r32_mux_0_data[1:1] = i_cceip0_out_ia_capability[1:1];
+     r32_mux_0_data[2:2] = i_cceip0_out_ia_capability[2:2];
+     r32_mux_0_data[3:3] = i_cceip0_out_ia_capability[3:3];
+     r32_mux_0_data[4:4] = i_cceip0_out_ia_capability[4:4];
+     r32_mux_0_data[5:5] = i_cceip0_out_ia_capability[5:5];
+     r32_mux_0_data[6:6] = i_cceip0_out_ia_capability[6:6];
+     r32_mux_0_data[7:7] = i_cceip0_out_ia_capability[7:7];
+     r32_mux_0_data[8:8] = i_cceip0_out_ia_capability[8:8];
+     r32_mux_0_data[9:9] = i_cceip0_out_ia_capability[9:9];
+     r32_mux_0_data[13:10] = i_cceip0_out_ia_capability[13:10];
+     r32_mux_0_data[14:14] = i_cceip0_out_ia_capability[14:14];
+     r32_mux_0_data[15:15] = i_cceip0_out_ia_capability[15:15];
+     r32_mux_0_data[31:28] = i_cceip0_out_ia_capability[19:16];
+    end
+   11'b010000:
+    begin
+     r32_mux_0_data[8:0] = i_cceip0_out_ia_status[8:0];
+     r32_mux_0_data[28:24] = i_cceip0_out_ia_status[13:9];
+     r32_mux_0_data[31:29] = i_cceip0_out_ia_status[16:14];
+    end
+   11'b010100:
+    begin
+     r32_mux_0_data[5:0] = o_cceip0_out_ia_wdata_part0[5:0];
+     r32_mux_0_data[13:6] = o_cceip0_out_ia_wdata_part0[13:6];
+     r32_mux_0_data[14:14] = o_cceip0_out_ia_wdata_part0[14:14];
+     r32_mux_0_data[22:15] = o_cceip0_out_ia_wdata_part0[22:15];
+     r32_mux_0_data[30:23] = o_cceip0_out_ia_wdata_part0[30:23];
+     r32_mux_0_data[31:31] = o_cceip0_out_ia_wdata_part0[31:31];
+    end
+   11'b011000:
+    begin
+     r32_mux_0_data[31:0] = o_cceip0_out_ia_wdata_part1[31:0];
+    end
+   11'b011100:
+    begin
+     r32_mux_0_data[31:0] = o_cceip0_out_ia_wdata_part2[31:0];
+    end
+   11'b0100000:
+    begin
+     r32_mux_0_data[8:0] = o_cceip0_out_ia_config[8:0];
+     r32_mux_0_data[31:28] = o_cceip0_out_ia_config[12:9];
+    end
+   11'b0100100:
+    begin
+     r32_mux_0_data[5:0] = i_cceip0_out_ia_rdata_part0[5:0];
+     r32_mux_0_data[13:6] = i_cceip0_out_ia_rdata_part0[13:6];
+     r32_mux_0_data[14:14] = i_cceip0_out_ia_rdata_part0[14:14];
+     r32_mux_0_data[22:15] = i_cceip0_out_ia_rdata_part0[22:15];
+     r32_mux_0_data[30:23] = i_cceip0_out_ia_rdata_part0[30:23];
+     r32_mux_0_data[31:31] = i_cceip0_out_ia_rdata_part0[31:31];
+    end
+   11'b0101000:
+    begin
+     r32_mux_0_data[31:0] = i_cceip0_out_ia_rdata_part1[31:0];
+    end
+   11'b0101100:
+    begin
+     r32_mux_0_data[31:0] = i_cceip0_out_ia_rdata_part2[31:0];
+    end
+   11'b0110000:
+    begin
+     r32_mux_0_data[9:0] = o_cceip0_out_im_config[9:0];
+     r32_mux_0_data[31:30] = o_cceip0_out_im_config[11:10];
+    end
+   11'b0110100:
+    begin
+     r32_mux_0_data[8:0] = i_cceip0_out_im_status[8:0];
+     r32_mux_0_data[29:29] = i_cceip0_out_im_status[9:9];
+     r32_mux_0_data[30:30] = i_cceip0_out_im_status[10:10];
+     r32_mux_0_data[31:31] = i_cceip0_out_im_status[11:11];
+    end
+   11'b0111000:
+    begin
+     r32_mux_0_data[30:30] = i_cceip0_out_im_read_done[0:0];
+     r32_mux_0_data[31:31] = i_cceip0_out_im_read_done[1:1];
+    end
+   11'b0111100:
+    begin
+     r32_mux_0_data[0:0] = i_cceip1_out_ia_capability[0:0];
+     r32_mux_0_data[1:1] = i_cceip1_out_ia_capability[1:1];
+     r32_mux_0_data[2:2] = i_cceip1_out_ia_capability[2:2];
+     r32_mux_0_data[3:3] = i_cceip1_out_ia_capability[3:3];
+     r32_mux_0_data[4:4] = i_cceip1_out_ia_capability[4:4];
+     r32_mux_0_data[5:5] = i_cceip1_out_ia_capability[5:5];
+     r32_mux_0_data[6:6] = i_cceip1_out_ia_capability[6:6];
+     r32_mux_0_data[7:7] = i_cceip1_out_ia_capability[7:7];
+     r32_mux_0_data[8:8] = i_cceip1_out_ia_capability[8:8];
+     r32_mux_0_data[9:9] = i_cceip1_out_ia_capability[9:9];
+     r32_mux_0_data[13:10] = i_cceip1_out_ia_capability[13:10];
+     r32_mux_0_data[14:14] = i_cceip1_out_ia_capability[14:14];
+     r32_mux_0_data[15:15] = i_cceip1_out_ia_capability[15:15];
+     r32_mux_0_data[31:28] = i_cceip1_out_ia_capability[19:16];
+    end
+   11'b01000000:
+    begin
+     r32_mux_0_data[8:0] = i_cceip1_out_ia_status[8:0];
+     r32_mux_0_data[28:24] = i_cceip1_out_ia_status[13:9];
+     r32_mux_0_data[31:29] = i_cceip1_out_ia_status[16:14];
+    end
+   11'b01000100:
+    begin
+     r32_mux_0_data[5:0] = o_cceip1_out_ia_wdata_part0[5:0];
+     r32_mux_0_data[13:6] = o_cceip1_out_ia_wdata_part0[13:6];
+     r32_mux_0_data[14:14] = o_cceip1_out_ia_wdata_part0[14:14];
+     r32_mux_0_data[22:15] = o_cceip1_out_ia_wdata_part0[22:15];
+     r32_mux_0_data[30:23] = o_cceip1_out_ia_wdata_part0[30:23];
+     r32_mux_0_data[31:31] = o_cceip1_out_ia_wdata_part0[31:31];
+    end
+   11'b01001000:
+    begin
+     r32_mux_0_data[31:0] = o_cceip1_out_ia_wdata_part1[31:0];
+    end
+   11'b01001100:
+    begin
+     r32_mux_0_data[31:0] = o_cceip1_out_ia_wdata_part2[31:0];
+    end
+   11'b01010000:
+    begin
+     r32_mux_0_data[8:0] = o_cceip1_out_ia_config[8:0];
+     r32_mux_0_data[31:28] = o_cceip1_out_ia_config[12:9];
+    end
+   11'b01010100:
+    begin
+     r32_mux_0_data[5:0] = i_cceip1_out_ia_rdata_part0[5:0];
+     r32_mux_0_data[13:6] = i_cceip1_out_ia_rdata_part0[13:6];
+     r32_mux_0_data[14:14] = i_cceip1_out_ia_rdata_part0[14:14];
+     r32_mux_0_data[22:15] = i_cceip1_out_ia_rdata_part0[22:15];
+     r32_mux_0_data[30:23] = i_cceip1_out_ia_rdata_part0[30:23];
+     r32_mux_0_data[31:31] = i_cceip1_out_ia_rdata_part0[31:31];
+    end
+   11'b01011000:
+    begin
+     r32_mux_0_data[31:0] = i_cceip1_out_ia_rdata_part1[31:0];
+    end
+   11'b01011100:
+    begin
+     r32_mux_0_data[31:0] = i_cceip1_out_ia_rdata_part2[31:0];
+    end
+   11'b01100000:
+    begin
+     r32_mux_0_data[9:0] = o_cceip1_out_im_config[9:0];
+     r32_mux_0_data[31:30] = o_cceip1_out_im_config[11:10];
+    end
+   11'b01100100:
+    begin
+     r32_mux_0_data[8:0] = i_cceip1_out_im_status[8:0];
+     r32_mux_0_data[29:29] = i_cceip1_out_im_status[9:9];
+     r32_mux_0_data[30:30] = i_cceip1_out_im_status[10:10];
+     r32_mux_0_data[31:31] = i_cceip1_out_im_status[11:11];
+    end
+   11'b01101000:
+    begin
+     r32_mux_0_data[30:30] = i_cceip1_out_im_read_done[0:0];
+     r32_mux_0_data[31:31] = i_cceip1_out_im_read_done[1:1];
+    end
+   11'b01101100:
+    begin
+     r32_mux_0_data[0:0] = i_cceip2_out_ia_capability[0:0];
+     r32_mux_0_data[1:1] = i_cceip2_out_ia_capability[1:1];
+     r32_mux_0_data[2:2] = i_cceip2_out_ia_capability[2:2];
+     r32_mux_0_data[3:3] = i_cceip2_out_ia_capability[3:3];
+     r32_mux_0_data[4:4] = i_cceip2_out_ia_capability[4:4];
+     r32_mux_0_data[5:5] = i_cceip2_out_ia_capability[5:5];
+     r32_mux_0_data[6:6] = i_cceip2_out_ia_capability[6:6];
+     r32_mux_0_data[7:7] = i_cceip2_out_ia_capability[7:7];
+     r32_mux_0_data[8:8] = i_cceip2_out_ia_capability[8:8];
+     r32_mux_0_data[9:9] = i_cceip2_out_ia_capability[9:9];
+     r32_mux_0_data[13:10] = i_cceip2_out_ia_capability[13:10];
+     r32_mux_0_data[14:14] = i_cceip2_out_ia_capability[14:14];
+     r32_mux_0_data[15:15] = i_cceip2_out_ia_capability[15:15];
+     r32_mux_0_data[31:28] = i_cceip2_out_ia_capability[19:16];
+    end
+   11'b01110000:
+    begin
+     r32_mux_0_data[8:0] = i_cceip2_out_ia_status[8:0];
+     r32_mux_0_data[28:24] = i_cceip2_out_ia_status[13:9];
+     r32_mux_0_data[31:29] = i_cceip2_out_ia_status[16:14];
+    end
+   11'b01110100:
+    begin
+     r32_mux_0_data[5:0] = o_cceip2_out_ia_wdata_part0[5:0];
+     r32_mux_0_data[13:6] = o_cceip2_out_ia_wdata_part0[13:6];
+     r32_mux_0_data[14:14] = o_cceip2_out_ia_wdata_part0[14:14];
+     r32_mux_0_data[22:15] = o_cceip2_out_ia_wdata_part0[22:15];
+     r32_mux_0_data[30:23] = o_cceip2_out_ia_wdata_part0[30:23];
+     r32_mux_0_data[31:31] = o_cceip2_out_ia_wdata_part0[31:31];
+    end
+  endcase
+  case (ws_read_addr)
+   11'b01111000:
+    begin
+     r32_mux_1_data[31:0] = o_cceip2_out_ia_wdata_part1[31:0];
+    end
+   11'b01111100:
+    begin
+     r32_mux_1_data[31:0] = o_cceip2_out_ia_wdata_part2[31:0];
+    end
+   11'b010000000:
+    begin
+     r32_mux_1_data[8:0] = o_cceip2_out_ia_config[8:0];
+     r32_mux_1_data[31:28] = o_cceip2_out_ia_config[12:9];
+    end
+   11'b010000100:
+    begin
+     r32_mux_1_data[5:0] = i_cceip2_out_ia_rdata_part0[5:0];
+     r32_mux_1_data[13:6] = i_cceip2_out_ia_rdata_part0[13:6];
+     r32_mux_1_data[14:14] = i_cceip2_out_ia_rdata_part0[14:14];
+     r32_mux_1_data[22:15] = i_cceip2_out_ia_rdata_part0[22:15];
+     r32_mux_1_data[30:23] = i_cceip2_out_ia_rdata_part0[30:23];
+     r32_mux_1_data[31:31] = i_cceip2_out_ia_rdata_part0[31:31];
+    end
+   11'b010001000:
+    begin
+     r32_mux_1_data[31:0] = i_cceip2_out_ia_rdata_part1[31:0];
+    end
+   11'b010001100:
+    begin
+     r32_mux_1_data[31:0] = i_cceip2_out_ia_rdata_part2[31:0];
+    end
+   11'b010010000:
+    begin
+     r32_mux_1_data[9:0] = o_cceip2_out_im_config[9:0];
+     r32_mux_1_data[31:30] = o_cceip2_out_im_config[11:10];
+    end
+   11'b010010100:
+    begin
+     r32_mux_1_data[8:0] = i_cceip2_out_im_status[8:0];
+     r32_mux_1_data[29:29] = i_cceip2_out_im_status[9:9];
+     r32_mux_1_data[30:30] = i_cceip2_out_im_status[10:10];
+     r32_mux_1_data[31:31] = i_cceip2_out_im_status[11:11];
+    end
+   11'b010011000:
+    begin
+     r32_mux_1_data[30:30] = i_cceip2_out_im_read_done[0:0];
+     r32_mux_1_data[31:31] = i_cceip2_out_im_read_done[1:1];
+    end
+   11'b010011100:
+    begin
+     r32_mux_1_data[0:0] = i_cceip3_out_ia_capability[0:0];
+     r32_mux_1_data[1:1] = i_cceip3_out_ia_capability[1:1];
+     r32_mux_1_data[2:2] = i_cceip3_out_ia_capability[2:2];
+     r32_mux_1_data[3:3] = i_cceip3_out_ia_capability[3:3];
+     r32_mux_1_data[4:4] = i_cceip3_out_ia_capability[4:4];
+     r32_mux_1_data[5:5] = i_cceip3_out_ia_capability[5:5];
+     r32_mux_1_data[6:6] = i_cceip3_out_ia_capability[6:6];
+     r32_mux_1_data[7:7] = i_cceip3_out_ia_capability[7:7];
+     r32_mux_1_data[8:8] = i_cceip3_out_ia_capability[8:8];
+     r32_mux_1_data[9:9] = i_cceip3_out_ia_capability[9:9];
+     r32_mux_1_data[13:10] = i_cceip3_out_ia_capability[13:10];
+     r32_mux_1_data[14:14] = i_cceip3_out_ia_capability[14:14];
+     r32_mux_1_data[15:15] = i_cceip3_out_ia_capability[15:15];
+     r32_mux_1_data[31:28] = i_cceip3_out_ia_capability[19:16];
+    end
+   11'b010100000:
+    begin
+     r32_mux_1_data[8:0] = i_cceip3_out_ia_status[8:0];
+     r32_mux_1_data[28:24] = i_cceip3_out_ia_status[13:9];
+     r32_mux_1_data[31:29] = i_cceip3_out_ia_status[16:14];
+    end
+   11'b010100100:
+    begin
+     r32_mux_1_data[5:0] = o_cceip3_out_ia_wdata_part0[5:0];
+     r32_mux_1_data[13:6] = o_cceip3_out_ia_wdata_part0[13:6];
+     r32_mux_1_data[14:14] = o_cceip3_out_ia_wdata_part0[14:14];
+     r32_mux_1_data[22:15] = o_cceip3_out_ia_wdata_part0[22:15];
+     r32_mux_1_data[30:23] = o_cceip3_out_ia_wdata_part0[30:23];
+     r32_mux_1_data[31:31] = o_cceip3_out_ia_wdata_part0[31:31];
+    end
+   11'b010101000:
+    begin
+     r32_mux_1_data[31:0] = o_cceip3_out_ia_wdata_part1[31:0];
+    end
+   11'b010101100:
+    begin
+     r32_mux_1_data[31:0] = o_cceip3_out_ia_wdata_part2[31:0];
+    end
+   11'b010110000:
+    begin
+     r32_mux_1_data[8:0] = o_cceip3_out_ia_config[8:0];
+     r32_mux_1_data[31:28] = o_cceip3_out_ia_config[12:9];
+    end
+   11'b010110100:
+    begin
+     r32_mux_1_data[5:0] = i_cceip3_out_ia_rdata_part0[5:0];
+     r32_mux_1_data[13:6] = i_cceip3_out_ia_rdata_part0[13:6];
+     r32_mux_1_data[14:14] = i_cceip3_out_ia_rdata_part0[14:14];
+     r32_mux_1_data[22:15] = i_cceip3_out_ia_rdata_part0[22:15];
+     r32_mux_1_data[30:23] = i_cceip3_out_ia_rdata_part0[30:23];
+     r32_mux_1_data[31:31] = i_cceip3_out_ia_rdata_part0[31:31];
+    end
+   11'b010111000:
+    begin
+     r32_mux_1_data[31:0] = i_cceip3_out_ia_rdata_part1[31:0];
+    end
+   11'b010111100:
+    begin
+     r32_mux_1_data[31:0] = i_cceip3_out_ia_rdata_part2[31:0];
+    end
+   11'b011000000:
+    begin
+     r32_mux_1_data[9:0] = o_cceip3_out_im_config[9:0];
+     r32_mux_1_data[31:30] = o_cceip3_out_im_config[11:10];
+    end
+   11'b011000100:
+    begin
+     r32_mux_1_data[8:0] = i_cceip3_out_im_status[8:0];
+     r32_mux_1_data[29:29] = i_cceip3_out_im_status[9:9];
+     r32_mux_1_data[30:30] = i_cceip3_out_im_status[10:10];
+     r32_mux_1_data[31:31] = i_cceip3_out_im_status[11:11];
+    end
+   11'b011001000:
+    begin
+     r32_mux_1_data[30:30] = i_cceip3_out_im_read_done[0:0];
+     r32_mux_1_data[31:31] = i_cceip3_out_im_read_done[1:1];
+    end
+   11'b011001100:
+    begin
+     r32_mux_1_data[0:0] = i_cddip0_out_ia_capability[0:0];
+     r32_mux_1_data[1:1] = i_cddip0_out_ia_capability[1:1];
+     r32_mux_1_data[2:2] = i_cddip0_out_ia_capability[2:2];
+     r32_mux_1_data[3:3] = i_cddip0_out_ia_capability[3:3];
+     r32_mux_1_data[4:4] = i_cddip0_out_ia_capability[4:4];
+     r32_mux_1_data[5:5] = i_cddip0_out_ia_capability[5:5];
+     r32_mux_1_data[6:6] = i_cddip0_out_ia_capability[6:6];
+     r32_mux_1_data[7:7] = i_cddip0_out_ia_capability[7:7];
+     r32_mux_1_data[8:8] = i_cddip0_out_ia_capability[8:8];
+     r32_mux_1_data[9:9] = i_cddip0_out_ia_capability[9:9];
+     r32_mux_1_data[13:10] = i_cddip0_out_ia_capability[13:10];
+     r32_mux_1_data[14:14] = i_cddip0_out_ia_capability[14:14];
+     r32_mux_1_data[15:15] = i_cddip0_out_ia_capability[15:15];
+     r32_mux_1_data[31:28] = i_cddip0_out_ia_capability[19:16];
+    end
+   11'b011010000:
+    begin
+     r32_mux_1_data[8:0] = i_cddip0_out_ia_status[8:0];
+     r32_mux_1_data[28:24] = i_cddip0_out_ia_status[13:9];
+     r32_mux_1_data[31:29] = i_cddip0_out_ia_status[16:14];
+    end
+   11'b011010100:
+    begin
+     r32_mux_1_data[5:0] = o_cddip0_out_ia_wdata_part0[5:0];
+     r32_mux_1_data[13:6] = o_cddip0_out_ia_wdata_part0[13:6];
+     r32_mux_1_data[14:14] = o_cddip0_out_ia_wdata_part0[14:14];
+     r32_mux_1_data[22:15] = o_cddip0_out_ia_wdata_part0[22:15];
+     r32_mux_1_data[30:23] = o_cddip0_out_ia_wdata_part0[30:23];
+     r32_mux_1_data[31:31] = o_cddip0_out_ia_wdata_part0[31:31];
+    end
+   11'b011011000:
+    begin
+     r32_mux_1_data[31:0] = o_cddip0_out_ia_wdata_part1[31:0];
+    end
+   11'b011011100:
+    begin
+     r32_mux_1_data[31:0] = o_cddip0_out_ia_wdata_part2[31:0];
+    end
+   11'b011100000:
+    begin
+     r32_mux_1_data[8:0] = o_cddip0_out_ia_config[8:0];
+     r32_mux_1_data[31:28] = o_cddip0_out_ia_config[12:9];
+    end
+   11'b011100100:
+    begin
+     r32_mux_1_data[5:0] = i_cddip0_out_ia_rdata_part0[5:0];
+     r32_mux_1_data[13:6] = i_cddip0_out_ia_rdata_part0[13:6];
+     r32_mux_1_data[14:14] = i_cddip0_out_ia_rdata_part0[14:14];
+     r32_mux_1_data[22:15] = i_cddip0_out_ia_rdata_part0[22:15];
+     r32_mux_1_data[30:23] = i_cddip0_out_ia_rdata_part0[30:23];
+     r32_mux_1_data[31:31] = i_cddip0_out_ia_rdata_part0[31:31];
+    end
+   11'b011101000:
+    begin
+     r32_mux_1_data[31:0] = i_cddip0_out_ia_rdata_part1[31:0];
+    end
+   11'b011101100:
+    begin
+     r32_mux_1_data[31:0] = i_cddip0_out_ia_rdata_part2[31:0];
+    end
+  endcase
+  case (ws_read_addr)
+   11'b011110000:
+    begin
+     r32_mux_2_data[9:0] = o_cddip0_out_im_config[9:0];
+     r32_mux_2_data[31:30] = o_cddip0_out_im_config[11:10];
+    end
+   11'b011110100:
+    begin
+     r32_mux_2_data[8:0] = i_cddip0_out_im_status[8:0];
+     r32_mux_2_data[29:29] = i_cddip0_out_im_status[9:9];
+     r32_mux_2_data[30:30] = i_cddip0_out_im_status[10:10];
+     r32_mux_2_data[31:31] = i_cddip0_out_im_status[11:11];
+    end
+   11'b011111000:
+    begin
+     r32_mux_2_data[30:30] = i_cddip0_out_im_read_done[0:0];
+     r32_mux_2_data[31:31] = i_cddip0_out_im_read_done[1:1];
+    end
+   11'b011111100:
+    begin
+     r32_mux_2_data[0:0] = i_cddip1_out_ia_capability[0:0];
+     r32_mux_2_data[1:1] = i_cddip1_out_ia_capability[1:1];
+     r32_mux_2_data[2:2] = i_cddip1_out_ia_capability[2:2];
+     r32_mux_2_data[3:3] = i_cddip1_out_ia_capability[3:3];
+     r32_mux_2_data[4:4] = i_cddip1_out_ia_capability[4:4];
+     r32_mux_2_data[5:5] = i_cddip1_out_ia_capability[5:5];
+     r32_mux_2_data[6:6] = i_cddip1_out_ia_capability[6:6];
+     r32_mux_2_data[7:7] = i_cddip1_out_ia_capability[7:7];
+     r32_mux_2_data[8:8] = i_cddip1_out_ia_capability[8:8];
+     r32_mux_2_data[9:9] = i_cddip1_out_ia_capability[9:9];
+     r32_mux_2_data[13:10] = i_cddip1_out_ia_capability[13:10];
+     r32_mux_2_data[14:14] = i_cddip1_out_ia_capability[14:14];
+     r32_mux_2_data[15:15] = i_cddip1_out_ia_capability[15:15];
+     r32_mux_2_data[31:28] = i_cddip1_out_ia_capability[19:16];
+    end
+   11'b0100000000:
+    begin
+     r32_mux_2_data[8:0] = i_cddip1_out_ia_status[8:0];
+     r32_mux_2_data[28:24] = i_cddip1_out_ia_status[13:9];
+     r32_mux_2_data[31:29] = i_cddip1_out_ia_status[16:14];
+    end
+   11'b0100000100:
+    begin
+     r32_mux_2_data[5:0] = o_cddip1_out_ia_wdata_part0[5:0];
+     r32_mux_2_data[13:6] = o_cddip1_out_ia_wdata_part0[13:6];
+     r32_mux_2_data[14:14] = o_cddip1_out_ia_wdata_part0[14:14];
+     r32_mux_2_data[22:15] = o_cddip1_out_ia_wdata_part0[22:15];
+     r32_mux_2_data[30:23] = o_cddip1_out_ia_wdata_part0[30:23];
+     r32_mux_2_data[31:31] = o_cddip1_out_ia_wdata_part0[31:31];
+    end
+   11'b0100001000:
+    begin
+     r32_mux_2_data[31:0] = o_cddip1_out_ia_wdata_part1[31:0];
+    end
+   11'b0100001100:
+    begin
+     r32_mux_2_data[31:0] = o_cddip1_out_ia_wdata_part2[31:0];
+    end
+   11'b0100010000:
+    begin
+     r32_mux_2_data[8:0] = o_cddip1_out_ia_config[8:0];
+     r32_mux_2_data[31:28] = o_cddip1_out_ia_config[12:9];
+    end
+   11'b0100010100:
+    begin
+     r32_mux_2_data[5:0] = i_cddip1_out_ia_rdata_part0[5:0];
+     r32_mux_2_data[13:6] = i_cddip1_out_ia_rdata_part0[13:6];
+     r32_mux_2_data[14:14] = i_cddip1_out_ia_rdata_part0[14:14];
+     r32_mux_2_data[22:15] = i_cddip1_out_ia_rdata_part0[22:15];
+     r32_mux_2_data[30:23] = i_cddip1_out_ia_rdata_part0[30:23];
+     r32_mux_2_data[31:31] = i_cddip1_out_ia_rdata_part0[31:31];
+    end
+   11'b0100011000:
+    begin
+     r32_mux_2_data[31:0] = i_cddip1_out_ia_rdata_part1[31:0];
+    end
+   11'b0100011100:
+    begin
+     r32_mux_2_data[31:0] = i_cddip1_out_ia_rdata_part2[31:0];
+    end
+   11'b0100100000:
+    begin
+     r32_mux_2_data[9:0] = o_cddip1_out_im_config[9:0];
+     r32_mux_2_data[31:30] = o_cddip1_out_im_config[11:10];
+    end
+   11'b0100100100:
+    begin
+     r32_mux_2_data[8:0] = i_cddip1_out_im_status[8:0];
+     r32_mux_2_data[29:29] = i_cddip1_out_im_status[9:9];
+     r32_mux_2_data[30:30] = i_cddip1_out_im_status[10:10];
+     r32_mux_2_data[31:31] = i_cddip1_out_im_status[11:11];
+    end
+   11'b0100101000:
+    begin
+     r32_mux_2_data[30:30] = i_cddip1_out_im_read_done[0:0];
+     r32_mux_2_data[31:31] = i_cddip1_out_im_read_done[1:1];
+    end
+   11'b0100101100:
+    begin
+     r32_mux_2_data[0:0] = i_cddip2_out_ia_capability[0:0];
+     r32_mux_2_data[1:1] = i_cddip2_out_ia_capability[1:1];
+     r32_mux_2_data[2:2] = i_cddip2_out_ia_capability[2:2];
+     r32_mux_2_data[3:3] = i_cddip2_out_ia_capability[3:3];
+     r32_mux_2_data[4:4] = i_cddip2_out_ia_capability[4:4];
+     r32_mux_2_data[5:5] = i_cddip2_out_ia_capability[5:5];
+     r32_mux_2_data[6:6] = i_cddip2_out_ia_capability[6:6];
+     r32_mux_2_data[7:7] = i_cddip2_out_ia_capability[7:7];
+     r32_mux_2_data[8:8] = i_cddip2_out_ia_capability[8:8];
+     r32_mux_2_data[9:9] = i_cddip2_out_ia_capability[9:9];
+     r32_mux_2_data[13:10] = i_cddip2_out_ia_capability[13:10];
+     r32_mux_2_data[14:14] = i_cddip2_out_ia_capability[14:14];
+     r32_mux_2_data[15:15] = i_cddip2_out_ia_capability[15:15];
+     r32_mux_2_data[31:28] = i_cddip2_out_ia_capability[19:16];
+    end
+   11'b0100110000:
+    begin
+     r32_mux_2_data[8:0] = i_cddip2_out_ia_status[8:0];
+     r32_mux_2_data[28:24] = i_cddip2_out_ia_status[13:9];
+     r32_mux_2_data[31:29] = i_cddip2_out_ia_status[16:14];
+    end
+   11'b0100110100:
+    begin
+     r32_mux_2_data[5:0] = o_cddip2_out_ia_wdata_part0[5:0];
+     r32_mux_2_data[13:6] = o_cddip2_out_ia_wdata_part0[13:6];
+     r32_mux_2_data[14:14] = o_cddip2_out_ia_wdata_part0[14:14];
+     r32_mux_2_data[22:15] = o_cddip2_out_ia_wdata_part0[22:15];
+     r32_mux_2_data[30:23] = o_cddip2_out_ia_wdata_part0[30:23];
+     r32_mux_2_data[31:31] = o_cddip2_out_ia_wdata_part0[31:31];
+    end
+   11'b0100111000:
+    begin
+     r32_mux_2_data[31:0] = o_cddip2_out_ia_wdata_part1[31:0];
+    end
+   11'b0100111100:
+    begin
+     r32_mux_2_data[31:0] = o_cddip2_out_ia_wdata_part2[31:0];
+    end
+   11'b0101000000:
+    begin
+     r32_mux_2_data[8:0] = o_cddip2_out_ia_config[8:0];
+     r32_mux_2_data[31:28] = o_cddip2_out_ia_config[12:9];
+    end
+   11'b0101000100:
+    begin
+     r32_mux_2_data[5:0] = i_cddip2_out_ia_rdata_part0[5:0];
+     r32_mux_2_data[13:6] = i_cddip2_out_ia_rdata_part0[13:6];
+     r32_mux_2_data[14:14] = i_cddip2_out_ia_rdata_part0[14:14];
+     r32_mux_2_data[22:15] = i_cddip2_out_ia_rdata_part0[22:15];
+     r32_mux_2_data[30:23] = i_cddip2_out_ia_rdata_part0[30:23];
+     r32_mux_2_data[31:31] = i_cddip2_out_ia_rdata_part0[31:31];
+    end
+   11'b0101001000:
+    begin
+     r32_mux_2_data[31:0] = i_cddip2_out_ia_rdata_part1[31:0];
+    end
+   11'b0101001100:
+    begin
+     r32_mux_2_data[31:0] = i_cddip2_out_ia_rdata_part2[31:0];
+    end
+   11'b0101010000:
+    begin
+     r32_mux_2_data[9:0] = o_cddip2_out_im_config[9:0];
+     r32_mux_2_data[31:30] = o_cddip2_out_im_config[11:10];
+    end
+   11'b0101010100:
+    begin
+     r32_mux_2_data[8:0] = i_cddip2_out_im_status[8:0];
+     r32_mux_2_data[29:29] = i_cddip2_out_im_status[9:9];
+     r32_mux_2_data[30:30] = i_cddip2_out_im_status[10:10];
+     r32_mux_2_data[31:31] = i_cddip2_out_im_status[11:11];
+    end
+   11'b0101011000:
+    begin
+     r32_mux_2_data[30:30] = i_cddip2_out_im_read_done[0:0];
+     r32_mux_2_data[31:31] = i_cddip2_out_im_read_done[1:1];
+    end
+   11'b0101011100:
+    begin
+     r32_mux_2_data[0:0] = i_cddip3_out_ia_capability[0:0];
+     r32_mux_2_data[1:1] = i_cddip3_out_ia_capability[1:1];
+     r32_mux_2_data[2:2] = i_cddip3_out_ia_capability[2:2];
+     r32_mux_2_data[3:3] = i_cddip3_out_ia_capability[3:3];
+     r32_mux_2_data[4:4] = i_cddip3_out_ia_capability[4:4];
+     r32_mux_2_data[5:5] = i_cddip3_out_ia_capability[5:5];
+     r32_mux_2_data[6:6] = i_cddip3_out_ia_capability[6:6];
+     r32_mux_2_data[7:7] = i_cddip3_out_ia_capability[7:7];
+     r32_mux_2_data[8:8] = i_cddip3_out_ia_capability[8:8];
+     r32_mux_2_data[9:9] = i_cddip3_out_ia_capability[9:9];
+     r32_mux_2_data[13:10] = i_cddip3_out_ia_capability[13:10];
+     r32_mux_2_data[14:14] = i_cddip3_out_ia_capability[14:14];
+     r32_mux_2_data[15:15] = i_cddip3_out_ia_capability[15:15];
+     r32_mux_2_data[31:28] = i_cddip3_out_ia_capability[19:16];
+    end
+   11'b0101100000:
+    begin
+     r32_mux_2_data[8:0] = i_cddip3_out_ia_status[8:0];
+     r32_mux_2_data[28:24] = i_cddip3_out_ia_status[13:9];
+     r32_mux_2_data[31:29] = i_cddip3_out_ia_status[16:14];
+    end
+   11'b0101100100:
+    begin
+     r32_mux_2_data[5:0] = o_cddip3_out_ia_wdata_part0[5:0];
+     r32_mux_2_data[13:6] = o_cddip3_out_ia_wdata_part0[13:6];
+     r32_mux_2_data[14:14] = o_cddip3_out_ia_wdata_part0[14:14];
+     r32_mux_2_data[22:15] = o_cddip3_out_ia_wdata_part0[22:15];
+     r32_mux_2_data[30:23] = o_cddip3_out_ia_wdata_part0[30:23];
+     r32_mux_2_data[31:31] = o_cddip3_out_ia_wdata_part0[31:31];
+    end
+  endcase
+  case (ws_read_addr)
+   11'b0101101000:
+    begin
+     r32_mux_3_data[31:0] = o_cddip3_out_ia_wdata_part1[31:0];
+    end
+   11'b0101101100:
+    begin
+     r32_mux_3_data[31:0] = o_cddip3_out_ia_wdata_part2[31:0];
+    end
+   11'b0101110000:
+    begin
+     r32_mux_3_data[8:0] = o_cddip3_out_ia_config[8:0];
+     r32_mux_3_data[31:28] = o_cddip3_out_ia_config[12:9];
+    end
+   11'b0101110100:
+    begin
+     r32_mux_3_data[5:0] = i_cddip3_out_ia_rdata_part0[5:0];
+     r32_mux_3_data[13:6] = i_cddip3_out_ia_rdata_part0[13:6];
+     r32_mux_3_data[14:14] = i_cddip3_out_ia_rdata_part0[14:14];
+     r32_mux_3_data[22:15] = i_cddip3_out_ia_rdata_part0[22:15];
+     r32_mux_3_data[30:23] = i_cddip3_out_ia_rdata_part0[30:23];
+     r32_mux_3_data[31:31] = i_cddip3_out_ia_rdata_part0[31:31];
+    end
+   11'b0101111000:
+    begin
+     r32_mux_3_data[31:0] = i_cddip3_out_ia_rdata_part1[31:0];
+    end
+   11'b0101111100:
+    begin
+     r32_mux_3_data[31:0] = i_cddip3_out_ia_rdata_part2[31:0];
+    end
+   11'b0110000000:
+    begin
+     r32_mux_3_data[9:0] = o_cddip3_out_im_config[9:0];
+     r32_mux_3_data[31:30] = o_cddip3_out_im_config[11:10];
+    end
+   11'b0110000100:
+    begin
+     r32_mux_3_data[8:0] = i_cddip3_out_im_status[8:0];
+     r32_mux_3_data[29:29] = i_cddip3_out_im_status[9:9];
+     r32_mux_3_data[30:30] = i_cddip3_out_im_status[10:10];
+     r32_mux_3_data[31:31] = i_cddip3_out_im_status[11:11];
+    end
+   11'b0110001000:
+    begin
+     r32_mux_3_data[30:30] = i_cddip3_out_im_read_done[0:0];
+     r32_mux_3_data[31:31] = i_cddip3_out_im_read_done[1:1];
+    end
+   11'b0110001100:
+    begin
+     r32_mux_3_data[0:0] = i_ckv_ia_capability[0:0];
+     r32_mux_3_data[1:1] = i_ckv_ia_capability[1:1];
+     r32_mux_3_data[2:2] = i_ckv_ia_capability[2:2];
+     r32_mux_3_data[3:3] = i_ckv_ia_capability[3:3];
+     r32_mux_3_data[4:4] = i_ckv_ia_capability[4:4];
+     r32_mux_3_data[5:5] = i_ckv_ia_capability[5:5];
+     r32_mux_3_data[6:6] = i_ckv_ia_capability[6:6];
+     r32_mux_3_data[7:7] = i_ckv_ia_capability[7:7];
+     r32_mux_3_data[8:8] = i_ckv_ia_capability[8:8];
+     r32_mux_3_data[9:9] = i_ckv_ia_capability[9:9];
+     r32_mux_3_data[13:10] = i_ckv_ia_capability[13:10];
+     r32_mux_3_data[14:14] = i_ckv_ia_capability[14:14];
+     r32_mux_3_data[15:15] = i_ckv_ia_capability[15:15];
+     r32_mux_3_data[31:28] = i_ckv_ia_capability[19:16];
+    end
+   11'b0110010000:
+    begin
+     r32_mux_3_data[14:0] = i_ckv_ia_status[14:0];
+     r32_mux_3_data[28:24] = i_ckv_ia_status[19:15];
+     r32_mux_3_data[31:29] = i_ckv_ia_status[22:20];
+    end
+   11'b0110010100:
+    begin
+     r32_mux_3_data[31:0] = o_ckv_ia_wdata_part0[31:0];
+    end
+   11'b0110011000:
+    begin
+     r32_mux_3_data[31:0] = o_ckv_ia_wdata_part1[31:0];
+    end
+   11'b0110011100:
+    begin
+     r32_mux_3_data[14:0] = o_ckv_ia_config[14:0];
+     r32_mux_3_data[31:28] = o_ckv_ia_config[18:15];
+    end
+   11'b0110100000:
+    begin
+     r32_mux_3_data[31:0] = i_ckv_ia_rdata_part0[31:0];
+    end
+   11'b0110100100:
+    begin
+     r32_mux_3_data[31:0] = i_ckv_ia_rdata_part1[31:0];
+    end
+   11'b0110101000:
+    begin
+     r32_mux_3_data[0:0] = i_kim_ia_capability[0:0];
+     r32_mux_3_data[1:1] = i_kim_ia_capability[1:1];
+     r32_mux_3_data[2:2] = i_kim_ia_capability[2:2];
+     r32_mux_3_data[3:3] = i_kim_ia_capability[3:3];
+     r32_mux_3_data[4:4] = i_kim_ia_capability[4:4];
+     r32_mux_3_data[5:5] = i_kim_ia_capability[5:5];
+     r32_mux_3_data[6:6] = i_kim_ia_capability[6:6];
+     r32_mux_3_data[7:7] = i_kim_ia_capability[7:7];
+     r32_mux_3_data[8:8] = i_kim_ia_capability[8:8];
+     r32_mux_3_data[9:9] = i_kim_ia_capability[9:9];
+     r32_mux_3_data[13:10] = i_kim_ia_capability[13:10];
+     r32_mux_3_data[14:14] = i_kim_ia_capability[14:14];
+     r32_mux_3_data[15:15] = i_kim_ia_capability[15:15];
+     r32_mux_3_data[31:28] = i_kim_ia_capability[19:16];
+    end
+   11'b0110101100:
+    begin
+     r32_mux_3_data[13:0] = i_kim_ia_status[13:0];
+     r32_mux_3_data[28:24] = i_kim_ia_status[18:14];
+     r32_mux_3_data[31:29] = i_kim_ia_status[21:19];
+    end
+   11'b0110110000:
+    begin
+     r32_mux_3_data[14:0] = o_kim_ia_wdata_part0[14:0];
+     r32_mux_3_data[27:26] = o_kim_ia_wdata_part0[16:15];
+     r32_mux_3_data[30:28] = o_kim_ia_wdata_part0[19:17];
+     r32_mux_3_data[31:31] = o_kim_ia_wdata_part0[20:20];
+    end
+   11'b0110110100:
+    begin
+     r32_mux_3_data[0:0] = o_kim_ia_wdata_part1[0:0];
+     r32_mux_3_data[12:1] = o_kim_ia_wdata_part1[12:1];
+     r32_mux_3_data[31:28] = o_kim_ia_wdata_part1[16:13];
+    end
+   11'b0110111000:
+    begin
+     r32_mux_3_data[13:0] = o_kim_ia_config[13:0];
+     r32_mux_3_data[31:28] = o_kim_ia_config[17:14];
+    end
+   11'b0110111100:
+    begin
+     r32_mux_3_data[14:0] = i_kim_ia_rdata_part0[14:0];
+     r32_mux_3_data[27:26] = i_kim_ia_rdata_part0[16:15];
+     r32_mux_3_data[30:28] = i_kim_ia_rdata_part0[19:17];
+     r32_mux_3_data[31:31] = i_kim_ia_rdata_part0[20:20];
+    end
+   11'b0111000000:
+    begin
+     r32_mux_3_data[0:0] = i_kim_ia_rdata_part1[0:0];
+     r32_mux_3_data[12:1] = i_kim_ia_rdata_part1[12:1];
+     r32_mux_3_data[31:28] = i_kim_ia_rdata_part1[16:13];
+    end
+   11'b0111001000:
+    begin
+     r32_mux_3_data[7:0] = o_label0_config[7:0];
+     r32_mux_3_data[8:8] = o_label0_config[8:8];
+     r32_mux_3_data[30:25] = o_label0_config[14:9];
+     r32_mux_3_data[31:31] = o_label0_config[15:15];
+    end
+   11'b0111001100:
+    begin
+     r32_mux_3_data[31:0] = o_label0_data7[31:0];
+    end
+   11'b0111010000:
+    begin
+     r32_mux_3_data[31:0] = o_label0_data6[31:0];
+    end
+   11'b0111010100:
+    begin
+     r32_mux_3_data[31:0] = o_label0_data5[31:0];
+    end
+   11'b0111011000:
+    begin
+     r32_mux_3_data[31:0] = o_label0_data4[31:0];
+    end
+   11'b0111011100:
+    begin
+     r32_mux_3_data[31:0] = o_label0_data3[31:0];
+    end
+   11'b0111100000:
+    begin
+     r32_mux_3_data[31:0] = o_label0_data2[31:0];
+    end
+  endcase
+  case (ws_read_addr)
+   11'b0111100100:
+    begin
+     r32_mux_4_data[31:0] = o_label0_data1[31:0];
+    end
+   11'b0111101000:
+    begin
+     r32_mux_4_data[31:0] = o_label0_data0[31:0];
+    end
+   11'b0111110000:
+    begin
+     r32_mux_4_data[7:0] = o_label1_config[7:0];
+     r32_mux_4_data[8:8] = o_label1_config[8:8];
+     r32_mux_4_data[30:25] = o_label1_config[14:9];
+     r32_mux_4_data[31:31] = o_label1_config[15:15];
+    end
+   11'b0111110100:
+    begin
+     r32_mux_4_data[31:0] = o_label1_data7[31:0];
+    end
+   11'b0111111000:
+    begin
+     r32_mux_4_data[31:0] = o_label1_data6[31:0];
+    end
+   11'b0111111100:
+    begin
+     r32_mux_4_data[31:0] = o_label1_data5[31:0];
+    end
+   11'b01000000000:
+    begin
+     r32_mux_4_data[31:0] = o_label1_data4[31:0];
+    end
+   11'b01000000100:
+    begin
+     r32_mux_4_data[31:0] = o_label1_data3[31:0];
+    end
+   11'b01000001000:
+    begin
+     r32_mux_4_data[31:0] = o_label1_data2[31:0];
+    end
+   11'b01000001100:
+    begin
+     r32_mux_4_data[31:0] = o_label1_data1[31:0];
+    end
+   11'b01000010000:
+    begin
+     r32_mux_4_data[31:0] = o_label1_data0[31:0];
+    end
+   11'b01000011000:
+    begin
+     r32_mux_4_data[7:0] = o_label2_config[7:0];
+     r32_mux_4_data[8:8] = o_label2_config[8:8];
+     r32_mux_4_data[30:25] = o_label2_config[14:9];
+     r32_mux_4_data[31:31] = o_label2_config[15:15];
+    end
+   11'b01000011100:
+    begin
+     r32_mux_4_data[31:0] = o_label2_data7[31:0];
+    end
+   11'b01000100000:
+    begin
+     r32_mux_4_data[31:0] = o_label2_data6[31:0];
+    end
+   11'b01000100100:
+    begin
+     r32_mux_4_data[31:0] = o_label2_data5[31:0];
+    end
+   11'b01000101000:
+    begin
+     r32_mux_4_data[31:0] = o_label2_data4[31:0];
+    end
+   11'b01000101100:
+    begin
+     r32_mux_4_data[31:0] = o_label2_data3[31:0];
+    end
+   11'b01000110000:
+    begin
+     r32_mux_4_data[31:0] = o_label2_data2[31:0];
+    end
+   11'b01000110100:
+    begin
+     r32_mux_4_data[31:0] = o_label2_data1[31:0];
+    end
+   11'b01000111000:
+    begin
+     r32_mux_4_data[31:0] = o_label2_data0[31:0];
+    end
+   11'b01001000000:
+    begin
+     r32_mux_4_data[7:0] = o_label3_config[7:0];
+     r32_mux_4_data[8:8] = o_label3_config[8:8];
+     r32_mux_4_data[30:25] = o_label3_config[14:9];
+     r32_mux_4_data[31:31] = o_label3_config[15:15];
+    end
+   11'b01001000100:
+    begin
+     r32_mux_4_data[31:0] = o_label3_data7[31:0];
+    end
+   11'b01001001000:
+    begin
+     r32_mux_4_data[31:0] = o_label3_data6[31:0];
+    end
+   11'b01001001100:
+    begin
+     r32_mux_4_data[31:0] = o_label3_data5[31:0];
+    end
+   11'b01001010000:
+    begin
+     r32_mux_4_data[31:0] = o_label3_data4[31:0];
+    end
+   11'b01001010100:
+    begin
+     r32_mux_4_data[31:0] = o_label3_data3[31:0];
+    end
+   11'b01001011000:
+    begin
+     r32_mux_4_data[31:0] = o_label3_data2[31:0];
+    end
+   11'b01001011100:
+    begin
+     r32_mux_4_data[31:0] = o_label3_data1[31:0];
+    end
+   11'b01001100000:
+    begin
+     r32_mux_4_data[31:0] = o_label3_data0[31:0];
+    end
+   11'b01001101000:
+    begin
+     r32_mux_4_data[7:0] = o_label4_config[7:0];
+     r32_mux_4_data[8:8] = o_label4_config[8:8];
+     r32_mux_4_data[30:25] = o_label4_config[14:9];
+     r32_mux_4_data[31:31] = o_label4_config[15:15];
+    end
+  endcase
+  case (ws_read_addr)
+   11'b01001101100:
+    begin
+     r32_mux_5_data[31:0] = o_label4_data7[31:0];
+    end
+   11'b01001110000:
+    begin
+     r32_mux_5_data[31:0] = o_label4_data6[31:0];
+    end
+   11'b01001110100:
+    begin
+     r32_mux_5_data[31:0] = o_label4_data5[31:0];
+    end
+   11'b01001111000:
+    begin
+     r32_mux_5_data[31:0] = o_label4_data4[31:0];
+    end
+   11'b01001111100:
+    begin
+     r32_mux_5_data[31:0] = o_label4_data3[31:0];
+    end
+   11'b01010000000:
+    begin
+     r32_mux_5_data[31:0] = o_label4_data2[31:0];
+    end
+   11'b01010000100:
+    begin
+     r32_mux_5_data[31:0] = o_label4_data1[31:0];
+    end
+   11'b01010001000:
+    begin
+     r32_mux_5_data[31:0] = o_label4_data0[31:0];
+    end
+   11'b01010010000:
+    begin
+     r32_mux_5_data[7:0] = o_label5_config[7:0];
+     r32_mux_5_data[8:8] = o_label5_config[8:8];
+     r32_mux_5_data[30:25] = o_label5_config[14:9];
+     r32_mux_5_data[31:31] = o_label5_config[15:15];
+    end
+   11'b01010010100:
+    begin
+     r32_mux_5_data[31:0] = o_label5_data7[31:0];
+    end
+   11'b01010011000:
+    begin
+     r32_mux_5_data[31:0] = o_label5_data6[31:0];
+    end
+   11'b01010011100:
+    begin
+     r32_mux_5_data[31:0] = o_label5_data5[31:0];
+    end
+   11'b01010100000:
+    begin
+     r32_mux_5_data[31:0] = o_label5_data4[31:0];
+    end
+   11'b01010100100:
+    begin
+     r32_mux_5_data[31:0] = o_label5_data3[31:0];
+    end
+   11'b01010101000:
+    begin
+     r32_mux_5_data[31:0] = o_label5_data2[31:0];
+    end
+   11'b01010101100:
+    begin
+     r32_mux_5_data[31:0] = o_label5_data1[31:0];
+    end
+   11'b01010110000:
+    begin
+     r32_mux_5_data[31:0] = o_label5_data0[31:0];
+    end
+   11'b01010111000:
+    begin
+     r32_mux_5_data[7:0] = o_label6_config[7:0];
+     r32_mux_5_data[8:8] = o_label6_config[8:8];
+     r32_mux_5_data[30:25] = o_label6_config[14:9];
+     r32_mux_5_data[31:31] = o_label6_config[15:15];
+    end
+   11'b01010111100:
+    begin
+     r32_mux_5_data[31:0] = o_label6_data7[31:0];
+    end
+   11'b01011000000:
+    begin
+     r32_mux_5_data[31:0] = o_label6_data6[31:0];
+    end
+   11'b01011000100:
+    begin
+     r32_mux_5_data[31:0] = o_label6_data5[31:0];
+    end
+   11'b01011001000:
+    begin
+     r32_mux_5_data[31:0] = o_label6_data4[31:0];
+    end
+   11'b01011001100:
+    begin
+     r32_mux_5_data[31:0] = o_label6_data3[31:0];
+    end
+   11'b01011010000:
+    begin
+     r32_mux_5_data[31:0] = o_label6_data2[31:0];
+    end
+   11'b01011010100:
+    begin
+     r32_mux_5_data[31:0] = o_label6_data1[31:0];
+    end
+   11'b01011011000:
+    begin
+     r32_mux_5_data[31:0] = o_label6_data0[31:0];
+    end
+   11'b01011100000:
+    begin
+     r32_mux_5_data[7:0] = o_label7_config[7:0];
+     r32_mux_5_data[8:8] = o_label7_config[8:8];
+     r32_mux_5_data[30:25] = o_label7_config[14:9];
+     r32_mux_5_data[31:31] = o_label7_config[15:15];
+    end
+   11'b01011100100:
+    begin
+     r32_mux_5_data[31:0] = o_label7_data7[31:0];
+    end
+   11'b01011101000:
+    begin
+     r32_mux_5_data[31:0] = o_label7_data6[31:0];
+    end
+   11'b01011101100:
+    begin
+     r32_mux_5_data[31:0] = o_label7_data5[31:0];
+    end
+  endcase
+  case (ws_read_addr)
+   11'b01011110000:
+    begin
+     r32_mux_6_data[31:0] = o_label7_data4[31:0];
+    end
+   11'b01011110100:
+    begin
+     r32_mux_6_data[31:0] = o_label7_data3[31:0];
+    end
+   11'b01011111000:
+    begin
+     r32_mux_6_data[31:0] = o_label7_data2[31:0];
+    end
+   11'b01011111100:
+    begin
+     r32_mux_6_data[31:0] = o_label7_data1[31:0];
+    end
+   11'b01100000000:
+    begin
+     r32_mux_6_data[31:0] = o_label7_data0[31:0];
+    end
+   11'b01100001000:
+    begin
+     r32_mux_6_data[1:0] = i_kdf_drbg_ctrl[1:0];
+    end
+   11'b01100001100:
+    begin
+     r32_mux_6_data[31:0] = o_kdf_drbg_seed_0_state_key_31_0[31:0];
+    end
+   11'b01100010000:
+    begin
+     r32_mux_6_data[31:0] = o_kdf_drbg_seed_0_state_key_63_32[31:0];
+    end
+   11'b01100010100:
+    begin
+     r32_mux_6_data[31:0] = o_kdf_drbg_seed_0_state_key_95_64[31:0];
+    end
+   11'b01100011000:
+    begin
+     r32_mux_6_data[31:0] = o_kdf_drbg_seed_0_state_key_127_96[31:0];
+    end
+   11'b01100011100:
+    begin
+     r32_mux_6_data[31:0] = o_kdf_drbg_seed_0_state_key_159_128[31:0];
+    end
+   11'b01100100000:
+    begin
+     r32_mux_6_data[31:0] = o_kdf_drbg_seed_0_state_key_191_160[31:0];
+    end
+   11'b01100100100:
+    begin
+     r32_mux_6_data[31:0] = o_kdf_drbg_seed_0_state_key_223_192[31:0];
+    end
+   11'b01100101000:
+    begin
+     r32_mux_6_data[31:0] = o_kdf_drbg_seed_0_state_key_255_224[31:0];
+    end
+   11'b01100101100:
+    begin
+     r32_mux_6_data[31:0] = o_kdf_drbg_seed_0_state_value_31_0[31:0];
+    end
+   11'b01100110000:
+    begin
+     r32_mux_6_data[31:0] = o_kdf_drbg_seed_0_state_value_63_32[31:0];
+    end
+   11'b01100110100:
+    begin
+     r32_mux_6_data[31:0] = o_kdf_drbg_seed_0_state_value_95_64[31:0];
+    end
+   11'b01100111000:
+    begin
+     r32_mux_6_data[31:0] = o_kdf_drbg_seed_0_state_value_127_96[31:0];
+    end
+   11'b01100111100:
+    begin
+     r32_mux_6_data[31:0] = o_kdf_drbg_seed_0_reseed_interval_0[31:0];
+    end
+   11'b01101000000:
+    begin
+     r32_mux_6_data[15:0] = o_kdf_drbg_seed_0_reseed_interval_1[15:0];
+    end
+   11'b01101000100:
+    begin
+     r32_mux_6_data[31:0] = o_kdf_drbg_seed_1_state_key_31_0[31:0];
+    end
+   11'b01101001000:
+    begin
+     r32_mux_6_data[31:0] = o_kdf_drbg_seed_1_state_key_63_32[31:0];
+    end
+   11'b01101001100:
+    begin
+     r32_mux_6_data[31:0] = o_kdf_drbg_seed_1_state_key_95_64[31:0];
+    end
+   11'b01101010000:
+    begin
+     r32_mux_6_data[31:0] = o_kdf_drbg_seed_1_state_key_127_96[31:0];
+    end
+   11'b01101010100:
+    begin
+     r32_mux_6_data[31:0] = o_kdf_drbg_seed_1_state_key_159_128[31:0];
+    end
+   11'b01101011000:
+    begin
+     r32_mux_6_data[31:0] = o_kdf_drbg_seed_1_state_key_191_160[31:0];
+    end
+   11'b01101011100:
+    begin
+     r32_mux_6_data[31:0] = o_kdf_drbg_seed_1_state_key_223_192[31:0];
+    end
+   11'b01101100000:
+    begin
+     r32_mux_6_data[31:0] = o_kdf_drbg_seed_1_state_key_255_224[31:0];
+    end
+   11'b01101100100:
+    begin
+     r32_mux_6_data[31:0] = o_kdf_drbg_seed_1_state_value_31_0[31:0];
+    end
+   11'b01101101000:
+    begin
+     r32_mux_6_data[31:0] = o_kdf_drbg_seed_1_state_value_63_32[31:0];
+    end
+  endcase
+  case (ws_read_addr)
+   11'b01101101100:
+    begin
+     r32_mux_7_data[31:0] = o_kdf_drbg_seed_1_state_value_95_64[31:0];
+    end
+   11'b01101110000:
+    begin
+     r32_mux_7_data[31:0] = o_kdf_drbg_seed_1_state_value_127_96[31:0];
+    end
+   11'b01101110100:
+    begin
+     r32_mux_7_data[31:0] = o_kdf_drbg_seed_1_reseed_interval_0[31:0];
+    end
+   11'b01101111000:
+    begin
+     r32_mux_7_data[15:0] = o_kdf_drbg_seed_1_reseed_interval_1[15:0];
+    end
+   11'b01101111100:
+    begin
+     r32_mux_7_data[0:0] = i_interrupt_status[0:0];
+     r32_mux_7_data[1:1] = i_interrupt_status[1:1];
+     r32_mux_7_data[2:2] = i_interrupt_status[2:2];
+     r32_mux_7_data[3:3] = i_interrupt_status[3:3];
+     r32_mux_7_data[4:4] = i_interrupt_status[4:4];
+    end
+   11'b01110000000:
+    begin
+     r32_mux_7_data[0:0] = o_interrupt_mask[0:0];
+     r32_mux_7_data[1:1] = o_interrupt_mask[1:1];
+     r32_mux_7_data[2:2] = o_interrupt_mask[2:2];
+     r32_mux_7_data[3:3] = o_interrupt_mask[3:3];
+     r32_mux_7_data[4:4] = o_interrupt_mask[4:4];
+    end
+   11'b01110000100:
+    begin
+     r32_mux_7_data[0:0] = i_engine_sticky_status[0:0];
+     r32_mux_7_data[1:1] = i_engine_sticky_status[1:1];
+     r32_mux_7_data[2:2] = i_engine_sticky_status[2:2];
+     r32_mux_7_data[3:3] = i_engine_sticky_status[3:3];
+     r32_mux_7_data[4:4] = i_engine_sticky_status[4:4];
+     r32_mux_7_data[5:5] = i_engine_sticky_status[5:5];
+     r32_mux_7_data[6:6] = i_engine_sticky_status[6:6];
+     r32_mux_7_data[7:7] = i_engine_sticky_status[7:7];
+    end
+   11'b01110001100:
+    begin
+     r32_mux_7_data[0:0] = i_bimc_monitor[0:0];
+     r32_mux_7_data[1:1] = i_bimc_monitor[1:1];
+     r32_mux_7_data[2:2] = i_bimc_monitor[2:2];
+     r32_mux_7_data[3:3] = i_bimc_monitor[3:3];
+     r32_mux_7_data[4:4] = i_bimc_monitor[4:4];
+     r32_mux_7_data[5:5] = i_bimc_monitor[5:5];
+     r32_mux_7_data[6:6] = i_bimc_monitor[6:6];
+    end
+   11'b01110010000:
+    begin
+     r32_mux_7_data[0:0] = o_bimc_monitor_mask[0:0];
+     r32_mux_7_data[1:1] = o_bimc_monitor_mask[1:1];
+     r32_mux_7_data[2:2] = o_bimc_monitor_mask[2:2];
+     r32_mux_7_data[3:3] = o_bimc_monitor_mask[3:3];
+     r32_mux_7_data[4:4] = o_bimc_monitor_mask[4:4];
+     r32_mux_7_data[5:5] = o_bimc_monitor_mask[5:5];
+     r32_mux_7_data[6:6] = o_bimc_monitor_mask[6:6];
+    end
+   11'b01110010100:
+    begin
+     r32_mux_7_data[31:0] = i_bimc_ecc_uncorrectable_error_cnt[31:0];
+    end
+   11'b01110011000:
+    begin
+     r32_mux_7_data[31:0] = i_bimc_ecc_correctable_error_cnt[31:0];
+    end
+   11'b01110011100:
+    begin
+     r32_mux_7_data[31:0] = i_bimc_parity_error_cnt[31:0];
+    end
+   11'b01110100000:
+    begin
+     r32_mux_7_data[0:0] = i_bimc_global_config[0:0];
+     r32_mux_7_data[1:1] = i_bimc_global_config[1:1];
+     r32_mux_7_data[2:2] = i_bimc_global_config[2:2];
+     r32_mux_7_data[3:3] = i_bimc_global_config[3:3];
+     r32_mux_7_data[4:4] = i_bimc_global_config[4:4];
+     r32_mux_7_data[5:5] = i_bimc_global_config[5:5];
+     r32_mux_7_data[31:6] = i_bimc_global_config[31:6];
+    end
+   11'b01110100100:
+    begin
+     r32_mux_7_data[11:0] = i_bimc_memid[11:0];
+    end
+   11'b01110101000:
+    begin
+     r32_mux_7_data[11:0] = i_bimc_eccpar_debug[11:0];
+     r32_mux_7_data[15:12] = i_bimc_eccpar_debug[15:12];
+     r32_mux_7_data[17:16] = i_bimc_eccpar_debug[17:16];
+     r32_mux_7_data[19:18] = i_bimc_eccpar_debug[19:18];
+     r32_mux_7_data[21:20] = i_bimc_eccpar_debug[21:20];
+     r32_mux_7_data[22:22] = i_bimc_eccpar_debug[22:22];
+     r32_mux_7_data[23:23] = i_bimc_eccpar_debug[23:23];
+     r32_mux_7_data[27:24] = i_bimc_eccpar_debug[27:24];
+     r32_mux_7_data[28:28] = i_bimc_eccpar_debug[28:28];
+    end
+   11'b01110101100:
+    begin
+     r32_mux_7_data[7:0] = i_bimc_cmd2[7:0];
+     r32_mux_7_data[8:8] = i_bimc_cmd2[8:8];
+     r32_mux_7_data[9:9] = i_bimc_cmd2[9:9];
+     r32_mux_7_data[10:10] = i_bimc_cmd2[10:10];
+    end
+   11'b01110110000:
+    begin
+     r32_mux_7_data[15:0] = o_bimc_cmd1[15:0];
+     r32_mux_7_data[27:16] = o_bimc_cmd1[27:16];
+     r32_mux_7_data[31:28] = o_bimc_cmd1[31:28];
+    end
+   11'b01110110100:
+    begin
+     r32_mux_7_data[31:0] = o_bimc_cmd0[31:0];
+    end
+   11'b01110111000:
+    begin
+     r32_mux_7_data[7:0] = i_bimc_rxcmd2[7:0];
+     r32_mux_7_data[8:8] = i_bimc_rxcmd2[8:8];
+     r32_mux_7_data[9:9] = i_bimc_rxcmd2[9:9];
+    end
+   11'b01110111100:
+    begin
+     r32_mux_7_data[15:0] = i_bimc_rxcmd1[15:0];
+     r32_mux_7_data[27:16] = i_bimc_rxcmd1[27:16];
+     r32_mux_7_data[31:28] = i_bimc_rxcmd1[31:28];
+    end
+   11'b01111000000:
+    begin
+     r32_mux_7_data[31:0] = i_bimc_rxcmd0[31:0];
+    end
+   11'b01111000100:
+    begin
+     r32_mux_7_data[7:0] = i_bimc_rxrsp2[7:0];
+     r32_mux_7_data[8:8] = i_bimc_rxrsp2[8:8];
+     r32_mux_7_data[9:9] = i_bimc_rxrsp2[9:9];
+    end
+   11'b01111001000:
+    begin
+     r32_mux_7_data[31:0] = i_bimc_rxrsp1[31:0];
+    end
+   11'b01111001100:
+    begin
+     r32_mux_7_data[31:0] = i_bimc_rxrsp0[31:0];
+    end
+   11'b01111010000:
+    begin
+     r32_mux_7_data[7:0] = i_bimc_pollrsp2[7:0];
+     r32_mux_7_data[8:8] = i_bimc_pollrsp2[8:8];
+     r32_mux_7_data[9:9] = i_bimc_pollrsp2[9:9];
+    end
+   11'b01111010100:
+    begin
+     r32_mux_7_data[31:0] = i_bimc_pollrsp1[31:0];
+    end
+   11'b01111011000:
+    begin
+     r32_mux_7_data[31:0] = i_bimc_pollrsp0[31:0];
+    end
+   11'b01111011100:
+    begin
+     r32_mux_7_data[7:0] = i_bimc_dbgcmd2[7:0];
+     r32_mux_7_data[8:8] = i_bimc_dbgcmd2[8:8];
+     r32_mux_7_data[9:9] = i_bimc_dbgcmd2[9:9];
+    end
+   11'b01111100000:
+    begin
+     r32_mux_7_data[15:0] = i_bimc_dbgcmd1[15:0];
+     r32_mux_7_data[27:16] = i_bimc_dbgcmd1[27:16];
+     r32_mux_7_data[31:28] = i_bimc_dbgcmd1[31:28];
+    end
+   11'b01111100100:
+    begin
+     r32_mux_7_data[31:0] = i_bimc_dbgcmd0[31:0];
+    end
+  endcase
+  case (ws_read_addr)
+   11'b01111101100:
+    begin
+     r32_mux_8_data[0:0] = i_im_available[0:0];
+     r32_mux_8_data[1:1] = i_im_available[1:1];
+     r32_mux_8_data[2:2] = i_im_available[2:2];
+     r32_mux_8_data[3:3] = i_im_available[3:3];
+     r32_mux_8_data[4:4] = i_im_available[4:4];
+     r32_mux_8_data[5:5] = i_im_available[5:5];
+     r32_mux_8_data[6:6] = i_im_available[6:6];
+     r32_mux_8_data[7:7] = i_im_available[7:7];
+     r32_mux_8_data[8:8] = i_im_available[8:8];
+     r32_mux_8_data[9:9] = i_im_available[9:9];
+     r32_mux_8_data[10:10] = i_im_available[10:10];
+     r32_mux_8_data[11:11] = i_im_available[11:11];
+     r32_mux_8_data[12:12] = i_im_available[12:12];
+     r32_mux_8_data[13:13] = i_im_available[13:13];
+     r32_mux_8_data[14:14] = i_im_available[14:14];
+     r32_mux_8_data[15:15] = i_im_available[15:15];
+    end
+   11'b01111110000:
+    begin
+     r32_mux_8_data[0:0] = i_im_consumed[0:0];
+     r32_mux_8_data[1:1] = i_im_consumed[1:1];
+     r32_mux_8_data[2:2] = i_im_consumed[2:2];
+     r32_mux_8_data[3:3] = i_im_consumed[3:3];
+     r32_mux_8_data[4:4] = i_im_consumed[4:4];
+     r32_mux_8_data[5:5] = i_im_consumed[5:5];
+     r32_mux_8_data[6:6] = i_im_consumed[6:6];
+     r32_mux_8_data[7:7] = i_im_consumed[7:7];
+     r32_mux_8_data[8:8] = i_im_consumed[8:8];
+     r32_mux_8_data[9:9] = i_im_consumed[9:9];
+     r32_mux_8_data[10:10] = i_im_consumed[10:10];
+     r32_mux_8_data[11:11] = i_im_consumed[11:11];
+     r32_mux_8_data[12:12] = i_im_consumed[12:12];
+     r32_mux_8_data[13:13] = i_im_consumed[13:13];
+     r32_mux_8_data[14:14] = i_im_consumed[14:14];
+     r32_mux_8_data[15:15] = i_im_consumed[15:15];
+    end
+   11'b01111110100:
+    begin
+     r32_mux_8_data[0:0] = i_tready_override[0:0];
+     r32_mux_8_data[1:1] = i_tready_override[1:1];
+     r32_mux_8_data[2:2] = i_tready_override[2:2];
+     r32_mux_8_data[3:3] = i_tready_override[3:3];
+     r32_mux_8_data[4:4] = i_tready_override[4:4];
+     r32_mux_8_data[5:5] = i_tready_override[5:5];
+     r32_mux_8_data[6:6] = i_tready_override[6:6];
+     r32_mux_8_data[7:7] = i_tready_override[7:7];
+     r32_mux_8_data[8:8] = i_tready_override[8:8];
+    end
+   11'b01111111000:
+    begin
+     r32_mux_8_data[0:0] = i_regs_sa_ctrl[0:0];
+     r32_mux_8_data[1:1] = i_regs_sa_ctrl[1:1];
+     r32_mux_8_data[7:2] = i_regs_sa_ctrl[7:2];
+     r32_mux_8_data[12:8] = i_regs_sa_ctrl[12:8];
+     r32_mux_8_data[31:13] = i_regs_sa_ctrl[31:13];
+    end
+   11'b01111111100:
+    begin
+     r32_mux_8_data[0:0] = i_sa_snapshot_ia_capability[0:0];
+     r32_mux_8_data[1:1] = i_sa_snapshot_ia_capability[1:1];
+     r32_mux_8_data[2:2] = i_sa_snapshot_ia_capability[2:2];
+     r32_mux_8_data[3:3] = i_sa_snapshot_ia_capability[3:3];
+     r32_mux_8_data[4:4] = i_sa_snapshot_ia_capability[4:4];
+     r32_mux_8_data[5:5] = i_sa_snapshot_ia_capability[5:5];
+     r32_mux_8_data[6:6] = i_sa_snapshot_ia_capability[6:6];
+     r32_mux_8_data[7:7] = i_sa_snapshot_ia_capability[7:7];
+     r32_mux_8_data[8:8] = i_sa_snapshot_ia_capability[8:8];
+     r32_mux_8_data[9:9] = i_sa_snapshot_ia_capability[9:9];
+     r32_mux_8_data[13:10] = i_sa_snapshot_ia_capability[13:10];
+     r32_mux_8_data[14:14] = i_sa_snapshot_ia_capability[14:14];
+     r32_mux_8_data[15:15] = i_sa_snapshot_ia_capability[15:15];
+     r32_mux_8_data[31:28] = i_sa_snapshot_ia_capability[19:16];
+    end
+   11'b10000000000:
+    begin
+     r32_mux_8_data[4:0] = i_sa_snapshot_ia_status[4:0];
+     r32_mux_8_data[28:24] = i_sa_snapshot_ia_status[9:5];
+     r32_mux_8_data[31:29] = i_sa_snapshot_ia_status[12:10];
+    end
+   11'b10000000100:
+    begin
+     r32_mux_8_data[17:0] = o_sa_snapshot_ia_wdata_part0[17:0];
+     r32_mux_8_data[31:18] = o_sa_snapshot_ia_wdata_part0[31:18];
+    end
+   11'b10000001000:
+    begin
+     r32_mux_8_data[31:0] = o_sa_snapshot_ia_wdata_part1[31:0];
+    end
+   11'b10000001100:
+    begin
+     r32_mux_8_data[4:0] = o_sa_snapshot_ia_config[4:0];
+     r32_mux_8_data[31:28] = o_sa_snapshot_ia_config[8:5];
+    end
+   11'b10000010000:
+    begin
+     r32_mux_8_data[17:0] = i_sa_snapshot_ia_rdata_part0[17:0];
+     r32_mux_8_data[31:18] = i_sa_snapshot_ia_rdata_part0[31:18];
+    end
+   11'b10000010100:
+    begin
+     r32_mux_8_data[31:0] = i_sa_snapshot_ia_rdata_part1[31:0];
+    end
+   11'b10000011000:
+    begin
+     r32_mux_8_data[0:0] = i_sa_count_ia_capability[0:0];
+     r32_mux_8_data[1:1] = i_sa_count_ia_capability[1:1];
+     r32_mux_8_data[2:2] = i_sa_count_ia_capability[2:2];
+     r32_mux_8_data[3:3] = i_sa_count_ia_capability[3:3];
+     r32_mux_8_data[4:4] = i_sa_count_ia_capability[4:4];
+     r32_mux_8_data[5:5] = i_sa_count_ia_capability[5:5];
+     r32_mux_8_data[6:6] = i_sa_count_ia_capability[6:6];
+     r32_mux_8_data[7:7] = i_sa_count_ia_capability[7:7];
+     r32_mux_8_data[8:8] = i_sa_count_ia_capability[8:8];
+     r32_mux_8_data[9:9] = i_sa_count_ia_capability[9:9];
+     r32_mux_8_data[13:10] = i_sa_count_ia_capability[13:10];
+     r32_mux_8_data[14:14] = i_sa_count_ia_capability[14:14];
+     r32_mux_8_data[15:15] = i_sa_count_ia_capability[15:15];
+     r32_mux_8_data[31:28] = i_sa_count_ia_capability[19:16];
+    end
+   11'b10000011100:
+    begin
+     r32_mux_8_data[4:0] = i_sa_count_ia_status[4:0];
+     r32_mux_8_data[28:24] = i_sa_count_ia_status[9:5];
+     r32_mux_8_data[31:29] = i_sa_count_ia_status[12:10];
+    end
+   11'b10000100000:
+    begin
+     r32_mux_8_data[17:0] = o_sa_count_ia_wdata_part0[17:0];
+     r32_mux_8_data[31:18] = o_sa_count_ia_wdata_part0[31:18];
+    end
+   11'b10000100100:
+    begin
+     r32_mux_8_data[31:0] = o_sa_count_ia_wdata_part1[31:0];
+    end
+   11'b10000101000:
+    begin
+     r32_mux_8_data[4:0] = o_sa_count_ia_config[4:0];
+     r32_mux_8_data[31:28] = o_sa_count_ia_config[8:5];
+    end
+   11'b10000101100:
+    begin
+     r32_mux_8_data[17:0] = i_sa_count_ia_rdata_part0[17:0];
+     r32_mux_8_data[31:18] = i_sa_count_ia_rdata_part0[31:18];
+    end
+   11'b10000110000:
+    begin
+     r32_mux_8_data[31:0] = i_sa_count_ia_rdata_part1[31:0];
+    end
+   11'b10000110100:
+    begin
+     r32_mux_8_data[0:0] = i_idle_components[0:0];
+     r32_mux_8_data[1:1] = i_idle_components[1:1];
+     r32_mux_8_data[2:2] = i_idle_components[2:2];
+     r32_mux_8_data[3:3] = i_idle_components[3:3];
+     r32_mux_8_data[4:4] = i_idle_components[4:4];
+     r32_mux_8_data[5:5] = i_idle_components[5:5];
+     r32_mux_8_data[6:6] = i_idle_components[6:6];
+     r32_mux_8_data[7:7] = i_idle_components[7:7];
+     r32_mux_8_data[8:8] = i_idle_components[8:8];
+     r32_mux_8_data[9:9] = i_idle_components[9:9];
+     r32_mux_8_data[10:10] = i_idle_components[10:10];
+     r32_mux_8_data[11:11] = i_idle_components[11:11];
+     r32_mux_8_data[31:12] = i_idle_components[31:12];
+    end
+   11'b10000111000:
+    begin
+     r32_mux_8_data[0:0] = o_cceip_encrypt_kop_fifo_override[0:0];
+     r32_mux_8_data[1:1] = o_cceip_encrypt_kop_fifo_override[1:1];
+     r32_mux_8_data[2:2] = o_cceip_encrypt_kop_fifo_override[2:2];
+     r32_mux_8_data[3:3] = o_cceip_encrypt_kop_fifo_override[3:3];
+     r32_mux_8_data[4:4] = o_cceip_encrypt_kop_fifo_override[4:4];
+     r32_mux_8_data[5:5] = o_cceip_encrypt_kop_fifo_override[5:5];
+     r32_mux_8_data[6:6] = o_cceip_encrypt_kop_fifo_override[6:6];
+    end
+   11'b10000111100:
+    begin
+     r32_mux_8_data[0:0] = o_cceip_validate_kop_fifo_override[0:0];
+     r32_mux_8_data[1:1] = o_cceip_validate_kop_fifo_override[1:1];
+     r32_mux_8_data[2:2] = o_cceip_validate_kop_fifo_override[2:2];
+     r32_mux_8_data[3:3] = o_cceip_validate_kop_fifo_override[3:3];
+     r32_mux_8_data[4:4] = o_cceip_validate_kop_fifo_override[4:4];
+     r32_mux_8_data[5:5] = o_cceip_validate_kop_fifo_override[5:5];
+     r32_mux_8_data[6:6] = o_cceip_validate_kop_fifo_override[6:6];
+    end
+   11'b10001000000:
+    begin
+     r32_mux_8_data[0:0] = o_cddip_decrypt_kop_fifo_override[0:0];
+     r32_mux_8_data[1:1] = o_cddip_decrypt_kop_fifo_override[1:1];
+     r32_mux_8_data[2:2] = o_cddip_decrypt_kop_fifo_override[2:2];
+     r32_mux_8_data[3:3] = o_cddip_decrypt_kop_fifo_override[3:3];
+     r32_mux_8_data[4:4] = o_cddip_decrypt_kop_fifo_override[4:4];
+     r32_mux_8_data[5:5] = o_cddip_decrypt_kop_fifo_override[5:5];
+     r32_mux_8_data[6:6] = o_cddip_decrypt_kop_fifo_override[6:6];
+    end
+   11'b10001000100:
+    begin
+     r32_mux_8_data[0:0] = i_sa_global_ctrl[0:0];
+     r32_mux_8_data[1:1] = i_sa_global_ctrl[1:1];
+     r32_mux_8_data[31:2] = i_sa_global_ctrl[31:2];
+    end
+   11'b10001001000:
+    begin
+     r32_mux_8_data[0:0] = i_sa_ctrl_ia_capability[0:0];
+     r32_mux_8_data[1:1] = i_sa_ctrl_ia_capability[1:1];
+     r32_mux_8_data[2:2] = i_sa_ctrl_ia_capability[2:2];
+     r32_mux_8_data[3:3] = i_sa_ctrl_ia_capability[3:3];
+     r32_mux_8_data[4:4] = i_sa_ctrl_ia_capability[4:4];
+     r32_mux_8_data[5:5] = i_sa_ctrl_ia_capability[5:5];
+     r32_mux_8_data[6:6] = i_sa_ctrl_ia_capability[6:6];
+     r32_mux_8_data[7:7] = i_sa_ctrl_ia_capability[7:7];
+     r32_mux_8_data[8:8] = i_sa_ctrl_ia_capability[8:8];
+     r32_mux_8_data[9:9] = i_sa_ctrl_ia_capability[9:9];
+     r32_mux_8_data[13:10] = i_sa_ctrl_ia_capability[13:10];
+     r32_mux_8_data[14:14] = i_sa_ctrl_ia_capability[14:14];
+     r32_mux_8_data[15:15] = i_sa_ctrl_ia_capability[15:15];
+     r32_mux_8_data[31:28] = i_sa_ctrl_ia_capability[19:16];
+    end
+   11'b10001001100:
+    begin
+     r32_mux_8_data[4:0] = i_sa_ctrl_ia_status[4:0];
+     r32_mux_8_data[28:24] = i_sa_ctrl_ia_status[9:5];
+     r32_mux_8_data[31:29] = i_sa_ctrl_ia_status[12:10];
+    end
+   11'b10001010000:
+    begin
+     r32_mux_8_data[4:0] = o_sa_ctrl_ia_wdata_part0[4:0];
+     r32_mux_8_data[31:5] = o_sa_ctrl_ia_wdata_part0[31:5];
+    end
+   11'b10001010100:
+    begin
+     r32_mux_8_data[4:0] = o_sa_ctrl_ia_config[4:0];
+     r32_mux_8_data[31:28] = o_sa_ctrl_ia_config[8:5];
+    end
+   11'b10001011000:
+    begin
+     r32_mux_8_data[4:0] = i_sa_ctrl_ia_rdata_part0[4:0];
+     r32_mux_8_data[31:5] = i_sa_ctrl_ia_rdata_part0[31:5];
+    end
+   11'b10001011100:
+    begin
+     r32_mux_8_data[31:0] = o_kdf_test_key_size_config[31:0];
+    end
+  endcase
+ end
 always_ff 
  @(posedge clk or negedge i_reset_)
   begin
    if (( ~i_reset_ ))
     begin
-     o_spare_config[31:0] <= 32'b0;
-     o_cceip0_out_ia_wdata_part0[5:0] <= 6'b0;
-     o_cceip0_out_ia_wdata_part1[31:0] <= 32'b0;
-     o_cceip0_out_ia_wdata_part2[31:0] <= 32'b0;
-     o_cceip0_out_ia_config[8:0] <= 9'b0;
-     o_cceip0_out_ia_config[12:9] <= 4'b0;
-     o_cceip0_out_im_config[9:0] <= 10'b1000000000;
-     o_cceip0_out_im_config[11:10] <= 2'b11;
-     o_cceip0_out_im_read_done[0:0] <= 1'b0;
-     o_cceip0_out_im_read_done[1:1] <= 1'b0;
-     o_cceip1_out_ia_wdata_part0[5:0] <= 6'b0;
-     o_cceip1_out_ia_wdata_part1[31:0] <= 32'b0;
-     o_cceip1_out_ia_wdata_part2[31:0] <= 32'b0;
-     o_cceip1_out_ia_config[8:0] <= 9'b0;
-     o_cceip1_out_ia_config[12:9] <= 4'b0;
-     o_cceip1_out_im_config[9:0] <= 10'b1000000000;
-     o_cceip1_out_im_config[11:10] <= 2'b11;
-     o_cceip1_out_im_read_done[0:0] <= 1'b0;
-     o_cceip1_out_im_read_done[1:1] <= 1'b0;
-     o_cceip2_out_ia_wdata_part0[5:0] <= 6'b0;
-     o_cceip2_out_ia_wdata_part1[31:0] <= 32'b0;
-     o_cceip2_out_ia_wdata_part2[31:0] <= 32'b0;
-     o_cceip2_out_ia_config[8:0] <= 9'b0;
-     o_cceip2_out_ia_config[12:9] <= 4'b0;
-     o_cceip2_out_im_config[9:0] <= 10'b1000000000;
-     o_cceip2_out_im_config[11:10] <= 2'b11;
-     o_cceip2_out_im_read_done[0:0] <= 1'b0;
-     o_cceip2_out_im_read_done[1:1] <= 1'b0;
-     o_cceip3_out_ia_wdata_part0[5:0] <= 6'b0;
-     o_cceip3_out_ia_wdata_part1[31:0] <= 32'b0;
-     o_cceip3_out_ia_wdata_part2[31:0] <= 32'b0;
-     o_cceip3_out_ia_config[8:0] <= 9'b0;
-     o_cceip3_out_ia_config[12:9] <= 4'b0;
-     o_cceip3_out_im_config[9:0] <= 10'b1000000000;
-     o_cceip3_out_im_config[11:10] <= 2'b11;
-     o_cceip3_out_im_read_done[0:0] <= 1'b0;
-     o_cceip3_out_im_read_done[1:1] <= 1'b0;
-     o_cddip0_out_ia_wdata_part0[5:0] <= 6'b0;
-     o_cddip0_out_ia_wdata_part1[31:0] <= 32'b0;
-     o_cddip0_out_ia_wdata_part2[31:0] <= 32'b0;
-     o_cddip0_out_ia_config[8:0] <= 9'b0;
-     o_cddip0_out_ia_config[12:9] <= 4'b0;
-     o_cddip0_out_im_config[9:0] <= 10'b1000000000;
-     o_cddip0_out_im_config[11:10] <= 2'b11;
-     o_cddip0_out_im_read_done[0:0] <= 1'b0;
-     o_cddip0_out_im_read_done[1:1] <= 1'b0;
-     o_cddip1_out_ia_wdata_part0[5:0] <= 6'b0;
-     o_cddip1_out_ia_wdata_part1[31:0] <= 32'b0;
-     o_cddip1_out_ia_wdata_part2[31:0] <= 32'b0;
-     o_cddip1_out_ia_config[8:0] <= 9'b0;
-     o_cddip1_out_ia_config[12:9] <= 4'b0;
-     o_cddip1_out_im_config[9:0] <= 10'b1000000000;
-     o_cddip1_out_im_config[11:10] <= 2'b11;
-     o_cddip1_out_im_read_done[0:0] <= 1'b0;
-     o_cddip1_out_im_read_done[1:1] <= 1'b0;
-     o_cddip2_out_ia_wdata_part0[5:0] <= 6'b0;
-     o_cddip2_out_ia_wdata_part1[31:0] <= 32'b0;
-     o_cddip2_out_ia_wdata_part2[31:0] <= 32'b0;
-     o_cddip2_out_ia_config[8:0] <= 9'b0;
-     o_cddip2_out_ia_config[12:9] <= 4'b0;
-     o_cddip2_out_im_config[9:0] <= 10'b1000000000;
-     o_cddip2_out_im_config[11:10] <= 2'b11;
-     o_cddip2_out_im_read_done[0:0] <= 1'b0;
-     o_cddip2_out_im_read_done[1:1] <= 1'b0;
-     o_cddip3_out_ia_wdata_part0[5:0] <= 6'b0;
-     o_cddip3_out_ia_wdata_part1[31:0] <= 32'b0;
-     o_cddip3_out_ia_wdata_part2[31:0] <= 32'b0;
-     o_cddip3_out_ia_config[8:0] <= 9'b0;
-     o_cddip3_out_ia_config[12:9] <= 4'b0;
-     o_cddip3_out_im_config[9:0] <= 10'b1000000000;
-     o_cddip3_out_im_config[11:10] <= 2'b11;
-     o_cddip3_out_im_read_done[0:0] <= 1'b0;
-     o_cddip3_out_im_read_done[1:1] <= 1'b0;
-     o_ckv_ia_wdata_part0[31:0] <= 32'b0;
-     o_ckv_ia_wdata_part1[31:0] <= 32'b0;
-     o_ckv_ia_config[14:0] <= 15'b0;
-     o_ckv_ia_config[18:15] <= 4'b0;
-     o_kim_ia_wdata_part0[14:0] <= 15'b0;
-     o_kim_ia_wdata_part0[16:15] <= 2'b0;
-     o_kim_ia_wdata_part0[19:17] <= 3'b0;
-     o_kim_ia_wdata_part0[20:20] <= 1'b0;
-     o_kim_ia_wdata_part1[0:0] <= 1'b0;
-     o_kim_ia_wdata_part1[12:1] <= 12'b0;
-     o_kim_ia_wdata_part1[16:13] <= 4'b0;
-     o_kim_ia_config[13:0] <= 14'b0;
-     o_kim_ia_config[17:14] <= 4'b0;
-     o_label0_config[7:0] <= 8'b0;
-     o_label0_config[8:8] <= 1'b1;
-     o_label0_config[14:9] <= 6'b0;
-     o_label0_config[15:15] <= 1'b0;
-     o_label0_data7[31:0] <= 32'b0;
-     o_label0_data6[31:0] <= 32'b0;
-     o_label0_data5[31:0] <= 32'b0;
-     o_label0_data4[31:0] <= 32'b0;
-     o_label0_data3[31:0] <= 32'b0;
-     o_label0_data2[31:0] <= 32'b0;
-     o_label0_data1[31:0] <= 32'b0;
-     o_label0_data0[31:0] <= 32'b0;
-     o_label1_config[7:0] <= 8'b0;
-     o_label1_config[8:8] <= 1'b1;
-     o_label1_config[14:9] <= 6'b0;
-     o_label1_config[15:15] <= 1'b0;
-     o_label1_data7[31:0] <= 32'b0;
-     o_label1_data6[31:0] <= 32'b0;
-     o_label1_data5[31:0] <= 32'b0;
-     o_label1_data4[31:0] <= 32'b0;
-     o_label1_data3[31:0] <= 32'b0;
-     o_label1_data2[31:0] <= 32'b0;
-     o_label1_data1[31:0] <= 32'b0;
-     o_label1_data0[31:0] <= 32'b0;
-     o_label2_config[7:0] <= 8'b0;
-     o_label2_config[8:8] <= 1'b1;
-     o_label2_config[14:9] <= 6'b0;
-     o_label2_config[15:15] <= 1'b0;
-     o_label2_data7[31:0] <= 32'b0;
-     o_label2_data6[31:0] <= 32'b0;
-     o_label2_data5[31:0] <= 32'b0;
-     o_label2_data4[31:0] <= 32'b0;
-     o_label2_data3[31:0] <= 32'b0;
-     o_label2_data2[31:0] <= 32'b0;
-     o_label2_data1[31:0] <= 32'b0;
-     o_label2_data0[31:0] <= 32'b0;
-     o_label3_config[7:0] <= 8'b0;
-     o_label3_config[8:8] <= 1'b1;
-     o_label3_config[14:9] <= 6'b0;
-     o_label3_config[15:15] <= 1'b0;
-     o_label3_data7[31:0] <= 32'b0;
-     o_label3_data6[31:0] <= 32'b0;
-     o_label3_data5[31:0] <= 32'b0;
-     o_label3_data4[31:0] <= 32'b0;
-     o_label3_data3[31:0] <= 32'b0;
-     o_label3_data2[31:0] <= 32'b0;
-     o_label3_data1[31:0] <= 32'b0;
-     o_label3_data0[31:0] <= 32'b0;
-     o_label4_config[7:0] <= 8'b0;
-     o_label4_config[8:8] <= 1'b1;
-     o_label4_config[14:9] <= 6'b0;
-     o_label4_config[15:15] <= 1'b0;
-     o_label4_data7[31:0] <= 32'b0;
-     o_label4_data6[31:0] <= 32'b0;
-     o_label4_data5[31:0] <= 32'b0;
-     o_label4_data4[31:0] <= 32'b0;
-     o_label4_data3[31:0] <= 32'b0;
-     o_label4_data2[31:0] <= 32'b0;
-     o_label4_data1[31:0] <= 32'b0;
-     o_label4_data0[31:0] <= 32'b0;
-     o_label5_config[7:0] <= 8'b0;
-     o_label5_config[8:8] <= 1'b1;
-     o_label5_config[14:9] <= 6'b0;
-     o_label5_config[15:15] <= 1'b0;
-     o_label5_data7[31:0] <= 32'b0;
-     o_label5_data6[31:0] <= 32'b0;
-     o_label5_data5[31:0] <= 32'b0;
-     o_label5_data4[31:0] <= 32'b0;
-     o_label5_data3[31:0] <= 32'b0;
-     o_label5_data2[31:0] <= 32'b0;
-     o_label5_data1[31:0] <= 32'b0;
-     o_label5_data0[31:0] <= 32'b0;
-     o_label6_config[7:0] <= 8'b0;
-     o_label6_config[8:8] <= 1'b1;
-     o_label6_config[14:9] <= 6'b0;
-     o_label6_config[15:15] <= 1'b0;
-     o_label6_data7[31:0] <= 32'b0;
-     o_label6_data6[31:0] <= 32'b0;
-     o_label6_data5[31:0] <= 32'b0;
-     o_label6_data4[31:0] <= 32'b0;
-     o_label6_data3[31:0] <= 32'b0;
-     o_label6_data2[31:0] <= 32'b0;
-     o_label6_data1[31:0] <= 32'b0;
-     o_label6_data0[31:0] <= 32'b0;
-     o_label7_config[7:0] <= 8'b0;
-     o_label7_config[8:8] <= 1'b1;
-     o_label7_config[14:9] <= 6'b0;
-     o_label7_config[15:15] <= 1'b0;
-     o_label7_data7[31:0] <= 32'b0;
-     o_label7_data6[31:0] <= 32'b0;
-     o_label7_data5[31:0] <= 32'b0;
-     o_label7_data4[31:0] <= 32'b0;
-     o_label7_data3[31:0] <= 32'b0;
-     o_label7_data2[31:0] <= 32'b0;
-     o_label7_data1[31:0] <= 32'b0;
-     o_label7_data0[31:0] <= 32'b0;
-     o_kdf_drbg_ctrl[1:0] <= 2'b0;
-     o_kdf_drbg_seed_0_state_key_31_0[31:0] <= 32'b0;
-     o_kdf_drbg_seed_0_state_key_63_32[31:0] <= 32'b0;
-     o_kdf_drbg_seed_0_state_key_95_64[31:0] <= 32'b0;
-     o_kdf_drbg_seed_0_state_key_127_96[31:0] <= 32'b0;
-     o_kdf_drbg_seed_0_state_key_159_128[31:0] <= 32'b0;
-     o_kdf_drbg_seed_0_state_key_191_160[31:0] <= 32'b0;
-     o_kdf_drbg_seed_0_state_key_223_192[31:0] <= 32'b0;
-     o_kdf_drbg_seed_0_state_key_255_224[31:0] <= 32'b0;
-     o_kdf_drbg_seed_0_state_value_31_0[31:0] <= 32'b0;
-     o_kdf_drbg_seed_0_state_value_63_32[31:0] <= 32'b0;
-     o_kdf_drbg_seed_0_state_value_95_64[31:0] <= 32'b0;
-     o_kdf_drbg_seed_0_state_value_127_96[31:0] <= 32'b0;
-     o_kdf_drbg_seed_0_reseed_interval_0[31:0] <= 32'b0;
-     o_kdf_drbg_seed_0_reseed_interval_1[15:0] <= 16'b0;
-     o_kdf_drbg_seed_1_state_key_31_0[31:0] <= 32'b0;
-     o_kdf_drbg_seed_1_state_key_63_32[31:0] <= 32'b0;
-     o_kdf_drbg_seed_1_state_key_95_64[31:0] <= 32'b0;
-     o_kdf_drbg_seed_1_state_key_127_96[31:0] <= 32'b0;
-     o_kdf_drbg_seed_1_state_key_159_128[31:0] <= 32'b0;
-     o_kdf_drbg_seed_1_state_key_191_160[31:0] <= 32'b0;
-     o_kdf_drbg_seed_1_state_key_223_192[31:0] <= 32'b0;
-     o_kdf_drbg_seed_1_state_key_255_224[31:0] <= 32'b0;
-     o_kdf_drbg_seed_1_state_value_31_0[31:0] <= 32'b0;
-     o_kdf_drbg_seed_1_state_value_63_32[31:0] <= 32'b0;
-     o_kdf_drbg_seed_1_state_value_95_64[31:0] <= 32'b0;
-     o_kdf_drbg_seed_1_state_value_127_96[31:0] <= 32'b0;
-     o_kdf_drbg_seed_1_reseed_interval_0[31:0] <= 32'b0;
-     o_kdf_drbg_seed_1_reseed_interval_1[15:0] <= 16'b0;
-     o_interrupt_status[0:0] <= 1'b0;
-     o_interrupt_status[1:1] <= 1'b0;
-     o_interrupt_status[2:2] <= 1'b0;
-     o_interrupt_status[3:3] <= 1'b0;
-     o_interrupt_status[4:4] <= 1'b0;
-     o_interrupt_mask[0:0] <= 1'b0;
-     o_interrupt_mask[1:1] <= 1'b0;
-     o_interrupt_mask[2:2] <= 1'b0;
-     o_interrupt_mask[3:3] <= 1'b0;
-     o_interrupt_mask[4:4] <= 1'b0;
-     o_engine_sticky_status[0:0] <= 1'b0;
-     o_engine_sticky_status[1:1] <= 1'b0;
-     o_engine_sticky_status[2:2] <= 1'b0;
-     o_engine_sticky_status[3:3] <= 1'b0;
-     o_engine_sticky_status[4:4] <= 1'b0;
-     o_engine_sticky_status[5:5] <= 1'b0;
-     o_engine_sticky_status[6:6] <= 1'b0;
-     o_engine_sticky_status[7:7] <= 1'b0;
-     o_bimc_monitor_mask[0:0] <= 1'b0;
-     o_bimc_monitor_mask[1:1] <= 1'b0;
-     o_bimc_monitor_mask[2:2] <= 1'b0;
-     o_bimc_monitor_mask[3:3] <= 1'b0;
-     o_bimc_monitor_mask[4:4] <= 1'b0;
-     o_bimc_monitor_mask[5:5] <= 1'b0;
-     o_bimc_monitor_mask[6:6] <= 1'b0;
-     o_bimc_ecc_uncorrectable_error_cnt[31:0] <= 32'b0;
-     o_bimc_ecc_correctable_error_cnt[31:0] <= 32'b0;
-     o_bimc_parity_error_cnt[31:0] <= 32'b0;
-     o_bimc_global_config[0:0] <= 1'b1;
-     o_bimc_global_config[1:1] <= 1'b0;
-     o_bimc_global_config[2:2] <= 1'b0;
-     o_bimc_global_config[3:3] <= 1'b0;
-     o_bimc_global_config[4:4] <= 1'b0;
-     o_bimc_global_config[5:5] <= 1'b0;
-     o_bimc_global_config[31:6] <= 26'b0;
-     o_bimc_eccpar_debug[11:0] <= 12'b0;
-     o_bimc_eccpar_debug[15:12] <= 4'b0;
-     o_bimc_eccpar_debug[17:16] <= 2'b0;
-     o_bimc_eccpar_debug[19:18] <= 2'b0;
-     o_bimc_eccpar_debug[21:20] <= 2'b0;
-     o_bimc_eccpar_debug[22:22] <= 1'b0;
-     o_bimc_eccpar_debug[23:23] <= 1'b0;
-     o_bimc_eccpar_debug[27:24] <= 4'b0;
-     o_bimc_eccpar_debug[28:28] <= 1'b0;
-     o_bimc_cmd2[7:0] <= 8'b0;
-     o_bimc_cmd2[8:8] <= 1'b0;
-     o_bimc_cmd2[9:9] <= 1'b0;
-     o_bimc_cmd2[10:10] <= 1'b0;
-     o_bimc_cmd1[15:0] <= 16'b0;
-     o_bimc_cmd1[27:16] <= 12'b0;
-     o_bimc_cmd1[31:28] <= 4'b0;
-     o_bimc_cmd0[31:0] <= 32'b0;
-     o_bimc_rxcmd2[7:0] <= 8'b0;
-     o_bimc_rxcmd2[8:8] <= 1'b0;
-     o_bimc_rxrsp2[7:0] <= 8'b0;
-     o_bimc_rxrsp2[8:8] <= 1'b0;
-     o_bimc_pollrsp2[7:0] <= 8'b0;
-     o_bimc_pollrsp2[8:8] <= 1'b0;
-     o_bimc_dbgcmd2[7:0] <= 8'b0;
-     o_bimc_dbgcmd2[8:8] <= 1'b0;
-     o_im_consumed[0:0] <= 1'b0;
-     o_im_consumed[1:1] <= 1'b0;
-     o_im_consumed[2:2] <= 1'b0;
-     o_im_consumed[3:3] <= 1'b0;
-     o_im_consumed[4:4] <= 1'b0;
-     o_im_consumed[5:5] <= 1'b0;
-     o_im_consumed[6:6] <= 1'b0;
-     o_im_consumed[7:7] <= 1'b0;
-     o_im_consumed[8:8] <= 1'b0;
-     o_im_consumed[9:9] <= 1'b0;
-     o_im_consumed[10:10] <= 1'b0;
-     o_im_consumed[11:11] <= 1'b0;
-     o_im_consumed[12:12] <= 1'b0;
-     o_im_consumed[13:13] <= 1'b0;
-     o_im_consumed[14:14] <= 1'b0;
-     o_im_consumed[15:15] <= 1'b0;
-     o_tready_override[0:0] <= 1'b0;
-     o_tready_override[1:1] <= 1'b0;
-     o_tready_override[2:2] <= 1'b0;
-     o_tready_override[3:3] <= 1'b0;
-     o_tready_override[4:4] <= 1'b0;
-     o_tready_override[5:5] <= 1'b0;
-     o_tready_override[6:6] <= 1'b0;
-     o_tready_override[7:7] <= 1'b0;
-     o_tready_override[8:8] <= 1'b0;
-     o_regs_sa_ctrl[0:0] <= 1'b0;
-     o_regs_sa_ctrl[1:1] <= 1'b0;
-     o_regs_sa_ctrl[7:2] <= 6'b0;
-     o_regs_sa_ctrl[12:8] <= 5'b0;
-     o_regs_sa_ctrl[31:13] <= 19'b0;
-     o_sa_snapshot_ia_wdata_part0[17:0] <= 18'b0;
-     o_sa_snapshot_ia_wdata_part0[31:18] <= 14'b0;
-     o_sa_snapshot_ia_wdata_part1[31:0] <= 32'b0;
-     o_sa_snapshot_ia_config[4:0] <= 5'b0;
-     o_sa_snapshot_ia_config[8:5] <= 4'b0;
-     o_sa_count_ia_wdata_part0[17:0] <= 18'b0;
-     o_sa_count_ia_wdata_part0[31:18] <= 14'b0;
-     o_sa_count_ia_wdata_part1[31:0] <= 32'b0;
-     o_sa_count_ia_config[4:0] <= 5'b0;
-     o_sa_count_ia_config[8:5] <= 4'b0;
-     o_cceip_encrypt_kop_fifo_override[0:0] <= 1'b0;
-     o_cceip_encrypt_kop_fifo_override[1:1] <= 1'b0;
-     o_cceip_encrypt_kop_fifo_override[2:2] <= 1'b0;
-     o_cceip_encrypt_kop_fifo_override[3:3] <= 1'b0;
-     o_cceip_encrypt_kop_fifo_override[4:4] <= 1'b0;
-     o_cceip_encrypt_kop_fifo_override[5:5] <= 1'b0;
-     o_cceip_encrypt_kop_fifo_override[6:6] <= 1'b0;
-     o_cceip_validate_kop_fifo_override[0:0] <= 1'b0;
-     o_cceip_validate_kop_fifo_override[1:1] <= 1'b0;
-     o_cceip_validate_kop_fifo_override[2:2] <= 1'b0;
-     o_cceip_validate_kop_fifo_override[3:3] <= 1'b0;
-     o_cceip_validate_kop_fifo_override[4:4] <= 1'b0;
-     o_cceip_validate_kop_fifo_override[5:5] <= 1'b0;
-     o_cceip_validate_kop_fifo_override[6:6] <= 1'b0;
-     o_cddip_decrypt_kop_fifo_override[0:0] <= 1'b0;
-     o_cddip_decrypt_kop_fifo_override[1:1] <= 1'b0;
-     o_cddip_decrypt_kop_fifo_override[2:2] <= 1'b0;
-     o_cddip_decrypt_kop_fifo_override[3:3] <= 1'b0;
-     o_cddip_decrypt_kop_fifo_override[4:4] <= 1'b0;
-     o_cddip_decrypt_kop_fifo_override[5:5] <= 1'b0;
-     o_cddip_decrypt_kop_fifo_override[6:6] <= 1'b0;
-     o_sa_global_ctrl[0:0] <= 1'b0;
-     o_sa_global_ctrl[1:1] <= 1'b0;
-     o_sa_global_ctrl[31:2] <= 30'b0;
-     o_sa_ctrl_ia_wdata_part0[4:0] <= 5'b0;
-     o_sa_ctrl_ia_wdata_part0[31:5] <= 27'b0;
-     o_sa_ctrl_ia_config[4:0] <= 5'b0;
-     o_sa_ctrl_ia_config[8:5] <= 4'b0;
-     o_kdf_test_key_size_config[31:0] <= 32'b0;
+     f_state <= 3'b0;
+     f_ack <= 1'b0;
+     f_err_ack <= 1'b0;
+     f_prev_do_read <= 1'b0;
+     o_reg_addr <= 11'b0;
+     o_reg_written <= 1'b0;
+     o_reg_read <= 1'b0;
+     f32_mux_0_data <= 32'b0;
+     f32_mux_1_data <= 32'b0;
+     f32_mux_2_data <= 32'b0;
+     f32_mux_3_data <= 32'b0;
+     f32_mux_4_data <= 32'b0;
+     f32_mux_5_data <= 32'b0;
+     f32_mux_6_data <= 32'b0;
+     f32_mux_7_data <= 32'b0;
+     f32_mux_8_data <= 32'b0;
     end
    else
     if (i_sw_init)
      begin
-      o_spare_config[31:0] <= 32'b0;
-      o_cceip0_out_ia_wdata_part0[5:0] <= 6'b0;
-      o_cceip0_out_ia_wdata_part1[31:0] <= 32'b0;
-      o_cceip0_out_ia_wdata_part2[31:0] <= 32'b0;
-      o_cceip0_out_ia_config[8:0] <= 9'b0;
-      o_cceip0_out_ia_config[12:9] <= 4'b0;
-      o_cceip0_out_im_config[9:0] <= 10'b1000000000;
-      o_cceip0_out_im_config[11:10] <= 2'b11;
-      o_cceip0_out_im_read_done[0:0] <= 1'b0;
-      o_cceip0_out_im_read_done[1:1] <= 1'b0;
-      o_cceip1_out_ia_wdata_part0[5:0] <= 6'b0;
-      o_cceip1_out_ia_wdata_part1[31:0] <= 32'b0;
-      o_cceip1_out_ia_wdata_part2[31:0] <= 32'b0;
-      o_cceip1_out_ia_config[8:0] <= 9'b0;
-      o_cceip1_out_ia_config[12:9] <= 4'b0;
-      o_cceip1_out_im_config[9:0] <= 10'b1000000000;
-      o_cceip1_out_im_config[11:10] <= 2'b11;
-      o_cceip1_out_im_read_done[0:0] <= 1'b0;
-      o_cceip1_out_im_read_done[1:1] <= 1'b0;
-      o_cceip2_out_ia_wdata_part0[5:0] <= 6'b0;
-      o_cceip2_out_ia_wdata_part1[31:0] <= 32'b0;
-      o_cceip2_out_ia_wdata_part2[31:0] <= 32'b0;
-      o_cceip2_out_ia_config[8:0] <= 9'b0;
-      o_cceip2_out_ia_config[12:9] <= 4'b0;
-      o_cceip2_out_im_config[9:0] <= 10'b1000000000;
-      o_cceip2_out_im_config[11:10] <= 2'b11;
-      o_cceip2_out_im_read_done[0:0] <= 1'b0;
-      o_cceip2_out_im_read_done[1:1] <= 1'b0;
-      o_cceip3_out_ia_wdata_part0[5:0] <= 6'b0;
-      o_cceip3_out_ia_wdata_part1[31:0] <= 32'b0;
-      o_cceip3_out_ia_wdata_part2[31:0] <= 32'b0;
-      o_cceip3_out_ia_config[8:0] <= 9'b0;
-      o_cceip3_out_ia_config[12:9] <= 4'b0;
-      o_cceip3_out_im_config[9:0] <= 10'b1000000000;
-      o_cceip3_out_im_config[11:10] <= 2'b11;
-      o_cceip3_out_im_read_done[0:0] <= 1'b0;
-      o_cceip3_out_im_read_done[1:1] <= 1'b0;
-      o_cddip0_out_ia_wdata_part0[5:0] <= 6'b0;
-      o_cddip0_out_ia_wdata_part1[31:0] <= 32'b0;
-      o_cddip0_out_ia_wdata_part2[31:0] <= 32'b0;
-      o_cddip0_out_ia_config[8:0] <= 9'b0;
-      o_cddip0_out_ia_config[12:9] <= 4'b0;
-      o_cddip0_out_im_config[9:0] <= 10'b1000000000;
-      o_cddip0_out_im_config[11:10] <= 2'b11;
-      o_cddip0_out_im_read_done[0:0] <= 1'b0;
-      o_cddip0_out_im_read_done[1:1] <= 1'b0;
-      o_cddip1_out_ia_wdata_part0[5:0] <= 6'b0;
-      o_cddip1_out_ia_wdata_part1[31:0] <= 32'b0;
-      o_cddip1_out_ia_wdata_part2[31:0] <= 32'b0;
-      o_cddip1_out_ia_config[8:0] <= 9'b0;
-      o_cddip1_out_ia_config[12:9] <= 4'b0;
-      o_cddip1_out_im_config[9:0] <= 10'b1000000000;
-      o_cddip1_out_im_config[11:10] <= 2'b11;
-      o_cddip1_out_im_read_done[0:0] <= 1'b0;
-      o_cddip1_out_im_read_done[1:1] <= 1'b0;
-      o_cddip2_out_ia_wdata_part0[5:0] <= 6'b0;
-      o_cddip2_out_ia_wdata_part1[31:0] <= 32'b0;
-      o_cddip2_out_ia_wdata_part2[31:0] <= 32'b0;
-      o_cddip2_out_ia_config[8:0] <= 9'b0;
-      o_cddip2_out_ia_config[12:9] <= 4'b0;
-      o_cddip2_out_im_config[9:0] <= 10'b1000000000;
-      o_cddip2_out_im_config[11:10] <= 2'b11;
-      o_cddip2_out_im_read_done[0:0] <= 1'b0;
-      o_cddip2_out_im_read_done[1:1] <= 1'b0;
-      o_cddip3_out_ia_wdata_part0[5:0] <= 6'b0;
-      o_cddip3_out_ia_wdata_part1[31:0] <= 32'b0;
-      o_cddip3_out_ia_wdata_part2[31:0] <= 32'b0;
-      o_cddip3_out_ia_config[8:0] <= 9'b0;
-      o_cddip3_out_ia_config[12:9] <= 4'b0;
-      o_cddip3_out_im_config[9:0] <= 10'b1000000000;
-      o_cddip3_out_im_config[11:10] <= 2'b11;
-      o_cddip3_out_im_read_done[0:0] <= 1'b0;
-      o_cddip3_out_im_read_done[1:1] <= 1'b0;
-      o_ckv_ia_wdata_part0[31:0] <= 32'b0;
-      o_ckv_ia_wdata_part1[31:0] <= 32'b0;
-      o_ckv_ia_config[14:0] <= 15'b0;
-      o_ckv_ia_config[18:15] <= 4'b0;
-      o_kim_ia_wdata_part0[14:0] <= 15'b0;
-      o_kim_ia_wdata_part0[16:15] <= 2'b0;
-      o_kim_ia_wdata_part0[19:17] <= 3'b0;
-      o_kim_ia_wdata_part0[20:20] <= 1'b0;
-      o_kim_ia_wdata_part1[0:0] <= 1'b0;
-      o_kim_ia_wdata_part1[12:1] <= 12'b0;
-      o_kim_ia_wdata_part1[16:13] <= 4'b0;
-      o_kim_ia_config[13:0] <= 14'b0;
-      o_kim_ia_config[17:14] <= 4'b0;
-      o_label0_config[7:0] <= 8'b0;
-      o_label0_config[8:8] <= 1'b1;
-      o_label0_config[14:9] <= 6'b0;
-      o_label0_config[15:15] <= 1'b0;
-      o_label0_data7[31:0] <= 32'b0;
-      o_label0_data6[31:0] <= 32'b0;
-      o_label0_data5[31:0] <= 32'b0;
-      o_label0_data4[31:0] <= 32'b0;
-      o_label0_data3[31:0] <= 32'b0;
-      o_label0_data2[31:0] <= 32'b0;
-      o_label0_data1[31:0] <= 32'b0;
-      o_label0_data0[31:0] <= 32'b0;
-      o_label1_config[7:0] <= 8'b0;
-      o_label1_config[8:8] <= 1'b1;
-      o_label1_config[14:9] <= 6'b0;
-      o_label1_config[15:15] <= 1'b0;
-      o_label1_data7[31:0] <= 32'b0;
-      o_label1_data6[31:0] <= 32'b0;
-      o_label1_data5[31:0] <= 32'b0;
-      o_label1_data4[31:0] <= 32'b0;
-      o_label1_data3[31:0] <= 32'b0;
-      o_label1_data2[31:0] <= 32'b0;
-      o_label1_data1[31:0] <= 32'b0;
-      o_label1_data0[31:0] <= 32'b0;
-      o_label2_config[7:0] <= 8'b0;
-      o_label2_config[8:8] <= 1'b1;
-      o_label2_config[14:9] <= 6'b0;
-      o_label2_config[15:15] <= 1'b0;
-      o_label2_data7[31:0] <= 32'b0;
-      o_label2_data6[31:0] <= 32'b0;
-      o_label2_data5[31:0] <= 32'b0;
-      o_label2_data4[31:0] <= 32'b0;
-      o_label2_data3[31:0] <= 32'b0;
-      o_label2_data2[31:0] <= 32'b0;
-      o_label2_data1[31:0] <= 32'b0;
-      o_label2_data0[31:0] <= 32'b0;
-      o_label3_config[7:0] <= 8'b0;
-      o_label3_config[8:8] <= 1'b1;
-      o_label3_config[14:9] <= 6'b0;
-      o_label3_config[15:15] <= 1'b0;
-      o_label3_data7[31:0] <= 32'b0;
-      o_label3_data6[31:0] <= 32'b0;
-      o_label3_data5[31:0] <= 32'b0;
-      o_label3_data4[31:0] <= 32'b0;
-      o_label3_data3[31:0] <= 32'b0;
-      o_label3_data2[31:0] <= 32'b0;
-      o_label3_data1[31:0] <= 32'b0;
-      o_label3_data0[31:0] <= 32'b0;
-      o_label4_config[7:0] <= 8'b0;
-      o_label4_config[8:8] <= 1'b1;
-      o_label4_config[14:9] <= 6'b0;
-      o_label4_config[15:15] <= 1'b0;
-      o_label4_data7[31:0] <= 32'b0;
-      o_label4_data6[31:0] <= 32'b0;
-      o_label4_data5[31:0] <= 32'b0;
-      o_label4_data4[31:0] <= 32'b0;
-      o_label4_data3[31:0] <= 32'b0;
-      o_label4_data2[31:0] <= 32'b0;
-      o_label4_data1[31:0] <= 32'b0;
-      o_label4_data0[31:0] <= 32'b0;
-      o_label5_config[7:0] <= 8'b0;
-      o_label5_config[8:8] <= 1'b1;
-      o_label5_config[14:9] <= 6'b0;
-      o_label5_config[15:15] <= 1'b0;
-      o_label5_data7[31:0] <= 32'b0;
-      o_label5_data6[31:0] <= 32'b0;
-      o_label5_data5[31:0] <= 32'b0;
-      o_label5_data4[31:0] <= 32'b0;
-      o_label5_data3[31:0] <= 32'b0;
-      o_label5_data2[31:0] <= 32'b0;
-      o_label5_data1[31:0] <= 32'b0;
-      o_label5_data0[31:0] <= 32'b0;
-      o_label6_config[7:0] <= 8'b0;
-      o_label6_config[8:8] <= 1'b1;
-      o_label6_config[14:9] <= 6'b0;
-      o_label6_config[15:15] <= 1'b0;
-      o_label6_data7[31:0] <= 32'b0;
-      o_label6_data6[31:0] <= 32'b0;
-      o_label6_data5[31:0] <= 32'b0;
-      o_label6_data4[31:0] <= 32'b0;
-      o_label6_data3[31:0] <= 32'b0;
-      o_label6_data2[31:0] <= 32'b0;
-      o_label6_data1[31:0] <= 32'b0;
-      o_label6_data0[31:0] <= 32'b0;
-      o_label7_config[7:0] <= 8'b0;
-      o_label7_config[8:8] <= 1'b1;
-      o_label7_config[14:9] <= 6'b0;
-      o_label7_config[15:15] <= 1'b0;
-      o_label7_data7[31:0] <= 32'b0;
-      o_label7_data6[31:0] <= 32'b0;
-      o_label7_data5[31:0] <= 32'b0;
-      o_label7_data4[31:0] <= 32'b0;
-      o_label7_data3[31:0] <= 32'b0;
-      o_label7_data2[31:0] <= 32'b0;
-      o_label7_data1[31:0] <= 32'b0;
-      o_label7_data0[31:0] <= 32'b0;
-      o_kdf_drbg_ctrl[1:0] <= 2'b0;
-      o_kdf_drbg_seed_0_state_key_31_0[31:0] <= 32'b0;
-      o_kdf_drbg_seed_0_state_key_63_32[31:0] <= 32'b0;
-      o_kdf_drbg_seed_0_state_key_95_64[31:0] <= 32'b0;
-      o_kdf_drbg_seed_0_state_key_127_96[31:0] <= 32'b0;
-      o_kdf_drbg_seed_0_state_key_159_128[31:0] <= 32'b0;
-      o_kdf_drbg_seed_0_state_key_191_160[31:0] <= 32'b0;
-      o_kdf_drbg_seed_0_state_key_223_192[31:0] <= 32'b0;
-      o_kdf_drbg_seed_0_state_key_255_224[31:0] <= 32'b0;
-      o_kdf_drbg_seed_0_state_value_31_0[31:0] <= 32'b0;
-      o_kdf_drbg_seed_0_state_value_63_32[31:0] <= 32'b0;
-      o_kdf_drbg_seed_0_state_value_95_64[31:0] <= 32'b0;
-      o_kdf_drbg_seed_0_state_value_127_96[31:0] <= 32'b0;
-      o_kdf_drbg_seed_0_reseed_interval_0[31:0] <= 32'b0;
-      o_kdf_drbg_seed_0_reseed_interval_1[15:0] <= 16'b0;
-      o_kdf_drbg_seed_1_state_key_31_0[31:0] <= 32'b0;
-      o_kdf_drbg_seed_1_state_key_63_32[31:0] <= 32'b0;
-      o_kdf_drbg_seed_1_state_key_95_64[31:0] <= 32'b0;
-      o_kdf_drbg_seed_1_state_key_127_96[31:0] <= 32'b0;
-      o_kdf_drbg_seed_1_state_key_159_128[31:0] <= 32'b0;
-      o_kdf_drbg_seed_1_state_key_191_160[31:0] <= 32'b0;
-      o_kdf_drbg_seed_1_state_key_223_192[31:0] <= 32'b0;
-      o_kdf_drbg_seed_1_state_key_255_224[31:0] <= 32'b0;
-      o_kdf_drbg_seed_1_state_value_31_0[31:0] <= 32'b0;
-      o_kdf_drbg_seed_1_state_value_63_32[31:0] <= 32'b0;
-      o_kdf_drbg_seed_1_state_value_95_64[31:0] <= 32'b0;
-      o_kdf_drbg_seed_1_state_value_127_96[31:0] <= 32'b0;
-      o_kdf_drbg_seed_1_reseed_interval_0[31:0] <= 32'b0;
-      o_kdf_drbg_seed_1_reseed_interval_1[15:0] <= 16'b0;
-      o_interrupt_status[0:0] <= 1'b0;
-      o_interrupt_status[1:1] <= 1'b0;
-      o_interrupt_status[2:2] <= 1'b0;
-      o_interrupt_status[3:3] <= 1'b0;
-      o_interrupt_status[4:4] <= 1'b0;
-      o_interrupt_mask[0:0] <= 1'b0;
-      o_interrupt_mask[1:1] <= 1'b0;
-      o_interrupt_mask[2:2] <= 1'b0;
-      o_interrupt_mask[3:3] <= 1'b0;
-      o_interrupt_mask[4:4] <= 1'b0;
-      o_engine_sticky_status[0:0] <= 1'b0;
-      o_engine_sticky_status[1:1] <= 1'b0;
-      o_engine_sticky_status[2:2] <= 1'b0;
-      o_engine_sticky_status[3:3] <= 1'b0;
-      o_engine_sticky_status[4:4] <= 1'b0;
-      o_engine_sticky_status[5:5] <= 1'b0;
-      o_engine_sticky_status[6:6] <= 1'b0;
-      o_engine_sticky_status[7:7] <= 1'b0;
-      o_bimc_monitor_mask[0:0] <= 1'b0;
-      o_bimc_monitor_mask[1:1] <= 1'b0;
-      o_bimc_monitor_mask[2:2] <= 1'b0;
-      o_bimc_monitor_mask[3:3] <= 1'b0;
-      o_bimc_monitor_mask[4:4] <= 1'b0;
-      o_bimc_monitor_mask[5:5] <= 1'b0;
-      o_bimc_monitor_mask[6:6] <= 1'b0;
-      o_bimc_ecc_uncorrectable_error_cnt[31:0] <= 32'b0;
-      o_bimc_ecc_correctable_error_cnt[31:0] <= 32'b0;
-      o_bimc_parity_error_cnt[31:0] <= 32'b0;
-      o_bimc_global_config[0:0] <= 1'b1;
-      o_bimc_global_config[1:1] <= 1'b0;
-      o_bimc_global_config[2:2] <= 1'b0;
-      o_bimc_global_config[3:3] <= 1'b0;
-      o_bimc_global_config[4:4] <= 1'b0;
-      o_bimc_global_config[5:5] <= 1'b0;
-      o_bimc_global_config[31:6] <= 26'b0;
-      o_bimc_eccpar_debug[11:0] <= 12'b0;
-      o_bimc_eccpar_debug[15:12] <= 4'b0;
-      o_bimc_eccpar_debug[17:16] <= 2'b0;
-      o_bimc_eccpar_debug[19:18] <= 2'b0;
-      o_bimc_eccpar_debug[21:20] <= 2'b0;
-      o_bimc_eccpar_debug[22:22] <= 1'b0;
-      o_bimc_eccpar_debug[23:23] <= 1'b0;
-      o_bimc_eccpar_debug[27:24] <= 4'b0;
-      o_bimc_eccpar_debug[28:28] <= 1'b0;
-      o_bimc_cmd2[7:0] <= 8'b0;
-      o_bimc_cmd2[8:8] <= 1'b0;
-      o_bimc_cmd2[9:9] <= 1'b0;
-      o_bimc_cmd2[10:10] <= 1'b0;
-      o_bimc_cmd1[15:0] <= 16'b0;
-      o_bimc_cmd1[27:16] <= 12'b0;
-      o_bimc_cmd1[31:28] <= 4'b0;
-      o_bimc_cmd0[31:0] <= 32'b0;
-      o_bimc_rxcmd2[7:0] <= 8'b0;
-      o_bimc_rxcmd2[8:8] <= 1'b0;
-      o_bimc_rxrsp2[7:0] <= 8'b0;
-      o_bimc_rxrsp2[8:8] <= 1'b0;
-      o_bimc_pollrsp2[7:0] <= 8'b0;
-      o_bimc_pollrsp2[8:8] <= 1'b0;
-      o_bimc_dbgcmd2[7:0] <= 8'b0;
-      o_bimc_dbgcmd2[8:8] <= 1'b0;
-      o_im_consumed[0:0] <= 1'b0;
-      o_im_consumed[1:1] <= 1'b0;
-      o_im_consumed[2:2] <= 1'b0;
-      o_im_consumed[3:3] <= 1'b0;
-      o_im_consumed[4:4] <= 1'b0;
-      o_im_consumed[5:5] <= 1'b0;
-      o_im_consumed[6:6] <= 1'b0;
-      o_im_consumed[7:7] <= 1'b0;
-      o_im_consumed[8:8] <= 1'b0;
-      o_im_consumed[9:9] <= 1'b0;
-      o_im_consumed[10:10] <= 1'b0;
-      o_im_consumed[11:11] <= 1'b0;
-      o_im_consumed[12:12] <= 1'b0;
-      o_im_consumed[13:13] <= 1'b0;
-      o_im_consumed[14:14] <= 1'b0;
-      o_im_consumed[15:15] <= 1'b0;
-      o_tready_override[0:0] <= 1'b0;
-      o_tready_override[1:1] <= 1'b0;
-      o_tready_override[2:2] <= 1'b0;
-      o_tready_override[3:3] <= 1'b0;
-      o_tready_override[4:4] <= 1'b0;
-      o_tready_override[5:5] <= 1'b0;
-      o_tready_override[6:6] <= 1'b0;
-      o_tready_override[7:7] <= 1'b0;
-      o_tready_override[8:8] <= 1'b0;
-      o_regs_sa_ctrl[0:0] <= 1'b0;
-      o_regs_sa_ctrl[1:1] <= 1'b0;
-      o_regs_sa_ctrl[7:2] <= 6'b0;
-      o_regs_sa_ctrl[12:8] <= 5'b0;
-      o_regs_sa_ctrl[31:13] <= 19'b0;
-      o_sa_snapshot_ia_wdata_part0[17:0] <= 18'b0;
-      o_sa_snapshot_ia_wdata_part0[31:18] <= 14'b0;
-      o_sa_snapshot_ia_wdata_part1[31:0] <= 32'b0;
-      o_sa_snapshot_ia_config[4:0] <= 5'b0;
-      o_sa_snapshot_ia_config[8:5] <= 4'b0;
-      o_sa_count_ia_wdata_part0[17:0] <= 18'b0;
-      o_sa_count_ia_wdata_part0[31:18] <= 14'b0;
-      o_sa_count_ia_wdata_part1[31:0] <= 32'b0;
-      o_sa_count_ia_config[4:0] <= 5'b0;
-      o_sa_count_ia_config[8:5] <= 4'b0;
-      o_cceip_encrypt_kop_fifo_override[0:0] <= 1'b0;
-      o_cceip_encrypt_kop_fifo_override[1:1] <= 1'b0;
-      o_cceip_encrypt_kop_fifo_override[2:2] <= 1'b0;
-      o_cceip_encrypt_kop_fifo_override[3:3] <= 1'b0;
-      o_cceip_encrypt_kop_fifo_override[4:4] <= 1'b0;
-      o_cceip_encrypt_kop_fifo_override[5:5] <= 1'b0;
-      o_cceip_encrypt_kop_fifo_override[6:6] <= 1'b0;
-      o_cceip_validate_kop_fifo_override[0:0] <= 1'b0;
-      o_cceip_validate_kop_fifo_override[1:1] <= 1'b0;
-      o_cceip_validate_kop_fifo_override[2:2] <= 1'b0;
-      o_cceip_validate_kop_fifo_override[3:3] <= 1'b0;
-      o_cceip_validate_kop_fifo_override[4:4] <= 1'b0;
-      o_cceip_validate_kop_fifo_override[5:5] <= 1'b0;
-      o_cceip_validate_kop_fifo_override[6:6] <= 1'b0;
-      o_cddip_decrypt_kop_fifo_override[0:0] <= 1'b0;
-      o_cddip_decrypt_kop_fifo_override[1:1] <= 1'b0;
-      o_cddip_decrypt_kop_fifo_override[2:2] <= 1'b0;
-      o_cddip_decrypt_kop_fifo_override[3:3] <= 1'b0;
-      o_cddip_decrypt_kop_fifo_override[4:4] <= 1'b0;
-      o_cddip_decrypt_kop_fifo_override[5:5] <= 1'b0;
-      o_cddip_decrypt_kop_fifo_override[6:6] <= 1'b0;
-      o_sa_global_ctrl[0:0] <= 1'b0;
-      o_sa_global_ctrl[1:1] <= 1'b0;
-      o_sa_global_ctrl[31:2] <= 30'b0;
-      o_sa_ctrl_ia_wdata_part0[4:0] <= 5'b0;
-      o_sa_ctrl_ia_wdata_part0[31:5] <= 27'b0;
-      o_sa_ctrl_ia_config[4:0] <= 5'b0;
-      o_sa_ctrl_ia_config[8:5] <= 4'b0;
-      o_kdf_test_key_size_config[31:0] <= 32'b0;
+      f_state <= 3'b0;
+      f_ack <= 1'b0;
+      f_err_ack <= 1'b0;
+      f_prev_do_read <= 1'b0;
+      o_reg_addr <= 11'b0;
+      o_reg_written <= 1'b0;
+      o_reg_read <= 1'b0;
+      f32_mux_0_data <= 32'b0;
+      f32_mux_1_data <= 32'b0;
+      f32_mux_2_data <= 32'b0;
+      f32_mux_3_data <= 32'b0;
+      f32_mux_4_data <= 32'b0;
+      f32_mux_5_data <= 32'b0;
+      f32_mux_6_data <= 32'b0;
+      f32_mux_7_data <= 32'b0;
+      f32_mux_8_data <= 32'b0;
      end
     else
      begin
-      if (w_load_spare_config)
-       o_spare_config[31:0] <= f32_data[31:0];
-      if (w_load_cceip0_out_ia_wdata_part0)
-       o_cceip0_out_ia_wdata_part0[5:0] <= f32_data[5:0];
-      if (w_load_cceip0_out_ia_wdata_part1)
-       o_cceip0_out_ia_wdata_part1[31:0] <= f32_data[31:0];
-      if (w_load_cceip0_out_ia_wdata_part2)
-       o_cceip0_out_ia_wdata_part2[31:0] <= f32_data[31:0];
-      if (w_load_cceip0_out_ia_config)
-       o_cceip0_out_ia_config[8:0] <= f32_data[8:0];
-      if (w_load_cceip0_out_ia_config)
-       o_cceip0_out_ia_config[12:9] <= f32_data[31:28];
-      if (w_load_cceip0_out_im_config)
-       o_cceip0_out_im_config[9:0] <= f32_data[9:0];
-      if (w_load_cceip0_out_im_config)
-       o_cceip0_out_im_config[11:10] <= f32_data[31:30];
-      if (w_load_cceip0_out_im_read_done)
-       o_cceip0_out_im_read_done[0:0] <= f32_data[30:30];
-      if (w_load_cceip0_out_im_read_done)
-       o_cceip0_out_im_read_done[1:1] <= f32_data[31:31];
-      if (w_load_cceip1_out_ia_wdata_part0)
-       o_cceip1_out_ia_wdata_part0[5:0] <= f32_data[5:0];
-      if (w_load_cceip1_out_ia_wdata_part1)
-       o_cceip1_out_ia_wdata_part1[31:0] <= f32_data[31:0];
-      if (w_load_cceip1_out_ia_wdata_part2)
-       o_cceip1_out_ia_wdata_part2[31:0] <= f32_data[31:0];
-      if (w_load_cceip1_out_ia_config)
-       o_cceip1_out_ia_config[8:0] <= f32_data[8:0];
-      if (w_load_cceip1_out_ia_config)
-       o_cceip1_out_ia_config[12:9] <= f32_data[31:28];
-      if (w_load_cceip1_out_im_config)
-       o_cceip1_out_im_config[9:0] <= f32_data[9:0];
-      if (w_load_cceip1_out_im_config)
-       o_cceip1_out_im_config[11:10] <= f32_data[31:30];
-      if (w_load_cceip1_out_im_read_done)
-       o_cceip1_out_im_read_done[0:0] <= f32_data[30:30];
-      if (w_load_cceip1_out_im_read_done)
-       o_cceip1_out_im_read_done[1:1] <= f32_data[31:31];
-      if (w_load_cceip2_out_ia_wdata_part0)
-       o_cceip2_out_ia_wdata_part0[5:0] <= f32_data[5:0];
-      if (w_load_cceip2_out_ia_wdata_part1)
-       o_cceip2_out_ia_wdata_part1[31:0] <= f32_data[31:0];
-      if (w_load_cceip2_out_ia_wdata_part2)
-       o_cceip2_out_ia_wdata_part2[31:0] <= f32_data[31:0];
-      if (w_load_cceip2_out_ia_config)
-       o_cceip2_out_ia_config[8:0] <= f32_data[8:0];
-      if (w_load_cceip2_out_ia_config)
-       o_cceip2_out_ia_config[12:9] <= f32_data[31:28];
-      if (w_load_cceip2_out_im_config)
-       o_cceip2_out_im_config[9:0] <= f32_data[9:0];
-      if (w_load_cceip2_out_im_config)
-       o_cceip2_out_im_config[11:10] <= f32_data[31:30];
-      if (w_load_cceip2_out_im_read_done)
-       o_cceip2_out_im_read_done[0:0] <= f32_data[30:30];
-      if (w_load_cceip2_out_im_read_done)
-       o_cceip2_out_im_read_done[1:1] <= f32_data[31:31];
-      if (w_load_cceip3_out_ia_wdata_part0)
-       o_cceip3_out_ia_wdata_part0[5:0] <= f32_data[5:0];
-      if (w_load_cceip3_out_ia_wdata_part1)
-       o_cceip3_out_ia_wdata_part1[31:0] <= f32_data[31:0];
-      if (w_load_cceip3_out_ia_wdata_part2)
-       o_cceip3_out_ia_wdata_part2[31:0] <= f32_data[31:0];
-      if (w_load_cceip3_out_ia_config)
-       o_cceip3_out_ia_config[8:0] <= f32_data[8:0];
-      if (w_load_cceip3_out_ia_config)
-       o_cceip3_out_ia_config[12:9] <= f32_data[31:28];
-      if (w_load_cceip3_out_im_config)
-       o_cceip3_out_im_config[9:0] <= f32_data[9:0];
-      if (w_load_cceip3_out_im_config)
-       o_cceip3_out_im_config[11:10] <= f32_data[31:30];
-      if (w_load_cceip3_out_im_read_done)
-       o_cceip3_out_im_read_done[0:0] <= f32_data[30:30];
-      if (w_load_cceip3_out_im_read_done)
-       o_cceip3_out_im_read_done[1:1] <= f32_data[31:31];
-      if (w_load_cddip0_out_ia_wdata_part0)
-       o_cddip0_out_ia_wdata_part0[5:0] <= f32_data[5:0];
-      if (w_load_cddip0_out_ia_wdata_part1)
-       o_cddip0_out_ia_wdata_part1[31:0] <= f32_data[31:0];
-      if (w_load_cddip0_out_ia_wdata_part2)
-       o_cddip0_out_ia_wdata_part2[31:0] <= f32_data[31:0];
-      if (w_load_cddip0_out_ia_config)
-       o_cddip0_out_ia_config[8:0] <= f32_data[8:0];
-      if (w_load_cddip0_out_ia_config)
-       o_cddip0_out_ia_config[12:9] <= f32_data[31:28];
-      if (w_load_cddip0_out_im_config)
-       o_cddip0_out_im_config[9:0] <= f32_data[9:0];
-      if (w_load_cddip0_out_im_config)
-       o_cddip0_out_im_config[11:10] <= f32_data[31:30];
-      if (w_load_cddip0_out_im_read_done)
-       o_cddip0_out_im_read_done[0:0] <= f32_data[30:30];
-      if (w_load_cddip0_out_im_read_done)
-       o_cddip0_out_im_read_done[1:1] <= f32_data[31:31];
-      if (w_load_cddip1_out_ia_wdata_part0)
-       o_cddip1_out_ia_wdata_part0[5:0] <= f32_data[5:0];
-      if (w_load_cddip1_out_ia_wdata_part1)
-       o_cddip1_out_ia_wdata_part1[31:0] <= f32_data[31:0];
-      if (w_load_cddip1_out_ia_wdata_part2)
-       o_cddip1_out_ia_wdata_part2[31:0] <= f32_data[31:0];
-      if (w_load_cddip1_out_ia_config)
-       o_cddip1_out_ia_config[8:0] <= f32_data[8:0];
-      if (w_load_cddip1_out_ia_config)
-       o_cddip1_out_ia_config[12:9] <= f32_data[31:28];
-      if (w_load_cddip1_out_im_config)
-       o_cddip1_out_im_config[9:0] <= f32_data[9:0];
-      if (w_load_cddip1_out_im_config)
-       o_cddip1_out_im_config[11:10] <= f32_data[31:30];
-      if (w_load_cddip1_out_im_read_done)
-       o_cddip1_out_im_read_done[0:0] <= f32_data[30:30];
-      if (w_load_cddip1_out_im_read_done)
-       o_cddip1_out_im_read_done[1:1] <= f32_data[31:31];
-      if (w_load_cddip2_out_ia_wdata_part0)
-       o_cddip2_out_ia_wdata_part0[5:0] <= f32_data[5:0];
-      if (w_load_cddip2_out_ia_wdata_part1)
-       o_cddip2_out_ia_wdata_part1[31:0] <= f32_data[31:0];
-      if (w_load_cddip2_out_ia_wdata_part2)
-       o_cddip2_out_ia_wdata_part2[31:0] <= f32_data[31:0];
-      if (w_load_cddip2_out_ia_config)
-       o_cddip2_out_ia_config[8:0] <= f32_data[8:0];
-      if (w_load_cddip2_out_ia_config)
-       o_cddip2_out_ia_config[12:9] <= f32_data[31:28];
-      if (w_load_cddip2_out_im_config)
-       o_cddip2_out_im_config[9:0] <= f32_data[9:0];
-      if (w_load_cddip2_out_im_config)
-       o_cddip2_out_im_config[11:10] <= f32_data[31:30];
-      if (w_load_cddip2_out_im_read_done)
-       o_cddip2_out_im_read_done[0:0] <= f32_data[30:30];
-      if (w_load_cddip2_out_im_read_done)
-       o_cddip2_out_im_read_done[1:1] <= f32_data[31:31];
-      if (w_load_cddip3_out_ia_wdata_part0)
-       o_cddip3_out_ia_wdata_part0[5:0] <= f32_data[5:0];
-      if (w_load_cddip3_out_ia_wdata_part1)
-       o_cddip3_out_ia_wdata_part1[31:0] <= f32_data[31:0];
-      if (w_load_cddip3_out_ia_wdata_part2)
-       o_cddip3_out_ia_wdata_part2[31:0] <= f32_data[31:0];
-      if (w_load_cddip3_out_ia_config)
-       o_cddip3_out_ia_config[8:0] <= f32_data[8:0];
-      if (w_load_cddip3_out_ia_config)
-       o_cddip3_out_ia_config[12:9] <= f32_data[31:28];
-      if (w_load_cddip3_out_im_config)
-       o_cddip3_out_im_config[9:0] <= f32_data[9:0];
-      if (w_load_cddip3_out_im_config)
-       o_cddip3_out_im_config[11:10] <= f32_data[31:30];
-      if (w_load_cddip3_out_im_read_done)
-       o_cddip3_out_im_read_done[0:0] <= f32_data[30:30];
-      if (w_load_cddip3_out_im_read_done)
-       o_cddip3_out_im_read_done[1:1] <= f32_data[31:31];
-      if (w_load_ckv_ia_wdata_part0)
-       o_ckv_ia_wdata_part0[31:0] <= f32_data[31:0];
-      if (w_load_ckv_ia_wdata_part1)
-       o_ckv_ia_wdata_part1[31:0] <= f32_data[31:0];
-      if (w_load_ckv_ia_config)
-       o_ckv_ia_config[14:0] <= f32_data[14:0];
-      if (w_load_ckv_ia_config)
-       o_ckv_ia_config[18:15] <= f32_data[31:28];
-      if (w_load_kim_ia_wdata_part0)
-       o_kim_ia_wdata_part0[14:0] <= f32_data[14:0];
-      if (w_load_kim_ia_wdata_part0)
-       o_kim_ia_wdata_part0[16:15] <= f32_data[27:26];
-      if (w_load_kim_ia_wdata_part0)
-       o_kim_ia_wdata_part0[19:17] <= f32_data[30:28];
-      if (w_load_kim_ia_wdata_part0)
-       o_kim_ia_wdata_part0[20:20] <= f32_data[31:31];
-      if (w_load_kim_ia_wdata_part1)
-       o_kim_ia_wdata_part1[0:0] <= f32_data[0:0];
-      if (w_load_kim_ia_wdata_part1)
-       o_kim_ia_wdata_part1[12:1] <= f32_data[12:1];
-      if (w_load_kim_ia_wdata_part1)
-       o_kim_ia_wdata_part1[16:13] <= f32_data[31:28];
-      if (w_load_kim_ia_config)
-       o_kim_ia_config[13:0] <= f32_data[13:0];
-      if (w_load_kim_ia_config)
-       o_kim_ia_config[17:14] <= f32_data[31:28];
-      if (w_load_label0_config)
-       o_label0_config[7:0] <= f32_data[7:0];
-      if (w_load_label0_config)
-       o_label0_config[8:8] <= f32_data[8:8];
-      if (w_load_label0_config)
-       o_label0_config[14:9] <= f32_data[30:25];
-      if (w_load_label0_config)
-       o_label0_config[15:15] <= f32_data[31:31];
-      if (w_load_label0_data7)
-       o_label0_data7[31:0] <= f32_data[31:0];
-      if (w_load_label0_data6)
-       o_label0_data6[31:0] <= f32_data[31:0];
-      if (w_load_label0_data5)
-       o_label0_data5[31:0] <= f32_data[31:0];
-      if (w_load_label0_data4)
-       o_label0_data4[31:0] <= f32_data[31:0];
-      if (w_load_label0_data3)
-       o_label0_data3[31:0] <= f32_data[31:0];
-      if (w_load_label0_data2)
-       o_label0_data2[31:0] <= f32_data[31:0];
-      if (w_load_label0_data1)
-       o_label0_data1[31:0] <= f32_data[31:0];
-      if (w_load_label0_data0)
-       o_label0_data0[31:0] <= f32_data[31:0];
-      if (w_load_label1_config)
-       o_label1_config[7:0] <= f32_data[7:0];
-      if (w_load_label1_config)
-       o_label1_config[8:8] <= f32_data[8:8];
-      if (w_load_label1_config)
-       o_label1_config[14:9] <= f32_data[30:25];
-      if (w_load_label1_config)
-       o_label1_config[15:15] <= f32_data[31:31];
-      if (w_load_label1_data7)
-       o_label1_data7[31:0] <= f32_data[31:0];
-      if (w_load_label1_data6)
-       o_label1_data6[31:0] <= f32_data[31:0];
-      if (w_load_label1_data5)
-       o_label1_data5[31:0] <= f32_data[31:0];
-      if (w_load_label1_data4)
-       o_label1_data4[31:0] <= f32_data[31:0];
-      if (w_load_label1_data3)
-       o_label1_data3[31:0] <= f32_data[31:0];
-      if (w_load_label1_data2)
-       o_label1_data2[31:0] <= f32_data[31:0];
-      if (w_load_label1_data1)
-       o_label1_data1[31:0] <= f32_data[31:0];
-      if (w_load_label1_data0)
-       o_label1_data0[31:0] <= f32_data[31:0];
-      if (w_load_label2_config)
-       o_label2_config[7:0] <= f32_data[7:0];
-      if (w_load_label2_config)
-       o_label2_config[8:8] <= f32_data[8:8];
-      if (w_load_label2_config)
-       o_label2_config[14:9] <= f32_data[30:25];
-      if (w_load_label2_config)
-       o_label2_config[15:15] <= f32_data[31:31];
-      if (w_load_label2_data7)
-       o_label2_data7[31:0] <= f32_data[31:0];
-      if (w_load_label2_data6)
-       o_label2_data6[31:0] <= f32_data[31:0];
-      if (w_load_label2_data5)
-       o_label2_data5[31:0] <= f32_data[31:0];
-      if (w_load_label2_data4)
-       o_label2_data4[31:0] <= f32_data[31:0];
-      if (w_load_label2_data3)
-       o_label2_data3[31:0] <= f32_data[31:0];
-      if (w_load_label2_data2)
-       o_label2_data2[31:0] <= f32_data[31:0];
-      if (w_load_label2_data1)
-       o_label2_data1[31:0] <= f32_data[31:0];
-      if (w_load_label2_data0)
-       o_label2_data0[31:0] <= f32_data[31:0];
-      if (w_load_label3_config)
-       o_label3_config[7:0] <= f32_data[7:0];
-      if (w_load_label3_config)
-       o_label3_config[8:8] <= f32_data[8:8];
-      if (w_load_label3_config)
-       o_label3_config[14:9] <= f32_data[30:25];
-      if (w_load_label3_config)
-       o_label3_config[15:15] <= f32_data[31:31];
-      if (w_load_label3_data7)
-       o_label3_data7[31:0] <= f32_data[31:0];
-      if (w_load_label3_data6)
-       o_label3_data6[31:0] <= f32_data[31:0];
-      if (w_load_label3_data5)
-       o_label3_data5[31:0] <= f32_data[31:0];
-      if (w_load_label3_data4)
-       o_label3_data4[31:0] <= f32_data[31:0];
-      if (w_load_label3_data3)
-       o_label3_data3[31:0] <= f32_data[31:0];
-      if (w_load_label3_data2)
-       o_label3_data2[31:0] <= f32_data[31:0];
-      if (w_load_label3_data1)
-       o_label3_data1[31:0] <= f32_data[31:0];
-      if (w_load_label3_data0)
-       o_label3_data0[31:0] <= f32_data[31:0];
-      if (w_load_label4_config)
-       o_label4_config[7:0] <= f32_data[7:0];
-      if (w_load_label4_config)
-       o_label4_config[8:8] <= f32_data[8:8];
-      if (w_load_label4_config)
-       o_label4_config[14:9] <= f32_data[30:25];
-      if (w_load_label4_config)
-       o_label4_config[15:15] <= f32_data[31:31];
-      if (w_load_label4_data7)
-       o_label4_data7[31:0] <= f32_data[31:0];
-      if (w_load_label4_data6)
-       o_label4_data6[31:0] <= f32_data[31:0];
-      if (w_load_label4_data5)
-       o_label4_data5[31:0] <= f32_data[31:0];
-      if (w_load_label4_data4)
-       o_label4_data4[31:0] <= f32_data[31:0];
-      if (w_load_label4_data3)
-       o_label4_data3[31:0] <= f32_data[31:0];
-      if (w_load_label4_data2)
-       o_label4_data2[31:0] <= f32_data[31:0];
-      if (w_load_label4_data1)
-       o_label4_data1[31:0] <= f32_data[31:0];
-      if (w_load_label4_data0)
-       o_label4_data0[31:0] <= f32_data[31:0];
-      if (w_load_label5_config)
-       o_label5_config[7:0] <= f32_data[7:0];
-      if (w_load_label5_config)
-       o_label5_config[8:8] <= f32_data[8:8];
-      if (w_load_label5_config)
-       o_label5_config[14:9] <= f32_data[30:25];
-      if (w_load_label5_config)
-       o_label5_config[15:15] <= f32_data[31:31];
-      if (w_load_label5_data7)
-       o_label5_data7[31:0] <= f32_data[31:0];
-      if (w_load_label5_data6)
-       o_label5_data6[31:0] <= f32_data[31:0];
-      if (w_load_label5_data5)
-       o_label5_data5[31:0] <= f32_data[31:0];
-      if (w_load_label5_data4)
-       o_label5_data4[31:0] <= f32_data[31:0];
-      if (w_load_label5_data3)
-       o_label5_data3[31:0] <= f32_data[31:0];
-      if (w_load_label5_data2)
-       o_label5_data2[31:0] <= f32_data[31:0];
-      if (w_load_label5_data1)
-       o_label5_data1[31:0] <= f32_data[31:0];
-      if (w_load_label5_data0)
-       o_label5_data0[31:0] <= f32_data[31:0];
-      if (w_load_label6_config)
-       o_label6_config[7:0] <= f32_data[7:0];
-      if (w_load_label6_config)
-       o_label6_config[8:8] <= f32_data[8:8];
-      if (w_load_label6_config)
-       o_label6_config[14:9] <= f32_data[30:25];
-      if (w_load_label6_config)
-       o_label6_config[15:15] <= f32_data[31:31];
-      if (w_load_label6_data7)
-       o_label6_data7[31:0] <= f32_data[31:0];
-      if (w_load_label6_data6)
-       o_label6_data6[31:0] <= f32_data[31:0];
-      if (w_load_label6_data5)
-       o_label6_data5[31:0] <= f32_data[31:0];
-      if (w_load_label6_data4)
-       o_label6_data4[31:0] <= f32_data[31:0];
-      if (w_load_label6_data3)
-       o_label6_data3[31:0] <= f32_data[31:0];
-      if (w_load_label6_data2)
-       o_label6_data2[31:0] <= f32_data[31:0];
-      if (w_load_label6_data1)
-       o_label6_data1[31:0] <= f32_data[31:0];
-      if (w_load_label6_data0)
-       o_label6_data0[31:0] <= f32_data[31:0];
-      if (w_load_label7_config)
-       o_label7_config[7:0] <= f32_data[7:0];
-      if (w_load_label7_config)
-       o_label7_config[8:8] <= f32_data[8:8];
-      if (w_load_label7_config)
-       o_label7_config[14:9] <= f32_data[30:25];
-      if (w_load_label7_config)
-       o_label7_config[15:15] <= f32_data[31:31];
-      if (w_load_label7_data7)
-       o_label7_data7[31:0] <= f32_data[31:0];
-      if (w_load_label7_data6)
-       o_label7_data6[31:0] <= f32_data[31:0];
-      if (w_load_label7_data5)
-       o_label7_data5[31:0] <= f32_data[31:0];
-      if (w_load_label7_data4)
-       o_label7_data4[31:0] <= f32_data[31:0];
-      if (w_load_label7_data3)
-       o_label7_data3[31:0] <= f32_data[31:0];
-      if (w_load_label7_data2)
-       o_label7_data2[31:0] <= f32_data[31:0];
-      if (w_load_label7_data1)
-       o_label7_data1[31:0] <= f32_data[31:0];
-      if (w_load_label7_data0)
-       o_label7_data0[31:0] <= f32_data[31:0];
-      if (w_load_kdf_drbg_ctrl)
-       o_kdf_drbg_ctrl[1:0] <= f32_data[1:0];
-      if (w_load_kdf_drbg_seed_0_state_key_31_0)
-       o_kdf_drbg_seed_0_state_key_31_0[31:0] <= f32_data[31:0];
-      if (w_load_kdf_drbg_seed_0_state_key_63_32)
-       o_kdf_drbg_seed_0_state_key_63_32[31:0] <= f32_data[31:0];
-      if (w_load_kdf_drbg_seed_0_state_key_95_64)
-       o_kdf_drbg_seed_0_state_key_95_64[31:0] <= f32_data[31:0];
-      if (w_load_kdf_drbg_seed_0_state_key_127_96)
-       o_kdf_drbg_seed_0_state_key_127_96[31:0] <= f32_data[31:0];
-      if (w_load_kdf_drbg_seed_0_state_key_159_128)
-       o_kdf_drbg_seed_0_state_key_159_128[31:0] <= f32_data[31:0];
-      if (w_load_kdf_drbg_seed_0_state_key_191_160)
-       o_kdf_drbg_seed_0_state_key_191_160[31:0] <= f32_data[31:0];
-      if (w_load_kdf_drbg_seed_0_state_key_223_192)
-       o_kdf_drbg_seed_0_state_key_223_192[31:0] <= f32_data[31:0];
-      if (w_load_kdf_drbg_seed_0_state_key_255_224)
-       o_kdf_drbg_seed_0_state_key_255_224[31:0] <= f32_data[31:0];
-      if (w_load_kdf_drbg_seed_0_state_value_31_0)
-       o_kdf_drbg_seed_0_state_value_31_0[31:0] <= f32_data[31:0];
-      if (w_load_kdf_drbg_seed_0_state_value_63_32)
-       o_kdf_drbg_seed_0_state_value_63_32[31:0] <= f32_data[31:0];
-      if (w_load_kdf_drbg_seed_0_state_value_95_64)
-       o_kdf_drbg_seed_0_state_value_95_64[31:0] <= f32_data[31:0];
-      if (w_load_kdf_drbg_seed_0_state_value_127_96)
-       o_kdf_drbg_seed_0_state_value_127_96[31:0] <= f32_data[31:0];
-      if (w_load_kdf_drbg_seed_0_reseed_interval_0)
-       o_kdf_drbg_seed_0_reseed_interval_0[31:0] <= f32_data[31:0];
-      if (w_load_kdf_drbg_seed_0_reseed_interval_1)
-       o_kdf_drbg_seed_0_reseed_interval_1[15:0] <= f32_data[15:0];
-      if (w_load_kdf_drbg_seed_1_state_key_31_0)
-       o_kdf_drbg_seed_1_state_key_31_0[31:0] <= f32_data[31:0];
-      if (w_load_kdf_drbg_seed_1_state_key_63_32)
-       o_kdf_drbg_seed_1_state_key_63_32[31:0] <= f32_data[31:0];
-      if (w_load_kdf_drbg_seed_1_state_key_95_64)
-       o_kdf_drbg_seed_1_state_key_95_64[31:0] <= f32_data[31:0];
-      if (w_load_kdf_drbg_seed_1_state_key_127_96)
-       o_kdf_drbg_seed_1_state_key_127_96[31:0] <= f32_data[31:0];
-      if (w_load_kdf_drbg_seed_1_state_key_159_128)
-       o_kdf_drbg_seed_1_state_key_159_128[31:0] <= f32_data[31:0];
-      if (w_load_kdf_drbg_seed_1_state_key_191_160)
-       o_kdf_drbg_seed_1_state_key_191_160[31:0] <= f32_data[31:0];
-      if (w_load_kdf_drbg_seed_1_state_key_223_192)
-       o_kdf_drbg_seed_1_state_key_223_192[31:0] <= f32_data[31:0];
-      if (w_load_kdf_drbg_seed_1_state_key_255_224)
-       o_kdf_drbg_seed_1_state_key_255_224[31:0] <= f32_data[31:0];
-      if (w_load_kdf_drbg_seed_1_state_value_31_0)
-       o_kdf_drbg_seed_1_state_value_31_0[31:0] <= f32_data[31:0];
-      if (w_load_kdf_drbg_seed_1_state_value_63_32)
-       o_kdf_drbg_seed_1_state_value_63_32[31:0] <= f32_data[31:0];
-      if (w_load_kdf_drbg_seed_1_state_value_95_64)
-       o_kdf_drbg_seed_1_state_value_95_64[31:0] <= f32_data[31:0];
-      if (w_load_kdf_drbg_seed_1_state_value_127_96)
-       o_kdf_drbg_seed_1_state_value_127_96[31:0] <= f32_data[31:0];
-      if (w_load_kdf_drbg_seed_1_reseed_interval_0)
-       o_kdf_drbg_seed_1_reseed_interval_0[31:0] <= f32_data[31:0];
-      if (w_load_kdf_drbg_seed_1_reseed_interval_1)
-       o_kdf_drbg_seed_1_reseed_interval_1[15:0] <= f32_data[15:0];
-      if (w_load_interrupt_status)
-       o_interrupt_status[0:0] <= f32_data[0:0];
-      if (w_load_interrupt_status)
-       o_interrupt_status[1:1] <= f32_data[1:1];
-      if (w_load_interrupt_status)
-       o_interrupt_status[2:2] <= f32_data[2:2];
-      if (w_load_interrupt_status)
-       o_interrupt_status[3:3] <= f32_data[3:3];
-      if (w_load_interrupt_status)
-       o_interrupt_status[4:4] <= f32_data[4:4];
-      if (w_load_interrupt_mask)
-       o_interrupt_mask[0:0] <= f32_data[0:0];
-      if (w_load_interrupt_mask)
-       o_interrupt_mask[1:1] <= f32_data[1:1];
-      if (w_load_interrupt_mask)
-       o_interrupt_mask[2:2] <= f32_data[2:2];
-      if (w_load_interrupt_mask)
-       o_interrupt_mask[3:3] <= f32_data[3:3];
-      if (w_load_interrupt_mask)
-       o_interrupt_mask[4:4] <= f32_data[4:4];
-      if (w_load_engine_sticky_status)
-       o_engine_sticky_status[0:0] <= f32_data[0:0];
-      if (w_load_engine_sticky_status)
-       o_engine_sticky_status[1:1] <= f32_data[1:1];
-      if (w_load_engine_sticky_status)
-       o_engine_sticky_status[2:2] <= f32_data[2:2];
-      if (w_load_engine_sticky_status)
-       o_engine_sticky_status[3:3] <= f32_data[3:3];
-      if (w_load_engine_sticky_status)
-       o_engine_sticky_status[4:4] <= f32_data[4:4];
-      if (w_load_engine_sticky_status)
-       o_engine_sticky_status[5:5] <= f32_data[5:5];
-      if (w_load_engine_sticky_status)
-       o_engine_sticky_status[6:6] <= f32_data[6:6];
-      if (w_load_engine_sticky_status)
-       o_engine_sticky_status[7:7] <= f32_data[7:7];
-      if (w_load_bimc_monitor_mask)
-       o_bimc_monitor_mask[0:0] <= f32_data[0:0];
-      if (w_load_bimc_monitor_mask)
-       o_bimc_monitor_mask[1:1] <= f32_data[1:1];
-      if (w_load_bimc_monitor_mask)
-       o_bimc_monitor_mask[2:2] <= f32_data[2:2];
-      if (w_load_bimc_monitor_mask)
-       o_bimc_monitor_mask[3:3] <= f32_data[3:3];
-      if (w_load_bimc_monitor_mask)
-       o_bimc_monitor_mask[4:4] <= f32_data[4:4];
-      if (w_load_bimc_monitor_mask)
-       o_bimc_monitor_mask[5:5] <= f32_data[5:5];
-      if (w_load_bimc_monitor_mask)
-       o_bimc_monitor_mask[6:6] <= f32_data[6:6];
-      if (w_load_bimc_ecc_uncorrectable_error_cnt)
-       o_bimc_ecc_uncorrectable_error_cnt[31:0] <= f32_data[31:0];
-      if (w_load_bimc_ecc_correctable_error_cnt)
-       o_bimc_ecc_correctable_error_cnt[31:0] <= f32_data[31:0];
-      if (w_load_bimc_parity_error_cnt)
-       o_bimc_parity_error_cnt[31:0] <= f32_data[31:0];
-      if (w_load_bimc_global_config)
-       o_bimc_global_config[0:0] <= f32_data[0:0];
-      if (w_load_bimc_global_config)
-       o_bimc_global_config[1:1] <= f32_data[1:1];
-      if (w_load_bimc_global_config)
-       o_bimc_global_config[2:2] <= f32_data[2:2];
-      if (w_load_bimc_global_config)
-       o_bimc_global_config[3:3] <= f32_data[3:3];
-      if (w_load_bimc_global_config)
-       o_bimc_global_config[4:4] <= f32_data[4:4];
-      if (w_load_bimc_global_config)
-       o_bimc_global_config[5:5] <= f32_data[5:5];
-      if (w_load_bimc_global_config)
-       o_bimc_global_config[31:6] <= f32_data[31:6];
-      if (w_load_bimc_eccpar_debug)
-       o_bimc_eccpar_debug[11:0] <= f32_data[11:0];
-      if (w_load_bimc_eccpar_debug)
-       o_bimc_eccpar_debug[15:12] <= f32_data[15:12];
-      if (w_load_bimc_eccpar_debug)
-       o_bimc_eccpar_debug[17:16] <= f32_data[17:16];
-      if (w_load_bimc_eccpar_debug)
-       o_bimc_eccpar_debug[19:18] <= f32_data[19:18];
-      if (w_load_bimc_eccpar_debug)
-       o_bimc_eccpar_debug[21:20] <= f32_data[21:20];
-      if (w_load_bimc_eccpar_debug)
-       o_bimc_eccpar_debug[22:22] <= f32_data[22:22];
-      if (w_load_bimc_eccpar_debug)
-       o_bimc_eccpar_debug[23:23] <= f32_data[23:23];
-      if (w_load_bimc_eccpar_debug)
-       o_bimc_eccpar_debug[27:24] <= f32_data[27:24];
-      if (w_load_bimc_eccpar_debug)
-       o_bimc_eccpar_debug[28:28] <= f32_data[28:28];
-      if (w_load_bimc_cmd2)
-       o_bimc_cmd2[7:0] <= f32_data[7:0];
-      if (w_load_bimc_cmd2)
-       o_bimc_cmd2[8:8] <= f32_data[8:8];
-      if (w_load_bimc_cmd2)
-       o_bimc_cmd2[9:9] <= f32_data[9:9];
-      if (w_load_bimc_cmd2)
-       o_bimc_cmd2[10:10] <= f32_data[10:10];
-      if (w_load_bimc_cmd1)
-       o_bimc_cmd1[15:0] <= f32_data[15:0];
-      if (w_load_bimc_cmd1)
-       o_bimc_cmd1[27:16] <= f32_data[27:16];
-      if (w_load_bimc_cmd1)
-       o_bimc_cmd1[31:28] <= f32_data[31:28];
-      if (w_load_bimc_cmd0)
-       o_bimc_cmd0[31:0] <= f32_data[31:0];
-      if (w_load_bimc_rxcmd2)
-       o_bimc_rxcmd2[7:0] <= f32_data[7:0];
-      if (w_load_bimc_rxcmd2)
-       o_bimc_rxcmd2[8:8] <= f32_data[8:8];
-      if (w_load_bimc_rxrsp2)
-       o_bimc_rxrsp2[7:0] <= f32_data[7:0];
-      if (w_load_bimc_rxrsp2)
-       o_bimc_rxrsp2[8:8] <= f32_data[8:8];
-      if (w_load_bimc_pollrsp2)
-       o_bimc_pollrsp2[7:0] <= f32_data[7:0];
-      if (w_load_bimc_pollrsp2)
-       o_bimc_pollrsp2[8:8] <= f32_data[8:8];
-      if (w_load_bimc_dbgcmd2)
-       o_bimc_dbgcmd2[7:0] <= f32_data[7:0];
-      if (w_load_bimc_dbgcmd2)
-       o_bimc_dbgcmd2[8:8] <= f32_data[8:8];
-      if (w_load_im_consumed)
-       o_im_consumed[0:0] <= f32_data[0:0];
-      if (w_load_im_consumed)
-       o_im_consumed[1:1] <= f32_data[1:1];
-      if (w_load_im_consumed)
-       o_im_consumed[2:2] <= f32_data[2:2];
-      if (w_load_im_consumed)
-       o_im_consumed[3:3] <= f32_data[3:3];
-      if (w_load_im_consumed)
-       o_im_consumed[4:4] <= f32_data[4:4];
-      if (w_load_im_consumed)
-       o_im_consumed[5:5] <= f32_data[5:5];
-      if (w_load_im_consumed)
-       o_im_consumed[6:6] <= f32_data[6:6];
-      if (w_load_im_consumed)
-       o_im_consumed[7:7] <= f32_data[7:7];
-      if (w_load_im_consumed)
-       o_im_consumed[8:8] <= f32_data[8:8];
-      if (w_load_im_consumed)
-       o_im_consumed[9:9] <= f32_data[9:9];
-      if (w_load_im_consumed)
-       o_im_consumed[10:10] <= f32_data[10:10];
-      if (w_load_im_consumed)
-       o_im_consumed[11:11] <= f32_data[11:11];
-      if (w_load_im_consumed)
-       o_im_consumed[12:12] <= f32_data[12:12];
-      if (w_load_im_consumed)
-       o_im_consumed[13:13] <= f32_data[13:13];
-      if (w_load_im_consumed)
-       o_im_consumed[14:14] <= f32_data[14:14];
-      if (w_load_im_consumed)
-       o_im_consumed[15:15] <= f32_data[15:15];
-      if (w_load_tready_override)
-       o_tready_override[0:0] <= f32_data[0:0];
-      if (w_load_tready_override)
-       o_tready_override[1:1] <= f32_data[1:1];
-      if (w_load_tready_override)
-       o_tready_override[2:2] <= f32_data[2:2];
-      if (w_load_tready_override)
-       o_tready_override[3:3] <= f32_data[3:3];
-      if (w_load_tready_override)
-       o_tready_override[4:4] <= f32_data[4:4];
-      if (w_load_tready_override)
-       o_tready_override[5:5] <= f32_data[5:5];
-      if (w_load_tready_override)
-       o_tready_override[6:6] <= f32_data[6:6];
-      if (w_load_tready_override)
-       o_tready_override[7:7] <= f32_data[7:7];
-      if (w_load_tready_override)
-       o_tready_override[8:8] <= f32_data[8:8];
-      if (w_load_regs_sa_ctrl)
-       o_regs_sa_ctrl[0:0] <= f32_data[0:0];
-      if (w_load_regs_sa_ctrl)
-       o_regs_sa_ctrl[1:1] <= f32_data[1:1];
-      if (w_load_regs_sa_ctrl)
-       o_regs_sa_ctrl[7:2] <= f32_data[7:2];
-      if (w_load_regs_sa_ctrl)
-       o_regs_sa_ctrl[12:8] <= f32_data[12:8];
-      if (w_load_regs_sa_ctrl)
-       o_regs_sa_ctrl[31:13] <= f32_data[31:13];
-      if (w_load_sa_snapshot_ia_wdata_part0)
-       o_sa_snapshot_ia_wdata_part0[17:0] <= f32_data[17:0];
-      if (w_load_sa_snapshot_ia_wdata_part0)
-       o_sa_snapshot_ia_wdata_part0[31:18] <= f32_data[31:18];
-      if (w_load_sa_snapshot_ia_wdata_part1)
-       o_sa_snapshot_ia_wdata_part1[31:0] <= f32_data[31:0];
-      if (w_load_sa_snapshot_ia_config)
-       o_sa_snapshot_ia_config[4:0] <= f32_data[4:0];
-      if (w_load_sa_snapshot_ia_config)
-       o_sa_snapshot_ia_config[8:5] <= f32_data[31:28];
-      if (w_load_sa_count_ia_wdata_part0)
-       o_sa_count_ia_wdata_part0[17:0] <= f32_data[17:0];
-      if (w_load_sa_count_ia_wdata_part0)
-       o_sa_count_ia_wdata_part0[31:18] <= f32_data[31:18];
-      if (w_load_sa_count_ia_wdata_part1)
-       o_sa_count_ia_wdata_part1[31:0] <= f32_data[31:0];
-      if (w_load_sa_count_ia_config)
-       o_sa_count_ia_config[4:0] <= f32_data[4:0];
-      if (w_load_sa_count_ia_config)
-       o_sa_count_ia_config[8:5] <= f32_data[31:28];
-      if (w_load_cceip_encrypt_kop_fifo_override)
-       o_cceip_encrypt_kop_fifo_override[0:0] <= f32_data[0:0];
-      if (w_load_cceip_encrypt_kop_fifo_override)
-       o_cceip_encrypt_kop_fifo_override[1:1] <= f32_data[1:1];
-      if (w_load_cceip_encrypt_kop_fifo_override)
-       o_cceip_encrypt_kop_fifo_override[2:2] <= f32_data[2:2];
-      if (w_load_cceip_encrypt_kop_fifo_override)
-       o_cceip_encrypt_kop_fifo_override[3:3] <= f32_data[3:3];
-      if (w_load_cceip_encrypt_kop_fifo_override)
-       o_cceip_encrypt_kop_fifo_override[4:4] <= f32_data[4:4];
-      if (w_load_cceip_encrypt_kop_fifo_override)
-       o_cceip_encrypt_kop_fifo_override[5:5] <= f32_data[5:5];
-      if (w_load_cceip_encrypt_kop_fifo_override)
-       o_cceip_encrypt_kop_fifo_override[6:6] <= f32_data[6:6];
-      if (w_load_cceip_validate_kop_fifo_override)
-       o_cceip_validate_kop_fifo_override[0:0] <= f32_data[0:0];
-      if (w_load_cceip_validate_kop_fifo_override)
-       o_cceip_validate_kop_fifo_override[1:1] <= f32_data[1:1];
-      if (w_load_cceip_validate_kop_fifo_override)
-       o_cceip_validate_kop_fifo_override[2:2] <= f32_data[2:2];
-      if (w_load_cceip_validate_kop_fifo_override)
-       o_cceip_validate_kop_fifo_override[3:3] <= f32_data[3:3];
-      if (w_load_cceip_validate_kop_fifo_override)
-       o_cceip_validate_kop_fifo_override[4:4] <= f32_data[4:4];
-      if (w_load_cceip_validate_kop_fifo_override)
-       o_cceip_validate_kop_fifo_override[5:5] <= f32_data[5:5];
-      if (w_load_cceip_validate_kop_fifo_override)
-       o_cceip_validate_kop_fifo_override[6:6] <= f32_data[6:6];
-      if (w_load_cddip_decrypt_kop_fifo_override)
-       o_cddip_decrypt_kop_fifo_override[0:0] <= f32_data[0:0];
-      if (w_load_cddip_decrypt_kop_fifo_override)
-       o_cddip_decrypt_kop_fifo_override[1:1] <= f32_data[1:1];
-      if (w_load_cddip_decrypt_kop_fifo_override)
-       o_cddip_decrypt_kop_fifo_override[2:2] <= f32_data[2:2];
-      if (w_load_cddip_decrypt_kop_fifo_override)
-       o_cddip_decrypt_kop_fifo_override[3:3] <= f32_data[3:3];
-      if (w_load_cddip_decrypt_kop_fifo_override)
-       o_cddip_decrypt_kop_fifo_override[4:4] <= f32_data[4:4];
-      if (w_load_cddip_decrypt_kop_fifo_override)
-       o_cddip_decrypt_kop_fifo_override[5:5] <= f32_data[5:5];
-      if (w_load_cddip_decrypt_kop_fifo_override)
-       o_cddip_decrypt_kop_fifo_override[6:6] <= f32_data[6:6];
-      if (w_load_sa_global_ctrl)
-       o_sa_global_ctrl[0:0] <= f32_data[0:0];
-      if (w_load_sa_global_ctrl)
-       o_sa_global_ctrl[1:1] <= f32_data[1:1];
-      if (w_load_sa_global_ctrl)
-       o_sa_global_ctrl[31:2] <= f32_data[31:2];
-      if (w_load_sa_ctrl_ia_wdata_part0)
-       o_sa_ctrl_ia_wdata_part0[4:0] <= f32_data[4:0];
-      if (w_load_sa_ctrl_ia_wdata_part0)
-       o_sa_ctrl_ia_wdata_part0[31:5] <= f32_data[31:5];
-      if (w_load_sa_ctrl_ia_config)
-       o_sa_ctrl_ia_config[4:0] <= f32_data[4:0];
-      if (w_load_sa_ctrl_ia_config)
-       o_sa_ctrl_ia_config[8:5] <= f32_data[31:28];
-      if (w_load_kdf_test_key_size_config)
-       o_kdf_test_key_size_config[31:0] <= f32_data[31:0];
+      f_state <= w_next_state;
+      f_ack <= ((w_next_ack & ( !i_wr_strb )) & ( !i_rd_strb ));
+      f_err_ack <= w_next_err_ack;
+      f_prev_do_read <= w_do_read;
+      if ((i_wr_strb | i_rd_strb))
+       o_reg_addr <= i_addr;
+      o_reg_written <= ((w_do_write & w_32b_aligned) & w_valid_wr_addr);
+      o_reg_read <= ((w_do_read & w_32b_aligned) & w_valid_rd_addr);
+      if (w_do_read)
+       f32_mux_0_data <= r32_mux_0_data;
+      if (w_do_read)
+       f32_mux_1_data <= r32_mux_1_data;
+      if (w_do_read)
+       f32_mux_2_data <= r32_mux_2_data;
+      if (w_do_read)
+       f32_mux_3_data <= r32_mux_3_data;
+      if (w_do_read)
+       f32_mux_4_data <= r32_mux_4_data;
+      if (w_do_read)
+       f32_mux_5_data <= r32_mux_5_data;
+      if (w_do_read)
+       f32_mux_6_data <= r32_mux_6_data;
+      if (w_do_read)
+       f32_mux_7_data <= r32_mux_7_data;
+      if (w_do_read)
+       f32_mux_8_data <= r32_mux_8_data;
      end
   end
 always_ff 
  @(posedge clk)
   begin
-   if (w_load_cceip0_out_ia_wdata_part0)
-    o_cceip0_out_ia_wdata_part0[13:6] <= f32_data[13:6];
-   if (w_load_cceip0_out_ia_wdata_part0)
-    o_cceip0_out_ia_wdata_part0[14:14] <= f32_data[14:14];
-   if (w_load_cceip0_out_ia_wdata_part0)
-    o_cceip0_out_ia_wdata_part0[22:15] <= f32_data[22:15];
-   if (w_load_cceip0_out_ia_wdata_part0)
-    o_cceip0_out_ia_wdata_part0[30:23] <= f32_data[30:23];
-   if (w_load_cceip0_out_ia_wdata_part0)
-    o_cceip0_out_ia_wdata_part0[31:31] <= f32_data[31:31];
-   if (w_load_cceip1_out_ia_wdata_part0)
-    o_cceip1_out_ia_wdata_part0[13:6] <= f32_data[13:6];
-   if (w_load_cceip1_out_ia_wdata_part0)
-    o_cceip1_out_ia_wdata_part0[14:14] <= f32_data[14:14];
-   if (w_load_cceip1_out_ia_wdata_part0)
-    o_cceip1_out_ia_wdata_part0[22:15] <= f32_data[22:15];
-   if (w_load_cceip1_out_ia_wdata_part0)
-    o_cceip1_out_ia_wdata_part0[30:23] <= f32_data[30:23];
-   if (w_load_cceip1_out_ia_wdata_part0)
-    o_cceip1_out_ia_wdata_part0[31:31] <= f32_data[31:31];
-   if (w_load_cceip2_out_ia_wdata_part0)
-    o_cceip2_out_ia_wdata_part0[13:6] <= f32_data[13:6];
-   if (w_load_cceip2_out_ia_wdata_part0)
-    o_cceip2_out_ia_wdata_part0[14:14] <= f32_data[14:14];
-   if (w_load_cceip2_out_ia_wdata_part0)
-    o_cceip2_out_ia_wdata_part0[22:15] <= f32_data[22:15];
-   if (w_load_cceip2_out_ia_wdata_part0)
-    o_cceip2_out_ia_wdata_part0[30:23] <= f32_data[30:23];
-   if (w_load_cceip2_out_ia_wdata_part0)
-    o_cceip2_out_ia_wdata_part0[31:31] <= f32_data[31:31];
-   if (w_load_cceip3_out_ia_wdata_part0)
-    o_cceip3_out_ia_wdata_part0[13:6] <= f32_data[13:6];
-   if (w_load_cceip3_out_ia_wdata_part0)
-    o_cceip3_out_ia_wdata_part0[14:14] <= f32_data[14:14];
-   if (w_load_cceip3_out_ia_wdata_part0)
-    o_cceip3_out_ia_wdata_part0[22:15] <= f32_data[22:15];
-   if (w_load_cceip3_out_ia_wdata_part0)
-    o_cceip3_out_ia_wdata_part0[30:23] <= f32_data[30:23];
-   if (w_load_cceip3_out_ia_wdata_part0)
-    o_cceip3_out_ia_wdata_part0[31:31] <= f32_data[31:31];
-   if (w_load_cddip0_out_ia_wdata_part0)
-    o_cddip0_out_ia_wdata_part0[13:6] <= f32_data[13:6];
-   if (w_load_cddip0_out_ia_wdata_part0)
-    o_cddip0_out_ia_wdata_part0[14:14] <= f32_data[14:14];
-   if (w_load_cddip0_out_ia_wdata_part0)
-    o_cddip0_out_ia_wdata_part0[22:15] <= f32_data[22:15];
-   if (w_load_cddip0_out_ia_wdata_part0)
-    o_cddip0_out_ia_wdata_part0[30:23] <= f32_data[30:23];
-   if (w_load_cddip0_out_ia_wdata_part0)
-    o_cddip0_out_ia_wdata_part0[31:31] <= f32_data[31:31];
-   if (w_load_cddip1_out_ia_wdata_part0)
-    o_cddip1_out_ia_wdata_part0[13:6] <= f32_data[13:6];
-   if (w_load_cddip1_out_ia_wdata_part0)
-    o_cddip1_out_ia_wdata_part0[14:14] <= f32_data[14:14];
-   if (w_load_cddip1_out_ia_wdata_part0)
-    o_cddip1_out_ia_wdata_part0[22:15] <= f32_data[22:15];
-   if (w_load_cddip1_out_ia_wdata_part0)
-    o_cddip1_out_ia_wdata_part0[30:23] <= f32_data[30:23];
-   if (w_load_cddip1_out_ia_wdata_part0)
-    o_cddip1_out_ia_wdata_part0[31:31] <= f32_data[31:31];
-   if (w_load_cddip2_out_ia_wdata_part0)
-    o_cddip2_out_ia_wdata_part0[13:6] <= f32_data[13:6];
-   if (w_load_cddip2_out_ia_wdata_part0)
-    o_cddip2_out_ia_wdata_part0[14:14] <= f32_data[14:14];
-   if (w_load_cddip2_out_ia_wdata_part0)
-    o_cddip2_out_ia_wdata_part0[22:15] <= f32_data[22:15];
-   if (w_load_cddip2_out_ia_wdata_part0)
-    o_cddip2_out_ia_wdata_part0[30:23] <= f32_data[30:23];
-   if (w_load_cddip2_out_ia_wdata_part0)
-    o_cddip2_out_ia_wdata_part0[31:31] <= f32_data[31:31];
-   if (w_load_cddip3_out_ia_wdata_part0)
-    o_cddip3_out_ia_wdata_part0[13:6] <= f32_data[13:6];
-   if (w_load_cddip3_out_ia_wdata_part0)
-    o_cddip3_out_ia_wdata_part0[14:14] <= f32_data[14:14];
-   if (w_load_cddip3_out_ia_wdata_part0)
-    o_cddip3_out_ia_wdata_part0[22:15] <= f32_data[22:15];
-   if (w_load_cddip3_out_ia_wdata_part0)
-    o_cddip3_out_ia_wdata_part0[30:23] <= f32_data[30:23];
-   if (w_load_cddip3_out_ia_wdata_part0)
-    o_cddip3_out_ia_wdata_part0[31:31] <= f32_data[31:31];
-   if (w_load_bimc_rxcmd2)
-    o_bimc_rxcmd2[9:9] <= f32_data[9:9];
-   if (w_load_bimc_rxrsp2)
-    o_bimc_rxrsp2[9:9] <= f32_data[9:9];
-   if (w_load_bimc_pollrsp2)
-    o_bimc_pollrsp2[9:9] <= f32_data[9:9];
-   if (w_load_bimc_dbgcmd2)
-    o_bimc_dbgcmd2[9:9] <= f32_data[9:9];
+   if (i_wr_strb)
+    f32_data <= i_wr_data;
   end
 endmodule
 

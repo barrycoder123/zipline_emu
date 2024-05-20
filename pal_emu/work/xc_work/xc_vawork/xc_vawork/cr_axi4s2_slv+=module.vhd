@@ -8,7 +8,7 @@ architecture module of cr_axi4s2_slv is
     R : in std_logic_vector((W - 1) downto 0) := (others => 'X') ) ;
   end component ;
 
-  component cr_fifo_wrap2_xcm11
+  component cr_fifo_wrap2_xcm12
     generic (
       N_DATA_BITS : integer := 83 ;
       N_ENTRIES : integer := 168 ;
@@ -1180,7 +1180,7 @@ begin
        DUMMY12
       ,axi4s_slv_wen
     ) ;
-  u_cr_fifo_wrap2 : cr_fifo_wrap2_xcm11
+  u_cr_fifo_wrap2 : cr_fifo_wrap2_xcm12
     port map (
        full => DUMMY5
       ,afull => DUMMY6

@@ -1,2 +1,2 @@
-clockOption -add {technology CAKE 2}
-clockFrequency -add {kme_tb.kme_dut.clock 800MHz}
+clockOption -add {technology CAKE 1}
+clockFrequency -add {tb_top.kme_tb_dut.my_clk 800MHz}

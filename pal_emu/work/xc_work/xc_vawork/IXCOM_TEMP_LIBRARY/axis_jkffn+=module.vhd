@@ -3,7 +3,7 @@ architecture module of axis_jkffn is
 
 begin
 
-  process --:o1380
+  process --:o1408
   (c,r,s)
     variable DUMMY0 : std_logic_vector(0 to 1) ;
   begin

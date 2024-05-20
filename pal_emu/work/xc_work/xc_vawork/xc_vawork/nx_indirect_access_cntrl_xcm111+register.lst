@@ -1,5 +1,5 @@
 V O V stat_code SIZE=3
-V O V rd_dat SIZE=64
+V O V rd_dat SIZE=32
 V O S init_r
 V O V inc_r
 V O S init_inc_r

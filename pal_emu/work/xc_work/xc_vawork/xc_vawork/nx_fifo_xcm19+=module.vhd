@@ -13,19 +13,19 @@ architecture module of nx_fifo_xcm19 is
     R : in std_logic_vector((W - 1) downto 0) := (others => 'X') ) ;
   end component ;
 
-  component nx_fifo_ctrl_xcm37
+  component nx_fifo_ctrl_xcm39
     generic (
-      DEPTH : integer := 16 ;
+      DEPTH : integer := 2 ;
       OVERFLOW_ASSERT : integer := 1 ;
       UNDERFLOW_ASSERT : integer := 1
     ) ;
     port (
       empty : out std_logic ;
       full : out std_logic ;
-      used_slots : out std_logic_vector(4 downto 0) ;
-      free_slots : out std_logic_vector(4 downto 0) ;
-      rptr : out std_logic_vector(3 downto 0) ;
-      wptr : out std_logic_vector(3 downto 0) ;
+      used_slots : out std_logic_vector(1 downto 0) ;
+      free_slots : out std_logic_vector(1 downto 0) ;
+      rptr : out std_logic_vector(0 downto 0) ;
+      wptr : out std_logic_vector(0 downto 0) ;
       underflow : out std_logic ;
       overflow : out std_logic ;
       clk : in std_logic := 'X' ;
@@ -52,11 +52,11 @@ begin
       ,overflow
     ) ;
   Generate1 : if depth_n : (TRUE) generate
-    signal rptr : std_logic_vector(3 downto 0) ;
-    signal wptr : std_logic_vector(3 downto 0) ;
+    signal rptr : std_logic_vector(0 downto 0) ;
+    signal wptr : std_logic_vector(0 downto 0) ;
     signal DUMMY3 : std_logic ;
     signal DUMMY4 : std_logic ;
-    signal r_data : DUMMY0(15 downto 0) ;
+    signal r_data : DUMMY0(1 downto 0) ;
   begin
     _zz_strnp_0 : ixc_assign
       generic map(W => 1)
@@ -86,7 +86,7 @@ begin
         end if;
       end if ;
     end process ;
-    fifo_ctrl : nx_fifo_ctrl_xcm37
+    fifo_ctrl : nx_fifo_ctrl_xcm39
       port map (
          empty => empty
         ,full => full

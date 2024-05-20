@@ -179,7 +179,7 @@ architecture module of cr_kme_core is
     fifo_bimc_idat : in std_logic := 'X' ) ;
   end component ;
 
-  component cr_kme_kop_xcm68
+  component cr_kme_kop_xcm69
     generic (
       CCEIP_ENCRYPT_KOP : integer := 1 ;
       subtype tlv_types_e is std_logic_vector(7 downto 0) ;
@@ -254,7 +254,7 @@ architecture module of cr_kme_core is
     kdf_test_mode_en : in std_logic := 'X' ) ;
   end component ;
 
-  component cr_kme_kop_xcm67
+  component cr_kme_kop_xcm68
     generic (
       CCEIP_ENCRYPT_KOP : integer := 0 ;
       subtype tlv_types_e is std_logic_vector(7 downto 0) ;
@@ -2083,7 +2083,7 @@ begin
         ,fifo_bimc_isync => cceip_validate_bimc_isync
         ,fifo_bimc_idat => cceip_validate_bimc_idat
       ) ;
-    cceip_encrypt_kop : cr_kme_kop_xcm68
+    cceip_encrypt_kop : cr_kme_kop_xcm69
       port map (
          kme_internal_out_ack => cceip_encrypt_out_ack
         ,key_tlv_ob_wr => cceip_encrypt_ob_wr
@@ -2103,7 +2103,7 @@ begin
         ,kdf_test_key_size => kdf_test_key_size
         ,kdf_test_mode_en => kdf_test_mode_en
       ) ;
-    cceip_validate_kop : cr_kme_kop_xcm67
+    cceip_validate_kop : cr_kme_kop_xcm68
       port map (
          kme_internal_out_ack => cceip_validate_out_ack
         ,key_tlv_ob_wr => cceip_validate_ob_wr

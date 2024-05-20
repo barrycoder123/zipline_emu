@@ -1,375 +1,262 @@
 // xc_work/v/127n.sv
-// /home/ibarry/Project-Zipline-master/rtl/common/nx_library/nx_indirect_access_cntrl.v:23
+// /home/ibarry/Project-Zipline-master/rtl/common/nx_library/nx_roreg_indirect_access.v:35
 // NOTE: This file corresponds to a module in the Hardware/DUT partition.
 `timescale 1ns/1ns
 (* celldefine = 1 *)
-module nx_indirect_access_cntrl_xcm112(input  clk,input  rst_n,input  wr_stb,input  [10:0] reg_addr ,input  [3:0] cmnd_op ,input  [4:0] cmnd_addr ,input  [0:0] cmnd_table_id ,output logic [2:0] stat_code ,output logic [4:0] stat_datawords ,output logic [4:0] stat_addr ,output logic [0:0] stat_table_id ,output logic [15:0] capability_lst 
-,output logic [3:0] capability_type ,output logic enable,input  [0:0][4:0] addr_limit ,input  [63:0] wr_dat ,output logic [63:0] rd_dat ,output logic sw_cs,output logic sw_ce,output logic sw_we,output logic [4:0] sw_add ,output logic [63:0] sw_wdat ,input  [63:0] sw_rdat ,input  sw_match
-,input  [3:0] sw_aindex ,input  grant,output logic yield,output logic reset);
+module nx_roreg_indirect_access_xcm131(stat_code,stat_datawords,stat_addr,capability_lst,capability_type,rd_dat,clk,rst_n,addr,cmnd_op,
+cmnd_addr,wr_stb,wr_dat,mem_a);
+// pkg external : PKG - nx_mem_typePKG : ENUM_LIT - TRUE
+// pkg external : PKG - nx_mem_typePKG : ENUM_LIT - FALSE
+// pkg external : PKG - nx_mem_typePKG : DTYPE  
 // pkg external : PKG - nx_mem_typePKG : ENUM_LIT - REG
-parameter MEM_TYPE = 4'b010;
 parameter CMND_ADDRESS = 11'b10000001100;
 parameter STAT_ADDRESS = 11'b10000000000;
 parameter ALIGNMENT = 2;
-parameter N_TIMER_BITS = 0;
-parameter N_REG_ADDR_BITS = 11;
 parameter N_DATA_BITS = 64;
-parameter N_TABLES = 1;
+parameter N_REG_ADDR_BITS = 11;
 parameter N_ENTRIES = 32;
-parameter N_INIT_INC_BITS = 0;
-parameter reg [15:0] CAPABILITIES  = 16'b1000000000100011;
-parameter reg [63:0] RESET_DATA  = 64'b0;
 import nx_mem_typePKG::* ;
-typedef enum bit [3:0] {NOP=4'b0,READ=4'b01,WRITE=4'b010,ENABLE=4'b011,DISABLED=4'b0100,RESET=4'b0101,INIT=4'b0110,INIT_INC=4'b0111,SET_INIT_START=4'b1000,COMPARE=4'b1001,
-SIM_TMO=4'b1110,ACK_ERROR=4'b1111} ia_operation_e;
-ia_operation_e cmnd;
-typedef enum bit [2:0] {RDY=3'b0,BSY=3'b01,TMO=3'b010,OVR=3'b011,NXM=3'b100,UOP=3'b101,PDN=3'b111} ia_status_e;
-logic init_r;
-logic [0:0] inc_r ;
-logic init_inc_r;
-logic sw_cs_r;
-logic sw_ce_r;
-logic rst_r;
-logic rst_or_ini_r;
-logic [4:0] rst_addr_r ;
-logic sw_we_r;
-logic cmnd_rd_stb;
-logic cmnd_wr_stb;
-logic cmnd_ena_stb;
-logic cmnd_dis_stb;
-logic cmnd_rst_stb;
-logic cmnd_ini_stb;
-logic cmnd_inc_stb;
-logic cmnd_sis_stb;
-logic cmnd_tmo_stb;
-logic cmnd_cmp_stb;
-logic cmnd_issued;
-logic ack_error;
-logic unsupported_op;
-typedef enum bit [3:0] {POWERDOWN=0,READY=4'b01,ERROR=4'b010,DO_RESET=4'b011,DO_INIT=4'b0100,DO_WRITE=4'b0101,DO_READ=4'b0110,READ_DONE=4'b0111,DO_COMPARE=4'b1000,COMPARE_WAIT=4'b1001,COMPARE_DONE=4'b1010} state_e;
-state_e state_r;
-logic [0:0] timer_r ;
-logic timeout;
-logic sim_tmo_r;
-logic [4:0] maxaddr ;
-logic badaddr;
-logic igrant;
-ia_status_e stat;
+input  clk;
+input  rst_n;
+input  [10:0] addr ;
+input  [3:0] cmnd_op ;
+input  [4:0] cmnd_addr ;
+output logic [2:0] stat_code ;
+output logic [4:0] stat_datawords ;
+output logic [4:0] stat_addr ;
+output logic [15:0] capability_lst ;
+output logic [3:0] capability_type ;
+input  wr_stb;
+input  [63:0] wr_dat ;
+output logic [63:0] rd_dat ;
+input  [63:0] mem_a [0:31];
+localparam nx_mem_typePKG::capabilities_t capabilities_t_set = 16'b1000000000100011;
+logic reset;
+logic [4:0] sw_add ;
+logic sw_cs;
+logic [63:0] sw_wdat ;
+logic [63:0] sw_rdat ;
+logic sw_we;
+logic [4:0] addr_limit ;
 wire  [0:2] _zy_simnet_stat_code_0_w$ ;
 wire  [0:4] _zy_simnet_stat_datawords_1_w$ ;
 wire  [0:4] _zy_simnet_stat_addr_2_w$ ;
-wire  _zy_simnet_stat_table_id_3_w$;
-wire  [0:15] _zy_simnet_capability_lst_4_w$ ;
-wire  [0:3] _zy_simnet_capability_type_5_w$ ;
-wire  _zy_simnet_enable_6_w$;
-wire  [0:63] _zy_simnet_rd_dat_7_w$ ;
-wire  _zy_simnet_sw_cs_8_w$;
-wire  _zy_simnet_sw_ce_9_w$;
-wire  _zy_simnet_sw_we_10_w$;
-wire  [0:4] _zy_simnet_sw_add_11_w$ ;
-wire  [0:63] _zy_simnet_sw_wdat_12_w$ ;
-wire  _zy_simnet_yield_13_w$;
-wire  _zy_simnet_reset_14_w$;
-assign  cmnd = ia_operation_e'(cmnd_op);
-assign  capability_lst = 16'b1000000000100011;
-assign  capability_type = 4'b010;
-assign  enable = ( !init_r );
-assign  sw_cs = sw_cs_r;
-assign  sw_ce = sw_ce_r;
-assign  sw_we = sw_we_r;
-assign  sw_add = (rst_or_ini_r ? rst_addr_r : cmnd_addr);
-assign  yield = timer_r[0];
-assign  timeout = (timer_r == 1'b1);
-assign  maxaddr = (init_r ? 32'b0 : addr_limit[(cmnd_table_id % 32'b01)]);
-assign  badaddr = (cmnd_issued && (cmnd_addr > maxaddr));
-assign  igrant = (( !sim_tmo_r ) && grant);
-assign  stat_datawords = 5'b01;
-assign  stat_addr = maxaddr;
-assign  stat_table_id = (init_r ? 0 : 0);
-assign  stat = ia_status_e'(stat_code);
-assign  _zy_simnet_stat_code_0_w$ = stat_code;
-assign  _zy_simnet_stat_datawords_1_w$ = stat_datawords;
-assign  _zy_simnet_stat_addr_2_w$ = stat_addr;
-assign  _zy_simnet_stat_table_id_3_w$ = stat_table_id;
-assign  _zy_simnet_capability_lst_4_w$ = capability_lst;
-assign  _zy_simnet_capability_type_5_w$ = capability_type;
-assign  _zy_simnet_enable_6_w$ = enable;
-assign  _zy_simnet_rd_dat_7_w$ = rd_dat;
-assign  _zy_simnet_sw_cs_8_w$ = sw_cs;
-assign  _zy_simnet_sw_ce_9_w$ = sw_ce;
-assign  _zy_simnet_sw_we_10_w$ = sw_we;
-assign  _zy_simnet_sw_add_11_w$ = sw_add;
-assign  _zy_simnet_sw_wdat_12_w$ = sw_wdat;
-assign  _zy_simnet_yield_13_w$ = yield;
-assign  _zy_simnet_reset_14_w$ = reset;
-ixc_context_read #(6) _zzixc_ctxrd_0 ({stat_code,stat});
-always_comb 
- begin
-  cmnd_rd_stb = 1'b0;
-  cmnd_wr_stb = 1'b0;
-  cmnd_ena_stb = 1'b0;
-  cmnd_dis_stb = 1'b0;
-  cmnd_rst_stb = 1'b0;
-  cmnd_ini_stb = 1'b0;
-  cmnd_inc_stb = 1'b0;
-  cmnd_sis_stb = 1'b0;
-  cmnd_tmo_stb = 1'b0;
-  cmnd_cmp_stb = 1'b0;
-  ack_error = 1'b0;
-  cmnd_issued = 1'b0;
-  unsupported_op = 1'b0;
-  if ((wr_stb && (reg_addr == 11'b10000001100)))
-   begin
-    if ((cmnd != SIM_TMO))
-     cmnd_issued = 1'b1;
-    unique case (cmnd)
-     NOP:
-      cmnd_issued = 1'b0;
-     READ:
-      cmnd_rd_stb = 1'b1;
-     WRITE:
-      cmnd_wr_stb = 1'b1;
-     ENABLE:
-      cmnd_ena_stb = 1'b1;
-     DISABLED:
-      cmnd_dis_stb = 1'b1;
-     RESET:
-      cmnd_rst_stb = 1'b1;
-     INIT:
-      cmnd_ini_stb = 1'b1;
-     INIT_INC:
-      cmnd_inc_stb = 1'b1;
-     SET_INIT_START:
-      cmnd_sis_stb = 1'b1;
-     COMPARE:
-      cmnd_cmp_stb = 1'b1;
-     SIM_TMO:
-      cmnd_tmo_stb = 1'b1;
-     ACK_ERROR:
-      ack_error = 1'b1;
-     default:
-      unsupported_op = 1'b1;
-    endcase
-   end
- end
-always 
- @(posedge clk or negedge rst_n)
-  begin
-   if (( !rst_n ))
-    begin:rst
-     stat_code <= 3'b0;
-     state_r <= READY;
-     init_r <= 1'b0;
-     rd_dat <= 64'b0;
-     sw_cs_r <= 1'b0;
-     sw_we_r <= 1'b0;
-     sw_ce_r <= 1'b0;
-     timer_r <= 1'b0;
-     rst_r <= 1'b0;
-     rst_or_ini_r <= 1'b0;
-     rst_addr_r <= 5'b0;
-     inc_r <= 1'b0;
-     init_inc_r <= 1'b0;
-     sim_tmo_r <= 1'b0;
-    end
-   else
-    begin:cntrlr
-     state_e state_v;
-     state_v = state_r;
-     rst_r <= 1'b0;
-     rst_or_ini_r <= 1'b0;
-     timer_r <= 1'b0;
-     sw_cs_r <= 1'b0;
-     sw_ce_r <= 1'b0;
-     sw_we_r <= 1'b0;
-     if (cmnd_sis_stb)
-      rst_addr_r <= cmnd_addr;
-     else
-      if (cmnd_rst_stb)
-       rst_addr_r <= 5'b0;
-     if (cmnd_tmo_stb)
-      sim_tmo_r <= 1'b1;
-     else
-      if (timeout)
-       sim_tmo_r <= 1'b0;
-     if (badaddr)
-      state_v = ERROR;
-     else
-      unique case (state_r)
-       POWERDOWN:
-        begin
-         rd_dat <= wr_dat;
-         if (cmnd_ena_stb)
-          begin
-          init_r <= 1'b0;
-          state_v = READY;
-          end
-        end
-       READY:
-        begin
-         inc_r <= 1'b0;
-         init_inc_r <= 1'b0;
-         unique case (1'b1)
-          cmnd_wr_stb:
-          state_v = DO_WRITE;
-          cmnd_rd_stb:
-          state_v = DO_READ;
-          cmnd_cmp_stb:
-          state_v = DO_COMPARE;
-          cmnd_rst_stb:
-          state_v = DO_RESET;
-          (cmnd_ini_stb || cmnd_inc_stb):
-          state_v = DO_INIT;
-          cmnd_dis_stb:
-          state_v = POWERDOWN;
-          unsupported_op:
-          state_v = ERROR;
-          default:
-          state_v = state_r;
-         endcase
-         init_inc_r <= 1'b0;
-        end
-       DO_WRITE:
-        begin
-         if (igrant)
-          state_v = READY;
-        end
-       DO_READ:
-        begin
-         if (igrant)
-          state_v = READ_DONE;
-        end
-       DO_COMPARE:
-        begin
-         if (igrant)
-          state_v = COMPARE_WAIT;
-        end
-       DO_RESET:
-        begin
-         state_v = READY;
-        end
-       DO_INIT:
-        begin
-         rst_addr_r <= 5'((rst_addr_r + igrant));
-         inc_r <= 1'((inc_r + (init_inc_r && igrant)));
-         if ((igrant && (rst_addr_r == cmnd_addr)))
-          state_v = READY;
-        end
-       COMPARE_WAIT:
-        begin
-         state_v = COMPARE_DONE;
-        end
-       READ_DONE:
-        begin
-         rd_dat <= sw_rdat;
-         state_v = READY;
-        end
-       COMPARE_DONE:
-        begin
-         rd_dat <= (sw_aindex | (sw_match << 4));
-         state_v = READY;
-        end
-       default:
-        begin
-         if (ack_error)
-          state_v = (init_r ? POWERDOWN : READY);
-         else
-          state_v = ERROR;
-        end
-      endcase
-     if (((((timeout || cmnd_issued) && (state_r != POWERDOWN)) && (state_r != READY)) && (state_r != ERROR)))
-      state_v = ERROR;
-     case (state_v)
-      POWERDOWN:
-       begin
-        stat_code <= 3'b111;
-        if ((state_r != POWERDOWN))
-         init_r <= 1'b1;
-       end
-      READY:
-       begin
-        stat_code <= 3'b0;
-       end
-      ERROR:
-       begin
-        if ((state_r != ERROR))
-         begin
-          priority case (1'b1)
-          unsupported_op:
-          stat_code <= 3'b101;
-          badaddr:
-          stat_code <= 3'b100;
-          timeout:
-          stat_code <= 3'b010;
-          cmnd_issued:
-          stat_code <= 3'b011;
-          endcase
-         end
-       end
-      DO_WRITE:
-       begin
-        stat_code <= 3'b01;
-        timer_r <= (timer_r + 32'b01);
-        sw_cs_r <= 1'b1;
-        sw_we_r <= 1'b1;
-       end
-      DO_READ:
-       begin
-        stat_code <= 3'b01;
-        timer_r <= (timer_r + 32'b01);
-        sw_cs_r <= 1'b1;
-       end
-      DO_COMPARE:
-       begin
-        stat_code <= 3'b01;
-        timer_r <= (timer_r + 32'b01);
-        sw_cs_r <= 1'b1;
-        sw_ce_r <= 1'b1;
-       end
-      DO_RESET:
-       begin
-        stat_code <= 3'b01;
-        timer_r <= (timer_r + 32'b01);
-        rst_or_ini_r <= 1'b1;
-        rst_r <= 1'b1;
-        sw_cs_r <= 1'b1;
-        sw_we_r <= 1'b1;
-       end
-      DO_INIT:
-       begin
-        stat_code <= 3'b01;
-        timer_r <= (timer_r + 32'b01);
-        rst_or_ini_r <= 1'b1;
-        sw_cs_r <= 1'b1;
-        sw_we_r <= 1'b1;
-       end
-      default:
-       stat_code <= 3'b01;
-     endcase
-     if (igrant)
-      timer_r <= 1'b0;
-     state_r <= state_v;
-    end
-  end
-final 
- begin:end_of_sim
+wire  [0:15] _zy_simnet_capability_lst_3_w$ ;
+wire  [0:3] _zy_simnet_capability_type_4_w$ ;
+wire  [0:63] _zy_simnet_rd_dat_5_w$ ;
+wire  _zy_simnet_cio_6;
+wire  [0:2] _zy_simnet_stat_code_7_w$ ;
+wire  [0:4] _zy_simnet_stat_datawords_8_w$ ;
+wire  [0:4] _zy_simnet_stat_addr_9_w$ ;
+wire  _zy_simnet_dio_10;
+wire  [0:15] _zy_simnet_capability_lst_11_w$ ;
+wire  [0:3] _zy_simnet_capability_type_12_w$ ;
+wire  _zy_simnet_dio_13;
+wire  [0:4] _zy_simnet_addr_limit_14_w$ ;
+wire  [0:63] _zy_simnet_cio_15 ;
+wire  [0:63] _zy_simnet_rd_dat_16_w$ ;
+wire  _zy_simnet_sw_cs_17_w$;
+wire  _zy_simnet_dio_18;
+wire  _zy_simnet_sw_we_19_w$;
+wire  [0:4] _zy_simnet_sw_add_20_w$ ;
+wire  [0:63] _zy_simnet_sw_wdat_21_w$ ;
+wire  [0:63] _zy_simnet_sw_rdat_22_w$ ;
+wire  _zy_simnet_cio_23;
+wire  [0:3] _zy_simnet_cio_24 ;
+wire  _zy_simnet_cio_25;
+wire  _zy_simnet_dio_26;
+wire  _zy_simnet_reset_27_w$;
+logic [63:0] _zyixc_ctx_rdata_29 [0:31];
+reg [63:0] _svmls_var_L189_0 ;
+integer _svmls_mah_L0_0;
 // synopsys translate_off
+const integer _svmls_vmh_L0_1 = $marg_vmem_handle(_zyixc_ctx_rdata_29);
+// synopsys translate_on
+integer _svmls_dummy_ret;
+// F72, L98
+assign  addr_limit = 5'b11111;
+// F72, L45
+assign  _zy_simnet_stat_code_0_w$ = stat_code;
+// F72, L45
+assign  _zy_simnet_stat_datawords_1_w$ = stat_datawords;
+// F72, L45
+assign  _zy_simnet_stat_addr_2_w$ = stat_addr;
+// F72, L45
+assign  _zy_simnet_capability_lst_3_w$ = capability_lst;
+// F72, L46
+assign  _zy_simnet_capability_type_4_w$ = capability_type;
+// F72, L46
+assign  _zy_simnet_rd_dat_5_w$ = rd_dat;
+// F72, L141
+assign  _zy_simnet_cio_6 = 1'b0;
+// F72, L119
+assign  stat_code = _zy_simnet_stat_code_7_w$;
+// F72, L120
+assign  stat_datawords = _zy_simnet_stat_datawords_8_w$;
+// F72, L121
+assign  stat_addr = _zy_simnet_stat_addr_9_w$;
+// F72, L123
+assign  capability_lst = _zy_simnet_capability_lst_11_w$;
+// F72, L124
+assign  capability_type = _zy_simnet_capability_type_12_w$;
+// F72, L97
+assign  _zy_simnet_addr_limit_14_w$ = addr_limit;
+// F72, L143
+assign  _zy_simnet_cio_15 = 64'b0;
+// F72, L126
+assign  rd_dat = _zy_simnet_rd_dat_16_w$;
+// F72, L127
+assign  sw_cs = _zy_simnet_sw_cs_17_w$;
+// F72, L129
+assign  sw_we = _zy_simnet_sw_we_19_w$;
+// F72, L130
+assign  sw_add = _zy_simnet_sw_add_20_w$;
+// F72, L131
+assign  sw_wdat = _zy_simnet_sw_wdat_21_w$;
+// F72, L94
+assign  _zy_simnet_sw_rdat_22_w$ = sw_rdat;
+// F72, L145
+assign  _zy_simnet_cio_23 = 1'b0;
+// F72, L146
+assign  _zy_simnet_cio_24 = 4'b0;
+// F72, L147
+assign  _zy_simnet_cio_25 = 1'b1;
+// F72, L133
+assign  reset = _zy_simnet_reset_27_w$;
+// F72, L35
+ixc_context_read #(2048) _zzixc_ctxrd_0 ({{_zyixc_ctx_rdata_29[32'sd0][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd1][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd2][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd3][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd4][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd5][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd6][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd7][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd8][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd9][32'sd63:32'sd0],
+_zyixc_ctx_rdata_29[32'sd10][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd11][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd12][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd13][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd14][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd15][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd16][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd17][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd18][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd19][32'sd63:32'sd0],
+_zyixc_ctx_rdata_29[32'sd20][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd21][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd22][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd23][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd24][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd25][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd26][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd27][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd28][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd29][32'sd63:32'sd0],
+_zyixc_ctx_rdata_29[32'sd30][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd31][32'sd63:32'sd0]}});
+nx_indirect_access_cntrl_xcm113 u_cntrl(
+  .clk(clk) ,
+  .rst_n(rst_n) ,
+  .wr_stb(wr_stb) ,
+  .reg_addr(addr) ,
+  .cmnd_op(cmnd_op) ,
+  .cmnd_addr(cmnd_addr) ,
+  .cmnd_table_id(_zy_simnet_cio_6) ,
+  .stat_code(_zy_simnet_stat_code_7_w$) ,
+  .stat_datawords(_zy_simnet_stat_datawords_8_w$) ,
+  .stat_addr(_zy_simnet_stat_addr_9_w$) ,
+  .stat_table_id(_zy_simnet_dio_10) ,
+  .capability_lst(_zy_simnet_capability_lst_11_w$) ,
+  .capability_type(_zy_simnet_capability_type_12_w$) ,
+  .enable(_zy_simnet_dio_13) ,
+  .addr_limit(_zy_simnet_addr_limit_14_w$) ,
+  .wr_dat(_zy_simnet_cio_15) ,
+  .rd_dat(_zy_simnet_rd_dat_16_w$) ,
+  .sw_cs(_zy_simnet_sw_cs_17_w$) ,
+  .sw_ce(_zy_simnet_dio_18) ,
+  .sw_we(_zy_simnet_sw_we_19_w$) ,
+  .sw_add(_zy_simnet_sw_add_20_w$) ,
+  .sw_wdat(_zy_simnet_sw_wdat_21_w$) ,
+  .sw_rdat(_zy_simnet_sw_rdat_22_w$) ,
+  .sw_match(_zy_simnet_cio_23) ,
+  .sw_aindex(_zy_simnet_cio_24) ,
+  .grant(_zy_simnet_cio_25) ,
+  .yield(_zy_simnet_dio_26) ,
+  .reset(_zy_simnet_reset_27_w$) ); 
+
+task read(input string name, input integer addr, output bit [63:0] rdata , input reg [63:0] check  = 64'bx);
+ // F72, L180
+ begin
+// synopsys translate_off
+  // F72, L183
   xcvtf_port0_rd;;
 // synopsys translate_on
-  if (((stat_code != RDY) && (stat_code != PDN)))
-   if ((stat_code != BSY))
+  if ((addr >= 32))
+   // F72, L183
+   begin
+    // F72, L184
     begin
-     $xc_severity_msg(2, "/home/ibarry/Project-Zipline-master/rtl/common/nx_library/nx_indirect_access_cntrl.v", 482);
+     $xc_severity_msg(2, "/home/ibarry/Project-Zipline-master/rtl/common/nx_library/nx_roreg_indirect_access.v", 184);
      $display("%m");
-     $display("Please acknowledge indirect access error (%s)", stat.name());
+     $display("Received address of %d, maximum supported is %d", addr, N_ENTRIES);
+    end
+    rdata = 64'b0;
+   end
+  else
+   // F72, L189
+   begin
+    // F72, L189
+    _svmls_dummy_ret = xc_top.marg_svm_read(_svmls_vmh_L0_1,addr,_svmls_var_L189_0);
+    rdata = _svmls_var_L189_0;
+   end
+  if (((check !== 64'bx) && (rdata != check)))
+   begin
+    $xc_severity_msg(2, "/home/ibarry/Project-Zipline-master/rtl/common/nx_library/nx_roreg_indirect_access.v", 192);
+    $display("%m");
+    $display("read 0x%0x from %s[%d] but expecting 0x%0x", rdata, name, addr, check);
+   end
+  else
+   if (( !$test$plusargs("info_off") ))
+    begin
+     $xc_severity_msg(0, "/home/ibarry/Project-Zipline-master/rtl/common/nx_library/nx_roreg_indirect_access.v", 195);
+     $display("%m");
+     $display("backdoor read 0x%0x from %s[%d]", rdata, name, addr);
+    end
+  _svmls_dummy_ret = xc_top.marg_svm_flush(0);
+ end
+endtask
+
+// F72, L153
+always_ff 
+ @(posedge clk or negedge rst_n)
+  // F72, L153
+  begin:mem_rd
+   // F72, L154
+   if (( !rst_n ))
+    // F72, L154
+    begin:rst
+     // F72, L155
+     sw_rdat <= 64'b0;
     end
    else
-    begin
-     $xc_severity_msg(2, "/home/ibarry/Project-Zipline-master/rtl/common/nx_library/nx_indirect_access_cntrl.v", 484);
-     $display("%m");
-     $display("Please wait for indirect access completion");
-    end
+    if (sw_cs)
+     // F72, L157
+     begin
+      // F72, L158
+      if ((16'(sw_add) < 16'b0100000))
+       // F72, L158
+       begin
+        // F72, L161
+        sw_rdat <= mem_a[sw_add];
+       end
+      else
+       sw_rdat <= 64'b0;
+     end
+  end
+// F72, L169
+initial 
+ // F72, L169
+ begin
+  // F72, L170
+  if (( !$test$plusargs("info_off") ))
+   begin
+    $xc_severity_msg(0, "/home/ibarry/Project-Zipline-master/rtl/common/nx_library/nx_roreg_indirect_access.v", 170);
+    $display("%m");
+    $display("%dx%db RegArray (%db)", N_ENTRIES, N_DATA_BITS, (N_ENTRIES * N_DATA_BITS));
+   end
+  if (( !$test$plusargs("info_off") ))
+   begin
+    $xc_severity_msg(0, "/home/ibarry/Project-Zipline-master/rtl/common/nx_library/nx_roreg_indirect_access.v", 172);
+    $display("%m");
+    $display("Estimate %d flops", ((N_ENTRIES * N_DATA_BITS) + N_DATA_BITS));
+   end
  end
+// F72, L35
+initial 
+ begin
+ end
+// F72, L180
+always 
+ @(*)
+  // F72, L180
+  begin
+   // F72, L180
+   _zyixc_ctx_rdata_29 = mem_a;
+  end
 
 import "DPI-C" context function void xctf_context_read(int lpid, int width, output bit[4095:1] value);
 import "DPI-C" context function void xctf_context_write(int lpid, int width, input bit[4095:1] value);
@@ -382,7 +269,10 @@ ctx_state _swv[1] = {CTX_SW};
 
 function void xcvtf_port0_rd;
   if (_swv[0] == CTX_HW) begin
-    xctf_context_read(0, 6, {stat_code, stat});
+    xctf_context_read(0, 2048, {{_zyixc_ctx_rdata_29[32'sd0][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd1][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd2][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd3][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd4][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd5][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd6][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd7][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd8][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd9][32'sd63:32'sd0],
+_zyixc_ctx_rdata_29[32'sd10][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd11][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd12][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd13][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd14][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd15][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd16][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd17][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd18][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd19][32'sd63:32'sd0],
+_zyixc_ctx_rdata_29[32'sd20][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd21][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd22][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd23][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd24][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd25][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd26][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd27][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd28][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd29][32'sd63:32'sd0],
+_zyixc_ctx_rdata_29[32'sd30][32'sd63:32'sd0],_zyixc_ctx_rdata_29[32'sd31][32'sd63:32'sd0]}});
     _swv[0] = CTX_SW;
   end
 endfunction
@@ -412,11 +302,5 @@ function void xcvtf_context_writeback(input integer dummy);
   _reset_swv;
 endfunction
 
-if(1) begin: genblk1
-  assign  reset = rst_r;
-end
-if(1) begin: genblk2
-  assign  sw_wdat = (rst_r ? 64'b0 : wr_dat);
-end
 endmodule
 

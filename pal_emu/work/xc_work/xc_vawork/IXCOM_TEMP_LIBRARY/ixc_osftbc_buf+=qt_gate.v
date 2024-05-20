@@ -11,5 +11,5 @@ module ixc_osfTbc_buf ( osfTbcO, osfTbcI);
 // pragma CVASTRPROP MODULE HDLICE HDL_MODULE_ATTRIBUTE "0 vlog"
 output osfTbcO;
 input osfTbcI;
-Q_BUF _UnNamed_Inst_28 ( .A(osfTbcI), .Z(osfTbcO));
+Q_BUF _UnNamed_Inst_27 ( .A(osfTbcI), .Z(osfTbcO));
 endmodule

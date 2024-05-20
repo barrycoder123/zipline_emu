@@ -293,12 +293,12 @@ module cr_kme
     
     // PAL clock
     //
-    wire clock;
+    /*wire clock;
     assign clk = clock;
     wire clock_1;
     assign clock_1 = clock;
     
-    /*initial begin
+    initial begin
         $export_event(cr_kme.clock);
     end*/
     
@@ -672,9 +672,10 @@ module cr_kme
     assign rbus_ring_i.err_ack = 1'b0;
     assign rbus_ring_i.rd_data = {`N_RBUS_DATA_BITS{1'b0}};
     
-    initial begin
+    // dont need anymore kme_tb is now a DUT 
+    /*initial begin
         $export_event(cr_kme.clock_1);
-    end
+    end*/
   
 endmodule
 

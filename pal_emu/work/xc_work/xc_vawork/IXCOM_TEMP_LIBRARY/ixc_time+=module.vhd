@@ -1,6 +1,5 @@
 architecture module of ixc_time is
-  type DUMMY7 is array(integer range <>) of std_logic_vector(63 downto 0) ;
-  -- quickturn CVASTRPROP MODULE HDLICE PROP_RANOFF TRUE
+  type DUMMY8 is array(integer range <>) of std_logic_vector(63 downto 0) ;
   -- quickturn CVASTRPROP MODULE HDLICE PROP_IXCOM_MOD TRUE
   component ixc_assign
     generic (
@@ -24,7 +23,6 @@ architecture module of ixc_time is
   signal eClk : std_logic ;
   signal nextTbTime : std_logic_vector(63 downto 0) ;
   -- quickturn external_ref nextTbTime
-  signal nextClkTime : std_logic_vector(63 downto 0) ;
   signal nextClkTimePO : std_logic_vector(63 downto 0) ;
   -- quickturn external_ref nextClkTimePO
   signal nextDutTime : std_logic_vector(63 downto 0) ;
@@ -37,12 +35,7 @@ architecture module of ixc_time is
   -- quickturn external_ref delta
   signal minT : std_logic_vector(10 downto 0) ;
   signal deltaTb : std_logic_vector(10 downto 0) ;
-  signal noScale : std_logic ;
   signal VCC : std_logic ;
-  signal TbEQClk : std_logic ;
-  signal TbLTClk : std_logic ;
-  signal stopEcm : std_logic ;
-  -- quickturn external_ref stopEcm
   signal runClk : std_logic ;
   -- quickturn external_ref runClk
   signal td1 : std_logic_vector(10 downto 0) ;
@@ -50,26 +43,37 @@ architecture module of ixc_time is
   signal DUMMY2 : std_logic_vector(63 downto 0) ;
   signal DUMMY3 : std_logic_vector(63 downto 0) ;
   signal DUMMY4 : std_logic_vector(63 downto 0) ;
-  signal fclk : std_logic ;
+  signal DUMMY7 : std_logic ;
   signal simTime : std_logic_vector(63 downto 0) ;
   -- quickturn external_ref simTime
   signal lastClkTime : std_logic_vector(63 downto 0) ;
+  signal nextClkTime : std_logic_vector(63 downto 0) ;
+  signal stopEcm : std_logic ;
+  -- quickturn external_ref stopEcm
   signal zminT : std_logic ;
-  signal _zzcmds : DUMMY7(0 to 3) ;
-  signal _zzmiopis : DUMMY7(0 to 3) ;
-  signal _zzmiopos : DUMMY7(0 to 3) ;
+  signal lastClkTimeN : std_logic_vector(63 downto 0) ;
+  signal nextClkTimeN : std_logic_vector(63 downto 0) ;
+  signal mt64 : std_logic_vector(63 downto 0) ;
+  signal ps1 : std_logic_vector(71 downto 0) ;
+  signal ps0 : std_logic_vector(71 downto 0) ;
+  signal c : std_logic ;
+  signal stopEcmN : std_logic ;
+  signal i : integer ;
+  signal _zzcmds : DUMMY8(0 to 3) ;
+  signal _zzmiopis : DUMMY8(0 to 3) ;
+  signal _zzmiopos : DUMMY8(0 to 3) ;
   signal DUMMY5 : std_logic_vector(63 downto 0) ;
   signal DUMMY6 : std_logic_vector(63 downto 0) ;
-  signal DUMMY8 : std_logic_vector(63 downto 0) ;
+  signal DUMMY9 : std_logic_vector(63 downto 0) ;
   -- quickturn keep_net simTime
   -- quickturn keep_net lastClkTime
+  -- quickturn keep_net nextClkTime
   -- quickturn no_hardmacro nextClkTimePO
   -- quickturn preserve nextClkTimePO
   -- quickturn keep_net zminT
   -- quickturn use_hardmacro_pack _zzcmds
   -- quickturn use_hardmacro_pack _zzmiopis
   -- quickturn use_hardmacro_pack _zzmiopos
-  -- quickturn fast_clock fclk
 
 begin
   _zz_strnp_0 : ixc_assign
@@ -87,25 +91,18 @@ begin
     ) ;
   ScMinT <= ext((ext(ext(minT,32) * std_logic_vector'
   ("00000000000000000000000000000001"),32)),11) ;
-  noScale <= '1' ;
-  nextClkTime <= (lastClkTime + ext(ScMinT,64)) ;
-  TbEQClk <= boolean_to_std(nextTbTime = nextClkTime) ;
-  TbLTClk <= boolean_to_std(nextTbTime < nextClkTime) ;
-  stopEcm <= ((zminT or TbEQClk) or TbLTClk) ;
-  runClk <= (TbEQClk or not(TbLTClk)) ;
-  deltaTb <= ext((nextTbTime - simTime),11) ;
-  delta <= minT when (runClk)='1' else deltaTb when (noScale)='1' else
-   "00000000000" ;
-  delta32 <= ext(ScMinT,32) when (runClk)='1' else ext(deltaTb,32) when (noScale
-  )='1' else "00000000000000000000000000000000" ;
+  runClk <= boolean_to_std(nextTbTime >= nextClkTime) ;
+  delta <= minT when (runClk)='1' else "00000000000" ;
+  delta32 <= ext(ScMinT,32) when (runClk)='1' else
+   "00000000000000000000000000000000" ;
   nextDutTime <= nextClkTime when (runClk)='1' else nextTbTime ;
   _zz_strnp_1 : ixc_assign
     generic map(W => 64)
     port map (
        nextClkTimePO
-      ,DUMMY8
+      ,DUMMY9
     ) ;
-  DUMMY8 <= std_logic_vector'(zminT & nextClkTime(62 downto 0)) ;
+  DUMMY9 <= std_logic_vector'(zminT & nextClkTime(62 downto 0)) ;
   _zz_strnp_2 : ixc_assign
     generic map(W => 11)
     port map (
@@ -120,21 +117,62 @@ begin
     ) ;
 
   process --:o66
+  (*)
+    variable lastClkTimeN_DUMMY0 : std_logic_vector(63 downto 0) ;
+    variable mt64_DUMMY1 : std_logic_vector(63 downto 0) ;
+    variable ps0_DUMMY2 : std_logic_vector(71 downto 0) ;
+    variable ps1_DUMMY3 : std_logic_vector(71 downto 0) ;
+    variable c_DUMMY4 : std_logic ;
+  begin
+    lastClkTimeN_DUMMY0 := lastClkTimeN;
+    mt64_DUMMY1 := mt64;
+    ps0_DUMMY2 := ps0;
+    ps1_DUMMY3 := ps1;
+    c_DUMMY4 := c;
+    if (runClk = '1') then
+      lastClkTimeN_DUMMY0 := nextClkTime ;
+    else
+      lastClkTimeN_DUMMY0 := lastClkTime ;
+    end if;
+    mt64_DUMMY1 := ext(ScMinT,64) ;
+    for i in 0 to 7 loop --:o74
+      ps0_DUMMY2((9 * i)+(9-1) downto (9 * i)) := (ext(lastClkTimeN_DUMMY0((8 *
+       i)+(8-1) downto (8 * i)),9) + ext(mt64_DUMMY1((8 * i)+(8-1) downto (8 * i
+      )),9)) ;
+      ps1_DUMMY3((9 * i)+(9-1) downto (9 * i)) := ((ext(lastClkTimeN_DUMMY0((8 *
+       i)+(8-1) downto (8 * i)),9) + ext(mt64_DUMMY1((8 * i)+(8-1) downto (8 * i
+      )),9)) + std_logic_vector'("000000001")) ;
+    end loop;
+    nextClkTimeN(7 downto 0) <= ps0_DUMMY2(7 downto 0) ;
+    c_DUMMY4 := ps0_DUMMY2(8) ;
+    for i in 1 to 7 loop --:o81
+      nextClkTimeN((8 * i)+(8-1) downto (8 * i)) <= it_cond_op((c_DUMMY4
+      )='1',ps1_DUMMY3((9 * i)+(8-1) downto (9 * i)),ps0_DUMMY2((9 * i)+(8-1)
+       downto (9 * i))) ;
+      c_DUMMY4 := it_cond_op((c_DUMMY4)='1',ps1_DUMMY3(((9 * i) + 8)),ps0_DUMMY2
+      (((9 * i) + 8))) ;
+    end loop;
+    stopEcm <= (zminT or boolean_to_std(nextTbTime <= nextClkTime)) ;
+    lastClkTimeN <= transport lastClkTimeN_DUMMY0;
+    mt64 <= mt64_DUMMY1;
+    ps0 <= ps0_DUMMY2;
+    ps1 <= ps1_DUMMY3;
+    c <= c_DUMMY4;
+  end process ;
+
+  process --:o88
   (eClk)
   begin
     if (eClk'event and eClk = '1') then
       zminT <= boolean_to_std(ext(minT,32) = std_logic_vector'
       ("00000000000000000000000000000000")) ;
       simTime <= nextDutTime ;
-      if (runClk = '1') then
-        lastClkTime <= nextClkTime ;
-      elsif (noScale = '1') then
-        lastClkTime <= nextTbTime ;
-      end if;
+      lastClkTime <= lastClkTimeN ;
+      nextClkTime <= nextClkTimeN ;
     end if ;
   end process ;
 
-  process --:o96
+  process --:o110
   (*)
   begin
     _zzmiopos(0) <= DUMMY3 ;
@@ -142,16 +180,16 @@ begin
     _zzmiopos(2) <= DUMMY4 ;
   end process ;
 
-  process --:o102
-  (fclk)
+  process --:o115
+  (DUMMY7)
   begin
-    if (fclk'event and fclk = '1') then
+    if (DUMMY7'event and DUMMY7 = '1') then
       DUMMY5 <= _zzmiopis(0) ;
       DUMMY6 <= _zzmiopis(1) ;
     end if ;
   end process ;
 
-  process --:o107
+  process --:o120
   (*)
   begin
     _zzcmds(0) <= DUMMY2 ;

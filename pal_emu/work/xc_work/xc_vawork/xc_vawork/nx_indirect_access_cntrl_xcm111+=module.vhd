@@ -29,12 +29,12 @@ architecture module of nx_indirect_access_cntrl_xcm111 is
   signal DUMMY7 : std_logic_vector(0 to 15) ;
   signal DUMMY8 : std_logic_vector(0 to 3) ;
   signal DUMMY9 : std_logic ;
-  signal DUMMY10 : std_logic_vector(0 to 63) ;
+  signal DUMMY10 : std_logic_vector(0 to 31) ;
   signal DUMMY11 : std_logic ;
   signal DUMMY12 : std_logic ;
   signal DUMMY13 : std_logic ;
   signal DUMMY14 : std_logic_vector(0 to 4) ;
-  signal DUMMY15 : std_logic_vector(0 to 63) ;
+  signal DUMMY15 : std_logic_vector(0 to 31) ;
   signal DUMMY16 : std_logic ;
   signal DUMMY17 : std_logic ;
   signal cmnd : ia_operation_e ;
@@ -84,7 +84,7 @@ begin
     ) ;
   cmnd <= ext(DUMMY19,4) ;
   DUMMY20 <= cmnd_op ;
-  capability_lst <= "1000000000100011" ;
+  capability_lst <= "1000000000100111" ;
   capability_type <= "0010" ;
   enable <= not(init_r) ;
   _zz_strnp_2 : ixc_assign
@@ -119,7 +119,7 @@ begin
   ) ;
   badaddr <= boolean_to_std(((cmnd_issued)='1' and cmnd_addr > maxaddr)) ;
   igrant <= boolean_to_std(((sim_tmo_r = '0') and (grant)='1')) ;
-  stat_datawords <= "00001" ;
+  stat_datawords <= "00000" ;
   _zz_strnp_6 : ixc_assign
     generic map(W => 5)
     port map (
@@ -178,7 +178,7 @@ begin
       ,enable
     ) ;
   _zz_strnp_15 : ixc_assign
-    generic map(W => 64)
+    generic map(W => 32)
     port map (
        DUMMY10
       ,rd_dat
@@ -208,7 +208,7 @@ begin
       ,sw_add
     ) ;
   _zz_strnp_20 : ixc_assign
-    generic map(W => 64)
+    generic map(W => 32)
     port map (
        DUMMY15
       ,sw_wdat
@@ -248,7 +248,7 @@ begin
     DUMMY18 <= '0' ;
     cmnd_issued <= '0' ;
     unsupported_op <= '0' ;
-    if (((wr_stb)='1' and reg_addr = std_logic_vector'("10000101000"))) then
+    if (((wr_stb)='1' and reg_addr = std_logic_vector'("10001010100"))) then
       if (cmnd /= SIM_TMO) then
         cmnd_issued <= '1' ;
       end if;
@@ -292,8 +292,7 @@ begin
       stat_code <= "000" ;
       state_r <= READY ;
       init_r <= '0' ;
-      rd_dat <=
-       "0000000000000000000000000000000000000000000000000000000000000000" ;
+      rd_dat <= "00000000000000000000000000000000" ;
       sw_cs_r <= '0' ;
       sw_we_r <= '0' ;
       sw_ce_r <= '0' ;
@@ -382,7 +381,7 @@ begin
             rd_dat <= sw_rdat ;
             DUMMY25 := READY ;
           when  "1010"  =>
-            rd_dat <= (ext(sw_aindex,64) or shl(ext(sw_match,64),integer_to_std
+            rd_dat <= (ext(sw_aindex,32) or shl(ext(sw_match,32),integer_to_std
             (4,32))) ;
             DUMMY25 := READY ;
           when others =>
@@ -470,8 +469,6 @@ begin
   end generate ;
   Generate2 : if genblk2 : (TRUE) generate
   begin
-    sw_wdat <=
-     "0000000000000000000000000000000000000000000000000000000000000000" when 
-    (rst_r)='1' else wr_dat ;
+    sw_wdat <= "00000000000000000000000000000000" when (rst_r)='1' else wr_dat ;
   end generate ;
 end module;

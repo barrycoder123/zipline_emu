@@ -1,4 +1,5 @@
 ARCHITECTURE module OF xc_top_1 IS
+  --  quickturn CVASTRPROP MODULE HDLICE ALWAYS_ON TRUE
   --  quickturn CVASTRPROP MODULE HDLICE PROP_RANOFF TRUE
   --  quickturn CVASTRPROP MODULE HDLICE PROP_IXCOM_MOD TRUE
   COMPONENT Q_EV_WOR
@@ -6,9 +7,24 @@ ARCHITECTURE module OF xc_top_1 IS
     A : IN std_logic := 'X' ) ;
   END COMPONENT ;
 
+  COMPONENT Q_MPCLK
+    PORT (
+    uClk : OUT std_logic ) ;
+  END COMPONENT ;
+
   COMPONENT Q_EV_WOR_START
     PORT (
     A : IN std_logic := 'X' ) ;
+  END COMPONENT ;
+
+  COMPONENT Q_MPCLK1P
+    PORT (
+    clk : IN std_logic := 'X' ) ;
+  END COMPONENT ;
+
+  COMPONENT Q_CLKSRC
+    PORT (
+    clk : IN std_logic := 'X' ) ;
   END COMPONENT ;
 
   COMPONENT Q_RBUFZN
@@ -37,6 +53,8 @@ ARCHITECTURE module OF xc_top_1 IS
     PORT(Z : OUT std_logic) ;
   END COMPONENT ;
   SIGNAL fclk : std_logic ;
+  SIGNAL uClk : std_logic ;
+  --  quickturn external_ref uClk
   SIGNAL _ET3_COMPILER_RESERVED_NAME_DUTPI_APPLY_ : std_logic ;
   SIGNAL _ET3_COMPILER_RESERVED_NAME_LBRKER_ON_ : std_logic ;
   SIGNAL _ET3_COMPILER_RESERVED_NAME_QT_CURR_EMUL_CYCLE_ : std_logic_vector(63
@@ -57,8 +75,6 @@ ARCHITECTURE module OF xc_top_1 IS
   --  quickturn external_ref stop2
   SIGNAL stop4 : std_logic ;
   --  quickturn external_ref stop4
-  SIGNAL GFReset : std_logic ;
-  --  quickturn external_ref GFReset
   SIGNAL GFbusy : std_logic ;
   SIGNAL svGFbusy : std_logic ;
   --  quickturn external_ref svGFbusy
@@ -75,10 +91,13 @@ ARCHITECTURE module OF xc_top_1 IS
   --  quickturn external_ref osfWait
   SIGNAL gfifoWait : std_logic ;
   SIGNAL ecmHoldBusy : std_logic ;
+  --  quickturn external_ref ecmHoldBusy
   SIGNAL sdlStop : std_logic ;
   SIGNAL cpfStop : std_logic ;
   SIGNAL eClk : std_logic ;
   --  quickturn external_ref eClk
+  SIGNAL clockMCInit : std_logic ;
+  --  quickturn external_ref clockMCInit
   SIGNAL hasSFIFO : std_logic ;
   --  quickturn external_ref hasSFIFO
   SIGNAL hasGFIFO1 : std_logic ;
@@ -91,20 +110,16 @@ ARCHITECTURE module OF xc_top_1 IS
   --  quickturn external_ref bpWait
   SIGNAL bWait : std_logic ;
   --  quickturn external_ref bWait
-  SIGNAL eClkHold : std_logic ;
-  --  quickturn external_ref eClkHold
   SIGNAL xpHold : std_logic ;
   SIGNAL mpEnable : std_logic ;
   --  quickturn external_ref mpEnable
   SIGNAL ixcHoldClk : std_logic ;
   --  quickturn external_ref ixcHoldClk
-  SIGNAL oneFclkEval : std_logic ;
   SIGNAL cakeCcEnable : std_logic ;
   --  quickturn external_ref cakeCcEnable
   SIGNAL ptxBusy : std_logic ;
   --  quickturn external_ref ptxBusy
   SIGNAL holdEcm : std_logic ;
-  --  quickturn external_ref holdEcm
   SIGNAL DUMMY3 : std_logic ;
   SIGNAL DUMMY4 : std_logic ;
   SIGNAL bpHalt : std_logic ;
@@ -124,21 +139,19 @@ ARCHITECTURE module OF xc_top_1 IS
   SIGNAL eventOn : std_logic ;
   --  quickturn external_ref eventOn
   SIGNAL APPLY_PI : std_logic ;
+  SIGNAL APPLY_DUTPI : std_logic ;
   SIGNAL lbrOnAll : std_logic ;
   SIGNAL anyStop : std_logic ;
   --  quickturn external_ref anyStop
-  SIGNAL GFLock1 : std_logic ;
-  --  quickturn external_ref GFLock1
   SIGNAL GFLBfull : std_logic ;
   --  quickturn external_ref GFLBfull
   SIGNAL GFGBfull : std_logic ;
   --  quickturn external_ref GFGBfull
   SIGNAL GFBw : std_logic ;
-  --  quickturn external_ref GFBw
-  SIGNAL GFGBfullBw : std_logic ;
   SIGNAL GFAck : std_logic ;
   --  quickturn external_ref GFAck
-  SIGNAL GF2LevelMask : std_logic_vector(4 DOWNTO 0) ;
+  SIGNAL stopCond : std_logic ;
+  SIGNAL GF2LevelMask : std_logic_vector(12 DOWNTO 0) ;
   --  quickturn external_ref GF2LevelMask
   SIGNAL bClk : std_logic ;
   --  quickturn external_ref bClk
@@ -164,7 +177,6 @@ ARCHITECTURE module OF xc_top_1 IS
   SIGNAL mcDelta : std_logic_vector(31 DOWNTO 0) ;
   --  quickturn external_ref mcDelta
   SIGNAL mcp : std_logic ;
-  SIGNAL uClk : std_logic ;
   SIGNAL _ET3_COMPILER_RESERVED_NAME_ORION_INTERRUPT_ : std_logic ;
   ATTRIBUTE _2_state_ OF _ET3_COMPILER_RESERVED_NAME_ORION_INTERRUPT_: SIGNAL IS
    1 ;
@@ -209,6 +221,9 @@ ARCHITECTURE module OF xc_top_1 IS
   ATTRIBUTE _2_state_ OF stopCPFPO: SIGNAL IS 1 ;
   SIGNAL remStepPO : std_logic_vector(63 DOWNTO 0) ;
   ATTRIBUTE _2_state_ OF remStepPO: SIGNAL IS 1 ;
+  SIGNAL GFReset : std_logic ;
+  --  quickturn external_ref GFReset
+  ATTRIBUTE _2_state_ OF GFReset: SIGNAL IS 1 ;
   SIGNAL stop3 : std_logic ;
   ATTRIBUTE _2_state_ OF stop3: SIGNAL IS 1 ;
   SIGNAL stop1R : std_logic ;
@@ -288,9 +303,8 @@ ARCHITECTURE module OF xc_top_1 IS
   SIGNAL clockMC : std_logic ;
   --  quickturn external_ref clockMC
   ATTRIBUTE _2_state_ OF clockMC: SIGNAL IS 1 ;
-  SIGNAL clockMCInit : std_logic ;
-  --  quickturn external_ref clockMCInit
-  ATTRIBUTE _2_state_ OF clockMCInit: SIGNAL IS 1 ;
+  SIGNAL eClkR : std_logic ;
+  ATTRIBUTE _2_state_ OF eClkR: SIGNAL IS 1 ;
   SIGNAL evalOn : std_logic ;
   ATTRIBUTE _2_state_ OF evalOn: SIGNAL IS 1 ;
   SIGNAL evalOnOrig : std_logic ;
@@ -310,6 +324,12 @@ ARCHITECTURE module OF xc_top_1 IS
   ATTRIBUTE _2_state_ OF bWaitExtend: SIGNAL IS 1 ;
   SIGNAL lastDelta : std_logic ;
   ATTRIBUTE _2_state_ OF lastDelta: SIGNAL IS 1 ;
+  SIGNAL callEmu : std_logic ;
+  --  quickturn external_ref callEmu
+  ATTRIBUTE _2_state_ OF callEmu: SIGNAL IS 1 ;
+  SIGNAL callEmuPre : std_logic ;
+  --  quickturn external_ref callEmuPre
+  ATTRIBUTE _2_state_ OF callEmuPre: SIGNAL IS 1 ;
   SIGNAL callEmuR : std_logic ;
   ATTRIBUTE _2_state_ OF callEmuR: SIGNAL IS 1 ;
   SIGNAL evalOnC : std_logic ;
@@ -318,33 +338,24 @@ ARCHITECTURE module OF xc_top_1 IS
   ATTRIBUTE _2_state_ OF evalOnD: SIGNAL IS 1 ;
   SIGNAL fcnt : std_logic_vector(2 DOWNTO 0) ;
   ATTRIBUTE _2_state_ OF fcnt: SIGNAL IS 1 ;
-  SIGNAL eClkR : std_logic ;
-  ATTRIBUTE _2_state_ OF eClkR: SIGNAL IS 1 ;
   SIGNAL evalOnDExt : std_logic_vector(7 DOWNTO 0) ;
   ATTRIBUTE _2_state_ OF evalOnDExt: SIGNAL IS 1 ;
   SIGNAL evalOnDCtl : std_logic_vector(7 DOWNTO 0) ;
   ATTRIBUTE _2_state_ OF evalOnDCtl: SIGNAL IS 1 ;
   SIGNAL simTimeOn : std_logic ;
   ATTRIBUTE _2_state_ OF simTimeOn: SIGNAL IS 1 ;
-  SIGNAL callEmu : std_logic ;
-  --  quickturn external_ref callEmu
-  ATTRIBUTE _2_state_ OF callEmu: SIGNAL IS 1 ;
   SIGNAL nextTime : std_logic ;
   ATTRIBUTE _2_state_ OF nextTime: SIGNAL IS 1 ;
-  SIGNAL active : std_logic ;
-  ATTRIBUTE _2_state_ OF active: SIGNAL IS 1 ;
-  SIGNAL syncBp : std_logic ;
-  ATTRIBUTE _2_state_ OF syncBp: SIGNAL IS 1 ;
   SIGNAL eCount : std_logic_vector(63 DOWNTO 0) ;
   ATTRIBUTE _2_state_ OF eCount: SIGNAL IS 1 ;
+  SIGNAL evfCount : std_logic_vector(63 DOWNTO 0) ;
+  ATTRIBUTE _2_state_ OF evfCount: SIGNAL IS 1 ;
   SIGNAL bCount : std_logic_vector(63 DOWNTO 0) ;
   ATTRIBUTE _2_state_ OF bCount: SIGNAL IS 1 ;
   SIGNAL bpCount : std_logic_vector(63 DOWNTO 0) ;
   ATTRIBUTE _2_state_ OF bpCount: SIGNAL IS 1 ;
   SIGNAL nbaCount : std_logic_vector(63 DOWNTO 0) ;
   ATTRIBUTE _2_state_ OF nbaCount: SIGNAL IS 1 ;
-  SIGNAL evfCount : std_logic_vector(63 DOWNTO 0) ;
-  ATTRIBUTE _2_state_ OF evfCount: SIGNAL IS 1 ;
   SIGNAL aCount : std_logic_vector(31 DOWNTO 0) ;
   ATTRIBUTE _2_state_ OF aCount: SIGNAL IS 1 ;
   SIGNAL ixcHoldClkCnt : std_logic_vector(63 DOWNTO 0) ;
@@ -356,10 +367,8 @@ ARCHITECTURE module OF xc_top_1 IS
   SIGNAL fvSCount : std_logic_vector(63 DOWNTO 0) ;
   ATTRIBUTE _2_state_ OF fvSCount: SIGNAL IS 1 ;
   SIGNAL simTime : std_logic_vector(63 DOWNTO 0) ;
-  --  quickturn external_ref simTime
   ATTRIBUTE _2_state_ OF simTime: SIGNAL IS 1 ;
   SIGNAL simTimeEnable : std_logic ;
-  --  quickturn external_ref simTimeEnable
   ATTRIBUTE _2_state_ OF simTimeEnable: SIGNAL IS 1 ;
   SIGNAL cakeUcEnable : std_logic ;
   --  quickturn external_ref cakeUcEnable
@@ -385,10 +394,10 @@ ARCHITECTURE module OF xc_top_1 IS
   ATTRIBUTE _2_state_ OF evalOnSync: SIGNAL IS 1 ;
   SIGNAL evalOnInt : std_logic ;
   ATTRIBUTE _2_state_ OF evalOnInt: SIGNAL IS 1 ;
+  SIGNAL evalOnIntR : std_logic_vector(2 DOWNTO 0) ;
+  ATTRIBUTE _2_state_ OF evalOnIntR: SIGNAL IS 1 ;
   SIGNAL evalOnIntD : std_logic ;
   ATTRIBUTE _2_state_ OF evalOnIntD: SIGNAL IS 1 ;
-  SIGNAL evalOnIntR : std_logic_vector(1 DOWNTO 0) ;
-  ATTRIBUTE _2_state_ OF evalOnIntR: SIGNAL IS 1 ;
   SIGNAL forceAbort : std_logic ;
   ATTRIBUTE _2_state_ OF forceAbort: SIGNAL IS 1 ;
   SIGNAL bHaltCnt : std_logic_vector(15 DOWNTO 0) ;
@@ -407,6 +416,8 @@ ARCHITECTURE module OF xc_top_1 IS
   ATTRIBUTE _2_state_ OF lockTraceTime: SIGNAL IS 1 ;
   SIGNAL xc_mioOn : std_logic ;
   ATTRIBUTE _2_state_ OF xc_mioOn: SIGNAL IS 1 ;
+  SIGNAL xc_mioOnS : std_logic ;
+  ATTRIBUTE _2_state_ OF xc_mioOnS: SIGNAL IS 1 ;
   SIGNAL mioPOCnt : std_logic ;
   ATTRIBUTE _2_state_ OF mioPOCnt: SIGNAL IS 1 ;
   SIGNAL tbcPOmio : std_logic ;
@@ -435,19 +446,22 @@ ARCHITECTURE module OF xc_top_1 IS
   ATTRIBUTE _2_state_ OF callEmuWait: SIGNAL IS 1 ;
   SIGNAL callEmuWaitN : std_logic ;
   ATTRIBUTE _2_state_ OF callEmuWaitN: SIGNAL IS 1 ;
-  SIGNAL callEmuPre : std_logic ;
-  --  quickturn external_ref callEmuPre
-  ATTRIBUTE _2_state_ OF callEmuPre: SIGNAL IS 1 ;
+  SIGNAL callEmuPreD : std_logic ;
+  ATTRIBUTE _2_state_ OF callEmuPreD: SIGNAL IS 1 ;
   SIGNAL applyPiR : std_logic ;
   ATTRIBUTE _2_state_ OF applyPiR: SIGNAL IS 1 ;
   SIGNAL dbiEvent : std_logic ;
   ATTRIBUTE _2_state_ OF dbiEvent: SIGNAL IS 1 ;
+  SIGNAL dbiEventD : std_logic ;
+  ATTRIBUTE _2_state_ OF dbiEventD: SIGNAL IS 1 ;
   SIGNAL FvUseOnly : std_logic ;
   ATTRIBUTE _2_state_ OF FvUseOnly: SIGNAL IS 1 ;
   SIGNAL FvUseOnlyR : std_logic ;
   ATTRIBUTE _2_state_ OF FvUseOnlyR: SIGNAL IS 1 ;
   SIGNAL eventOnR : std_logic ;
   ATTRIBUTE _2_state_ OF eventOnR: SIGNAL IS 1 ;
+  SIGNAL eventOnRI : std_logic ;
+  ATTRIBUTE _2_state_ OF eventOnRI: SIGNAL IS 1 ;
   SIGNAL mpSampleOv : std_logic ;
   --  quickturn external_ref mpSampleOv
   ATTRIBUTE _2_state_ OF mpSampleOv: SIGNAL IS 1 ;
@@ -459,28 +473,39 @@ ARCHITECTURE module OF xc_top_1 IS
   SIGNAL gfifoAsyncOff : std_logic ;
   --  quickturn external_ref gfifoAsyncOff
   ATTRIBUTE _2_state_ OF gfifoAsyncOff: SIGNAL IS 1 ;
+  SIGNAL GFLock1 : std_logic ;
+  --  quickturn external_ref GFLock1
+  ATTRIBUTE _2_state_ OF GFLock1: SIGNAL IS 1 ;
   SIGNAL GFLock2 : std_logic ;
   --  quickturn external_ref GFLock2
   ATTRIBUTE _2_state_ OF GFLock2: SIGNAL IS 1 ;
+  SIGNAL GFGBfullBw : std_logic ;
+  ATTRIBUTE _2_state_ OF GFGBfullBw: SIGNAL IS 1 ;
   SIGNAL GFGBfullBwD : std_logic ;
   ATTRIBUTE _2_state_ OF GFGBfullBwD: SIGNAL IS 1 ;
   SIGNAL GFLBfullD : std_logic ;
   ATTRIBUTE _2_state_ OF GFLBfullD: SIGNAL IS 1 ;
   SIGNAL tbcPOReg : std_logic ;
   ATTRIBUTE _2_state_ OF tbcPOReg: SIGNAL IS 1 ;
+  SIGNAL xcReplayOnReg : std_logic ;
+  ATTRIBUTE _2_state_ OF xcReplayOnReg: SIGNAL IS 1 ;
   SIGNAL GFLock2R : std_logic ;
   ATTRIBUTE _2_state_ OF GFLock2R: SIGNAL IS 1 ;
   SIGNAL SFIFOLock : std_logic ;
   ATTRIBUTE _2_state_ OF SFIFOLock: SIGNAL IS 1 ;
   SIGNAL gfifoAckWait : std_logic_vector(7 DOWNTO 0) ;
   ATTRIBUTE _2_state_ OF gfifoAckWait: SIGNAL IS 1 ;
+  SIGNAL mpSt : std_logic_vector(2 DOWNTO 0) ;
+  ATTRIBUTE _2_state_ OF mpSt: SIGNAL IS 1 ;
+  SIGNAL active : std_logic ;
+  ATTRIBUTE _2_state_ OF active: SIGNAL IS 1 ;
   SIGNAL asyncBusy : std_logic ;
   ATTRIBUTE _2_state_ OF asyncBusy: SIGNAL IS 1 ;
   SIGNAL GFbusyD : std_logic ;
   ATTRIBUTE _2_state_ OF GFbusyD: SIGNAL IS 1 ;
   SIGNAL GFbusyD2 : std_logic ;
   ATTRIBUTE _2_state_ OF GFbusyD2: SIGNAL IS 1 ;
-  SIGNAL tbcPODly : std_logic_vector(4 DOWNTO 0) ;
+  SIGNAL tbcPODly : std_logic_vector(12 DOWNTO 0) ;
   ATTRIBUTE _2_state_ OF tbcPODly: SIGNAL IS 1 ;
   SIGNAL tbcPORdy : std_logic ;
   ATTRIBUTE _2_state_ OF tbcPORdy: SIGNAL IS 1 ;
@@ -544,8 +569,6 @@ ARCHITECTURE module OF xc_top_1 IS
   ATTRIBUTE _2_state_ OF holdEcmPtxOn: SIGNAL IS 1 ;
   SIGNAL holdEcmSync : std_logic ;
   ATTRIBUTE _2_state_ OF holdEcmSync: SIGNAL IS 1 ;
-  SIGNAL uClkT : std_logic ;
-  ATTRIBUTE _2_state_ OF uClkT: SIGNAL IS 1 ;
   SIGNAL dccState : std_logic ;
   ATTRIBUTE _2_state_ OF dccState: SIGNAL IS 1 ;
   SIGNAL nextDutTimeP : std_logic_vector(63 DOWNTO 0) ;
@@ -560,30 +583,39 @@ ARCHITECTURE module OF xc_top_1 IS
   --  quickturn keep_net gfifoOff
 
 BEGIN
-  xc1xEcm <= '0' ;
-  GFReset <= boolean_to_std(((hssReset)='1' OR (hotSwapOnPI)='1')) ;
-  mpEnable <= (lastDelta AND NOT(xpHold)) ;
-  _UnNamed_Inst_43 : Q_RDN PORT MAP (ixcHoldClk) ;
-  _UnNamed_Inst_44 : Q_RDN PORT MAP (ptxBusy) ;
+  xc1xEcm <= '1' ;
+  mpEnable <= boolean_to_std(((lastDelta)='1' AND (xpHold = '0') AND uClk =
+   clockMC)) ;
+  _UnNamed_Inst_42 : Q_RDN PORT MAP (ixcHoldClk) ;
+  _UnNamed_Inst_43 : Q_RDN PORT MAP (ptxBusy) ;
   bpHalt <= (boolean_to_std(bHaltCnt > maxBpCycle) AND boolean_to_std(ext
   (maxBpCycle,32) /= "00000000000000000000000000000000")) ;
   acHalt <= (boolean_to_std(aHaltCnt > maxAcCycle) AND boolean_to_std(ext
   (maxAcCycle,32) /= "00000000000000000000000000000000")) ;
   lockTrace <= lockTraceC(3) ;
   mioPICnt <= mioPIW_1(0) ;
-  evalStepPIi <= evalStepPImio WHEN xc_mioOn = '1' ELSE evalStepPI ;
-  callEmuPIi <= callEmuPImio WHEN xc_mioOn = '1' ELSE callEmuPI ;
-  ckgHoldPIi <= ckgHoldPImio WHEN xc_mioOn = '1' ELSE ckgHoldPI ;
-  stopEmuPIi <= mioPIW_1(3) WHEN xc_mioOn = '1' ELSE stopEmuPI ;
-  oneStepPIi <= oneStepPImio WHEN xc_mioOn = '1' ELSE oneStepPI ;
+  evalStepPIi <= evalStepPImio WHEN xc_mioOnS = '1' ELSE evalStepPI ;
+  callEmuPIi <= callEmuPImio WHEN xc_mioOnS = '1' ELSE callEmuPI ;
+  ckgHoldPIi <= ckgHoldPImio WHEN xc_mioOnS = '1' ELSE ckgHoldPI ;
+  stopEmuPIi <= mioPIW_1(3) WHEN xc_mioOnS = '1' ELSE stopEmuPI ;
+  oneStepPIi <= oneStepPImio WHEN xc_mioOnS = '1' ELSE oneStepPI ;
   callEmuEv <= (callEmuPIi XOR callEmuR) ;
   lbrOnAll <= (lbrOn OR hotSwapOnPI) ;
-  GFGBfullBw <= (GFGBfull AND NOT(gfifoAsyncOff)) ;
-  _UnNamed_Inst_45 : Q_RDN PORT MAP (GFAck) ;
+  GFBw <= (GFLBfull OR GFGBfullBw) ;
+  _UnNamed_Inst_44 : Q_RDN PORT MAP (GFAck) ;
+  stopCond <= ((((stop1PO OR stop2PO) OR stop4PO) OR stopT) OR stop3) ;
   bClkRH <= (bClkR OR bpHalt) ;
   syncEn <= boolean_to_std((ext(Fck2Sync,32) =
    "00000000000000000000000000000001" OR ext(Gfifo2Sync,32) =
    "00000000000000000000000000000001")) ;
+
+  PROCESS --:o69
+  (uClk)
+  BEGIN
+    IF (uClk'event AND uClk = '1') THEN
+      GFReset <= boolean_to_std(((hssReset)='1' OR (hotSwapOnPI)='1')) ;
+    END IF ;
+  END PROCESS ;
   _UnNamed_Inst_5 : Q_RDN PORT MAP (svGFbusy) ;
   _UnNamed_Inst_6 : Q_RDN PORT MAP (otbGFbusy) ;
   _UnNamed_Inst_7 : Q_RDN PORT MAP (svAsyncCall) ;
@@ -608,24 +640,26 @@ BEGIN
   asyncCall <= (svAsyncCall OR (otbAsyncCall AND syncOtbChannels)) ;
   _UnNamed_Inst_13 : Q_RDN PORT MAP (isfWait) ;
   _UnNamed_Inst_14 : Q_RDN PORT MAP (osfWait) ;
-  oneFclkEval <= boolean_to_std(ext(fclkPerEval,32) =
-   "00000000000000000000000000000000") ;
+  uc : Q_MPCLK
+    PORT MAP (
+       uClk
+    ) ;
   cakeCcEnable <= (DUMMY4 AND simTimeEnable) ;
 
-  PROCESS --:o289
-  (fclk)
+  PROCESS --:o287
+  (uClk)
   BEGIN
-    IF (fclk'event AND fclk = '1') THEN
+    IF (uClk'event AND uClk = '0') THEN
       IF (simTimeEnable = '1') THEN
         cakeUcEnable <= '1' ;
       END IF;
     END IF ;
   END PROCESS ;
 
-  PROCESS --:o311
-  (fclk)
+  PROCESS --:o309
+  (uClk)
   BEGIN
-    IF (fclk'event AND fclk = '1') THEN
+    IF (uClk'event AND uClk = '1') THEN
       IF (mpOn = '1') THEN
         bHaltCnt <= "0000000000000000" ;
       ELSIF (((NOT(bpHalt))='1' AND (evalOnInt)='1')) THEN
@@ -635,10 +669,10 @@ BEGIN
     END IF ;
   END PROCESS ;
 
-  PROCESS --:o319
-  (fclk)
+  PROCESS --:o317
+  (uClk)
   BEGIN
-    IF (fclk'event AND fclk = '1') THEN
+    IF (uClk'event AND uClk = '1') THEN
       IF (NOT(asyncCall) = '1') THEN
         aHaltCnt <= "0000000000000000" ;
       ELSIF (NOT(acHalt) = '1') THEN
@@ -648,11 +682,11 @@ BEGIN
     END IF ;
   END PROCESS ;
 
-  PROCESS --:o327
-  (fclk)
+  PROCESS --:o325
+  (uClk)
     VARIABLE lockTraceC_DUMMY0 : std_logic_vector(3 DOWNTO 0) ;
   BEGIN
-    IF (fclk'event AND fclk = '1') THEN
+    IF (uClk'event AND uClk = '1') THEN
       IF (ext(lockTraceC_DUMMY0,32) = "00000000000000000000000000000000") THEN
         IF ((((acHalt)='1' OR (bpHalt)='1') OR (forceAbort)='1')) THEN
           lockTraceC_DUMMY0 := "0001" ;
@@ -667,15 +701,23 @@ BEGIN
     END IF ;
     lockTraceC <= TRANSPORT lockTraceC_DUMMY0;
   END PROCESS ;
+
+  PROCESS --:o341
+  (uClk)
+  BEGIN
+    IF (uClk'event AND uClk = '1') THEN
+      xc_mioOnS <= xc_mioOn ;
+    END IF ;
+  END PROCESS ;
   mioPOW_0 <= std_logic_vector'(mioPOCnt & remStepPO(62 DOWNTO 0)) ;
   mioPOW_2 <= ext(std_logic_vector'(stopCPFPO & stopSDLPO & it_newBufPO &
    stop4PO & stop3PO & stop2PO & stop1PO & tbcPO & sendPO),64) ;
 
-  PROCESS --:o349
-  (fclk)
+  PROCESS --:o348
+  (uClk)
   BEGIN
-    IF (fclk'event AND fclk = '1') THEN
-      IF (((xc_mioOn)='1' AND ((tbcPOmio XOR tbcPO)='1') AND tbcPO = '1')) THEN
+    IF (uClk'event AND uClk = '1') THEN
+      IF (((xc_mioOnS)='1' AND ((tbcPOmio XOR tbcPO)='1') AND tbcPO = '1')) THEN
         mioPOCnt <= it_conv_std_logic((ext(mioPOCnt,32) +
          "00000000000000000000000000000001")) ;
       END IF;
@@ -683,17 +725,17 @@ BEGIN
     END IF ;
   END PROCESS ;
 
-  PROCESS --:o365
-  (fclk)
+  PROCESS --:o364
+  (uClk)
   BEGIN
-    IF (fclk'event AND fclk = '1') THEN
-      IF (xc_mioOn = '1') THEN
+    IF (uClk'event AND uClk = '1') THEN
+      IF (xc_mioOnS = '1') THEN
         mioPICntd <= mioPICnt ;
       END IF;
     END IF ;
   END PROCESS ;
 
-  PROCESS --:o369
+  PROCESS --:o368
   (*)
   BEGIN
     IF (mioPICnt /= mioPICntd) THEN
@@ -704,15 +746,15 @@ BEGIN
     END IF;
   END PROCESS ;
 
-  PROCESS --:o391
-  (fclk)
+  PROCESS --:o388
+  (uClk)
   BEGIN
-    IF (fclk'event AND fclk = '1') THEN
+    IF (uClk'event AND uClk = '1') THEN
       nextDutTimeS <= DUMMY2 ;
     END IF ;
   END PROCESS ;
 
-  PROCESS --:o396
+  PROCESS --:o392
   (*)
     VARIABLE ixcSimTime_DUMMY1 : std_logic_vector(63 DOWNTO 0) ;
   BEGIN
@@ -735,21 +777,21 @@ BEGIN
     ixcSimTime <= TRANSPORT ixcSimTime_DUMMY1;
   END PROCESS ;
 
-  PROCESS --:o421
+  PROCESS --:o411
   (**) --  always_comb
   BEGIN
     $axis_pulse( eClk, eClkR);
   END PROCESS ;
 
-  PROCESS --:o423
-  (fclk)
+  PROCESS --:o416
+  (uClk)
   BEGIN
-    IF (fclk'event AND fclk = '1') THEN
+    IF (uClk'event AND uClk = '1') THEN
       callEmuR <= callEmuPIi ;
     END IF ;
   END PROCESS ;
 
-  PROCESS --:o427
+  PROCESS --:o420
   (fclk)
   BEGIN
     IF (fclk'event AND fclk = '1') THEN
@@ -773,13 +815,20 @@ BEGIN
       xc_mioOn <= xc_mioOn ;
       gfPushDly <= gfPushDly ;
       gfPushFill <= gfPushFill ;
+    END IF ;
+  END PROCESS ;
+
+  PROCESS --:o445
+  (uClk)
+  BEGIN
+    IF (uClk'event AND uClk = '1') THEN
       IF (((hotSwapOnPI)='1' OR (callEmu)='1')) THEN
         ecmOne <= '1' ;
       END IF;
     END IF ;
   END PROCESS ;
 
-  PROCESS --:o459
+  PROCESS --:o451
   (fclk)
   BEGIN
     IF (fclk'event AND fclk = '1') THEN
@@ -788,40 +837,51 @@ BEGIN
     END IF ;
   END PROCESS ;
 
-  PROCESS --:o464
-  (fclk)
+  PROCESS --:o456
+  (uClk)
   BEGIN
-    IF (fclk'event AND fclk = '1') THEN
+    IF (uClk'event AND uClk = '1') THEN
       callEmuWait <= callEmuWaitN ;
       callEmuWaitC <= ((((asyncCall AND sfifoSyncMode) OR isfWait) OR ptxBusy)
        OR holdEcm) ;
     END IF ;
   END PROCESS ;
 
-  PROCESS --:o469
+  PROCESS --:o461
   (*)
-    VARIABLE callEmuPre_DUMMY2 : std_logic ;
   BEGIN
-    callEmuPre_DUMMY2 := callEmuPre;
     IF (((callEmuEv)='1' OR (callEmuWait)='1')) THEN
       IF (callEmuWaitC = '1') THEN
-        callEmuPre_DUMMY2 := '0' ;
+        callEmuPre <= '0' ;
         callEmuWaitN <= '1' ;
       ELSE
-        callEmuPre_DUMMY2 := '1' ;
+        callEmuPre <= '1' ;
         callEmuWaitN <= '0' ;
       END IF;
     ELSE
-      callEmuPre_DUMMY2 := '0' ;
+      callEmuPre <= '0' ;
       callEmuWaitN <= '0' ;
     END IF;
-    callEmu <= callEmuPre_DUMMY2 ;
-    callEmuPre <= TRANSPORT callEmuPre_DUMMY2;
   END PROCESS ;
-  eventOn <= eventOnR ;
+
+  PROCESS --:o477
+  (fclk)
+  BEGIN
+    IF (fclk'event AND fclk = '1') THEN
+      callEmuPreD <= callEmuPre ;
+    END IF ;
+  END PROCESS ;
+
+  PROCESS --:o478
+  (*)
+  BEGIN
+    callEmu <= (callEmuPreD AND callEmuPre) ;
+  END PROCESS ;
+  eventOn <= eventOnRI ;
   _UnNamed_Inst_15 : buf PORT MAP 
   (APPLY_PI,_ET3_COMPILER_RESERVED_NAME_DBI_APPLY_) ;
-  _ET3_COMPILER_RESERVED_NAME_DUTPI_APPLY_ <= std_logic'('1') ;
+  _UnNamed_Inst_16 : buf PORT MAP 
+  (_ET3_COMPILER_RESERVED_NAME_DUTPI_APPLY_,APPLY_DUTPI) ;
   _UnNamed_Inst_17 : buf PORT MAP 
   (_ET3_COMPILER_RESERVED_NAME_LBRKER_ON_,lbrOnAll) ;
 
@@ -829,13 +889,14 @@ BEGIN
   (fclk)
   BEGIN
     IF (fclk'event AND fclk = '1') THEN
+      dbiEventD <= dbiEvent ;
       applyPiR <= APPLY_PI ;
       FvUseOnlyR <= FvUseOnly ;
       sendPO <= callEmuPIi ;
     END IF ;
   END PROCESS ;
 
-  PROCESS --:o520
+  PROCESS --:o521
   (fclk)
   BEGIN
     IF (fclk'event AND fclk = '1') THEN
@@ -845,10 +906,20 @@ BEGIN
   END PROCESS ;
   _UnNamed_Inst_18 : Q_RDN PORT MAP (GFLBfull) ;
   _UnNamed_Inst_19 : Q_RDN PORT MAP (GFGBfull) ;
-  _UnNamed_Inst_20 : Q_RDN PORT MAP (GFBw) ;
-  GFBw <= '1' WHEN ((GFLBfull)='1' OR (GFGBfullBw)='1') ELSE 'Z' ;
 
-  PROCESS --:o543
+  PROCESS --:o538
+  (uClk)
+  BEGIN
+    IF (uClk'event AND uClk = '1') THEN
+      GFGBfullBw <= (GFGBfull AND NOT(gfifoAsyncOff)) ;
+    END IF ;
+  END PROCESS ;
+  gbf : Q_EV_WOR_START
+    PORT MAP (
+       GFGBfullBw
+    ) ;
+
+  PROCESS --:o547
   (fclk)
   BEGIN
     IF (fclk'event AND fclk = '1') THEN
@@ -856,46 +927,51 @@ BEGIN
     END IF ;
   END PROCESS ;
 
-  PROCESS --:o544
+  PROCESS --:o548
   (fclk)
   BEGIN
     IF (fclk'event AND fclk = '1') THEN
       GFLBfullD <= GFLBfull ;
     END IF ;
   END PROCESS ;
-  gbf : Q_EV_WOR_START
-    PORT MAP (
-       GFGBfullBw
-    ) ;
-  GFLock1 <= ((gfifoOff OR hotSwapOnPI) AND (hasGFIFO1 OR hasGFIFO2)) ;
 
-  PROCESS --:o562
-  (fclk)
+  PROCESS --:o557
+  (uClk)
   BEGIN
-    IF (fclk'event AND fclk = '1') THEN
-      tbcPOReg <= tbcPO ;
+    IF (uClk'event AND uClk = '1') THEN
+      GFLock1 <= ((gfifoOff OR hotSwapOnPI) AND (hasGFIFO1 OR hasGFIFO2)) ;
     END IF ;
   END PROCESS ;
 
-  PROCESS --:o564
-  (*)
-    VARIABLE GFLock2R_DUMMY3 : std_logic ;
+  PROCESS --:o570
+  (uClk)
   BEGIN
-    GFLock2R_DUMMY3 := GFLock2R;
-    IF (GFLock1 = '1') THEN
-      GFLock2R_DUMMY3 := '1' ;
-    ELSIF (callEmuEv = '1') THEN
-      GFLock2R_DUMMY3 := '0' ;
-    ELSIF (tbcPOReg = '1') THEN
-      GFLock2R_DUMMY3 := '1' ;
-    ELSE
-      GFLock2R_DUMMY3 := '0' ;
-    END IF;
-    GFLock2 <= ((GFLock2R_DUMMY3 OR xcReplayOn) AND (hasGFIFO1 OR hasGFIFO2)) ;
-    GFLock2R <= TRANSPORT GFLock2R_DUMMY3;
+    IF (uClk'event AND uClk = '1') THEN
+      tbcPOReg <= tbcPO ;
+      xcReplayOnReg <= xcReplayOn ;
+    END IF ;
   END PROCESS ;
 
-  PROCESS --:o574
+  PROCESS --:o578
+  (*)
+    VARIABLE GFLock2R_DUMMY2 : std_logic ;
+  BEGIN
+    GFLock2R_DUMMY2 := GFLock2R;
+    IF (GFLock1 = '1') THEN
+      GFLock2R_DUMMY2 := '1' ;
+    ELSIF (callEmuEv = '1') THEN
+      GFLock2R_DUMMY2 := '0' ;
+    ELSIF (tbcPOReg = '1') THEN
+      GFLock2R_DUMMY2 := '1' ;
+    ELSE
+      GFLock2R_DUMMY2 := '0' ;
+    END IF;
+    GFLock2 <= ((GFLock2R_DUMMY2 OR xcReplayOnReg) AND (hasGFIFO1 OR hasGFIFO2))
+     ;
+    GFLock2R <= TRANSPORT GFLock2R_DUMMY2;
+  END PROCESS ;
+
+  PROCESS --:o589
   (fclk)
   BEGIN
     IF (fclk'event AND fclk = '1') THEN
@@ -903,82 +979,90 @@ BEGIN
     END IF ;
   END PROCESS ;
 
-  PROCESS --:o580
+  PROCESS --:o595
   (fclk)
-    VARIABLE gfifoAckWait_DUMMY4 : std_logic_vector(7 DOWNTO 0) ;
+    VARIABLE gfifoAckWait_DUMMY3 : std_logic_vector(7 DOWNTO 0) ;
   BEGIN
     IF (fclk'event AND fclk = '1') THEN
       IF (hasGFIFO1 = '1') THEN
-        gfifoAckWait_DUMMY4 := std_logic_vector'(gfifoAckWait_DUMMY4(6 DOWNTO 0)
+        gfifoAckWait_DUMMY3 := std_logic_vector'(gfifoAckWait_DUMMY3(6 DOWNTO 0)
          & GFAck) ;
       ELSIF (hasGFIFO2 = '1') THEN
-        gfifoAckWait_DUMMY4 := std_logic_vector'(std_logic_vector'("00000") &
-         gfifoAckWait_DUMMY4(1 DOWNTO 0) & GFAck) ;
+        gfifoAckWait_DUMMY3 := std_logic_vector'(gfifoAckWait_DUMMY3(6 DOWNTO 0)
+         & GFAck) ;
       END IF;
     END IF ;
-    gfifoAckWait <= TRANSPORT gfifoAckWait_DUMMY4;
+    gfifoAckWait <= TRANSPORT gfifoAckWait_DUMMY3;
   END PROCESS ;
 
-  PROCESS --:o591
-  (*)
-    VARIABLE dbiEvent_DUMMY5 : std_logic ;
-    VARIABLE GFbusyW_DUMMY6 : std_logic ;
-    VARIABLE FTcallW_DUMMY7 : std_logic ;
-    VARIABLE evalOnOrig_DUMMY8 : std_logic ;
-    VARIABLE evalOnSync_DUMMY9 : std_logic ;
-    VARIABLE evalOnInt_DUMMY10 : std_logic ;
-    VARIABLE stopSDLPO_DUMMY11 : std_logic ;
-    VARIABLE stopCPFPO_DUMMY12 : std_logic ;
+  PROCESS --:o607
+  (uClk)
   BEGIN
-    dbiEvent_DUMMY5 := dbiEvent;
-    GFbusyW_DUMMY6 := GFbusyW;
-    FTcallW_DUMMY7 := FTcallW;
-    evalOnOrig_DUMMY8 := evalOnOrig;
-    evalOnSync_DUMMY9 := evalOnSync;
-    evalOnInt_DUMMY10 := evalOnInt;
-    stopSDLPO_DUMMY11 := stopSDLPO;
-    stopCPFPO_DUMMY12 := stopCPFPO;
-    dbiEvent_DUMMY5 := ((NOT(applyPiR) AND APPLY_PI) AND NOT(hotSwapOnPI)) ;
-    GFbusyW_DUMMY6 := (((((((ptxBusy OR gfifoWait) OR isfWait) OR osfWait) OR
-     dbiEvent_DUMMY5) OR callEmuEv) OR callEmuWait) AND NOT(FvSimple2)) ;
-    FTcallW_DUMMY7 := ((((svAsyncCall OR otbAsyncCall) OR GFAck) OR or_reduce
+    IF (uClk'event AND uClk = '1') THEN
+      eventOnR <= (callEmuPre OR evalOnC) ;
+      eventOnRI <= ((callEmuPre OR evalOnC) OR hotSwapOnPI) ;
+    END IF ;
+  END PROCESS ;
+
+  PROCESS --:o612
+  (*)
+    VARIABLE dbiEvent_DUMMY4 : std_logic ;
+    VARIABLE GFbusyW_DUMMY5 : std_logic ;
+    VARIABLE FTcallW_DUMMY6 : std_logic ;
+    VARIABLE evalOnOrig_DUMMY7 : std_logic ;
+    VARIABLE evalOnSync_DUMMY8 : std_logic ;
+    VARIABLE evalOnInt_DUMMY9 : std_logic ;
+    VARIABLE stopSDLPO_DUMMY10 : std_logic ;
+    VARIABLE stopCPFPO_DUMMY11 : std_logic ;
+  BEGIN
+    dbiEvent_DUMMY4 := dbiEvent;
+    GFbusyW_DUMMY5 := GFbusyW;
+    FTcallW_DUMMY6 := FTcallW;
+    evalOnOrig_DUMMY7 := evalOnOrig;
+    evalOnSync_DUMMY8 := evalOnSync;
+    evalOnInt_DUMMY9 := evalOnInt;
+    stopSDLPO_DUMMY10 := stopSDLPO;
+    stopCPFPO_DUMMY11 := stopCPFPO;
+    dbiEvent_DUMMY4 := ((NOT(applyPiR) AND APPLY_PI) AND NOT(hotSwapOnPI)) ;
+    GFbusyW_DUMMY5 := (((((((ptxBusy OR gfifoWait) OR isfWait) OR osfWait) OR
+     dbiEvent_DUMMY4) OR callEmuEv) OR callEmuWait) AND NOT(FvSimple2)) ;
+    FTcallW_DUMMY6 := ((((svAsyncCall OR otbAsyncCall) OR GFAck) OR or_reduce
     (gfifoAckWait)) OR ecmHoldBusy) ;
-    evalOnOrig_DUMMY8 := (((callEmuPre OR evalOnC) OR hwClkDbgOn) OR (tbcPOd AND
-     NOT(tbcPO))) ;
-    evalOnSync_DUMMY9 := ((evalOnOrig_DUMMY8 OR GFbusyW_DUMMY6) AND NOT
+    evalOnOrig_DUMMY7 := (((callEmuPre OR eventOnR) OR hwClkDbgOn) OR (tbcPOd
+     AND NOT(tbcPO))) ;
+    evalOnSync_DUMMY8 := ((evalOnOrig_DUMMY7 OR GFbusyW_DUMMY5) AND NOT
     (sdlStopRplyD)) ;
-    evalOnInt_DUMMY10 := (NOT(lockTrace) AND ((FTcallW_DUMMY7 OR
-     evalOnSync_DUMMY9) OR lockTraceOn)) ;
-    evalOn <= ((evalOnInt_DUMMY10 OR (evalOnIntD AND NOT(FvSimple2))) OR
+    evalOnInt_DUMMY9 := (NOT(lockTrace) AND ((FTcallW_DUMMY6 OR
+     evalOnSync_DUMMY8) OR lockTraceOn)) ;
+    evalOn <= ((evalOnInt_DUMMY9 OR (evalOnIntD AND NOT(FvSimple2))) OR
      boolean_to_std(ext(evalOnDExt,32) /= "00000000000000000000000000000000")) ;
-    eventOnR <= (evalOnC OR hotSwapOnPI) ;
     mpSampleOv <= ((lastDelta AND evalOnC) OR hotSwapOnPI) ;
-    FvUseOnly <= (dbiEvent_DUMMY5 AND NOT(callEmuEv)) ;
+    FvUseOnly <= (dbiEvent_DUMMY4 AND NOT(callEmuEv)) ;
     IF (((callEmuPre)='1' OR (stopSDL)='1')) THEN
-      stopSDLPO_DUMMY11 := stopSDL ;
+      stopSDLPO_DUMMY10 := stopSDL ;
     END IF;
     IF (((callEmuPre)='1' OR (cpfStop)='1')) THEN
-      stopCPFPO_DUMMY12 := cpfStop ;
+      stopCPFPO_DUMMY11 := cpfStop ;
     END IF;
     stopSDL <= ((sdlEnable AND sdlStop) AND NOT(xcReplayOn)) ;
     sdlStopRply <= ((sdlEnable AND sdlStop) AND xcReplayOn) ;
-    stop3 <= ((((stopEmuPIi OR stopSDLPO_DUMMY11) OR stopCPFPO_DUMMY12) OR
+    stop3 <= ((((stopEmuPIi OR stopSDLPO_DUMMY10) OR stopCPFPO_DUMMY11) OR
      it_newBufPO) OR bpHalt) ;
     stop1R <= (stop1 AND tbcEnable) ;
     stop2R <= (stop2 AND tbcEnable) ;
     stop4R <= (stop4 AND tbcEnable) ;
     stopT <= it_cond_op((oneStepPIi)='1',mpOn,DUMMY3) ;
-    dbiEvent <= TRANSPORT dbiEvent_DUMMY5;
-    GFbusyW <= GFbusyW_DUMMY6;
-    FTcallW <= FTcallW_DUMMY7;
-    evalOnOrig <= evalOnOrig_DUMMY8;
-    evalOnSync <= evalOnSync_DUMMY9;
-    evalOnInt <= evalOnInt_DUMMY10;
-    stopSDLPO <= stopSDLPO_DUMMY11;
-    stopCPFPO <= stopCPFPO_DUMMY12;
+    dbiEvent <= TRANSPORT dbiEvent_DUMMY4;
+    GFbusyW <= GFbusyW_DUMMY5;
+    FTcallW <= FTcallW_DUMMY6;
+    evalOnOrig <= evalOnOrig_DUMMY7;
+    evalOnSync <= evalOnSync_DUMMY8;
+    evalOnInt <= evalOnInt_DUMMY9;
+    stopSDLPO <= stopSDLPO_DUMMY10;
+    stopCPFPO <= stopCPFPO_DUMMY11;
   END PROCESS ;
 
-  PROCESS --:o624
+  PROCESS --:o643
   (fclk)
   BEGIN
     IF (fclk'event AND fclk = '1') THEN
@@ -986,22 +1070,22 @@ BEGIN
     END IF ;
   END PROCESS ;
 
-  PROCESS --:o627
+  PROCESS --:o646
   (fclk)
-    VARIABLE evalOnIntR_DUMMY13 : std_logic_vector(1 DOWNTO 0) ;
-    VARIABLE evalOnIntD_DUMMY14 : std_logic ;
-    VARIABLE evalOnDExt_DUMMY15 : std_logic_vector(7 DOWNTO 0) ;
+    VARIABLE evalOnIntR_DUMMY12 : std_logic_vector(2 DOWNTO 0) ;
+    VARIABLE evalOnIntD_DUMMY13 : std_logic ;
+    VARIABLE evalOnDExt_DUMMY14 : std_logic_vector(7 DOWNTO 0) ;
   BEGIN
     IF (fclk'event AND fclk = '1') THEN
       evalOnD <= evalOnC ;
-      evalOnIntR_DUMMY13 := std_logic_vector'(evalOnIntR_DUMMY13(0) & evalOnInt)
-       ;
-      evalOnIntD_DUMMY14 := or_reduce(evalOnIntR_DUMMY13) ;
-      IF (evalOnIntD_DUMMY14 = '1') THEN
-        evalOnDExt_DUMMY15 := evalOnDCtl ;
-      ELSIF (ext(evalOnDExt_DUMMY15,32) /= "00000000000000000000000000000000")
+      evalOnIntR_DUMMY12 := std_logic_vector'(evalOnIntR_DUMMY12(1 DOWNTO 0) &
+       evalOnInt) ;
+      evalOnIntD_DUMMY13 := or_reduce(evalOnIntR_DUMMY12) ;
+      IF (evalOnIntD_DUMMY13 = '1') THEN
+        evalOnDExt_DUMMY14 := evalOnDCtl ;
+      ELSIF (ext(evalOnDExt_DUMMY14,32) /= "00000000000000000000000000000000")
        THEN
-        evalOnDExt_DUMMY15 := ext((ext(evalOnDExt_DUMMY15,32) -
+        evalOnDExt_DUMMY14 := ext((ext(evalOnDExt_DUMMY14,32) -
          "00000000000000000000000000000001"),8) ;
       END IF;
       stop1POd <= stop1PO ;
@@ -1010,12 +1094,12 @@ BEGIN
       stop3POd <= stop3PO ;
       stopTLd <= stopTL ;
     END IF ;
-    evalOnIntR <= TRANSPORT evalOnIntR_DUMMY13;
-    evalOnIntD <= evalOnIntD_DUMMY14;
-    evalOnDExt <= evalOnDExt_DUMMY15;
+    evalOnIntR <= TRANSPORT evalOnIntR_DUMMY12;
+    evalOnIntD <= evalOnIntD_DUMMY13;
+    evalOnDExt <= evalOnDExt_DUMMY14;
   END PROCESS ;
 
-  PROCESS --:o643
+  PROCESS --:o663
   (*)
   BEGIN
     stop1PO <= it_cond_op(((callEmuPre)='1' OR (stop1R)='1'),stop1R,stop1POd) ;
@@ -1028,41 +1112,33 @@ BEGIN
     stopEmuPO <= stopEmuPIi ;
     remStepPO <= it_cond_op((oneStepPIi)='1',evfCount,ixcSimTime) ;
   END PROCESS ;
+  APPLY_DUTPI <= (((callEmu AND boolean_to_std(clockMC = uClk)) OR
+   boolean_to_std(ext(mpSt,32) = "00000000000000000000000000000001")) OR
+   hotSwapOnPI) ;
 
-  PROCESS --:o656
-  (*)
-  BEGIN
-    IF (callEmu = '1') THEN
-      simTimeEnable <= NOT(ckgHoldPIi) ;
-    ELSIF (active = '1') THEN
-      IF (ext(fcnt,32) = "00000000000000000000000000000000") THEN
-        IF ((((((stop1PO)='1' OR (stop2PO)='1') OR (stop4PO)='1') OR (stopT)='1'
-        ) OR (stop3)='1')) THEN
-          simTimeEnable <= '0' ;
-        ELSE
-          simTimeEnable <= mpEnable ;
-        END IF;
-      ELSE
-        simTimeEnable <= '0' ;
-      END IF;
-    ELSE
-      simTimeEnable <= '0' ;
-    END IF;
-  END PROCESS ;
-
-  PROCESS --:o671
+  PROCESS --:o697
   (fclk)
+    VARIABLE clockMC_DUMMY15 : std_logic ;
   BEGIN
     IF (fclk'event AND fclk = '1') THEN
       IF (hotSwapOnPI = '1') THEN
-        clockMC <= clockMCInit ;
+        clockMC_DUMMY15 := clockMCInit ;
       ELSIF (cakeCcEnable = '1') THEN
-        clockMC <= NOT(clockMC) ;
+        clockMC_DUMMY15 := NOT(clockMC_DUMMY15) ;
       END IF;
     END IF ;
+    clockMC <= TRANSPORT clockMC_DUMMY15;
   END PROCESS ;
+  mc1pi : Q_MPCLK1P
+    PORT MAP (
+       clockMC
+    ) ;
+  mcsi : Q_CLKSRC
+    PORT MAP (
+       clockMC
+    ) ;
 
-  PROCESS --:o686
+  PROCESS --:o707
   (fclk)
   BEGIN
     IF (fclk'event AND fclk = '1') THEN
@@ -1072,78 +1148,90 @@ BEGIN
     END IF ;
   END PROCESS ;
 
-  PROCESS --:o690
+  PROCESS --:o710
   (fclk)
+    VARIABLE DUMMY5 : std_logic_vector(0 TO 31) ;
   BEGIN
     IF (fclk'event AND fclk = '1') THEN
       lbrOn <= '0' ;
-      IF (callEmu = '1') THEN
-        IF ((gfifoOff = '0')) THEN
-          initClock <= '1' ;
-        END IF;
-        IF (NOT(ckgHoldPIi) = '1') THEN
-          simTimeOn <= '1' ;
-          lbrOn <= '1' ;
-        END IF;
-        evalOnC <= '1' ;
-        active <= '1' ;
-        fcnt <= ext(fclkPerEval,3) ;
-        tbcHold <= tbcHoldPI ;
-        mpOn <= oneFclkEval ;
-        tbcPOd <= '0' ;
-      ELSIF (active = '1') THEN
-        IF (ext(fcnt,32) = "00000000000000000000000000000000") THEN
-          IF ((((((stop1PO)='1' OR (stop2PO)='1') OR (stop4PO)='1') OR (stopT
-          )='1') OR (stop3)='1')) THEN
-            active <= '0' ;
-            syncBp <= '1' ;
-          ELSE
-            IF (mpEnable = '1') THEN
-              fcnt <= ext(fclkPerEval,3) ;
-              simTimeOn <= '1' ;
-              lbrOn <= '1' ;
-              mpOn <= oneFclkEval ;
+      active <= '0' ;
+      DUMMY5 := ext(mpSt,32);
+
+      CASE DUMMY5  IS
+        WHEN  "00000000000000000000000000000000"  =>
+          IF (callEmu = '1') THEN
+            evalOnC <= '1' ;
+            tbcPOd <= '0' ;
+            IF (clockMC = uClk) THEN
+              IF ((gfifoOff = '0')) THEN
+                initClock <= '1' ;
+              END IF;
+              mpSt <= "010" ;
+              mpOn <= '1' ;
+              active <= '1' ;
+              IF (NOT(ckgHoldPIi) = '1') THEN
+                simTimeOn <= '1' ;
+                lbrOn <= '1' ;
+              END IF;
             ELSE
-              mpOn <= eClkHold ;
-              lbrOn <= eClkHold ;
+              mpSt <= "001" ;
             END IF;
           END IF;
-          tbcHold <= '0' ;
-        ELSE
-          mpOn <= boolean_to_std(ext(fcnt,32) =
-           "00000000000000000000000000000001") ;
-          fcnt <= ext((ext(fcnt,32) - "00000000000000000000000000000001"),3) ;
-          lbrOn <= '1' ;
-        END IF;
-      ELSIF (syncBp = '1') THEN
-        mpOn <= '0' ;
-        simTimeOn <= '0' ;
-        IF (bpHalt = '1') THEN
-          evalOnC <= '0' ;
-          IF (stopEmuPIi = '1') THEN
-            syncBp <= '0' ;
+        WHEN  "00000000000000000000000000000001"  =>
+          mpSt <= "010" ;
+          mpOn <= '1' ;
+          active <= '1' ;
+          IF ((gfifoOff = '0')) THEN
+            initClock <= '1' ;
+          END IF;
+          IF (NOT(ckgHoldPIi) = '1') THEN
+            simTimeOn <= '1' ;
+            lbrOn <= '1' ;
+          END IF;
+        WHEN  "00000000000000000000000000000010"  =>
+          IF (stopCond = '1') THEN
+            mpSt <= "011" ;
+          ELSE
+            active <= '1' ;
+            IF (mpEnable = '1') THEN
+              mpOn <= '1' ;
+              simTimeOn <= '1' ;
+              lbrOn <= '1' ;
+            ELSE
+              mpOn <= '0' ;
+            END IF;
+          END IF;
+        WHEN  "00000000000000000000000000000011"  =>
+          mpOn <= '0' ;
+          simTimeOn <= '0' ;
+          IF (bpHalt = '1') THEN
+            evalOnC <= '0' ;
+            IF (stopEmuPIi = '1') THEN
+              mpSt <= "000" ;
+              tbcPOd <= '1' ;
+            END IF;
+          ELSIF (mpEnable = '1') THEN
+            mpSt <= "000" ;
+            evalOnC <= '0' ;
             tbcPOd <= '1' ;
           END IF;
-        ELSIF (mpEnable = '1') THEN
-          evalOnC <= '0' ;
-          syncBp <= '0' ;
-          tbcPOd <= '1' ;
-        END IF;
-      END IF;
+        WHEN OTHERS => NULL ;
+      END CASE;
     END IF ;
   END PROCESS ;
 
-  PROCESS --:o745
+  PROCESS --:o775
   (fclk)
   BEGIN
     IF (fclk'event AND fclk = '1') THEN
-      IF (((active)='1' OR (asyncBusy)='1')) THEN
+      IF ((ext(mpSt,32) = "00000000000000000000000000000011" OR (asyncBusy)='1')
+      ) THEN
         asyncBusy <= (asyncCall AND NOT(acHalt)) ;
       END IF;
     END IF ;
   END PROCESS ;
 
-  PROCESS --:o762
+  PROCESS --:o792
   (fclk)
   BEGIN
     IF (fclk'event AND fclk = '1') THEN
@@ -1154,23 +1242,23 @@ BEGIN
   gfifoWait <= boolean_to_std(((GFbusy)='1' OR (GFbusyD)='1' OR (GFbusyD2)='1'))
    ;
 
-  PROCESS --:o775
+  PROCESS --:o806
   (fclk)
   BEGIN
     IF (fclk'event AND fclk = '1') THEN
-      tbcPODly <= (std_logic_vector'(tbcPODly(3 DOWNTO 0) & tbcPOd) OR NOT
+      tbcPODly <= (std_logic_vector'(tbcPODly(11 DOWNTO 0) & tbcPOd) OR NOT
       (GF2LevelMask)) ;
     END IF ;
   END PROCESS ;
 
-  PROCESS --:o781
+  PROCESS --:o812
   (*)
   BEGIN
     tbcPORdy <= (((((and_reduce(tbcPODly) OR NOT(hasGFIFO2)) AND NOT(gfifoWait))
      AND NOT(ptxBusy)) AND NOT(asyncBusy)) AND NOT(osfWait)) ;
   END PROCESS ;
 
-  PROCESS --:o786
+  PROCESS --:o817
   (fclk)
   BEGIN
     IF (fclk'event AND fclk = '1') THEN
@@ -1178,17 +1266,17 @@ BEGIN
     END IF ;
   END PROCESS ;
 
-  PROCESS --:o788
+  PROCESS --:o819
   (*)
-    VARIABLE DUMMY5 : std_logic_vector(0 TO 31) ;
+    VARIABLE DUMMY6 : std_logic_vector(0 TO 31) ;
   BEGIN
     IF (forceAbort = '1') THEN
       tbcPO <= '1' ;
       tbcPOStateN <= "00" ;
     ELSE
-      DUMMY5 := ext(tbcPOState,32);
+      DUMMY6 := ext(tbcPOState,32);
 
-      CASE DUMMY5  IS
+      CASE DUMMY6  IS
         WHEN  "00000000000000000000000000000000"  =>
           IF (((tbcPOd)='1' AND (tbcPORdy)='1')) THEN
             tbcPO <= '1' ;
@@ -1216,29 +1304,49 @@ BEGIN
     END IF;
   END PROCESS ;
 
-  PROCESS --:o827
+  PROCESS --:o856
   (*)
+    VARIABLE DUMMY7 : std_logic_vector(0 TO 31) ;
   BEGIN
-    SFIFOLock2 <= SFIFOLock ;
+    DUMMY7 := ext(mpSt,32);
+
+    CASE DUMMY7  IS
+      WHEN  "00000000000000000000000000000000"  =>
+        simTimeEnable <= ((callEmu AND boolean_to_std(clockMC = uClk)) AND NOT
+        (ckgHoldPIi)) ;
+      WHEN  "00000000000000000000000000000001"  =>
+        simTimeEnable <= NOT(ckgHoldPIi) ;
+      WHEN  "00000000000000000000000000000010"  =>
+        simTimeEnable <= (NOT(stopCond) AND mpEnable) ;
+      WHEN OTHERS =>
+        simTimeEnable <= '0' ;
+    END CASE;
   END PROCESS ;
 
-  PROCESS --:o829
-  (*)
+  PROCESS --:o870
+  (uClk)
   BEGIN
-    holdEcmC <= (active AND holdEcm) ;
+    IF (uClk'event AND uClk = '1') THEN
+      SFIFOLock2 <= SFIFOLock ;
+    END IF ;
   END PROCESS ;
 
-  PROCESS --:o830
+  PROCESS --:o872
+  (*)
+  BEGIN
+    holdEcmC <= (holdEcm AND active) ;
+  END PROCESS ;
+
+  PROCESS --:o873
   (fclk)
   BEGIN
     IF (fclk'event AND fclk = '1') THEN
       holdEcmD <= holdEcm ;
     END IF ;
   END PROCESS ;
-  _UnNamed_Inst_21 : Q_RDN PORT MAP (bpWait) ;
-  _UnNamed_Inst_22 : Q_RDN PORT MAP (bWait) ;
-  _UnNamed_Inst_23 : Q_RDN PORT MAP (eClkHold) ;
-  _UnNamed_Inst_24 : Q_RDN PORT MAP (sampleXpChg) ;
+  _UnNamed_Inst_20 : Q_RDN PORT MAP (bpWait) ;
+  _UnNamed_Inst_21 : Q_RDN PORT MAP (bWait) ;
+  _UnNamed_Inst_22 : Q_RDN PORT MAP (sampleXpChg) ;
   qbwi : Q_EV_WOR
     PORT MAP (
        bpWait
@@ -1252,7 +1360,7 @@ BEGIN
        sampleXpChg
     ) ;
 
-  PROCESS --:o853
+  PROCESS --:o894
   (**) --  always_comb
   BEGIN
     $axis_pulse( bClk, bClkRH);
@@ -1261,7 +1369,7 @@ BEGIN
    OR bWait) ;
   bClkHold <= GFBw ;
 
-  PROCESS --:o862
+  PROCESS --:o905
   (fclk)
   BEGIN
     IF (fclk'event AND fclk = '1') THEN
@@ -1277,7 +1385,7 @@ BEGIN
        holdEcmC
     ) ;
 
-  PROCESS --:o866
+  PROCESS --:o910
   (fclk)
     VARIABLE bClkR_DUMMY16 : std_logic ;
     VARIABLE bpSt_DUMMY17 : std_logic_vector(1 DOWNTO 0) ;
@@ -1296,7 +1404,7 @@ BEGIN
             bClkR_DUMMY16 := NOT(bClkR_DUMMY16) ;
           END IF;
         ELSE
-          IF (sampleXpChg = '1') THEN
+          IF (((sampleXpChg)='1' OR uClk /= clockMC)) THEN
             IF ((bClkHold = '0')) THEN
               bClkR_DUMMY16 := NOT(bClkR_DUMMY16) ;
             END IF;
@@ -1306,7 +1414,7 @@ BEGIN
           END IF;
         END IF;
       ELSIF (ext(bpSt_DUMMY17,32) = "00000000000000000000000000000010") THEN
-        IF (((bpWait)='1' OR (sampleXpChg)='1')) THEN
+        IF ((((bpWait)='1' OR (sampleXpChg)='1') OR uClk /= clockMC)) THEN
           IF ((bClkHold = '0')) THEN
             bClkR_DUMMY16 := NOT(bClkR_DUMMY16) ;
           END IF;
@@ -1320,49 +1428,22 @@ BEGIN
     bpSt <= bpSt_DUMMY17;
   END PROCESS ;
 
-  PROCESS --:o894
+  PROCESS --:o937
   (*)
   BEGIN
     bpOn <= ((boolean_to_std(ext(bpSt,32) /= "00000000000000000000000000000000")
      AND NOT(bpHalt)) AND NOT(bClkHoldD)) ;
     sampleXpV <= (bpWait OR sampleXpChg) ;
     IF (ext(bpSt,32) = "00000000000000000000000000000000") THEN
-      IF ((((bpWait)='1' OR (sampleXpChg)='1') AND (mpOn)='1')) THEN
-        lastDelta <= '0' ;
-      ELSE
-        lastDelta <= (hotSwapOnPI OR (boolean_to_std(ext(fcnt,32) =
-         "00000000000000000000000000000000") AND NOT(eClkHold))) ;
-      END IF;
+      lastDelta <= it_cond_op((((bpWait)='1' OR (sampleXpChg)='1') AND (mpOn
+      )='1'),std_logic'('0'),std_logic'('1')) ;
     ELSE
-      lastDelta <= NOT((bpWait OR sampleXpChg)) ;
+      lastDelta <= (NOT((bpWait OR sampleXpChg)) AND boolean_to_std(uClk =
+       clockMC)) ;
     END IF;
   END PROCESS ;
 
-  PROCESS --:o911
-  (eClk)
-  BEGIN
-    IF (eClk'event AND eClk = '1') THEN
-      eCount <= (eCount +
-       "0000000000000000000000000000000000000000000000000000000000000001") ;
-    END IF ;
-  END PROCESS ;
-
-  PROCESS --:o914
-  (fclk)
-  BEGIN
-    IF (fclk'event AND fclk = '1') THEN
-      IF (((callEmu)='1' OR (evalOnC)='1')) THEN
-        evfCount <= (evfCount +
-         "0000000000000000000000000000000000000000000000000000000000000001") ;
-      END IF;
-      IF (evalOn = '1') THEN
-        fvSCount <= (fvSCount +
-         "0000000000000000000000000000000000000000000000000000000000000001") ;
-      END IF;
-    END IF ;
-  END PROCESS ;
-
-  PROCESS --:o919
+  PROCESS --:o947
   (bClk)
   BEGIN
     IF (bClk'event AND bClk = '1') THEN
@@ -1371,7 +1452,7 @@ BEGIN
     END IF ;
   END PROCESS ;
 
-  PROCESS --:o923
+  PROCESS --:o951
   (fclk)
   BEGIN
     IF (fclk'event AND fclk = '1') THEN
@@ -1391,10 +1472,10 @@ BEGIN
     END IF ;
   END PROCESS ;
 
-  PROCESS --:o932
-  (fclk)
+  PROCESS --:o960
+  (uClk)
   BEGIN
-    IF (fclk'event AND fclk = '1') THEN
+    IF (uClk'event AND uClk = '1') THEN
       IF (((ixcHoldClk)='1' AND (ixcHoldClkR = '0'))) THEN
         ixcHoldSyncCnt <= (ixcHoldSyncCnt +
          "0000000000000000000000000000000000000000000000000000000000000001") ;
@@ -1403,7 +1484,31 @@ BEGIN
     END IF ;
   END PROCESS ;
 
-  PROCESS --:o937
+  PROCESS --:o965
+  (eClk)
+  BEGIN
+    IF (eClk'event AND eClk = '1') THEN
+      eCount <= (eCount +
+       "0000000000000000000000000000000000000000000000000000000000000001") ;
+    END IF ;
+  END PROCESS ;
+
+  PROCESS --:o968
+  (uClk)
+  BEGIN
+    IF (uClk'event AND uClk = '1') THEN
+      IF ((((callEmu)='1' OR (evalOnC)='1') OR (evalOnD)='1')) THEN
+        evfCount <= (evfCount +
+         "0000000000000000000000000000000000000000000000000000000000000001") ;
+      END IF;
+      IF (evalOn = '1') THEN
+        fvSCount <= (fvSCount +
+         "0000000000000000000000000000000000000000000000000000000000000001") ;
+      END IF;
+    END IF ;
+  END PROCESS ;
+
+  PROCESS --:o973
   (fclk)
   BEGIN
     IF (fclk'event AND fclk = '1') THEN
@@ -1413,7 +1518,7 @@ BEGIN
     END IF ;
   END PROCESS ;
 
-  PROCESS --:o942
+  PROCESS --:o979
   (*)
   BEGIN
     IF (callEmuEv = '1') THEN
@@ -1426,8 +1531,9 @@ BEGIN
     END IF;
   END PROCESS ;
   intrBuf : buf PORT MAP (_ET3_COMPILER_RESERVED_NAME_ORION_INTERRUPT_,intr) ;
+  _UnNamed_Inst_23 : Q_RDN PORT MAP (it_endBuf) ;
 
-  PROCESS --:o961
+  PROCESS --:o1000
   (fclk)
   BEGIN
     IF (fclk'event AND fclk = '1') THEN
@@ -1437,7 +1543,7 @@ BEGIN
   END PROCESS ;
   it_newBuf <= (it_endBuf AND (it_capture OR it_replay)) ;
 
-  PROCESS --:o968
+  PROCESS --:o1007
   (*)
   BEGIN
     IF (((callEmu)='1' OR (it_newBuf)='1')) THEN
@@ -1457,7 +1563,7 @@ BEGIN
       ,std_logic'('0')
     ) ;
 
-  PROCESS --:o982
+  PROCESS --:o1021
   (fclk)
   BEGIN
     IF (fclk'event AND fclk = '1') THEN
@@ -1465,7 +1571,7 @@ BEGIN
     END IF ;
   END PROCESS ;
 
-  PROCESS --:o987
+  PROCESS --:o1026
   (fclk)
   BEGIN
     IF (fclk'event AND fclk = '1') THEN
@@ -1475,13 +1581,13 @@ BEGIN
     END IF ;
   END PROCESS ;
 
-  PROCESS --:o990
+  PROCESS --:o1029
   (*)
   BEGIN
     hwClkDbgOn <= (hwClkDbg AND (hwClkDbgEn OR cakeUcEnable)) ;
   END PROCESS ;
 
-  PROCESS --:o995
+  PROCESS --:o1032
   (fclk)
     VARIABLE hwClkDelay_DUMMY18 : std_logic_vector(31 DOWNTO 0) ;
   BEGIN
@@ -1496,7 +1602,7 @@ BEGIN
     hwClkDelay <= TRANSPORT hwClkDelay_DUMMY18;
   END PROCESS ;
 
-  PROCESS --:o1006
+  PROCESS --:o1041
   (fclk)
   BEGIN
     IF (fclk'event AND fclk = '1') THEN
@@ -1512,7 +1618,7 @@ BEGIN
   END PROCESS ;
   anyStop <= ((((stop1PO OR stop2PO) OR stop4PO) OR stopTL) OR stop3PO) ;
 
-  PROCESS --:o1026
+  PROCESS --:o1061
   (fclk)
   BEGIN
     IF (fclk'event AND fclk = '1') THEN
@@ -1533,7 +1639,7 @@ BEGIN
     END IF ;
   END PROCESS ;
 
-  PROCESS --:o1041
+  PROCESS --:o1076
   (fclk)
   BEGIN
     IF (fclk'event AND fclk = '1') THEN
@@ -1542,12 +1648,12 @@ BEGIN
     END IF ;
   END PROCESS ;
 
-  PROCESS --:o1046
-  (fclk)
+  PROCESS --:o1081
+  (uClk)
     VARIABLE Fck2Sync_DUMMY19 : std_logic_vector(15 DOWNTO 0) ;
     VARIABLE Gfifo2Sync_DUMMY20 : std_logic_vector(15 DOWNTO 0) ;
   BEGIN
-    IF (fclk'event AND fclk = '1') THEN
+    IF (uClk'event AND uClk = '1') THEN
       IF ((evalOnC = '0')) THEN
         Fck2Sync_DUMMY19 := maxFck2Sync ;
       ELSIF (ext(Fck2Sync_DUMMY19,32) /= "00000000000000000000000000000000")
@@ -1572,7 +1678,7 @@ BEGIN
        syncEn
     ) ;
 
-  PROCESS --:o1066
+  PROCESS --:o1100
   (fclk)
   BEGIN
     IF (fclk'event AND fclk = '1') THEN
@@ -1581,7 +1687,7 @@ BEGIN
   END PROCESS ;
   ecmOn <= (callEmu OR simTimeEnable) ;
 
-  PROCESS --:o1073
+  PROCESS --:o1107
   (fclk)
   BEGIN
     IF (fclk'event AND fclk = '1') THEN
@@ -1591,25 +1697,25 @@ BEGIN
   ecmSync <= NOT((ecmNotSync OR ecmNotSyncD)) ;
   ecmNotSync <= ((svAsyncCall OR otbAsyncCall) OR ptxBusy) ;
 
-  PROCESS --:o1081
+  PROCESS --:o1115
   (fclk)
   BEGIN
     IF (fclk'event AND fclk = '1') THEN
       ecmNotSyncD <= ecmNotSync ;
     END IF ;
   END PROCESS ;
-  _UnNamed_Inst_25 : Q_RDN PORT MAP (holdEcmTb) ;
-  _UnNamed_Inst_26 : Q_RDN PORT MAP (ptxHoldEcm) ;
+  _UnNamed_Inst_24 : Q_RDN PORT MAP (holdEcmTb) ;
+  _UnNamed_Inst_25 : Q_RDN PORT MAP (ptxHoldEcm) ;
 
-  PROCESS --:o1092
-  (fclk)
+  PROCESS --:o1126
+  (uClk)
   BEGIN
-    IF (fclk'event AND fclk = '1') THEN
+    IF (uClk'event AND uClk = '1') THEN
       holdEcmPtxOn <= (ptxHoldEcm AND xcRecordOn) ;
     END IF ;
   END PROCESS ;
 
-  PROCESS --:o1098
+  PROCESS --:o1130
   (fclk)
   BEGIN
     IF (fclk'event AND fclk = '1') THEN
@@ -1622,24 +1728,16 @@ BEGIN
   END PROCESS ;
   holdEcm <= ((holdEcmTb OR holdEcmPtxOn) OR holdEcmSync) ;
 
-  PROCESS --:o1110
-  (fclk)
-  BEGIN
-    IF (fclk'event AND fclk = '1') THEN
-      uClkT <= NOT(uClkT) ;
-    END IF ;
-  END PROCESS ;
-
-  PROCESS --:o1115
-  (fclk)
-    VARIABLE DUMMY6 : std_logic_vector(0 TO 31) ;
+  PROCESS --:o1141
+  (uClk)
+    VARIABLE DUMMY8 : std_logic_vector(0 TO 31) ;
     VARIABLE dccFrameFill_DUMMY21 : std_logic_vector(7 DOWNTO 0) ;
   BEGIN
-    IF (fclk'event AND fclk = '1') THEN
+    IF (uClk'event AND uClk = '1') THEN
       IF (ext(DccFrameCycle,32) /= "00000000000000000000000000000000") THEN
-        DUMMY6 := ext(dccState,32);
+        DUMMY8 := ext(dccState,32);
 
-        CASE DUMMY6  IS
+        CASE DUMMY8  IS
           WHEN  "00000000000000000000000000000000"  =>
             bWaitExtend <= '0' ;
             IF (lbrOn = '1') THEN
@@ -1666,13 +1764,13 @@ BEGIN
     dccFrameFill <= TRANSPORT dccFrameFill_DUMMY21;
   END PROCESS ;
 
-  PROCESS --:o1144
+  PROCESS --:o1169
   (**) --  always_comb
   BEGIN
     $axis_pulse( mcp, clockMC);
   END PROCESS ;
 
-  PROCESS --:o1146
+  PROCESS --:o1171
   (mcp)
   BEGIN
     IF (mcp'event AND mcp = '1') THEN
@@ -1681,19 +1779,13 @@ BEGIN
   END PROCESS ;
   mcDelta <= ext((DUMMY2 - nextDutTimeP),32) ;
 
-  PROCESS --:o1160
-  (**) --  always_comb
-  BEGIN
-    $axis_pulse( uClk, uClkT);
-  END PROCESS ;
-
-  PROCESS --:o1165
+  PROCESS --:o1187
   (fclk)
   BEGIN
     IF (fclk'event AND fclk = '1') THEN
       IF ((uClkErrTime =
        "0000000000000000000000000000000000000000000000000000000000000000" AND
-       fclkCntr /= uClkCntr)) THEN
+       shr(fclkCntr,integer_to_std(1,32)) /= uClkCntr)) THEN
         uClkErrTime <= simTime ;
       END IF;
       IF (initClock = '1') THEN
@@ -1703,7 +1795,7 @@ BEGIN
     END IF ;
   END PROCESS ;
 
-  PROCESS --:o1170
+  PROCESS --:o1192
   (uClk)
   BEGIN
     IF (uClk'event AND uClk = '1') THEN

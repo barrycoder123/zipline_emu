@@ -12,9 +12,9 @@ architecture module of nx_fifo_ram_1r1w_xcm13 is
 
   component nx_ram_1r1w_xcm15
     generic (
-      WIDTH : integer := 83 ;
-      DEPTH : integer := 168 ;
-      BWEWIDTH : integer := 83 ;
+      WIDTH : integer := 71 ;
+      DEPTH : integer := 2048 ;
+      BWEWIDTH : integer := 71 ;
       SPECIALIZE : integer := 1 ;
       IN_FLOP : integer := 1 ;
       OUT_FLOP : integer := 1 ;
@@ -34,18 +34,18 @@ architecture module of nx_fifo_ram_1r1w_xcm13 is
       bimc_osync : out std_logic ;
       ro_uncorrectable_ecc_error : out std_logic ;
       reb : in std_logic := 'X' ;
-      ra : in std_logic_vector(7 downto 0) := (others => 'X') ;
-      dout : out std_logic_vector(82 downto 0) ;
+      ra : in std_logic_vector(10 downto 0) := (others => 'X') ;
+      dout : out std_logic_vector(70 downto 0) ;
       web : in std_logic := 'X' ;
-      wa : in std_logic_vector(7 downto 0) := (others => 'X') ;
-      din : in std_logic_vector(82 downto 0) := (others => 'X') ;
-    bwe : in std_logic_vector(82 downto 0) := (others => 'X') ) ;
+      wa : in std_logic_vector(10 downto 0) := (others => 'X') ;
+      din : in std_logic_vector(70 downto 0) := (others => 'X') ;
+    bwe : in std_logic_vector(70 downto 0) := (others => 'X') ) ;
   end component ;
 
   component nx_fifo_ctrl_ram_1r1w_xcm17
     generic (
-      DEPTH : integer := 168 ;
-      WIDTH : integer := 83 ;
+      DEPTH : integer := 2048 ;
+      WIDTH : integer := 71 ;
       UNDERFLOW_ASSERT : integer := 1 ;
       OVERFLOW_ASSERT : integer := 1 ;
       RD_LATENCY : integer := 3 ;
@@ -54,34 +54,34 @@ architecture module of nx_fifo_ram_1r1w_xcm13 is
     ) ;
     port (
       mem_wen : out std_logic ;
-      mem_waddr : out std_logic_vector(7 downto 0) ;
-      mem_wdata : out std_logic_vector(82 downto 0) ;
+      mem_waddr : out std_logic_vector(10 downto 0) ;
+      mem_wdata : out std_logic_vector(70 downto 0) ;
       mem_ren : out std_logic ;
-      mem_raddr : out std_logic_vector(7 downto 0) ;
+      mem_raddr : out std_logic_vector(10 downto 0) ;
       empty : out std_logic ;
       full : out std_logic ;
-      used_slots : out std_logic_vector(7 downto 0) ;
-      free_slots : out std_logic_vector(7 downto 0) ;
+      used_slots : out std_logic_vector(11 downto 0) ;
+      free_slots : out std_logic_vector(11 downto 0) ;
       rerr : out std_logic ;
-      rdata : out std_logic_vector(82 downto 0) ;
+      rdata : out std_logic_vector(70 downto 0) ;
       underflow : out std_logic ;
       overflow : out std_logic ;
       clk : in std_logic := 'X' ;
       rst_n : in std_logic := 'X' ;
-      mem_rdata : in std_logic_vector(82 downto 0) := (others => 'X') ;
+      mem_rdata : in std_logic_vector(70 downto 0) := (others => 'X') ;
       mem_ecc_error : in std_logic := 'X' ;
       wen : in std_logic := 'X' ;
-      wdata : in std_logic_vector(82 downto 0) := (others => 'X') ;
+      wdata : in std_logic_vector(70 downto 0) := (others => 'X') ;
       ren : in std_logic := 'X' ;
     clear : in std_logic := 'X' ) ;
   end component ;
 
   signal DUMMY0 : std_logic ;
   signal DUMMY1 : std_logic ;
-  signal DUMMY2 : std_logic_vector(0 to 7) ;
-  signal DUMMY3 : std_logic_vector(0 to 7) ;
+  signal DUMMY2 : std_logic_vector(0 to 11) ;
+  signal DUMMY3 : std_logic_vector(0 to 11) ;
   signal DUMMY4 : std_logic ;
-  signal DUMMY5 : std_logic_vector(0 to 82) ;
+  signal DUMMY5 : std_logic_vector(0 to 70) ;
   signal DUMMY6 : std_logic ;
   signal DUMMY7 : std_logic ;
   signal DUMMY8 : std_logic ;
@@ -91,35 +91,35 @@ architecture module of nx_fifo_ram_1r1w_xcm13 is
   signal DUMMY12 : std_logic ;
   signal DUMMY13 : std_logic ;
   signal _zy_simnet_tvar_14 : std_logic ;
-  signal DUMMY14 : std_logic_vector(0 to 7) ;
-  signal DUMMY15 : std_logic_vector(0 to 82) ;
+  signal DUMMY14 : std_logic_vector(0 to 10) ;
+  signal DUMMY15 : std_logic_vector(0 to 70) ;
   signal _zy_simnet_tvar_17 : std_logic ;
-  signal DUMMY16 : std_logic_vector(0 to 7) ;
-  signal DUMMY17 : std_logic_vector(0 to 82) ;
-  signal _zy_simnet_cio_20 : std_logic_vector(0 to 82) ;
+  signal DUMMY16 : std_logic_vector(0 to 10) ;
+  signal DUMMY17 : std_logic_vector(0 to 70) ;
+  signal _zy_simnet_cio_20 : std_logic_vector(0 to 70) ;
   signal DUMMY18 : std_logic ;
-  signal DUMMY19 : std_logic_vector(0 to 7) ;
-  signal DUMMY20 : std_logic_vector(0 to 82) ;
+  signal DUMMY19 : std_logic_vector(0 to 10) ;
+  signal DUMMY20 : std_logic_vector(0 to 70) ;
   signal DUMMY21 : std_logic ;
-  signal DUMMY22 : std_logic_vector(0 to 7) ;
+  signal DUMMY22 : std_logic_vector(0 to 10) ;
   signal DUMMY23 : std_logic ;
   signal DUMMY24 : std_logic ;
-  signal DUMMY25 : std_logic_vector(0 to 7) ;
-  signal DUMMY26 : std_logic_vector(0 to 7) ;
+  signal DUMMY25 : std_logic_vector(0 to 11) ;
+  signal DUMMY26 : std_logic_vector(0 to 11) ;
   signal DUMMY27 : std_logic ;
-  signal DUMMY28 : std_logic_vector(0 to 82) ;
+  signal DUMMY28 : std_logic_vector(0 to 70) ;
   signal DUMMY29 : std_logic ;
   signal DUMMY30 : std_logic ;
-  signal DUMMY31 : std_logic_vector(0 to 82) ;
+  signal DUMMY31 : std_logic_vector(0 to 70) ;
   signal DUMMY32 : std_logic ;
   signal mem_wen : std_logic ;
-  signal mem_waddr : std_logic_vector(7 downto 0) ;
-  signal mem_wdata : std_logic_vector(82 downto 0) ;
+  signal mem_waddr : std_logic_vector(10 downto 0) ;
+  signal mem_wdata : std_logic_vector(70 downto 0) ;
   signal mem_ren : std_logic ;
   signal _mem_ren : std_logic ;
-  signal mem_raddr : std_logic_vector(7 downto 0) ;
-  signal _mem_raddr : std_logic_vector(7 downto 0) ;
-  signal mem_rdata : std_logic_vector(82 downto 0) ;
+  signal mem_raddr : std_logic_vector(10 downto 0) ;
+  signal _mem_raddr : std_logic_vector(10 downto 0) ;
+  signal mem_rdata : std_logic_vector(70 downto 0) ;
 
 begin
   _zz_strnp_0 : ixc_assign
@@ -135,13 +135,13 @@ begin
       ,full
     ) ;
   _zz_strnp_2 : ixc_assign
-    generic map(W => 8)
+    generic map(W => 12)
     port map (
        DUMMY2
       ,used_slots
     ) ;
   _zz_strnp_3 : ixc_assign
-    generic map(W => 8)
+    generic map(W => 12)
     port map (
        DUMMY3
       ,free_slots
@@ -153,7 +153,7 @@ begin
       ,rerr
     ) ;
   _zz_strnp_5 : ixc_assign
-    generic map(W => 83)
+    generic map(W => 71)
     port map (
        DUMMY5
       ,rdata
@@ -208,33 +208,32 @@ begin
     ) ;
   _zy_simnet_tvar_14 <= not(_mem_ren) ;
   _zz_strnp_14 : ixc_assign
-    generic map(W => 8)
+    generic map(W => 11)
     port map (
        DUMMY14
       ,_mem_raddr
     ) ;
   _zz_strnp_15 : ixc_assign
-    generic map(W => 83)
+    generic map(W => 71)
     port map (
        mem_rdata
       ,DUMMY15
     ) ;
   _zy_simnet_tvar_17 <= not(mem_wen) ;
   _zz_strnp_16 : ixc_assign
-    generic map(W => 8)
+    generic map(W => 11)
     port map (
        DUMMY16
       ,mem_waddr
     ) ;
   _zz_strnp_17 : ixc_assign
-    generic map(W => 83)
+    generic map(W => 71)
     port map (
        DUMMY17
       ,mem_wdata
     ) ;
   _zy_simnet_cio_20 <=
-   "11111111111111111111111111111111111111111111111111111111111111111111111111111111111"
-   ;
+   "11111111111111111111111111111111111111111111111111111111111111111111111" ;
   _zz_strnp_18 : ixc_assign
     generic map(W => 1)
     port map (
@@ -242,13 +241,13 @@ begin
       ,DUMMY18
     ) ;
   _zz_strnp_19 : ixc_assign
-    generic map(W => 8)
+    generic map(W => 11)
     port map (
        mem_waddr
       ,DUMMY19
     ) ;
   _zz_strnp_20 : ixc_assign
-    generic map(W => 83)
+    generic map(W => 71)
     port map (
        mem_wdata
       ,DUMMY20
@@ -260,7 +259,7 @@ begin
       ,DUMMY21
     ) ;
   _zz_strnp_22 : ixc_assign
-    generic map(W => 8)
+    generic map(W => 11)
     port map (
        mem_raddr
       ,DUMMY22
@@ -278,13 +277,13 @@ begin
       ,DUMMY24
     ) ;
   _zz_strnp_25 : ixc_assign
-    generic map(W => 8)
+    generic map(W => 12)
     port map (
        used_slots
       ,DUMMY25
     ) ;
   _zz_strnp_26 : ixc_assign
-    generic map(W => 8)
+    generic map(W => 12)
     port map (
        free_slots
       ,DUMMY26
@@ -296,7 +295,7 @@ begin
       ,DUMMY27
     ) ;
   _zz_strnp_28 : ixc_assign
-    generic map(W => 83)
+    generic map(W => 71)
     port map (
        rdata
       ,DUMMY28
@@ -314,7 +313,7 @@ begin
       ,DUMMY30
     ) ;
   _zz_strnp_31 : ixc_assign
-    generic map(W => 83)
+    generic map(W => 71)
     port map (
        DUMMY31
       ,mem_rdata

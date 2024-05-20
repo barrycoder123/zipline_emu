@@ -1,7 +1,7 @@
 `begin_keywords "1800-2012"
 module nx_roreg_indirect_access_xcm130 ( stat_code, stat_datawords, stat_addr, capability_lst, capability_type, rd_dat, clk, rst_n, addr, cmnd_op, cmnd_addr, wr_stb, wr_dat, mem_a );
-parameter CMND_ADDRESS = 11'b10000001100 ;
-parameter STAT_ADDRESS = 11'b10000000000 ;
+parameter CMND_ADDRESS = 11'b10000101000 ;
+parameter STAT_ADDRESS = 11'b10000011100 ;
 parameter ALIGNMENT = 2 ;
 parameter N_DATA_BITS = 64 ;
 parameter N_REG_ADDR_BITS = 11 ;

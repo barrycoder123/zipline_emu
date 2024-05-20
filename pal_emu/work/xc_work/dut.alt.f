@@ -1,4 +1,4 @@
- -top xc_ncwork.kme_tb
+ -top xc_ncwork.tb_top
  -top xc_ncwork.my_clks
  -top IXCOM_TEMP_LIBRARY.IXC_GFIFO
  -top IXCOM_TEMP_LIBRARY.ixc_time

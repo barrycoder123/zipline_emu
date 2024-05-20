@@ -1,5 +1,5 @@
 
-## dbgPrepare starts at 05/02/2024 13:45:09 ibarry V23.03.131.s001, HOST: hsv-sc49, PID: 3495415, DISPLAY: sjcvl-ibarry:1
+## dbgPrepare starts at 05/20/2024 11:37:55 ibarry V23.03.131.s001, HOST: hsv-sc49, PID: 3891889, DISPLAY: sjcvl-ibarry:1
 dbgPrepare hdldb xcva_top -pass1 -mc
 ## 64bit program from /lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/bin on Linux 4.18.0-305.el8.x86_64 64bit
 (c) 1991-2021 Cadence Design Systems, Inc. All rights reserved worldwide.
@@ -66,83 +66,83 @@ file locks                      (-x) unlimited
   L1d cache: 32K, L1i cache: 32K, L2 cache: 256K, L3 cache: 30720K
 * Memory info:
               total     used     free   shared  buffers   cached
-Mem  (GB):     1007      266      740        0        0      118
-Swap (GB):      127        0      127
+Mem  (GB):     1007      443      563        0        0      200
+Swap (GB):      127        1      126
 * Load info:
-  2432 threads
+  1416 threads
   Load (avg):    1 min (% CPU) |     5 min (% CPU) |    15 min (% CPU)
-               3.12 (  3% CPU) |   3.90 (  4% CPU) |   6.23 (  6% CPU)
-System info: hsv-sc49 - dbgPrepare - 3495415 3491066 - qtInit - 2024-05-02 13:45:09 - 3.12 3% 3.90 4% 6.23 6% - 1007 266 740 118 127 0 127
+              10.53 ( 11% CPU) |   6.69 (  7% CPU) |   4.04 (  4% CPU)
+System info: hsv-sc49 - dbgPrepare - 3891889 3887231 - qtInit - 2024-05-20 11:37:55 - 10.53 11% 6.69 7% 4.04 4% - 1007 443 563 200 127 1 126
 000,000 s: dbgPrepare pre-selected instances top N = 10000
 000,000 s: INFO (legacy-39111): Opening PDB hdldb xcva_top (of=0).
-000,000 s: INFO (legacy-0): 30302 critical net names have been restored: elapsed time 0 sec
-000,000 s: INFO (legacy-0): strtab(segs and data) has been restored: elapsed time 0 sec
+000,000 s: INFO (legacy-0): 47849 critical net names have been restored: elapsed time 0 sec
+000,000 s: INFO (legacy-0): strtab(segs and data) has been restored: elapsed time 1 sec
 000,000 s: INFO (legacy-0): sigmap has been restored: elapsed time 0 sec
-000,001 s: INFO (legacy-0): 1396 cells have been restored: elapsed time 1 sec
-000,001 s: INFO (legacy-0): 243428 smTrNets have been restored: elapsed time 0 sec
-000,001 s: INFO (legacy-0): 233212 smTrPrims have been restored: elapsed time 0 sec
-000,001 s: INFO (legacy-0): flat-conns have been restored: elapsed time 0 sec
-000,001 s: INFO (legacy-0): 967639 synonyms have been setup: elapsed time 0 sec
-000,001 s: Restoring PDB ./PDB/hdldb.xcva_top.rt: elapsed time 1 sec.
+000,001 s: INFO (legacy-0): 1439 cells have been restored: elapsed time 0 sec
+000,001 s: INFO (legacy-0): 546222 smTrNets have been restored: elapsed time 0 sec
+000,001 s: INFO (legacy-0): 530301 smTrPrims have been restored: elapsed time 0 sec
+000,001 s: INFO (legacy-0): flat-conns have been restored: elapsed time 1 sec
+000,001 s: INFO (legacy-0): 1307961 synonyms have been setup: elapsed time 0 sec
+000,001 s: Restoring PDB ./PDB/hdldb.xcva_top.rt: elapsed time 2 sec.
 000,001 s: INFO (legacy-0): smNetIDs have been setup: elapsed time 0 sec
 000,001 s: INFO (legacy-0): CRT-FULL has been restored: elapsed time 0 sec
-000,001 s: ConstructInfoFile 117 cells (2907 constructs) which has 2706 records 72 arrays 155401 name size.
+000,001 s: ConstructInfoFile 117 cells (2907 constructs) which has 2706 records 72 arrays 155403 name size.
 000,001 s: INFO (legacy-45793): Collected construct info.
 000,001 s: WARNING (legacy-55183): Mode 'FV' detected, dsnGen only support FV and CP mode.
-000,001 s: INFO (legacy-0): pass1: start to prepare memory,current time is Thu May  2 13:45:10 2024
-000,001 s: INFO (legacy-0): pass1: start to prepare ucdb,current time is Thu May  2 13:45:10 2024
-000,001 s: INFO (legacy-0): pass1: start to prepare swfv, current time is Thu May  2 13:45:10 2024 
+000,001 s: INFO (legacy-0): pass1: start to prepare memory,current time is Mon May 20 11:37:57 2024
+000,001 s: INFO (legacy-0): pass1: start to prepare ucdb,current time is Mon May 20 11:37:57 2024
+000,001 s: INFO (legacy-0): pass1: start to prepare swfv, current time is Mon May 20 11:37:57 2024 
 000,001 s: INFO (legacy-0): Reading BIN ucdb
 000,001 s: building swfv DB...
 000,001 s: INFO (legacy-0): #PPC partitions = 1
-000,001 s: INFO (legacy-0): maxPDBnets 243429 #FD01s 53984 #PIprobes 9332 #FFprobes 38351
-000,001 s: INFO (legacy-73921): Created sourceless net sidefile, total nets 2 (#3:36, #2:51710, #1:30479, #0:71030, 243429)
-000,001 s: total 31498 FF, 9248 PI, 153628 Comb, 142 back-to-back FF in PDB
-000,001 s: INFO (legacy-0): pass1: finish preparing memory, current time is Thu May  2 13:45:10 2024, Elapsed time 0.14 real, 0.86 cpu(0.8u+0.06s), 614%, memory 3530M
-000,001 s: INFO (legacy-1): setStepDone: memory
-000,001 s: INFO (legacy-1): Start to write back to dbgPrepStatus
-000,001 s: INFO (legacy-0): pass1: finish memory preparing
-000,001 s: INFO (legacy-0): pass1: finish preparing ucdb, current time is Thu May  2 13:45:10 2024, Elapsed time 0.22 real, 1.08 cpu(1.01u+0.07s), 491%, memory 3530M
-000,001 s: INFO (legacy-1): setStepDone: ucdb
-000,001 s: INFO (legacy-1): Start to write back to dbgPrepStatus
-000,001 s: INFO (legacy-0): Total Wire Cap = 0.000000(pf)
-000,001 s: INFO (legacy-0): Total Pin Cap = 0.000000(pf)
-000,001 s: INFO (legacy-0): Full swfvDB details: #FF = 31498, #PI = 9248, #Gates = 194378
-000,002 s: INFO (legacy-54218): The number of comb is 153628, the number of breaking points is 0
-000,002 s: INFO (legacy-54218): Find breaking points total time 0.01 real, 0.01 cpu(0.01u+0s), 100%, memory 8691M
-000,002 s: INFO (legacy-26751): Created swfvIdset with 194232 fv nets in 0.000000 seconds, 1.253422 bits/id, skipped 146 artificial nets.
-000,002 s: INFO (legacy-26752): Created dccMaskFilePass1 in 0.000000 seconds.
-000,002 s: INFO (legacy-0): pass1: finish preparing swfvDB, current time is Thu May  2 13:45:11 2024, Elapsed time 0.71 real, 3.1 cpu(2.22u+0.88s), 437%, memory 8905M
-000,002 s: INFO (legacy-1): setStepDone: swfvDB
+000,001 s: INFO (legacy-0): maxPDBnets 546223 #FD01s 100965 #PIprobes 15644 #FFprobes 65072
+000,002 s: INFO (legacy-73921): Created sourceless net sidefile, total nets 2 (#3:1635, #2:13148, #1:13140, #0:453191, 546223)
+000,002 s: INFO (legacy-0): pass1: finish preparing memory, current time is Mon May 20 11:37:57 2024, Elapsed time 0.16 real, 2.15 cpu(2.03u+0.12s), 1344%, memory 4425M
+000,002 s: INFO (legacy-1): setStepDone: memory
 000,002 s: INFO (legacy-1): Start to write back to dbgPrepStatus
-000,002 s: INFO (legacy-0): pass1: finish swfvDB preparing
-000,002 s: INFO (legacy-0): pass1: finish preparing clockconfig
-000,002 s: INFO (legacy-1): setStepDone: clockconfig
+000,002 s: INFO (legacy-0): pass1: finish memory preparing
+000,002 s: INFO (legacy-0): pass1: finish preparing ucdb, current time is Mon May 20 11:37:57 2024, Elapsed time 0.22 real, 2.32 cpu(2.2u+0.12s), 1055%, memory 4425M
+000,002 s: INFO (legacy-1): setStepDone: ucdb
 000,002 s: INFO (legacy-1): Start to write back to dbgPrepStatus
-000,002 s: INFO (legacy-0): pass1: finish clockconfig preparing
-000,002 s: INFO (legacy-0): pass1: finish preparing abart
-000,002 s: INFO (legacy-1): setStepDone: abart
-000,002 s: INFO (legacy-1): Start to write back to dbgPrepStatus
-000,002 s: INFO (legacy-0): pass1: finish abart preparing
-000,002 s: INFO (legacy-1): setStepDone: dccmaskmd5
-000,002 s: INFO (legacy-1): Start to write back to dbgPrepStatus
-000,002 s: INFO (legacy-0): pass1: calculate dccMaskFilePass1 md5sum takes 0.010000 seconds.
-000,002 s: INFO (legacy-1): setStepDone: memorymd5
-000,002 s: INFO (legacy-1): Start to write back to dbgPrepStatus
-000,002 s: INFO (legacy-0): pass1: calculate memInfo_pass1 md5sum takes 0.010000 seconds.
-000,002 s: INFO (dbgPrep-1052): dbgPrepare done.
-000,002 s: INFO (legacy-0): updatePass1Stat status: 1, pid_t: 3495415
+000,002 s: total 77574 FF, 15623 PI, 401711 Comb, 1635 back-to-back FF in PDB
+000,002 s: INFO (legacy-0): Total Wire Cap = 0.000000(pf)
+000,002 s: INFO (legacy-0): Total Pin Cap = 0.000000(pf)
+000,002 s: INFO (legacy-0): Full swfvDB details: #FF = 77574, #PI = 15623, #Gates = 494912
+000,003 s: INFO (legacy-54218): The number of comb is 401711, the number of breaking points is 0
+000,003 s: INFO (legacy-54218): Find breaking points total time 0.03 real, 0.06 cpu(0.05u+0.01s), 200%, memory 9089M
+000,003 s: INFO (legacy-26752): Created dccMaskFilePass1 in 0.000000 seconds.
+000,003 s: INFO (legacy-26751): Created swfvIdset with 493273 fv nets in 0.000000 seconds, 1.107376 bits/id, skipped 1639 artificial nets.
+000,003 s: INFO (legacy-0): pass1: finish preparing swfvDB, current time is Mon May 20 11:37:58 2024, Elapsed time 1.14 real, 4.86 cpu(4.47u+0.39s), 426%, memory 9254M
+000,003 s: INFO (legacy-1): setStepDone: swfvDB
+000,003 s: INFO (legacy-1): Start to write back to dbgPrepStatus
+000,003 s: INFO (legacy-0): pass1: finish swfvDB preparing
+000,003 s: INFO (legacy-0): pass1: finish preparing clockconfig
+000,003 s: INFO (legacy-1): setStepDone: clockconfig
+000,003 s: INFO (legacy-1): Start to write back to dbgPrepStatus
+000,003 s: INFO (legacy-0): pass1: finish clockconfig preparing
+000,003 s: INFO (legacy-0): pass1: finish preparing abart
+000,003 s: INFO (legacy-1): setStepDone: abart
+000,003 s: INFO (legacy-1): Start to write back to dbgPrepStatus
+000,003 s: INFO (legacy-0): pass1: finish abart preparing
+000,003 s: INFO (legacy-1): setStepDone: dccmaskmd5
+000,003 s: INFO (legacy-1): Start to write back to dbgPrepStatus
+000,003 s: INFO (legacy-0): pass1: calculate dccMaskFilePass1 md5sum takes 0.020000 seconds.
+000,003 s: INFO (legacy-1): setStepDone: memorymd5
+000,003 s: INFO (legacy-1): Start to write back to dbgPrepStatus
+000,003 s: INFO (legacy-0): pass1: calculate memInfo_pass1 md5sum takes 0.010000 seconds.
+000,003 s: INFO (dbgPrep-1052): dbgPrepare done.
+000,003 s: INFO (legacy-0): updatePass1Stat status: 1, pid_t: 3891889
 * Memory info:
               total     used     free   shared  buffers   cached
-Mem  (GB):     1007      267      739        0        0      118
-Swap (GB):      127        0      127
+Mem  (GB):     1007      445      561        0        0      201
+Swap (GB):      127        1      126
 * Load info:
-  2462 threads
+  1440 threads
   Load (avg):    1 min (% CPU) |     5 min (% CPU) |    15 min (% CPU)
-               3.19 (  3% CPU) |   3.90 (  4% CPU) |   6.21 (  6% CPU)
-System info: hsv-sc49 - dbgPrepare - 3495415 3491066 - qtExit - 2024-05-02 13:45:11 - 3.19 3% 3.90 4% 6.21 6% - 1007 267 739 118 127 0 127
-Peak usage info for dbgPrepare (pid 3495415, ppid 3491066) on hsv-sc49: CPU usage 0.00, Peak mem (Res 1 GB, Virt 9 GB), freePhyMem 740 GB, totalPhyMem 1007 GB, freeSwap 128 GB, totalSwap 128 GB
-DRM memory info: hsv-sc49 - dbgPrepare - 3495415 - 3491066 - unknown unlimited
-## dbgPrepare exits at 05/02/2024 13:45:11 Status: 0, PID: 3495415
-## dbgPrepare Elapsed time: 0:00:02, CPU time: 0:00:04.25, Memory Usage: 8.7G
+              10.53 ( 11% CPU) |   6.69 (  7% CPU) |   4.04 (  4% CPU)
+System info: hsv-sc49 - dbgPrepare - 3891889 3887231 - qtExit - 2024-05-20 11:37:59 - 10.53 11% 6.69 7% 4.04 4% - 1007 445 561 201 127 1 126
+Peak usage info for dbgPrepare (pid 3891889, ppid 3887231) on hsv-sc49: CPU usage 0.00, Peak mem (Res 1 GB, Virt 9 GB), freePhyMem 562 GB, totalPhyMem 1007 GB, freeSwap 127 GB, totalSwap 128 GB
+DRM memory info: hsv-sc49 - dbgPrepare - 3891889 - 3887231 - unknown unlimited
+## dbgPrepare exits at 05/20/2024 11:37:59 Status: 0, PID: 3891889
+## dbgPrepare Elapsed time: 0:00:04, CPU time: 0:00:06.63, Memory Usage: 9.0G
 ## Child Proc. CPU time: 0:00:00.15

@@ -1,37 +1,37 @@
 DUMMY0 1_zy_simnet_stat_code_0_w$ 0 2
 DUMMY1 1_zy_simnet_stat_datawords_1_w$ 0 4
-DUMMY2 1_zy_simnet_stat_addr_2_w$ 0 14
+DUMMY2 1_zy_simnet_stat_addr_2_w$ 0 13
 DUMMY3 1_zy_simnet_capability_lst_3_w$ 0 15
 DUMMY4 1_zy_simnet_capability_type_4_w$ 0 3
-DUMMY5 1_zy_simnet_rd_dat_5_w$ 0 63
+DUMMY5 1_zy_simnet_rd_dat_5_w$ 0 37
 DUMMY6 0_zy_simnet_bimc_odat_6_w$
 DUMMY7 0_zy_simnet_bimc_osync_7_w$
 DUMMY8 0_zy_simnet_ro_uncorrectable_ecc_error_8_w$
-DUMMY9 1_zy_simnet_hw_dout_9_w$ 0 63
+DUMMY9 1_zy_simnet_hw_dout_9_w$ 0 37
 DUMMY10 0_zy_simnet_hw_yield_10_w$
 DUMMY11 0_zy_simnet_bimc_odat_11_w$
 DUMMY12 0_zy_simnet_bimc_osync_12_w$
 DUMMY13 0_zy_simnet_ro_uncorrectable_ecc_error_13_w$
-DUMMY14 1_zy_simnet_bwe_14_w$ 0 63
-DUMMY15 1_zy_simnet_din_15_w$ 0 63
-DUMMY16 1_zy_simnet_add_16_w$ 0 14
+DUMMY14 1_zy_simnet_bwe_14_w$ 0 37
+DUMMY15 1_zy_simnet_din_15_w$ 0 37
+DUMMY16 1_zy_simnet_add_16_w$ 0 13
 DUMMY17 0_zy_simnet_cs_17_w$
 DUMMY18 0_zy_simnet_we_18_w$
-DUMMY19 1_zy_simnet_dout_19_w$ 0 63
+DUMMY19 1_zy_simnet_dout_19_w$ 0 37
 DUMMY20 1_zy_simnet_stat_code_21_w$ 0 2
 DUMMY21 1_zy_simnet_stat_datawords_22_w$ 0 4
-DUMMY22 1_zy_simnet_stat_addr_23_w$ 0 14
+DUMMY22 1_zy_simnet_stat_addr_23_w$ 0 13
 DUMMY23 1_zy_simnet_capability_lst_25_w$ 0 15
 DUMMY24 1_zy_simnet_capability_type_26_w$ 0 3
 DUMMY25 0_zy_simnet_enable_27_w$
-DUMMY26 1_zy_simnet_addr_limit_28_w$ 0 14
-DUMMY27 1_zy_simnet_rd_dat_29_w$ 0 63
+DUMMY26 1_zy_simnet_addr_limit_28_w$ 0 13
+DUMMY27 1_zy_simnet_rd_dat_29_w$ 0 37
 DUMMY28 0_zy_simnet_sw_cs_30_w$
 DUMMY29 0_zy_simnet_sw_we_32_w$
-DUMMY30 1_zy_simnet_sw_add_33_w$ 0 14
-DUMMY31 1_zy_simnet_sw_wdat_34_w$ 0 63
-DUMMY32 1_zy_simnet_dout_35_w$ 0 63
+DUMMY30 1_zy_simnet_sw_add_33_w$ 0 13
+DUMMY31 1_zy_simnet_sw_wdat_34_w$ 0 37
+DUMMY32 1_zy_simnet_dout_35_w$ 0 37
 DUMMY33 0_zy_simnet_r_rsp_39_w$
 DUMMY34 0_zy_simnet_yield_40_w$
 DUMMY35 0{}
-DUMMY36 1_zy_simnet_addr_limit_28_w$ 0 14
+DUMMY36 1_zy_simnet_addr_limit_28_w$ 0 13

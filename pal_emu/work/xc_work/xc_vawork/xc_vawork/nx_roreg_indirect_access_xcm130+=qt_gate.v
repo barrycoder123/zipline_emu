@@ -2619,7 +2619,7 @@ wire [63:0] sw_wdat;
 wire [63:0] sw_rdat;
 wire sw_we;
 wire [4:0] addr_limit;
-wire [63:0] _svmls_var_L189_0;
+wire [63:0] _svmls_var_L189_2;
 wire [31:0] _svmls_mah_L0_0;
 wire [31:0] _svmls_dummy_ret;
 supply0 n1;

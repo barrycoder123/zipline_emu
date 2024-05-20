@@ -789,7 +789,7 @@ cr_tlvp2_rsm_core u_cr_tlvp2_rsm_core ( .pt_ob_rd( _zy_simnet_pt_ob_rd_10_w$),
 	_zy_simnet_usr_ob_aempty_16_w$), .tlvp_ob_full( 
 	_zy_simnet_tlvp_ob_full_17_w$), .tlvp_ob_afull( 
 	_zy_simnet_tlvp_ob_afull_18_w$));
-cr_fifo_wrap2_xcm9 u_cr_fifo_wrap2_tob ( .full( 
+cr_fifo_wrap2_xcm10 u_cr_fifo_wrap2_tob ( .full( 
 	_zy_simnet_tlvp_ob_full_19_w$), .afull( 
 	_zy_simnet_tlvp_ob_afull_20_w$), .rdata( 
 	_zy_simnet_tlvp_ob_21_w$[0:82]), .empty( 
@@ -802,7 +802,7 @@ cr_fifo_wrap2_xcm9 u_cr_fifo_wrap2_tob ( .full(
 	.wen( _zy_simnet_tlvp_rsm_ob_wen_28_w$), .ren( tlvp_ob_rd), 
 	.bimc_idat( _zy_simnet_usr_ob_bimc_odat_29_w$), .bimc_isync( 
 	_zy_simnet_usr_ob_bimc_osync_30_w$), .bimc_rst_n( bimc_rst_n));
-cr_fifo_wrap2_xcm8 u_cr_fifo_wrap2_uobf ( .full( 
+cr_fifo_wrap2_xcm9 u_cr_fifo_wrap2_uobf ( .full( 
 	_zy_simnet_usr_ob_full_31_w$), .afull( 
 	_zy_simnet_usr_ob_afull_32_w$), .rdata( 
 	_zy_simnet_tlvp_rsm_usr_ob_rdata_33_w$[0:105]), .empty( 

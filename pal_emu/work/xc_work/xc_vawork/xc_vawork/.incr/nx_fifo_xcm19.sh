@@ -1,6 +1,6 @@
 `begin_keywords "1800-2012"
 module nx_fifo_xcm19 ( empty, full, underflow, overflow, used_slots, free_slots, rdata, clk, rst_n, wen, ren, clear, wdata );
-parameter DEPTH = 16 ;
+parameter DEPTH = 2 ;
 parameter WIDTH = 106 ;
 parameter DATA_RESET = 1 ;
 parameter UNDERFLOW_ASSERT = 1 ;
@@ -9,8 +9,8 @@ output wire logic empty ;
 output wire logic full ;
 output logic underflow ;
 output logic overflow ;
-output wire logic [4 : 0] used_slots ;
-output wire logic [4 : 0] free_slots ;
+output wire logic [1 : 0] used_slots ;
+output wire logic [1 : 0] free_slots ;
 output wire logic [105 : 0] rdata ;
 input wire logic clk ;
 input wire logic rst_n ;

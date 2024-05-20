@@ -1,0 +1,5 @@
+ARCHITECTURE module OF ixc_bind_4 IS
+  --  quickturn CVASTRPROP MODULE HDLICE PROP_IXCOM_MOD TRUE
+
+BEGIN
+END module;

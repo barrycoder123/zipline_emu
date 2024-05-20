@@ -3,8 +3,8 @@ use ieee.std_logic_1164.all ;
 use quickturn.verilog.all ;
 entity nx_fifo_xcm28 is
   generic (
-    DEPTH : integer := 4;
-    WIDTH : integer := 256;
+    DEPTH : integer := 2;
+    WIDTH : integer := 34;
     DATA_RESET : integer := 1;
     UNDERFLOW_ASSERT : integer := 1;
     OVERFLOW_ASSERT : integer := 1
@@ -14,15 +14,15 @@ entity nx_fifo_xcm28 is
     full : out std_logic ;
     underflow : out std_logic ;
     overflow : out std_logic ;
-    used_slots : out std_logic_vector(2 downto 0) ;
-    free_slots : out std_logic_vector(2 downto 0) ;
-    rdata : out std_logic_vector(255 downto 0) ;
+    used_slots : out std_logic_vector(1 downto 0) ;
+    free_slots : out std_logic_vector(1 downto 0) ;
+    rdata : out std_logic_vector(33 downto 0) ;
     clk : in std_logic ;
     rst_n : in std_logic ;
     wen : in std_logic ;
     ren : in std_logic ;
     clear : in std_logic ;
-  wdata : in std_logic_vector(255 downto 0) ) ;
+  wdata : in std_logic_vector(33 downto 0) ) ;
   attribute _2_state_: integer;
   attribute celldefine : integer;
   attribute celldefine of nx_fifo_xcm28: entity is 1 ;

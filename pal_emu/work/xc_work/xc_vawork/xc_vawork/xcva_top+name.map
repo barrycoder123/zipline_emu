@@ -1,4 +1,4 @@
-DUMMY0 0kme_tb
+DUMMY0 0tb_top
 DUMMY1 0my_clks
 DUMMY2 0IXC_GFIFO
 DUMMY3 0ixc_time

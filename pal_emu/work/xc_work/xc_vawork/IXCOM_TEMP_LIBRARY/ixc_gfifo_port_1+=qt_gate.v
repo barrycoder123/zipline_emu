@@ -1,0 +1,198 @@
+
+`ifndef _2_                      
+`ifdef CBV                      
+`define _2_                      
+`else                      
+`define _2_ (* _2_state_ *)                      
+`endif                      
+`endif
+`_2_ (* upf_always_on = 1 *) 
+module ixc_gfifo_port_1 ( tkout, tkin, ireq, cbid, len, idata, CGFtsReq, 
+	CGFcbid, CGFlen, CGFidata, CGFfull, CLBreq, CLBrd, CLBwr, CLBfull, 
+	Rtkin);
+// pragma CVASTRPROP MODULE HDLICE HDL_MODULE_ATTRIBUTE "0 vlog"
+output tkout;
+input tkin;
+input ireq;
+input [19:0] cbid;
+input [11:0] len;
+input [0:0] idata;
+output CGFtsReq;
+output [19:0] CGFcbid;
+output [11:0] CGFlen;
+output [511:0] CGFidata;
+input CGFfull;
+output CLBreq;
+input [3:0] CLBrd;
+input [3:0] CLBwr;
+input CLBfull;
+input Rtkin;
+wire fclk;
+wire enq;
+wire CLBreqWhileFull;
+`_2_ wire en;
+`_2_ wire ack;
+`_2_ wire [0:0] odata;
+`_2_ wire oreq;
+`_2_ wire [19:0] ocbid;
+`_2_ wire [19:0] xcbid;
+`_2_ wire [11:0] olen;
+`_2_ wire [11:0] xlen;
+`_2_ wire [0:0] sel;
+`_2_ wire [0:0] xdata;
+wire [31:0] i;
+`_2_ wire ireqR;
+supply1 n5;
+Q_ASSIGN U0 ( .B(len[0]), .A(xlen[0]));
+Q_ASSIGN U1 ( .B(len[0]), .A(olen[0]));
+Q_ASSIGN U2 ( .B(len[1]), .A(xlen[1]));
+Q_ASSIGN U3 ( .B(len[1]), .A(olen[1]));
+Q_ASSIGN U4 ( .B(len[2]), .A(xlen[2]));
+Q_ASSIGN U5 ( .B(len[2]), .A(olen[2]));
+Q_ASSIGN U6 ( .B(len[3]), .A(xlen[3]));
+Q_ASSIGN U7 ( .B(len[3]), .A(olen[3]));
+Q_ASSIGN U8 ( .B(len[4]), .A(xlen[4]));
+Q_ASSIGN U9 ( .B(len[4]), .A(olen[4]));
+Q_ASSIGN U10 ( .B(len[5]), .A(xlen[5]));
+Q_ASSIGN U11 ( .B(len[5]), .A(olen[5]));
+Q_ASSIGN U12 ( .B(len[6]), .A(xlen[6]));
+Q_ASSIGN U13 ( .B(len[6]), .A(olen[6]));
+Q_ASSIGN U14 ( .B(len[7]), .A(xlen[7]));
+Q_ASSIGN U15 ( .B(len[7]), .A(olen[7]));
+Q_ASSIGN U16 ( .B(len[8]), .A(xlen[8]));
+Q_ASSIGN U17 ( .B(len[8]), .A(olen[8]));
+Q_ASSIGN U18 ( .B(len[9]), .A(xlen[9]));
+Q_ASSIGN U19 ( .B(len[9]), .A(olen[9]));
+Q_ASSIGN U20 ( .B(len[10]), .A(xlen[10]));
+Q_ASSIGN U21 ( .B(len[10]), .A(olen[10]));
+Q_ASSIGN U22 ( .B(len[11]), .A(xlen[11]));
+Q_ASSIGN U23 ( .B(len[11]), .A(olen[11]));
+Q_ASSIGN U24 ( .B(cbid[0]), .A(xcbid[0]));
+Q_ASSIGN U25 ( .B(cbid[0]), .A(ocbid[0]));
+Q_ASSIGN U26 ( .B(cbid[1]), .A(xcbid[1]));
+Q_ASSIGN U27 ( .B(cbid[1]), .A(ocbid[1]));
+Q_ASSIGN U28 ( .B(cbid[2]), .A(xcbid[2]));
+Q_ASSIGN U29 ( .B(cbid[2]), .A(ocbid[2]));
+Q_ASSIGN U30 ( .B(cbid[3]), .A(xcbid[3]));
+Q_ASSIGN U31 ( .B(cbid[3]), .A(ocbid[3]));
+Q_ASSIGN U32 ( .B(cbid[4]), .A(xcbid[4]));
+Q_ASSIGN U33 ( .B(cbid[4]), .A(ocbid[4]));
+Q_ASSIGN U34 ( .B(cbid[5]), .A(xcbid[5]));
+Q_ASSIGN U35 ( .B(cbid[5]), .A(ocbid[5]));
+Q_ASSIGN U36 ( .B(cbid[6]), .A(xcbid[6]));
+Q_ASSIGN U37 ( .B(cbid[6]), .A(ocbid[6]));
+Q_ASSIGN U38 ( .B(cbid[7]), .A(xcbid[7]));
+Q_ASSIGN U39 ( .B(cbid[7]), .A(ocbid[7]));
+Q_ASSIGN U40 ( .B(cbid[8]), .A(xcbid[8]));
+Q_ASSIGN U41 ( .B(cbid[8]), .A(ocbid[8]));
+Q_ASSIGN U42 ( .B(cbid[9]), .A(xcbid[9]));
+Q_ASSIGN U43 ( .B(cbid[9]), .A(ocbid[9]));
+Q_ASSIGN U44 ( .B(cbid[10]), .A(xcbid[10]));
+Q_ASSIGN U45 ( .B(cbid[10]), .A(ocbid[10]));
+Q_ASSIGN U46 ( .B(cbid[11]), .A(xcbid[11]));
+Q_ASSIGN U47 ( .B(cbid[11]), .A(ocbid[11]));
+Q_ASSIGN U48 ( .B(cbid[12]), .A(xcbid[12]));
+Q_ASSIGN U49 ( .B(cbid[12]), .A(ocbid[12]));
+Q_ASSIGN U50 ( .B(cbid[13]), .A(xcbid[13]));
+Q_ASSIGN U51 ( .B(cbid[13]), .A(ocbid[13]));
+Q_ASSIGN U52 ( .B(cbid[14]), .A(xcbid[14]));
+Q_ASSIGN U53 ( .B(cbid[14]), .A(ocbid[14]));
+Q_ASSIGN U54 ( .B(cbid[15]), .A(xcbid[15]));
+Q_ASSIGN U55 ( .B(cbid[15]), .A(ocbid[15]));
+Q_ASSIGN U56 ( .B(cbid[16]), .A(xcbid[16]));
+Q_ASSIGN U57 ( .B(cbid[16]), .A(ocbid[16]));
+Q_ASSIGN U58 ( .B(cbid[17]), .A(xcbid[17]));
+Q_ASSIGN U59 ( .B(cbid[17]), .A(ocbid[17]));
+Q_ASSIGN U60 ( .B(cbid[18]), .A(xcbid[18]));
+Q_ASSIGN U61 ( .B(cbid[18]), .A(ocbid[18]));
+Q_ASSIGN U62 ( .B(cbid[19]), .A(xcbid[19]));
+Q_ASSIGN U63 ( .B(cbid[19]), .A(ocbid[19]));
+Q_BUF U64 ( .A(odata[0]), .Z(xdata[0]));
+Q_NOT_TOUCH _zzqnthw ( .sig());
+Q_EV_WOR_START qi ( .A(CLBreqWhileFull));
+Q_INV U67 ( .A(n4), .Z(tkout));
+Q_XNR2 U68 ( .A0(oreq), .A1(ack), .Z(n4));
+Q_CCLKCHK cchk ( .sig(ireq));
+Q_AN02 U70 ( .A0(enq), .A1(CLBfull), .Z(CLBreqWhileFull));
+Q_AN02 U71 ( .A0(n2), .A1(n3), .Z(enq));
+Q_INV U72 ( .A(xc_top.GFLock2), .Z(n3));
+Q_XOR2 U73 ( .A0(ireq), .A1(ireqR), .Z(n2));
+Q_BUFZP U74 ( .OE(CLBreqWhileFull), .A(n5), .Z(xc_top.GFLBfull));
+Q_BUFZP U75 ( .OE(en), .A(cbid[0]), .Z(CGFcbid[0]));
+Q_BUFZP U76 ( .OE(en), .A(cbid[1]), .Z(CGFcbid[1]));
+Q_BUFZP U77 ( .OE(en), .A(cbid[2]), .Z(CGFcbid[2]));
+Q_BUFZP U78 ( .OE(en), .A(cbid[3]), .Z(CGFcbid[3]));
+Q_BUFZP U79 ( .OE(en), .A(cbid[4]), .Z(CGFcbid[4]));
+Q_BUFZP U80 ( .OE(en), .A(cbid[5]), .Z(CGFcbid[5]));
+Q_BUFZP U81 ( .OE(en), .A(cbid[6]), .Z(CGFcbid[6]));
+Q_BUFZP U82 ( .OE(en), .A(cbid[7]), .Z(CGFcbid[7]));
+Q_BUFZP U83 ( .OE(en), .A(cbid[8]), .Z(CGFcbid[8]));
+Q_BUFZP U84 ( .OE(en), .A(cbid[9]), .Z(CGFcbid[9]));
+Q_BUFZP U85 ( .OE(en), .A(cbid[10]), .Z(CGFcbid[10]));
+Q_BUFZP U86 ( .OE(en), .A(cbid[11]), .Z(CGFcbid[11]));
+Q_BUFZP U87 ( .OE(en), .A(cbid[12]), .Z(CGFcbid[12]));
+Q_BUFZP U88 ( .OE(en), .A(cbid[13]), .Z(CGFcbid[13]));
+Q_BUFZP U89 ( .OE(en), .A(cbid[14]), .Z(CGFcbid[14]));
+Q_BUFZP U90 ( .OE(en), .A(cbid[15]), .Z(CGFcbid[15]));
+Q_BUFZP U91 ( .OE(en), .A(cbid[16]), .Z(CGFcbid[16]));
+Q_BUFZP U92 ( .OE(en), .A(cbid[17]), .Z(CGFcbid[17]));
+Q_BUFZP U93 ( .OE(en), .A(cbid[18]), .Z(CGFcbid[18]));
+Q_BUFZP U94 ( .OE(en), .A(cbid[19]), .Z(CGFcbid[19]));
+Q_BUFZP U95 ( .OE(en), .A(len[0]), .Z(CGFlen[0]));
+Q_BUFZP U96 ( .OE(en), .A(len[1]), .Z(CGFlen[1]));
+Q_BUFZP U97 ( .OE(en), .A(len[2]), .Z(CGFlen[2]));
+Q_BUFZP U98 ( .OE(en), .A(len[3]), .Z(CGFlen[3]));
+Q_BUFZP U99 ( .OE(en), .A(len[4]), .Z(CGFlen[4]));
+Q_BUFZP U100 ( .OE(en), .A(len[5]), .Z(CGFlen[5]));
+Q_BUFZP U101 ( .OE(en), .A(len[6]), .Z(CGFlen[6]));
+Q_BUFZP U102 ( .OE(en), .A(len[7]), .Z(CGFlen[7]));
+Q_BUFZP U103 ( .OE(en), .A(len[8]), .Z(CGFlen[8]));
+Q_BUFZP U104 ( .OE(en), .A(len[9]), .Z(CGFlen[9]));
+Q_BUFZP U105 ( .OE(en), .A(len[10]), .Z(CGFlen[10]));
+Q_BUFZP U106 ( .OE(en), .A(len[11]), .Z(CGFlen[11]));
+Q_BUFZP U107 ( .OE(en), .A(xdata[0]), .Z(CGFidata[0]));
+Q_BUFZP U108 ( .OE(enq), .A(n5), .Z(CLBreq));
+Q_BUFZP U109 ( .OE(enq), .A(n5), .Z(CGFtsReq));
+Q_INV U110 ( .A(CLBwr[2]), .Z(n6));
+ixc_bind \genblk3.b5 ( CLBfull, IXC_GFIFO.O.O.LBfull);
+ixc_bind_4 \genblk3.b4 ( CLBwr[3:0], IXC_GFIFO.O.O.LBwr[3:0]);
+ixc_bind_4 \genblk3.b3 ( CLBrd[3:0], IXC_GFIFO.O.O.LBrd[3:0]);
+ixc_bind \genblk3.b2 ( CLBreq, IXC_GFIFO.O.O.LBreq);
+ixc_bind \genblk3.b1 ( CGFfull, IXC_GFIFO.O.O.GFfull);
+ixc_bind \genblk3.b0 ( CGFtsReq, IXC_GFIFO.O.O.GFtsReq);
+Q_MX02 U117 ( .S(xc_top.GFLock2), .A0(oreq), .A1(ireq), .Z(n8));
+Q_FDP0UA U118 ( .D(n9), .QTFCLK( ), .Q(ack));
+Q_MX02 U119 ( .S(n14), .A0(ack), .A1(n8), .Z(n9));
+Q_FDP0UA U120 ( .D(n10), .QTFCLK( ), .Q(en));
+Q_NR02 U121 ( .A0(xc_top.GFLock2), .A1(n11), .Z(n10));
+Q_OR02 U122 ( .A0(xc_top.GFLock2), .A1(n12), .Z(n14));
+Q_INV U123 ( .A(n11), .Z(n12));
+Q_OR03 U124 ( .A0(n4), .A1(tkin), .A2(n13), .Z(n11));
+Q_OR02 U125 ( .A0(Rtkin), .A1(CGFfull), .Z(n13));
+Q_MX02 U126 ( .S(CLBfull), .A0(ireq), .A1(ireqR), .Z(n15));
+Q_FDP0UA U127 ( .D(n15), .QTFCLK( ), .Q(ireqR));
+Q_AN02 U128 ( .A0(CLBwr[0]), .A1(n6), .Z(n16));
+Q_AN02 U129 ( .A0(CLBwr[1]), .A1(n6), .Z(n17));
+Q_INV U130 ( .A(n16), .Z(n18));
+Q_INV U131 ( .A(n17), .Z(n19));
+Q_NR02 U132 ( .A0(n17), .A1(n16), .Z(n20));
+Q_AN02 U133 ( .A0(n19), .A1(n16), .Z(n21));
+Q_AN02 U134 ( .A0(n17), .A1(n18), .Z(n22));
+Q_AN02 U135 ( .A0(n17), .A1(n16), .Z(n23));
+Q_AN02 U136 ( .A0(n20), .A1(n6), .Z(n24));
+Q_LDP0 \_zzLB_REG[0][0] ( .G(n24), .D(idata[0]), .Q(\_zzLB[0][0] ), .QN( ));
+Q_LDP0 \_zzLB_REG[0][1] ( .G(n24), .D(ireq), .Q(\_zzLB[0][1] ), .QN( ));
+Q_LDP0 \_zzLB_REG[1][0] ( .G(n21), .D(idata[0]), .Q(\_zzLB[1][0] ), .QN( ));
+Q_LDP0 \_zzLB_REG[1][1] ( .G(n21), .D(ireq), .Q(\_zzLB[1][1] ), .QN( ));
+Q_LDP0 \_zzLB_REG[2][0] ( .G(n22), .D(idata[0]), .Q(\_zzLB[2][0] ), .QN( ));
+Q_LDP0 \_zzLB_REG[2][1] ( .G(n22), .D(ireq), .Q(\_zzLB[2][1] ), .QN( ));
+Q_LDP0 \_zzLB_REG[3][0] ( .G(n23), .D(idata[0]), .Q(\_zzLB[3][0] ), .QN( ));
+Q_LDP0 \_zzLB_REG[3][1] ( .G(n23), .D(ireq), .Q(\_zzLB[3][1] ), .QN( ));
+Q_MX04 U145 ( .S0(CLBrd[0]), .S1(CLBrd[1]), .A0(\_zzLB[0][0] ), .A1(\_zzLB[1][0] ), .A2(\_zzLB[2][0] ), .A3(\_zzLB[3][0] ), .Z(odata[0]));
+Q_MX04 U146 ( .S0(CLBrd[0]), .S1(CLBrd[1]), .A0(\_zzLB[0][1] ), .A1(\_zzLB[1][1] ), .A2(\_zzLB[2][1] ), .A3(\_zzLB[3][1] ), .Z(oreq));
+// pragma CVASTRPROP MODULE HDLICE HDL_MEMORY_DECL_m1 "_zzLB 1 1 0 0 3"
+// pragma CVASTRPROP MODULE HDLICE HDL_MEMORY_NON_CMM "1"
+// pragma CVASTRPROP MODULE HDLICE HDL_TEMPLATE "ixc_gfifo_port"
+// pragma CVASTRPROP MODULE HDLICE HDL_TEMPLATE_LIB "IXCOM_TEMP_LIBRARY"
+// pragma CVASTRPROP MODULE HDLICE PROP_IXCOM_MOD TRUE
+endmodule

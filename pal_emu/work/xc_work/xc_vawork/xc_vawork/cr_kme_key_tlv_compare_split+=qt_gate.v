@@ -1714,7 +1714,7 @@ Q_ASSERT \engine_0_.brcm_cceip  ( .PASS( ), .FAIL( ), .ACTIVE( ), .FAIL_LEVEL( )
 // pragma CVASTRPROP INSTANCE "\engine_0_.brcm_cceip " HDL_ASSERT "%"
 // pragma CVASTRPROP INSTANCE "\engine_0_.brcm_cceip " ASSERT_FILENAME "/home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_key_tlv_compare_split.v"
 //pragma CVAINTPROP INSTANCE "\engine_0_.brcm_cceip " ASSERT_LINE 265
-cr_kme_fifo_xcm44 validate_fifo ( .fifo_in_stall( cceip_validate_ob_full), 
+cr_kme_fifo_xcm45 validate_fifo ( .fifo_in_stall( cceip_validate_ob_full), 
 	.fifo_out( _zy_simnet_validate_out_7_w$[0:105]), .fifo_out_valid( 
 	validate_out_valid), .fifo_overflow( _zy_simnet_dio_8), 
 	.fifo_underflow( _zy_simnet_dio_9), .clk( clk), .rst_n( rst_n), 
@@ -1722,7 +1722,7 @@ cr_kme_fifo_xcm44 validate_fifo ( .fifo_in_stall( cceip_validate_ob_full),
 	cceip_validate_ob_wr), .fifo_out_ack( 
 	_zy_simnet_validate_out_ack_10_w$), .fifo_in_stall_override( 
 	_zy_simnet_cio_11));
-cr_kme_fifo_xcm44 encrypt_fifo ( .fifo_in_stall( cceip_encrypt_ob_full), 
+cr_kme_fifo_xcm45 encrypt_fifo ( .fifo_in_stall( cceip_encrypt_ob_full), 
 	.fifo_out( _zy_simnet_encrypt_out_2_w$[0:105]), .fifo_out_valid( 
 	encrypt_out_valid), .fifo_overflow( _zy_simnet_dio_3), 
 	.fifo_underflow( _zy_simnet_dio_4), .clk( clk), .rst_n( rst_n), 

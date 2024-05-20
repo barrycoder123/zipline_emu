@@ -1,33 +1,9 @@
 // xc_work/v/97n.sv
-// /home/ibarry/Project-Zipline-master/rtl/common/nx_library/nx_interface_monitor.v:31
+// /home/ibarry/Project-Zipline-master/rtl/common/nx_library/nx_interface_monitor_pipe.v:105
 // NOTE: This file corresponds to a module in the Hardware/DUT partition.
 `timescale 1ns/1ns
 (* celldefine = 1 *)
-module nx_interface_monitor_xcm104(stat_code,stat_datawords,stat_addr,capability_lst,capability_type,rd_dat,bimc_odat,bimc_osync,ro_uncorrectable_ecc_error,im_rdy,
-im_available,im_status,clk,rst_n,reg_addr,cmnd_op,cmnd_addr,wr_stb,wr_dat,ovstb,lvm,mlvm,
-mrdten,bimc_rst_n,bimc_isync,bimc_idat,im_din,im_vld,im_consumed,im_config);
-// pkg external : PKG - nx_mem_typePKG : ENUM_LIT - TRUE
-// pkg external : PKG - nx_mem_typePKG : ENUM_LIT - FALSE
-// pkg external : PKG - nx_mem_typePKG : DTYPE  
-// pkg external : PKG - nx_mem_typePKG : ENUM_LIT - SPRAM
-// external : u_ram.g.u_ram.get_backdoor (resolved )  (task)  
-// external : u_ram.g.u_ram.set_backdoor (resolved )  (task)  
-parameter IN_FLIGHT = 5;
-parameter IN_FLIGHT_USE = 0;
-parameter CMND_ADDRESS = 11'b0100000;
-parameter STAT_ADDRESS = 11'b010000;
-parameter IMRD_ADDRESS = 11'b0111000;
-parameter ALIGNMENT = 2;
-parameter N_TIMER_BITS = 6;
-parameter N_REG_ADDR_BITS = 11;
-parameter N_DATA_BITS = 96;
-parameter N_ENTRIES = 512;
-parameter N_INIT_INC_BITS = 0;
-parameter SPECIALIZE = 1;
-parameter LATCH = 0;
-parameter reg [95:0] RAM_MASK  = 96'b111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111;
-parameter reg [95:0] RESET_DATA  = 96'b0;
-localparam N_RAM_BITS = 32'sb01100000;
+module nx_interface_monitor_pipe(ob_in_mod,ob_out,im_vld,clk,rst_n,ob_out_pre,ob_in,im_rdy);
 typedef enum logic [1:0] {ENET=0,IPV4=1,IPV6=2,MPLS=3} pkt_hdr_e;
 typedef enum logic [3:0] {CMD_SIMPLE=0,COMPND_4K=5,COMPND_8K=6,COMPND_RSV=15} cmd_compound_cmd_frm_size_e;
 typedef enum logic [0:0] {GUID_NOT_PRESENT=0,GUID_PRESENT=1} cmd_guid_present_e;
@@ -839,655 +815,68 @@ typedef struct packed {
  zipline_error_e error_code;
  logic [10:0] errored_frame_number ;
 } ftr_error_t;
-typedef struct packed {
- logic [1:0] mode ;
- logic [9:0] wr_credit_config ;
-} im_config_t;
-typedef struct packed {
- im_available_t available;
- logic overflow;
- logic [8:0] wr_pointer ;
-} im_status_t;
 input  clk;
 input  rst_n;
-input  [10:0] reg_addr ;
-input  [3:0] cmnd_op ;
-input  [8:0] cmnd_addr ;
-output logic [2:0] stat_code ;
-output logic [4:0] stat_datawords ;
-output logic [8:0] stat_addr ;
-output logic [15:0] capability_lst ;
-output logic [3:0] capability_type ;
-input  wr_stb;
-input  [95:0] wr_dat ;
-output logic [95:0] rd_dat ;
-input  ovstb;
-input  lvm;
-input  mlvm;
-input  mrdten;
-input  bimc_rst_n;
-input  bimc_isync;
-input  bimc_idat;
-output logic bimc_odat;
-output logic bimc_osync;
-output logic ro_uncorrectable_ecc_error;
-input im_din_t im_din;
-input  im_vld;
-output  im_rdy;
-output im_available_t im_available;
-input im_consumed_t im_consumed;
-input im_config_t im_config;
-output im_status_t im_status;
+input axi4s_dp_bus_t ob_out_pre;
+input axi4s_dp_rdy_t ob_in;
+output axi4s_dp_rdy_t ob_in_mod;
+output axi4s_dp_bus_t ob_out;
+input  im_rdy;
+output logic im_vld;
+typedef enum logic [1:0] {OFF_BOTH=2'b0,OFF_1=2'b01,OFF_2=2'b10,ON=2'b11} pipe_state_e;
 typedef struct packed {
- logic dis_used;
- logic dis_return;
- logic [9:0] credit_limit ;
-} sw_config_t;
-typedef struct packed {
- logic used_err;
- logic return_err;
- logic [9:0] credit_issued ;
-} hw_status_t;
-import nx_mem_typePKG::* ;
-localparam nx_mem_typePKG::capabilities_t capabilities_t_set = 16'b1100000101111111;
-localparam N_ENTRIES_HALF = 256;
-logic [3:0] im_din_space_avail ;
-im_din_t im_din_dly;
-logic im_din_empty;
-logic im_din_full;
-logic im_din_rd;
-im_available_t im_available_pre;
-logic enable;
-logic yield;
-logic [8:0] sw_add ;
-logic sw_cs;
-logic [95:0] sw_wdat ;
-logic sw_we;
-logic [8:0] add ;
-logic [95:0] bwe ;
-logic cs;
-logic [95:0] din ;
-logic we;
-logic [95:0] dout ;
-logic [8:0] hw_add ;
-logic hw_we;
-logic hw_cs;
-logic [95:0] hw_din ;
-logic hw_yield;
-logic [8:0] credit_available ;
-logic [8:0] credit_return ;
-logic [8:0] credit_used ;
-logic im_rd_stb;
-logic ready;
-logic bank_status;
-logic im_vld_qual;
-logic sw_init;
-logic [8:0] wr_pointer ;
-logic im_vld_dly;
-logic overflow;
-logic im_vld_mod;
-logic im_vld_if;
-im_consumed_t im_consumed_reg;
-hw_status_t hw_status;
-sw_config_t sw_config;
-logic [95:0] ram_din ;
-logic [95:0] ram_bwe ;
-logic [95:0] ram_dout ;
-logic [8:0] addr_limit ;
-wire  [0:2] _zy_simnet_stat_code_0_w$ ;
-wire  [0:4] _zy_simnet_stat_datawords_1_w$ ;
-wire  [0:8] _zy_simnet_stat_addr_2_w$ ;
-wire  [0:15] _zy_simnet_capability_lst_3_w$ ;
-wire  [0:3] _zy_simnet_capability_type_4_w$ ;
-wire  [0:95] _zy_simnet_rd_dat_5_w$ ;
-wire  _zy_simnet_bimc_odat_6_w$;
-wire  _zy_simnet_bimc_osync_7_w$;
-wire  _zy_simnet_ro_uncorrectable_ecc_error_8_w$;
-wire  [0:1] _zy_simnet_im_available_9_w$ ;
-wire  [0:11] _zy_simnet_im_status_10_w$ ;
-wire  [0:95] _zy_simnet_im_din_dly_11_w$ ;
-wire  _zy_simnet_im_din_full_12_w$;
-wire  _zy_simnet_im_din_empty_13_w$;
-wire  _zy_simnet_im_vld_if_14_w$;
-wire  _zy_simnet_im_din_rd_15_w$;
-wire  [0:3] _zy_simnet_im_din_space_avail_16_w$ ;
-wire  [0:8] _zy_simnet_credit_available_17_w$ ;
-wire  [0:11] _zy_simnet_hw_status_18_w$ ;
-wire  _zy_simnet_sw_init_19_w$;
-wire  [0:8] _zy_simnet_credit_return_20_w$ ;
-wire  [0:8] _zy_simnet_credit_used_21_w$ ;
-wire  [0:11] _zy_simnet_sw_config_22_w$ ;
-wire  _zy_simnet_bimc_odat_23_w$;
-wire  _zy_simnet_bimc_osync_24_w$;
-wire  _zy_simnet_ro_uncorrectable_ecc_error_25_w$;
-wire  [0:95] _zy_simnet_ram_bwe_26_w$ ;
-wire  [0:95] _zy_simnet_ram_din_27_w$ ;
-wire  [0:8] _zy_simnet_add_28_w$ ;
-wire  _zy_simnet_cs_29_w$;
-wire  _zy_simnet_we_30_w$;
-wire  [0:95] _zy_simnet_ram_dout_31_w$ ;
-wire  _zy_simnet_cio_32;
-wire  [0:2] _zy_simnet_stat_code_33_w$ ;
-wire  [0:4] _zy_simnet_stat_datawords_34_w$ ;
-wire  [0:8] _zy_simnet_stat_addr_35_w$ ;
-wire  _zy_simnet_dio_36;
-wire  [0:15] _zy_simnet_capability_lst_37_w$ ;
-wire  [0:3] _zy_simnet_capability_type_38_w$ ;
-wire  _zy_simnet_enable_39_w$;
-wire  [0:8] _zy_simnet_addr_limit_40_w$ ;
-wire  [0:95] _zy_simnet_rd_dat_41_w$ ;
-wire  _zy_simnet_sw_cs_42_w$;
-wire  _zy_simnet_dio_43;
-wire  _zy_simnet_sw_we_44_w$;
-wire  [0:8] _zy_simnet_sw_add_45_w$ ;
-wire  [0:95] _zy_simnet_sw_wdat_46_w$ ;
-wire  [0:95] _zy_simnet_dout_47_w$ ;
-wire  _zy_simnet_cio_48;
-wire  [0:7] _zy_simnet_cio_49 ;
-wire  _zy_simnet_tvar_50;
-wire  _zy_simnet_yield_51_w$;
-wire  _zy_simnet_dio_52;
-// F58, L202
-assign  im_vld_mod = (im_vld & im_rdy);
-// F58, L208
-assign  im_vld_dly = (( ~im_din_empty ) && (credit_available != 32'b0));
-// F58, L209
-assign  im_din_rd = im_vld_dly;
-// F58, L211
-assign  im_vld_if = im_vld_mod;
-// F58, L236
-assign  sw_init = ((im_config.mode == 2'b11) ? 1'b1 : 1'b0);
-// F58, L242
-assign  wr_pointer = ((hw_add == 32'b0) ? 32'b0111111111 : (hw_add - 32'b01));
-// F58, L245
-assign  sw_config.dis_used = 1'b0;
-// F58, L246
-assign  sw_config.dis_return = 1'b0;
-// F58, L247
-assign  sw_config.credit_limit = im_config.wr_credit_config;
-// F58, L248
-assign  im_available_pre.bank_lo = (ready & ( !bank_status ));
-// F58, L249
-assign  im_available_pre.bank_hi = (ready & bank_status);
-// F58, L250
-assign  im_status.overflow = overflow;
-// F58, L251
-assign  im_status.wr_pointer = wr_pointer;
-// F58, L252
-assign  im_status.available = im_available_pre;
-// F58, L255
-assign  im_rd_stb = (((wr_stb && (reg_addr == 11'b0111000)) | im_consumed_reg.bank_lo) | im_consumed_reg.bank_hi);
-// F58, L267
-assign  im_rdy = ((im_config.mode == 2'b0) ? 1'b1 : ((im_config.mode == 2'b01) ? 1'b1 : ((im_config.mode == 2'b10) ? ((im_din_space_avail > 32'b0101) & ( ~hw_yield )) : 1'b1)));
-// F58, L273
-assign  ready = ((im_config.mode == 2'b0) ? ( | hw_status.credit_issued ) : ((im_config.mode == 2'b01) ? ( | hw_status.credit_issued ) : ((im_config.mode == 2'b10) ? (hw_status.credit_issued >= 32'b0100000000) : 1'b0)));
-// F58, L279
-assign  im_vld_qual = ((im_config.mode == 2'b0) ? (im_vld_dly & ( | credit_available )) : ((im_config.mode == 2'b01) ? im_vld_dly : ((im_config.mode == 2'b10) ? im_vld_dly : 1'b0)));
-// F58, L286
-assign  hw_cs = im_vld_qual;
-// F58, L287
-assign  hw_we = im_vld_qual;
-// F58, L288
-assign  hw_din = im_din_dly;
-// F58, L331
-assign  cs = (hw_cs || sw_cs);
-// F58, L332
-assign  add = (hw_cs ? hw_add : sw_add);
-// F58, L333
-assign  bwe = 96'b111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111;
-// F58, L334
-assign  din = (hw_cs ? hw_din : sw_wdat);
-// F58, L335
-assign  we = (hw_cs ? hw_we : sw_we);
-// F58, L337
-assign  hw_yield = yield;
-// F58, L411
-assign  ram_din = pack_ram(din);
-// F58, L412
-assign  ram_bwe = pack_ram(bwe);
-// F58, L413
-assign  dout = unpack_ram(ram_dout);
-// F58, L428
-assign  addr_limit = 9'b111111111;
-// F58, L56
-assign  _zy_simnet_stat_code_0_w$ = stat_code;
-// F58, L56
-assign  _zy_simnet_stat_datawords_1_w$ = stat_datawords;
-// F58, L56
-assign  _zy_simnet_stat_addr_2_w$ = stat_addr;
-// F58, L56
-assign  _zy_simnet_capability_lst_3_w$ = capability_lst;
-// F58, L57
-assign  _zy_simnet_capability_type_4_w$ = capability_type;
-// F58, L57
-assign  _zy_simnet_rd_dat_5_w$ = rd_dat;
-// F58, L57
-assign  _zy_simnet_bimc_odat_6_w$ = bimc_odat;
-// F58, L57
-assign  _zy_simnet_bimc_osync_7_w$ = bimc_osync;
-// F58, L58
-assign  _zy_simnet_ro_uncorrectable_ecc_error_8_w$ = ro_uncorrectable_ecc_error;
-// F58, L58
-assign  _zy_simnet_im_available_9_w$ = im_available;
-// F58, L58
-assign  _zy_simnet_im_status_10_w$ = im_status;
-// F58, L224
-assign  im_din_dly = _zy_simnet_im_din_dly_11_w$;
-// F58, L225
-assign  im_din_full = _zy_simnet_im_din_full_12_w$;
-// F58, L226
-assign  im_din_empty = _zy_simnet_im_din_empty_13_w$;
-// F58, L200
-assign  _zy_simnet_im_vld_if_14_w$ = im_vld_if;
-// F58, L155
-assign  _zy_simnet_im_din_rd_15_w$ = im_din_rd;
-// F58, L227
-assign  im_din_space_avail = _zy_simnet_im_din_space_avail_16_w$;
-// F58, L362
-assign  credit_available = _zy_simnet_credit_available_17_w$;
-// F58, L362
-assign  hw_status = _zy_simnet_hw_status_18_w$;
-// F58, L193
-assign  _zy_simnet_sw_init_19_w$ = sw_init;
-// F58, L186
-assign  _zy_simnet_credit_return_20_w$ = credit_return;
-// F58, L187
-assign  _zy_simnet_credit_used_21_w$ = credit_used;
-// F58, L240
-assign  _zy_simnet_sw_config_22_w$ = sw_config;
-// F58, L420
-assign  bimc_odat = _zy_simnet_bimc_odat_23_w$;
-// F58, L420
-assign  bimc_osync = _zy_simnet_bimc_osync_24_w$;
-// F58, L420
-assign  ro_uncorrectable_ecc_error = _zy_simnet_ro_uncorrectable_ecc_error_25_w$;
-// F58, L366
-assign  _zy_simnet_ram_bwe_26_w$ = ram_bwe;
-// F58, L365
-assign  _zy_simnet_ram_din_27_w$ = ram_din;
-// F58, L171
-assign  _zy_simnet_add_28_w$ = add;
-// F58, L173
-assign  _zy_simnet_cs_29_w$ = cs;
-// F58, L175
-assign  _zy_simnet_we_30_w$ = we;
-// F58, L422
-assign  ram_dout = _zy_simnet_ram_dout_31_w$;
-// F58, L447
-assign  _zy_simnet_cio_32 = 1'b0;
-// F58, L454
-assign  stat_code = _zy_simnet_stat_code_33_w$;
-// F58, L455
-assign  stat_datawords = _zy_simnet_stat_datawords_34_w$;
-// F58, L456
-assign  stat_addr = _zy_simnet_stat_addr_35_w$;
-// F58, L457
-assign  capability_lst = _zy_simnet_capability_lst_37_w$;
-// F58, L458
-assign  capability_type = _zy_simnet_capability_type_38_w$;
-// F58, L459
-assign  enable = _zy_simnet_enable_39_w$;
-// F58, L427
-assign  _zy_simnet_addr_limit_40_w$ = addr_limit;
-// F58, L460
-assign  rd_dat = _zy_simnet_rd_dat_41_w$;
-// F58, L461
-assign  sw_cs = _zy_simnet_sw_cs_42_w$;
-// F58, L462
-assign  sw_we = _zy_simnet_sw_we_44_w$;
-// F58, L463
-assign  sw_add = _zy_simnet_sw_add_45_w$;
-// F58, L464
-assign  sw_wdat = _zy_simnet_sw_wdat_46_w$;
-// F58, L176
-assign  _zy_simnet_dout_47_w$ = dout;
-// F58, L450
-assign  _zy_simnet_cio_48 = 1'b0;
-// F58, L451
-assign  _zy_simnet_cio_49 = 8'b0;
-// F58, L444
-assign  _zy_simnet_tvar_50 = ( !hw_cs );
-// F58, L465
-assign  yield = _zy_simnet_yield_51_w$;
-// F58, L31
-ixc_context_read #(105) _zzixc_ctxrd_0 ({stat_addr,rd_dat});
-sync_fifo u_sync_fifo(
-  .dout(_zy_simnet_im_din_dly_11_w$) ,
-  .full(_zy_simnet_im_din_full_12_w$) ,
-  .empty(_zy_simnet_im_din_empty_13_w$) ,
-  .clk(clk) ,
-  .rst_n(rst_n) ,
-  .din(im_din) ,
-  .wr_en(_zy_simnet_im_vld_if_14_w$) ,
-  .rd_en(_zy_simnet_im_din_rd_15_w$) ,
-  .space_avail(_zy_simnet_im_din_space_avail_16_w$) ); 
-nx_credit_manager u_nx_credit_manager(_zy_simnet_credit_available_17_w$,_zy_simnet_hw_status_18_w$,clk,rst_n,_zy_simnet_sw_init_19_w$,_zy_simnet_credit_return_20_w$,_zy_simnet_credit_used_21_w$,_zy_simnet_sw_config_22_w$); 
-nx_ram_1rw_xcm109 u_ram(clk,rst_n,ovstb,lvm,mlvm,mrdten,bimc_rst_n,bimc_isync,bimc_idat,_zy_simnet_bimc_odat_23_w$,
-  _zy_simnet_bimc_osync_24_w$,_zy_simnet_ro_uncorrectable_ecc_error_25_w$,_zy_simnet_ram_bwe_26_w$,_zy_simnet_ram_din_27_w$,_zy_simnet_add_28_w$,_zy_simnet_cs_29_w$,_zy_simnet_we_30_w$,_zy_simnet_ram_dout_31_w$); 
-nx_indirect_access_cntrl_xcm120 u_cntrl(
-  .clk(clk) ,
-  .rst_n(rst_n) ,
-  .wr_stb(wr_stb) ,
-  .reg_addr(reg_addr) ,
-  .cmnd_op(cmnd_op) ,
-  .cmnd_addr(cmnd_addr) ,
-  .cmnd_table_id(_zy_simnet_cio_32) ,
-  .stat_code(_zy_simnet_stat_code_33_w$) ,
-  .stat_datawords(_zy_simnet_stat_datawords_34_w$) ,
-  .stat_addr(_zy_simnet_stat_addr_35_w$) ,
-  .stat_table_id(_zy_simnet_dio_36) ,
-  .capability_lst(_zy_simnet_capability_lst_37_w$) ,
-  .capability_type(_zy_simnet_capability_type_38_w$) ,
-  .enable(_zy_simnet_enable_39_w$) ,
-  .addr_limit(_zy_simnet_addr_limit_40_w$) ,
-  .wr_dat(wr_dat) ,
-  .rd_dat(_zy_simnet_rd_dat_41_w$) ,
-  .sw_cs(_zy_simnet_sw_cs_42_w$) ,
-  .sw_ce(_zy_simnet_dio_43) ,
-  .sw_we(_zy_simnet_sw_we_44_w$) ,
-  .sw_add(_zy_simnet_sw_add_45_w$) ,
-  .sw_wdat(_zy_simnet_sw_wdat_46_w$) ,
-  .sw_rdat(_zy_simnet_dout_47_w$) ,
-  .sw_match(_zy_simnet_cio_48) ,
-  .sw_aindex(_zy_simnet_cio_49) ,
-  .grant(_zy_simnet_tvar_50) ,
-  .yield(_zy_simnet_yield_51_w$) ,
-  .reset(_zy_simnet_dio_52) ); 
-
-function int count_ram_mask_ones;
- int count;
- count = 0;
- // F58, L373
- begin:unmblk0
-  int i;
-  // F58, L373
-  for (i = 0;(i < 96); i = (i + 1))
-   // F58, L373
-   begin
-    // F58, L374
-    if (RAM_MASK[i])
-     // F58, L375
-     begin
-      // F58, L375
-      count = (count + 1);
-     end
-   end
- end
- return count;
-endfunction
-
-
-function  [95:0] pack_ram;
- input reg [95:0] in ;
- // F58, L382
- begin:unmblk1
-  int j;
-  // F58, L384
-  j = 0;
-  // F58, L385
-  begin:unmblk2
-   int i;
-   // F58, L385
-   for (i = 0;(i < 96); i = (i + 1))
-    // F58, L385
-    begin
-     // F58, L386
-     if (RAM_MASK[i])
-      // F58, L386
-      begin
-       // F58, L387
-       pack_ram[j] = in[i];
-       j = (j + 1);
-      end
-    end
-  end
-  return pack_ram;
- end
-endfunction
-
-
-function  [95:0] unpack_ram;
- input reg [95:0] in ;
- // F58, L397
- begin:unmblk3
-  int j;
-  // F58, L399
-  j = 0;
-  unpack_ram = 96'b0;
-  // F58, L401
-  begin:unmblk4
-   int i;
-   // F58, L401
-   for (i = 0;(i < 96); i = (i + 1))
-    // F58, L401
-    begin
-     // F58, L402
-     if (RAM_MASK[i])
-      // F58, L402
-      begin
-       // F58, L403
-       unpack_ram[i] = in[j];
-       j = (j + 1);
-      end
-    end
-  end
-  return unpack_ram;
- end
-endfunction
-
-
-task read(input string name, input integer addr, output bit [95:0] rdata , input reg [95:0] check  = 96'bx);
- // F58, L481
- begin
-// synopsys translate_off
-  // F58, L484
-  xcvtf_port0_rd;;
-// synopsys translate_on
-  if ((addr > stat_addr))
-   // F58, L484
-   begin
-    // F58, L485
-    begin
-     $xc_severity_msg(2, "/home/ibarry/Project-Zipline-master/rtl/common/nx_library/nx_interface_monitor.v", 485);
-     $display("%m");
-     $display("Received address of %d, maximum supported is %d", addr, N_ENTRIES);
-    end
-    rdata = 96'b0;
-   end
-  else
-   if (stat_addr)
-    u_ram.g.u_ram.get_backdoor(4,addr,rdata[32'sb01011111:0]);
-   else
-    rdata = rd_dat;
-  rdata = unpack_ram(rdata[32'sb01011111:0]);
-  if (((check !== 96'bx) && (rdata != check)))
-   begin
-    $xc_severity_msg(2, "/home/ibarry/Project-Zipline-master/rtl/common/nx_library/nx_interface_monitor.v", 497);
-    $display("%m");
-    $display("read 0x%0x from %s[%d] but expecting 0x%0x", rdata, name, addr, check);
-   end
-  else
-   if (( !$test$plusargs("info_off") ))
-    begin
-     $xc_severity_msg(0, "/home/ibarry/Project-Zipline-master/rtl/common/nx_library/nx_interface_monitor.v", 500);
-     $display("%m");
-     $display("backdoor read 0x%0x from %s[%d]", rdata, name, addr);
-    end
- end
-endtask
-
-
-task write;
- input string name;
- input integer addr;
- input bit [95:0] wdata ;
- // F58, L503
- begin
-// synopsys translate_off
-  // F58, L505
-  xcvtf_port0_rd;;
-// synopsys translate_on
-  if ((addr > stat_addr))
-   begin
-    $xc_severity_msg(2, "/home/ibarry/Project-Zipline-master/rtl/common/nx_library/nx_interface_monitor.v", 506);
-    $display("%m");
-    $display("Received address of %d, maximum supported is %d", addr, N_ENTRIES);
-   end
-  else
-   if (stat_addr)
-    u_ram.g.u_ram.set_backdoor(6,addr,pack_ram(wdata));
-   else
-    begin
-     $xc_severity_msg(2, "/home/ibarry/Project-Zipline-master/rtl/common/nx_library/nx_interface_monitor.v", 511);
-     $display("%m");
-     $display("Backdoor write in INIT state is not supported");
-    end
-  if (( !$test$plusargs("info_off") ))
-   begin
-    $xc_severity_msg(0, "/home/ibarry/Project-Zipline-master/rtl/common/nx_library/nx_interface_monitor.v", 513);
-    $display("%m");
-    $display("backdoor write 0x%x to %s[%d]", wdata, name, addr);
-   end
- end
-endtask
-
-// F58, L257
+ pipe_state_e state;
+} state_t;
+state_t state, state_last;
+logic im_rdy_dly;
+wire  _zy_simnet_ob_in_mod_0_w$;
+wire  [0:82] _zy_simnet_ob_out_1_w$ ;
+wire  _zy_simnet_im_vld_2_w$;
+assign  _zy_simnet_ob_in_mod_0_w$ = ob_in_mod;
+assign  _zy_simnet_ob_out_1_w$ = ob_out;
+assign  _zy_simnet_im_vld_2_w$ = im_vld;
 always_comb 
- // F58, L257
  begin
-  // F58, L258
-  credit_return = 9'b0;
-  if (im_rd_stb)
-   // F58, L259
-   begin
-    // F58, L260
-    credit_return = 9'b100000000;
-   end
+  state = {im_rdy,ob_in.tready};
+  im_vld = ((ob_out_pre.tvalid & ob_in.tready) & im_rdy_dly);
+  ob_in_mod.tready = ((ob_in.tready & im_rdy) & im_rdy_dly);
  end
-// F58, L292
 always_ff 
  @(posedge clk or negedge rst_n)
-  // F58, L292
   begin
-   // F58, L293
-   if (( !rst_n ))
-    // F58, L293
+   if (( ~rst_n ))
     begin
-     // F58, L296
-     bank_status <= 1'b0;
-     hw_add <= 9'b0;
-     im_available <= 2'b0;
-     im_consumed_reg <= 2'b0;
-     overflow <= 1'b0;
+     im_rdy_dly <= 1'b1;
+     state_last <= 2'b0;
+     ob_out <= 83'b0;
+     ob_out.tvalid <= 1'b0;
     end
    else
-    // F58, L303
     begin
-     // F58, L304
-     im_available <= im_available_pre;
-     im_consumed_reg <= im_consumed;
-     if (sw_init)
-      // F58, L306
+     state_last <= state;
+     if (((state == OFF_BOTH) && (state_last == 2'b11)))
       begin
-       // F58, L307
-       bank_status <= 1'b0;
-       hw_add <= 9'b0;
-       overflow <= 1'b0;
+       im_rdy_dly <= 1'b0;
       end
-     overflow <= (overflow | (im_vld_mod & im_din_full));
-     if (im_vld_qual)
-      // F58, L312
+     if ((state == ON))
       begin
-       // F58, L313
-       hw_add <= (hw_add + 32'b01);
-       if ((im_config.mode == 2'b10))
-        // F58, L314
-        begin
-         // F58, L315
-         if (im_din_dly.desc.eob)
-          if ((hw_add < 32'b0100000000))
-          hw_add <= 9'b100000000;
-          else
-          hw_add <= 9'b0;
-         else
-          hw_add <= (hw_add + 32'b01);
-        end
+       im_rdy_dly <= 1'b1;
       end
-     if ((im_rd_stb && (hw_status.credit_issued >= 32'b0100000000)))
-      // F58, L324
+     ob_out <= ob_out_pre;
+     if (((( !ob_in.tready ) || ( !im_rdy )) || ( !im_rdy_dly )))
       begin
-       // F58, L325
-       bank_status <= ( ~bank_status );
+       ob_out <= ob_out;
+      end
+     if (((state == ON) && ( !im_rdy_dly )))
+      begin
+       ob_out <= ob_out;
+       ob_out.tvalid <= 1'b1;
+      end
+     if (( !im_rdy ))
+      begin
+       ob_out.tvalid <= 1'b0;
       end
     end
   end
-// F58, L339
-always_comb 
- // F58, L339
- begin
-  // F58, L340
-  if (hw_we)
-   if ((im_config.mode == 2'b0))
-    credit_used = 9'b01;
-   else
-    if ((im_config.mode == 2'b10))
-     if (im_din_dly.desc.eob)
-      if ((hw_add < 32'b0100000000))
-       credit_used = (32'b0100000000 - hw_add);
-      else
-       credit_used = (32'b01000000000 - hw_add);
-     else
-      credit_used = 9'b01;
-    else
-     credit_used = 9'b0;
-  else
-   credit_used = 9'b0;
- end
-// F58, L31
-initial 
- begin
- end
-
-import "DPI-C" context function void xctf_context_read(int lpid, int width, output bit[4095:1] value);
-import "DPI-C" context function void xctf_context_write(int lpid, int width, input bit[4095:1] value);
-import "DPI-C" context function void xctf_context_sched_callback(int is4State);
-import "DPI-C" context function void xctf_context_4s_read(int lpid, int width, output logic[4095:1] value);
-import "DPI-C" context function void xctf_context_4s_write(int lpid, int width, input logic[4095:1] value);
-
-typedef enum {CTX_HW, CTX_SW, CTX_SWD} ctx_state;
-ctx_state _swv[1] = {CTX_SW};
-
-function void xcvtf_port0_rd;
-  if (_swv[0] == CTX_HW) begin
-    xctf_context_read(0, 105, {stat_addr, rd_dat});
-    _swv[0] = CTX_SW;
-  end
-endfunction
-
-function void _reset_swv;
-  begin
-    if (xc_top.hwOutInit)
-      for (int i = 0; i < 1; i = i + 1)
-        _swv[i] = CTX_HW;
-    else
-      for (int i = 0; i < 1; i = i + 1)
-        _swv[i] = CTX_SW;
-  end
-endfunction
-initial begin
-  forever begin
-    @xc_top.hwOutInit;
-    _reset_swv;
-  end
-end
-
-ixc_context_read _zzctxcb( .rdata() );
-
-ixc_context_4s_read _zzctxcb_4s( .rdata() );
-
-function void xcvtf_context_writeback(input integer dummy);
-  _reset_swv;
-endfunction
-
 endmodule
 

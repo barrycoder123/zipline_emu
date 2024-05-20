@@ -4376,14 +4376,14 @@ tran (cmdfifo_kdfstream_cmd[0], \cmdfifo_kdfstream_cmd.num_iter [0]);
 Q_BUF U0 ( .A(n1), .Z(_zy_simnet_cio_5));
 Q_BUF U1 ( .A(n1), .Z(_zy_simnet_cio_2));
 Q_OR02 U2 ( .A0(upsizer_in_stall), .A1(keyfifo_in_stall), .Z(kdf_gcm_stall));
-cr_kme_fifo_xcm54 gcm_key_fifo ( .fifo_in_stall( keyfifo_in_stall), 
+cr_kme_fifo_xcm55 gcm_key_fifo ( .fifo_in_stall( keyfifo_in_stall), 
 	.fifo_out( keyfifo_merger_data[127:0]), .fifo_out_valid( 
 	keyfifo_merger_valid), .fifo_overflow( _zy_simnet_dio_0), 
 	.fifo_underflow( _zy_simnet_dio_1), .clk( clk), .rst_n( rst_n), 
 	.fifo_in( gcm_kdf_data[127:0]), .fifo_in_valid( gcm_kdf_valid), 
 	.fifo_out_ack( merger_keyfifo_ack), .fifo_in_stall_override( 
 	_zy_simnet_cio_2));
-cr_kme_kop_upsizer_x2_xcm71 key_upsizer ( .upsizer_in_stall( 
+cr_kme_kop_upsizer_x2_xcm72 key_upsizer ( .upsizer_in_stall( 
 	upsizer_in_stall), .upsizer_out_valid( upsizer_keyfilter_valid), 
 	.upsizer_out_eof( upsizer_keyfilter_eof), .upsizer_out_data( 
 	upsizer_keyfilter_data[255:0]), .clk( clk), .rst_n( rst_n), 
@@ -4400,7 +4400,7 @@ cr_kme_kop_kdf_keyfilter keyfilter ( .keyfilter_cmdfifo_ack(
 	.upsizer_keyfilter_valid( upsizer_keyfilter_valid), 
 	.upsizer_keyfilter_eof( upsizer_keyfilter_eof), .hash_key_in_stall( 
 	hash_key_in_stall));
-cr_kme_fifo_xcm53 hash_key_fifo ( .fifo_in_stall( hash_key_in_stall), 
+cr_kme_fifo_xcm54 hash_key_fifo ( .fifo_in_stall( hash_key_in_stall), 
 	.fifo_out( keyfifo_hash_data[255:0]), .fifo_out_valid( 
 	keyfifo_hash_valid), .fifo_overflow( _zy_simnet_dio_3), 
 	.fifo_underflow( _zy_simnet_dio_4), .clk( clk), .rst_n( rst_n), 

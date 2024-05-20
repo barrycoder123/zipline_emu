@@ -1,0 +1,18 @@
+V O V r_mem_prefetch_wptr_dly[%s] LB=2 RB=0 SIZE=3
+V O V r_prefetch_data[%s] LB=2 RB=0 SIZE=84
+V O V r_prefetch_rptr SIZE=2
+V O S r_prefetch_full
+V O S r_prefetch_empty
+V O V r_prefetch_depth SIZE=2
+V O V r_prefetch_wptr SIZE=3
+V O S r_mem_full
+V O S r_mem_empty
+V O V r_mem_rptr SIZE=8
+V O V r_mem_wptr SIZE=8
+V O V r_mem_ren_dly SIZE=3
+V O V r_free_slots SIZE=8
+V O V r_used_slots SIZE=8
+V O S _zyixc_port_1_0_req
+U O V _zy_sva__asrtLbl279_1_1_fail
+P O ixc_sample_logic_3_3 _zz_zy_sva_b0 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_3_3
+P O ixc_pio_call_0_0_0_0_1 _zzixc_tfport_1_0 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_pio_call_0_0_0_0_1

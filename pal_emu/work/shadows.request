@@ -1,0 +1,37 @@
+###############################################################################
+# File name: shadows.request
+# Use this file to analyze the sources of 1X mode logic duplication (shadows).
+# Report will be printed to tmp/precompile.shadows_request file.
+# -----------------------------------------------------------------------------
+# shadows.request should be edited by the user according to the following rules.
+#
+# A line which starts with # is ignored.
+#
+# Case 1. shadows.request may contain hierarchical net names, line by line.
+# tmp/precompile.shadows_request would contain cones of logic explaining
+# why each of these nets has a shadow. A summary report would be printed
+# at the bottom of tmp/precompile.shadows_request.
+#
+# Case 2. Top line in shadows.request (or second line, if the top line is -xthruNonShadows) may contain the following:
+# -random <number_of_shadows>
+# xeCompile would randomly pick <number_of_shadows> nets with shadows
+# and generate tmp/precompile.shadows_request similar to case 1.
+#
+# Case 3. Top line in shadows.request (or second line, if the top line is -xthruNonShadows) may contain the following:
+# -logic
+# xeCompile would analyze all "shadow generators" in the design.
+# tmp/precompile.shadows_request would contain one representative
+# for a set of logically equivalent shadow generators,
+# with the size of this set.
+#
+# Case 4. Top line in shadows.request (or second line, if the top line is -xthruNonShadows) may contain the following:
+# -module
+# This is similar to case 3, but report in tmp/precompile.shadows_request
+# is split by module, i.e. shadow generators are considered equivalent
+# if they are logically equivalent as in case 3, and belong to the
+# instances of the same module.
+#
+# Case 5. Top line in shadows.request may contain the following:
+# -xthruNonShadows
+# Nets with label a=none p=both are traced, even though they have no shadow.
+###############################################################################

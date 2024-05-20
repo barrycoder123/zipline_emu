@@ -1,4 +1,4 @@
 /sync_fifo
 /nx_credit_manager
-/nx_ram_1rw_xcm109
+/nx_ram_1rw_xcm110
 /nx_indirect_access_cntrl_xcm117

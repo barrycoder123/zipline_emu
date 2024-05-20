@@ -1,3 +1,6 @@
 DUMMY0 0xc_top.GFReset
 DUMMY1 1xc_top.ixcSimTime 63 0
 DUMMY2 0xc_top.GFLock1
+argLen_DUMMY0 0argLen
+index_DUMMY1 0index
+oFillN_DUMMY2 0oFillN

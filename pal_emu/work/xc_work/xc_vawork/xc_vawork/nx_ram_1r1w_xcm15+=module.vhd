@@ -1,5 +1,5 @@
 architecture module of nx_ram_1r1w_xcm15 is
-  type DUMMY0 is array(integer range <>) of std_logic_vector(82 downto 0) ;
+  type DUMMY0 is array(integer range <>) of std_logic_vector(70 downto 0) ;
   -- quickturn CVASTRPROP MODULE HDLICE cva_for_generate "_1r1wramDxWb"
   -- quickturn CVASTRPROP MODULE HDLICE cva_for_generate "_1r1wramDxWb.genblk1"
   -- quickturn CVASTRPROP MODULE HDLICE cva_for_generate "_1r1wramDxWb.genblk2"
@@ -20,12 +20,12 @@ architecture module of nx_ram_1r1w_xcm15 is
   signal DUMMY1 : std_logic ;
   signal DUMMY2 : std_logic ;
   signal DUMMY3 : std_logic ;
-  signal DUMMY4 : std_logic_vector(0 to 82) ;
-  signal ldout : std_logic_vector(82 downto 0) ;
-  signal ldin : std_logic_vector(82 downto 0) ;
+  signal DUMMY4 : std_logic_vector(0 to 70) ;
+  signal ldout : std_logic_vector(70 downto 0) ;
+  signal ldin : std_logic_vector(70 downto 0) ;
   signal bimc_iclk : std_logic ;
   signal bimc_irstn : std_logic ;
-  signal mem : DUMMY0(0 to 167) ;
+  signal mem : DUMMY0(0 to 2047) ;
   signal p_mode_disable_ecc_mem : std_logic ;
   signal se : std_logic ;
   signal rds : std_logic ;
@@ -37,7 +37,7 @@ architecture module of nx_ram_1r1w_xcm15 is
 
 begin
   _zz_strnp_7 : ixc_assign
-    generic map(W => 83)
+    generic map(W => 71)
     port map (
        ldin
       ,din
@@ -83,7 +83,7 @@ begin
       ,clk
     ) ;
   _zz_strnp_14 : ixc_assign
-    generic map(W => 83)
+    generic map(W => 71)
     port map (
        dout
       ,ldout
@@ -107,24 +107,24 @@ begin
       ,ro_uncorrectable_ecc_error
     ) ;
   _zz_strnp_18 : ixc_assign
-    generic map(W => 83)
+    generic map(W => 71)
     port map (
        DUMMY4
       ,dout
     ) ;
   Generate1 : if _1r1wramDxWb : (TRUE) generate
     signal _web : std_logic ;
-    signal _wa : std_logic_vector(7 downto 0) ;
-    signal _din : std_logic_vector(82 downto 0) ;
-    signal _bwe : std_logic_vector(82 downto 0) ;
-    signal dout_i : std_logic_vector(82 downto 0) ;
-    signal din_i : std_logic_vector(82 downto 0) ;
-    signal mem : DUMMY0(0 to 167) ;
+    signal _wa : std_logic_vector(10 downto 0) ;
+    signal _din : std_logic_vector(70 downto 0) ;
+    signal _bwe : std_logic_vector(70 downto 0) ;
+    signal dout_i : std_logic_vector(70 downto 0) ;
+    signal din_i : std_logic_vector(70 downto 0) ;
+    signal mem : DUMMY0(0 to 2047) ;
     signal DUMMY5 : std_logic ;
-    signal _dout : std_logic_vector(82 downto 0) ;
+    signal _dout : std_logic_vector(70 downto 0) ;
     signal dout_r : DUMMY0(0 downto 0) ;
-    signal _zyictd_sysfunc_11_L258_0 : integer ;
-    -- quickturn keep_net _zyictd_sysfunc_11_L258_0
+    signal _zyictd_sysfunc_11_L258_7 : integer ;
+    -- quickturn keep_net _zyictd_sysfunc_11_L258_7
   begin
     din_i <= ((mem(conv_integer(_wa)) and not(_bwe)) or (_din and _bwe)) ;
     dout_i <= din_i when (DUMMY5)='1' else mem(conv_integer(ra)) ;
@@ -143,9 +143,9 @@ begin
     ro_uncorrectable_ecc_error <= '0' ;
     Generate2 : if genblk1 : (TRUE) generate
       signal web_r : std_logic ;
-      signal wa_r : std_logic_vector(7 downto 0) ;
-      signal din_r : std_logic_vector(82 downto 0) ;
-      signal bwe_r : std_logic_vector(82 downto 0) ;
+      signal wa_r : std_logic_vector(10 downto 0) ;
+      signal din_r : std_logic_vector(70 downto 0) ;
+      signal bwe_r : std_logic_vector(70 downto 0) ;
     begin
       _zz_strnp_2 : ixc_assign
         generic map(W => 1)
@@ -154,19 +154,19 @@ begin
           ,web_r
         ) ;
       _zz_strnp_3 : ixc_assign
-        generic map(W => 8)
+        generic map(W => 11)
         port map (
            _wa
           ,wa_r
         ) ;
       _zz_strnp_4 : ixc_assign
-        generic map(W => 83)
+        generic map(W => 71)
         port map (
            _din
           ,din_r
         ) ;
       _zz_strnp_5 : ixc_assign
-        generic map(W => 83)
+        generic map(W => 71)
         port map (
            _bwe
           ,bwe_r
@@ -197,10 +197,10 @@ begin
       DUMMY5 <= '0' ;
     end generate ;
     Generate4 : if genblk3 : (TRUE) generate
-      signal dout_rr : std_logic_vector(82 downto 0) ;
+      signal dout_rr : std_logic_vector(70 downto 0) ;
     begin
       _zz_strnp_6 : ixc_assign
-        generic map(W => 83)
+        generic map(W => 71)
         port map (
            ldout
           ,dout_rr

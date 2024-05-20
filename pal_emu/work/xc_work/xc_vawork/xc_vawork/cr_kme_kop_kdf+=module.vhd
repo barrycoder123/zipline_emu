@@ -1,5 +1,5 @@
 architecture module of cr_kme_kop_kdf is
-  component cr_kme_fifo_xcm54
+  component cr_kme_fifo_xcm55
     generic (
       DATA_SIZE : integer := 128 ;
       FIFO_DEPTH : integer := 4 ;
@@ -20,7 +20,7 @@ architecture module of cr_kme_kop_kdf is
     fifo_in_stall_override : in std_logic := 'X' ) ;
   end component ;
 
-  component cr_kme_kop_upsizer_x2_xcm71
+  component cr_kme_kop_upsizer_x2_xcm72
     generic (
       IN_DATA_SIZE : integer := 128
     ) ;
@@ -57,7 +57,7 @@ architecture module of cr_kme_kop_kdf is
     hash_key_in_stall : in std_logic := 'X' ) ;
   end component ;
 
-  component cr_kme_fifo_xcm53
+  component cr_kme_fifo_xcm54
     generic (
       DATA_SIZE : integer := 256 ;
       FIFO_DEPTH : integer := 4 ;
@@ -1359,7 +1359,7 @@ begin
   kdf_gcm_stall <= (upsizer_in_stall or keyfifo_in_stall) ;
   _zy_simnet_cio_2 <= '0' ;
   _zy_simnet_cio_5 <= '0' ;
-  gcm_key_fifo : cr_kme_fifo_xcm54
+  gcm_key_fifo : cr_kme_fifo_xcm55
     port map (
        fifo_in_stall => keyfifo_in_stall
       ,fifo_out => keyfifo_merger_data
@@ -1373,7 +1373,7 @@ begin
       ,fifo_out_ack => merger_keyfifo_ack
       ,fifo_in_stall_override => _zy_simnet_cio_2
     ) ;
-  key_upsizer : cr_kme_kop_upsizer_x2_xcm71
+  key_upsizer : cr_kme_kop_upsizer_x2_xcm72
     port map (
        upsizer_in_stall => upsizer_in_stall
       ,upsizer_out_valid => upsizer_keyfilter_valid
@@ -1401,7 +1401,7 @@ begin
       ,upsizer_keyfilter_eof => upsizer_keyfilter_eof
       ,hash_key_in_stall => hash_key_in_stall
     ) ;
-  hash_key_fifo : cr_kme_fifo_xcm53
+  hash_key_fifo : cr_kme_fifo_xcm54
     port map (
        fifo_in_stall => hash_key_in_stall
       ,fifo_out => keyfifo_hash_data

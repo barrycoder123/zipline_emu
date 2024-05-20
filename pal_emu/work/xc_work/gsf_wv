@@ -2,3 +2,189 @@ database -event -open -shm trace
 probe -create -depth all xc_top -allnets
 probe -create -depth all IXC_GFIFO -allnets
 
+# C0
+
+# SP tb_top.kme_tb_dut.get_config_data_zyackf P0M2F1L206 
+probe -create -depth all tb_top.kme_tb_dut._zzSfifoF0_L206_p -allnets
+# SP tb_top.kme_tb_dut.get_config_data_zyputf P0M2F1L206 
+probe -create -depth all tb_top.kme_tb_dut._zzSfifoF1_L206_p -allnets
+# SP tb_top.kme_tb_dut.ib_service_data_zyackf P0M2F1L207 
+probe -create -depth all tb_top.kme_tb_dut._zzSfifoF2_L207_p -allnets
+# SP tb_top.kme_tb_dut.ib_service_data_zyputf P0M2F1L207 
+probe -create -depth all tb_top.kme_tb_dut._zzSfifoF3_L207_p -allnets
+# SP tb_top.kme_tb_dut.ob_service_data_zyackf P0M2F1L209 
+probe -create -depth all tb_top.kme_tb_dut._zzSfifoF4_L209_p -allnets
+# SP tb_top.kme_tb_dut.ob_service_data_zyputf P0M2F1L209 
+probe -create -depth all tb_top.kme_tb_dut._zzSfifoF5_L209_p -allnets
+
+# GFV 1
+# C0
+
+  # GP dsz 1 ncalls 1
+  probe -create -depth all tb_top.kme_tb_dut._zzGfifoF0_L435_p_0 -allnets
+    # G tb_top.kme_tb_dut._gfdL435_34_P0 C:P0M2F1L435 D:P0F1L435
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL435_34_P0_m2_cbid
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL435_34_P0_m2_gfOff
+  # GP dsz 1 ncalls 1
+  probe -create -depth all tb_top.kme_tb_dut._zzGfifoF1_L513_p_0 -allnets
+    # G tb_top.kme_tb_dut._gfdL513_33_P0 C:P0M2F1L513 D:P0F1L513
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL513_33_P0_m2_cbid
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL513_33_P0_m2_gfOff
+  # GP dsz 280 ncalls 2
+  probe -create -depth all tb_top.kme_tb_dut._zzGfifoF0_L312_s2_p_0 -allnets
+    # G tb_top.kme_tb_dut._gfdL316_32_P0 C:P0M2F1L316 D:P0F1L316
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL316_32_P0_m2_cbid
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL316_32_P0_m2_gfOff
+    # G tb_top.kme_tb_dut._gfdL318_31_P0 C:P0M2F1L318 D:P0F1L318
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL318_31_P0_m2_cbid
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL318_31_P0_m2_gfOff
+  # GP dsz 96 ncalls 3
+  probe -create -depth all tb_top.kme_tb_dut._zzGfifoF0_L324_s3_p_1 -allnets
+    # G tb_top.kme_tb_dut.get_config_data_2_zyprefetch C:P0M2F1L206 D:P0F1L206
+    # probe -add tb_top.kme_tb_dut._zyGfifo_get_config_data_2_zyprefetch_m2_cbid
+    # probe -add tb_top.kme_tb_dut._zyGfifo_get_config_data_2_zyprefetch_m2_gfOff
+    # G tb_top.kme_tb_dut._gfdL334_28_P0 C:P0M2F1L334 D:P0F1L334
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL334_28_P0_m2_cbid
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL334_28_P0_m2_gfOff
+    # G tb_top.kme_tb_dut._gfdL351_25_P0 C:P0M2F1L351 D:P0F1L351
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL351_25_P0_m2_cbid
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL351_25_P0_m2_gfOff
+  # GP dsz 32 ncalls 2
+  probe -create -depth all tb_top.kme_tb_dut._zzGfifoF1_L324_s2_p_2 -allnets
+    # G tb_top.kme_tb_dut._gfdL327_30_P0 C:P0M2F1L327 D:P0F1L327
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL327_30_P0_m2_cbid
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL327_30_P0_m2_gfOff
+    # G tb_top.kme_tb_dut._gfdL336_27_P0 C:P0M2F1L336 D:P0F1L336
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL336_27_P0_m2_cbid
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL336_27_P0_m2_gfOff
+  # GP dsz 72 ncalls 2
+  probe -create -depth all tb_top.kme_tb_dut._zzGfifoF2_L324_s2_p_3 -allnets
+    # G tb_top.kme_tb_dut._gfdL330_29_P0 C:P0M2F1L330 D:P0F1L330
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL330_29_P0_m2_cbid
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL330_29_P0_m2_gfOff
+    # G tb_top.kme_tb_dut._gfdL341_26_P0 C:P0M2F1L341 D:P0F1L341
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL341_26_P0_m2_cbid
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL341_26_P0_m2_gfOff
+  # GP dsz 32 ncalls 1
+  probe -create -depth all tb_top.kme_tb_dut._zzGfifoF11_L207_p_0 -allnets
+    # G tb_top.kme_tb_dut.ib_service_data_2_zyprefetch C:P0M2F1L207 D:P0F1L207
+    # probe -add tb_top.kme_tb_dut._zyGfifo_ib_service_data_2_zyprefetch_m2_cbid
+    # probe -add tb_top.kme_tb_dut._zyGfifo_ib_service_data_2_zyprefetch_m2_gfOff
+  # GP dsz 1 ncalls 2
+  probe -create -depth all tb_top.kme_tb_dut._zzGfifoF0_L368_s2_p_4 -allnets
+    # G tb_top.kme_tb_dut._gfdL519_24_P0 C:P0M2F1L519 D:P0F1L519
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL519_24_P0_m2_cbid
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL519_24_P0_m2_gfOff
+    # G tb_top.kme_tb_dut._gfdL522_23_P0 C:P0M2F1L522 D:P0F1L522
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL522_23_P0_m2_cbid
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL522_23_P0_m2_gfOff
+  # GP dsz 32 ncalls 1
+  probe -create -depth all tb_top.kme_tb_dut._zzGfifoF14_L373_p_0 -allnets
+    # G tb_top.kme_tb_dut._gfdL373_22_P0 C:P0M2F1L373 D:P0F1L373
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL373_22_P0_m2_cbid
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL373_22_P0_m2_gfOff
+  # GP dsz 136 ncalls 1
+  probe -create -depth all tb_top.kme_tb_dut._zzGfifoF15_L375_p_0 -allnets
+    # G tb_top.kme_tb_dut._gfdL375_21_P0 C:P0M2F1L375 D:P0F1L375
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL375_21_P0_m2_cbid
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL375_21_P0_m2_gfOff
+  # GP dsz 1 ncalls 1
+  probe -create -depth all tb_top.kme_tb_dut._zzGfifoF16_L381_p_0 -allnets
+    # G tb_top.kme_tb_dut._gfdL381_20_P0 C:P0M2F1L381 D:P0F1L381
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL381_20_P0_m2_cbid
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL381_20_P0_m2_gfOff
+  # GP dsz 64 ncalls 1
+  probe -create -depth all tb_top.kme_tb_dut._zzGfifoF17_L390_p_0 -allnets
+    # G tb_top.kme_tb_dut._gfdL390_19_P0 C:P0M2F1L390 D:P0F1L390
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL390_19_P0_m2_cbid
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL390_19_P0_m2_gfOff
+  # GP dsz 32 ncalls 1
+  probe -create -depth all tb_top.kme_tb_dut._zzGfifoF18_L530_p_0 -allnets
+    # G tb_top.kme_tb_dut._gfdL530_18_P0 C:P0M2F1L530 D:P0F1L530
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL530_18_P0_m2_cbid
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL530_18_P0_m2_gfOff
+  # GP dsz 8 ncalls 1
+  probe -create -depth all tb_top.kme_tb_dut._zzGfifoF19_L412_p_0 -allnets
+    # G tb_top.kme_tb_dut._gfdL412_17_P0 C:P0M2F1L412 D:P0F1L412
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL412_17_P0_m2_cbid
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL412_17_P0_m2_gfOff
+  # GP dsz 32 ncalls 1
+  probe -create -depth all tb_top.kme_tb_dut._zzGfifoF20_L209_p_0 -allnets
+    # G tb_top.kme_tb_dut.ob_service_data_2_zyprefetch C:P0M2F1L209 D:P0F1L209
+    # probe -add tb_top.kme_tb_dut._zyGfifo_ob_service_data_2_zyprefetch_m2_cbid
+    # probe -add tb_top.kme_tb_dut._zyGfifo_ob_service_data_2_zyprefetch_m2_gfOff
+  # GP dsz 1 ncalls 2
+  probe -create -depth all tb_top.kme_tb_dut._zzGfifoF0_L439_s2_p_5 -allnets
+    # G tb_top.kme_tb_dut._gfdL519_16_P0 C:P0M2F1L519 D:P0F1L519
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL519_16_P0_m2_cbid
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL519_16_P0_m2_gfOff
+    # G tb_top.kme_tb_dut._gfdL522_15_P0 C:P0M2F1L522 D:P0F1L522
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL522_15_P0_m2_cbid
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL522_15_P0_m2_gfOff
+  # GP dsz 32 ncalls 1
+  probe -create -depth all tb_top.kme_tb_dut._zzGfifoF23_L444_p_0 -allnets
+    # G tb_top.kme_tb_dut._gfdL444_14_P0 C:P0M2F1L444 D:P0F1L444
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL444_14_P0_m2_cbid
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL444_14_P0_m2_gfOff
+  # GP dsz 136 ncalls 1
+  probe -create -depth all tb_top.kme_tb_dut._zzGfifoF24_L446_p_0 -allnets
+    # G tb_top.kme_tb_dut._gfdL446_13_P0 C:P0M2F1L446 D:P0F1L446
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL446_13_P0_m2_cbid
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL446_13_P0_m2_gfOff
+  # GP dsz 64 ncalls 1
+  probe -create -depth all tb_top.kme_tb_dut._zzGfifoF25_L460_p_0 -allnets
+    # G tb_top.kme_tb_dut._gfdL460_12_P0 C:P0M2F1L460 D:P0F1L460
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL460_12_P0_m2_cbid
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL460_12_P0_m2_gfOff
+  # GP dsz 32 ncalls 1
+  probe -create -depth all tb_top.kme_tb_dut._zzGfifoF26_L530_p_0 -allnets
+    # G tb_top.kme_tb_dut._gfdL530_11_P0 C:P0M2F1L530 D:P0F1L530
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL530_11_P0_m2_cbid
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL530_11_P0_m2_gfOff
+  # GP dsz 8 ncalls 1
+  probe -create -depth all tb_top.kme_tb_dut._zzGfifoF27_L480_p_0 -allnets
+    # G tb_top.kme_tb_dut._gfdL480_10_P0 C:P0M2F1L480 D:P0F1L480
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL480_10_P0_m2_cbid
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL480_10_P0_m2_gfOff
+  # GP dsz 128 ncalls 1
+  probe -create -depth all tb_top.kme_tb_dut._zzGfifoF28_L482_p_0 -allnets
+    # G tb_top.kme_tb_dut._gfdL482_9_P0 C:P0M2F1L482 D:P0F1L482
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL482_9_P0_m2_cbid
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL482_9_P0_m2_gfOff
+  # GP dsz 16 ncalls 1
+  probe -create -depth all tb_top.kme_tb_dut._zzGfifoF29_L487_p_0 -allnets
+    # G tb_top.kme_tb_dut._gfdL487_8_P0 C:P0M2F1L487 D:P0F1L487
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL487_8_P0_m2_cbid
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL487_8_P0_m2_gfOff
+  # GP dsz 16 ncalls 1
+  probe -create -depth all tb_top.kme_tb_dut._zzGfifoF30_L491_p_0 -allnets
+    # G tb_top.kme_tb_dut._gfdL491_7_P0 C:P0M2F1L491 D:P0F1L491
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL491_7_P0_m2_cbid
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL491_7_P0_m2_gfOff
+  # GP dsz 16 ncalls 1
+  probe -create -depth all tb_top.kme_tb_dut._zzGfifoF31_L496_p_0 -allnets
+    # G tb_top.kme_tb_dut._gfdL496_6_P0 C:P0M2F1L496 D:P0F1L496
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL496_6_P0_m2_cbid
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL496_6_P0_m2_gfOff
+  # GP dsz 560 ncalls 4
+  probe -create -depth all tb_top.kme_tb_dut._zzGfifoF0_L253_s4_p_6 -allnets
+    # G tb_top.kme_tb_dut._gfdL265_5_P0 C:P0M2F1L265 D:P0F1L265
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL265_5_P0_m2_cbid
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL265_5_P0_m2_gfOff
+    # G tb_top.kme_tb_dut._gfdL268_4_P0 C:P0M2F1L268 D:P0F1L268
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL268_4_P0_m2_cbid
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL268_4_P0_m2_gfOff
+    # G tb_top.kme_tb_dut._gfdL276_2_P0 C:P0M2F1L276 D:P0F1L276
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL276_2_P0_m2_cbid
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL276_2_P0_m2_gfOff
+    # G tb_top.kme_tb_dut._gfdL365_0_P0 C:P0M2F1L365 D:P0F1L365
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL365_0_P0_m2_cbid
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL365_0_P0_m2_gfOff
+  # GP dsz 1 ncalls 2
+  probe -create -depth all tb_top.kme_tb_dut._zzGfifoF1_L253_s2_p_7 -allnets
+    # G tb_top.kme_tb_dut._gfdL271_3_P0 C:P0M2F1L271 D:P0F1L271
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL271_3_P0_m2_cbid
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL271_3_P0_m2_gfOff
+    # G tb_top.kme_tb_dut._gfdL289_1_P0 C:P0M2F1L289 D:P0F1L289
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL289_1_P0_m2_cbid
+    # probe -add tb_top.kme_tb_dut._zyGfifo__gfdL289_1_P0_m2_gfOff

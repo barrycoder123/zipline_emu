@@ -29,22 +29,22 @@ architecture module of ixc_ml_gfifo_root_port is
 
 begin
   Generate1 : for GenerateIndex in 19 downto 0 generate
-    _UnNamed_Inst_30 : Q_RDN port map (CGFcbid(GenerateIndex)) ;
+    _UnNamed_Inst_29 : Q_RDN port map (CGFcbid(GenerateIndex)) ;
   end generate;
   Generate2 : for GenerateIndex in 11 downto 0 generate
-    _UnNamed_Inst_31 : Q_RDN port map (CGFlen(GenerateIndex)) ;
+    _UnNamed_Inst_30 : Q_RDN port map (CGFlen(GenerateIndex)) ;
   end generate;
   Generate3 : for GenerateIndex in 511 downto 0 generate
-    _UnNamed_Inst_32 : Q_RDN port map (CGFidata(GenerateIndex)) ;
+    _UnNamed_Inst_31 : Q_RDN port map (CGFidata(GenerateIndex)) ;
   end generate;
   Generate4 : for GenerateIndex in 19 downto 0 generate
-    _UnNamed_Inst_33 : Q_RDN port map (RGFcbid(GenerateIndex)) ;
+    _UnNamed_Inst_32 : Q_RDN port map (RGFcbid(GenerateIndex)) ;
   end generate;
   Generate5 : for GenerateIndex in 11 downto 0 generate
-    _UnNamed_Inst_34 : Q_RDN port map (RGFlen(GenerateIndex)) ;
+    _UnNamed_Inst_33 : Q_RDN port map (RGFlen(GenerateIndex)) ;
   end generate;
   Generate6 : for GenerateIndex in 511 downto 0 generate
-    _UnNamed_Inst_35 : Q_RDN port map (RGFidata(GenerateIndex)) ;
+    _UnNamed_Inst_34 : Q_RDN port map (RGFidata(GenerateIndex)) ;
   end generate;
   Rtkin <= (tkin or boolean_to_std(((RGFreq)='1' and (not(RGFreqD))='1'))) ;
 

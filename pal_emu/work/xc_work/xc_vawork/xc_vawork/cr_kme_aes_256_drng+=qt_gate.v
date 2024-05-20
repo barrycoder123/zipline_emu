@@ -70,7 +70,7 @@ Q_BUF U3 ( .A(n1), .Z(_zy_simnet_cio_6));
 Q_BUF U4 ( .A(n2), .Z(_zy_simnet_cio_5));
 Q_BUF U5 ( .A(n2), .Z(_zy_simnet_cio_4));
 Q_XOR2 U6 ( .A0(out_count[1]), .A1(out_count[0]), .Z(n1150));
-cr_kme_fifo_xcm59 rnd_fifo ( .fifo_in_stall( fifo_in_stall), .fifo_out( 
+cr_kme_fifo_xcm60 rnd_fifo ( .fifo_in_stall( fifo_in_stall), .fifo_out( 
 	fifo_out[127:0]), .fifo_out_valid( drng_valid), .fifo_overflow( 
 	drng_fifo_overflow), .fifo_underflow( drng_fifo_underflow), .clk( 
 	clk), .rst_n( rst_n), .fifo_in( _zy_simnet_fifo_in_14_w$[0:127]), 

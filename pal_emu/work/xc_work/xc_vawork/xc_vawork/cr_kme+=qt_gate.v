@@ -106,8 +106,6 @@ wire [7:0] set_rsm_is_backpressuring;
 wire set_tlv_bip2_error_int;
 wire set_txc_bp_int;
 wire suppress_key_tlvs;
-wire clock;
-wire clock_1;
 wire kme_cceip1_ob_tready;
 wire kme_cceip2_ob_tready;
 wire kme_cceip3_ob_tready;
@@ -192,7 +190,6 @@ wire _zy_simnet_kme_cddip2_ob_in_75_w$;
 wire [0:82] _zy_simnet_kme_cddip3_ob_out_pre_76_w$;
 wire _zy_simnet_kme_cddip3_ob_in_77_w$;
 wire [0:31] _zy_simnet_idle_components_78_w$;
-wire _zyclock_1_x$tbc;
 wire [83:0] rbus_ring_i;
 wire [83:0] rbus_ring_o;
 wire [82:0] kme_ib_in;
@@ -19093,7 +19090,7 @@ Q_BUF U69 ( .A(n2), .Z(kme_cddip0_ob_tready));
 Q_BUF U70 ( .A(n2), .Z(kme_cceip3_ob_tready));
 Q_BUF U71 ( .A(n2), .Z(kme_cceip2_ob_tready));
 Q_BUF U72 ( .A(n2), .Z(kme_cceip1_ob_tready));
-ixc_assign_2176 _zz_strnp_62 ( { \labels[7][271] , \labels[7][270] , 
+ixc_assign_2176 _zz_strnp_60 ( { \labels[7][271] , \labels[7][270] , 
 	\labels[7][269] , \labels[7][268] , \labels[7][267] , 
 	\labels[7][266] , \labels[7][265] , \labels[7][264] , 
 	\labels[7][263] , \labels[7][262] , \labels[7][261] , 
@@ -20838,7 +20835,7 @@ ixc_assign_2176 _zz_strnp_62 ( { \labels[7][271] , \labels[7][270] ,
 	\_zy_simnet_tvar_53[0][4] , \_zy_simnet_tvar_53[0][3] , 
 	\_zy_simnet_tvar_53[0][2] , \_zy_simnet_tvar_53[0][1] , 
 	\_zy_simnet_tvar_53[0][0] });
-ixc_assign_2176 _zz_strnp_29 ( { \_zy_simnet_tvar_20[7][271] , 
+ixc_assign_2176 _zz_strnp_27 ( { \_zy_simnet_tvar_20[7][271] , 
 	\_zy_simnet_tvar_20[7][270] , \_zy_simnet_tvar_20[7][269] , 
 	\_zy_simnet_tvar_20[7][268] , \_zy_simnet_tvar_20[7][267] , 
 	\_zy_simnet_tvar_20[7][266] , \_zy_simnet_tvar_20[7][265] , 
@@ -28325,247 +28322,244 @@ cr_kme_core u_cr_kme_core ( .kme_ib_out( _zy_simnet_kme_ib_out_0_w$),
 	\sa_ctrl[0][3] , \sa_ctrl[0][2] , \sa_ctrl[0][1] , \sa_ctrl[0][0] }));
 cr_rst_sync cr_rst_sync ( .clk( clk), .async_rst_n( rst_n), .bypass_reset( 
 	scan_mode), .test_rst_n( scan_rst_n), .rst_n( rst_sync_n));
-ixc_expEv _zyclock_1_x$tbcp ( _zyclock_1_x$tbc, clock_1);
-ixc_assign_32 _zz_strnp_85 ( _zy_simnet_idle_components_78_w$[0:31], 
+ixc_assign_32 _zz_strnp_83 ( _zy_simnet_idle_components_78_w$[0:31], 
 	idle_components[31:0]);
-ixc_assign _zz_strnp_84 ( _zy_simnet_kme_cddip3_ob_in_77_w$, 
+ixc_assign _zz_strnp_82 ( _zy_simnet_kme_cddip3_ob_in_77_w$, 
 	kme_cddip3_ob_in[0]);
-ixc_assign_83 _zz_strnp_83 ( _zy_simnet_kme_cddip3_ob_out_pre_76_w$[0:82], 
+ixc_assign_83 _zz_strnp_81 ( _zy_simnet_kme_cddip3_ob_out_pre_76_w$[0:82], 
 	kme_cddip3_ob_out_pre[82:0]);
-ixc_assign _zz_strnp_82 ( _zy_simnet_kme_cddip2_ob_in_75_w$, 
+ixc_assign _zz_strnp_80 ( _zy_simnet_kme_cddip2_ob_in_75_w$, 
 	kme_cddip2_ob_in[0]);
-ixc_assign_83 _zz_strnp_81 ( _zy_simnet_kme_cddip2_ob_out_pre_74_w$[0:82], 
+ixc_assign_83 _zz_strnp_79 ( _zy_simnet_kme_cddip2_ob_out_pre_74_w$[0:82], 
 	kme_cddip2_ob_out_pre[82:0]);
-ixc_assign _zz_strnp_80 ( _zy_simnet_kme_cddip1_ob_in_73_w$, 
+ixc_assign _zz_strnp_78 ( _zy_simnet_kme_cddip1_ob_in_73_w$, 
 	kme_cddip1_ob_in[0]);
-ixc_assign_83 _zz_strnp_79 ( _zy_simnet_kme_cddip1_ob_out_pre_72_w$[0:82], 
+ixc_assign_83 _zz_strnp_77 ( _zy_simnet_kme_cddip1_ob_out_pre_72_w$[0:82], 
 	kme_cddip1_ob_out_pre[82:0]);
-ixc_assign _zz_strnp_78 ( _zy_simnet_kme_cddip0_ob_in_71_w$, 
+ixc_assign _zz_strnp_76 ( _zy_simnet_kme_cddip0_ob_in_71_w$, 
 	kme_cddip0_ob_in[0]);
-ixc_assign_83 _zz_strnp_77 ( _zy_simnet_kme_cddip0_ob_out_pre_70_w$[0:82], 
+ixc_assign_83 _zz_strnp_75 ( _zy_simnet_kme_cddip0_ob_out_pre_70_w$[0:82], 
 	kme_cddip0_ob_out_pre[82:0]);
-ixc_assign _zz_strnp_76 ( _zy_simnet_kme_cceip3_ob_in_69_w$, 
+ixc_assign _zz_strnp_74 ( _zy_simnet_kme_cceip3_ob_in_69_w$, 
 	kme_cceip3_ob_in[0]);
-ixc_assign_83 _zz_strnp_75 ( _zy_simnet_kme_cceip3_ob_out_pre_68_w$[0:82], 
+ixc_assign_83 _zz_strnp_73 ( _zy_simnet_kme_cceip3_ob_out_pre_68_w$[0:82], 
 	kme_cceip3_ob_out_pre[82:0]);
-ixc_assign _zz_strnp_74 ( _zy_simnet_kme_cceip2_ob_in_67_w$, 
+ixc_assign _zz_strnp_72 ( _zy_simnet_kme_cceip2_ob_in_67_w$, 
 	kme_cceip2_ob_in[0]);
-ixc_assign_83 _zz_strnp_73 ( _zy_simnet_kme_cceip2_ob_out_pre_66_w$[0:82], 
+ixc_assign_83 _zz_strnp_71 ( _zy_simnet_kme_cceip2_ob_out_pre_66_w$[0:82], 
 	kme_cceip2_ob_out_pre[82:0]);
-ixc_assign _zz_strnp_72 ( _zy_simnet_kme_cceip1_ob_in_65_w$, 
+ixc_assign _zz_strnp_70 ( _zy_simnet_kme_cceip1_ob_in_65_w$, 
 	kme_cceip1_ob_in[0]);
-ixc_assign_83 _zz_strnp_71 ( _zy_simnet_kme_cceip1_ob_out_pre_64_w$[0:82], 
+ixc_assign_83 _zz_strnp_69 ( _zy_simnet_kme_cceip1_ob_out_pre_64_w$[0:82], 
 	kme_cceip1_ob_out_pre[82:0]);
-ixc_assign _zz_strnp_70 ( _zy_simnet_kme_cceip0_ob_in_63_w$, 
+ixc_assign _zz_strnp_68 ( _zy_simnet_kme_cceip0_ob_in_63_w$, 
 	kme_cceip0_ob_in[0]);
-ixc_assign_83 _zz_strnp_69 ( _zy_simnet_kme_cceip0_ob_out_pre_62_w$[0:82], 
+ixc_assign_83 _zz_strnp_67 ( _zy_simnet_kme_cceip0_ob_out_pre_62_w$[0:82], 
 	kme_cceip0_ob_out_pre[82:0]);
-ixc_assign_84 _zz_strnp_68 ( _zy_simnet_rbus_ring_i_59_w$[0:83], 
+ixc_assign_84 _zz_strnp_66 ( _zy_simnet_rbus_ring_i_59_w$[0:83], 
 	rbus_ring_i[83:0]);
-ixc_assign_32 _zz_strnp_67 ( sa_global_ctrl[31:0], 
+ixc_assign_32 _zz_strnp_65 ( sa_global_ctrl[31:0], 
 	_zy_simnet_sa_global_ctrl_58_w$[0:31]);
-ixc_assign_7 _zz_strnp_66 ( cddip_decrypt_kop_fifo_override[6:0], 
+ixc_assign_7 _zz_strnp_64 ( cddip_decrypt_kop_fifo_override[6:0], 
 	_zy_simnet_cddip_decrypt_kop_fifo_override_57_w$[0:6]);
-ixc_assign_7 _zz_strnp_65 ( cceip_validate_kop_fifo_override[6:0], 
+ixc_assign_7 _zz_strnp_63 ( cceip_validate_kop_fifo_override[6:0], 
 	_zy_simnet_cceip_validate_kop_fifo_override_56_w$[0:6]);
-ixc_assign_7 _zz_strnp_64 ( cceip_encrypt_kop_fifo_override[6:0], 
+ixc_assign_7 _zz_strnp_62 ( cceip_encrypt_kop_fifo_override[6:0], 
 	_zy_simnet_cceip_encrypt_kop_fifo_override_55_w$[0:6]);
-ixc_assign_9 _zz_strnp_63 ( tready_override[8:0], 
+ixc_assign_9 _zz_strnp_61 ( tready_override[8:0], 
 	_zy_simnet_tready_override_54_w$[0:8]);
-ixc_assign_38 _zz_strnp_61 ( kim_dout[37:0], _zy_simnet_kim_dout_52_w$[0:37]);
-ixc_assign _zz_strnp_60 ( kme_cddip3_ob_in_mod[0], 
+ixc_assign_38 _zz_strnp_59 ( kim_dout[37:0], _zy_simnet_kim_dout_52_w$[0:37]);
+ixc_assign _zz_strnp_58 ( kme_cddip3_ob_in_mod[0], 
 	_zy_simnet_kme_cddip3_ob_in_mod_51_w$);
-ixc_assign_83 _zz_strnp_59 ( kme_cddip3_ob_out[82:0], 
+ixc_assign_83 _zz_strnp_57 ( kme_cddip3_ob_out[82:0], 
 	_zy_simnet_kme_cddip3_ob_out_50_w$[0:82]);
-ixc_assign _zz_strnp_58 ( kme_cddip2_ob_in_mod[0], 
+ixc_assign _zz_strnp_56 ( kme_cddip2_ob_in_mod[0], 
 	_zy_simnet_kme_cddip2_ob_in_mod_49_w$);
-ixc_assign_83 _zz_strnp_57 ( kme_cddip2_ob_out[82:0], 
+ixc_assign_83 _zz_strnp_55 ( kme_cddip2_ob_out[82:0], 
 	_zy_simnet_kme_cddip2_ob_out_48_w$[0:82]);
-ixc_assign _zz_strnp_56 ( kme_cddip1_ob_in_mod[0], 
+ixc_assign _zz_strnp_54 ( kme_cddip1_ob_in_mod[0], 
 	_zy_simnet_kme_cddip1_ob_in_mod_47_w$);
-ixc_assign_83 _zz_strnp_55 ( kme_cddip1_ob_out[82:0], 
+ixc_assign_83 _zz_strnp_53 ( kme_cddip1_ob_out[82:0], 
 	_zy_simnet_kme_cddip1_ob_out_46_w$[0:82]);
-ixc_assign _zz_strnp_54 ( kme_cddip0_ob_in_mod[0], 
+ixc_assign _zz_strnp_52 ( kme_cddip0_ob_in_mod[0], 
 	_zy_simnet_kme_cddip0_ob_in_mod_45_w$);
-ixc_assign_83 _zz_strnp_53 ( kme_cddip0_ob_out[82:0], 
+ixc_assign_83 _zz_strnp_51 ( kme_cddip0_ob_out[82:0], 
 	_zy_simnet_kme_cddip0_ob_out_44_w$[0:82]);
-ixc_assign _zz_strnp_52 ( kme_cceip3_ob_in_mod[0], 
+ixc_assign _zz_strnp_50 ( kme_cceip3_ob_in_mod[0], 
 	_zy_simnet_kme_cceip3_ob_in_mod_43_w$);
-ixc_assign_83 _zz_strnp_51 ( kme_cceip3_ob_out[82:0], 
+ixc_assign_83 _zz_strnp_49 ( kme_cceip3_ob_out[82:0], 
 	_zy_simnet_kme_cceip3_ob_out_42_w$[0:82]);
-ixc_assign _zz_strnp_50 ( kme_cceip2_ob_in_mod[0], 
+ixc_assign _zz_strnp_48 ( kme_cceip2_ob_in_mod[0], 
 	_zy_simnet_kme_cceip2_ob_in_mod_41_w$);
-ixc_assign_83 _zz_strnp_49 ( kme_cceip2_ob_out[82:0], 
+ixc_assign_83 _zz_strnp_47 ( kme_cceip2_ob_out[82:0], 
 	_zy_simnet_kme_cceip2_ob_out_40_w$[0:82]);
-ixc_assign _zz_strnp_48 ( kme_cceip1_ob_in_mod[0], 
+ixc_assign _zz_strnp_46 ( kme_cceip1_ob_in_mod[0], 
 	_zy_simnet_kme_cceip1_ob_in_mod_39_w$);
-ixc_assign_83 _zz_strnp_47 ( kme_cceip1_ob_out[82:0], 
+ixc_assign_83 _zz_strnp_45 ( kme_cceip1_ob_out[82:0], 
 	_zy_simnet_kme_cceip1_ob_out_38_w$[0:82]);
-ixc_assign _zz_strnp_46 ( kme_cceip0_ob_in_mod[0], 
+ixc_assign _zz_strnp_44 ( kme_cceip0_ob_in_mod[0], 
 	_zy_simnet_kme_cceip0_ob_in_mod_37_w$);
-ixc_assign_83 _zz_strnp_45 ( kme_cceip0_ob_out[82:0], 
+ixc_assign_83 _zz_strnp_43 ( kme_cceip0_ob_out[82:0], 
 	_zy_simnet_kme_cceip0_ob_out_36_w$[0:82]);
-ixc_assign_84 _zz_strnp_44 ( rbus_ring_o[83:0], 
+ixc_assign_84 _zz_strnp_42 ( rbus_ring_o[83:0], 
 	_zy_simnet_rbus_ring_o_35_w$[0:83]);
-ixc_assign _zz_strnp_43 ( _zy_simnet_rbus_ring_o_34_w$, rbus_ring_o[34]);
-ixc_assign _zz_strnp_42 ( _zy_simnet_rbus_ring_o_33_w$, rbus_ring_o[67]);
-ixc_assign _zz_strnp_41 ( _zy_simnet_rbus_ring_o_32_w$, rbus_ring_o[0]);
-ixc_assign _zz_strnp_40 ( _zy_simnet_rbus_ring_o_31_w$, rbus_ring_o[1]);
-ixc_assign_32 _zz_strnp_39 ( _zy_simnet_rbus_ring_o_30_w$[0:31], 
+ixc_assign _zz_strnp_41 ( _zy_simnet_rbus_ring_o_34_w$, rbus_ring_o[34]);
+ixc_assign _zz_strnp_40 ( _zy_simnet_rbus_ring_o_33_w$, rbus_ring_o[67]);
+ixc_assign _zz_strnp_39 ( _zy_simnet_rbus_ring_o_32_w$, rbus_ring_o[0]);
+ixc_assign _zz_strnp_38 ( _zy_simnet_rbus_ring_o_31_w$, rbus_ring_o[1]);
+ixc_assign_32 _zz_strnp_37 ( _zy_simnet_rbus_ring_o_30_w$[0:31], 
 	rbus_ring_o[33:2]);
-ixc_assign _zz_strnp_38 ( rbus_ring_i[34], _zy_simnet_rbus_ring_i_29_w$);
-ixc_assign_32 _zz_strnp_37 ( rbus_ring_i[66:35], 
+ixc_assign _zz_strnp_36 ( rbus_ring_i[34], _zy_simnet_rbus_ring_i_29_w$);
+ixc_assign_32 _zz_strnp_35 ( rbus_ring_i[66:35], 
 	_zy_simnet_rbus_ring_i_28_w$[0:31]);
-ixc_assign _zz_strnp_36 ( rbus_ring_i[67], _zy_simnet_rbus_ring_i_27_w$);
-ixc_assign_16 _zz_strnp_35 ( rbus_ring_i[83:68], 
+ixc_assign _zz_strnp_34 ( rbus_ring_i[67], _zy_simnet_rbus_ring_i_27_w$);
+ixc_assign_16 _zz_strnp_33 ( rbus_ring_i[83:68], 
 	_zy_simnet_rbus_ring_i_26_w$[0:15]);
-ixc_assign_32 _zz_strnp_34 ( _zy_simnet_sa_global_ctrl_25_w$[0:31], 
+ixc_assign_32 _zz_strnp_32 ( _zy_simnet_sa_global_ctrl_25_w$[0:31], 
 	sa_global_ctrl[31:0]);
-ixc_assign_7 _zz_strnp_33 ( 
+ixc_assign_7 _zz_strnp_31 ( 
 	_zy_simnet_cddip_decrypt_kop_fifo_override_24_w$[0:6], 
 	cddip_decrypt_kop_fifo_override[6:0]);
-ixc_assign_7 _zz_strnp_32 ( 
+ixc_assign_7 _zz_strnp_30 ( 
 	_zy_simnet_cceip_validate_kop_fifo_override_23_w$[0:6], 
 	cceip_validate_kop_fifo_override[6:0]);
-ixc_assign_7 _zz_strnp_31 ( 
+ixc_assign_7 _zz_strnp_29 ( 
 	_zy_simnet_cceip_encrypt_kop_fifo_override_22_w$[0:6], 
 	cceip_encrypt_kop_fifo_override[6:0]);
-ixc_assign_9 _zz_strnp_30 ( _zy_simnet_tready_override_21_w$[0:8], 
+ixc_assign_9 _zz_strnp_28 ( _zy_simnet_tready_override_21_w$[0:8], 
 	tready_override[8:0]);
-ixc_assign_38 _zz_strnp_28 ( _zy_simnet_kim_dout_19_w$[0:37], kim_dout[37:0]);
-ixc_assign _zz_strnp_27 ( _zy_simnet_kme_cddip3_ob_in_mod_18_w$, 
+ixc_assign_38 _zz_strnp_26 ( _zy_simnet_kim_dout_19_w$[0:37], kim_dout[37:0]);
+ixc_assign _zz_strnp_25 ( _zy_simnet_kme_cddip3_ob_in_mod_18_w$, 
 	kme_cddip3_ob_in_mod[0]);
-ixc_assign _zz_strnp_26 ( _zy_simnet_kme_cddip2_ob_in_mod_17_w$, 
+ixc_assign _zz_strnp_24 ( _zy_simnet_kme_cddip2_ob_in_mod_17_w$, 
 	kme_cddip2_ob_in_mod[0]);
-ixc_assign _zz_strnp_25 ( _zy_simnet_kme_cddip1_ob_in_mod_16_w$, 
+ixc_assign _zz_strnp_23 ( _zy_simnet_kme_cddip1_ob_in_mod_16_w$, 
 	kme_cddip1_ob_in_mod[0]);
-ixc_assign _zz_strnp_24 ( _zy_simnet_kme_cddip0_ob_in_mod_15_w$, 
+ixc_assign _zz_strnp_22 ( _zy_simnet_kme_cddip0_ob_in_mod_15_w$, 
 	kme_cddip0_ob_in_mod[0]);
-ixc_assign _zz_strnp_23 ( _zy_simnet_kme_cceip3_ob_in_mod_14_w$, 
+ixc_assign _zz_strnp_21 ( _zy_simnet_kme_cceip3_ob_in_mod_14_w$, 
 	kme_cceip3_ob_in_mod[0]);
-ixc_assign _zz_strnp_22 ( _zy_simnet_kme_cceip2_ob_in_mod_13_w$, 
+ixc_assign _zz_strnp_20 ( _zy_simnet_kme_cceip2_ob_in_mod_13_w$, 
 	kme_cceip2_ob_in_mod[0]);
-ixc_assign _zz_strnp_21 ( _zy_simnet_kme_cceip1_ob_in_mod_12_w$, 
+ixc_assign _zz_strnp_19 ( _zy_simnet_kme_cceip1_ob_in_mod_12_w$, 
 	kme_cceip1_ob_in_mod[0]);
-ixc_assign _zz_strnp_20 ( _zy_simnet_kme_cceip0_ob_in_mod_11_w$, 
+ixc_assign _zz_strnp_18 ( _zy_simnet_kme_cceip0_ob_in_mod_11_w$, 
 	kme_cceip0_ob_in_mod[0]);
-ixc_assign_83 _zz_strnp_19 ( _zy_simnet_kme_ib_in_10_w$[0:82], 
+ixc_assign_83 _zz_strnp_17 ( _zy_simnet_kme_ib_in_10_w$[0:82], 
 	kme_ib_in[82:0]);
-ixc_assign_32 _zz_strnp_18 ( idle_components[31:0], 
+ixc_assign_32 _zz_strnp_16 ( idle_components[31:0], 
 	_zy_simnet_idle_components_9_w$[0:31]);
-ixc_assign_83 _zz_strnp_17 ( kme_cddip3_ob_out_pre[82:0], 
+ixc_assign_83 _zz_strnp_15 ( kme_cddip3_ob_out_pre[82:0], 
 	_zy_simnet_kme_cddip3_ob_out_pre_8_w$[0:82]);
-ixc_assign_83 _zz_strnp_16 ( kme_cddip2_ob_out_pre[82:0], 
+ixc_assign_83 _zz_strnp_14 ( kme_cddip2_ob_out_pre[82:0], 
 	_zy_simnet_kme_cddip2_ob_out_pre_7_w$[0:82]);
-ixc_assign_83 _zz_strnp_15 ( kme_cddip1_ob_out_pre[82:0], 
+ixc_assign_83 _zz_strnp_13 ( kme_cddip1_ob_out_pre[82:0], 
 	_zy_simnet_kme_cddip1_ob_out_pre_6_w$[0:82]);
-ixc_assign_83 _zz_strnp_14 ( kme_cddip0_ob_out_pre[82:0], 
+ixc_assign_83 _zz_strnp_12 ( kme_cddip0_ob_out_pre[82:0], 
 	_zy_simnet_kme_cddip0_ob_out_pre_5_w$[0:82]);
-ixc_assign_83 _zz_strnp_13 ( kme_cceip3_ob_out_pre[82:0], 
+ixc_assign_83 _zz_strnp_11 ( kme_cceip3_ob_out_pre[82:0], 
 	_zy_simnet_kme_cceip3_ob_out_pre_4_w$[0:82]);
-ixc_assign_83 _zz_strnp_12 ( kme_cceip2_ob_out_pre[82:0], 
+ixc_assign_83 _zz_strnp_10 ( kme_cceip2_ob_out_pre[82:0], 
 	_zy_simnet_kme_cceip2_ob_out_pre_3_w$[0:82]);
-ixc_assign_83 _zz_strnp_11 ( kme_cceip1_ob_out_pre[82:0], 
+ixc_assign_83 _zz_strnp_9 ( kme_cceip1_ob_out_pre[82:0], 
 	_zy_simnet_kme_cceip1_ob_out_pre_2_w$[0:82]);
-ixc_assign_83 _zz_strnp_10 ( kme_cceip0_ob_out_pre[82:0], 
+ixc_assign_83 _zz_strnp_8 ( kme_cceip0_ob_out_pre[82:0], 
 	_zy_simnet_kme_cceip0_ob_out_pre_1_w$[0:82]);
-ixc_assign _zz_strnp_9 ( kme_ib_out[0], _zy_simnet_kme_ib_out_0_w$);
-ixc_assign _zz_strnp_8 ( kme_cceip0_ob_in[0], kme_cceip0_ob_tready);
-ixc_assign_64 _zz_strnp_7 ( kme_cceip0_ob_tdata[63:0], 
+ixc_assign _zz_strnp_7 ( kme_ib_out[0], _zy_simnet_kme_ib_out_0_w$);
+ixc_assign _zz_strnp_6 ( kme_cceip0_ob_in[0], kme_cceip0_ob_tready);
+ixc_assign_64 _zz_strnp_5 ( kme_cceip0_ob_tdata[63:0], 
 	kme_cceip0_ob_out[63:0]);
-ixc_assign_8 _zz_strnp_6 ( kme_cceip0_ob_tuser[7:0], kme_cceip0_ob_out[71:64]);
-ixc_assign_8 _zz_strnp_5 ( kme_cceip0_ob_tstrb[7:0], kme_cceip0_ob_out[79:72]);
-ixc_assign _zz_strnp_4 ( kme_cceip0_ob_tid[0], kme_cceip0_ob_out[80]);
-ixc_assign _zz_strnp_3 ( kme_cceip0_ob_tlast, kme_cceip0_ob_out[81]);
-ixc_assign _zz_strnp_2 ( kme_cceip0_ob_tvalid, kme_cceip0_ob_out[82]);
-ixc_assign _zz_strnp_1 ( clock_1, clock);
-ixc_assign _zz_strnp_0 ( clk, clock);
-Q_MX02 U164 ( .S(manual_txc), .A0(kme_ib_tvalid), .A1(debug_kme_ib_tvalid), .Z(kme_ib_in[82]));
-Q_MX02 U165 ( .S(manual_txc), .A0(kme_ib_tlast), .A1(debug_kme_ib_tlast), .Z(kme_ib_in[81]));
-Q_MX02 U166 ( .S(manual_txc), .A0(kme_ib_tid[0]), .A1(debug_kme_ib_tid[0]), .Z(kme_ib_in[80]));
-Q_MX02 U167 ( .S(manual_txc), .A0(kme_ib_tstrb[0]), .A1(debug_kme_ib_tstrb[0]), .Z(kme_ib_in[72]));
-Q_MX02 U168 ( .S(manual_txc), .A0(kme_ib_tstrb[1]), .A1(debug_kme_ib_tstrb[1]), .Z(kme_ib_in[73]));
-Q_MX02 U169 ( .S(manual_txc), .A0(kme_ib_tstrb[2]), .A1(debug_kme_ib_tstrb[2]), .Z(kme_ib_in[74]));
-Q_MX02 U170 ( .S(manual_txc), .A0(kme_ib_tstrb[3]), .A1(debug_kme_ib_tstrb[3]), .Z(kme_ib_in[75]));
-Q_MX02 U171 ( .S(manual_txc), .A0(kme_ib_tstrb[4]), .A1(debug_kme_ib_tstrb[4]), .Z(kme_ib_in[76]));
-Q_MX02 U172 ( .S(manual_txc), .A0(kme_ib_tstrb[5]), .A1(debug_kme_ib_tstrb[5]), .Z(kme_ib_in[77]));
-Q_MX02 U173 ( .S(manual_txc), .A0(kme_ib_tstrb[6]), .A1(debug_kme_ib_tstrb[6]), .Z(kme_ib_in[78]));
-Q_MX02 U174 ( .S(manual_txc), .A0(kme_ib_tstrb[7]), .A1(debug_kme_ib_tstrb[7]), .Z(kme_ib_in[79]));
-Q_MX02 U175 ( .S(manual_txc), .A0(kme_ib_tuser[0]), .A1(debug_kme_ib_tuser[0]), .Z(kme_ib_in[64]));
-Q_MX02 U176 ( .S(manual_txc), .A0(kme_ib_tuser[1]), .A1(debug_kme_ib_tuser[1]), .Z(kme_ib_in[65]));
-Q_MX02 U177 ( .S(manual_txc), .A0(kme_ib_tuser[2]), .A1(debug_kme_ib_tuser[2]), .Z(kme_ib_in[66]));
-Q_MX02 U178 ( .S(manual_txc), .A0(kme_ib_tuser[3]), .A1(debug_kme_ib_tuser[3]), .Z(kme_ib_in[67]));
-Q_MX02 U179 ( .S(manual_txc), .A0(kme_ib_tuser[4]), .A1(debug_kme_ib_tuser[4]), .Z(kme_ib_in[68]));
-Q_MX02 U180 ( .S(manual_txc), .A0(kme_ib_tuser[5]), .A1(debug_kme_ib_tuser[5]), .Z(kme_ib_in[69]));
-Q_MX02 U181 ( .S(manual_txc), .A0(kme_ib_tuser[6]), .A1(debug_kme_ib_tuser[6]), .Z(kme_ib_in[70]));
-Q_MX02 U182 ( .S(manual_txc), .A0(kme_ib_tuser[7]), .A1(debug_kme_ib_tuser[7]), .Z(kme_ib_in[71]));
-Q_MX02 U183 ( .S(manual_txc), .A0(kme_ib_tdata[0]), .A1(debug_kme_ib_tdata[0]), .Z(kme_ib_in[0]));
-Q_MX02 U184 ( .S(manual_txc), .A0(kme_ib_tdata[1]), .A1(debug_kme_ib_tdata[1]), .Z(kme_ib_in[1]));
-Q_MX02 U185 ( .S(manual_txc), .A0(kme_ib_tdata[2]), .A1(debug_kme_ib_tdata[2]), .Z(kme_ib_in[2]));
-Q_MX02 U186 ( .S(manual_txc), .A0(kme_ib_tdata[3]), .A1(debug_kme_ib_tdata[3]), .Z(kme_ib_in[3]));
-Q_MX02 U187 ( .S(manual_txc), .A0(kme_ib_tdata[4]), .A1(debug_kme_ib_tdata[4]), .Z(kme_ib_in[4]));
-Q_MX02 U188 ( .S(manual_txc), .A0(kme_ib_tdata[5]), .A1(debug_kme_ib_tdata[5]), .Z(kme_ib_in[5]));
-Q_MX02 U189 ( .S(manual_txc), .A0(kme_ib_tdata[6]), .A1(debug_kme_ib_tdata[6]), .Z(kme_ib_in[6]));
-Q_MX02 U190 ( .S(manual_txc), .A0(kme_ib_tdata[7]), .A1(debug_kme_ib_tdata[7]), .Z(kme_ib_in[7]));
-Q_MX02 U191 ( .S(manual_txc), .A0(kme_ib_tdata[8]), .A1(debug_kme_ib_tdata[8]), .Z(kme_ib_in[8]));
-Q_MX02 U192 ( .S(manual_txc), .A0(kme_ib_tdata[9]), .A1(debug_kme_ib_tdata[9]), .Z(kme_ib_in[9]));
-Q_MX02 U193 ( .S(manual_txc), .A0(kme_ib_tdata[10]), .A1(debug_kme_ib_tdata[10]), .Z(kme_ib_in[10]));
-Q_MX02 U194 ( .S(manual_txc), .A0(kme_ib_tdata[11]), .A1(debug_kme_ib_tdata[11]), .Z(kme_ib_in[11]));
-Q_MX02 U195 ( .S(manual_txc), .A0(kme_ib_tdata[12]), .A1(debug_kme_ib_tdata[12]), .Z(kme_ib_in[12]));
-Q_MX02 U196 ( .S(manual_txc), .A0(kme_ib_tdata[13]), .A1(debug_kme_ib_tdata[13]), .Z(kme_ib_in[13]));
-Q_MX02 U197 ( .S(manual_txc), .A0(kme_ib_tdata[14]), .A1(debug_kme_ib_tdata[14]), .Z(kme_ib_in[14]));
-Q_MX02 U198 ( .S(manual_txc), .A0(kme_ib_tdata[15]), .A1(debug_kme_ib_tdata[15]), .Z(kme_ib_in[15]));
-Q_MX02 U199 ( .S(manual_txc), .A0(kme_ib_tdata[16]), .A1(debug_kme_ib_tdata[16]), .Z(kme_ib_in[16]));
-Q_MX02 U200 ( .S(manual_txc), .A0(kme_ib_tdata[17]), .A1(debug_kme_ib_tdata[17]), .Z(kme_ib_in[17]));
-Q_MX02 U201 ( .S(manual_txc), .A0(kme_ib_tdata[18]), .A1(debug_kme_ib_tdata[18]), .Z(kme_ib_in[18]));
-Q_MX02 U202 ( .S(manual_txc), .A0(kme_ib_tdata[19]), .A1(debug_kme_ib_tdata[19]), .Z(kme_ib_in[19]));
-Q_MX02 U203 ( .S(manual_txc), .A0(kme_ib_tdata[20]), .A1(debug_kme_ib_tdata[20]), .Z(kme_ib_in[20]));
-Q_MX02 U204 ( .S(manual_txc), .A0(kme_ib_tdata[21]), .A1(debug_kme_ib_tdata[21]), .Z(kme_ib_in[21]));
-Q_MX02 U205 ( .S(manual_txc), .A0(kme_ib_tdata[22]), .A1(debug_kme_ib_tdata[22]), .Z(kme_ib_in[22]));
-Q_MX02 U206 ( .S(manual_txc), .A0(kme_ib_tdata[23]), .A1(debug_kme_ib_tdata[23]), .Z(kme_ib_in[23]));
-Q_MX02 U207 ( .S(manual_txc), .A0(kme_ib_tdata[24]), .A1(debug_kme_ib_tdata[24]), .Z(kme_ib_in[24]));
-Q_MX02 U208 ( .S(manual_txc), .A0(kme_ib_tdata[25]), .A1(debug_kme_ib_tdata[25]), .Z(kme_ib_in[25]));
-Q_MX02 U209 ( .S(manual_txc), .A0(kme_ib_tdata[26]), .A1(debug_kme_ib_tdata[26]), .Z(kme_ib_in[26]));
-Q_MX02 U210 ( .S(manual_txc), .A0(kme_ib_tdata[27]), .A1(debug_kme_ib_tdata[27]), .Z(kme_ib_in[27]));
-Q_MX02 U211 ( .S(manual_txc), .A0(kme_ib_tdata[28]), .A1(debug_kme_ib_tdata[28]), .Z(kme_ib_in[28]));
-Q_MX02 U212 ( .S(manual_txc), .A0(kme_ib_tdata[29]), .A1(debug_kme_ib_tdata[29]), .Z(kme_ib_in[29]));
-Q_MX02 U213 ( .S(manual_txc), .A0(kme_ib_tdata[30]), .A1(debug_kme_ib_tdata[30]), .Z(kme_ib_in[30]));
-Q_MX02 U214 ( .S(manual_txc), .A0(kme_ib_tdata[31]), .A1(debug_kme_ib_tdata[31]), .Z(kme_ib_in[31]));
-Q_MX02 U215 ( .S(manual_txc), .A0(kme_ib_tdata[32]), .A1(debug_kme_ib_tdata[32]), .Z(kme_ib_in[32]));
-Q_MX02 U216 ( .S(manual_txc), .A0(kme_ib_tdata[33]), .A1(debug_kme_ib_tdata[33]), .Z(kme_ib_in[33]));
-Q_MX02 U217 ( .S(manual_txc), .A0(kme_ib_tdata[34]), .A1(debug_kme_ib_tdata[34]), .Z(kme_ib_in[34]));
-Q_MX02 U218 ( .S(manual_txc), .A0(kme_ib_tdata[35]), .A1(debug_kme_ib_tdata[35]), .Z(kme_ib_in[35]));
-Q_MX02 U219 ( .S(manual_txc), .A0(kme_ib_tdata[36]), .A1(debug_kme_ib_tdata[36]), .Z(kme_ib_in[36]));
-Q_MX02 U220 ( .S(manual_txc), .A0(kme_ib_tdata[37]), .A1(debug_kme_ib_tdata[37]), .Z(kme_ib_in[37]));
-Q_MX02 U221 ( .S(manual_txc), .A0(kme_ib_tdata[38]), .A1(debug_kme_ib_tdata[38]), .Z(kme_ib_in[38]));
-Q_MX02 U222 ( .S(manual_txc), .A0(kme_ib_tdata[39]), .A1(debug_kme_ib_tdata[39]), .Z(kme_ib_in[39]));
-Q_MX02 U223 ( .S(manual_txc), .A0(kme_ib_tdata[40]), .A1(debug_kme_ib_tdata[40]), .Z(kme_ib_in[40]));
-Q_MX02 U224 ( .S(manual_txc), .A0(kme_ib_tdata[41]), .A1(debug_kme_ib_tdata[41]), .Z(kme_ib_in[41]));
-Q_MX02 U225 ( .S(manual_txc), .A0(kme_ib_tdata[42]), .A1(debug_kme_ib_tdata[42]), .Z(kme_ib_in[42]));
-Q_MX02 U226 ( .S(manual_txc), .A0(kme_ib_tdata[43]), .A1(debug_kme_ib_tdata[43]), .Z(kme_ib_in[43]));
-Q_MX02 U227 ( .S(manual_txc), .A0(kme_ib_tdata[44]), .A1(debug_kme_ib_tdata[44]), .Z(kme_ib_in[44]));
-Q_MX02 U228 ( .S(manual_txc), .A0(kme_ib_tdata[45]), .A1(debug_kme_ib_tdata[45]), .Z(kme_ib_in[45]));
-Q_MX02 U229 ( .S(manual_txc), .A0(kme_ib_tdata[46]), .A1(debug_kme_ib_tdata[46]), .Z(kme_ib_in[46]));
-Q_MX02 U230 ( .S(manual_txc), .A0(kme_ib_tdata[47]), .A1(debug_kme_ib_tdata[47]), .Z(kme_ib_in[47]));
-Q_MX02 U231 ( .S(manual_txc), .A0(kme_ib_tdata[48]), .A1(debug_kme_ib_tdata[48]), .Z(kme_ib_in[48]));
-Q_MX02 U232 ( .S(manual_txc), .A0(kme_ib_tdata[49]), .A1(debug_kme_ib_tdata[49]), .Z(kme_ib_in[49]));
-Q_MX02 U233 ( .S(manual_txc), .A0(kme_ib_tdata[50]), .A1(debug_kme_ib_tdata[50]), .Z(kme_ib_in[50]));
-Q_MX02 U234 ( .S(manual_txc), .A0(kme_ib_tdata[51]), .A1(debug_kme_ib_tdata[51]), .Z(kme_ib_in[51]));
-Q_MX02 U235 ( .S(manual_txc), .A0(kme_ib_tdata[52]), .A1(debug_kme_ib_tdata[52]), .Z(kme_ib_in[52]));
-Q_MX02 U236 ( .S(manual_txc), .A0(kme_ib_tdata[53]), .A1(debug_kme_ib_tdata[53]), .Z(kme_ib_in[53]));
-Q_MX02 U237 ( .S(manual_txc), .A0(kme_ib_tdata[54]), .A1(debug_kme_ib_tdata[54]), .Z(kme_ib_in[54]));
-Q_MX02 U238 ( .S(manual_txc), .A0(kme_ib_tdata[55]), .A1(debug_kme_ib_tdata[55]), .Z(kme_ib_in[55]));
-Q_MX02 U239 ( .S(manual_txc), .A0(kme_ib_tdata[56]), .A1(debug_kme_ib_tdata[56]), .Z(kme_ib_in[56]));
-Q_MX02 U240 ( .S(manual_txc), .A0(kme_ib_tdata[57]), .A1(debug_kme_ib_tdata[57]), .Z(kme_ib_in[57]));
-Q_MX02 U241 ( .S(manual_txc), .A0(kme_ib_tdata[58]), .A1(debug_kme_ib_tdata[58]), .Z(kme_ib_in[58]));
-Q_MX02 U242 ( .S(manual_txc), .A0(kme_ib_tdata[59]), .A1(debug_kme_ib_tdata[59]), .Z(kme_ib_in[59]));
-Q_MX02 U243 ( .S(manual_txc), .A0(kme_ib_tdata[60]), .A1(debug_kme_ib_tdata[60]), .Z(kme_ib_in[60]));
-Q_MX02 U244 ( .S(manual_txc), .A0(kme_ib_tdata[61]), .A1(debug_kme_ib_tdata[61]), .Z(kme_ib_in[61]));
-Q_MX02 U245 ( .S(manual_txc), .A0(kme_ib_tdata[62]), .A1(debug_kme_ib_tdata[62]), .Z(kme_ib_in[62]));
-Q_MX02 U246 ( .S(manual_txc), .A0(kme_ib_tdata[63]), .A1(debug_kme_ib_tdata[63]), .Z(kme_ib_in[63]));
-Q_OR02 U247 ( .A0(manual_txc), .A1(kme_ib_out[0]), .Z(kme_ib_tready));
-Q_INV U248 ( .A(manual_txc), .Z(n3));
-Q_OR02 U249 ( .A0(n3), .A1(kme_ib_out[0]), .Z(debug_kme_ib_tready));
+ixc_assign_8 _zz_strnp_4 ( kme_cceip0_ob_tuser[7:0], kme_cceip0_ob_out[71:64]);
+ixc_assign_8 _zz_strnp_3 ( kme_cceip0_ob_tstrb[7:0], kme_cceip0_ob_out[79:72]);
+ixc_assign _zz_strnp_2 ( kme_cceip0_ob_tid[0], kme_cceip0_ob_out[80]);
+ixc_assign _zz_strnp_1 ( kme_cceip0_ob_tlast, kme_cceip0_ob_out[81]);
+ixc_assign _zz_strnp_0 ( kme_cceip0_ob_tvalid, kme_cceip0_ob_out[82]);
+Q_MX02 U161 ( .S(manual_txc), .A0(kme_ib_tvalid), .A1(debug_kme_ib_tvalid), .Z(kme_ib_in[82]));
+Q_MX02 U162 ( .S(manual_txc), .A0(kme_ib_tlast), .A1(debug_kme_ib_tlast), .Z(kme_ib_in[81]));
+Q_MX02 U163 ( .S(manual_txc), .A0(kme_ib_tid[0]), .A1(debug_kme_ib_tid[0]), .Z(kme_ib_in[80]));
+Q_MX02 U164 ( .S(manual_txc), .A0(kme_ib_tstrb[0]), .A1(debug_kme_ib_tstrb[0]), .Z(kme_ib_in[72]));
+Q_MX02 U165 ( .S(manual_txc), .A0(kme_ib_tstrb[1]), .A1(debug_kme_ib_tstrb[1]), .Z(kme_ib_in[73]));
+Q_MX02 U166 ( .S(manual_txc), .A0(kme_ib_tstrb[2]), .A1(debug_kme_ib_tstrb[2]), .Z(kme_ib_in[74]));
+Q_MX02 U167 ( .S(manual_txc), .A0(kme_ib_tstrb[3]), .A1(debug_kme_ib_tstrb[3]), .Z(kme_ib_in[75]));
+Q_MX02 U168 ( .S(manual_txc), .A0(kme_ib_tstrb[4]), .A1(debug_kme_ib_tstrb[4]), .Z(kme_ib_in[76]));
+Q_MX02 U169 ( .S(manual_txc), .A0(kme_ib_tstrb[5]), .A1(debug_kme_ib_tstrb[5]), .Z(kme_ib_in[77]));
+Q_MX02 U170 ( .S(manual_txc), .A0(kme_ib_tstrb[6]), .A1(debug_kme_ib_tstrb[6]), .Z(kme_ib_in[78]));
+Q_MX02 U171 ( .S(manual_txc), .A0(kme_ib_tstrb[7]), .A1(debug_kme_ib_tstrb[7]), .Z(kme_ib_in[79]));
+Q_MX02 U172 ( .S(manual_txc), .A0(kme_ib_tuser[0]), .A1(debug_kme_ib_tuser[0]), .Z(kme_ib_in[64]));
+Q_MX02 U173 ( .S(manual_txc), .A0(kme_ib_tuser[1]), .A1(debug_kme_ib_tuser[1]), .Z(kme_ib_in[65]));
+Q_MX02 U174 ( .S(manual_txc), .A0(kme_ib_tuser[2]), .A1(debug_kme_ib_tuser[2]), .Z(kme_ib_in[66]));
+Q_MX02 U175 ( .S(manual_txc), .A0(kme_ib_tuser[3]), .A1(debug_kme_ib_tuser[3]), .Z(kme_ib_in[67]));
+Q_MX02 U176 ( .S(manual_txc), .A0(kme_ib_tuser[4]), .A1(debug_kme_ib_tuser[4]), .Z(kme_ib_in[68]));
+Q_MX02 U177 ( .S(manual_txc), .A0(kme_ib_tuser[5]), .A1(debug_kme_ib_tuser[5]), .Z(kme_ib_in[69]));
+Q_MX02 U178 ( .S(manual_txc), .A0(kme_ib_tuser[6]), .A1(debug_kme_ib_tuser[6]), .Z(kme_ib_in[70]));
+Q_MX02 U179 ( .S(manual_txc), .A0(kme_ib_tuser[7]), .A1(debug_kme_ib_tuser[7]), .Z(kme_ib_in[71]));
+Q_MX02 U180 ( .S(manual_txc), .A0(kme_ib_tdata[0]), .A1(debug_kme_ib_tdata[0]), .Z(kme_ib_in[0]));
+Q_MX02 U181 ( .S(manual_txc), .A0(kme_ib_tdata[1]), .A1(debug_kme_ib_tdata[1]), .Z(kme_ib_in[1]));
+Q_MX02 U182 ( .S(manual_txc), .A0(kme_ib_tdata[2]), .A1(debug_kme_ib_tdata[2]), .Z(kme_ib_in[2]));
+Q_MX02 U183 ( .S(manual_txc), .A0(kme_ib_tdata[3]), .A1(debug_kme_ib_tdata[3]), .Z(kme_ib_in[3]));
+Q_MX02 U184 ( .S(manual_txc), .A0(kme_ib_tdata[4]), .A1(debug_kme_ib_tdata[4]), .Z(kme_ib_in[4]));
+Q_MX02 U185 ( .S(manual_txc), .A0(kme_ib_tdata[5]), .A1(debug_kme_ib_tdata[5]), .Z(kme_ib_in[5]));
+Q_MX02 U186 ( .S(manual_txc), .A0(kme_ib_tdata[6]), .A1(debug_kme_ib_tdata[6]), .Z(kme_ib_in[6]));
+Q_MX02 U187 ( .S(manual_txc), .A0(kme_ib_tdata[7]), .A1(debug_kme_ib_tdata[7]), .Z(kme_ib_in[7]));
+Q_MX02 U188 ( .S(manual_txc), .A0(kme_ib_tdata[8]), .A1(debug_kme_ib_tdata[8]), .Z(kme_ib_in[8]));
+Q_MX02 U189 ( .S(manual_txc), .A0(kme_ib_tdata[9]), .A1(debug_kme_ib_tdata[9]), .Z(kme_ib_in[9]));
+Q_MX02 U190 ( .S(manual_txc), .A0(kme_ib_tdata[10]), .A1(debug_kme_ib_tdata[10]), .Z(kme_ib_in[10]));
+Q_MX02 U191 ( .S(manual_txc), .A0(kme_ib_tdata[11]), .A1(debug_kme_ib_tdata[11]), .Z(kme_ib_in[11]));
+Q_MX02 U192 ( .S(manual_txc), .A0(kme_ib_tdata[12]), .A1(debug_kme_ib_tdata[12]), .Z(kme_ib_in[12]));
+Q_MX02 U193 ( .S(manual_txc), .A0(kme_ib_tdata[13]), .A1(debug_kme_ib_tdata[13]), .Z(kme_ib_in[13]));
+Q_MX02 U194 ( .S(manual_txc), .A0(kme_ib_tdata[14]), .A1(debug_kme_ib_tdata[14]), .Z(kme_ib_in[14]));
+Q_MX02 U195 ( .S(manual_txc), .A0(kme_ib_tdata[15]), .A1(debug_kme_ib_tdata[15]), .Z(kme_ib_in[15]));
+Q_MX02 U196 ( .S(manual_txc), .A0(kme_ib_tdata[16]), .A1(debug_kme_ib_tdata[16]), .Z(kme_ib_in[16]));
+Q_MX02 U197 ( .S(manual_txc), .A0(kme_ib_tdata[17]), .A1(debug_kme_ib_tdata[17]), .Z(kme_ib_in[17]));
+Q_MX02 U198 ( .S(manual_txc), .A0(kme_ib_tdata[18]), .A1(debug_kme_ib_tdata[18]), .Z(kme_ib_in[18]));
+Q_MX02 U199 ( .S(manual_txc), .A0(kme_ib_tdata[19]), .A1(debug_kme_ib_tdata[19]), .Z(kme_ib_in[19]));
+Q_MX02 U200 ( .S(manual_txc), .A0(kme_ib_tdata[20]), .A1(debug_kme_ib_tdata[20]), .Z(kme_ib_in[20]));
+Q_MX02 U201 ( .S(manual_txc), .A0(kme_ib_tdata[21]), .A1(debug_kme_ib_tdata[21]), .Z(kme_ib_in[21]));
+Q_MX02 U202 ( .S(manual_txc), .A0(kme_ib_tdata[22]), .A1(debug_kme_ib_tdata[22]), .Z(kme_ib_in[22]));
+Q_MX02 U203 ( .S(manual_txc), .A0(kme_ib_tdata[23]), .A1(debug_kme_ib_tdata[23]), .Z(kme_ib_in[23]));
+Q_MX02 U204 ( .S(manual_txc), .A0(kme_ib_tdata[24]), .A1(debug_kme_ib_tdata[24]), .Z(kme_ib_in[24]));
+Q_MX02 U205 ( .S(manual_txc), .A0(kme_ib_tdata[25]), .A1(debug_kme_ib_tdata[25]), .Z(kme_ib_in[25]));
+Q_MX02 U206 ( .S(manual_txc), .A0(kme_ib_tdata[26]), .A1(debug_kme_ib_tdata[26]), .Z(kme_ib_in[26]));
+Q_MX02 U207 ( .S(manual_txc), .A0(kme_ib_tdata[27]), .A1(debug_kme_ib_tdata[27]), .Z(kme_ib_in[27]));
+Q_MX02 U208 ( .S(manual_txc), .A0(kme_ib_tdata[28]), .A1(debug_kme_ib_tdata[28]), .Z(kme_ib_in[28]));
+Q_MX02 U209 ( .S(manual_txc), .A0(kme_ib_tdata[29]), .A1(debug_kme_ib_tdata[29]), .Z(kme_ib_in[29]));
+Q_MX02 U210 ( .S(manual_txc), .A0(kme_ib_tdata[30]), .A1(debug_kme_ib_tdata[30]), .Z(kme_ib_in[30]));
+Q_MX02 U211 ( .S(manual_txc), .A0(kme_ib_tdata[31]), .A1(debug_kme_ib_tdata[31]), .Z(kme_ib_in[31]));
+Q_MX02 U212 ( .S(manual_txc), .A0(kme_ib_tdata[32]), .A1(debug_kme_ib_tdata[32]), .Z(kme_ib_in[32]));
+Q_MX02 U213 ( .S(manual_txc), .A0(kme_ib_tdata[33]), .A1(debug_kme_ib_tdata[33]), .Z(kme_ib_in[33]));
+Q_MX02 U214 ( .S(manual_txc), .A0(kme_ib_tdata[34]), .A1(debug_kme_ib_tdata[34]), .Z(kme_ib_in[34]));
+Q_MX02 U215 ( .S(manual_txc), .A0(kme_ib_tdata[35]), .A1(debug_kme_ib_tdata[35]), .Z(kme_ib_in[35]));
+Q_MX02 U216 ( .S(manual_txc), .A0(kme_ib_tdata[36]), .A1(debug_kme_ib_tdata[36]), .Z(kme_ib_in[36]));
+Q_MX02 U217 ( .S(manual_txc), .A0(kme_ib_tdata[37]), .A1(debug_kme_ib_tdata[37]), .Z(kme_ib_in[37]));
+Q_MX02 U218 ( .S(manual_txc), .A0(kme_ib_tdata[38]), .A1(debug_kme_ib_tdata[38]), .Z(kme_ib_in[38]));
+Q_MX02 U219 ( .S(manual_txc), .A0(kme_ib_tdata[39]), .A1(debug_kme_ib_tdata[39]), .Z(kme_ib_in[39]));
+Q_MX02 U220 ( .S(manual_txc), .A0(kme_ib_tdata[40]), .A1(debug_kme_ib_tdata[40]), .Z(kme_ib_in[40]));
+Q_MX02 U221 ( .S(manual_txc), .A0(kme_ib_tdata[41]), .A1(debug_kme_ib_tdata[41]), .Z(kme_ib_in[41]));
+Q_MX02 U222 ( .S(manual_txc), .A0(kme_ib_tdata[42]), .A1(debug_kme_ib_tdata[42]), .Z(kme_ib_in[42]));
+Q_MX02 U223 ( .S(manual_txc), .A0(kme_ib_tdata[43]), .A1(debug_kme_ib_tdata[43]), .Z(kme_ib_in[43]));
+Q_MX02 U224 ( .S(manual_txc), .A0(kme_ib_tdata[44]), .A1(debug_kme_ib_tdata[44]), .Z(kme_ib_in[44]));
+Q_MX02 U225 ( .S(manual_txc), .A0(kme_ib_tdata[45]), .A1(debug_kme_ib_tdata[45]), .Z(kme_ib_in[45]));
+Q_MX02 U226 ( .S(manual_txc), .A0(kme_ib_tdata[46]), .A1(debug_kme_ib_tdata[46]), .Z(kme_ib_in[46]));
+Q_MX02 U227 ( .S(manual_txc), .A0(kme_ib_tdata[47]), .A1(debug_kme_ib_tdata[47]), .Z(kme_ib_in[47]));
+Q_MX02 U228 ( .S(manual_txc), .A0(kme_ib_tdata[48]), .A1(debug_kme_ib_tdata[48]), .Z(kme_ib_in[48]));
+Q_MX02 U229 ( .S(manual_txc), .A0(kme_ib_tdata[49]), .A1(debug_kme_ib_tdata[49]), .Z(kme_ib_in[49]));
+Q_MX02 U230 ( .S(manual_txc), .A0(kme_ib_tdata[50]), .A1(debug_kme_ib_tdata[50]), .Z(kme_ib_in[50]));
+Q_MX02 U231 ( .S(manual_txc), .A0(kme_ib_tdata[51]), .A1(debug_kme_ib_tdata[51]), .Z(kme_ib_in[51]));
+Q_MX02 U232 ( .S(manual_txc), .A0(kme_ib_tdata[52]), .A1(debug_kme_ib_tdata[52]), .Z(kme_ib_in[52]));
+Q_MX02 U233 ( .S(manual_txc), .A0(kme_ib_tdata[53]), .A1(debug_kme_ib_tdata[53]), .Z(kme_ib_in[53]));
+Q_MX02 U234 ( .S(manual_txc), .A0(kme_ib_tdata[54]), .A1(debug_kme_ib_tdata[54]), .Z(kme_ib_in[54]));
+Q_MX02 U235 ( .S(manual_txc), .A0(kme_ib_tdata[55]), .A1(debug_kme_ib_tdata[55]), .Z(kme_ib_in[55]));
+Q_MX02 U236 ( .S(manual_txc), .A0(kme_ib_tdata[56]), .A1(debug_kme_ib_tdata[56]), .Z(kme_ib_in[56]));
+Q_MX02 U237 ( .S(manual_txc), .A0(kme_ib_tdata[57]), .A1(debug_kme_ib_tdata[57]), .Z(kme_ib_in[57]));
+Q_MX02 U238 ( .S(manual_txc), .A0(kme_ib_tdata[58]), .A1(debug_kme_ib_tdata[58]), .Z(kme_ib_in[58]));
+Q_MX02 U239 ( .S(manual_txc), .A0(kme_ib_tdata[59]), .A1(debug_kme_ib_tdata[59]), .Z(kme_ib_in[59]));
+Q_MX02 U240 ( .S(manual_txc), .A0(kme_ib_tdata[60]), .A1(debug_kme_ib_tdata[60]), .Z(kme_ib_in[60]));
+Q_MX02 U241 ( .S(manual_txc), .A0(kme_ib_tdata[61]), .A1(debug_kme_ib_tdata[61]), .Z(kme_ib_in[61]));
+Q_MX02 U242 ( .S(manual_txc), .A0(kme_ib_tdata[62]), .A1(debug_kme_ib_tdata[62]), .Z(kme_ib_in[62]));
+Q_MX02 U243 ( .S(manual_txc), .A0(kme_ib_tdata[63]), .A1(debug_kme_ib_tdata[63]), .Z(kme_ib_in[63]));
+Q_OR02 U244 ( .A0(manual_txc), .A1(kme_ib_out[0]), .Z(kme_ib_tready));
+Q_INV U245 ( .A(manual_txc), .Z(n3));
+Q_OR02 U246 ( .A0(n3), .A1(kme_ib_out[0]), .Z(debug_kme_ib_tready));
 // pragma CVASTRPROP MODULE HDLICE HDL_MEMORY_DECL_m1 "_zy_simnet_tvar_20 (2,0) 1 271 0 7 0"
 // pragma CVASTRPROP MODULE HDLICE HDL_MEMORY_DECL_m2 "_zy_simnet_tvar_53 (2,0) 1 271 0 7 0"
 // pragma CVASTRPROP MODULE HDLICE HDL_MEMORY_DECL_m3 "labels (2,0) 1 271 0 7 0"

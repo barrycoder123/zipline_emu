@@ -1,8 +1,8 @@
 architecture module of cr_fifo_wrap2_xcm9 is
   -- quickturn CVASTRPROP MODULE HDLICE cva_for_generate "aflags_entries_gt0"
-  -- quickturn CVASTRPROP MODULE HDLICE cva_for_generate "ram_fifo"
+  -- quickturn CVASTRPROP MODULE HDLICE cva_for_generate "reg_fifo"
   -- quickturn CVASTRPROP MODULE HDLICE cva_for_generate_0 "-1 aflags_entries_gt0  "
-  -- quickturn CVASTRPROP MODULE HDLICE cva_for_generate_1 "-1 ram_fifo  "
+  -- quickturn CVASTRPROP MODULE HDLICE cva_for_generate_1 "-1 reg_fifo  "
   component ixc_assign
     generic (
       W : integer := 1
@@ -12,43 +12,28 @@ architecture module of cr_fifo_wrap2_xcm9 is
     R : in std_logic_vector((W - 1) downto 0) := (others => 'X') ) ;
   end component ;
 
-  component nx_fifo_ram_1r1w_xcm13
+  component nx_fifo_xcm20
     generic (
-      DEPTH : integer := 168 ;
-      WIDTH : integer := 83 ;
+      DEPTH : integer := 16 ;
+      WIDTH : integer := 106 ;
+      DATA_RESET : integer := 1 ;
       UNDERFLOW_ASSERT : integer := 1 ;
-      OVERFLOW_ASSERT : integer := 1 ;
-      SPECIALIZE : integer := 1 ;
-      IN_FLOP : integer := 1 ;
-      OUT_FLOP : integer := 1 ;
-      RD_LATENCY : integer := 1 ;
-      REN_COMB : integer := 1 ;
-      RDATA_COMB : integer := 1
+      OVERFLOW_ASSERT : integer := 1
     ) ;
     port (
       empty : out std_logic ;
       full : out std_logic ;
-      used_slots : out std_logic_vector(7 downto 0) ;
-      free_slots : out std_logic_vector(7 downto 0) ;
-      rerr : out std_logic ;
-      rdata : out std_logic_vector(82 downto 0) ;
       underflow : out std_logic ;
       overflow : out std_logic ;
-      bimc_odat : out std_logic ;
-      bimc_osync : out std_logic ;
-      ro_uncorrectable_ecc_error : out std_logic ;
+      used_slots : out std_logic_vector(4 downto 0) ;
+      free_slots : out std_logic_vector(4 downto 0) ;
+      rdata : out std_logic_vector(105 downto 0) ;
       clk : in std_logic := 'X' ;
       rst_n : in std_logic := 'X' ;
       wen : in std_logic := 'X' ;
-      wdata : in std_logic_vector(82 downto 0) := (others => 'X') ;
       ren : in std_logic := 'X' ;
       clear : in std_logic := 'X' ;
-      bimc_idat : in std_logic := 'X' ;
-      bimc_isync : in std_logic := 'X' ;
-      bimc_rst_n : in std_logic := 'X' ;
-      lvm : in std_logic := 'X' ;
-      mlvm : in std_logic := 'X' ;
-    mrdten : in std_logic := 'X' ) ;
+    wdata : in std_logic_vector(105 downto 0) := (others => 'X') ) ;
   end component ;
 
   type $_axi4s_dp_bus_t is
@@ -1117,26 +1102,26 @@ architecture module of cr_fifo_wrap2_xcm9 is
   signal DUMMY2 : std_logic ;
   signal afull_r : std_logic ;
   signal aempty_r : std_logic ;
-  signal free_slots : std_logic_vector(7 downto 0) ;
+  signal free_slots : std_logic_vector(4 downto 0) ;
   signal overflow : std_logic ;
   signal rerr : std_logic ;
   signal underflow : std_logic ;
-  signal used_slots : std_logic_vector(7 downto 0) ;
+  signal used_slots : std_logic_vector(4 downto 0) ;
 
 begin
-  _zz_strnp_10 : ixc_assign
+  _zz_strnp_8 : ixc_assign
     generic map(W => 1)
     port map (
        DUMMY0
       ,bimc_odat
     ) ;
-  _zz_strnp_11 : ixc_assign
+  _zz_strnp_9 : ixc_assign
     generic map(W => 1)
     port map (
        DUMMY1
       ,bimc_osync
     ) ;
-  _zz_strnp_12 : ixc_assign
+  _zz_strnp_10 : ixc_assign
     generic map(W => 1)
     port map (
        DUMMY2
@@ -1165,8 +1150,8 @@ begin
         aempty_r <= '1' ;
       elsif (clk'event and clk = '1') then
         if ((ext(free_slots,32) <= std_logic_vector'
-        ("00000000000000000000000000000100") or ((ext(free_slots,32) =
-         std_logic_vector'("00000000000000000000000000000101") and (wen)='1')
+        ("00000000000000000000000000000001") or ((ext(free_slots,32) =
+         std_logic_vector'("00000000000000000000000000000010") and (wen)='1')
          and (not(ren))='1'))) then
           afull_r <= '1' ;
         else
@@ -1183,97 +1168,66 @@ begin
       end if ;
     end process ;
   end generate ;
-  Generate2 : if ram_fifo : (TRUE) generate
-    signal DUMMY3 : std_logic_vector(0 to 7) ;
-    signal DUMMY4 : std_logic_vector(0 to 7) ;
-    signal DUMMY5 : std_logic ;
-    signal DUMMY6 : std_logic ;
-    signal DUMMY7 : std_logic ;
-    signal DUMMY8 : std_logic ;
-    signal DUMMY9 : std_logic ;
-    signal DUMMY10 : std_logic ;
-    signal _zy_simnet_cio_11 : std_logic ;
-    signal _zy_simnet_cio_12 : std_logic ;
-    signal _zy_simnet_cio_13 : std_logic ;
-    signal _zy_simnet_cio_14 : std_logic ;
+  Generate2 : if reg_fifo : (TRUE) generate
+    signal DUMMY3 : std_logic ;
+    signal DUMMY4 : std_logic ;
+    signal DUMMY5 : std_logic_vector(0 to 4) ;
+    signal DUMMY6 : std_logic_vector(0 to 4) ;
+    signal _zy_simnet_cio_7 : std_logic ;
   begin
     _zz_strnp_2 : ixc_assign
-      generic map(W => 8)
+      generic map(W => 1)
       port map (
-         used_slots
-        ,DUMMY3
+         bimc_odat
+        ,bimc_idat
       ) ;
     _zz_strnp_3 : ixc_assign
-      generic map(W => 8)
+      generic map(W => 1)
       port map (
-         free_slots
-        ,DUMMY4
+         bimc_osync
+        ,bimc_isync
       ) ;
+    ro_uncorrectable_ecc_error <= '0' ;
     _zz_strnp_4 : ixc_assign
       generic map(W => 1)
       port map (
-         rerr
-        ,DUMMY5
+         underflow
+        ,DUMMY3
       ) ;
     _zz_strnp_5 : ixc_assign
       generic map(W => 1)
       port map (
-         underflow
-        ,DUMMY6
+         overflow
+        ,DUMMY4
       ) ;
     _zz_strnp_6 : ixc_assign
-      generic map(W => 1)
+      generic map(W => 5)
       port map (
-         overflow
-        ,DUMMY7
+         used_slots
+        ,DUMMY5
       ) ;
     _zz_strnp_7 : ixc_assign
-      generic map(W => 1)
+      generic map(W => 5)
       port map (
-         bimc_odat
-        ,DUMMY8
+         free_slots
+        ,DUMMY6
       ) ;
-    _zz_strnp_8 : ixc_assign
-      generic map(W => 1)
-      port map (
-         bimc_osync
-        ,DUMMY9
-      ) ;
-    _zz_strnp_9 : ixc_assign
-      generic map(W => 1)
-      port map (
-         ro_uncorrectable_ecc_error
-        ,DUMMY10
-      ) ;
-    _zy_simnet_cio_11 <= '0' ;
-    _zy_simnet_cio_12 <= '0' ;
-    _zy_simnet_cio_13 <= '0' ;
-    _zy_simnet_cio_14 <= '0' ;
-    u_nx_fifo_ram_1r1w : nx_fifo_ram_1r1w_xcm13
+    _zy_simnet_cio_7 <= '0' ;
+    u_nx_fifo : nx_fifo_xcm20
       port map (
          empty => empty
         ,full => full
-        ,used_slots => DUMMY3
-        ,free_slots => DUMMY4
-        ,rerr => DUMMY5
+        ,underflow => DUMMY3
+        ,overflow => DUMMY4
+        ,used_slots => DUMMY5
+        ,free_slots => DUMMY6
         ,rdata => rdata
-        ,underflow => DUMMY6
-        ,overflow => DUMMY7
-        ,bimc_odat => DUMMY8
-        ,bimc_osync => DUMMY9
-        ,ro_uncorrectable_ecc_error => DUMMY10
         ,clk => clk
         ,rst_n => rst_n
         ,wen => wen
-        ,wdata => wdata
         ,ren => ren
-        ,clear => _zy_simnet_cio_11
-        ,bimc_idat => bimc_idat
-        ,bimc_isync => bimc_isync
-        ,bimc_rst_n => bimc_rst_n
-        ,lvm => _zy_simnet_cio_12
-        ,mlvm => _zy_simnet_cio_13
-        ,mrdten => _zy_simnet_cio_14
+        ,clear => _zy_simnet_cio_7
+        ,wdata => wdata
       ) ;
   end generate ;
 end module;

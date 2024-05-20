@@ -1,9 +1,9 @@
 // xc_work/v/83.sv
-// /home/ibarry/Project-Zipline-master/rtl/common/cr_tlvp/cr_tlvp2_rsm_core.v:42
+// /home/ibarry/Project-Zipline-master/rtl/common/cr_tlvp/cr_tlvp2_rsm.v:43
 // NOTE: This file corresponds to a module in the Hardware/DUT partition.
 `timescale 1ns/1ns
-module cr_tlvp2_rsm_core(pt_ob_rd,tlvp_rsm_usr_ob_ren,tlvp_rsm_ob_wen,tlvp_rsm_ob_wdata,clk,rst_n,pt_ob_empty,pt_ob_aempty,pt_ob_tlv,tlvp_rsm_usr_ob_rdata,
-usr_ob_empty,usr_ob_aempty,tlvp_ob_full,tlvp_ob_afull);
+module cr_tlvp2_rsm(pt_ob_rd,usr_ob_full,usr_ob_afull,tlvp_ob_empty,tlvp_ob_aempty,tlvp_ob,tlvp_rsm_bimc_odat,tlvp_rsm_bimc_osync,tlvp_ob_ro_uncorrectable_ecc_error,usr_ob_ro_uncorrectable_ecc_error,
+clk,rst_n,pt_ob_empty,pt_ob_aempty,pt_ob_tlv,usr_ob_wr,usr_ob_tlv,tlvp_ob_rd,tlvp_rsm_bimc_idat,tlvp_rsm_bimc_isync,bimc_rst_n);
 typedef enum logic [1:0] {ENET=0,IPV4=1,IPV6=2,MPLS=3} pkt_hdr_e;
 typedef enum logic [3:0] {CMD_SIMPLE=0,COMPND_4K=5,COMPND_8K=6,COMPND_RSV=15} cmd_compound_cmd_frm_size_e;
 typedef enum logic [0:0] {GUID_NOT_PRESENT=0,GUID_PRESENT=1} cmd_guid_present_e;
@@ -815,365 +815,175 @@ typedef struct packed {
  zipline_error_e error_code;
  logic [10:0] errored_frame_number ;
 } ftr_error_t;
+parameter UF_USE_RAM = 0;
+parameter N_UF_ENTRIES = 16;
+parameter N_UF_AFULL_VAL = 1;
+parameter N_UF_AEMPTY_VAL = 1;
+parameter OF_USE_RAM = 1;
+parameter N_OF_ENTRIES = 168;
+parameter N_OF_AFULL_VAL = 4;
+parameter N_OF_AEMPTY_VAL = 1;
+parameter N_UF_DATA_BITS = 106;
+parameter N_OF_DATA_BITS = 83;
 input  clk;
 input  rst_n;
 input  pt_ob_empty;
 input  pt_ob_aempty;
 input tlvp_if_bus_t pt_ob_tlv;
 output logic pt_ob_rd;
-input tlvp_if_bus_t tlvp_rsm_usr_ob_rdata;
-input  usr_ob_empty;
-input  usr_ob_aempty;
-output logic tlvp_rsm_usr_ob_ren;
-input  tlvp_ob_full;
-input  tlvp_ob_afull;
-output logic tlvp_rsm_ob_wen;
-output axi4s_dp_bus_t tlvp_rsm_ob_wdata;
-tlv_word_0_t tlvp_rsm_usr_ob_rdata_dw0;
-logic [1:0] tlvp_rsm_bip2 ;
-logic tlvp_rsm_usr_ob_valid;
-tlvp_if_bus_t tlvp_rsm_usr_ob_tlv;
-logic tlvp_rsm_usr_ob_wen;
-logic tlvp_rsm_usr_ob_sel;
-logic tlvp_rsm_pt_valid;
-tlvp_if_bus_t tlvp_rsm_pt_tlv;
-logic tlvp_rsm_pt_wen;
-logic tlvp_rsm_pt_sel;
-tlvp_if_bus_t tlvp_rsm_ob_datain;
-logic [12:0] tlvp_rsm_nxt_ordern ;
-logic [7:0] tlvp_rsm_last_typen ;
-logic tlvp_rsm_pt_next;
-logic tlvp_rsm_usr_ob_next;
-logic tlvp_rsm_usr_insert;
-logic [1:0] tlvp_rsm_selector ;
-logic [12:0] tlvp_rsm_usr_ob_tlv_ordern ;
-logic [12:0] tlvp_rsm_pt_tlv_ordern ;
-typedef enum int {IDLE=0,SEND_PT=32'sb01,SEND_USR=32'sb010} _zy_typedef_493;
-_zy_typedef_493 current_state, next_state;
+input  usr_ob_wr;
+input tlvp_if_bus_t usr_ob_tlv;
+output logic usr_ob_full;
+output logic usr_ob_afull;
+input  tlvp_ob_rd;
+output logic tlvp_ob_empty;
+output logic tlvp_ob_aempty;
+output axi4s_dp_bus_t tlvp_ob;
+input  tlvp_rsm_bimc_idat;
+input  tlvp_rsm_bimc_isync;
+input  bimc_rst_n;
+output logic tlvp_rsm_bimc_odat;
+output logic tlvp_rsm_bimc_osync;
+output logic tlvp_ob_ro_uncorrectable_ecc_error;
+output logic usr_ob_ro_uncorrectable_ecc_error;
+tlvp_if_bus_t tlvp_rsm_usr_ob_rdata;
+axi4s_dp_bus_t tlvp_rsm_ob_wdata;
+logic tlvp_ob_afull;
+logic tlvp_ob_full;
+logic tlvp_rsm_ob_wen;
+logic tlvp_rsm_usr_ob_ren;
+logic usr_ob_aempty;
+logic usr_ob_bimc_odat;
+logic usr_ob_bimc_osync;
+logic usr_ob_empty;
 wire  _zy_simnet_pt_ob_rd_0_w$;
-wire  _zy_simnet_tlvp_rsm_usr_ob_ren_1_w$;
-wire  _zy_simnet_tlvp_rsm_ob_wen_2_w$;
-wire  [0:82] _zy_simnet_tlvp_rsm_ob_wdata_3_w$ ;
-ixc_assign  #(64) _zz_strnp_0 (tlvp_rsm_usr_ob_rdata_dw0,tlv_word_0_t'(tlvp_rsm_usr_ob_rdata.tdata));
-assign  tlvp_rsm_bip2 = get_bip2({2'b0,tlvp_rsm_usr_ob_rdata.tdata[32'sd61:32'sd0]});
-assign  tlvp_rsm_usr_ob_wen = (tlvp_rsm_usr_ob_valid & (next_state == SEND_USR));
-assign  tlvp_rsm_pt_wen = (tlvp_rsm_pt_valid & (next_state == SEND_PT));
-assign  tlvp_rsm_usr_ob_ren = ((( ~usr_ob_empty ) & ( ~tlvp_ob_afull )) & (( ~tlvp_rsm_usr_ob_valid ) | tlvp_rsm_usr_ob_wen));
-assign  pt_ob_rd = ((( ~pt_ob_empty ) & ( ~tlvp_ob_afull )) & (( ~tlvp_rsm_pt_valid ) | tlvp_rsm_pt_wen));
-assign  tlvp_rsm_pt_next = (tlvp_rsm_pt_tlv_ordern <= tlvp_rsm_nxt_ordern);
-assign  tlvp_rsm_usr_ob_next = (tlvp_rsm_usr_ob_tlv_ordern == tlvp_rsm_nxt_ordern);
-ixc_assign  #(2) _zz_strnp_1 (tlvp_rsm_selector,{tlvp_rsm_usr_ob_valid,tlvp_rsm_pt_valid});
-ixc_assign  #(1) _zz_strnp_2 (tlvp_rsm_ob_wdata.tvalid,tlvp_rsm_ob_wen);
-ixc_assign  #(1) _zz_strnp_3 (tlvp_rsm_ob_wdata.tlast,tlvp_rsm_ob_datain.tlast);
-ixc_assign  #(1) _zz_strnp_4 (tlvp_rsm_ob_wdata.tid,tlvp_rsm_ob_datain.tid);
-ixc_assign  #(8) _zz_strnp_5 (tlvp_rsm_ob_wdata.tstrb,tlvp_rsm_ob_datain.tstrb);
-ixc_assign  #(8) _zz_strnp_6 (tlvp_rsm_ob_wdata.tuser,tlvp_rsm_ob_datain.tuser);
-ixc_assign  #(64) _zz_strnp_7 (tlvp_rsm_ob_wdata.tdata,tlvp_rsm_ob_datain.tdata);
-ixc_assign  #(1) _zz_strnp_8 (_zy_simnet_pt_ob_rd_0_w$,pt_ob_rd);
-ixc_assign  #(1) _zz_strnp_9 (_zy_simnet_tlvp_rsm_usr_ob_ren_1_w$,tlvp_rsm_usr_ob_ren);
-ixc_assign  #(1) _zz_strnp_10 (_zy_simnet_tlvp_rsm_ob_wen_2_w$,tlvp_rsm_ob_wen);
-ixc_assign  #(83) _zz_strnp_11 (_zy_simnet_tlvp_rsm_ob_wdata_3_w$,tlvp_rsm_ob_wdata);
-
-function  [1:0] get_bip2;
- input reg [63:0] data_in ;
- int evn;
- int odd;
- int i;
- logic [1:0] par ;
- evn = 0;
- odd = 0;
- for (i = 0;(i < 64); i = (i + 2))
-  begin
-   if ((data_in[i] == 1'b1))
-    begin
-     evn = (evn + 1);
-    end
-  end
- for (i = 1;(i < 64); i = (i + 2))
-  begin
-   if ((data_in[i] == 1'b1))
-    begin
-     odd = (odd + 1);
-    end
-  end
- if (((evn % 2) > 0))
-  par[0] = 1'b1;
- else
-  par[0] = 1'b0;
- if (((odd % 2) > 0))
-  par[1] = 1'b1;
- else
-  par[1] = 1'b0;
- get_bip2 = par;
-endfunction
-
-always 
- @(posedge clk or negedge rst_n)
-  begin
-   if (( ~rst_n ))
-    begin
-     tlvp_rsm_usr_ob_valid <= 1'b0;
-     tlvp_rsm_usr_ob_tlv <= 106'b0;
-     tlvp_rsm_pt_valid <= 1'b0;
-     tlvp_rsm_pt_tlv <= 106'b0;
-     tlvp_rsm_usr_ob_tlv_ordern <= 13'b0;
-     tlvp_rsm_pt_tlv_ordern <= 13'b0;
-    end
-   else
-    begin
-     if ((tlvp_rsm_usr_ob_ren & ( ~tlvp_rsm_usr_ob_wen )))
-      begin
-       tlvp_rsm_usr_ob_valid <= 1'b1;
-      end
-     else
-      if ((( ~tlvp_rsm_usr_ob_ren ) & tlvp_rsm_usr_ob_wen))
-       begin
-        tlvp_rsm_usr_ob_valid <= 1'b0;
-       end
-     if (tlvp_rsm_usr_ob_ren)
-      begin
-       if ((tlvp_rsm_usr_ob_rdata.sot | tlvp_rsm_usr_ob_rdata.tuser[0]))
-        begin
-         tlvp_rsm_usr_ob_tlv_ordern <= tlvp_rsm_usr_ob_rdata.ordern;
-         tlvp_rsm_usr_ob_tlv <= {tlvp_rsm_usr_ob_rdata.insert,tlvp_rsm_usr_ob_rdata.ordern,tlvp_rsm_usr_ob_rdata.typen,tlvp_rsm_usr_ob_rdata.sot,tlvp_rsm_usr_ob_rdata.eot,tlvp_rsm_usr_ob_rdata.tlast,tlvp_rsm_usr_ob_rdata.tid,tlvp_rsm_usr_ob_rdata.tstrb,tlvp_rsm_usr_ob_rdata.tuser,{tlvp_rsm_bip2,tlvp_rsm_usr_ob_rdata.tdata[32'sd61:32'sd0]}};
-        end
-       else
-        begin
-         tlvp_rsm_usr_ob_tlv <= tlvp_rsm_usr_ob_rdata;
-        end
-      end
-     if ((pt_ob_rd & ( ~tlvp_rsm_pt_wen )))
-      begin
-       tlvp_rsm_pt_valid <= 1'b1;
-      end
-     else
-      if ((( ~pt_ob_rd ) & tlvp_rsm_pt_wen))
-       begin
-        tlvp_rsm_pt_valid <= 1'b0;
-       end
-     if (pt_ob_rd)
-      begin
-       tlvp_rsm_pt_tlv <= pt_ob_tlv;
-       if ((pt_ob_tlv.sot | pt_ob_tlv.tuser[0]))
-        begin
-         tlvp_rsm_pt_tlv_ordern <= pt_ob_tlv.ordern;
-        end
-      end
-    end
-  end
-always 
- @(*)
-  begin
-   case (tlvp_rsm_selector)
-    2'b0:
-     begin
-      tlvp_rsm_pt_sel = 1'b0;
-      tlvp_rsm_usr_ob_sel = 1'b0;
-     end
-    2'b01:
-     begin
-      if ((tlvp_rsm_pt_next && ( ~tlvp_rsm_usr_insert )))
-       begin
-        tlvp_rsm_pt_sel = 1'b1;
-       end
-      else
-       begin
-        tlvp_rsm_pt_sel = 1'b0;
-       end
-      tlvp_rsm_usr_ob_sel = 1'b0;
-     end
-    2'b10:
-     begin
-      tlvp_rsm_pt_sel = 1'b0;
-      if ((tlvp_rsm_usr_ob_next | tlvp_rsm_usr_insert))
-       begin
-        tlvp_rsm_usr_ob_sel = 1'b1;
-       end
-      else
-       begin
-        tlvp_rsm_usr_ob_sel = 1'b0;
-       end
-     end
-    2'b11:
-     begin
-      if (tlvp_rsm_usr_insert)
-       begin
-        tlvp_rsm_pt_sel = 1'b0;
-        tlvp_rsm_usr_ob_sel = 1'b1;
-       end
-      else
-       if (tlvp_rsm_usr_ob_next)
-        begin
-         tlvp_rsm_pt_sel = 1'b0;
-         tlvp_rsm_usr_ob_sel = 1'b1;
-        end
-       else
-        if (tlvp_rsm_pt_next)
-         begin
-          tlvp_rsm_pt_sel = 1'b1;
-          tlvp_rsm_usr_ob_sel = 1'b0;
-         end
-        else
-         if ((tlvp_rsm_pt_tlv_ordern < tlvp_rsm_usr_ob_tlv_ordern))
-          begin
-          tlvp_rsm_pt_sel = 1'b1;
-          tlvp_rsm_usr_ob_sel = 1'b0;
-          end
-         else
-          begin
-          tlvp_rsm_pt_sel = 1'b0;
-          tlvp_rsm_usr_ob_sel = 1'b1;
-          end
-     end
-   endcase
-  end
-always 
- @(*)
-  begin
-   case (current_state)
-    IDLE:
-     begin
-      if (tlvp_rsm_usr_ob_sel)
-       begin
-        next_state = SEND_USR;
-       end
-      else
-       if (tlvp_rsm_pt_sel)
-        begin
-         next_state = SEND_PT;
-        end
-       else
-        begin
-         next_state = IDLE;
-        end
-     end
-    SEND_PT:
-     begin
-      if (tlvp_rsm_ob_datain.eot)
-       begin
-        if (tlvp_rsm_usr_ob_sel)
-         begin
-          next_state = SEND_USR;
-         end
-        else
-         if (tlvp_rsm_pt_sel)
-          begin
-          next_state = SEND_PT;
-          end
-         else
-          begin
-          next_state = IDLE;
-          end
-       end
-      else
-       begin
-        next_state = SEND_PT;
-       end
-     end
-    SEND_USR:
-     begin
-      if (tlvp_rsm_ob_datain.eot)
-       begin
-        if (tlvp_rsm_usr_ob_sel)
-         begin
-          next_state = SEND_USR;
-         end
-        else
-         if (tlvp_rsm_pt_sel)
-          begin
-          next_state = SEND_PT;
-          end
-         else
-          begin
-          next_state = IDLE;
-          end
-       end
-      else
-       begin
-        next_state = SEND_USR;
-       end
-     end
-    default:
-     begin
-      next_state = IDLE;
-     end
-   endcase
-  end
-always 
- @(posedge clk or negedge rst_n)
-  begin
-   if (( ~rst_n ))
-    begin
-     current_state <= IDLE;
-    end
-   else
-    begin
-     current_state <= next_state;
-    end
-  end
-always 
- @(posedge clk or negedge rst_n)
-  begin
-   if (( ~rst_n ))
-    begin
-     tlvp_rsm_ob_datain <= 106'b0;
-     tlvp_rsm_ob_wen <= 1'b0;
-     tlvp_rsm_nxt_ordern <= 13'b01;
-     tlvp_rsm_last_typen <= 8'b11111111;
-     tlvp_rsm_usr_insert <= 1'b0;
-    end
-   else
-    begin
-     case (next_state)
-      IDLE:
-       begin
-        tlvp_rsm_ob_datain <= 106'b0;
-        tlvp_rsm_ob_wen <= 1'b0;
-       end
-      SEND_PT:
-       begin
-        tlvp_rsm_ob_wen <= tlvp_rsm_pt_valid;
-        tlvp_rsm_ob_datain <= tlvp_rsm_pt_tlv;
-        tlvp_rsm_last_typen <= tlvp_rsm_pt_tlv.typen;
-        if (tlvp_rsm_pt_tlv.tlast)
-         begin
-          tlvp_rsm_nxt_ordern <= 13'b01;
-         end
-        else
-         if (tlvp_rsm_pt_tlv.eot)
-          begin
-          tlvp_rsm_nxt_ordern <= (tlvp_rsm_pt_tlv_ordern + 13'b01);
-          end
-       end
-      SEND_USR:
-       begin
-        tlvp_rsm_ob_wen <= tlvp_rsm_usr_ob_valid;
-        tlvp_rsm_ob_datain <= tlvp_rsm_usr_ob_tlv;
-        tlvp_rsm_last_typen <= tlvp_rsm_usr_ob_tlv.typen;
-        if (tlvp_rsm_usr_ob_tlv.tlast)
-         begin
-          tlvp_rsm_nxt_ordern <= 13'b01;
-         end
-        else
-         if (tlvp_rsm_usr_ob_tlv.eot)
-          begin
-          tlvp_rsm_nxt_ordern <= (tlvp_rsm_usr_ob_tlv_ordern + 13'b01);
-          end
-        if (tlvp_rsm_usr_ob_tlv.sot)
-         begin
-          tlvp_rsm_usr_insert <= tlvp_rsm_usr_ob_tlv.insert;
-         end
-       end
-      default:
-       begin
-        tlvp_rsm_ob_datain <= 106'b0;
-        tlvp_rsm_ob_wen <= 1'b0;
-        tlvp_rsm_nxt_ordern <= 13'b01;
-        tlvp_rsm_last_typen <= 8'b11111111;
-        tlvp_rsm_usr_insert <= 1'b0;
-       end
-     endcase
-    end
-  end
+wire  _zy_simnet_usr_ob_full_1_w$;
+wire  _zy_simnet_usr_ob_afull_2_w$;
+wire  _zy_simnet_tlvp_ob_empty_3_w$;
+wire  _zy_simnet_tlvp_ob_aempty_4_w$;
+wire  [0:82] _zy_simnet_tlvp_ob_5_w$ ;
+wire  _zy_simnet_tlvp_rsm_bimc_odat_6_w$;
+wire  _zy_simnet_tlvp_rsm_bimc_osync_7_w$;
+wire  _zy_simnet_tlvp_ob_ro_uncorrectable_ecc_error_8_w$;
+wire  _zy_simnet_usr_ob_ro_uncorrectable_ecc_error_9_w$;
+wire  _zy_simnet_pt_ob_rd_10_w$;
+wire  _zy_simnet_tlvp_rsm_usr_ob_ren_11_w$;
+wire  _zy_simnet_tlvp_rsm_ob_wen_12_w$;
+wire  [0:82] _zy_simnet_tlvp_rsm_ob_wdata_13_w$ ;
+wire  [0:105] _zy_simnet_tlvp_rsm_usr_ob_rdata_14_w$ ;
+wire  _zy_simnet_usr_ob_empty_15_w$;
+wire  _zy_simnet_usr_ob_aempty_16_w$;
+wire  _zy_simnet_tlvp_ob_full_17_w$;
+wire  _zy_simnet_tlvp_ob_afull_18_w$;
+wire  _zy_simnet_tlvp_ob_full_19_w$;
+wire  _zy_simnet_tlvp_ob_afull_20_w$;
+wire  [0:82] _zy_simnet_tlvp_ob_21_w$ ;
+wire  _zy_simnet_tlvp_ob_empty_22_w$;
+wire  _zy_simnet_tlvp_ob_aempty_23_w$;
+wire  _zy_simnet_tlvp_rsm_bimc_odat_24_w$;
+wire  _zy_simnet_tlvp_rsm_bimc_osync_25_w$;
+wire  _zy_simnet_tlvp_ob_ro_uncorrectable_ecc_error_26_w$;
+wire  [0:82] _zy_simnet_tlvp_rsm_ob_wdata_27_w$ ;
+wire  _zy_simnet_tlvp_rsm_ob_wen_28_w$;
+wire  _zy_simnet_usr_ob_bimc_odat_29_w$;
+wire  _zy_simnet_usr_ob_bimc_osync_30_w$;
+wire  _zy_simnet_usr_ob_full_31_w$;
+wire  _zy_simnet_usr_ob_afull_32_w$;
+wire  [0:105] _zy_simnet_tlvp_rsm_usr_ob_rdata_33_w$ ;
+wire  _zy_simnet_usr_ob_empty_34_w$;
+wire  _zy_simnet_usr_ob_aempty_35_w$;
+wire  _zy_simnet_usr_ob_bimc_odat_36_w$;
+wire  _zy_simnet_usr_ob_bimc_osync_37_w$;
+wire  _zy_simnet_usr_ob_ro_uncorrectable_ecc_error_38_w$;
+wire  _zy_simnet_tlvp_rsm_usr_ob_ren_39_w$;
+ixc_assign  #(1) _zz_strnp_0 (_zy_simnet_pt_ob_rd_0_w$,pt_ob_rd);
+ixc_assign  #(1) _zz_strnp_1 (_zy_simnet_usr_ob_full_1_w$,usr_ob_full);
+ixc_assign  #(1) _zz_strnp_2 (_zy_simnet_usr_ob_afull_2_w$,usr_ob_afull);
+ixc_assign  #(1) _zz_strnp_3 (_zy_simnet_tlvp_ob_empty_3_w$,tlvp_ob_empty);
+ixc_assign  #(1) _zz_strnp_4 (_zy_simnet_tlvp_ob_aempty_4_w$,tlvp_ob_aempty);
+ixc_assign  #(83) _zz_strnp_5 (_zy_simnet_tlvp_ob_5_w$,tlvp_ob);
+ixc_assign  #(1) _zz_strnp_6 (_zy_simnet_tlvp_rsm_bimc_odat_6_w$,tlvp_rsm_bimc_odat);
+ixc_assign  #(1) _zz_strnp_7 (_zy_simnet_tlvp_rsm_bimc_osync_7_w$,tlvp_rsm_bimc_osync);
+ixc_assign  #(1) _zz_strnp_8 (_zy_simnet_tlvp_ob_ro_uncorrectable_ecc_error_8_w$,tlvp_ob_ro_uncorrectable_ecc_error);
+ixc_assign  #(1) _zz_strnp_9 (_zy_simnet_usr_ob_ro_uncorrectable_ecc_error_9_w$,usr_ob_ro_uncorrectable_ecc_error);
+ixc_assign  #(1) _zz_strnp_10 (pt_ob_rd,_zy_simnet_pt_ob_rd_10_w$);
+ixc_assign  #(1) _zz_strnp_11 (tlvp_rsm_usr_ob_ren,_zy_simnet_tlvp_rsm_usr_ob_ren_11_w$);
+ixc_assign  #(1) _zz_strnp_12 (tlvp_rsm_ob_wen,_zy_simnet_tlvp_rsm_ob_wen_12_w$);
+ixc_assign  #(83) _zz_strnp_13 (tlvp_rsm_ob_wdata,_zy_simnet_tlvp_rsm_ob_wdata_13_w$);
+ixc_assign  #(106) _zz_strnp_14 (_zy_simnet_tlvp_rsm_usr_ob_rdata_14_w$,tlvp_rsm_usr_ob_rdata);
+ixc_assign  #(1) _zz_strnp_15 (_zy_simnet_usr_ob_empty_15_w$,usr_ob_empty);
+ixc_assign  #(1) _zz_strnp_16 (_zy_simnet_usr_ob_aempty_16_w$,usr_ob_aempty);
+ixc_assign  #(1) _zz_strnp_17 (_zy_simnet_tlvp_ob_full_17_w$,tlvp_ob_full);
+ixc_assign  #(1) _zz_strnp_18 (_zy_simnet_tlvp_ob_afull_18_w$,tlvp_ob_afull);
+ixc_assign  #(1) _zz_strnp_19 (tlvp_ob_full,_zy_simnet_tlvp_ob_full_19_w$);
+ixc_assign  #(1) _zz_strnp_20 (tlvp_ob_afull,_zy_simnet_tlvp_ob_afull_20_w$);
+ixc_assign  #(83) _zz_strnp_21 (tlvp_ob,_zy_simnet_tlvp_ob_21_w$);
+ixc_assign  #(1) _zz_strnp_22 (tlvp_ob_empty,_zy_simnet_tlvp_ob_empty_22_w$);
+ixc_assign  #(1) _zz_strnp_23 (tlvp_ob_aempty,_zy_simnet_tlvp_ob_aempty_23_w$);
+ixc_assign  #(1) _zz_strnp_24 (tlvp_rsm_bimc_odat,_zy_simnet_tlvp_rsm_bimc_odat_24_w$);
+ixc_assign  #(1) _zz_strnp_25 (tlvp_rsm_bimc_osync,_zy_simnet_tlvp_rsm_bimc_osync_25_w$);
+ixc_assign  #(1) _zz_strnp_26 (tlvp_ob_ro_uncorrectable_ecc_error,_zy_simnet_tlvp_ob_ro_uncorrectable_ecc_error_26_w$);
+ixc_assign  #(83) _zz_strnp_27 (_zy_simnet_tlvp_rsm_ob_wdata_27_w$,tlvp_rsm_ob_wdata);
+ixc_assign  #(1) _zz_strnp_28 (_zy_simnet_tlvp_rsm_ob_wen_28_w$,tlvp_rsm_ob_wen);
+ixc_assign  #(1) _zz_strnp_29 (_zy_simnet_usr_ob_bimc_odat_29_w$,usr_ob_bimc_odat);
+ixc_assign  #(1) _zz_strnp_30 (_zy_simnet_usr_ob_bimc_osync_30_w$,usr_ob_bimc_osync);
+ixc_assign  #(1) _zz_strnp_31 (usr_ob_full,_zy_simnet_usr_ob_full_31_w$);
+ixc_assign  #(1) _zz_strnp_32 (usr_ob_afull,_zy_simnet_usr_ob_afull_32_w$);
+ixc_assign  #(106) _zz_strnp_33 (tlvp_rsm_usr_ob_rdata,_zy_simnet_tlvp_rsm_usr_ob_rdata_33_w$);
+ixc_assign  #(1) _zz_strnp_34 (usr_ob_empty,_zy_simnet_usr_ob_empty_34_w$);
+ixc_assign  #(1) _zz_strnp_35 (usr_ob_aempty,_zy_simnet_usr_ob_aempty_35_w$);
+ixc_assign  #(1) _zz_strnp_36 (usr_ob_bimc_odat,_zy_simnet_usr_ob_bimc_odat_36_w$);
+ixc_assign  #(1) _zz_strnp_37 (usr_ob_bimc_osync,_zy_simnet_usr_ob_bimc_osync_37_w$);
+ixc_assign  #(1) _zz_strnp_38 (usr_ob_ro_uncorrectable_ecc_error,_zy_simnet_usr_ob_ro_uncorrectable_ecc_error_38_w$);
+ixc_assign  #(1) _zz_strnp_39 (_zy_simnet_tlvp_rsm_usr_ob_ren_39_w$,tlvp_rsm_usr_ob_ren);
+cr_tlvp2_rsm_core u_cr_tlvp2_rsm_core(
+  .pt_ob_rd(_zy_simnet_pt_ob_rd_10_w$) ,
+  .tlvp_rsm_usr_ob_ren(_zy_simnet_tlvp_rsm_usr_ob_ren_11_w$) ,
+  .tlvp_rsm_ob_wen(_zy_simnet_tlvp_rsm_ob_wen_12_w$) ,
+  .tlvp_rsm_ob_wdata(_zy_simnet_tlvp_rsm_ob_wdata_13_w$) ,
+  .clk(clk) ,
+  .rst_n(rst_n) ,
+  .pt_ob_empty(pt_ob_empty) ,
+  .pt_ob_aempty(pt_ob_aempty) ,
+  .pt_ob_tlv(pt_ob_tlv) ,
+  .tlvp_rsm_usr_ob_rdata(_zy_simnet_tlvp_rsm_usr_ob_rdata_14_w$) ,
+  .usr_ob_empty(_zy_simnet_usr_ob_empty_15_w$) ,
+  .usr_ob_aempty(_zy_simnet_usr_ob_aempty_16_w$) ,
+  .tlvp_ob_full(_zy_simnet_tlvp_ob_full_17_w$) ,
+  .tlvp_ob_afull(_zy_simnet_tlvp_ob_afull_18_w$) ); 
+cr_fifo_wrap2_xcm10 u_cr_fifo_wrap2_tob(
+  .full(_zy_simnet_tlvp_ob_full_19_w$) ,
+  .afull(_zy_simnet_tlvp_ob_afull_20_w$) ,
+  .rdata(_zy_simnet_tlvp_ob_21_w$) ,
+  .empty(_zy_simnet_tlvp_ob_empty_22_w$) ,
+  .aempty(_zy_simnet_tlvp_ob_aempty_23_w$) ,
+  .bimc_odat(_zy_simnet_tlvp_rsm_bimc_odat_24_w$) ,
+  .bimc_osync(_zy_simnet_tlvp_rsm_bimc_osync_25_w$) ,
+  .ro_uncorrectable_ecc_error(_zy_simnet_tlvp_ob_ro_uncorrectable_ecc_error_26_w$) ,
+  .clk(clk) ,
+  .rst_n(rst_n) ,
+  .wdata(_zy_simnet_tlvp_rsm_ob_wdata_27_w$) ,
+  .wen(_zy_simnet_tlvp_rsm_ob_wen_28_w$) ,
+  .ren(tlvp_ob_rd) ,
+  .bimc_idat(_zy_simnet_usr_ob_bimc_odat_29_w$) ,
+  .bimc_isync(_zy_simnet_usr_ob_bimc_osync_30_w$) ,
+  .bimc_rst_n(bimc_rst_n) ); 
+cr_fifo_wrap2_xcm9 u_cr_fifo_wrap2_uobf(
+  .full(_zy_simnet_usr_ob_full_31_w$) ,
+  .afull(_zy_simnet_usr_ob_afull_32_w$) ,
+  .rdata(_zy_simnet_tlvp_rsm_usr_ob_rdata_33_w$) ,
+  .empty(_zy_simnet_usr_ob_empty_34_w$) ,
+  .aempty(_zy_simnet_usr_ob_aempty_35_w$) ,
+  .bimc_odat(_zy_simnet_usr_ob_bimc_odat_36_w$) ,
+  .bimc_osync(_zy_simnet_usr_ob_bimc_osync_37_w$) ,
+  .ro_uncorrectable_ecc_error(_zy_simnet_usr_ob_ro_uncorrectable_ecc_error_38_w$) ,
+  .clk(clk) ,
+  .rst_n(rst_n) ,
+  .wdata(usr_ob_tlv) ,
+  .wen(usr_ob_wr) ,
+  .ren(_zy_simnet_tlvp_rsm_usr_ob_ren_39_w$) ,
+  .bimc_idat(tlvp_rsm_bimc_idat) ,
+  .bimc_isync(tlvp_rsm_bimc_isync) ,
+  .bimc_rst_n(bimc_rst_n) ); 
 endmodule
 

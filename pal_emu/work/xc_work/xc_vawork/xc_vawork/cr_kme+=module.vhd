@@ -22,16 +22,6 @@ architecture module of cr_kme is
     R : in std_logic_vector((W - 1) downto 0) := (others => 'X') ) ;
   end component ;
 
-  component ixc_expEv
-    generic (
-      w : std_logic_vector := signed(integer_to_std(1,32))
-    ) ;
-    port (
-      so : out std_logic ;
-    s : in std_logic_vector(conv_integer((ext(w,$QKTN_MAX(w'length,32)) -
-     integer_to_std(1,$QKTN_MAX(w'length,32)))) downto 0) := (others => 'X') ) ;
-  end component ;
-
   component cr_rst_sync
     port (
       clk : in std_logic := 'X' ;
@@ -1541,10 +1531,6 @@ architecture module of cr_kme is
   signal set_tlv_bip2_error_int : std_logic ;
   signal set_txc_bp_int : std_logic ;
   signal suppress_key_tlvs : std_logic ;
-  signal clock : std_logic ;
-  -- quickturn external_ref clock
-  signal clock_1 : std_logic ;
-  -- quickturn external_ref clock_1
   signal kme_cceip1_ob_tready : std_logic ;
   signal kme_cceip2_ob_tready : std_logic ;
   signal kme_cceip3_ob_tready : std_logic ;
@@ -1633,7 +1619,6 @@ architecture module of cr_kme is
   signal DUMMY78 : std_logic_vector(0 to 82) ;
   signal DUMMY79 : std_logic ;
   signal DUMMY80 : std_logic_vector(0 to 31) ;
-  signal DUMMY81 : std_logic ;
   signal rbus_ring_i : kme_rbus_ring_t ;
   signal rbus_ring_o : kme_rbus_ring_t ;
   signal kme_ib_in : axi4s_dp_bus_t ;
@@ -1685,35 +1670,21 @@ architecture module of cr_kme is
   signal sa_global_ctrl : work.cr_kme_regfilePKG.sa_global_ctrl_t ;
   signal sa_snapshot : DUMMY5(31 downto 0) ;
   signal tready_override : work.cr_kme_regfilePKG.tready_override_t ;
+  signal DUMMY81 : std_logic_vector(0 downto 0) ;
   signal DUMMY82 : std_logic_vector(0 downto 0) ;
   signal DUMMY83 : std_logic_vector(0 downto 0) ;
-  signal DUMMY84 : std_logic_vector(0 downto 0) ;
+  signal DUMMY84 : std_logic_vector(2175 downto 0) ;
   signal DUMMY85 : std_logic_vector(2175 downto 0) ;
-  signal DUMMY86 : std_logic_vector(2175 downto 0) ;
+  signal DUMMY86 : std_logic_vector(0 downto 0) ;
   signal DUMMY87 : std_logic_vector(0 downto 0) ;
   signal DUMMY88 : std_logic_vector(0 downto 0) ;
   signal DUMMY89 : std_logic_vector(0 downto 0) ;
   signal DUMMY90 : std_logic_vector(0 downto 0) ;
   signal DUMMY91 : std_logic_vector(0 downto 0) ;
-  signal DUMMY92 : std_logic_vector(0 downto 0) ;
+  signal DUMMY92 : std_logic_vector(2175 downto 0) ;
   signal DUMMY93 : std_logic_vector(2175 downto 0) ;
-  signal DUMMY94 : std_logic_vector(2175 downto 0) ;
-  -- quickturn preserve clock_1
 
 begin
-  clk_DUMMY0 <= clk;
-  _zz_strnp_0 : ixc_assign
-    generic map(W => 1)
-    port map (
-       clk_DUMMY0
-      ,clock
-    ) ;
-  _zz_strnp_1 : ixc_assign
-    generic map(W => 1)
-    port map (
-       clock_1
-      ,clock
-    ) ;
   kme_cceip1_ob_tready <= '1' ;
   kme_cceip2_ob_tready <= '1' ;
   kme_cceip3_ob_tready <= '1' ;
@@ -1734,419 +1705,419 @@ begin
    kme_ib_tdata ;
   kme_ib_tready <= '1' when (manual_txc)='1' else kme_ib_out(0) ;
   debug_kme_ib_tready <= kme_ib_out(0) when (manual_txc)='1' else '1' ;
-  _zz_strnp_2 : ixc_assign
+  _zz_strnp_0 : ixc_assign
     generic map(W => 1)
     port map (
        kme_cceip0_ob_tvalid
-      ,DUMMY82
+      ,DUMMY81
     ) ;
-  DUMMY82 <= ext(kme_cceip0_ob_out(82),1) ;
-  _zz_strnp_3 : ixc_assign
+  DUMMY81 <= ext(kme_cceip0_ob_out(82),1) ;
+  _zz_strnp_1 : ixc_assign
     generic map(W => 1)
     port map (
        kme_cceip0_ob_tlast
-      ,DUMMY83
+      ,DUMMY82
     ) ;
-  DUMMY83 <= ext(kme_cceip0_ob_out(81),1) ;
-  _zz_strnp_4 : ixc_assign
+  DUMMY82 <= ext(kme_cceip0_ob_out(81),1) ;
+  _zz_strnp_2 : ixc_assign
     generic map(W => 1)
     port map (
        kme_cceip0_ob_tid
       ,kme_cceip0_ob_out(80 downto 80)
     ) ;
-  _zz_strnp_5 : ixc_assign
+  _zz_strnp_3 : ixc_assign
     generic map(W => 8)
     port map (
        kme_cceip0_ob_tstrb
       ,kme_cceip0_ob_out(72+7 downto 72)
     ) ;
-  _zz_strnp_6 : ixc_assign
+  _zz_strnp_4 : ixc_assign
     generic map(W => 8)
     port map (
        kme_cceip0_ob_tuser
       ,kme_cceip0_ob_out(64+7 downto 64)
     ) ;
-  _zz_strnp_7 : ixc_assign
+  _zz_strnp_5 : ixc_assign
     generic map(W => 64)
     port map (
        kme_cceip0_ob_tdata
       ,kme_cceip0_ob_out(63 downto 0)
     ) ;
-  _zz_strnp_8 : ixc_assign
+  _zz_strnp_6 : ixc_assign
     generic map(W => 1)
     port map (
-       DUMMY84
+       DUMMY83
       ,kme_cceip0_ob_tready
     ) ;
-  kme_cceip0_ob_in(0) <= it_conv_std_logic(DUMMY84) ;
+  kme_cceip0_ob_in(0) <= it_conv_std_logic(DUMMY83) ;
   rbus_ring_i(1) <= '0' ;
   rbus_ring_i(0) <= '0' ;
   rbus_ring_i(2+31 downto 2) <= "00000000000000000000000000000000" ;
-  _zz_strnp_9 : ixc_assign
+  _zz_strnp_7 : ixc_assign
     generic map(W => 1)
     port map (
        kme_ib_out
       ,DUMMY6
     ) ;
-  _zz_strnp_10 : ixc_assign
+  _zz_strnp_8 : ixc_assign
     generic map(W => 83)
     port map (
        kme_cceip0_ob_out_pre
       ,DUMMY7
     ) ;
-  _zz_strnp_11 : ixc_assign
+  _zz_strnp_9 : ixc_assign
     generic map(W => 83)
     port map (
        kme_cceip1_ob_out_pre
       ,DUMMY8
     ) ;
-  _zz_strnp_12 : ixc_assign
+  _zz_strnp_10 : ixc_assign
     generic map(W => 83)
     port map (
        kme_cceip2_ob_out_pre
       ,DUMMY9
     ) ;
-  _zz_strnp_13 : ixc_assign
+  _zz_strnp_11 : ixc_assign
     generic map(W => 83)
     port map (
        kme_cceip3_ob_out_pre
       ,DUMMY10
     ) ;
-  _zz_strnp_14 : ixc_assign
+  _zz_strnp_12 : ixc_assign
     generic map(W => 83)
     port map (
        kme_cddip0_ob_out_pre
       ,DUMMY11
     ) ;
-  _zz_strnp_15 : ixc_assign
+  _zz_strnp_13 : ixc_assign
     generic map(W => 83)
     port map (
        kme_cddip1_ob_out_pre
       ,DUMMY12
     ) ;
-  _zz_strnp_16 : ixc_assign
+  _zz_strnp_14 : ixc_assign
     generic map(W => 83)
     port map (
        kme_cddip2_ob_out_pre
       ,DUMMY13
     ) ;
-  _zz_strnp_17 : ixc_assign
+  _zz_strnp_15 : ixc_assign
     generic map(W => 83)
     port map (
        kme_cddip3_ob_out_pre
       ,DUMMY14
     ) ;
-  _zz_strnp_18 : ixc_assign
+  _zz_strnp_16 : ixc_assign
     generic map(W => 32)
     port map (
        idle_components
       ,DUMMY15
     ) ;
-  _zz_strnp_19 : ixc_assign
+  _zz_strnp_17 : ixc_assign
     generic map(W => 83)
     port map (
        DUMMY16
       ,kme_ib_in
     ) ;
-  _zz_strnp_20 : ixc_assign
+  _zz_strnp_18 : ixc_assign
     generic map(W => 1)
     port map (
        DUMMY17
       ,kme_cceip0_ob_in_mod
     ) ;
-  _zz_strnp_21 : ixc_assign
+  _zz_strnp_19 : ixc_assign
     generic map(W => 1)
     port map (
        DUMMY18
       ,kme_cceip1_ob_in_mod
     ) ;
-  _zz_strnp_22 : ixc_assign
+  _zz_strnp_20 : ixc_assign
     generic map(W => 1)
     port map (
        DUMMY19
       ,kme_cceip2_ob_in_mod
     ) ;
-  _zz_strnp_23 : ixc_assign
+  _zz_strnp_21 : ixc_assign
     generic map(W => 1)
     port map (
        DUMMY20
       ,kme_cceip3_ob_in_mod
     ) ;
-  _zz_strnp_24 : ixc_assign
+  _zz_strnp_22 : ixc_assign
     generic map(W => 1)
     port map (
        DUMMY21
       ,kme_cddip0_ob_in_mod
     ) ;
-  _zz_strnp_25 : ixc_assign
+  _zz_strnp_23 : ixc_assign
     generic map(W => 1)
     port map (
        DUMMY22
       ,kme_cddip1_ob_in_mod
     ) ;
-  _zz_strnp_26 : ixc_assign
+  _zz_strnp_24 : ixc_assign
     generic map(W => 1)
     port map (
        DUMMY23
       ,kme_cddip2_ob_in_mod
     ) ;
-  _zz_strnp_27 : ixc_assign
+  _zz_strnp_25 : ixc_assign
     generic map(W => 1)
     port map (
        DUMMY24
       ,kme_cddip3_ob_in_mod
     ) ;
-  _zz_strnp_28 : ixc_assign
+  _zz_strnp_26 : ixc_assign
     generic map(W => 38)
     port map (
        DUMMY25
       ,kim_dout
     ) ;
-  _zz_strnp_29 : ixc_assign
+  _zz_strnp_27 : ixc_assign
     generic map(W => 2176)
     port map (
-       DUMMY85
-      ,DUMMY86
+       DUMMY84
+      ,DUMMY85
     ) ;
-  _zy_simnet_tvar_20 <= $__unpack__(DUMMY85) ;
-  DUMMY86 <= $__pack__(0,labels) ;
-  _zz_strnp_30 : ixc_assign
+  _zy_simnet_tvar_20 <= $__unpack__(DUMMY84) ;
+  DUMMY85 <= $__pack__(0,labels) ;
+  _zz_strnp_28 : ixc_assign
     generic map(W => 9)
     port map (
        DUMMY26
       ,tready_override
     ) ;
-  _zz_strnp_31 : ixc_assign
+  _zz_strnp_29 : ixc_assign
     generic map(W => 7)
     port map (
        DUMMY27
       ,cceip_encrypt_kop_fifo_override
     ) ;
-  _zz_strnp_32 : ixc_assign
+  _zz_strnp_30 : ixc_assign
     generic map(W => 7)
     port map (
        DUMMY28
       ,cceip_validate_kop_fifo_override
     ) ;
-  _zz_strnp_33 : ixc_assign
+  _zz_strnp_31 : ixc_assign
     generic map(W => 7)
     port map (
        DUMMY29
       ,cddip_decrypt_kop_fifo_override
     ) ;
-  _zz_strnp_34 : ixc_assign
+  _zz_strnp_32 : ixc_assign
     generic map(W => 32)
     port map (
        DUMMY30
       ,sa_global_ctrl
     ) ;
-  _zz_strnp_35 : ixc_assign
+  _zz_strnp_33 : ixc_assign
     generic map(W => 16)
     port map (
        rbus_ring_i(68+15 downto 68)
       ,DUMMY31
     ) ;
-  _zz_strnp_36 : ixc_assign
+  _zz_strnp_34 : ixc_assign
     generic map(W => 1)
     port map (
-       DUMMY87
+       DUMMY86
       ,DUMMY32
     ) ;
-  rbus_ring_i(67) <= it_conv_std_logic(DUMMY87) ;
-  _zz_strnp_37 : ixc_assign
+  rbus_ring_i(67) <= it_conv_std_logic(DUMMY86) ;
+  _zz_strnp_35 : ixc_assign
     generic map(W => 32)
     port map (
        rbus_ring_i(35+31 downto 35)
       ,DUMMY33
     ) ;
-  _zz_strnp_38 : ixc_assign
+  _zz_strnp_36 : ixc_assign
     generic map(W => 1)
     port map (
-       DUMMY88
+       DUMMY87
       ,DUMMY34
     ) ;
-  rbus_ring_i(34) <= it_conv_std_logic(DUMMY88) ;
-  _zz_strnp_39 : ixc_assign
+  rbus_ring_i(34) <= it_conv_std_logic(DUMMY87) ;
+  _zz_strnp_37 : ixc_assign
     generic map(W => 32)
     port map (
        DUMMY35
       ,rbus_ring_o(2+31 downto 2)
     ) ;
-  _zz_strnp_40 : ixc_assign
+  _zz_strnp_38 : ixc_assign
     generic map(W => 1)
     port map (
        DUMMY36
-      ,DUMMY89
+      ,DUMMY88
     ) ;
-  DUMMY89 <= ext(rbus_ring_o(1),1) ;
-  _zz_strnp_41 : ixc_assign
+  DUMMY88 <= ext(rbus_ring_o(1),1) ;
+  _zz_strnp_39 : ixc_assign
     generic map(W => 1)
     port map (
        DUMMY37
-      ,DUMMY90
+      ,DUMMY89
     ) ;
-  DUMMY90 <= ext(rbus_ring_o(0),1) ;
-  _zz_strnp_42 : ixc_assign
+  DUMMY89 <= ext(rbus_ring_o(0),1) ;
+  _zz_strnp_40 : ixc_assign
     generic map(W => 1)
     port map (
        DUMMY38
-      ,DUMMY91
+      ,DUMMY90
     ) ;
-  DUMMY91 <= ext(rbus_ring_o(67),1) ;
-  _zz_strnp_43 : ixc_assign
+  DUMMY90 <= ext(rbus_ring_o(67),1) ;
+  _zz_strnp_41 : ixc_assign
     generic map(W => 1)
     port map (
        DUMMY39
-      ,DUMMY92
+      ,DUMMY91
     ) ;
-  DUMMY92 <= ext(rbus_ring_o(34),1) ;
-  _zz_strnp_44 : ixc_assign
+  DUMMY91 <= ext(rbus_ring_o(34),1) ;
+  _zz_strnp_42 : ixc_assign
     generic map(W => 84)
     port map (
        rbus_ring_o
       ,DUMMY40
     ) ;
-  _zz_strnp_45 : ixc_assign
+  _zz_strnp_43 : ixc_assign
     generic map(W => 83)
     port map (
        kme_cceip0_ob_out
       ,DUMMY41
     ) ;
-  _zz_strnp_46 : ixc_assign
+  _zz_strnp_44 : ixc_assign
     generic map(W => 1)
     port map (
        kme_cceip0_ob_in_mod
       ,DUMMY42
     ) ;
-  _zz_strnp_47 : ixc_assign
+  _zz_strnp_45 : ixc_assign
     generic map(W => 83)
     port map (
        kme_cceip1_ob_out
       ,DUMMY43
     ) ;
-  _zz_strnp_48 : ixc_assign
+  _zz_strnp_46 : ixc_assign
     generic map(W => 1)
     port map (
        kme_cceip1_ob_in_mod
       ,DUMMY44
     ) ;
-  _zz_strnp_49 : ixc_assign
+  _zz_strnp_47 : ixc_assign
     generic map(W => 83)
     port map (
        kme_cceip2_ob_out
       ,DUMMY45
     ) ;
-  _zz_strnp_50 : ixc_assign
+  _zz_strnp_48 : ixc_assign
     generic map(W => 1)
     port map (
        kme_cceip2_ob_in_mod
       ,DUMMY46
     ) ;
-  _zz_strnp_51 : ixc_assign
+  _zz_strnp_49 : ixc_assign
     generic map(W => 83)
     port map (
        kme_cceip3_ob_out
       ,DUMMY47
     ) ;
-  _zz_strnp_52 : ixc_assign
+  _zz_strnp_50 : ixc_assign
     generic map(W => 1)
     port map (
        kme_cceip3_ob_in_mod
       ,DUMMY48
     ) ;
-  _zz_strnp_53 : ixc_assign
+  _zz_strnp_51 : ixc_assign
     generic map(W => 83)
     port map (
        kme_cddip0_ob_out
       ,DUMMY49
     ) ;
-  _zz_strnp_54 : ixc_assign
+  _zz_strnp_52 : ixc_assign
     generic map(W => 1)
     port map (
        kme_cddip0_ob_in_mod
       ,DUMMY50
     ) ;
-  _zz_strnp_55 : ixc_assign
+  _zz_strnp_53 : ixc_assign
     generic map(W => 83)
     port map (
        kme_cddip1_ob_out
       ,DUMMY51
     ) ;
-  _zz_strnp_56 : ixc_assign
+  _zz_strnp_54 : ixc_assign
     generic map(W => 1)
     port map (
        kme_cddip1_ob_in_mod
       ,DUMMY52
     ) ;
-  _zz_strnp_57 : ixc_assign
+  _zz_strnp_55 : ixc_assign
     generic map(W => 83)
     port map (
        kme_cddip2_ob_out
       ,DUMMY53
     ) ;
-  _zz_strnp_58 : ixc_assign
+  _zz_strnp_56 : ixc_assign
     generic map(W => 1)
     port map (
        kme_cddip2_ob_in_mod
       ,DUMMY54
     ) ;
-  _zz_strnp_59 : ixc_assign
+  _zz_strnp_57 : ixc_assign
     generic map(W => 83)
     port map (
        kme_cddip3_ob_out
       ,DUMMY55
     ) ;
-  _zz_strnp_60 : ixc_assign
+  _zz_strnp_58 : ixc_assign
     generic map(W => 1)
     port map (
        kme_cddip3_ob_in_mod
       ,DUMMY56
     ) ;
-  _zz_strnp_61 : ixc_assign
+  _zz_strnp_59 : ixc_assign
     generic map(W => 38)
     port map (
        kim_dout
       ,DUMMY57
     ) ;
-  _zz_strnp_62 : ixc_assign
+  _zz_strnp_60 : ixc_assign
     generic map(W => 2176)
     port map (
-       DUMMY93
-      ,DUMMY94
+       DUMMY92
+      ,DUMMY93
     ) ;
-  labels <= $__unpack__(DUMMY93) ;
-  DUMMY94 <= $__pack__(0,_zy_simnet_tvar_53) ;
-  _zz_strnp_63 : ixc_assign
+  labels <= $__unpack__(DUMMY92) ;
+  DUMMY93 <= $__pack__(0,_zy_simnet_tvar_53) ;
+  _zz_strnp_61 : ixc_assign
     generic map(W => 9)
     port map (
        tready_override
       ,DUMMY58
     ) ;
-  _zz_strnp_64 : ixc_assign
+  _zz_strnp_62 : ixc_assign
     generic map(W => 7)
     port map (
        cceip_encrypt_kop_fifo_override
       ,DUMMY59
     ) ;
-  _zz_strnp_65 : ixc_assign
+  _zz_strnp_63 : ixc_assign
     generic map(W => 7)
     port map (
        cceip_validate_kop_fifo_override
       ,DUMMY60
     ) ;
-  _zz_strnp_66 : ixc_assign
+  _zz_strnp_64 : ixc_assign
     generic map(W => 7)
     port map (
        cddip_decrypt_kop_fifo_override
       ,DUMMY61
     ) ;
-  _zz_strnp_67 : ixc_assign
+  _zz_strnp_65 : ixc_assign
     generic map(W => 32)
     port map (
        sa_global_ctrl
       ,DUMMY62
     ) ;
-  _zz_strnp_68 : ixc_assign
+  _zz_strnp_66 : ixc_assign
     generic map(W => 84)
     port map (
        DUMMY63
@@ -2154,117 +2125,111 @@ begin
     ) ;
   _zy_simnet_cio_60 <= "0000000000000000" ;
   _zy_simnet_cio_61 <= "0000010001011100" ;
-  _zz_strnp_69 : ixc_assign
+  _zz_strnp_67 : ixc_assign
     generic map(W => 83)
     port map (
        DUMMY64
       ,kme_cceip0_ob_out_pre
     ) ;
-  _zz_strnp_70 : ixc_assign
+  _zz_strnp_68 : ixc_assign
     generic map(W => 1)
     port map (
        DUMMY65
       ,kme_cceip0_ob_in
     ) ;
-  _zz_strnp_71 : ixc_assign
+  _zz_strnp_69 : ixc_assign
     generic map(W => 83)
     port map (
        DUMMY66
       ,kme_cceip1_ob_out_pre
     ) ;
-  _zz_strnp_72 : ixc_assign
+  _zz_strnp_70 : ixc_assign
     generic map(W => 1)
     port map (
        DUMMY67
       ,kme_cceip1_ob_in
     ) ;
-  _zz_strnp_73 : ixc_assign
+  _zz_strnp_71 : ixc_assign
     generic map(W => 83)
     port map (
        DUMMY68
       ,kme_cceip2_ob_out_pre
     ) ;
-  _zz_strnp_74 : ixc_assign
+  _zz_strnp_72 : ixc_assign
     generic map(W => 1)
     port map (
        DUMMY69
       ,kme_cceip2_ob_in
     ) ;
-  _zz_strnp_75 : ixc_assign
+  _zz_strnp_73 : ixc_assign
     generic map(W => 83)
     port map (
        DUMMY70
       ,kme_cceip3_ob_out_pre
     ) ;
-  _zz_strnp_76 : ixc_assign
+  _zz_strnp_74 : ixc_assign
     generic map(W => 1)
     port map (
        DUMMY71
       ,kme_cceip3_ob_in
     ) ;
-  _zz_strnp_77 : ixc_assign
+  _zz_strnp_75 : ixc_assign
     generic map(W => 83)
     port map (
        DUMMY72
       ,kme_cddip0_ob_out_pre
     ) ;
-  _zz_strnp_78 : ixc_assign
+  _zz_strnp_76 : ixc_assign
     generic map(W => 1)
     port map (
        DUMMY73
       ,kme_cddip0_ob_in
     ) ;
-  _zz_strnp_79 : ixc_assign
+  _zz_strnp_77 : ixc_assign
     generic map(W => 83)
     port map (
        DUMMY74
       ,kme_cddip1_ob_out_pre
     ) ;
-  _zz_strnp_80 : ixc_assign
+  _zz_strnp_78 : ixc_assign
     generic map(W => 1)
     port map (
        DUMMY75
       ,kme_cddip1_ob_in
     ) ;
-  _zz_strnp_81 : ixc_assign
+  _zz_strnp_79 : ixc_assign
     generic map(W => 83)
     port map (
        DUMMY76
       ,kme_cddip2_ob_out_pre
     ) ;
-  _zz_strnp_82 : ixc_assign
+  _zz_strnp_80 : ixc_assign
     generic map(W => 1)
     port map (
        DUMMY77
       ,kme_cddip2_ob_in
     ) ;
-  _zz_strnp_83 : ixc_assign
+  _zz_strnp_81 : ixc_assign
     generic map(W => 83)
     port map (
        DUMMY78
       ,kme_cddip3_ob_out_pre
     ) ;
-  _zz_strnp_84 : ixc_assign
+  _zz_strnp_82 : ixc_assign
     generic map(W => 1)
     port map (
        DUMMY79
       ,kme_cddip3_ob_in
     ) ;
-  _zz_strnp_85 : ixc_assign
+  _zz_strnp_83 : ixc_assign
     generic map(W => 32)
     port map (
        DUMMY80
       ,idle_components
     ) ;
-  DUMMY95 : ixc_expEv
-    generic map(w => integer_to_std(1,32))
+  DUMMY94 : cr_rst_sync
     port map (
-       DUMMY81
-      ,clock_1
-    ) ;
-  DUMMY96 : cr_rst_sync
-    port map (
-       clk => clk_DUMMY0
+       clk => clk
       ,async_rst_n => rst_n
       ,bypass_reset => scan_mode
       ,test_rst_n => scan_rst_n
@@ -2308,7 +2273,7 @@ begin
       ,sa_snapshot => sa_snapshot
       ,sa_count => sa_count
       ,kme_idle => kme_idle
-      ,clk => clk_DUMMY0
+      ,clk => clk
       ,rst_n => rst_sync_n
       ,scan_en => scan_en
       ,scan_mode => scan_mode
@@ -2366,7 +2331,7 @@ begin
       ,apb_prdata => apb_prdata
       ,apb_pready => apb_pready
       ,apb_pslverr => apb_pslverr
-      ,clk => clk_DUMMY0
+      ,clk => clk
       ,rst_n => rst_sync_n
       ,rbus_rd_data_i => DUMMY35
       ,rbus_ack_i => DUMMY36
@@ -2438,7 +2403,7 @@ begin
       ,debug_kme_ib_tstrb => debug_kme_ib_tstrb
       ,debug_kme_ib_tuser => debug_kme_ib_tuser
       ,debug_kme_ib_tdata => debug_kme_ib_tdata
-      ,clk => clk_DUMMY0
+      ,clk => clk
       ,rst_n => rst_sync_n
       ,ovstb => ovstb
       ,lvm => lvm

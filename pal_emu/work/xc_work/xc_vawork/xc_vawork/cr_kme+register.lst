@@ -2,4 +2,3 @@ P O cr_kme_regfile u_cr_kme_regfile ./xc_work/xc_vawork/xc_vawork/cr_kme_regfile
 P O nx_rbus_apb u_nx_rbus_apb ./xc_work/xc_vawork/xc_vawork/nx_rbus_apb
 P O cr_kme_core u_cr_kme_core ./xc_work/xc_vawork/xc_vawork/cr_kme_core
 P O cr_rst_sync cr_rst_sync ./xc_work/xc_vawork/xc_vawork/cr_rst_sync
-P O ixc_expEv _zyclock_1_x$tbcp ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_expev

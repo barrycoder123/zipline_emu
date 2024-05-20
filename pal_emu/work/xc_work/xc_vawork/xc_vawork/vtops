@@ -1,2 +1,4 @@
 xcva_top
+gfifo_conns
+sfifo_conns
 ifsyn_conns

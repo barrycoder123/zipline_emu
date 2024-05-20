@@ -1,5 +1,5 @@
 architecture module of nx_fifo_xcm32 is
-  type DUMMY0 is array(integer range <>) of std_logic_vector(70 downto 0) ;
+  type DUMMY0 is array(integer range <>) of std_logic_vector(64 downto 0) ;
   -- quickturn CVASTRPROP MODULE HDLICE cva_for_generate "depth_n"
   -- quickturn CVASTRPROP MODULE HDLICE cva_for_generate "depth_n.genblk1"
   -- quickturn CVASTRPROP MODULE HDLICE cva_for_generate_0 "-1 depth_n  "
@@ -13,7 +13,7 @@ architecture module of nx_fifo_xcm32 is
     R : in std_logic_vector((W - 1) downto 0) := (others => 'X') ) ;
   end component ;
 
-  component nx_fifo_ctrl_xcm38
+  component nx_fifo_ctrl_xcm39
     generic (
       DEPTH : integer := 2 ;
       OVERFLOW_ASSERT : integer := 1 ;
@@ -73,8 +73,8 @@ begin
     Generate2 : if genblk1 : (TRUE) generate
     begin
       rdata <=
-       "00000000000000000000000000000000000000000000000000000000000000000000000"
-       when (empty)='1' else r_data(conv_integer(rptr)) ;
+       "00000000000000000000000000000000000000000000000000000000000000000" when 
+      (empty)='1' else r_data(conv_integer(rptr)) ;
     end generate ;
 
     process --:o45
@@ -86,7 +86,7 @@ begin
         end if;
       end if ;
     end process ;
-    fifo_ctrl : nx_fifo_ctrl_xcm38
+    fifo_ctrl : nx_fifo_ctrl_xcm39
       port map (
          empty => empty
         ,full => full

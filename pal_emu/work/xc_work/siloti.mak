@@ -9,10 +9,9 @@ compile_siloti: siloti_pkg siloti_cnt
 	vhdlcom $(VHDLCOM_OPTIONS) -lib XMUTILS $(XHOME)/packages/src/XMUTILS/xmutilities.vhd
 	vericom $(VERICOM_OPTIONS) -2001 -lib xc_ncwork $(XHOME)/etc/ixcom/siloti_stubs.v
 	vericom $(VERICOM_OPTIONS) -lib xc_ncwork -sv -f xc_work/v/vericom-xc_ncwork-1-systemverilog.f
-	vericom $(VERICOM_OPTIONS) -lib xc_ncwork -sv -f xc_work/v/vericom-xc_ncwork-16-systemverilog.f
-	vericom $(VERICOM_OPTIONS) -lib xc_ncwork -sv -f xc_work/v/vericom-xc_ncwork-235-systemverilog.f
+	vericom $(VERICOM_OPTIONS) -lib xc_ncwork -sv -f xc_work/v/vericom-xc_ncwork-76-systemverilog.f
 	vericom $(VERICOM_OPTIONS) -lib IXCOM_TEMP_LIBRARY -2001 -f xc_work/v/vericom-IXCOM_TEMP_LIBRARY-v2001.f
-	vericom $(VERICOM_OPTIONS) -lib IXCOM_TEMP_LIBRARY -sv -f xc_work/v/vericom-IXCOM_TEMP_LIBRARY-31-systemverilog.f
+	vericom $(VERICOM_OPTIONS) -lib IXCOM_TEMP_LIBRARY -sv -f xc_work/v/vericom-IXCOM_TEMP_LIBRARY-3-systemverilog.f
 
 xc_pkg:
 	echo Compiling packages
@@ -39,4 +38,4 @@ siloti_cnt:
 clean: 
 	@rm -rf vericomLog vhdlcomLog silotiLog ./xc_work/novaslibs/xc_ncwork.lib++ ./xc_work/novaslibs/AXIS.lib++ ./xc_work/novaslibs/work.lib++ ./xc_work/novaslibs/NCUTILS.lib++./xc_work/novaslibs/XMUTILS.lib++
 run_siloti: 
-	siloti -rcFile ./xc_work/siloti.rc -nologo -cont_ba_err -nclib -sigexp -de -verdi -top "kme_tb my_clks IXCOM_TEMP_LIBRARY.IXC_GFIFO "
+	siloti -rcFile ./xc_work/siloti.rc -nologo -cont_ba_err -nclib -sigexp -de -verdi -top "tb_top my_clks IXCOM_TEMP_LIBRARY.IXC_GFIFO "

@@ -14,5 +14,5 @@ DEFINE XMELABOPTS $XMELABOPTS -lib_binding -accwarn -afile $IXC_DIR/xc_work/ixc.
 DEFINE XMSIMOPTS $XMSIMOPTS -nowarn CKPSDP
 DEFINE XMSIMOPTS $XMSIMOPTS -loadxc libuart.so -loadxc $IXC_DIR/xc_work/libixcg.so -sv_lib $IXC_DIR/xc_work/libixcg.so -loadxc $XHOME/lib/64bit/libotb.so -sv_lib $XHOME/lib/64bit/libxcrt.so  -DPI_XM_VPI
 DEFINE XMSIMOPTS $XMSIMOPTS +scgafap+off -nowarn WSEM2009 -nowarn DSEM2009
-DEFINE XMSIMOPTS $XMSIMOPTS  "+dut+cr_kme+my_clks+apb_xactor" "+gfifoDisp+kme_tb+apb_xactor"
+DEFINE XMSIMOPTS $XMSIMOPTS  "+1xua" "+dut+kme_tb+cr_kme+my_clks+apb_xactor" "+gfifoDisp+kme_tb+tb_top"
 DEFINE XMSIMRC $XMSIMRC $XHOME/etc/ixcom/xc.tcl

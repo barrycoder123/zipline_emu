@@ -1,1 +1,8 @@
 U O S GFtsReq
+V O V rLen SIZE=18
+V O S wSync
+V O V TsBuf[%s] LB=0 RB=7 SIZE=65
+M O MEM=1 PAK=2 ixc_gfm_ofifo[%s] LB=0 RB=32767 SIZE=256
+M O MEM=1 PAK=2 ixc_gfm_ctl[%s] LB=0 RB=3 SIZE=64
+M O MEM=1 PAK=2 ixc_gfm_ack[%s] LB=0 RB=0 SIZE=64
+P O axis_tbcall_BP_1 tbcx ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/axis_tbcall_bp_1

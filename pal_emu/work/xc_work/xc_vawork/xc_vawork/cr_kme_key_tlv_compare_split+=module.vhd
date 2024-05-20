@@ -15,7 +15,7 @@ architecture module of cr_kme_key_tlv_compare_split is
     R : in std_logic_vector((W - 1) downto 0) := (others => 'X') ) ;
   end component ;
 
-  component cr_kme_fifo_xcm44
+  component cr_kme_fifo_xcm45
     generic (
       DATA_SIZE : integer := 106 ;
       FIFO_DEPTH : integer := 2 ;
@@ -1383,7 +1383,7 @@ begin
        _zy_sva_b3
       ,_zy_sva_b3_t
     ) ;
-  encrypt_fifo : cr_kme_fifo_xcm44
+  encrypt_fifo : cr_kme_fifo_xcm45
     port map (
        fifo_in_stall => cceip_encrypt_ob_full
       ,fifo_out => DUMMY5
@@ -1397,7 +1397,7 @@ begin
       ,fifo_out_ack => DUMMY6
       ,fifo_in_stall_override => _zy_simnet_cio_6
     ) ;
-  validate_fifo : cr_kme_fifo_xcm44
+  validate_fifo : cr_kme_fifo_xcm45
     port map (
        fifo_in_stall => cceip_validate_ob_full
       ,fifo_out => DUMMY7

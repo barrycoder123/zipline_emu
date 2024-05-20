@@ -6,4 +6,6 @@ P O ixcEcmHold HOLDTOP ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixcecmhold
 P O ixcEcmHoldOtb DUMMY ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixcecmholdotb
 P O IXC_SV_GFIFO O ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sv_gfifo
 P O IXC_SV_SFIFO I ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sv_sfifo
+P O gfifo_conns _zyGfifo_gfifo_conns ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/gfifo_conns
+P O sfifo_conns _zyGfifo_sfifo_conns ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/sfifo_conns
 P O ifsyn_conns _ifsyn_conns ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ifsyn_conns

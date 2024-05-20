@@ -1,0 +1,10 @@
+DUMMY0 1tb_top.kme_tb_dut._zyGfifo_SiData 511 0
+DUMMY1 1xcva_top.IXC_GFIFO.I.I.iData 511 0
+DUMMY2 1tb_top.kme_tb_dut._zyGfifo_StId 21 0
+DUMMY3 1xcva_top.IXC_GFIFO.I.I.tId 21 0
+DUMMY4 1tb_top.kme_tb_dut._zyGfifo_SoData 511 0
+DUMMY5 1xcva_top.IXC_GFIFO.I.I.oData 511 0
+DUMMY6 0tb_top.kme_tb_dut._zyGfifo_SoDataEn
+DUMMY7 0xcva_top.IXC_GFIFO.I.I.oDataEn
+DUMMY8 1tb_top.kme_tb_dut._zyGfifo_SoDataLen 3 0
+DUMMY9 1xcva_top.IXC_GFIFO.I.I.oDataLen 3 0

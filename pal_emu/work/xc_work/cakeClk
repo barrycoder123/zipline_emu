@@ -1,1 +1,1 @@
-{kme_tb.kme_dut.clock} {my_clks.ixcg_0} 800000kHz B2 0
+{tb_top.kme_tb_dut.my_clk} {my_clks.ixcg_0} 800000kHz B1 0

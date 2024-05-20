@@ -4,22 +4,21 @@ use quickturn.verilog.all ;
 use work.nx_mem_typePKG.all ;
 entity nx_indirect_access_cntrl_xcm113 is
   generic (
-    MEM_TYPE : std_logic_vector := std_logic_vector'("0000");
-    CMND_ADDRESS : std_logic_vector := std_logic_vector'("00101110000");
-    STAT_ADDRESS : std_logic_vector := std_logic_vector'("00101100000");
+    MEM_TYPE : std_logic_vector := std_logic_vector'("0010");
+    CMND_ADDRESS : std_logic_vector := std_logic_vector'("10000001100");
+    STAT_ADDRESS : std_logic_vector := std_logic_vector'("10000000000");
     ALIGNMENT : integer := 2;
-    N_TIMER_BITS : integer := 6;
+    N_TIMER_BITS : integer := 0;
     N_REG_ADDR_BITS : integer := 11;
-    N_DATA_BITS : integer := 96;
+    N_DATA_BITS : integer := 64;
     N_TABLES : integer := 1;
-    N_ENTRIES : integer := 512;
+    N_ENTRIES : integer := 32;
     N_INIT_INC_BITS : integer := 0;
     CAPABILITIES : std_logic_vector(15 downto 0) := std_logic_vector'
-    ("1100000101111111");
-    RESET_DATA : std_logic_vector(95 downto 0) := std_logic_vector'
-    ("000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
-    );
-    type DUMMY0 is array(integer range <>) of std_logic_vector(8 downto 0)
+    ("1000000000100011");
+    RESET_DATA : std_logic_vector(63 downto 0) := std_logic_vector'
+    ("0000000000000000000000000000000000000000000000000000000000000000");
+    type DUMMY0 is array(integer range <>) of std_logic_vector(4 downto 0)
   ) ;
   port (
     clk : in std_logic ;
@@ -27,27 +26,27 @@ entity nx_indirect_access_cntrl_xcm113 is
     wr_stb : in std_logic ;
     reg_addr : in std_logic_vector(10 downto 0) ;
     cmnd_op : in std_logic_vector(3 downto 0) ;
-    cmnd_addr : in std_logic_vector(8 downto 0) ;
+    cmnd_addr : in std_logic_vector(4 downto 0) ;
     cmnd_table_id : in std_logic_vector(0 downto 0) ;
     stat_code : out std_logic_vector(2 downto 0) ;
     stat_datawords : out std_logic_vector(4 downto 0) ;
-    stat_addr : out std_logic_vector(8 downto 0) ;
+    stat_addr : out std_logic_vector(4 downto 0) ;
     stat_table_id : out std_logic_vector(0 downto 0) ;
     capability_lst : out std_logic_vector(15 downto 0) ;
     capability_type : out std_logic_vector(3 downto 0) ;
     enable : out std_logic ;
     addr_limit : in DUMMY0(0 downto 0) ;
     -- quickturn array_with_packed_dim addr_limit 2 0
-    wr_dat : in std_logic_vector(95 downto 0) ;
-    rd_dat : out std_logic_vector(95 downto 0) ;
+    wr_dat : in std_logic_vector(63 downto 0) ;
+    rd_dat : out std_logic_vector(63 downto 0) ;
     sw_cs : out std_logic ;
     sw_ce : out std_logic ;
     sw_we : out std_logic ;
-    sw_add : out std_logic_vector(8 downto 0) ;
-    sw_wdat : out std_logic_vector(95 downto 0) ;
-    sw_rdat : in std_logic_vector(95 downto 0) ;
+    sw_add : out std_logic_vector(4 downto 0) ;
+    sw_wdat : out std_logic_vector(63 downto 0) ;
+    sw_rdat : in std_logic_vector(63 downto 0) ;
     sw_match : in std_logic ;
-    sw_aindex : in std_logic_vector(7 downto 0) ;
+    sw_aindex : in std_logic_vector(3 downto 0) ;
     grant : in std_logic ;
     yield : out std_logic ;
   reset : out std_logic ) ;

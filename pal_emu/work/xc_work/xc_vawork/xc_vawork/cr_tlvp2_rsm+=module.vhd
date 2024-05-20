@@ -59,7 +59,7 @@ architecture module of cr_tlvp2_rsm is
     tlvp_ob_afull : in std_logic := 'X' ) ;
   end component ;
 
-  component cr_fifo_wrap2_xcm9
+  component cr_fifo_wrap2_xcm10
     generic (
       N_DATA_BITS : integer := 83 ;
       N_ENTRIES : integer := 168 ;
@@ -86,7 +86,7 @@ architecture module of cr_tlvp2_rsm is
     bimc_rst_n : in std_logic := 'X' ) ;
   end component ;
 
-  component cr_fifo_wrap2_xcm8
+  component cr_fifo_wrap2_xcm9
     generic (
       N_DATA_BITS : integer := 106 ;
       N_ENTRIES : integer := 16 ;
@@ -1459,7 +1459,7 @@ begin
       ,tlvp_ob_full => DUMMY17
       ,tlvp_ob_afull => DUMMY18
     ) ;
-  u_cr_fifo_wrap2_tob : cr_fifo_wrap2_xcm9
+  u_cr_fifo_wrap2_tob : cr_fifo_wrap2_xcm10
     port map (
        full => DUMMY19
       ,afull => DUMMY20
@@ -1478,7 +1478,7 @@ begin
       ,bimc_isync => DUMMY30
       ,bimc_rst_n => bimc_rst_n
     ) ;
-  u_cr_fifo_wrap2_uobf : cr_fifo_wrap2_xcm8
+  u_cr_fifo_wrap2_uobf : cr_fifo_wrap2_xcm9
     port map (
        full => DUMMY31
       ,afull => DUMMY32

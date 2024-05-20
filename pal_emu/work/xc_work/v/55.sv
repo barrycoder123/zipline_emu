@@ -2,7 +2,7 @@
 // /home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kop_kdf_stream_pipe.v:18
 // NOTE: This file corresponds to a module in the Hardware/DUT partition.
 `timescale 1ns/1ns
-module cr_kme_kop_kdf_stream_pipe_xcm78(pipe_valid,pipe_data,pipe_byte_count,clk,rst_n,cmd_valid,cmd_data_size,cmd_data,pipe_ack,pipe_ack_num_bytes);
+module cr_kme_kop_kdf_stream_pipe_xcm80(pipe_valid,pipe_data,pipe_byte_count,clk,rst_n,cmd_valid,cmd_data_size,cmd_data,pipe_ack,pipe_ack_num_bytes);
 // pkg external : PKG - cr_kme_regfilePKG : DTYPE  
 typedef enum logic [1:0] {ENET=0,IPV4=1,IPV6=2,MPLS=3} pkt_hdr_e;
 typedef enum logic [3:0] {CMD_SIMPLE=0,COMPND_4K=5,COMPND_8K=6,COMPND_RSV=15} cmd_compound_cmd_frm_size_e;
@@ -920,22 +920,22 @@ localparam CKV_NUM_ENTRIES = 32768;
 localparam CKV_DATA_WIDTH = 64;
 localparam KIM_NUM_ENTRIES = 16384;
 localparam KIM_DATA_WIDTH = 38;
-parameter IN_DATA_SIZE_IN_BYTES = 37;
-localparam IN_DATA_SIZE_IN_BITS = 296;
+parameter IN_DATA_SIZE_IN_BYTES = 36;
+localparam IN_DATA_SIZE_IN_BITS = 288;
 localparam LOG_IN_DATA_SIZE = 6;
 input  clk;
 input  rst_n;
 input  cmd_valid;
 input  [5:0] cmd_data_size ;
-input  [295:0] cmd_data ;
+input  [287:0] cmd_data ;
 output  [0:0] pipe_valid ;
 output  [127:0] pipe_data ;
 input  [0:0] pipe_ack ;
 input  [4:0] pipe_ack_num_bytes ;
 output reg [5:0] pipe_byte_count ;
-reg [295:0] cmd_data_q ;
+reg [287:0] cmd_data_q ;
 wire  [0:5] _zy_simnet_pipe_byte_count_0_w$ ;
-ixc_assign  #(128) _zz_strnp_0 (pipe_data,cmd_data_q[295:168]);
+ixc_assign  #(128) _zz_strnp_0 (pipe_data,cmd_data_q[287:160]);
 assign  pipe_valid = (pipe_byte_count != 6'b0);
 ixc_assign  #(6) _zz_strnp_1 (_zy_simnet_pipe_byte_count_0_w$,pipe_byte_count);
 always 
@@ -943,7 +943,7 @@ always
   begin
    if (( !rst_n ))
     begin
-     cmd_data_q <= {296{1'b0}};
+     cmd_data_q <= {288{1'b0}};
      pipe_byte_count <= 6'b0;
     end
    else

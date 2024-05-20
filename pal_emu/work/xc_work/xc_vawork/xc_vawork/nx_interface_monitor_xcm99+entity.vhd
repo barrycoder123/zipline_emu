@@ -6,9 +6,9 @@ entity nx_interface_monitor_xcm99 is
   generic (
     IN_FLIGHT : integer := 5;
     IN_FLIGHT_USE : integer := 0;
-    CMND_ADDRESS : std_logic_vector := std_logic_vector'("00100010000");
-    STAT_ADDRESS : std_logic_vector := std_logic_vector'("00100000000");
-    IMRD_ADDRESS : std_logic_vector := std_logic_vector'("00100101000");
+    CMND_ADDRESS : std_logic_vector := std_logic_vector'("00101000000");
+    STAT_ADDRESS : std_logic_vector := std_logic_vector'("00100110000");
+    IMRD_ADDRESS : std_logic_vector := std_logic_vector'("00101011000");
     ALIGNMENT : integer := 2;
     N_TIMER_BITS : integer := 6;
     N_REG_ADDR_BITS : integer := 11;

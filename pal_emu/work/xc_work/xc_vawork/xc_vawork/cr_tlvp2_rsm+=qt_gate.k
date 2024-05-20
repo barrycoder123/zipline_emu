@@ -42,6 +42,6 @@ ixc_assign _zz_strnp_37 ();
 ixc_assign _zz_strnp_38 ();
 ixc_assign _zz_strnp_39 ();
 cr_tlvp2_rsm_core u_cr_tlvp2_rsm_core ();
-cr_fifo_wrap2_xcm9 u_cr_fifo_wrap2_tob ();
-cr_fifo_wrap2_xcm8 u_cr_fifo_wrap2_uobf ();
+cr_fifo_wrap2_xcm10 u_cr_fifo_wrap2_tob ();
+cr_fifo_wrap2_xcm9 u_cr_fifo_wrap2_uobf ();
 endmodule

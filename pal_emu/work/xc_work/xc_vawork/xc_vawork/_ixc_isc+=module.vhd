@@ -3,13 +3,13 @@ architecture module of _ixc_isc is
   component Q_RDN
     port(Z : out std_logic) ;
   end component ;
-  signal DUMMY0 : std_logic_vector(1 downto 0) ;
+  signal DUMMY0 : std_logic_vector(0 downto 0) ;
   signal assertion_coverage_on : std_logic ;
   signal assertUCF : std_logic ;
   signal fclk : std_logic ;
   signal assertion_global_on_p : std_logic ;
   signal assertion_global_off_p : std_logic ;
-  signal DUMMY1 : std_logic_vector(1 downto 0) ;
+  signal DUMMY1 : std_logic_vector(0 downto 0) ;
   attribute _2_state_ of DUMMY1: signal is 1 ;
   signal DUMMY2 : std_logic_vector(19 downto 0) ;
   attribute _2_state_ of DUMMY2: signal is 1 ;
@@ -34,7 +34,7 @@ architecture module of _ixc_isc is
 
 begin
 
-  process --:o72
+  process --:o70
   (fclk)
   begin
     if (fclk'event and fclk = '1') then
@@ -45,14 +45,14 @@ begin
     end if ;
   end process ;
 
-  process --:o78
+  process --:o76
   (*)
   begin
     assertion_global_on_ev <= (DUMMY3 and boolean_to_std(assertion_global_on_s
      /= assertion_global_on_sD)) ;
   end process ;
 
-  process --:o81
+  process --:o79
   (*)
   begin
     assertion_global_off_ev <= (DUMMY3 and boolean_to_std(assertion_global_off_s

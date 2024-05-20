@@ -4,7 +4,7 @@ architecture module of cr_kme_fifo_xcm57 is
   component nx_fifo_xcm32
     generic (
       DEPTH : integer := 2 ;
-      WIDTH : integer := 71 ;
+      WIDTH : integer := 65 ;
       DATA_RESET : integer := 1 ;
       UNDERFLOW_ASSERT : integer := 1 ;
       OVERFLOW_ASSERT : integer := 1
@@ -16,13 +16,13 @@ architecture module of cr_kme_fifo_xcm57 is
       overflow : out std_logic ;
       used_slots : out std_logic_vector(1 downto 0) ;
       free_slots : out std_logic_vector(1 downto 0) ;
-      rdata : out std_logic_vector(70 downto 0) ;
+      rdata : out std_logic_vector(64 downto 0) ;
       clk : in std_logic := 'X' ;
       rst_n : in std_logic := 'X' ;
       wen : in std_logic := 'X' ;
       ren : in std_logic := 'X' ;
       clear : in std_logic := 'X' ;
-    wdata : in std_logic_vector(70 downto 0) := (others => 'X') ) ;
+    wdata : in std_logic_vector(64 downto 0) := (others => 'X') ) ;
   end component ;
 
   signal ren : std_logic ;
@@ -55,6 +55,6 @@ begin
   Generate1 : if genblk1 : (TRUE) generate
   begin
     fifo_in_stall <= boolean_to_std(ext(std_logic_vector'(std_logic'('0') &
-     free_slots),32) <= std_logic_vector'("00000000000000000000000000000000")) ;
+     free_slots),32) <= std_logic_vector'("00000000000000000000000000000001")) ;
   end generate ;
 end module;

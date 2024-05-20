@@ -3,17 +3,17 @@ use ieee.std_logic_1164.all ;
 use quickturn.verilog.all ;
 entity nx_fifo_ctrl_xcm40 is
   generic (
-    DEPTH : integer := 6;
+    DEPTH : integer := 25;
     OVERFLOW_ASSERT : integer := 1;
     UNDERFLOW_ASSERT : integer := 1
   ) ;
   port (
     empty : out std_logic ;
     full : out std_logic ;
-    used_slots : out std_logic_vector(2 downto 0) ;
-    free_slots : out std_logic_vector(2 downto 0) ;
-    rptr : out std_logic_vector(2 downto 0) ;
-    wptr : out std_logic_vector(2 downto 0) ;
+    used_slots : out std_logic_vector(4 downto 0) ;
+    free_slots : out std_logic_vector(4 downto 0) ;
+    rptr : out std_logic_vector(4 downto 0) ;
+    wptr : out std_logic_vector(4 downto 0) ;
     underflow : out std_logic ;
     overflow : out std_logic ;
     clk : in std_logic ;

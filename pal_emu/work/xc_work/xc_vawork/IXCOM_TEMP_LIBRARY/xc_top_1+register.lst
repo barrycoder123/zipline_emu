@@ -1,15 +1,48 @@
-V O V simTime SIZE=64
 V O V uClkCntr SIZE=64
 V O V nextDutTimeP SIZE=64
+V O S dccState
+V O S bWaitExtend
+V O V dccFrameFill SIZE=8
+V O S holdEcmPtxOn
+V O V Gfifo2Sync SIZE=16
+V O V Fck2Sync SIZE=16
 V O S it_newBufPO
-V O V bpCount SIZE=64
+V O V fvSCount SIZE=64
+V O V evfCount SIZE=64
 V O V eCount SIZE=64
+V O S ixcHoldClkR
+V O V ixcHoldSyncCnt SIZE=64
+V O V bpCount SIZE=64
+V O S SFIFOLock2
 V O S stopCPFPO
 V O S stopSDLPO
+V O S eventOnRI
+V O S eventOnR
+V O S xcReplayOnReg
+V O S tbcPOReg
+V O S GFLock1
+V O S GFGBfullBw
 U O S gfifoOff
+V O S callEmuWait
+V O S callEmuWaitC
+V O S ecmOne
+V O S callEmuR
+V O V simTime SIZE=64
+V O V nextDutTimeS SIZE=64
 V O S oneStepPImio
 V O S ckgHoldPImio
 V O S callEmuPImio
 V O V evalStepPImio SIZE=64
+V O S mioPICntd
+V O S tbcPOmio
+V O S mioPOCnt
+V O S xc_mioOnS
+V O V lockTraceTime SIZE=64
+V O S lockTraceOn
+V O V lockTraceC SIZE=4
+V O V aHaltCnt SIZE=16
+V O V bHaltCnt SIZE=16
+V O S cakeUcEnable
+V O S GFReset
 P O Q_RBUFZN dum1 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/q_rbufzn
 P O Q_RBUFZP dum2 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/q_rbufzp

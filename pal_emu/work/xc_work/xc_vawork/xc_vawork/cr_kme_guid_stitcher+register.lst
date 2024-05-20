@@ -1,4 +1,4 @@
 V O V cur_state SIZE=3
 V O S use_aux_guid
 V O S src_guid_present
-P O cr_kme_fifo_xcm58 aux_cmd_fifo ./xc_work/xc_vawork/xc_vawork/cr_kme_fifo_xcm58
+P O cr_kme_fifo_xcm59 aux_cmd_fifo ./xc_work/xc_vawork/xc_vawork/cr_kme_fifo_xcm59

@@ -3,12 +3,12 @@ et3compile xcva_top -ppcPhase2 <Version> V23.03.131.s001
 
 Begin `et3compile' run...
 
-INFO (db2util-1108): Physical data capture trace depth is 4699072.
-INFO (db2util-1067): This design is scheduled in 168 steps.
-INFO (qt2dadb-1086): Maximum emulator operating speed is 2930 kHz.
-Elapsed_Time    = 00:00:01.05
-User_Time       = 00:00:01.05
-System_Time     = 00:00:00.07
+INFO (db2util-1108): Physical data capture trace depth is 3033152.
+INFO (db2util-1067): This design is scheduled in 188 steps.
+INFO (qt2dadb-1086): Maximum emulator operating speed is 2631 kHz.
+Elapsed_Time    = 00:00:02.83
+User_Time       = 00:00:02.83
+System_Time     = 00:00:00.32
 
 End `et3compile' run: status 0
 

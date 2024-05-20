@@ -1,6 +1,6 @@
 `begin_keywords "1800-2012"
 module cr_kme_kop_tlv_inspector_xcm70 ( kme_internal_out_ack, gcm_cmd_in, gcm_cmd_in_valid, gcm_tag_data_in, gcm_tag_data_in_valid, inspector_upsizer_valid, inspector_upsizer_eof, inspector_upsizer_data, keyfilter_cmd_in, keyfilter_cmd_in_valid, kdfstream_cmd_in, kdfstream_cmd_in_valid, kdf_cmd_in, kdf_cmd_in_valid, tlv_sb_data_in, tlv_sb_data_in_valid, clk, rst_n, labels, kme_internal_out, kme_internal_out_valid, gcm_cmd_in_stall, gcm_tag_data_in_stall, upsizer_inspector_stall, keyfilter_cmd_in_stall, kdfstream_cmd_in_stall, kdf_cmd_in_stall, tlv_sb_data_in_stall );
-parameter CCEIP_ENCRYPT_KOP = 1 ;
+parameter CCEIP_ENCRYPT_KOP = 0 ;
 typedef enum reg  [2 : 0] {PT_CKV=3'b0,PT_KEY_BLOB=3'b01,DECRYPT_DEK256=3'b010,DECRYPT_DEK512=3'b011,DECRYPT_DAK=3'b100,DECRYPT_DEK256_COMB=3'b101,DECRYPT_DEK512_COMB=3'b110,DECRYPT_DAK_COMB=3'b111} gcm_op_e ;
 typedef struct packed {logic [255 : 0] key0 ; logic [255 : 0] key1 ; logic [95 : 0] iv ; gcm_op_e op ;} gcm_cmd_t ;
 typedef struct packed {logic [0 : 0] combo_mode ;} keyfilter_cmd_t ;

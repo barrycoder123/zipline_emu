@@ -2789,9 +2789,6 @@ begin
     skip_dak_kdf_nxt <= skip_dak_kdf ;
     kdf_dek_iter_nxt <= kdf_dek_iter ;
     int_tlv_word42_DUMMY3(55 downto 55) := ext(corrupt_crc32,1) ;
-    if (corrupt_kme_error_bit_0 = '1') then
-      int_tlv_word42_DUMMY3(0) := not(kme_internal_out(+0)) ;
-    end if;
     kme_internal_out_ack_DUMMY9 := kme_internal_out_valid ;
     if ((kme_internal_out(64+3 downto 64) = KME_DEK0 and 
     (upsizer_inspector_stall)='1')) then
@@ -3120,7 +3117,7 @@ begin
     kme_internal_out_ack <= kme_internal_out_ack_DUMMY9;
   end process ;
 
-  process --:o2314
+  process --:o2310
   (clk,rst_n)
   begin
     if (rst_n = '0') then
@@ -3141,7 +3138,7 @@ begin
     constant ii : integer := 0 ;
   begin
 
-    process --:o2339
+    process --:o2335
     (**) -- always_comb
     begin
       $axis_assert( "brcm_gcm", std_logic'('0'), std_logic_vector'("10"), " ",
@@ -3155,7 +3152,7 @@ begin
     constant ii : integer := 1 ;
   begin
 
-    process --:o2345
+    process --:o2341
     (**) -- always_comb
     begin
       $axis_assert( "brcm_gcm", std_logic'('0'), std_logic_vector'("10"), " ",
@@ -3169,7 +3166,7 @@ begin
     constant ii : integer := 2 ;
   begin
 
-    process --:o2351
+    process --:o2347
     (**) -- always_comb
     begin
       $axis_assert( "brcm_gcm", std_logic'('0'), std_logic_vector'("10"), " ",
@@ -3183,7 +3180,7 @@ begin
     constant ii : integer := 3 ;
   begin
 
-    process --:o2357
+    process --:o2353
     (**) -- always_comb
     begin
       $axis_assert( "brcm_gcm", std_logic'('0'), std_logic_vector'("10"), " ",
@@ -3197,7 +3194,7 @@ begin
     constant ii : integer := 4 ;
   begin
 
-    process --:o2363
+    process --:o2359
     (**) -- always_comb
     begin
       $axis_assert( "brcm_gcm", std_logic'('0'), std_logic_vector'("10"), " ",
@@ -3211,7 +3208,7 @@ begin
     constant ii : integer := 5 ;
   begin
 
-    process --:o2369
+    process --:o2365
     (**) -- always_comb
     begin
       $axis_assert( "brcm_gcm", std_logic'('0'), std_logic_vector'("10"), " ",
@@ -3225,7 +3222,7 @@ begin
     constant ii : integer := 6 ;
   begin
 
-    process --:o2375
+    process --:o2371
     (**) -- always_comb
     begin
       $axis_assert( "brcm_gcm", std_logic'('0'), std_logic_vector'("10"), " ",
@@ -3239,7 +3236,7 @@ begin
     constant ii : integer := 7 ;
   begin
 
-    process --:o2381
+    process --:o2377
     (**) -- always_comb
     begin
       $axis_assert( "brcm_gcm", std_logic'('0'), std_logic_vector'("10"), " ",
@@ -3256,7 +3253,7 @@ begin
       constant jj : integer := 0 ;
     begin
 
-      process --:o2391
+      process --:o2387
       (**) -- always_comb
       begin
         $axis_assert( "brcm_kdf_label0_8", std_logic'('0'), std_logic_vector'
@@ -3267,7 +3264,7 @@ begin
          595, std_logic_vector'("000"));
       end process ;
 
-      process --:o2392
+      process --:o2388
       (**) -- always_comb
       begin
         $axis_assert( "brcm_kdf_label9_16", std_logic'('0'), std_logic_vector'
@@ -3278,7 +3275,7 @@ begin
          600, std_logic_vector'("000"));
       end process ;
 
-      process --:o2393
+      process --:o2389
       (**) -- always_comb
       begin
         $axis_assert( "brcm_kdf_label17_24", std_logic'('0'), std_logic_vector'
@@ -3289,7 +3286,7 @@ begin
          605, std_logic_vector'("000"));
       end process ;
 
-      process --:o2394
+      process --:o2390
       (**) -- always_comb
       begin
         $axis_assert( "brcm_kdf_label25_32", std_logic'('0'), std_logic_vector'
@@ -3304,7 +3301,7 @@ begin
       constant jj : integer := 1 ;
     begin
 
-      process --:o2400
+      process --:o2396
       (**) -- always_comb
       begin
         $axis_assert( "brcm_kdf_label0_8", std_logic'('0'), std_logic_vector'
@@ -3315,7 +3312,7 @@ begin
          595, std_logic_vector'("000"));
       end process ;
 
-      process --:o2401
+      process --:o2397
       (**) -- always_comb
       begin
         $axis_assert( "brcm_kdf_label9_16", std_logic'('0'), std_logic_vector'
@@ -3326,7 +3323,7 @@ begin
          600, std_logic_vector'("000"));
       end process ;
 
-      process --:o2402
+      process --:o2398
       (**) -- always_comb
       begin
         $axis_assert( "brcm_kdf_label17_24", std_logic'('0'), std_logic_vector'
@@ -3337,7 +3334,7 @@ begin
          605, std_logic_vector'("000"));
       end process ;
 
-      process --:o2403
+      process --:o2399
       (**) -- always_comb
       begin
         $axis_assert( "brcm_kdf_label25_32", std_logic'('0'), std_logic_vector'
@@ -3356,7 +3353,7 @@ begin
       constant jj : integer := 0 ;
     begin
 
-      process --:o2414
+      process --:o2410
       (**) -- always_comb
       begin
         $axis_assert( "brcm_kdf_label0_8", std_logic'('0'), std_logic_vector'
@@ -3367,7 +3364,7 @@ begin
          595, std_logic_vector'("000"));
       end process ;
 
-      process --:o2415
+      process --:o2411
       (**) -- always_comb
       begin
         $axis_assert( "brcm_kdf_label9_16", std_logic'('0'), std_logic_vector'
@@ -3378,7 +3375,7 @@ begin
          600, std_logic_vector'("000"));
       end process ;
 
-      process --:o2416
+      process --:o2412
       (**) -- always_comb
       begin
         $axis_assert( "brcm_kdf_label17_24", std_logic'('0'), std_logic_vector'
@@ -3389,7 +3386,7 @@ begin
          605, std_logic_vector'("000"));
       end process ;
 
-      process --:o2417
+      process --:o2413
       (**) -- always_comb
       begin
         $axis_assert( "brcm_kdf_label25_32", std_logic'('0'), std_logic_vector'
@@ -3404,7 +3401,7 @@ begin
       constant jj : integer := 1 ;
     begin
 
-      process --:o2423
+      process --:o2419
       (**) -- always_comb
       begin
         $axis_assert( "brcm_kdf_label0_8", std_logic'('0'), std_logic_vector'
@@ -3415,7 +3412,7 @@ begin
          595, std_logic_vector'("000"));
       end process ;
 
-      process --:o2424
+      process --:o2420
       (**) -- always_comb
       begin
         $axis_assert( "brcm_kdf_label9_16", std_logic'('0'), std_logic_vector'
@@ -3426,7 +3423,7 @@ begin
          600, std_logic_vector'("000"));
       end process ;
 
-      process --:o2425
+      process --:o2421
       (**) -- always_comb
       begin
         $axis_assert( "brcm_kdf_label17_24", std_logic'('0'), std_logic_vector'
@@ -3437,7 +3434,7 @@ begin
          605, std_logic_vector'("000"));
       end process ;
 
-      process --:o2426
+      process --:o2422
       (**) -- always_comb
       begin
         $axis_assert( "brcm_kdf_label25_32", std_logic'('0'), std_logic_vector'
@@ -3450,7 +3447,7 @@ begin
     end generate ;
   end generate ;
 
-  process --:o2429
+  process --:o2425
   (**) -- always_comb
   begin
     $axis_assert( "brcm_gcm_dek256_with_512bit_key", std_logic'('0'),
@@ -3461,7 +3458,7 @@ begin
      577, std_logic_vector'("000"));
   end process ;
 
-  process --:o2430
+  process --:o2426
   (**) -- always_comb
   begin
     $axis_assert( "brcm_gcm_dek512_with_512bit_key", std_logic'('0'),
@@ -3472,7 +3469,7 @@ begin
      578, std_logic_vector'("000"));
   end process ;
 
-  process --:o2431
+  process --:o2427
   (**) -- always_comb
   begin
     $axis_assert( "brcm_gcm_dek256dak_with_512bit_key", std_logic'('0'),
@@ -3483,7 +3480,7 @@ begin
      579, std_logic_vector'("000"));
   end process ;
 
-  process --:o2432
+  process --:o2428
   (**) -- always_comb
   begin
     $axis_assert( "brcm_gcm_dek512dak_with_512bit_key", std_logic'('0'),
@@ -3494,7 +3491,7 @@ begin
      580, std_logic_vector'("000"));
   end process ;
 
-  process --:o2433
+  process --:o2429
   (**) -- always_comb
   begin
     $axis_assert( "brcm_gcm_enc_dek256_no_kbk", std_logic'('0'),
@@ -3505,7 +3502,7 @@ begin
      583, std_logic_vector'("000"));
   end process ;
 
-  process --:o2434
+  process --:o2430
   (**) -- always_comb
   begin
     $axis_assert( "brcm_gcm_enc_dek512_no_kbk", std_logic'('0'),
@@ -3516,7 +3513,7 @@ begin
      584, std_logic_vector'("000"));
   end process ;
 
-  process --:o2435
+  process --:o2431
   (**) -- always_comb
   begin
     $axis_assert( "brcm_gcm_enc_dek256_comb_no_kbk", std_logic'('0'),
@@ -3527,7 +3524,7 @@ begin
      585, std_logic_vector'("000"));
   end process ;
 
-  process --:o2436
+  process --:o2432
   (**) -- always_comb
   begin
     $axis_assert( "brcm_gcm_enc_dek512_comb_no_kbk", std_logic'('0'),
@@ -3538,7 +3535,7 @@ begin
      586, std_logic_vector'("000"));
   end process ;
 
-  process --:o2437
+  process --:o2433
   (**) -- always_comb
   begin
     $axis_assert( "brcm_tlv_sb_stall_on_guid", std_logic'('0'),

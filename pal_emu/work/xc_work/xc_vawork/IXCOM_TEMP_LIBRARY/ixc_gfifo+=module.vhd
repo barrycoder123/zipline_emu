@@ -2,13 +2,13 @@ architecture module of IXC_GFIFO is
   -- quickturn CVASTRPROP MODULE HDLICE PROP_IXCOM_MOD TRUE
   component IXC_OSF
     generic (
-      WIDTH : integer := 2
+      WIDTH : integer := 1
     ) ;
   end component ;
 
   component IXC_ISF
     generic (
-      WIDTH : integer := 2
+      WIDTH : integer := 1
     ) ;
   end component ;
 
@@ -37,6 +37,12 @@ architecture module of IXC_GFIFO is
     rdCnt : out std_logic_vector(63 downto 0) ) ;
   end component ;
 
+  component gfifo_conns
+  end component ;
+
+  component sfifo_conns
+  end component ;
+
   component ifsyn_conns
   end component ;
 
@@ -63,6 +69,10 @@ begin
     port map (
        rdCnt
     ) ;
+  _zyGfifo_gfifo_conns : gfifo_conns
+     ;
+  _zyGfifo_sfifo_conns : sfifo_conns
+     ;
   _ifsyn_conns : ifsyn_conns
      ;
 end module;

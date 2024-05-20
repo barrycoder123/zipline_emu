@@ -1,5 +1,5 @@
 architecture module of nx_fifo_xcm30 is
-  type DUMMY0 is array(integer range <>) of std_logic_vector(131 downto 0) ;
+  type DUMMY0 is array(integer range <>) of std_logic_vector(127 downto 0) ;
   -- quickturn CVASTRPROP MODULE HDLICE cva_for_generate "depth_n"
   -- quickturn CVASTRPROP MODULE HDLICE cva_for_generate "depth_n.genblk1"
   -- quickturn CVASTRPROP MODULE HDLICE cva_for_generate_0 "-1 depth_n  "
@@ -15,17 +15,17 @@ architecture module of nx_fifo_xcm30 is
 
   component nx_fifo_ctrl_xcm37
     generic (
-      DEPTH : integer := 16 ;
+      DEPTH : integer := 4 ;
       OVERFLOW_ASSERT : integer := 1 ;
       UNDERFLOW_ASSERT : integer := 1
     ) ;
     port (
       empty : out std_logic ;
       full : out std_logic ;
-      used_slots : out std_logic_vector(4 downto 0) ;
-      free_slots : out std_logic_vector(4 downto 0) ;
-      rptr : out std_logic_vector(3 downto 0) ;
-      wptr : out std_logic_vector(3 downto 0) ;
+      used_slots : out std_logic_vector(2 downto 0) ;
+      free_slots : out std_logic_vector(2 downto 0) ;
+      rptr : out std_logic_vector(1 downto 0) ;
+      wptr : out std_logic_vector(1 downto 0) ;
       underflow : out std_logic ;
       overflow : out std_logic ;
       clk : in std_logic := 'X' ;
@@ -52,11 +52,11 @@ begin
       ,overflow
     ) ;
   Generate1 : if depth_n : (TRUE) generate
-    signal rptr : std_logic_vector(3 downto 0) ;
-    signal wptr : std_logic_vector(3 downto 0) ;
+    signal rptr : std_logic_vector(1 downto 0) ;
+    signal wptr : std_logic_vector(1 downto 0) ;
     signal DUMMY3 : std_logic ;
     signal DUMMY4 : std_logic ;
-    signal r_data : DUMMY0(15 downto 0) ;
+    signal r_data : DUMMY0(3 downto 0) ;
   begin
     _zz_strnp_0 : ixc_assign
       generic map(W => 1)
@@ -73,7 +73,7 @@ begin
     Generate2 : if genblk1 : (TRUE) generate
     begin
       rdata <=
-       "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+       "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
        when (empty)='1' else r_data(conv_integer(rptr)) ;
     end generate ;
 

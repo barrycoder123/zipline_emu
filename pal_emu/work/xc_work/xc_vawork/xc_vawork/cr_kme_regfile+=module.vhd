@@ -460,7 +460,7 @@ architecture module of cr_kme_regfile is
     im_rdy : in std_logic := 'X' ) ;
   end component ;
 
-  component nx_interface_monitor_xcm104
+  component nx_interface_monitor_xcm105
     generic (
       IN_FLIGHT : integer := 5 ;
       IN_FLIGHT_USE : integer := 0 ;
@@ -522,7 +522,7 @@ architecture module of cr_kme_regfile is
     im_config : in im_config_t := (others => '0') ) ;
   end component ;
 
-  component nx_interface_monitor_xcm103
+  component nx_interface_monitor_xcm104
     generic (
       IN_FLIGHT : integer := 5 ;
       IN_FLIGHT_USE : integer := 0 ;
@@ -584,7 +584,7 @@ architecture module of cr_kme_regfile is
     im_config : in im_config_t := (others => '0') ) ;
   end component ;
 
-  component nx_interface_monitor_xcm102
+  component nx_interface_monitor_xcm103
     generic (
       IN_FLIGHT : integer := 5 ;
       IN_FLIGHT_USE : integer := 0 ;
@@ -646,7 +646,7 @@ architecture module of cr_kme_regfile is
     im_config : in im_config_t := (others => '0') ) ;
   end component ;
 
-  component nx_interface_monitor_xcm101
+  component nx_interface_monitor_xcm102
     generic (
       IN_FLIGHT : integer := 5 ;
       IN_FLIGHT_USE : integer := 0 ;
@@ -708,7 +708,7 @@ architecture module of cr_kme_regfile is
     im_config : in im_config_t := (others => '0') ) ;
   end component ;
 
-  component nx_interface_monitor_xcm100
+  component nx_interface_monitor_xcm101
     generic (
       IN_FLIGHT : integer := 5 ;
       IN_FLIGHT_USE : integer := 0 ;
@@ -770,7 +770,7 @@ architecture module of cr_kme_regfile is
     im_config : in im_config_t := (others => '0') ) ;
   end component ;
 
-  component nx_interface_monitor_xcm99
+  component nx_interface_monitor_xcm100
     generic (
       IN_FLIGHT : integer := 5 ;
       IN_FLIGHT_USE : integer := 0 ;
@@ -832,7 +832,7 @@ architecture module of cr_kme_regfile is
     im_config : in im_config_t := (others => '0') ) ;
   end component ;
 
-  component nx_interface_monitor_xcm98
+  component nx_interface_monitor_xcm99
     generic (
       IN_FLIGHT : integer := 5 ;
       IN_FLIGHT_USE : integer := 0 ;
@@ -894,7 +894,7 @@ architecture module of cr_kme_regfile is
     im_config : in im_config_t := (others => '0') ) ;
   end component ;
 
-  component nx_interface_monitor_xcm97
+  component nx_interface_monitor_xcm98
     generic (
       IN_FLIGHT : integer := 5 ;
       IN_FLIGHT_USE : integer := 0 ;
@@ -1062,7 +1062,7 @@ architecture module of cr_kme_regfile is
     axi_bimc_odat : in std_logic := 'X' ) ;
   end component ;
 
-  component nx_ram_1rw_indirect_access_xcm123
+  component nx_ram_1rw_indirect_access_xcm124
     generic (
       CMND_ADDRESS : std_logic_vector := std_logic_vector'("00110011100") ;
       STAT_ADDRESS : std_logic_vector := std_logic_vector'("00110010000") ;
@@ -1112,7 +1112,7 @@ architecture module of cr_kme_regfile is
     hw_yield : out std_logic ) ;
   end component ;
 
-  component nx_ram_1rw_indirect_access_xcm122
+  component nx_ram_1rw_indirect_access_xcm123
     generic (
       CMND_ADDRESS : std_logic_vector := std_logic_vector'("00110111000") ;
       STAT_ADDRESS : std_logic_vector := std_logic_vector'("00110101100") ;
@@ -1363,7 +1363,7 @@ architecture module of cr_kme_regfile is
     o_interrupt_mask : in std_logic_vector(4 downto 0) := (others => 'X') ) ;
   end component ;
 
-  component nx_roreg_indirect_access_xcm130
+  component nx_roreg_indirect_access_xcm131
     generic (
       CMND_ADDRESS : std_logic_vector := std_logic_vector'("10000001100") ;
       STAT_ADDRESS : std_logic_vector := std_logic_vector'("10000000000") ;
@@ -1390,7 +1390,7 @@ architecture module of cr_kme_regfile is
     mem_a : in DUMMY0(0 to 31) := (others => (others => 'X')) ) ;
   end component ;
 
-  component nx_roreg_indirect_access_xcm129
+  component nx_roreg_indirect_access_xcm130
     generic (
       CMND_ADDRESS : std_logic_vector := std_logic_vector'("10000101000") ;
       STAT_ADDRESS : std_logic_vector := std_logic_vector'("10000011100") ;
@@ -8662,7 +8662,7 @@ begin
       ,ob_in => _zy_simnet_tvar_386
       ,im_rdy => DUMMY325
     ) ;
-  u_nx_interface_monitor_cceip0 : nx_interface_monitor_xcm104
+  u_nx_interface_monitor_cceip0 : nx_interface_monitor_xcm105
     port map (
        stat_code => DUMMY326
       ,stat_datawords => DUMMY327
@@ -8695,7 +8695,7 @@ begin
       ,im_consumed => DUMMY347
       ,im_config => DUMMY348
     ) ;
-  u_nx_interface_monitor_cceip1 : nx_interface_monitor_xcm103
+  u_nx_interface_monitor_cceip1 : nx_interface_monitor_xcm104
     port map (
        stat_code => DUMMY349
       ,stat_datawords => DUMMY350
@@ -8728,7 +8728,7 @@ begin
       ,im_consumed => DUMMY370
       ,im_config => DUMMY371
     ) ;
-  u_nx_interface_monitor_cceip2 : nx_interface_monitor_xcm102
+  u_nx_interface_monitor_cceip2 : nx_interface_monitor_xcm103
     port map (
        stat_code => DUMMY372
       ,stat_datawords => DUMMY373
@@ -8761,7 +8761,7 @@ begin
       ,im_consumed => DUMMY393
       ,im_config => DUMMY394
     ) ;
-  u_nx_interface_monitor_cceip3 : nx_interface_monitor_xcm101
+  u_nx_interface_monitor_cceip3 : nx_interface_monitor_xcm102
     port map (
        stat_code => DUMMY395
       ,stat_datawords => DUMMY396
@@ -8794,7 +8794,7 @@ begin
       ,im_consumed => DUMMY416
       ,im_config => DUMMY417
     ) ;
-  u_nx_interface_monitor_cddip0 : nx_interface_monitor_xcm100
+  u_nx_interface_monitor_cddip0 : nx_interface_monitor_xcm101
     port map (
        stat_code => DUMMY418
       ,stat_datawords => DUMMY419
@@ -8827,7 +8827,7 @@ begin
       ,im_consumed => DUMMY439
       ,im_config => DUMMY440
     ) ;
-  u_nx_interface_monitor_cddip1 : nx_interface_monitor_xcm99
+  u_nx_interface_monitor_cddip1 : nx_interface_monitor_xcm100
     port map (
        stat_code => DUMMY441
       ,stat_datawords => DUMMY442
@@ -8860,7 +8860,7 @@ begin
       ,im_consumed => DUMMY462
       ,im_config => DUMMY463
     ) ;
-  u_nx_interface_monitor_cddip2 : nx_interface_monitor_xcm98
+  u_nx_interface_monitor_cddip2 : nx_interface_monitor_xcm99
     port map (
        stat_code => DUMMY464
       ,stat_datawords => DUMMY465
@@ -8893,7 +8893,7 @@ begin
       ,im_consumed => DUMMY485
       ,im_config => DUMMY486
     ) ;
-  u_nx_interface_monitor_cddip3 : nx_interface_monitor_xcm97
+  u_nx_interface_monitor_cddip3 : nx_interface_monitor_xcm98
     port map (
        stat_code => DUMMY487
       ,stat_datawords => DUMMY488
@@ -9018,7 +9018,7 @@ begin
       ,axi_bimc_osync => axi_bimc_osync
       ,axi_bimc_odat => axi_bimc_odat
     ) ;
-  ckv_indirect_access : nx_ram_1rw_indirect_access_xcm123
+  ckv_indirect_access : nx_ram_1rw_indirect_access_xcm124
     port map (
        clk => clk
       ,rst_n => rst_n
@@ -9051,7 +9051,7 @@ begin
       ,hw_dout => ckv_dout
       ,hw_yield => _zy_simnet_dio_662
     ) ;
-  kim_indirect_access : nx_ram_1rw_indirect_access_xcm122
+  kim_indirect_access : nx_ram_1rw_indirect_access_xcm123
     port map (
        clk => clk
       ,rst_n => rst_n
@@ -9210,7 +9210,7 @@ begin
       ,reg_addr => DUMMY689
       ,o_interrupt_mask => DUMMY690
     ) ;
-  u_SA_SNAPSHOT : nx_roreg_indirect_access_xcm130
+  u_SA_SNAPSHOT : nx_roreg_indirect_access_xcm131
     port map (
        stat_code => DUMMY691
       ,stat_datawords => DUMMY692
@@ -9227,7 +9227,7 @@ begin
       ,wr_dat => DUMMY701
       ,mem_a => sa_snapshot
     ) ;
-  u_SA_COUNT : nx_roreg_indirect_access_xcm129
+  u_SA_COUNT : nx_roreg_indirect_access_xcm130
     port map (
        stat_code => DUMMY702
       ,stat_datawords => DUMMY703

@@ -1,20 +1,54 @@
 -------
-Module apb_xactor at line 10 in /home/ibarry/Project-Zipline-master/dv/agents/apb/apb_xactor.v 
-  id:2, beh export task
+Module kme_tb at line 10 in /home/ibarry/Project-Zipline-master/dv/KME/run/kme_tb.sv 
+  id:2, iscD2D, export func, beh export task
 -------
 
 List of Files: 
-  F1: /home/ibarry/Project-Zipline-master/dv/agents/apb/apb_xactor.v
-  F0: /home/ibarry/Project-Zipline-master/dv/KME/run/kme_tb.sv
+  F1: /home/ibarry/Project-Zipline-master/dv/KME/run/kme_tb.sv
+  F0: /home/ibarry/Project-Zipline-master/dv/KME/run/tb_top.sv
 
-Beh Procs found at line: F1:61, F1:94
-  Behavioral multi-events: F1:61, F1:94
+Beh Procs found at line: F1:324, F1:253
+  Behavioral multi-events: F1:324, F1:253
+  Contain rtl gfifo function call: F1:324, F1:253
+
+BDP procs at line: F1:324
+
+behavioral control object count: 1
+
+-------
+Module apb_xactor at line 10 in /home/ibarry/Project-Zipline-master/dv/agents/apb/apb_xactor.v 
+  id:3, iscD2D
+-------
+
+Beh Procs found at line: 94, 61
+  Behavioral multi-events: 94, 61
+
+BDP procs at line: 94, 61
+
+BDP sample vars:
+  pready --> _zzpready_M3L25_bcSv0
+  prdata --> _zzprdata_M3L24_bcSv1
+  pslverr --> _zzpslverr_M3L26_bcSv2
+
+BDP nba procs:
+  @46 D--> bus_timer
+  @94 D--> bus_timer, _zydata_L96_tfiV1_M3_pbcG1, _zyresponse_L97_tfiV2_M3_pbcG2
+  @61 D--> bus_timer, _zyresponse_L64_tfiV5_M3_pbcG5
+
+behavioral control object count: 2
+
+-------
+Module nx_fifo_ctrl_ram_1r1w_xcm18 at line 18 in /home/ibarry/Project-Zipline-master/rtl/common/nx_library/nx_fifo_ctrl_ram_1r1w.v 
+  id:12, svaBehMod
+-------
+
+No Beh Proc found.
 
 behavioral control object count: 0
 
 -------
-Module nx_fifo_ctrl_ram_1r1w_xcm17 at line 18 in /home/ibarry/Project-Zipline-master/rtl/common/nx_library/nx_fifo_ctrl_ram_1r1w.v 
-  id:11, svaBehMod
+Module nx_fifo_ctrl_xcm41 at line 11 in /home/ibarry/Project-Zipline-master/rtl/common/nx_library/nx_fifo_ctrl.v 
+  id:18, svaBehMod
 -------
 
 No Beh Proc found.
@@ -23,24 +57,6 @@ behavioral control object count: 0
 
 -------
 Module nx_fifo_ctrl_xcm40 at line 11 in /home/ibarry/Project-Zipline-master/rtl/common/nx_library/nx_fifo_ctrl.v 
-  id:17, svaBehMod
--------
-
-No Beh Proc found.
-
-behavioral control object count: 0
-
--------
-Module nx_fifo_ctrl_xcm39 at line 11 in /home/ibarry/Project-Zipline-master/rtl/common/nx_library/nx_fifo_ctrl.v 
-  id:22, svaBehMod
--------
-
-No Beh Proc found.
-
-behavioral control object count: 0
-
--------
-Module cr_kme_tlv_parser at line 20 in /home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_tlv_parser.v 
   id:23, svaBehMod
 -------
 
@@ -49,8 +65,8 @@ No Beh Proc found.
 behavioral control object count: 0
 
 -------
-Module nx_fifo_ctrl_xcm38 at line 11 in /home/ibarry/Project-Zipline-master/rtl/common/nx_library/nx_fifo_ctrl.v 
-  id:26, svaBehMod
+Module cr_kme_tlv_parser at line 20 in /home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_tlv_parser.v 
+  id:24, svaBehMod
 -------
 
 No Beh Proc found.
@@ -58,7 +74,7 @@ No Beh Proc found.
 behavioral control object count: 0
 
 -------
-Module cr_kme_kim_drng_reader at line 19 in /home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kim_drng_reader.v 
+Module nx_fifo_ctrl_xcm39 at line 11 in /home/ibarry/Project-Zipline-master/rtl/common/nx_library/nx_fifo_ctrl.v 
   id:27, svaBehMod
 -------
 
@@ -67,7 +83,7 @@ No Beh Proc found.
 behavioral control object count: 0
 
 -------
-Module cr_kme_ckv_reader at line 19 in /home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_ckv_reader.v 
+Module cr_kme_kim_drng_reader at line 19 in /home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kim_drng_reader.v 
   id:28, svaBehMod
 -------
 
@@ -76,8 +92,8 @@ No Beh Proc found.
 behavioral control object count: 0
 
 -------
-Module nx_fifo_ctrl_ram_1r1w_xcm16 at line 18 in /home/ibarry/Project-Zipline-master/rtl/common/nx_library/nx_fifo_ctrl_ram_1r1w.v 
-  id:36, svaBehMod
+Module cr_kme_ckv_reader at line 19 in /home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_ckv_reader.v 
+  id:29, svaBehMod
 -------
 
 No Beh Proc found.
@@ -85,8 +101,26 @@ No Beh Proc found.
 behavioral control object count: 0
 
 -------
-Module cr_kme_kop_tlv_inspector_xcm70 at line 18 in /home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kop_tlv_inspector.v 
-  id:38, svaBehMod
+Module nx_fifo_ctrl_ram_1r1w_xcm17 at line 18 in /home/ibarry/Project-Zipline-master/rtl/common/nx_library/nx_fifo_ctrl_ram_1r1w.v 
+  id:37, svaBehMod
+-------
+
+No Beh Proc found.
+
+behavioral control object count: 0
+
+-------
+Module cr_kme_kop_tlv_inspector_xcm71 at line 18 in /home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kop_tlv_inspector.v 
+  id:39, svaBehMod
+-------
+
+No Beh Proc found.
+
+behavioral control object count: 0
+
+-------
+Module nx_fifo_ctrl_xcm38 at line 11 in /home/ibarry/Project-Zipline-master/rtl/common/nx_library/nx_fifo_ctrl.v 
+  id:44, svaBehMod
 -------
 
 No Beh Proc found.
@@ -95,7 +129,7 @@ behavioral control object count: 0
 
 -------
 Module nx_fifo_ctrl_xcm37 at line 11 in /home/ibarry/Project-Zipline-master/rtl/common/nx_library/nx_fifo_ctrl.v 
-  id:43, svaBehMod
+  id:48, svaBehMod
 -------
 
 No Beh Proc found.
@@ -104,7 +138,7 @@ behavioral control object count: 0
 
 -------
 Module nx_fifo_ctrl_xcm36 at line 11 in /home/ibarry/Project-Zipline-master/rtl/common/nx_library/nx_fifo_ctrl.v 
-  id:47, svaBehMod
+  id:62, svaBehMod
 -------
 
 No Beh Proc found.
@@ -112,25 +146,7 @@ No Beh Proc found.
 behavioral control object count: 0
 
 -------
-Module nx_fifo_ctrl_xcm35 at line 11 in /home/ibarry/Project-Zipline-master/rtl/common/nx_library/nx_fifo_ctrl.v 
-  id:61, svaBehMod
--------
-
-No Beh Proc found.
-
-behavioral control object count: 0
-
--------
-Module cr_kme_kop_tlv_inspector_xcm69 at line 18 in /home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kop_tlv_inspector.v 
-  id:77, svaBehMod
--------
-
-No Beh Proc found.
-
-behavioral control object count: 0
-
--------
-Module cr_kme_key_tlv_compare_split at line 25 in /home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_key_tlv_compare_split.v 
+Module cr_kme_kop_tlv_inspector_xcm70 at line 18 in /home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kop_tlv_inspector.v 
   id:78, svaBehMod
 -------
 
@@ -139,8 +155,17 @@ No Beh Proc found.
 behavioral control object count: 0
 
 -------
-Module nx_interface_monitor_xcm104 at line 31 in /home/ibarry/Project-Zipline-master/rtl/common/nx_library/nx_interface_monitor.v 
-  id:97, bcMod
+Module cr_kme_key_tlv_compare_split at line 25 in /home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_key_tlv_compare_split.v 
+  id:79, svaBehMod
+-------
+
+No Beh Proc found.
+
+behavioral control object count: 0
+
+-------
+Module nx_interface_monitor_xcm105 at line 31 in /home/ibarry/Project-Zipline-master/rtl/common/nx_library/nx_interface_monitor.v 
+  id:98, bcMod
 -------
 
 No Beh Proc found.
@@ -149,7 +174,16 @@ behavioral control object count: 0
 
 -------
 Module nx_credit_manager at line 38 in /home/ibarry/Project-Zipline-master/rtl/common/nx_library/nx_credit_manager.v 
-  id:99, svaBehMod
+  id:100, svaBehMod
+-------
+
+No Beh Proc found.
+
+behavioral control object count: 0
+
+-------
+Module nx_interface_monitor_xcm104 at line 31 in /home/ibarry/Project-Zipline-master/rtl/common/nx_library/nx_interface_monitor.v 
+  id:103, bcMod
 -------
 
 No Beh Proc found.
@@ -158,7 +192,7 @@ behavioral control object count: 0
 
 -------
 Module nx_interface_monitor_xcm103 at line 31 in /home/ibarry/Project-Zipline-master/rtl/common/nx_library/nx_interface_monitor.v 
-  id:102, bcMod
+  id:105, bcMod
 -------
 
 No Beh Proc found.
@@ -167,7 +201,7 @@ behavioral control object count: 0
 
 -------
 Module nx_interface_monitor_xcm102 at line 31 in /home/ibarry/Project-Zipline-master/rtl/common/nx_library/nx_interface_monitor.v 
-  id:104, bcMod
+  id:107, bcMod
 -------
 
 No Beh Proc found.
@@ -176,7 +210,7 @@ behavioral control object count: 0
 
 -------
 Module nx_interface_monitor_xcm101 at line 31 in /home/ibarry/Project-Zipline-master/rtl/common/nx_library/nx_interface_monitor.v 
-  id:106, bcMod
+  id:109, bcMod
 -------
 
 No Beh Proc found.
@@ -185,7 +219,7 @@ behavioral control object count: 0
 
 -------
 Module nx_interface_monitor_xcm100 at line 31 in /home/ibarry/Project-Zipline-master/rtl/common/nx_library/nx_interface_monitor.v 
-  id:108, bcMod
+  id:111, bcMod
 -------
 
 No Beh Proc found.
@@ -194,7 +228,7 @@ behavioral control object count: 0
 
 -------
 Module nx_interface_monitor_xcm99 at line 31 in /home/ibarry/Project-Zipline-master/rtl/common/nx_library/nx_interface_monitor.v 
-  id:110, bcMod
+  id:113, bcMod
 -------
 
 No Beh Proc found.
@@ -203,7 +237,7 @@ behavioral control object count: 0
 
 -------
 Module nx_interface_monitor_xcm98 at line 31 in /home/ibarry/Project-Zipline-master/rtl/common/nx_library/nx_interface_monitor.v 
-  id:112, bcMod
+  id:115, bcMod
 -------
 
 No Beh Proc found.
@@ -211,8 +245,8 @@ No Beh Proc found.
 behavioral control object count: 0
 
 -------
-Module nx_interface_monitor_xcm97 at line 31 in /home/ibarry/Project-Zipline-master/rtl/common/nx_library/nx_interface_monitor.v 
-  id:114, bcMod
+Module nx_roreg_indirect_access_xcm131 at line 35 in /home/ibarry/Project-Zipline-master/rtl/common/nx_library/nx_roreg_indirect_access.v 
+  id:127, bcMod
 -------
 
 No Beh Proc found.
@@ -221,16 +255,7 @@ behavioral control object count: 0
 
 -------
 Module nx_roreg_indirect_access_xcm130 at line 35 in /home/ibarry/Project-Zipline-master/rtl/common/nx_library/nx_roreg_indirect_access.v 
-  id:126, bcMod
--------
-
-No Beh Proc found.
-
-behavioral control object count: 0
-
--------
-Module nx_roreg_indirect_access_xcm129 at line 35 in /home/ibarry/Project-Zipline-master/rtl/common/nx_library/nx_roreg_indirect_access.v 
-  id:128, bcMod
+  id:129, bcMod
 -------
 
 No Beh Proc found.
@@ -239,7 +264,7 @@ behavioral control object count: 0
 
 -------
 Module nx_reg_indirect_access at line 34 in /home/ibarry/Project-Zipline-master/rtl/common/nx_library/nx_reg_indirect_access.v 
-  id:130, bcMod
+  id:131, bcMod
 -------
 
 Beh Procs found at line: 132
@@ -247,11 +272,11 @@ Beh Procs found at line: 132
 BDP procs at line: 132
 
 BDP sample vars:
-  _zy_simnet_sw_cs_16_w$ --> _zz_zy_simnet_sw_cs_16_w$_M131_bcSv1
-  _zy_simnet_sw_we_18_w$ --> _zz_zy_simnet_sw_we_18_w$_M131_bcSv2
-  _zy_simnet_sw_add_19_w$ --> _zz_zy_simnet_sw_add_19_w$_M131_bcSv3
-  _zy_simnet_sw_wdat_20_w$ --> _zz_zy_simnet_sw_wdat_20_w$_M131_bcSv4
-  _zy_simnet_reset_26_w$ --> _zz_zy_simnet_reset_26_w$_M131_bcSv5
+  _zy_simnet_sw_cs_16_w$ --> _zz_zy_simnet_sw_cs_16_w$_M132_bcSv1
+  _zy_simnet_sw_we_18_w$ --> _zz_zy_simnet_sw_we_18_w$_M132_bcSv2
+  _zy_simnet_sw_add_19_w$ --> _zz_zy_simnet_sw_add_19_w$_M132_bcSv3
+  _zy_simnet_sw_wdat_20_w$ --> _zz_zy_simnet_sw_wdat_20_w$_M132_bcSv4
+  _zy_simnet_reset_26_w$ --> _zz_zy_simnet_reset_26_w$_M132_bcSv5
   rst_dat --> Skip BDP Sample (unpacked)
 
 behavioral control object count: 1

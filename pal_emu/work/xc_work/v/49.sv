@@ -1,9 +1,8 @@
 // xc_work/v/49.sv
-// /home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kop_kdf_keyfilter.v:18
+// /home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kop_upsizer_x2.v:18
 // NOTE: This file corresponds to a module in the Hardware/DUT partition.
 `timescale 1ns/1ns
-module cr_kme_kop_kdf_keyfilter(keyfilter_cmdfifo_ack,keyfilter_upsizer_stall,hash_key_in,hash_key_in_valid,clk,rst_n,cmdfifo_keyfilter_valid,cmdfifo_keyfilter_cmd,upsizer_keyfilter_data,upsizer_keyfilter_valid,
-upsizer_keyfilter_eof,hash_key_in_stall);
+module cr_kme_kop_upsizer_x2_xcm72(upsizer_in_stall,upsizer_out_valid,upsizer_out_eof,upsizer_out_data,clk,rst_n,in_upsizer_valid,in_upsizer_eof,in_upsizer_data,out_upsizer_stall);
 // pkg external : PKG - cr_kme_regfilePKG : DTYPE  
 typedef enum logic [1:0] {ENET=0,IPV4=1,IPV6=2,MPLS=3} pkt_hdr_e;
 typedef enum logic [3:0] {CMD_SIMPLE=0,COMPND_4K=5,COMPND_8K=6,COMPND_RSV=15} cmd_compound_cmd_frm_size_e;
@@ -921,68 +920,69 @@ localparam CKV_NUM_ENTRIES = 32768;
 localparam CKV_DATA_WIDTH = 64;
 localparam KIM_NUM_ENTRIES = 16384;
 localparam KIM_DATA_WIDTH = 38;
+parameter IN_DATA_SIZE = 128;
 input  clk;
 input  rst_n;
-input  cmdfifo_keyfilter_valid;
-input keyfilter_cmd_t cmdfifo_keyfilter_cmd;
-output reg keyfilter_cmdfifo_ack;
-input wire  [255:0] upsizer_keyfilter_data ;
-input wire  upsizer_keyfilter_valid;
-input wire  upsizer_keyfilter_eof;
-output reg keyfilter_upsizer_stall;
-output reg [255:0] hash_key_in ;
-output reg hash_key_in_valid;
-input wire  hash_key_in_stall;
-reg [1:0] counter ;
-wire  _zy_simnet_keyfilter_cmdfifo_ack_0_w$;
-wire  _zy_simnet_keyfilter_upsizer_stall_1_w$;
-wire  [0:255] _zy_simnet_hash_key_in_2_w$ ;
-wire  _zy_simnet_hash_key_in_valid_3_w$;
-ixc_assign  #(1) _zz_strnp_0 (_zy_simnet_keyfilter_cmdfifo_ack_0_w$,keyfilter_cmdfifo_ack);
-ixc_assign  #(1) _zz_strnp_1 (_zy_simnet_keyfilter_upsizer_stall_1_w$,keyfilter_upsizer_stall);
-ixc_assign  #(256) _zz_strnp_2 (_zy_simnet_hash_key_in_2_w$,hash_key_in);
-ixc_assign  #(1) _zz_strnp_3 (_zy_simnet_hash_key_in_valid_3_w$,hash_key_in_valid);
-always 
- @(*)
-  begin
-   hash_key_in = 256'b0;
-   hash_key_in_valid = 1'b0;
-   keyfilter_upsizer_stall = 1'b0;
-   keyfilter_cmdfifo_ack = 1'b0;
-   if ((counter == 2'b01))
-    begin
-     hash_key_in = upsizer_keyfilter_data;
-     hash_key_in_valid = upsizer_keyfilter_valid;
-     keyfilter_upsizer_stall = hash_key_in_stall;
-    end
-   if ((counter == 2'b10))
-    begin
-     keyfilter_cmdfifo_ack = upsizer_keyfilter_valid;
-     if ((cmdfifo_keyfilter_cmd.combo_mode == 1'b0))
-      begin
-       hash_key_in = upsizer_keyfilter_data;
-       hash_key_in_valid = upsizer_keyfilter_valid;
-       keyfilter_upsizer_stall = hash_key_in_stall;
-      end
-    end
-  end
-always 
+input  in_upsizer_valid;
+input  in_upsizer_eof;
+input  [127:0] in_upsizer_data ;
+output reg upsizer_in_stall;
+output reg upsizer_out_valid;
+output reg upsizer_out_eof;
+output reg [255:0] upsizer_out_data ;
+input wire  out_upsizer_stall;
+reg send_data;
+reg [127:0] buffer ;
+wire  _zy_simnet_upsizer_in_stall_0_w$;
+wire  _zy_simnet_upsizer_out_valid_1_w$;
+wire  _zy_simnet_upsizer_out_eof_2_w$;
+wire  [0:255] _zy_simnet_upsizer_out_data_3_w$ ;
+ixc_assign  #(1) _zz_strnp_0 (_zy_simnet_upsizer_in_stall_0_w$,upsizer_in_stall);
+ixc_assign  #(1) _zz_strnp_1 (_zy_simnet_upsizer_out_valid_1_w$,upsizer_out_valid);
+ixc_assign  #(1) _zz_strnp_2 (_zy_simnet_upsizer_out_eof_2_w$,upsizer_out_eof);
+ixc_assign  #(256) _zz_strnp_3 (_zy_simnet_upsizer_out_data_3_w$,upsizer_out_data);
+always_ff 
  @(posedge clk or negedge rst_n)
   begin
    if (( !rst_n ))
     begin
-     counter <= 2'b0;
+     buffer <= 128'b0;
+     send_data <= 1'b0;
     end
    else
-    if (upsizer_keyfilter_valid)
+    if (( !send_data ))
      begin
-      case (counter)
-       2'b10:
-        counter <= 2'b0;
-       default:
-        counter <= (counter + 2'b01);
-      endcase
+      if (in_upsizer_valid)
+       begin
+        buffer <= in_upsizer_data;
+        send_data <= 1'b1;
+       end
      end
+    else
+     if (in_upsizer_valid)
+      begin
+       send_data <= 1'b0;
+      end
+  end
+always 
+ @(*)
+  begin
+   upsizer_out_valid = 1'b0;
+   upsizer_out_eof = 1'b0;
+   upsizer_out_data = 256'b0;
+   upsizer_in_stall = out_upsizer_stall;
+   if (( !out_upsizer_stall ))
+    begin
+     if (send_data)
+      begin
+       if (in_upsizer_valid)
+        begin
+         upsizer_out_valid = 1'b1;
+         upsizer_out_eof = in_upsizer_eof;
+         upsizer_out_data = {buffer,in_upsizer_data};
+        end
+      end
+    end
   end
 endmodule
 

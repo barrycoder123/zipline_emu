@@ -8,7 +8,7 @@ architecture module of cr_kme_guid_stitcher is
     R : in std_logic_vector((W - 1) downto 0) := (others => 'X') ) ;
   end component ;
 
-  component cr_kme_fifo_xcm58
+  component cr_kme_fifo_xcm59
     generic (
       DATA_SIZE : integer := 83 ;
       FIFO_DEPTH : integer := 25 ;
@@ -1333,7 +1333,7 @@ begin
       ,fifo_out_ack
     ) ;
   _zy_simnet_cio_11 <= '0' ;
-  aux_cmd_fifo : cr_kme_fifo_xcm58
+  aux_cmd_fifo : cr_kme_fifo_xcm59
     port map (
        fifo_in_stall => _zy_simnet_dio_4
       ,fifo_out => DUMMY7

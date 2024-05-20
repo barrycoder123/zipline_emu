@@ -1,0 +1,17 @@
+module nx_fifo_ctrl_xcm41 nx_fifo_ctrl_xcm41 3 13
+DEPTH DEPTH
+OVERFLOW_ASSERT OVERFLOW_ASSERT
+UNDERFLOW_ASSERT UNDERFLOW_ASSERT
+empty empty
+full full
+used_slots used_slots
+free_slots free_slots
+rptr rptr
+wptr wptr
+underflow underflow
+overflow overflow
+clk clk
+rst_n rst_n
+wen wen
+ren ren
+clear clear

@@ -4,7 +4,7 @@ use quickturn.verilog.all ;
 use work.cr_kme_regfilePKG.all ;
 entity cr_kme_kop_kdf_stream_pipe_xcm79 is
   generic (
-    IN_DATA_SIZE_IN_BYTES : integer := 36
+    IN_DATA_SIZE_IN_BYTES : integer := 37
   ) ;
   port (
     pipe_valid : out std_logic_vector(0 downto 0) ;
@@ -14,7 +14,7 @@ entity cr_kme_kop_kdf_stream_pipe_xcm79 is
     rst_n : in std_logic ;
     cmd_valid : in std_logic ;
     cmd_data_size : in std_logic_vector(5 downto 0) ;
-    cmd_data : in std_logic_vector(287 downto 0) ;
+    cmd_data : in std_logic_vector(295 downto 0) ;
     pipe_ack : in std_logic_vector(0 downto 0) ;
   pipe_ack_num_bytes : in std_logic_vector(4 downto 0) ) ;
   attribute _2_state_: integer;
@@ -22,7 +22,7 @@ entity cr_kme_kop_kdf_stream_pipe_xcm79 is
   constant CKV_DATA_WIDTH : integer := 64 ;
   constant KIM_NUM_ENTRIES : integer := 16384 ;
   constant KIM_DATA_WIDTH : integer := 38 ;
-  constant IN_DATA_SIZE_IN_BITS : integer := 288 ;
+  constant IN_DATA_SIZE_IN_BITS : integer := 296 ;
   constant LOG_IN_DATA_SIZE : integer := 6 ;
   subtype pkt_hdr_e is std_logic_vector(1 downto 0) ;
   constant ENET : pkt_hdr_e := "00" ;

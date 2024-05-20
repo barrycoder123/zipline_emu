@@ -1,9 +1,6 @@
 xc_work/v/WORK/svPkg2.sv
 xc_work/v/WORK/svPkg3.sv
 xc_work/v/WORK/svPkg4.sv
-xc_work/v/132.sv
-xc_work/v/133.sv
-xc_work/v/134.sv
 xc_work/v/1.sv
 xc_work/v/2.sv
 xc_work/v/3.sv
@@ -135,6 +132,12 @@ xc_work/v/128.sv
 xc_work/v/129.sv
 xc_work/v/130.sv
 xc_work/v/131.sv
-xc_work/v/149.sv
+xc_work/v/132.sv
+xc_work/v/133.sv
+xc_work/v/134.sv
+xc_work/v/135.sv
+xc_work/v/150.sv
 xc_work/v/xcva_top.v
+xc_work/v/gfifo_conns.sv
+xc_work/v/sfifo_conns.sv
 xc_work/v/ifsyn_conns.sv

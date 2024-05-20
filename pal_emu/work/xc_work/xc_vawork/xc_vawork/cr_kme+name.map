@@ -75,7 +75,7 @@ DUMMY77 0_zy_simnet_kme_cddip2_ob_in_75_w$
 DUMMY78 1_zy_simnet_kme_cddip3_ob_out_pre_76_w$ 0 82
 DUMMY79 0_zy_simnet_kme_cddip3_ob_in_77_w$
 DUMMY80 1_zy_simnet_idle_components_78_w$ 0 31
-DUMMY81 0_zyclock_1_x$tbc
+DUMMY81 0{}
 DUMMY82 0{}
 DUMMY83 0{}
 DUMMY84 0{}
@@ -88,7 +88,4 @@ DUMMY90 0{}
 DUMMY91 0{}
 DUMMY92 0{}
 DUMMY93 0{}
-DUMMY94 0{}
-DUMMY95 0_zyclock_1_x$tbcp
-DUMMY96 0cr_rst_sync
-clk_DUMMY0 0clk
+DUMMY94 0cr_rst_sync

@@ -1,4 +1,5 @@
 //ET6 DBO_adr_offset board module ISB_adr_offset length
-2 0 0
+3 0 0
 0 0 0 0 48
-48 0 0 64 40
+48 0 0 64 8
+56 0 0 88 8

@@ -3,8 +3,8 @@ use ieee.std_logic_1164.all ;
 use quickturn.verilog.all ;
 entity nx_fifo_ram_1r1w_xcm13 is
   generic (
-    DEPTH : integer := 168;
-    WIDTH : integer := 83;
+    DEPTH : integer := 2048;
+    WIDTH : integer := 71;
     UNDERFLOW_ASSERT : integer := 1;
     OVERFLOW_ASSERT : integer := 1;
     SPECIALIZE : integer := 1;
@@ -17,10 +17,10 @@ entity nx_fifo_ram_1r1w_xcm13 is
   port (
     empty : out std_logic ;
     full : out std_logic ;
-    used_slots : out std_logic_vector(7 downto 0) ;
-    free_slots : out std_logic_vector(7 downto 0) ;
+    used_slots : out std_logic_vector(11 downto 0) ;
+    free_slots : out std_logic_vector(11 downto 0) ;
     rerr : out std_logic ;
-    rdata : out std_logic_vector(82 downto 0) ;
+    rdata : out std_logic_vector(70 downto 0) ;
     underflow : out std_logic ;
     overflow : out std_logic ;
     bimc_odat : out std_logic ;
@@ -29,7 +29,7 @@ entity nx_fifo_ram_1r1w_xcm13 is
     clk : in std_logic ;
     rst_n : in std_logic ;
     wen : in std_logic ;
-    wdata : in std_logic_vector(82 downto 0) ;
+    wdata : in std_logic_vector(70 downto 0) ;
     ren : in std_logic ;
     clear : in std_logic ;
     bimc_idat : in std_logic ;
@@ -42,5 +42,5 @@ entity nx_fifo_ram_1r1w_xcm13 is
   attribute celldefine : integer;
   attribute celldefine of nx_fifo_ram_1r1w_xcm13: entity is 1 ;
   constant PREFETCH_DEPTH : integer := 3 ;
-  constant TOTAL_DEPTH : integer := 171 ;
+  constant TOTAL_DEPTH : integer := 2051 ;
 end nx_fifo_ram_1r1w_xcm13 ;

@@ -30,4 +30,4 @@ P O ixc_sample_logic_1_3 _zz_zy_sva_b4 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ix
 P O ixc_sample_logic_1_3 _zz_zy_sva_b5 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
 P O ixc_sample_logic_1_3 _zz_zy_sva_b6 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
 P O ixc_sample_logic_1_3 _zz_zy_sva_b7 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
-P O cr_kme_fifo_xcm56 ckv_data_fifo ./xc_work/xc_vawork/xc_vawork/cr_kme_fifo_xcm56
+P O cr_kme_fifo_xcm57 ckv_data_fifo ./xc_work/xc_vawork/xc_vawork/cr_kme_fifo_xcm57

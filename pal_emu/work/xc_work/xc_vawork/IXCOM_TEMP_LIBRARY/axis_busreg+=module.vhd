@@ -5,5 +5,5 @@ architecture module of axis_busreg is
   end component ;
 
 begin
-  _UnNamed_Inst_29 : Q_BRP port map (z) ;
+  _UnNamed_Inst_28 : Q_BRP port map (z) ;
 end module;

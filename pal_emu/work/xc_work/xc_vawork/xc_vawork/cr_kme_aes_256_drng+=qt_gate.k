@@ -1,7 +1,7 @@
 
 module cr_kme_aes_256_drng ;
 //pragma CVASTRPROP MODULE SKELETON MODULEINFO "6254.000000"
-cr_kme_fifo_xcm59 rnd_fifo ();
+cr_kme_fifo_xcm60 rnd_fifo ();
 AesSecIStub AesSecIStub ();
 ixc_assign _zz_strnp_11 ();
 ixc_assign_128 _zz_strnp_10 ();

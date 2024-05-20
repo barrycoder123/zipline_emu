@@ -13,5 +13,5 @@ architecture module of IXC_PTXTOP is
   attribute _2_state_ of dly: signal is 1 ;
 
 begin
-  _UnNamed_Inst_36 : Q_RDN port map (xptRtn) ;
+  _UnNamed_Inst_35 : Q_RDN port map (xptRtn) ;
 end module;

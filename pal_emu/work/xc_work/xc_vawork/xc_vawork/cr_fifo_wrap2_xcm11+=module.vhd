@@ -14,8 +14,8 @@ architecture module of cr_fifo_wrap2_xcm11 is
 
   component nx_fifo_ram_1r1w_xcm13
     generic (
-      DEPTH : integer := 168 ;
-      WIDTH : integer := 83 ;
+      DEPTH : integer := 2048 ;
+      WIDTH : integer := 71 ;
       UNDERFLOW_ASSERT : integer := 1 ;
       OVERFLOW_ASSERT : integer := 1 ;
       SPECIALIZE : integer := 1 ;
@@ -28,10 +28,10 @@ architecture module of cr_fifo_wrap2_xcm11 is
     port (
       empty : out std_logic ;
       full : out std_logic ;
-      used_slots : out std_logic_vector(7 downto 0) ;
-      free_slots : out std_logic_vector(7 downto 0) ;
+      used_slots : out std_logic_vector(11 downto 0) ;
+      free_slots : out std_logic_vector(11 downto 0) ;
       rerr : out std_logic ;
-      rdata : out std_logic_vector(82 downto 0) ;
+      rdata : out std_logic_vector(70 downto 0) ;
       underflow : out std_logic ;
       overflow : out std_logic ;
       bimc_odat : out std_logic ;
@@ -40,7 +40,7 @@ architecture module of cr_fifo_wrap2_xcm11 is
       clk : in std_logic := 'X' ;
       rst_n : in std_logic := 'X' ;
       wen : in std_logic := 'X' ;
-      wdata : in std_logic_vector(82 downto 0) := (others => 'X') ;
+      wdata : in std_logic_vector(70 downto 0) := (others => 'X') ;
       ren : in std_logic := 'X' ;
       clear : in std_logic := 'X' ;
       bimc_idat : in std_logic := 'X' ;
@@ -1117,11 +1117,11 @@ architecture module of cr_fifo_wrap2_xcm11 is
   signal DUMMY2 : std_logic ;
   signal afull_r : std_logic ;
   signal aempty_r : std_logic ;
-  signal free_slots : std_logic_vector(7 downto 0) ;
+  signal free_slots : std_logic_vector(11 downto 0) ;
   signal overflow : std_logic ;
   signal rerr : std_logic ;
   signal underflow : std_logic ;
-  signal used_slots : std_logic_vector(7 downto 0) ;
+  signal used_slots : std_logic_vector(11 downto 0) ;
 
 begin
   _zz_strnp_10 : ixc_assign
@@ -1184,8 +1184,8 @@ begin
     end process ;
   end generate ;
   Generate2 : if ram_fifo : (TRUE) generate
-    signal DUMMY3 : std_logic_vector(0 to 7) ;
-    signal DUMMY4 : std_logic_vector(0 to 7) ;
+    signal DUMMY3 : std_logic_vector(0 to 11) ;
+    signal DUMMY4 : std_logic_vector(0 to 11) ;
     signal DUMMY5 : std_logic ;
     signal DUMMY6 : std_logic ;
     signal DUMMY7 : std_logic ;
@@ -1198,13 +1198,13 @@ begin
     signal _zy_simnet_cio_14 : std_logic ;
   begin
     _zz_strnp_2 : ixc_assign
-      generic map(W => 8)
+      generic map(W => 12)
       port map (
          used_slots
         ,DUMMY3
       ) ;
     _zz_strnp_3 : ixc_assign
-      generic map(W => 8)
+      generic map(W => 12)
       port map (
          free_slots
         ,DUMMY4

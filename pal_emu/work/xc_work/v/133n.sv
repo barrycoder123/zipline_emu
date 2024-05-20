@@ -1,57 +1,21 @@
 // xc_work/v/133n.sv
-// my_clks.sv:39
+// my_clks.sv:17
 // NOTE: This file corresponds to a module in the Hardware/DUT partition.
 `timescale 1ps/1ps
-module ixc_master_clock(phi1);
-// external : ixc_time.delta (resolved )  (var)  
-// exported object:  (var) _zyiscTdM1 (R)  
-parameter phase_length = 625;
-output  phi1;
-reg clk = 0;
-wire  _zy_simnet_clk_0_w$;
-wire [10:0]  _zyiscDelta1;
-wire [10:0]  _zyiscTdM1;
-wire  _zyiscVCC1;
-wire  _zyiscEClk1;
-reg [9:0]  _zyL45_iscTdL2;
-wire [10:0]  _zyL45_iscTdG2;
-// F73, L43
-assign  _zy_simnet_clk_0_w$ = clk;
-// F73, L39
-assign  _zyiscVCC1 = 1'b1;
-// F73, L39
-/* ++ axis_pulse #(1) _zziscEClk1_pu (_zyiscEClk1 , ... ); */
-axis_eclk_h _zziscEClk1_pu (_zyiscEClk1); 
-
-// F73, L39
-assign  _zyiscDelta1 = ixc_time.delta[10:0];
-// F73, L45
-assign  _zyL45_iscTdG2 = {1'b0,_zyL45_iscTdL2};
-// F73, L39
-assign  _zyiscTdM1 = _zyL45_iscTdG2;
-ixc_1xbufsrc m1(phi1,_zy_simnet_clk_0_w$); 
-// F73, L39
+module my_clks;
+// external : tb_top.kme_tb_dut.my_clk (resolved )  (var)  :(R)  : (W)  
+wire  my_clk_0;
+/* ixc_cakebind #(1) ixcb_0 (tb_top.kme_tb_dut.my_clk, my_clk_0); */
 initial 
- // F73, L39
+ #0 force tb_top.kme_tb_dut.my_clk = my_clk_0;
+// -- ixc_cakebind 
+
+ixc_master_clock ixcg_0(my_clk_0); 
+initial 
  begin
-  // F73, L45
-  _zyL45_iscTdL2 = 10'b1001110001;
- end
-// F73, L45
-always 
- @(posedge _zyiscEClk1)
-  // F73, L45
   begin
-   // F73, L45
-   if ((_zyL45_iscTdL2 == _zyiscDelta1))
-    // F73, L45
-    begin
-     // F73, L46
-     clk = ( ~clk );
-     _zyL45_iscTdL2 = 10'b1001110001;
-    end
-   else
-    _zyL45_iscTdL2 = (_zyL45_iscTdL2 - _zyiscDelta1);
   end
+  $ua_cmd("cakeClk","tb_top.kme_tb_dut.my_clk","ixcg_0","800000kHz","B1","0");
+ end
 endmodule
 

@@ -3,9 +3,9 @@ use ieee.std_logic_1164.all ;
 use quickturn.verilog.all ;
 entity nx_ram_1rw_xcm108 is
   generic (
-    WIDTH : integer := 64;
-    BWEWIDTH : integer := 64;
-    DEPTH : integer := 32768;
+    WIDTH : integer := 38;
+    BWEWIDTH : integer := 38;
+    DEPTH : integer := 16384;
     SPECIALIZE : integer := 1;
     LATCH : integer := 0
   ) ;
@@ -22,12 +22,12 @@ entity nx_ram_1rw_xcm108 is
     bimc_odat : out std_logic ;
     bimc_osync : out std_logic ;
     ro_uncorrectable_ecc_error : out std_logic ;
-    bwe : in std_logic_vector(63 downto 0) ;
-    din : in std_logic_vector(63 downto 0) ;
-    add : in std_logic_vector(14 downto 0) ;
+    bwe : in std_logic_vector(37 downto 0) ;
+    din : in std_logic_vector(37 downto 0) ;
+    add : in std_logic_vector(13 downto 0) ;
     cs : in std_logic ;
     we : in std_logic ;
-  dout : out std_logic_vector(63 downto 0) ) ;
+  dout : out std_logic_vector(37 downto 0) ) ;
   attribute _2_state_: integer;
   attribute celldefine : integer;
   attribute celldefine of nx_ram_1rw_xcm108: entity is 1 ;

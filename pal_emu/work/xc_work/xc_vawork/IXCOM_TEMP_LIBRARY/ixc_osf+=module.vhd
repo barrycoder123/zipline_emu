@@ -31,7 +31,7 @@ architecture module of IXC_OSF is
     port(Z : out std_logic) ;
   end component ;
   signal fclk : std_logic ;
-  signal _zyevPio : std_logic_vector(1 downto 0) ;
+  signal _zyevPio : std_logic_vector(0 downto 0) ;
   -- quickturn external_ref _zyevPio
   signal _zyPOEv : std_logic ;
   -- quickturn external_ref _zyPOEv
@@ -41,7 +41,7 @@ architecture module of IXC_OSF is
   signal dummyout : std_logic ;
   signal DUMMY0 : std_logic ;
   -- quickturn external_ref DUMMY0
-  signal pvecEv : std_logic_vector(1 downto 0) ;
+  signal pvecEv : std_logic_vector(0 downto 0) ;
   -- quickturn external_ref pvecEv
   attribute _2_state_ of pvecEv: signal is 1 ;
   signal DUMMY1 :  std_logic ;
@@ -67,7 +67,7 @@ begin
   DUMMY1 <= std_logic'('0') ;
   DUMMY2 <= '0' ;
   _zz_strnp_0 : ixc_assign
-    generic map(W => 2)
+    generic map(W => 1)
     port map (
        _zyevPio
       ,pvecEv

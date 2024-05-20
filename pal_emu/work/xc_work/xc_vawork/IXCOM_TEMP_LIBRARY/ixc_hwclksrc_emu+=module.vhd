@@ -33,29 +33,38 @@ architecture module of ixc_hwclksrc_emu is
     clkBase : in std_logic := 'X' ) ;
   end component ;
 
+  component Q_MPCLK1P
+    port (
+    clk : in std_logic := 'X' ) ;
+  end component ;
+
   component buf
     port(Z : out std_logic ; A : in std_logic) ;
   end component ;
   signal fclk : std_logic ;
-  signal DUMMY1 : std_logic ;
+  signal DUMMY0 : std_logic ;
+  signal DUMMY2 : std_logic ;
   signal clkOn : std_logic ;
+  signal uclk : std_logic ;
+  attribute _2_state_ of uclk: signal is 1 ;
   signal c05xOn : std_logic ;
   attribute _2_state_ of c05xOn: signal is 1 ;
-  signal DUMMY0 : std_logic ;
-  attribute _2_state_ of DUMMY0: signal is 1 ;
-  signal DUMMY2 : std_logic ;
-  attribute _2_state_ of DUMMY2: signal is 1 ;
+  signal DUMMY1 : std_logic ;
+  attribute _2_state_ of DUMMY1: signal is 1 ;
+  signal DUMMY3 : std_logic ;
+  attribute _2_state_ of DUMMY3: signal is 1 ;
   -- quickturn fast_clock fclk
 
 begin
-  clkOn <= ((DUMMY0 and en) and not(DUMMY2)) ;
+  clkOn <= ((DUMMY1 and en) and not(DUMMY3)) ;
 
-  process --:o1579
+  process --:o1644
   (fclk)
   begin
     if (fclk'event and fclk = '1') then
-      if (clkOn = '1') then
+      if (((clkOn)='1' and uclk = DUMMY0)) then
         cout <= not(cout) ;
+        uclk <= not(uclk) ;
         c05xOn <= '1' ;
       else
         c05xOn <= '0' ;
@@ -87,12 +96,16 @@ begin
          c05x
         ,cout
       ) ;
-  else DUMMY3 : generate
+  else DUMMY4 : generate
   begin
     c05x <= '0' ;
   end generate ;
-  _UnNamed_Inst_27 : buf port map (DUMMY1,clkOn) ;
+  _UnNamed_Inst_26 : buf port map (DUMMY2,clkOn) ;
   mu : Q_UCCLK
+    port map (
+       cout
+    ) ;
+  mx : Q_MPCLK1P
     port map (
        cout
     ) ;

@@ -4,7 +4,7 @@ use quickturn.verilog.all ;
 use work.cr_kme_regfilePKG.all ;
 entity cr_kme_kop_xcm68 is
   generic (
-    CCEIP_ENCRYPT_KOP : integer := 1;
+    CCEIP_ENCRYPT_KOP : integer := 0;
     subtype tlv_types_e is std_logic_vector(7 downto 0) ;
     constant RQE : tlv_types_e := "00000000" ;
     constant CMD : tlv_types_e := "00000001" ;

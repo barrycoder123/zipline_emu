@@ -11,6 +11,7 @@
 +incdir+$DV_ROOT/agents/apb
 +incdir+$DV_ROOT/CCE_64/tb_top
 $DV_ROOT/agents/apb/apb_xactor.v
-#$IXCOM_HOME/share/etc/ixcom/IXCclkgen.sv
-#my_clks.sv
+$IXCOM_HOME/share/etc/ixcom/IXCclkgen.sv
+my_clks.sv
 $DV_ROOT/KME/run/kme_tb.sv
+$DV_ROOT/KME/run/tb_top.sv

@@ -4,8 +4,8 @@ use quickturn.verilog.all ;
 use work.nx_mem_typePKG.all ;
 entity nx_roreg_indirect_access_xcm130 is
   generic (
-    CMND_ADDRESS : std_logic_vector := std_logic_vector'("10000001100");
-    STAT_ADDRESS : std_logic_vector := std_logic_vector'("10000000000");
+    CMND_ADDRESS : std_logic_vector := std_logic_vector'("10000101000");
+    STAT_ADDRESS : std_logic_vector := std_logic_vector'("10000011100");
     ALIGNMENT : integer := 2;
     N_DATA_BITS : integer := 64;
     N_REG_ADDR_BITS : integer := 11;

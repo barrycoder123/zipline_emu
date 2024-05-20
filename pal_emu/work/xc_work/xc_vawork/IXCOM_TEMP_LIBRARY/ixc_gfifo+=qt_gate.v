@@ -18,6 +18,8 @@ ixcEcmHold HOLDTOP ();
 ixcEcmHoldOtb DUMMY ();
 IXC_SV_GFIFO O ( rdCnt[63:0]);
 IXC_SV_SFIFO I ( rdCnt[63:0]);
+gfifo_conns _zyGfifo_gfifo_conns ();
+sfifo_conns _zyGfifo_sfifo_conns ();
 ifsyn_conns _ifsyn_conns ();
 // pragma CVASTRPROP MODULE HDLICE PROP_IXCOM_MOD TRUE
 endmodule

@@ -7302,7 +7302,7 @@ ixc_assign_34 _zz_strnp_27 ( _zy_simnet_hash_cmd_in_23_w$[0:33],
 	hash_cmd_in[33:0]);
 ixc_assign _zz_strnp_28 ( _zy_simnet_hash_cmd_in_valid_24_w$, 
 	hash_cmd_in_valid[0]);
-cr_kme_kop_kdf_stream_pipe_xcm79 il_var ( .pipe_valid( 
+cr_kme_kop_kdf_stream_pipe_xcm80 il_var ( .pipe_valid( 
 	\pipe_array_valid[0][0] ), .pipe_data( { \pipe_array_data[0][127] , 
 	\pipe_array_data[0][126] , \pipe_array_data[0][125] , 
 	\pipe_array_data[0][124] , \pipe_array_data[0][123] , 
@@ -7377,7 +7377,7 @@ cr_kme_kop_kdf_stream_pipe_xcm79 il_var ( .pipe_valid(
 	_zy_simnet_cmd_il_data_13_w$[0:287]), .pipe_ack( 
 	_zy_simnet_pipe_array_ack_14_w$), .pipe_ack_num_bytes( 
 	_zy_simnet_pipe_array_ack_num_bytes_15_w$[0:4]));
-cr_kme_kop_kdf_stream_pipe_xcm78 dgl_var ( .pipe_valid( 
+cr_kme_kop_kdf_stream_pipe_xcm79 dgl_var ( .pipe_valid( 
 	\pipe_array_valid[1][0] ), .pipe_data( { \pipe_array_data[1][127] , 
 	\pipe_array_data[1][126] , \pipe_array_data[1][125] , 
 	\pipe_array_data[1][124] , \pipe_array_data[1][123] , 
@@ -7452,7 +7452,7 @@ cr_kme_kop_kdf_stream_pipe_xcm78 dgl_var ( .pipe_valid(
 	_zy_simnet_cmd_dgl_data_18_w$[0:295]), .pipe_ack( 
 	_zy_simnet_pipe_array_ack_19_w$), .pipe_ack_num_bytes( 
 	_zy_simnet_pipe_array_ack_num_bytes_20_w$[0:4]));
-cr_kme_fifo_xcm52 parser_fifo ( .fifo_in_stall( hash_cmd_in_stall[0]), 
+cr_kme_fifo_xcm53 parser_fifo ( .fifo_in_stall( hash_cmd_in_stall[0]), 
 	.fifo_out( fifo_out[33:0]), .fifo_out_valid( fifo_out_valid[0]), 
 	.fifo_overflow( _zy_simnet_dio_21), .fifo_underflow( 
 	_zy_simnet_dio_22), .clk( clk), .rst_n( rst_n), .fifo_in( 

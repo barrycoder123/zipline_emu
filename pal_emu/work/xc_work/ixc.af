@@ -1,5 +1,5 @@
- PATH	kme_tb	+rw
- PATH	kme_tb...	+rw
+ PATH	tb_top	+rw
+ PATH	tb_top...	+rw
  PATH	my_clks	+rw
  PATH	my_clks...	+rw
  PATH	IXC_GFIFO	+rw

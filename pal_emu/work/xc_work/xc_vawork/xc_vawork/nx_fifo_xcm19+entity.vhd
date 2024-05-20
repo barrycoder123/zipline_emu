@@ -3,7 +3,7 @@ use ieee.std_logic_1164.all ;
 use quickturn.verilog.all ;
 entity nx_fifo_xcm19 is
   generic (
-    DEPTH : integer := 16;
+    DEPTH : integer := 2;
     WIDTH : integer := 106;
     DATA_RESET : integer := 1;
     UNDERFLOW_ASSERT : integer := 1;
@@ -14,8 +14,8 @@ entity nx_fifo_xcm19 is
     full : out std_logic ;
     underflow : out std_logic ;
     overflow : out std_logic ;
-    used_slots : out std_logic_vector(4 downto 0) ;
-    free_slots : out std_logic_vector(4 downto 0) ;
+    used_slots : out std_logic_vector(1 downto 0) ;
+    free_slots : out std_logic_vector(1 downto 0) ;
     rdata : out std_logic_vector(105 downto 0) ;
     clk : in std_logic ;
     rst_n : in std_logic ;

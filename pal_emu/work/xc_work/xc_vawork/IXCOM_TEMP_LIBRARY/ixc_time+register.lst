@@ -1,7 +1,8 @@
-U O V simTime SIZE=64
-U O V lastClkTime SIZE=64
 U O S zminT
-M O MEM=1 PAK=2 _zzcmds[%s] LB=0 RB=3 SIZE=64
-M O MEM=1 PAK=2 _zzmiopis[%s] LB=0 RB=3 SIZE=64
+U O V nextClkTime SIZE=64
+U O V lastClkTime SIZE=64
+U O V simTime SIZE=64
 M O MEM=1 PAK=2 _zzmiopos[%s] LB=0 RB=3 SIZE=64
+M O MEM=1 PAK=2 _zzmiopis[%s] LB=0 RB=3 SIZE=64
+M O MEM=1 PAK=2 _zzcmds[%s] LB=0 RB=3 SIZE=64
 P O axis_eclk ap ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/axis_eclk

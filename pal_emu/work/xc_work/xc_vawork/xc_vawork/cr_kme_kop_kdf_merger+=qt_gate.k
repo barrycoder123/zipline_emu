@@ -9,5 +9,5 @@ ixc_assign _zz_strnp_4 ();
 ixc_assign_128 _zz_strnp_5 ();
 ixc_assign _zz_strnp_6 ();
 ixc_assign _zz_strnp_7 ();
-cr_kme_fifo_xcm51 downsizer_fifo ();
+cr_kme_fifo_xcm52 downsizer_fifo ();
 endmodule

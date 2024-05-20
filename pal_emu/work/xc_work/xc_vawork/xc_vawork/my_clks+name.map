@@ -1,1 +1,1 @@
-DUMMY0 0xcva_top.kme_tb.kme_dut.clock
+DUMMY0 0xcva_top.tb_top.kme_tb_dut.my_clk

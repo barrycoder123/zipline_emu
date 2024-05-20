@@ -64,7 +64,7 @@ architecture module of cr_kme_tlv_parser is
     R : in std_logic_vector((W - 1) downto 0) := (others => 'X') ) ;
   end component ;
 
-  component cr_kme_fifo_xcm57
+  component cr_kme_fifo_xcm58
     generic (
       DATA_SIZE : integer := 71 ;
       FIFO_DEPTH : integer := 2 ;
@@ -5687,7 +5687,7 @@ begin
        _zy_sva_b177
       ,_zy_sva_b177_t
     ) ;
-  parser_fifo : cr_kme_fifo_xcm57
+  parser_fifo : cr_kme_fifo_xcm58
     port map (
        fifo_in_stall => fifo_in_stall
       ,fifo_out => DUMMY4

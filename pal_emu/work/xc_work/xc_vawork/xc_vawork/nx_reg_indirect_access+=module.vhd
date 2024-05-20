@@ -89,7 +89,7 @@ architecture module of nx_reg_indirect_access is
     bpHalt : out std_logic ) ;
   end component ;
 
-  component nx_indirect_access_cntrl_xcm110
+  component nx_indirect_access_cntrl_xcm111
     generic (
       MEM_TYPE : std_logic_vector := std_logic_vector'("0010") ;
       CMND_ADDRESS : std_logic_vector := std_logic_vector'("10001010100") ;
@@ -178,17 +178,17 @@ architecture module of nx_reg_indirect_access is
   signal _zy_simnet_dio_25 : std_logic ;
   signal DUMMY19 : std_logic ;
   signal _zyixc_ctx_wdata_1 : std_logic_vector(1023 downto 0) ;
-  signal _zzM131L132_bcMevClk0 : std_logic ;
-  signal _zzM131L132_bcReq0 : std_logic ;
-  signal _zzM131L132_bcBusy0 : std_logic ;
-  signal _zzM131L132_bcWait0 : std_logic ;
+  signal _zzM132L132_bcMevClk0 : std_logic ;
+  signal _zzM132L132_bcReq0 : std_logic ;
+  signal _zzM132L132_bcBusy0 : std_logic ;
+  signal _zzM132L132_bcWait0 : std_logic ;
   signal DUMMY20 : std_logic ;
   signal DUMMY21 : std_logic ;
   signal DUMMY22 : std_logic_vector(0 to 4) ;
   signal DUMMY23 : std_logic_vector(0 to 31) ;
   signal DUMMY24 : std_logic ;
-  signal _zzM131_bcBehEvalClk : std_logic ;
-  signal _zzM131_bcBehHalt : std_logic ;
+  signal _zzM132_bcBehEvalClk : std_logic ;
+  signal _zzM132_bcBehHalt : std_logic ;
   signal reset : std_logic ;
   signal sw_add : std_logic_vector(4 downto 0) ;
   signal sw_cs : std_logic ;
@@ -196,14 +196,14 @@ architecture module of nx_reg_indirect_access is
   signal sw_rdat : std_logic_vector(31 downto 0) ;
   signal sw_we : std_logic ;
   signal addr_limit : std_logic_vector(4 downto 0) ;
-  signal _zzM131_bcBehEval : std_logic_vector(31 downto 0) ;
+  signal _zzM132_bcBehEval : std_logic_vector(31 downto 0) ;
   signal DUMMY25 : std_logic_vector(1023 downto 0) ;
   signal DUMMY26 : std_logic_vector(1023 downto 0) ;
   signal DUMMY27 : std_logic_vector(1 downto 0) ;
   signal DUMMY28 : std_logic_vector(1 downto 0) ;
   type DUMMY30 is array(integer range <>) of std_logic_vector(4 downto 0) ;
   signal DUMMY29 : DUMMY30(0 downto 0) ; 
-  -- quickturn keep_net _zzM131_bcBehEval
+  -- quickturn keep_net _zzM132_bcBehEval
 
 begin
   _zzqnt : Q_NOT_TOUCH
@@ -359,20 +359,20 @@ begin
    downto 0) & mem_a(24)(31 downto 0) & mem_a(25)(31 downto 0) & mem_a(26)(31
    downto 0) & mem_a(27)(31 downto 0) & mem_a(28)(31 downto 0) & mem_a(29)(31
    downto 0) & mem_a(30)(31 downto 0) & mem_a(31)(31 downto 0)) ;
-  _zzM131L132_bcMevClkP0 : ixc_mevClk
+  _zzM132L132_bcMevClkP0 : ixc_mevClk
     generic map(WIDTH => integer_to_std(2,32),DUMMY3 => integer_to_std(0,32
     ),HOLD => 0,IS_EDGED => std_logic_vector'("11"),POLARITY =>
      std_logic_vector'("01"),DS => std_logic_vector'("00"),DM =>
      std_logic_vector'("01"),EVOUT => std_logic_vector'("00"))
     port map (
-       _zzM131L132_bcMevClk0
+       _zzM132L132_bcMevClk0
       ,DUMMY27
       ,DUMMY28
       ,std_logic'('0')
       ,std_logic'('0')
-      ,_zzM131L132_bcReq0
-      ,_zzM131L132_bcBusy0
-      ,_zzM131L132_bcWait0
+      ,_zzM132L132_bcReq0
+      ,_zzM132L132_bcBusy0
+      ,_zzM132L132_bcWait0
     ) ;
   DUMMY27 <= std_logic_vector'(clk & rst_n) ;
   DUMMY28 <= it_multiple_concat(std_logic'('1'),2) ;
@@ -406,14 +406,14 @@ begin
        DUMMY24
       ,DUMMY19
     ) ;
-  _zzM131L34_bcBehEvalP0 : ixc_capLoopXp
+  _zzM132L34_bcBehEvalP0 : ixc_capLoopXp
     port map (
-       _zzM131_bcBehEvalClk
+       _zzM132_bcBehEvalClk
       ,std_logic'('0')
       ,open
-      ,_zzM131_bcBehHalt
+      ,_zzM132_bcBehHalt
     ) ;
-  u_cntrl : nx_indirect_access_cntrl_xcm110
+  u_cntrl : nx_indirect_access_cntrl_xcm111
     port map (
        clk
       ,rst_n
@@ -448,11 +448,11 @@ begin
 
   mem_wr_rst :
   process --:o163
-  (_zzM131L132_bcMevClk0)
+  (_zzM132L132_bcMevClk0)
     variable DUMMY36 : integer ;
     variable DUMMY37 : integer ;
   begin
-    if (_zzM131L132_bcMevClk0'event and _zzM131L132_bcMevClk0 = '1') then
+    if (_zzM132L132_bcMevClk0'event and _zzM132L132_bcMevClk0 = '1') then
       if ((rst_n = '0')) then
         for DUMMY36 in 0 to 31 loop --:o176
           mem_a(DUMMY36) <= rst_dat(DUMMY36) ;
@@ -490,15 +490,15 @@ begin
   end process ;
 
   process --:o232
-  (_zzM131_bcBehEvalClk)
+  (_zzM132_bcBehEvalClk)
   begin
-    if (_zzM131_bcBehEvalClk'event and _zzM131_bcBehEvalClk = '1') then
-      if (_zzM131L132_bcWait0 = '1') then
-        if (nand_reduce(_zzM131_bcBehEval(30 downto 0)) = '1') then
-          _zzM131_bcBehEval(30 downto 0) <= (_zzM131_bcBehEval(30 downto 0) +
+    if (_zzM132_bcBehEvalClk'event and _zzM132_bcBehEvalClk = '1') then
+      if (_zzM132L132_bcWait0 = '1') then
+        if (nand_reduce(_zzM132_bcBehEval(30 downto 0)) = '1') then
+          _zzM132_bcBehEval(30 downto 0) <= (_zzM132_bcBehEval(30 downto 0) +
            std_logic_vector'("0000000000000000000000000000001")) ;
         end if;
-        _zzM131_bcBehEval(31) <= _zzM131_bcBehHalt ;
+        _zzM132_bcBehEval(31) <= _zzM132_bcBehHalt ;
       end if;
     end if ;
   end process ;

@@ -1,9 +1,8 @@
 // xc_work/v/40n.sv
-// /home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kop_gcm.v:18
+// /home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kop_upsizer_x2.v:18
 // NOTE: This file corresponds to a module in the Hardware/DUT partition.
 `timescale 1ns/1ns
-module cr_kme_kop_gcm(set_gcm_tag_fail_int,gcm_cmdfifo_ack,gcm_upsizer_stall,gcm_tag_data_out_ack,gcm_kdf_valid,gcm_kdf_eof,gcm_kdf_data,gcm_status_data_in_valid,gcm_status_data_in,clk,
-rst_n,cmdfifo_gcm_valid,cmdfifo_gcm_cmd,upsizer_gcm_valid,upsizer_gcm_eof,upsizer_gcm_data,gcm_tag_data_out,gcm_tag_data_out_valid,kdf_gcm_stall,gcm_status_data_in_stall);
+module cr_kme_kop_upsizer_x2_xcm73(upsizer_in_stall,upsizer_out_valid,upsizer_out_eof,upsizer_out_data,clk,rst_n,in_upsizer_valid,in_upsizer_eof,in_upsizer_data,out_upsizer_stall);
 // pkg external : PKG - cr_kme_regfilePKG : DTYPE  
 typedef enum logic [1:0] {ENET=0,IPV4=1,IPV6=2,MPLS=3} pkt_hdr_e;
 typedef enum logic [3:0] {CMD_SIMPLE=0,COMPND_4K=5,COMPND_8K=6,COMPND_RSV=15} cmd_compound_cmd_frm_size_e;
@@ -919,142 +918,27 @@ localparam CKV_NUM_ENTRIES = 32768;
 localparam CKV_DATA_WIDTH = 64;
 localparam KIM_NUM_ENTRIES = 16384;
 localparam KIM_DATA_WIDTH = 38;
+parameter IN_DATA_SIZE = 64;
 input  clk;
 input  rst_n;
-output  set_gcm_tag_fail_int;
-input wire  cmdfifo_gcm_valid;
-input gcm_cmd_t cmdfifo_gcm_cmd;
-output reg gcm_cmdfifo_ack;
-input wire  upsizer_gcm_valid;
-input wire  upsizer_gcm_eof;
-input wire  [127:0] upsizer_gcm_data ;
-output reg gcm_upsizer_stall;
-input wire  [95:0] gcm_tag_data_out ;
-input wire  gcm_tag_data_out_valid;
-output reg gcm_tag_data_out_ack;
-output reg gcm_kdf_valid;
-output reg gcm_kdf_eof;
-output reg [127:0] gcm_kdf_data ;
-input wire  kdf_gcm_stall;
-output reg gcm_status_data_in_valid;
-output gcm_status_t gcm_status_data_in;
-input wire  gcm_status_data_in_stall;
-typedef enum bit [2:0] {SET_KEY=0,ENCRYPT_0=3'b01,STREAM_AES_BLKS=3'b010,SEND_LEN=3'b011,SEND_DUMMY_TAG=3'b100,SEND_TAG=3'b101} gcm_fsm;
-typedef enum bit [2:0] {H_PARAM=0,COPY_FIFO=3'b01,FIFO_XOR_AES=3'b010,MULT_LEN=3'b011,TAG_COMPARE=3'b100,TAG_IGNORE=3'b101} post_op;
-typedef struct packed {
- post_op op;
- logic [127:0] pt ;
- logic [0:0] eof ;
-} fifo_entry;
-gcm_fsm cur_state, nxt_state;
-reg [127:0] ciph_in ;
-reg ciph_in_vld;
-reg ciph_in_last;
-wire  ciph_in_stall;
-reg [255:0] key_in ;
-reg key_in_vld;
-wire  key_in_stall;
-wire  [127:0] ciph_out ;
-wire  ciph_out_vld;
-reg ciph_out_stall;
-fifo_entry fifo_in;
-reg fifo_in_vld;
-wire  fifo_in_stall;
-fifo_entry fifo_out;
-wire  fifo_out_vld;
-reg fifo_out_ack;
-reg [127:0] iv_counter ;
-reg [1:0] beat_num ;
-reg stream_end;
-reg ciph_fifo_in_stall;
-reg combo_dek512;
-reg nxt_combo_dek512;
-reg [127:0] operand_X ;
-reg [127:0] operand_Y ;
-reg [127:0] mult_out ;
-reg [127:0] h_value ;
-reg [127:0] nxt_h_value ;
-reg [127:0] auth_tag ;
-reg [127:0] nxt_auth_tag ;
-wire  _zy_simnet_gcm_cmdfifo_ack_0_w$;
-wire  _zy_simnet_gcm_upsizer_stall_1_w$;
-wire  _zy_simnet_gcm_tag_data_out_ack_2_w$;
-wire  _zy_simnet_gcm_kdf_valid_3_w$;
-wire  _zy_simnet_gcm_kdf_eof_4_w$;
-wire  [0:127] _zy_simnet_gcm_kdf_data_5_w$ ;
-wire  _zy_simnet_gcm_status_data_in_valid_6_w$;
-wire  _zy_simnet_gcm_status_data_in_7_w$;
-wire  _zy_simnet_cio_8;
-wire  _zy_simnet_cio_9;
-wire  _zy_simnet_cio_10;
-wire  [0:127] _zy_simnet_ciph_in_11_w$ ;
-wire  _zy_simnet_ciph_in_vld_12_w$;
-wire  _zy_simnet_ciph_in_last_13_w$;
-wire  _zy_simnet_cio_14;
-wire  [0:255] _zy_simnet_key_in_15_w$ ;
-wire  _zy_simnet_key_in_vld_16_w$;
-wire  _zy_simnet_ciph_out_stall_17_w$;
-wire  [0:131] _zy_simnet_fifo_out_18_w$ ;
-wire  _zy_simnet_dio_19;
-wire  _zy_simnet_dio_20;
-wire  [0:131] _zy_simnet_fifo_in_21_w$ ;
-wire  _zy_simnet_fifo_in_vld_22_w$;
-wire  _zy_simnet_fifo_out_ack_23_w$;
-wire  _zy_simnet_cio_24;
-assign  mult_out = 128'b0;
-assign  set_gcm_tag_fail_int = (gcm_status_data_in_valid & gcm_status_data_in.tag_mismatch);
-assign  _zy_simnet_gcm_cmdfifo_ack_0_w$ = gcm_cmdfifo_ack;
-assign  _zy_simnet_gcm_upsizer_stall_1_w$ = gcm_upsizer_stall;
-assign  _zy_simnet_gcm_tag_data_out_ack_2_w$ = gcm_tag_data_out_ack;
-assign  _zy_simnet_gcm_kdf_valid_3_w$ = gcm_kdf_valid;
-assign  _zy_simnet_gcm_kdf_eof_4_w$ = gcm_kdf_eof;
-assign  _zy_simnet_gcm_kdf_data_5_w$ = gcm_kdf_data;
-assign  _zy_simnet_gcm_status_data_in_valid_6_w$ = gcm_status_data_in_valid;
-assign  _zy_simnet_gcm_status_data_in_7_w$ = gcm_status_data_in;
-assign  _zy_simnet_cio_8 = 1'b0;
-assign  _zy_simnet_cio_9 = 1'b0;
-assign  _zy_simnet_cio_10 = 1'b1;
-assign  _zy_simnet_ciph_in_11_w$ = ciph_in;
-assign  _zy_simnet_ciph_in_vld_12_w$ = ciph_in_vld;
-assign  _zy_simnet_ciph_in_last_13_w$ = ciph_in_last;
-assign  _zy_simnet_cio_14 = 1'b1;
-assign  _zy_simnet_key_in_15_w$ = key_in;
-assign  _zy_simnet_key_in_vld_16_w$ = key_in_vld;
-assign  _zy_simnet_ciph_out_stall_17_w$ = ciph_out_stall;
-assign  fifo_out = _zy_simnet_fifo_out_18_w$;
-assign  _zy_simnet_fifo_in_21_w$ = fifo_in;
-assign  _zy_simnet_fifo_in_vld_22_w$ = fifo_in_vld;
-assign  _zy_simnet_fifo_out_ack_23_w$ = fifo_out_ack;
-assign  _zy_simnet_cio_24 = 1'b0;
-AesSecIStub AesSecI(
-  .AesCiphOutR(ciph_out) ,
-  .AesCiphOutVldR(ciph_out_vld) ,
-  .KeyInitStall(key_in_stall) ,
-  .CiphInStall(ciph_in_stall) ,
-  .Aes128(_zy_simnet_cio_8) ,
-  .Aes192(_zy_simnet_cio_9) ,
-  .Aes256(_zy_simnet_cio_10) ,
-  .CiphIn(_zy_simnet_ciph_in_11_w$) ,
-  .CiphInVldR(_zy_simnet_ciph_in_vld_12_w$) ,
-  .CiphInLastR(_zy_simnet_ciph_in_last_13_w$) ,
-  .EncryptEn(_zy_simnet_cio_14) ,
-  .KeyIn(_zy_simnet_key_in_15_w$) ,
-  .KeyInitVldR(_zy_simnet_key_in_vld_16_w$) ,
-  .AesCiphOutStall(_zy_simnet_ciph_out_stall_17_w$) ,
-  .clk(clk) ,
-  .rst_n(rst_n) ); 
-cr_kme_fifo_xcm55 bypass_fifo(
-  .fifo_in_stall(fifo_in_stall) ,
-  .fifo_out(_zy_simnet_fifo_out_18_w$) ,
-  .fifo_out_valid(fifo_out_vld) ,
-  .fifo_overflow(_zy_simnet_dio_19) ,
-  .fifo_underflow(_zy_simnet_dio_20) ,
-  .clk(clk) ,
-  .rst_n(rst_n) ,
-  .fifo_in(_zy_simnet_fifo_in_21_w$) ,
-  .fifo_in_valid(_zy_simnet_fifo_in_vld_22_w$) ,
-  .fifo_out_ack(_zy_simnet_fifo_out_ack_23_w$) ,
-  .fifo_in_stall_override(_zy_simnet_cio_24) ); 
+input  in_upsizer_valid;
+input  in_upsizer_eof;
+input  [63:0] in_upsizer_data ;
+output reg upsizer_in_stall;
+output reg upsizer_out_valid;
+output reg upsizer_out_eof;
+output reg [127:0] upsizer_out_data ;
+input wire  out_upsizer_stall;
+reg send_data;
+reg [63:0] buffer ;
+wire  _zy_simnet_upsizer_in_stall_0_w$;
+wire  _zy_simnet_upsizer_out_valid_1_w$;
+wire  _zy_simnet_upsizer_out_eof_2_w$;
+wire  [0:127] _zy_simnet_upsizer_out_data_3_w$ ;
+assign  _zy_simnet_upsizer_in_stall_0_w$ = upsizer_in_stall;
+assign  _zy_simnet_upsizer_out_valid_1_w$ = upsizer_out_valid;
+assign  _zy_simnet_upsizer_out_eof_2_w$ = upsizer_out_eof;
+assign  _zy_simnet_upsizer_out_data_3_w$ = upsizer_out_data;
 
 function  [63:0] endian_switch;
  input reg [63:0] data ;
@@ -1136,346 +1020,47 @@ function  [6:0] strb_to_bits;
  endcase
 endfunction
 
-always 
+always_ff 
  @(posedge clk or negedge rst_n)
   begin
    if (( !rst_n ))
     begin
-     cur_state <= SET_KEY;
-     h_value <= 128'b0;
-     auth_tag <= 128'b0;
-     combo_dek512 <= 1'b0;
+     buffer <= 64'b0;
+     send_data <= 1'b0;
     end
    else
-    begin
-     cur_state <= nxt_state;
-     h_value <= nxt_h_value;
-     auth_tag <= nxt_auth_tag;
-     combo_dek512 <= nxt_combo_dek512;
-    end
-  end
-always 
- @(posedge clk or negedge rst_n)
-  begin
-   if (( !rst_n ))
-    begin
-     iv_counter <= 128'b0;
-    end
-   else
-    if ((cur_state == SET_KEY))
+    if (( !send_data ))
      begin
-      iv_counter <= {cmdfifo_gcm_cmd.iv,32'b010};
+      if (in_upsizer_valid)
+       begin
+        buffer <= in_upsizer_data;
+        send_data <= 1'b1;
+       end
      end
     else
-     if (fifo_in_vld)
+     if (in_upsizer_valid)
       begin
-       if ((fifo_in.op == FIFO_XOR_AES))
-        begin
-         iv_counter <= (iv_counter + 128'b01);
-        end
+       send_data <= 1'b0;
       end
   end
 always 
- @(posedge clk or negedge rst_n)
+ @(*)
   begin
-   if (( !rst_n ))
+   upsizer_out_valid = 1'b0;
+   upsizer_out_eof = 1'b0;
+   upsizer_out_data = 128'b0;
+   upsizer_in_stall = out_upsizer_stall;
+   if (( !out_upsizer_stall ))
     begin
-     beat_num <= 2'b0;
-    end
-   else
-    if (upsizer_gcm_valid)
-     begin
-      if (upsizer_gcm_eof)
-       begin
-        beat_num <= 2'b0;
-       end
-      else
-       begin
-        beat_num <= (beat_num + 2'b01);
-       end
-     end
-  end
-always 
- @(*)
-  begin
-   nxt_state = cur_state;
-   case (cur_state)
-    SET_KEY:
-     if (( !ciph_in_stall ))
-      nxt_state = ENCRYPT_0;
-    ENCRYPT_0:
-     if (fifo_in_vld)
-      nxt_state = STREAM_AES_BLKS;
-    STREAM_AES_BLKS:
-     if (stream_end)
-      nxt_state = SEND_LEN;
-    SEND_LEN:
-     begin
-      if (fifo_in_vld)
-       begin
-        if ((cmdfifo_gcm_cmd.op == DECRYPT_DAK_COMB))
-         begin
-          nxt_state = SEND_DUMMY_TAG;
-         end
-        else
-         begin
-          nxt_state = SEND_TAG;
-         end
-       end
-     end
-    SEND_DUMMY_TAG:
-     if (fifo_in_vld)
-      nxt_state = SEND_TAG;
-    SEND_TAG:
-     if (fifo_in_vld)
-      nxt_state = SET_KEY;
-   endcase
-  end
-always 
- @(*)
-  begin
-   key_in = 256'b0;
-   key_in_vld = 1'b0;
-   ciph_in_vld = 1'b0;
-   ciph_in = 128'b0;
-   ciph_in_last = 1'b0;
-   fifo_in_vld = 1'b0;
-   fifo_in = 132'b0;
-   gcm_cmdfifo_ack = 1'b0;
-   gcm_upsizer_stall = 1'b1;
-   gcm_tag_data_out_ack = 1'b0;
-   ciph_fifo_in_stall = (ciph_in_stall | fifo_in_stall);
-   stream_end = 1'b0;
-   nxt_combo_dek512 = combo_dek512;
-   case (cur_state)
-    SET_KEY:
-     begin
-      if (cmdfifo_gcm_valid)
-       begin
-        if (( !key_in_stall ))
-         begin
-          key_in = cmdfifo_gcm_cmd.key1;
-          key_in_vld = 1'b1;
-          nxt_combo_dek512 = 1'b0;
-         end
-       end
-     end
-    ENCRYPT_0:
-     begin
-      if (( !ciph_fifo_in_stall ))
-       begin
-        ciph_in = 128'b0;
-        ciph_in_vld = 1'b1;
-        fifo_in.op = H_PARAM;
-        fifo_in.pt = 128'b0;
-        fifo_in_vld = 1'b1;
-       end
-     end
-    STREAM_AES_BLKS:
-     begin
-      gcm_upsizer_stall = ciph_fifo_in_stall;
-      if (upsizer_gcm_valid)
-       begin
-        ciph_in_vld = 1'b1;
-        fifo_in_vld = 1'b1;
-        ciph_in = iv_counter;
-        case (cmdfifo_gcm_cmd.op)
-         PT_CKV:
-          begin
-          fifo_in.eof = upsizer_gcm_eof;
-          stream_end = upsizer_gcm_eof;
-          case (beat_num)
-          2'b0:
-          {fifo_in.op,fifo_in.pt} = {COPY_FIFO,cmdfifo_gcm_cmd.key0[32'sd255:32'sd128]};
-          2'b01:
-          {fifo_in.op,fifo_in.pt} = {COPY_FIFO,cmdfifo_gcm_cmd.key0[32'sd127:32'sd0]};
-          2'b10:
-          {fifo_in.op,fifo_in.pt} = {COPY_FIFO,cmdfifo_gcm_cmd.key1[32'sd255:32'sd128]};
-          2'b11:
-          {fifo_in.op,fifo_in.pt} = {COPY_FIFO,cmdfifo_gcm_cmd.key1[32'sd127:32'sd0]};
-          endcase
-          end
-         PT_KEY_BLOB:
-          begin
-          fifo_in.eof = upsizer_gcm_eof;
-          stream_end = upsizer_gcm_eof;
-          {fifo_in.op,fifo_in.pt} = {COPY_FIFO,upsizer_gcm_data};
-          end
-         DECRYPT_DEK256,
-         DECRYPT_DEK256_COMB:
-          begin
-          fifo_in.eof = upsizer_gcm_eof;
-          stream_end = (upsizer_gcm_eof & (cmdfifo_gcm_cmd.op != DECRYPT_DEK256_COMB));
-          gcm_cmdfifo_ack = (upsizer_gcm_eof & (cmdfifo_gcm_cmd.op == DECRYPT_DEK256_COMB));
-          case (beat_num)
-          2'b0,
-          2'b01:
-          {fifo_in.op,fifo_in.pt} = 131'b0100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000;
-          2'b10,
-          2'b11:
-          {fifo_in.op,fifo_in.pt} = {FIFO_XOR_AES,upsizer_gcm_data};
-          endcase
-          end
-         DECRYPT_DEK512,
-         DECRYPT_DAK_COMB,
-         DECRYPT_DEK512_COMB,
-         DECRYPT_DAK:
-          begin
-          fifo_in.eof = upsizer_gcm_eof;
-          stream_end = (upsizer_gcm_eof & (cmdfifo_gcm_cmd.op != DECRYPT_DEK512_COMB));
-          gcm_cmdfifo_ack = (upsizer_gcm_eof & (cmdfifo_gcm_cmd.op == DECRYPT_DEK512_COMB));
-          if ((cmdfifo_gcm_cmd.op == DECRYPT_DEK512_COMB))
-          begin
-          nxt_combo_dek512 = upsizer_gcm_eof;
-          end
-          {fifo_in.op,fifo_in.pt} = {FIFO_XOR_AES,upsizer_gcm_data};
-          end
-        endcase
-       end
-     end
-    SEND_LEN:
-     begin
-      if (( !ciph_fifo_in_stall ))
-       begin
-        ciph_in_vld = 1'b1;
-        ciph_in = {iv_counter[32'sd127:32'sd32],32'b01};
-        fifo_in_vld = 1'b1;
-        fifo_in.op = MULT_LEN;
-        case (cmdfifo_gcm_cmd.op)
-         DECRYPT_DEK256:
-          fifo_in.pt = 128'b0100000000;
-         DECRYPT_DEK512:
-          fifo_in.pt = 128'b01000000000;
-         DECRYPT_DAK:
-          fifo_in.pt = 128'b0100000000;
-         DECRYPT_DAK_COMB:
-          fifo_in.pt = (combo_dek512 ? 128'b01100000000 : 128'b01000000000);
-         default:
-          fifo_in.pt = 128'b0;
-        endcase
-       end
-     end
-    SEND_DUMMY_TAG:
-     begin
-      if (( !ciph_fifo_in_stall ))
-       begin
-        if (gcm_tag_data_out_valid)
-         begin
-          ciph_in_vld = 1'b1;
-          ciph_in = 128'b0;
-          fifo_in_vld = 1'b1;
-          fifo_in.op = TAG_IGNORE;
-          fifo_in.pt = 128'b0;
-          gcm_tag_data_out_ack = 1'b1;
-         end
-       end
-     end
-    SEND_TAG:
-     begin
-      if (( !ciph_fifo_in_stall ))
-       begin
-        if (gcm_tag_data_out_valid)
-         begin
-          ciph_in_vld = 1'b1;
-          ciph_in_last = 1'b1;
-          ciph_in = 128'b0;
-          fifo_in_vld = 1'b1;
-          fifo_in.pt = {gcm_tag_data_out,32'b0};
-          case (cmdfifo_gcm_cmd.op)
-          DECRYPT_DEK256:
-          fifo_in.op = TAG_COMPARE;
-          DECRYPT_DEK512:
-          fifo_in.op = TAG_COMPARE;
-          DECRYPT_DAK:
-          fifo_in.op = TAG_COMPARE;
-          DECRYPT_DAK_COMB:
-          fifo_in.op = TAG_COMPARE;
-          default:
-          fifo_in.op = TAG_IGNORE;
-          endcase
-          gcm_cmdfifo_ack = 1'b1;
-          gcm_tag_data_out_ack = 1'b1;
-         end
-       end
-     end
-   endcase
-  end
-always 
- @(*)
-  begin
-   ciph_out_stall = 1'b0;
-   fifo_out_ack = ciph_out_vld;
-   operand_X = 128'b0;
-   operand_Y = h_value;
-   nxt_h_value = h_value;
-   nxt_auth_tag = auth_tag;
-   gcm_kdf_valid = 1'b0;
-   gcm_kdf_eof = 1'b0;
-   gcm_kdf_data = 128'b0;
-   gcm_status_data_in_valid = 1'b0;
-   gcm_status_data_in = 1'b0;
-   if (fifo_out_vld)
-    begin
-     case (fifo_out.op)
-      H_PARAM:
-       begin
-        ciph_out_stall = 1'b0;
-        if (ciph_out_vld)
-         begin
-          nxt_h_value = ciph_out;
-          nxt_auth_tag = 128'b0;
-         end
-       end
-      COPY_FIFO:
-       begin
-        ciph_out_stall = kdf_gcm_stall;
-        if (ciph_out_vld)
-         begin
-          gcm_kdf_valid = ciph_out_vld;
-          gcm_kdf_eof = fifo_out.eof;
-          gcm_kdf_data = fifo_out.pt;
-         end
-       end
-      FIFO_XOR_AES:
-       begin
-        ciph_out_stall = kdf_gcm_stall;
-        if (ciph_out_vld)
-         begin
-          gcm_kdf_valid = ciph_out_vld;
-          gcm_kdf_eof = fifo_out.eof;
-          gcm_kdf_data = (fifo_out.pt ^ ciph_out);
-          operand_X = (fifo_out.pt ^ auth_tag);
-          nxt_auth_tag = mult_out;
-         end
-       end
-      MULT_LEN:
-       begin
-        ciph_out_stall = 1'b0;
-        if (ciph_out_vld)
-         begin
-          operand_X = (fifo_out.pt ^ auth_tag);
-          nxt_auth_tag = (mult_out ^ ciph_out);
-         end
-       end
-      TAG_COMPARE:
-       begin
-        ciph_out_stall = gcm_status_data_in_stall;
-        if (ciph_out_vld)
-         begin
-          gcm_status_data_in_valid = ciph_out_vld;
-          gcm_status_data_in.tag_mismatch = 1'b0;
-         end
-       end
-      TAG_IGNORE:
-       begin
-        ciph_out_stall = gcm_status_data_in_stall;
-        if (ciph_out_vld)
-         begin
-          gcm_status_data_in_valid = ciph_out_vld;
-          gcm_status_data_in.tag_mismatch = 1'b0;
-         end
-       end
-     endcase
+     if (send_data)
+      begin
+       if (in_upsizer_valid)
+        begin
+         upsizer_out_valid = 1'b1;
+         upsizer_out_eof = in_upsizer_eof;
+         upsizer_out_data = {buffer,in_upsizer_data};
+        end
+      end
     end
   end
 endmodule

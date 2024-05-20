@@ -1,5 +1,4 @@
-DUT: xc_ncwork.apb_xactor:module
-DUT: xc_ncwork.cr_kme:module
+DUT: xc_ncwork.kme_tb:module
 DUT: xc_ncwork.my_clks:module
 DUT: IXCOM_TEMP_LIBRARY.IXC_GFIFO:module
 DUT: IXCOM_TEMP_LIBRARY.ixc_time:module

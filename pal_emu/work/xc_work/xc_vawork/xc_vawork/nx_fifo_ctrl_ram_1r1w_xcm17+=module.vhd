@@ -1,7 +1,7 @@
 architecture module of nx_fifo_ctrl_ram_1r1w_xcm17 is
   -- quickturn multiple_driver_resolution
   type DUMMY0 is array(integer range <>) of std_logic_vector(2 downto 0) ;
-  type DUMMY1 is array(integer range <>) of std_logic_vector(83 downto 0) ;
+  type DUMMY1 is array(integer range <>) of std_logic_vector(71 downto 0) ;
   -- quickturn CVASTRPROP MODULE HDLICE PROP_RANOFF TRUE
   component ixc_assign
     generic (
@@ -48,33 +48,33 @@ architecture module of nx_fifo_ctrl_ram_1r1w_xcm17 is
   end component ;
 
   signal DUMMY2 : std_logic ;
-  signal DUMMY3 : std_logic_vector(0 to 7) ;
-  signal DUMMY4 : std_logic_vector(0 to 82) ;
+  signal DUMMY3 : std_logic_vector(0 to 10) ;
+  signal DUMMY4 : std_logic_vector(0 to 70) ;
   signal DUMMY5 : std_logic ;
-  signal DUMMY6 : std_logic_vector(0 to 7) ;
+  signal DUMMY6 : std_logic_vector(0 to 10) ;
   signal DUMMY7 : std_logic ;
   signal DUMMY8 : std_logic ;
-  signal DUMMY9 : std_logic_vector(0 to 7) ;
-  signal DUMMY10 : std_logic_vector(0 to 7) ;
+  signal DUMMY9 : std_logic_vector(0 to 11) ;
+  signal DUMMY10 : std_logic_vector(0 to 11) ;
   signal DUMMY11 : std_logic ;
-  signal DUMMY12 : std_logic_vector(0 to 82) ;
+  signal DUMMY12 : std_logic_vector(0 to 70) ;
   signal DUMMY13 : std_logic ;
   signal DUMMY14 : std_logic ;
   signal _zy_sva__asrtLbl279_1_reset_or : std_logic ;
   signal _zy_sva_sf1hot_0 : std_logic ;
   signal _zyixc_port_1_0_s2hW : std_logic ;
-  signal r_used_slots : std_logic_vector(7 downto 0) ;
-  signal c_used_slots : std_logic_vector(7 downto 0) ;
-  signal r_free_slots : std_logic_vector(7 downto 0) ;
-  signal c_free_slots : std_logic_vector(7 downto 0) ;
+  signal r_used_slots : std_logic_vector(11 downto 0) ;
+  signal c_used_slots : std_logic_vector(11 downto 0) ;
+  signal r_free_slots : std_logic_vector(11 downto 0) ;
+  signal c_free_slots : std_logic_vector(11 downto 0) ;
   signal r_mem_ren_dly : std_logic_vector(2 downto 0) ;
   signal c_mem_ren_dly : std_logic_vector(2 downto 0) ;
   signal r_mem_prefetch_wptr_dly : DUMMY0(2 downto 0) ;
   signal c_mem_prefetch_wptr_dly : DUMMY0(2 downto 0) ;
-  signal r_mem_wptr : std_logic_vector(7 downto 0) ;
-  signal c_mem_wptr : std_logic_vector(7 downto 0) ;
-  signal r_mem_rptr : std_logic_vector(7 downto 0) ;
-  signal c_mem_rptr : std_logic_vector(7 downto 0) ;
+  signal r_mem_wptr : std_logic_vector(10 downto 0) ;
+  signal c_mem_wptr : std_logic_vector(10 downto 0) ;
+  signal r_mem_rptr : std_logic_vector(10 downto 0) ;
+  signal c_mem_rptr : std_logic_vector(10 downto 0) ;
   signal r_mem_empty : std_logic ;
   signal c_mem_empty : std_logic ;
   signal r_mem_full : std_logic ;
@@ -115,31 +115,31 @@ architecture module of nx_fifo_ctrl_ram_1r1w_xcm17 is
 
 begin
   _zz_strnp_0 : ixc_assign
-    generic map(W => 8)
+    generic map(W => 12)
     port map (
        used_slots
       ,r_used_slots
     ) ;
   _zz_strnp_1 : ixc_assign
-    generic map(W => 8)
+    generic map(W => 12)
     port map (
        free_slots
       ,r_free_slots
     ) ;
   _zz_strnp_2 : ixc_assign
-    generic map(W => 8)
+    generic map(W => 11)
     port map (
        mem_waddr
       ,r_mem_wptr
     ) ;
   _zz_strnp_3 : ixc_assign
-    generic map(W => 8)
+    generic map(W => 11)
     port map (
        mem_raddr
       ,r_mem_rptr
     ) ;
   _zz_strnp_4 : ixc_assign
-    generic map(W => 83)
+    generic map(W => 71)
     port map (
        mem_wdata
       ,wdata
@@ -163,13 +163,13 @@ begin
       ,mem_wen
     ) ;
   _zz_strnp_8 : ixc_assign
-    generic map(W => 8)
+    generic map(W => 11)
     port map (
        DUMMY3
       ,mem_waddr
     ) ;
   _zz_strnp_9 : ixc_assign
-    generic map(W => 83)
+    generic map(W => 71)
     port map (
        DUMMY4
       ,mem_wdata
@@ -181,7 +181,7 @@ begin
       ,mem_ren
     ) ;
   _zz_strnp_11 : ixc_assign
-    generic map(W => 8)
+    generic map(W => 11)
     port map (
        DUMMY6
       ,mem_raddr
@@ -199,13 +199,13 @@ begin
       ,full
     ) ;
   _zz_strnp_14 : ixc_assign
-    generic map(W => 8)
+    generic map(W => 12)
     port map (
        DUMMY9
       ,used_slots
     ) ;
   _zz_strnp_15 : ixc_assign
-    generic map(W => 8)
+    generic map(W => 12)
     port map (
        DUMMY10
       ,free_slots
@@ -217,7 +217,7 @@ begin
       ,rerr
     ) ;
   _zz_strnp_17 : ixc_assign
-    generic map(W => 83)
+    generic map(W => 71)
     port map (
        DUMMY12
       ,rdata
@@ -278,16 +278,16 @@ begin
   process --:o143
   (**) -- always_comb
     variable v_prefetch_full : std_logic ;
-    variable c_mem_wptr_DUMMY0 : std_logic_vector(7 downto 0) ;
-    variable c_mem_rptr_DUMMY1 : std_logic_vector(7 downto 0) ;
+    variable c_mem_wptr_DUMMY0 : std_logic_vector(10 downto 0) ;
+    variable c_mem_rptr_DUMMY1 : std_logic_vector(10 downto 0) ;
     variable c_prefetch_full_DUMMY2 : std_logic ;
     variable prefetch_wen_DUMMY3 : std_logic ;
     variable prefetch_lden_bypass_DUMMY4 : std_logic_vector(2 downto 0) ;
     variable prefetch_lden_mem_DUMMY5 : std_logic_vector(2 downto 0) ;
     variable mem_ren_DUMMY6 : std_logic ;
     variable DUMMY19 : integer ;
-    variable DUMMY20 : std_logic_vector(1 to 84) ;
-    variable DUMMY21 : std_logic_vector(1 to 84) ;
+    variable DUMMY20 : std_logic_vector(1 to 72) ;
+    variable DUMMY21 : std_logic_vector(1 to 72) ;
     variable DUMMY22 : integer ;
   begin
     c_mem_wptr_DUMMY0 := c_mem_wptr;
@@ -316,9 +316,9 @@ begin
       c_prefetch_full_DUMMY2 := '0' ;
       if ((empty = '0')) then
         c_used_slots <= ext((ext(r_used_slots,32) - std_logic_vector'
-        ("00000000000000000000000000000001")),8) ;
+        ("00000000000000000000000000000001")),12) ;
         c_free_slots <= ext((ext(r_free_slots,32) + std_logic_vector'
-        ("00000000000000000000000000000001")),8) ;
+        ("00000000000000000000000000000001")),12) ;
         c_prefetch_depth <= ext((ext(r_prefetch_depth,32) - std_logic_vector'
         ("00000000000000000000000000000001")),2) ;
         if (ext(r_prefetch_rptr,32) = std_logic_vector'
@@ -341,11 +341,11 @@ begin
     if (((v_prefetch_full = '0') and (r_mem_empty = '0'))) then
       mem_ren_DUMMY6 := '1' ;
       if (ext(r_mem_rptr,32) = std_logic_vector'
-      ("00000000000000000000000010100111")) then
-        c_mem_rptr_DUMMY1 := "00000000" ;
+      ("00000000000000000000011111111111")) then
+        c_mem_rptr_DUMMY1 := "00000000000" ;
       else
         c_mem_rptr_DUMMY1 := ext((ext(r_mem_rptr,32) + std_logic_vector'
-        ("00000000000000000000000000000001")),8) ;
+        ("00000000000000000000000000000001")),11) ;
       end if;
       c_mem_full <= '0' ;
       if (c_mem_rptr_DUMMY1 = r_mem_wptr) then
@@ -368,11 +368,11 @@ begin
         else
           mem_wen <= '1' ;
           if (ext(r_mem_wptr,32) = std_logic_vector'
-          ("00000000000000000000000010100111")) then
-            c_mem_wptr_DUMMY0 := "00000000" ;
+          ("00000000000000000000011111111111")) then
+            c_mem_wptr_DUMMY0 := "00000000000" ;
           else
             c_mem_wptr_DUMMY0 := ext((ext(r_mem_wptr,32) + std_logic_vector'
-            ("00000000000000000000000000000001")),8) ;
+            ("00000000000000000000000000000001")),11) ;
           end if;
           c_mem_empty <= '0' ;
           if (c_mem_wptr_DUMMY0 = c_mem_rptr_DUMMY1) then
@@ -384,9 +384,9 @@ begin
           c_free_slots <= r_free_slots ;
         else
           c_used_slots <= ext((ext(r_used_slots,32) + std_logic_vector'
-          ("00000000000000000000000000000001")),8) ;
+          ("00000000000000000000000000000001")),12) ;
           c_free_slots <= ext((ext(r_free_slots,32) - std_logic_vector'
-          ("00000000000000000000000000000001")),8) ;
+          ("00000000000000000000000000000001")),12) ;
         end if;
       else
         overflow <= '1' ;
@@ -416,14 +416,14 @@ begin
     if (((std_logic'('1'))='1' and (prefetch_lden_mem_DUMMY5(conv_integer
     (r_prefetch_rptr)))='1')) then
       DUMMY20 := std_logic_vector'(mem_ecc_error & mem_rdata) ;
-      rdata <= DUMMY20(2 to 84) ;
+      rdata <= DUMMY20(2 to 72) ;
       rerr <= DUMMY20(1) ;
       if (ren = '1') then
         prefetch_lden_mem_DUMMY5 := "000" ;
       end if;
     else
       DUMMY21 := r_prefetch_data(conv_integer(r_prefetch_rptr)) ;
-      rdata <= DUMMY21(2 to 84) ;
+      rdata <= DUMMY21(2 to 72) ;
       rerr <= DUMMY21(1) ;
     end if;
     c_prefetch_data <= r_prefetch_data ;
@@ -431,9 +431,9 @@ begin
       if (((prefetch_lden_bypass_DUMMY4(DUMMY22))='1' or 
       (prefetch_lden_mem_DUMMY5(DUMMY22))='1')) then
         c_prefetch_data(DUMMY22) <= ((it_multiple_concat
-        (prefetch_lden_bypass_DUMMY4(DUMMY22),84) and std_logic_vector'
+        (prefetch_lden_bypass_DUMMY4(DUMMY22),72) and std_logic_vector'
         (std_logic'('0') & wdata)) or (it_multiple_concat
-        (prefetch_lden_mem_DUMMY5(DUMMY22),84) and std_logic_vector'
+        (prefetch_lden_mem_DUMMY5(DUMMY22),72) and std_logic_vector'
         (mem_ecc_error & mem_rdata))) ;
       end if;
     end loop;
@@ -442,11 +442,11 @@ begin
       c_prefetch_empty <= '1' ;
       c_prefetch_wptr <= "001" ;
       c_mem_ren_dly <= "000" ;
-      c_used_slots <= "00000000" ;
-      c_free_slots <= "10101011" ;
+      c_used_slots <= "000000000000" ;
+      c_free_slots <= "100000000011" ;
       c_mem_full <= '0' ;
-      c_mem_rptr_DUMMY1 := "00000000" ;
-      c_mem_wptr_DUMMY0 := "00000000" ;
+      c_mem_rptr_DUMMY1 := "00000000000" ;
+      c_mem_wptr_DUMMY0 := "00000000000" ;
       c_prefetch_depth <= "00" ;
       c_prefetch_full_DUMMY2 := '0' ;
       c_prefetch_rptr <= "00" ;
@@ -467,15 +467,15 @@ begin
       r_mem_empty <= '1' ;
       r_prefetch_empty <= '1' ;
       r_prefetch_wptr <= "001" ;
-      r_free_slots <= "10101011" ;
+      r_free_slots <= "100000000011" ;
       r_mem_full <= '0' ;
       r_mem_ren_dly <= "000" ;
-      r_mem_rptr <= "00000000" ;
-      r_mem_wptr <= "00000000" ;
+      r_mem_rptr <= "00000000000" ;
+      r_mem_wptr <= "00000000000" ;
       r_prefetch_depth <= "00" ;
       r_prefetch_full <= '0' ;
       r_prefetch_rptr <= "00" ;
-      r_used_slots <= "00000000" ;
+      r_used_slots <= "000000000000" ;
     elsif (clk'event and clk = '1') then
       r_mem_ren_dly <= c_mem_ren_dly ;
       r_mem_empty <= c_mem_empty ;

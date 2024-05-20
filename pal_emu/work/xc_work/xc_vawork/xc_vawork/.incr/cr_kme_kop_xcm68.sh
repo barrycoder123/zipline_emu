@@ -1,6 +1,6 @@
 `begin_keywords "1800-2012"
 module cr_kme_kop_xcm68 ( kme_internal_out_ack, key_tlv_ob_wr, key_tlv_ob_tlv, set_gcm_tag_fail_int, clk, rst_n, scan_en, scan_mode, scan_rst_n, labels, kme_internal_out, kme_internal_out_valid, key_tlv_ob_full, key_tlv_ob_afull, kop_fifo_override, kdf_test_key_size, kdf_test_mode_en );
-parameter CCEIP_ENCRYPT_KOP = 1 ;
+parameter CCEIP_ENCRYPT_KOP = 0 ;
 typedef enum reg  [7 : 0] {RQE=0,CMD=1,KEY=2,PHD=3,PFD=4,DATA_UNK=5,FTR=6,LZ77=7,STAT=8,CQE=9,GUID=10,FRMD_USER_NULL=11,FRMD_USER_PI16=12,FRMD_USER_PI64=13,FRMD_USER_VM=14,FRMD_INT_APP=15,FRMD_INT_SIP=16,FRMD_INT_LIP=17,FRMD_INT_VM=18,DATA=19,CR_IV=20,AUX_CMD=21,FRMD_INT_VM_SHORT=22,AUX_CMD_IV=23,AUX_CMD_GUID=24,AUX_CMD_GUID_IV=25,SCH=26,RSV_TLV=255} tlv_types_e ;
 typedef struct packed {logic insert ; logic [12 : 0] ordern ; tlv_types_e typen ; logic sot ; logic eot ; logic tlast ; logic [0 : 0] tid ; logic [7 : 0] tstrb ; logic [7 : 0] tuser ; logic [63 : 0] tdata ;} tlvp_if_bus_t ;
 typedef struct packed {logic [0 : 0] guid_size ; logic [5 : 0] label_size ; logic [255 : 0] label ; logic [0 : 0] delimiter_valid ; logic [7 : 0] delimiter ;} label_t ;

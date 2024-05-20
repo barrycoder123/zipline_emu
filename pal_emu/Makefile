@@ -6,6 +6,7 @@ HWFILES         = -f scripts/kme.vlist
 HWTOP           = cr_kme
 TBTOP			= kme_tb
 DUT_INST 		= kme_dut
+PAL_TOP  		= tb_top
 DV_ROOT		    = /home/ibarry/Project-Zipline-master/dv
 RTL_ROOT        = /home/ibarry/Project-Zipline-master/rtl
 
@@ -37,11 +38,13 @@ clk_gen :
 	@ixclkgen -input $(CLOCK_OPTS) -o $(CLOCK_TOP).sv -module $(CLOCK_TOP) -timescale 1ps/1ps
 
 vlan : clk_gen
-	@vlan -$(BITS) $(VLAN_OPTS) $(HWFILES) -l vlan.log
+	@vlan -$(BITS) $(VLAN_OPTS) -incdir $(DV_ROOT)/KME/run $(HWFILES) -l vlan.log
 
 ixcom : vlan
 	#@ixcom -$(BITS) $(IXCOM_OPTS) -top $(HWTOP) -top $(CLOCK_TOP) -top $(APB) +dut+$(HWTOP)+$(CLOCK_TOP)+$(APB) +xcDesignTop+$(TBTOP).$(DUT_INST)=$(HWTOP) +gfifoDisp+$(TBTOP)+$(APB) -l ixcom.log 
-	@ixcom -$(BITS) $(IXCOM_OPTS) -top $(TBTOP) -top $(CLOCK_TOP) +dut+$(HWTOP)+$(CLOCK_TOP)+$(APB) +gfifoDisp+$(TBTOP)+$(APB) -l ixcom.log 
+	#@ixcom -$(BITS) $(IXCOM_OPTS) -top $(PAL_TOP) -top $(TBTOP) -top $(CLOCK_TOP) +dut+$(HWTOP)+$(CLOCK_TOP) +gfifoDisp+$(TBTOP) -l ixcom.log 
+	@ixcom -$(BITS) $(IXCOM_OPTS) -top $(PAL_TOP) -top $(CLOCK_TOP) +1xua +dut+$(TBTOP)+$(HWTOP)+$(CLOCK_TOP)+$(APB) +gfifoDisp+$(TBTOP)+$(PAL_TOP) -l ixcom.log
+	#@ixcom -$(BITS) $(IXCOM_OPTS) -top $(PAL_TOP) -top $(CLOCK_TOP) +dut+$(TBTOP)+$(HWTOP)+$(CLOCK_TOP)+$(APB) +gfifoDisp+$(TBTOP)+$(PAL_TOP) -l ixcom.log
 
 xrun : ixcom 
 	@xrun -vtimescale 1ns/1ns -c $(DV_ROOT)/KME/run/$(TBTOP).sv -top $(TBTOP) -dpi -sv_lib libdpi.so -f xc_work/$(SIMULATOR).f -incdir $(RTL_ROOT)/common/include

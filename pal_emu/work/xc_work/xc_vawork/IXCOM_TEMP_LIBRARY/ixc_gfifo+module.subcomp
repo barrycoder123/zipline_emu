@@ -6,4 +6,6 @@
 /ixcEcmHoldOtb
 /IXC_SV_GFIFO
 /IXC_SV_SFIFO
+/gfifo_conns
+/sfifo_conns
 /ifsyn_conns

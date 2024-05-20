@@ -1,3 +1,3 @@
 V O S afull_r
 V O S aempty_r
-P O nx_fifo_ram_1r1w_xcm13 ram_fifo.u_nx_fifo_ram_1r1w ./xc_work/xc_vawork/xc_vawork/nx_fifo_ram_1r1w_xcm13
+P O nx_fifo_xcm20 reg_fifo.u_nx_fifo ./xc_work/xc_vawork/xc_vawork/nx_fifo_xcm20

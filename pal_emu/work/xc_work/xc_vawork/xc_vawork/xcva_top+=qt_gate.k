@@ -1,7 +1,7 @@
 
 module xcva_top ;
 //pragma CVASTRPROP MODULE SKELETON MODULEINFO "0.000000"
-kme_tb kme_tb ();
+tb_top tb_top ();
 my_clks my_clks ();
 IXC_GFIFO IXC_GFIFO ();
 ixc_time ixc_time ();

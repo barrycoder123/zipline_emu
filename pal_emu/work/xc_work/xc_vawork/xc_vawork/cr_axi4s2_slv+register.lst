@@ -1,3 +1,3 @@
 V O V axi4s_slv_datain SIZE=83
 V O S axi4s_slv_wen
-P O cr_fifo_wrap2_xcm11 u_cr_fifo_wrap2 ./xc_work/xc_vawork/xc_vawork/cr_fifo_wrap2_xcm11
+P O cr_fifo_wrap2_xcm12 u_cr_fifo_wrap2 ./xc_work/xc_vawork/xc_vawork/cr_fifo_wrap2_xcm12

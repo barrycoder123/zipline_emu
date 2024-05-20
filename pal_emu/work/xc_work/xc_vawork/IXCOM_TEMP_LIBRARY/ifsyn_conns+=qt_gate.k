@@ -3,8 +3,6 @@ module ifsyn_conns ;
 //pragma CVASTRPROP MODULE SKELETON MODULEINFO "0.000000"
 ixc_assign isfasgn_0_0_0 ();
 ixc_assign osfasgn_0_0_0 ();
-ixc_assign isfasgn_0_1_1 ();
-ixc_assign osfasgn_0_1_1 ();
 ixc_assign osfasgn_1_0_0 ();
 ixc_assign osfasgn_1_1_0 ();
 ixc_assign osfasgn_1_2_0 ();

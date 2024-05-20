@@ -35733,7 +35733,7 @@ nx_reg_indirect_access u_SA_CTRL ( .stat_code(
 	\sa_ctrl_rst_dat[0][5] , \sa_ctrl_rst_dat[0][4] , 
 	\sa_ctrl_rst_dat[0][3] , \sa_ctrl_rst_dat[0][2] , 
 	\sa_ctrl_rst_dat[0][1] , \sa_ctrl_rst_dat[0][0] }));
-nx_roreg_indirect_access_xcm129 u_SA_COUNT ( .stat_code( 
+nx_roreg_indirect_access_xcm130 u_SA_COUNT ( .stat_code( 
 	_zy_simnet_sa_count_ia_status_783_w$[0:2]), .stat_datawords( 
 	_zy_simnet_sa_count_ia_status_784_w$[0:4]), .stat_addr( 
 	_zy_simnet_sa_count_ia_status_785_w$[0:4]), .capability_lst( 
@@ -36428,7 +36428,7 @@ nx_roreg_indirect_access_xcm129 u_SA_COUNT ( .stat_code(
 	\sa_count[0][7] , \sa_count[0][6] , \sa_count[0][5] , 
 	\sa_count[0][4] , \sa_count[0][3] , \sa_count[0][2] , 
 	\sa_count[0][1] , \sa_count[0][0] }));
-nx_roreg_indirect_access_xcm130 u_SA_SNAPSHOT ( .stat_code( 
+nx_roreg_indirect_access_xcm131 u_SA_SNAPSHOT ( .stat_code( 
 	_zy_simnet_sa_snapshot_ia_status_772_w$[0:2]), .stat_datawords( 
 	_zy_simnet_sa_snapshot_ia_status_773_w$[0:4]), .stat_addr( 
 	_zy_simnet_sa_snapshot_ia_status_774_w$[0:4]), .capability_lst( 
@@ -37263,7 +37263,7 @@ cr_kme_drbg_reggen drbg_register_gen ( .set_drbg_expired_int(
 	_zy_simnet_o_kdf_drbg_seed_1_state_value_95_64_717_w$[0:31]), 
 	.seed0_invalidate( seed0_invalidate), .seed1_invalidate( 
 	seed1_invalidate));
-nx_ram_1rw_indirect_access_xcm122 kim_indirect_access ( .clk( clk), .rst_n( 
+nx_ram_1rw_indirect_access_xcm123 kim_indirect_access ( .clk( clk), .rst_n( 
 	rst_n), .reg_addr( _zy_simnet_reg_addr_663_w$[0:10]), .cmnd_op( 
 	_zy_simnet_kim_cmnd_op_664_w$[0:3]), .cmnd_addr( 
 	_zy_simnet_kim_cmnd_addr_665_w$[0:13]), .stat_code( 
@@ -37284,7 +37284,7 @@ nx_ram_1rw_indirect_access_xcm122 kim_indirect_access ( .clk( clk), .rst_n(
 	.hw_bwe( _zy_simnet_cio_680[0:37]), .hw_cs( kim_rd), .hw_din( 
 	_zy_simnet_cio_681[0:37]), .hw_dout( _zy_simnet_kim_dout_682_w$[0:37]), 
 	.hw_yield( _zy_simnet_dio_683));
-nx_ram_1rw_indirect_access_xcm123 ckv_indirect_access ( .clk( clk), .rst_n( 
+nx_ram_1rw_indirect_access_xcm124 ckv_indirect_access ( .clk( clk), .rst_n( 
 	rst_n), .reg_addr( _zy_simnet_reg_addr_643_w$[0:10]), .cmnd_op( 
 	_zy_simnet_ckv_cmnd_op_644_w$[0:3]), .cmnd_addr( 
 	_zy_simnet_ckv_cmnd_addr_645_w$[0:14]), .stat_code( 
@@ -37399,7 +37399,7 @@ cr_kme_regfile_glue regfile_glue ( .ckv_cmnd_op(
 	cddip_decrypt_bimc_osync), .cddip_decrypt_bimc_odat( 
 	cddip_decrypt_bimc_odat), .axi_bimc_osync( axi_bimc_osync), 
 	.axi_bimc_odat( axi_bimc_odat));
-nx_interface_monitor_xcm97 u_nx_interface_monitor_cddip3 ( .stat_code( 
+nx_interface_monitor_xcm98 u_nx_interface_monitor_cddip3 ( .stat_code( 
 	_zy_simnet_cddip3_out_ia_status_556_w$[0:2]), .stat_datawords( 
 	_zy_simnet_cddip3_out_ia_status_557_w$[0:4]), .stat_addr( 
 	_zy_simnet_cddip3_out_ia_status_558_w$[0:8]), .capability_lst( 
@@ -37424,7 +37424,7 @@ nx_interface_monitor_xcm97 u_nx_interface_monitor_cddip3 ( .stat_code(
 	_zy_simnet_cddip3_im_vld_577_w$), .im_consumed( 
 	_zy_simnet_im_consumed_kme_cddip3_578_w$[0:1]), .im_config( 
 	_zy_simnet_cddip3_out_im_config_579_w$[0:11]));
-nx_interface_monitor_xcm98 u_nx_interface_monitor_cddip2 ( .stat_code( 
+nx_interface_monitor_xcm99 u_nx_interface_monitor_cddip2 ( .stat_code( 
 	_zy_simnet_cddip2_out_ia_status_532_w$[0:2]), .stat_datawords( 
 	_zy_simnet_cddip2_out_ia_status_533_w$[0:4]), .stat_addr( 
 	_zy_simnet_cddip2_out_ia_status_534_w$[0:8]), .capability_lst( 
@@ -37449,7 +37449,7 @@ nx_interface_monitor_xcm98 u_nx_interface_monitor_cddip2 ( .stat_code(
 	_zy_simnet_cddip2_im_vld_553_w$), .im_consumed( 
 	_zy_simnet_im_consumed_kme_cddip2_554_w$[0:1]), .im_config( 
 	_zy_simnet_cddip2_out_im_config_555_w$[0:11]));
-nx_interface_monitor_xcm99 u_nx_interface_monitor_cddip1 ( .stat_code( 
+nx_interface_monitor_xcm100 u_nx_interface_monitor_cddip1 ( .stat_code( 
 	_zy_simnet_cddip1_out_ia_status_508_w$[0:2]), .stat_datawords( 
 	_zy_simnet_cddip1_out_ia_status_509_w$[0:4]), .stat_addr( 
 	_zy_simnet_cddip1_out_ia_status_510_w$[0:8]), .capability_lst( 
@@ -37474,7 +37474,7 @@ nx_interface_monitor_xcm99 u_nx_interface_monitor_cddip1 ( .stat_code(
 	_zy_simnet_cddip1_im_vld_529_w$), .im_consumed( 
 	_zy_simnet_im_consumed_kme_cddip1_530_w$[0:1]), .im_config( 
 	_zy_simnet_cddip1_out_im_config_531_w$[0:11]));
-nx_interface_monitor_xcm100 u_nx_interface_monitor_cddip0 ( .stat_code( 
+nx_interface_monitor_xcm101 u_nx_interface_monitor_cddip0 ( .stat_code( 
 	_zy_simnet_cddip0_out_ia_status_484_w$[0:2]), .stat_datawords( 
 	_zy_simnet_cddip0_out_ia_status_485_w$[0:4]), .stat_addr( 
 	_zy_simnet_cddip0_out_ia_status_486_w$[0:8]), .capability_lst( 
@@ -37499,7 +37499,7 @@ nx_interface_monitor_xcm100 u_nx_interface_monitor_cddip0 ( .stat_code(
 	_zy_simnet_cddip0_im_vld_505_w$), .im_consumed( 
 	_zy_simnet_im_consumed_kme_cddip0_506_w$[0:1]), .im_config( 
 	_zy_simnet_cddip0_out_im_config_507_w$[0:11]));
-nx_interface_monitor_xcm101 u_nx_interface_monitor_cceip3 ( .stat_code( 
+nx_interface_monitor_xcm102 u_nx_interface_monitor_cceip3 ( .stat_code( 
 	_zy_simnet_cceip3_out_ia_status_460_w$[0:2]), .stat_datawords( 
 	_zy_simnet_cceip3_out_ia_status_461_w$[0:4]), .stat_addr( 
 	_zy_simnet_cceip3_out_ia_status_462_w$[0:8]), .capability_lst( 
@@ -37524,7 +37524,7 @@ nx_interface_monitor_xcm101 u_nx_interface_monitor_cceip3 ( .stat_code(
 	_zy_simnet_cceip3_im_vld_481_w$), .im_consumed( 
 	_zy_simnet_im_consumed_kme_cceip3_482_w$[0:1]), .im_config( 
 	_zy_simnet_cceip3_out_im_config_483_w$[0:11]));
-nx_interface_monitor_xcm102 u_nx_interface_monitor_cceip2 ( .stat_code( 
+nx_interface_monitor_xcm103 u_nx_interface_monitor_cceip2 ( .stat_code( 
 	_zy_simnet_cceip2_out_ia_status_436_w$[0:2]), .stat_datawords( 
 	_zy_simnet_cceip2_out_ia_status_437_w$[0:4]), .stat_addr( 
 	_zy_simnet_cceip2_out_ia_status_438_w$[0:8]), .capability_lst( 
@@ -37549,7 +37549,7 @@ nx_interface_monitor_xcm102 u_nx_interface_monitor_cceip2 ( .stat_code(
 	_zy_simnet_cceip2_im_vld_457_w$), .im_consumed( 
 	_zy_simnet_im_consumed_kme_cceip2_458_w$[0:1]), .im_config( 
 	_zy_simnet_cceip2_out_im_config_459_w$[0:11]));
-nx_interface_monitor_xcm103 u_nx_interface_monitor_cceip1 ( .stat_code( 
+nx_interface_monitor_xcm104 u_nx_interface_monitor_cceip1 ( .stat_code( 
 	_zy_simnet_cceip1_out_ia_status_412_w$[0:2]), .stat_datawords( 
 	_zy_simnet_cceip1_out_ia_status_413_w$[0:4]), .stat_addr( 
 	_zy_simnet_cceip1_out_ia_status_414_w$[0:8]), .capability_lst( 
@@ -37574,7 +37574,7 @@ nx_interface_monitor_xcm103 u_nx_interface_monitor_cceip1 ( .stat_code(
 	_zy_simnet_cceip1_im_vld_433_w$), .im_consumed( 
 	_zy_simnet_im_consumed_kme_cceip1_434_w$[0:1]), .im_config( 
 	_zy_simnet_cceip1_out_im_config_435_w$[0:11]));
-nx_interface_monitor_xcm104 u_nx_interface_monitor_cceip0 ( .stat_code( 
+nx_interface_monitor_xcm105 u_nx_interface_monitor_cceip0 ( .stat_code( 
 	_zy_simnet_cceip0_out_ia_status_388_w$[0:2]), .stat_datawords( 
 	_zy_simnet_cceip0_out_ia_status_389_w$[0:4]), .stat_addr( 
 	_zy_simnet_cceip0_out_ia_status_390_w$[0:8]), .capability_lst( 

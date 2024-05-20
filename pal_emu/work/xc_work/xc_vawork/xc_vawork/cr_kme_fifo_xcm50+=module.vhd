@@ -4,7 +4,7 @@ architecture module of cr_kme_fifo_xcm50 is
   component nx_fifo_xcm25
     generic (
       DEPTH : integer := 4 ;
-      WIDTH : integer := 611 ;
+      WIDTH : integer := 1 ;
       DATA_RESET : integer := 1 ;
       UNDERFLOW_ASSERT : integer := 1 ;
       OVERFLOW_ASSERT : integer := 1
@@ -16,13 +16,13 @@ architecture module of cr_kme_fifo_xcm50 is
       overflow : out std_logic ;
       used_slots : out std_logic_vector(2 downto 0) ;
       free_slots : out std_logic_vector(2 downto 0) ;
-      rdata : out std_logic_vector(610 downto 0) ;
+      rdata : out std_logic_vector(0 downto 0) ;
       clk : in std_logic := 'X' ;
       rst_n : in std_logic := 'X' ;
       wen : in std_logic := 'X' ;
       ren : in std_logic := 'X' ;
       clear : in std_logic := 'X' ;
-    wdata : in std_logic_vector(610 downto 0) := (others => 'X') ) ;
+    wdata : in std_logic_vector(0 downto 0) := (others => 'X') ) ;
   end component ;
 
   signal ren : std_logic ;

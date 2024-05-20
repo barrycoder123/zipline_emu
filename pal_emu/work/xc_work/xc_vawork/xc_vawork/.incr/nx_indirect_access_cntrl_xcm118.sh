@@ -1,8 +1,8 @@
 `begin_keywords "1800-2012"
 module nx_indirect_access_cntrl_xcm118 ( clk, rst_n, wr_stb, reg_addr, cmnd_op, cmnd_addr, cmnd_table_id, stat_code, stat_datawords, stat_addr, stat_table_id, capability_lst, capability_type, enable, addr_limit, wr_dat, rd_dat, sw_cs, sw_ce, sw_we, sw_add, sw_wdat, sw_rdat, sw_match, sw_aindex, grant, yield, reset );
 parameter MEM_TYPE = 4'b0 ;
-parameter CMND_ADDRESS = 11'b010000000 ;
-parameter STAT_ADDRESS = 11'b01110000 ;
+parameter CMND_ADDRESS = 11'b010110000 ;
+parameter STAT_ADDRESS = 11'b010100000 ;
 parameter ALIGNMENT = 2 ;
 parameter N_TIMER_BITS = 6 ;
 parameter N_REG_ADDR_BITS = 11 ;

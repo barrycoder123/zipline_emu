@@ -1,47 +1,47 @@
 INFO (legacy-0): pass1: clearAllStep() in standalone dbgPrepare, isLSF is 0, isNC is 0, isSpawn is 1
 INFO (legacy-0): dbgPrepstatus file get cleared
-INFO (legacy-0): updatePass1Stat status: 0, pid_t: 3495415
+INFO (legacy-0): updatePass1Stat status: 0, pid_t: 3891889
 dbgPrepare - 23H1_VXE, V23.03.131.s001            
 
 dbgPrepare pre-selected instances top N = 10000
 INFO (legacy-39111): Opening PDB hdldb xcva_top (of=0).
-INFO (legacy-0): 30302 critical net names have been restored: elapsed time 0 sec
-INFO (legacy-0): strtab(segs and data) has been restored: elapsed time 0 sec
+INFO (legacy-0): 47849 critical net names have been restored: elapsed time 0 sec
+INFO (legacy-0): strtab(segs and data) has been restored: elapsed time 1 sec
 INFO (legacy-0): sigmap has been restored: elapsed time 0 sec
-INFO (legacy-0): 1396 cells have been restored: elapsed time 1 sec
-INFO (legacy-0): 243428 smTrNets have been restored: elapsed time 0 sec
-INFO (legacy-0): 233212 smTrPrims have been restored: elapsed time 0 sec
-INFO (legacy-0): flat-conns have been restored: elapsed time 0 sec
-INFO (legacy-0): 967639 synonyms have been setup: elapsed time 0 sec
+INFO (legacy-0): 1439 cells have been restored: elapsed time 0 sec
+INFO (legacy-0): 546222 smTrNets have been restored: elapsed time 0 sec
+INFO (legacy-0): 530301 smTrPrims have been restored: elapsed time 0 sec
+INFO (legacy-0): flat-conns have been restored: elapsed time 1 sec
+INFO (legacy-0): 1307961 synonyms have been setup: elapsed time 0 sec
 INFO (legacy-0): smNetIDs have been setup: elapsed time 0 sec
 INFO (legacy-0): CRT-FULL has been restored: elapsed time 0 sec
-ConstructInfoFile 117 cells (2907 constructs) which has 2706 records 72 arrays 155401 name size.
+ConstructInfoFile 117 cells (2907 constructs) which has 2706 records 72 arrays 155403 name size.
 INFO (legacy-45793): Collected construct info.
 WARNING (legacy-55183): Mode 'FV' detected, dsnGen only support FV and CP mode.
-INFO (legacy-0): pass1: start to prepare memory,current time is Thu May  2 13:45:10 2024
-INFO (legacy-0): pass1: start to prepare ucdb,current time is Thu May  2 13:45:10 2024
-INFO (legacy-0): pass1: start to prepare swfv, current time is Thu May  2 13:45:10 2024 
+INFO (legacy-0): pass1: start to prepare memory,current time is Mon May 20 11:37:57 2024
+INFO (legacy-0): pass1: start to prepare ucdb,current time is Mon May 20 11:37:57 2024
+INFO (legacy-0): pass1: start to prepare swfv, current time is Mon May 20 11:37:57 2024 
 INFO (legacy-0): Reading BIN ucdb
 building swfv DB...
 INFO (legacy-0): #PPC partitions = 1
-INFO (legacy-0): maxPDBnets 243429 #FD01s 53984 #PIprobes 9332 #FFprobes 38351
-INFO (legacy-73921): Created sourceless net sidefile, total nets 2 (#3:36, #2:51710, #1:30479, #0:71030, 243429)
-total 31498 FF, 9248 PI, 153628 Comb, 142 back-to-back FF in PDB
-INFO (legacy-0): pass1: finish preparing memory, current time is Thu May  2 13:45:10 2024, Elapsed time 0.14 real, 0.86 cpu(0.8u+0.06s), 614%, memory 3530M
+INFO (legacy-0): maxPDBnets 546223 #FD01s 100965 #PIprobes 15644 #FFprobes 65072
+INFO (legacy-73921): Created sourceless net sidefile, total nets 2 (#3:1635, #2:13148, #1:13140, #0:453191, 546223)
+INFO (legacy-0): pass1: finish preparing memory, current time is Mon May 20 11:37:57 2024, Elapsed time 0.16 real, 2.15 cpu(2.03u+0.12s), 1344%, memory 4425M
 INFO (legacy-1): setStepDone: memory
 INFO (legacy-1): Start to write back to dbgPrepStatus
 INFO (legacy-0): pass1: finish memory preparing
-INFO (legacy-0): pass1: finish preparing ucdb, current time is Thu May  2 13:45:10 2024, Elapsed time 0.22 real, 1.08 cpu(1.01u+0.07s), 491%, memory 3530M
+INFO (legacy-0): pass1: finish preparing ucdb, current time is Mon May 20 11:37:57 2024, Elapsed time 0.22 real, 2.32 cpu(2.2u+0.12s), 1055%, memory 4425M
 INFO (legacy-1): setStepDone: ucdb
 INFO (legacy-1): Start to write back to dbgPrepStatus
+total 77574 FF, 15623 PI, 401711 Comb, 1635 back-to-back FF in PDB
 INFO (legacy-0): Total Wire Cap = 0.000000(pf)
 INFO (legacy-0): Total Pin Cap = 0.000000(pf)
-INFO (legacy-0): Full swfvDB details: #FF = 31498, #PI = 9248, #Gates = 194378
-INFO (legacy-54218): The number of comb is 153628, the number of breaking points is 0
-INFO (legacy-54218): Find breaking points total time 0.01 real, 0.01 cpu(0.01u+0s), 100%, memory 8691M
-INFO (legacy-26751): Created swfvIdset with 194232 fv nets in 0.000000 seconds, 1.253422 bits/id, skipped 146 artificial nets.
+INFO (legacy-0): Full swfvDB details: #FF = 77574, #PI = 15623, #Gates = 494912
+INFO (legacy-54218): The number of comb is 401711, the number of breaking points is 0
+INFO (legacy-54218): Find breaking points total time 0.03 real, 0.06 cpu(0.05u+0.01s), 200%, memory 9089M
 INFO (legacy-26752): Created dccMaskFilePass1 in 0.000000 seconds.
-INFO (legacy-0): pass1: finish preparing swfvDB, current time is Thu May  2 13:45:11 2024, Elapsed time 0.71 real, 3.1 cpu(2.22u+0.88s), 437%, memory 8905M
+INFO (legacy-26751): Created swfvIdset with 493273 fv nets in 0.000000 seconds, 1.107376 bits/id, skipped 1639 artificial nets.
+INFO (legacy-0): pass1: finish preparing swfvDB, current time is Mon May 20 11:37:58 2024, Elapsed time 1.14 real, 4.86 cpu(4.47u+0.39s), 426%, memory 9254M
 INFO (legacy-1): setStepDone: swfvDB
 INFO (legacy-1): Start to write back to dbgPrepStatus
 INFO (legacy-0): pass1: finish swfvDB preparing
@@ -55,9 +55,9 @@ INFO (legacy-1): Start to write back to dbgPrepStatus
 INFO (legacy-0): pass1: finish abart preparing
 INFO (legacy-1): setStepDone: dccmaskmd5
 INFO (legacy-1): Start to write back to dbgPrepStatus
-INFO (legacy-0): pass1: calculate dccMaskFilePass1 md5sum takes 0.010000 seconds.
+INFO (legacy-0): pass1: calculate dccMaskFilePass1 md5sum takes 0.020000 seconds.
 INFO (legacy-1): setStepDone: memorymd5
 INFO (legacy-1): Start to write back to dbgPrepStatus
 INFO (legacy-0): pass1: calculate memInfo_pass1 md5sum takes 0.010000 seconds.
 INFO (dbgPrep-1052): dbgPrepare done.
-INFO (legacy-0): updatePass1Stat status: 1, pid_t: 3495415
+INFO (legacy-0): updatePass1Stat status: 1, pid_t: 3891889

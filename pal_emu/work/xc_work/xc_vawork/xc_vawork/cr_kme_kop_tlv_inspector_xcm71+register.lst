@@ -1,0 +1,113 @@
+V O S kek_tag_q
+V O V dek_ckv_length_q SIZE=2
+V O S corrupt_crc32
+V O S rst_corrupt_crc32
+V O S rst_corrupt_kme_error_bit_0
+V O S corrupt_kme_error_bit_0
+V O S kdf_dek_iter
+V O V gcm_dak_tag SIZE=96
+V O V gcm_dek_tag SIZE=96
+V O S skip_dak_kdf
+V O S skip_dek_kdf
+V O V gcm_dak_cmd_in SIZE=611
+V O V gcm_dek_cmd_in SIZE=611
+V O V stream_cmd_in SIZE=263
+U O V _zy_sva_brcm_kdf_label25_32_33_cpass
+U O V _zy_sva_brcm_kdf_label25_32_33_ccheck
+U O V _zy_sva_brcm_kdf_label17_24_32_cpass
+U O V _zy_sva_brcm_kdf_label17_24_32_ccheck
+U O V _zy_sva_brcm_kdf_label9_16_31_cpass
+U O V _zy_sva_brcm_kdf_label9_16_31_ccheck
+U O V _zy_sva_brcm_kdf_label0_8_30_cpass
+U O V _zy_sva_brcm_kdf_label0_8_30_ccheck
+U O V _zy_sva_brcm_kdf_label25_32_29_cpass
+U O V _zy_sva_brcm_kdf_label25_32_29_ccheck
+U O V _zy_sva_brcm_kdf_label17_24_28_cpass
+U O V _zy_sva_brcm_kdf_label17_24_28_ccheck
+U O V _zy_sva_brcm_kdf_label9_16_27_cpass
+U O V _zy_sva_brcm_kdf_label9_16_27_ccheck
+U O V _zy_sva_brcm_kdf_label0_8_26_cpass
+U O V _zy_sva_brcm_kdf_label0_8_26_ccheck
+U O V _zy_sva_brcm_kdf_label25_32_25_cpass
+U O V _zy_sva_brcm_kdf_label25_32_25_ccheck
+U O V _zy_sva_brcm_kdf_label17_24_24_cpass
+U O V _zy_sva_brcm_kdf_label17_24_24_ccheck
+U O V _zy_sva_brcm_kdf_label9_16_23_cpass
+U O V _zy_sva_brcm_kdf_label9_16_23_ccheck
+U O V _zy_sva_brcm_kdf_label0_8_22_cpass
+U O V _zy_sva_brcm_kdf_label0_8_22_ccheck
+U O V _zy_sva_brcm_kdf_label25_32_21_cpass
+U O V _zy_sva_brcm_kdf_label25_32_21_ccheck
+U O V _zy_sva_brcm_kdf_label17_24_20_cpass
+U O V _zy_sva_brcm_kdf_label17_24_20_ccheck
+U O V _zy_sva_brcm_kdf_label9_16_19_cpass
+U O V _zy_sva_brcm_kdf_label9_16_19_ccheck
+U O V _zy_sva_brcm_kdf_label0_8_18_cpass
+U O V _zy_sva_brcm_kdf_label0_8_18_ccheck
+U O V _zy_sva_brcm_gcm_17_cpass
+U O V _zy_sva_brcm_gcm_17_ccheck
+U O V _zy_sva_brcm_gcm_16_cpass
+U O V _zy_sva_brcm_gcm_16_ccheck
+U O V _zy_sva_brcm_gcm_15_cpass
+U O V _zy_sva_brcm_gcm_15_ccheck
+U O V _zy_sva_brcm_gcm_14_cpass
+U O V _zy_sva_brcm_gcm_14_ccheck
+U O V _zy_sva_brcm_gcm_13_cpass
+U O V _zy_sva_brcm_gcm_13_ccheck
+U O V _zy_sva_brcm_gcm_12_cpass
+U O V _zy_sva_brcm_gcm_12_ccheck
+U O V _zy_sva_brcm_gcm_11_cpass
+U O V _zy_sva_brcm_gcm_11_ccheck
+U O V _zy_sva_brcm_gcm_10_cpass
+U O V _zy_sva_brcm_gcm_10_ccheck
+U O V _zy_sva_brcm_tlv_sb_stall_on_guid_9_cpass
+U O V _zy_sva_brcm_tlv_sb_stall_on_guid_9_ccheck
+U O V _zy_sva_brcm_gcm_enc_dek512_comb_no_kbk_8_cpass
+U O V _zy_sva_brcm_gcm_enc_dek512_comb_no_kbk_8_ccheck
+U O V _zy_sva_brcm_gcm_enc_dek256_comb_no_kbk_7_cpass
+U O V _zy_sva_brcm_gcm_enc_dek256_comb_no_kbk_7_ccheck
+U O V _zy_sva_brcm_gcm_enc_dek512_no_kbk_6_cpass
+U O V _zy_sva_brcm_gcm_enc_dek512_no_kbk_6_ccheck
+U O V _zy_sva_brcm_gcm_enc_dek256_no_kbk_5_cpass
+U O V _zy_sva_brcm_gcm_enc_dek256_no_kbk_5_ccheck
+U O V _zy_sva_brcm_gcm_dek512dak_with_512bit_key_4_cpass
+U O V _zy_sva_brcm_gcm_dek512dak_with_512bit_key_4_ccheck
+U O V _zy_sva_brcm_gcm_dek256dak_with_512bit_key_3_cpass
+U O V _zy_sva_brcm_gcm_dek256dak_with_512bit_key_3_ccheck
+U O V _zy_sva_brcm_gcm_dek512_with_512bit_key_2_cpass
+U O V _zy_sva_brcm_gcm_dek512_with_512bit_key_2_ccheck
+U O V _zy_sva_brcm_gcm_dek256_with_512bit_key_1_cpass
+U O V _zy_sva_brcm_gcm_dek256_with_512bit_key_1_ccheck
+P O ixc_sample_logic_1_3 _zz_zy_sva_b0 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O ixc_sample_logic_1_3 _zz_zy_sva_b1 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O ixc_sample_logic_1_3 _zz_zy_sva_b2 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O ixc_sample_logic_1_3 _zz_zy_sva_b3 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O ixc_sample_logic_1_3 _zz_zy_sva_b4 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O ixc_sample_logic_1_3 _zz_zy_sva_b5 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O ixc_sample_logic_1_3 _zz_zy_sva_b6 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O ixc_sample_logic_1_3 _zz_zy_sva_b7 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O ixc_sample_logic_1_3 _zz_zy_sva_b8 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O ixc_sample_logic_1_3 _zz_zy_sva_b9 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O ixc_sample_logic_1_3 _zz_zy_sva_b10 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O ixc_sample_logic_1_3 _zz_zy_sva_b11 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O ixc_sample_logic_1_3 _zz_zy_sva_b12 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O ixc_sample_logic_1_3 _zz_zy_sva_b13 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O ixc_sample_logic_1_3 _zz_zy_sva_b14 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O ixc_sample_logic_1_3 _zz_zy_sva_b15 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O ixc_sample_logic_1_3 _zz_zy_sva_b16 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O ixc_sample_logic_1_3 _zz_zy_sva_b17 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O ixc_sample_logic_1_3 _zz_zy_sva_b18 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O ixc_sample_logic_1_3 _zz_zy_sva_b19 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O ixc_sample_logic_1_3 _zz_zy_sva_b20 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O ixc_sample_logic_1_3 _zz_zy_sva_b21 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O ixc_sample_logic_1_3 _zz_zy_sva_b22 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O ixc_sample_logic_1_3 _zz_zy_sva_b23 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O ixc_sample_logic_1_3 _zz_zy_sva_b24 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O ixc_sample_logic_1_3 _zz_zy_sva_b25 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O ixc_sample_logic_1_3 _zz_zy_sva_b26 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O ixc_sample_logic_1_3 _zz_zy_sva_b27 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O ixc_sample_logic_1_3 _zz_zy_sva_b28 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O ixc_sample_logic_1_3 _zz_zy_sva_b29 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O ixc_sample_logic_1_3 _zz_zy_sva_b30 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O ixc_sample_logic_1_3 _zz_zy_sva_b31 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3
+P O ixc_sample_logic_1_3 _zz_zy_sva_b32 ./xc_work/xc_vawork/IXCOM_TEMP_LIBRARY/ixc_sample_logic_1_3

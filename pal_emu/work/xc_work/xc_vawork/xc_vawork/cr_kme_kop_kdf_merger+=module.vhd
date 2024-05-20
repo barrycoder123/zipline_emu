@@ -8,7 +8,7 @@ architecture module of cr_kme_kop_kdf_merger is
     R : in std_logic_vector((W - 1) downto 0) := (others => 'X') ) ;
   end component ;
 
-  component cr_kme_fifo_xcm51
+  component cr_kme_fifo_xcm52
     generic (
       DATA_SIZE : integer := 128 ;
       FIFO_DEPTH : integer := 3 ;
@@ -1275,7 +1275,7 @@ begin
       ,fifo_out_ack
     ) ;
   _zy_simnet_cio_10 <= '0' ;
-  downsizer_fifo : cr_kme_fifo_xcm51
+  downsizer_fifo : cr_kme_fifo_xcm52
     port map (
        fifo_in_stall => fifo_in_stall
       ,fifo_out => fifo_out

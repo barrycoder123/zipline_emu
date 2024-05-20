@@ -1,4 +1,4 @@
-00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et3lib' on 05/02/2024 13:45:10
+00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et3lib' on 05/20/2024 11:37:56
 00 DATABASE | Parms: '-client'
 00 ET3LIB   |                                    
 00 ET3LIB   |                              ET3 LIBRARY
@@ -8,19 +8,19 @@
 00 ET3LIB   |            See files in <rootdir>/share/vxe/install/Copyrights
 00 ET3LIB   |                                    
 00 ET3LIB   | ET3lib created on Aug  3 2023 at 22:13:09.
-00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et3lib' (Elapsed time 0.00s (0.00u+0.00s), Memory used 1307 Mb) on 05/02/2024 13:45:10
-00 DATABASE | Calling 'ldproto' on 05/02/2024 13:45:10
+00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et3lib' (Elapsed time 0.00s (0.00u+0.00s), Memory used 1307 Mb) on 05/20/2024 11:37:56
+00 DATABASE | Calling 'ldproto' on 05/20/2024 11:37:56
 00 DATABASE | Parms: 'qt2dadb -modular -rename xcva_top'
-00 DATABASE | Reading file './dbFiles/qt2dadb.ffproto' created on Thu May  2 13:45:06 2024
+00 DATABASE | Reading file './dbFiles/qt2dadb.ffproto' created on Mon May 20 11:37:51 2024
 00 DATABASE | 
-00 DATABASE | Proto size = 1191166
-Info: 241296 ffDB nets have been restored
-Info: 233211 ffDB boxes have been restored
-00 DATABASE | Return from 'ldproto' (Elapsed time 0.13s (0.08u+0.02s), Memory used 1429 Mb) on 05/02/2024 13:45:10
-00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et3confg' on 05/02/2024 13:45:10
-00 DATABASE | Parms: '-client xcva_top -seed 271448396 -reserve_epc 63 -compilerEffort 991010 -visionMode FV -num_cycles_per_capture_frame 32'
+00 DATABASE | Proto size = 2586083
+Info: 543424 ffDB nets have been restored
+Info: 530300 ffDB boxes have been restored
+00 DATABASE | Return from 'ldproto' (Elapsed time 0.36s (0.20u+0.07s), Memory used 2015 Mb) on 05/20/2024 11:37:57
+00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et3confg' on 05/20/2024 11:37:57
+00 DATABASE | Parms: '-client xcva_top -seed 262034294 -reserve_epc 63 -compilerEffort 991010 -visionMode FV -num_cycles_per_capture_frame 32'
 00 ET3CONFG | Default SA Protocol - Classic
-00 ET3CONFG | DBI's P5 limit (90% utilization): 33177, DBIs in CTL: 249 (max index: 249), DBO's P5 limit (90% utilization) 88473, DBO in CTL: 322 (max index: 322)
+00 ET3CONFG | DBI's P5 limit (90% utilization): 33177, DBIs in CTL: 72 (max index: 72), DBO's P5 limit (90% utilization) 88473, DBO in CTL: 147 (max index: 147)
 00 ET3CONFG | THIS IS /lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/bin/64bit/xeCompile RUNNING.
 00 ET3CONFG | Reading configuration from ./dbFiles/xcva_top.et3confg
 00 ET3CONFG |                       ET6 CONFIGURATION MANAGER
@@ -33,13 +33,13 @@ Info: 233211 ffDB boxes have been restored
 00 ET3CONFG | et6confg created on Aug  3 2023 at 22:13:09.
 00 ET3CONFG | Reading configuration file "./dbFiles/xcva_top.et3confg"
 00 ET3CONFG | --> USING LD8 CLUSTER TABLES
-00 ET3CONFG | ***** MB/XB wire table initialization took 0.001857 seconds.
+00 ET3CONFG | ***** MB/XB wire table initialization took 0.000755 seconds.
 00 ET3CONFG | ***** Found 0000000  MBO->MBI  possible links in this configuration.
 00 ET3CONFG | ***** HIGHEST board found in emulation configuration is 0
 00 ET3CONFG | load_module_version()          = 30
 00 ET3CONFG | num_cycles_per_capture_frame   = 32
 00 ET3CONFG | das_protocol()                 = 5
-00 ET3CONFG | COMPILED ON 05/02/2024 AT 13:45:10
+00 ET3CONFG | COMPILED ON 05/20/2024 AT 11:37:57
 00 ET3CONFG | +   1 BOARD ET6E
 00 ET3CONFG | +   1 MEMORY_CARD_V1
 00 ET3CONFG | +   1 MEMORY_CARD_V1  on BOARD 0
@@ -58,7 +58,7 @@ Info: 233211 ffDB boxes have been restored
 00 ET3CONFG | 
 00 ET3CONFG | Running in little-endian mode
 00 ET3CONFG | BEDB loaded client memutil
-00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/omlib' on 05/02/2024 13:45:10
+00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/omlib' on 05/20/2024 11:37:57
 00 DATABASE | Parms: ''
 00 OMLIB    |                                    
 00 OMLIB    |                           VXE, VEngineering
@@ -68,7 +68,7 @@ Info: 233211 ffDB boxes have been restored
 00 OMLIB    |                                    
 00 OMLIB    | omlib created on Aug  3 2023 at 22:05:33
 00 OMLIB    | 
-00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/omlib' (Elapsed time 0.00s (0.00u+0.00s), Memory used 1429 Mb) on 05/02/2024 13:45:10
+00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/omlib' (Elapsed time 0.00s (0.00u+0.00s), Memory used 2015 Mb) on 05/20/2024 11:37:57
 00 ET3CONFG |                                    
 00 ET3CONFG |                           VXE, VEngineering
 00 ET3CONFG |             Copyright(C) 1995-2021, Cadence Design Systems
@@ -79,8 +79,8 @@ Info: 233211 ffDB boxes have been restored
 00 ET3CONFG | SCschedlib created on Aug  3 2023 at 22:13:09
 00 ET3CONFG | 
 00 ET3CONFG | BEDB loaded client SCschedlib
-00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et3confg' (Elapsed time 0.05s (0.02u+0.01s), Memory used 1431 Mb) on 05/02/2024 13:45:10
-00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et6ctl' on 05/02/2024 13:45:10
+00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et3confg' (Elapsed time 0.46s (0.02u+0.01s), Memory used 2015 Mb) on 05/20/2024 11:37:57
+00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et6ctl' on 05/20/2024 11:37:57
 00 DATABASE | Parms: ''
 00 ET6CTL   | reading compOptions file
 00 ET6CTL   | Number of valid option entries for module etctl = 0
@@ -101,15 +101,15 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00 ET6CTL   | Reading "./dbFiles/xcva_top.ctl"
 00 ET6CTL   | 
 00 ET6CTL   | Handling Target IO related sections...
-00 ET6CTL   | ---> (BOARD 00) breakpoint box ET6_XBOB_141 created for ep 141 step 0 net 162928 (QTLA%break)
+00 ET6CTL   | ---> (BOARD 00) breakpoint box ET6_XBOB_141 created for ep 141 step 0 net 496747 (QTLA%break)
 00 ET6CTL   | Handling DAS CARD related sections...
 00 ET6CTL   | Found ECM_DONE interrupt signal xc_top._ET3_COMPILER_RESERVED_NAME_ORION_INTERRUPT_
 00 ET6CTL   | Generated ECM_READY signal _ET3_COMPILER_RESERVED_NAME_ORION_INTERRUPT_DELAYED_ONE_CYCLE_
 00 ET6CTL   | Generated DBI_APPLY_Q signal DBI_APPLY_ONE_CYCLE_DELAYED
 00 ET6CTL   | Found slow mode control signals and inserted appropriate control on DBI_APPLY
 00 ET6CTL   | Found DBI_APPLY sink signal xc_top._ET3_COMPILER_RESERVED_NAME_DBI_APPLY_
-00 ET6CTL   | Found 250 DBI signals: 2 direct, 248 regular, 0 F/R/D
-00 ET6CTL   | Found 321 DBO signals: 0 direct, 321 regular
+00 ET6CTL   | Found 73 DBI signals: 2 direct, 71 regular, 0 F/R/D
+00 ET6CTL   | Found 146 DBO signals: 0 direct, 146 regular
 00 ET6CTL   | compilerOption nullTargetPullValue is detected. Virtual pull control logic will be instrumented
 00 ET6CTL   | 
 00 ET6CTL   | Handling ADC sync group section...
@@ -123,10 +123,10 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00 ET6CTL   | Validating output sync group dependencies...
 00 ET6CTL   | See file xcva_top.ctl_file_info for additional informational messages during processing of xcva_top.ctl
 00 ET6CTL   | Partition utilization:
-00 ET6CTL   | 	DBI utilization: 250/36864 (0.0%)
-00 ET6CTL   | 	DBO utilization: 321/98304 (0.0%)
-00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et6ctl' (Elapsed time 0.05s (0.02u+0.00s), Memory used 1440 Mb) on 05/02/2024 13:45:10
-00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et5nlopt' on 05/02/2024 13:45:10
+00 ET6CTL   | 	DBI utilization: 73/36864 (0.0%)
+00 ET6CTL   | 	DBO utilization: 146/98304 (0.0%)
+00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et6ctl' (Elapsed time 0.07s (0.04u+0.01s), Memory used 2015 Mb) on 05/20/2024 11:37:57
+00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et5nlopt' on 05/20/2024 11:37:57
 00 DATABASE | Parms: '-retiming ON'
 00 ET5NLOPT |                                    
 00 ET5NLOPT |                         ET5 NETLIST OPTIMIZER
@@ -170,23 +170,23 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00 ET5NLOPT | Number of valid option entries for module alumap = 0
 00 ET5NLOPT | TCAM slices: 0
 00 ET5NLOPT | TCAM utilization:  0.00 %
-00 ET5NLOPT | Found 80248 keep nets and set 0 box group.
-00 ET5NLOPT | Tied 4524 undefined inputs to GROUND.
+00 ET5NLOPT | Found 168452 keep nets and set 0 box group.
+00 ET5NLOPT | Tied 12459 undefined inputs to GROUND.
 00 ET5NLOPT | Palladium Z1 configuration detected.
 00 ET5NLOPT | ----------------------------------------------
 00 ET5NLOPT | "ALU optimizer" started...
 00 ET5NLOPT | File "xcva_top.aluRules" not found, use default options.
-00 ET5NLOPT | Done FW logic levelization on 234123 boxes, max logic level = 151, in 0.027 seconds
+00 ET5NLOPT | Done FW logic levelization on 530684 boxes, max logic level = 228, in 0.116 seconds
 00 ET5NLOPT | 
-00 ET5NLOPT | Removed 8493 redundant boxes
+00 ET5NLOPT | Removed 33284 redundant boxes
 00 ET5NLOPT | Removed 72 complex redundant boxes
 00 ET5NLOPT | Simplified 0 mux-of-muxes with common selector
-00 ET5NLOPT | Swapped 1723 sets of selectors and inputs of mux-of-muxes
-00 ET5NLOPT | Maximum mux transformations = 9223372036854775807, boxes size = 234123
-00 ET5NLOPT | Muxes simplified 0, transformation 5070 (107 with mismatched level)
-00 ET5NLOPT | Muxes broken 64, tranformed = 5070, muxes swapped = 1723
-00 ET5NLOPT | Mux optimization reduced logical levels from 151 to 137
-00 ET5NLOPT | Done FW logic levelization on 220488 boxes, max logic level = 137, in 0.024 seconds
+00 ET5NLOPT | Swapped 3572 sets of selectors and inputs of mux-of-muxes
+00 ET5NLOPT | Maximum mux transformations = 9223372036854775807, boxes size = 530684
+00 ET5NLOPT | Muxes simplified 0, transformation 14189 (215 with mismatched level)
+00 ET5NLOPT | Muxes broken 148, tranformed = 14189, muxes swapped = 3572
+00 ET5NLOPT | Mux optimization reduced logical levels from 228 to 226
+00 ET5NLOPT | Done FW logic levelization on 483139 boxes, max logic level = 226, in 0.104 seconds
 00 ET5NLOPT | 
 00 ET5NLOPT | Using level dependency vector for propagation order
 00 ET5NLOPT | CBL option is 2
@@ -195,7 +195,7 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00 ET5NLOPT | Transformed 0 (0 selfloop) do not touch boxes into DELAY boxes
 00 ET5NLOPT | Saved memloop bits for 0 memory ports
 00 ET5NLOPT | marked 0 nets as transitional logic and set as keepnet before CBL
-00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et5cbl' on 05/02/2024 13:45:10
+00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et5cbl' on 05/20/2024 11:37:59
 00 DATABASE | Parms: '-O2'
 00 ET5CBL   | 
 00 ET5CBL   |                        CBL Netlist Optimizer
@@ -205,16 +205,16 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00 ET5CBL   |             Copyright(C) 1995-2021, Cadence Design Systems
 00 ET5CBL   |                          All rights reserved
 00 ET5CBL   | 
-00 ET5CBL   | ---- ET5CBL: Parameters: -O2                          ---- (Time: 0.00 s   Mem: 1537.88 MB)
+00 ET5CBL   | ---- ET5CBL: Parameters: -O2                          ---- (Time: 0.00 s   Mem: 1879.47 MB)
 00 ET5CBL   | ==== ET5CBL: compiled: Aug  3 2023 (22:05:58)
-00 ET5CBL   | ==== ET5CBL: run     : May  2 2024 (13:45:10) on host hsv-sc49
+00 ET5CBL   | ==== ET5CBL: run     : May 20 2024 (11:37:59) on host hsv-sc49
 00 ET5CBL   | ==== ET5CBL: optimization level: 2
-00 ET5CBL   | ---- ET5CBL: Cleaning up database                     ---- (Time: 0.00 s   Mem: 1537.88 MB)
-00 ET5CBL   | WARNING! Connected 8923 logic gate inputs to LOW with net attribute GROUND
-00 ET5CBL   | WARNING! Connected 1689 logic gate inputs to HIGH with net attribute POWER.
+00 ET5CBL   | ---- ET5CBL: Cleaning up database                     ---- (Time: 0.01 s   Mem: 1879.47 MB)
+00 ET5CBL   | WARNING! Connected 10207 logic gate inputs to LOW with net attribute GROUND
+00 ET5CBL   | WARNING! Connected 16466 logic gate inputs to HIGH with net attribute POWER.
 00 ET5CBL   | Found 0 boxes with non-zero box flags
 00 ET5CBL   | Saved 0 net properties
-00 ET5CBL   | ---- ET5CBL: Partitioning database into 4 parts       ---- (Time: 0.02 s   Mem: 1537.88 MB)
+00 ET5CBL   | ---- ET5CBL: Partitioning database into 4 parts       ---- (Time: 0.08 s   Mem: 1879.47 MB)
 00 ET5CBL   | Initializing XMETIS engine.
 00 ET5CBL   | XMETIS created on Aug  3 2023 at 22:05:50
 00 ET5CBL   | METIS is Copyright 1997, Regents of the University of Minnesota
@@ -222,422 +222,292 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00 ET5CBL   | creating metis_seed_key
 00 ET5CBL   | Size of idx = 4
 00 ET5CBL   | 
-00 ET5CBL   | >> partitioned 220435 vertices in 4 parts with seed 94583 and result edge cuts = 4593
-00 ET5CBL   | >>    part 0: vertices = 57014
-00 ET5CBL   | >>    part 1: vertices = 54571
-00 ET5CBL   | >>    part 2: vertices = 53844
-00 ET5CBL   | >>    part 3: vertices = 55006
-00 ET5CBL   | ---- ET5CBL: Maximum 4 threads to run concurrently    ---- (Time: 0.33 s   Mem: 1560.13 MB)
-00 ET5CBL   | Created 3554 PI/PO groups on cross-partition signals
-00 ET5CBL   | ---- ET5CBL: Converting database to netlists          ---- (Time: 0.38 s   Mem: 1560.13 MB)
+00 ET5CBL   | >> partitioned 482979 vertices in 4 parts with seed 94583 and result edge cuts = 13365
+00 ET5CBL   | >>    part 0: vertices = 120633
+00 ET5CBL   | >>    part 1: vertices = 117848
+00 ET5CBL   | >>    part 2: vertices = 123349
+00 ET5CBL   | >>    part 3: vertices = 121149
+00 ET5CBL   | ---- ET5CBL: Maximum 4 threads to run concurrently    ---- (Time: 0.80 s   Mem: 1924.32 MB)
+00 ET5CBL   | Created 9283 PI/PO groups on cross-partition signals
+00 ET5CBL   | ---- ET5CBL: Converting database to netlists          ---- (Time: 0.98 s   Mem: 1924.32 MB)
 00 ET5CBL   | Found box keyword BOX_LEVELS, size = 4 bytes
 00 ET5CBL   | Altogether found 1 box keywords
-00 ET5CBL   | >> Probes stored: 10218 IO, 39664 FF probes.
+00 ET5CBL   | >> Probes stored: 16602 IO, 67368 FF probes.
 00 ET5CBL   | >> Number of boxes with non-zero box_flags = 0
-00 ET5CBL   | >> Number of nonzero box keywords saved = 206233
-00 ET5CBL   | ---- ET5CBL: Clearing database                        ---- (Time: 0.65 s   Mem: 1597.27 MB)
+00 ET5CBL   | >> Number of nonzero box keywords saved = 460721
+00 ET5CBL   | ---- ET5CBL: Clearing database                        ---- (Time: 1.70 s   Mem: 2008.52 MB)
 00          | 
 00          | ==========================================================================================================
-00          | ---- ET5CBL: Thread 0: Started                        ---- (Time: 0.73 s   Mem: 1597.27 MB)
-00          | >>     #Gates=88691  (#Lut=35160  #PadR=1154  #PadW=1204  #MemR=12  #MemW=37  #Pin=11389  #Loop=8724  #FD01=12892  #Force=18117)  #Garb=1
-00          | ---- ET5CBL: Thread 0: Adding name listener           ---- (Time: 0.75 s   Mem: 1597.27 MB)
-00          | ---- ET5CBL: Thread 0: Checking iterator consistency  ---- (Time: 0.78 s   Mem: 1597.27 MB)
-00          | ---- ET5CBL: Thread 0: Expanding LUTs into ANDs       ---- (Time: 0.82 s   Mem: 1597.27 MB)
-00          | ---- ET5CBL: Thread 0: Removing redundant logic       ---- (Time: 1.58 s   Mem: 1628.93 MB)
-00          | ---- ET5CBL: Thread 0: Rewriting DAG-aware netlist    ---- (Time: 1.68 s   Mem: 1628.93 MB)
+00          | ---- ET5CBL: Thread 0: Started                        ---- (Time: 1.94 s   Mem: 2008.52 MB)
+00          | >>     #Gates=202355  (#Lut=87074  #PadR=2444  #PadW=2858  #MemR=15  #MemW=52  #Pin=27233  #Loop=3428  #FD01=29914  #Force=49335)  #Garb=1
+00          | ---- ET5CBL: Thread 0: Adding name listener           ---- (Time: 2.04 s   Mem: 2008.52 MB)
+00          | ---- ET5CBL: Thread 0: Checking iterator consistency  ---- (Time: 2.07 s   Mem: 2008.52 MB)
+00          | ---- ET5CBL: Thread 0: Expanding LUTs into ANDs       ---- (Time: 2.31 s   Mem: 2008.52 MB)
+00          | ---- ET5CBL: Thread 0: Removing redundant logic       ---- (Time: 4.69 s   Mem: 2008.52 MB)
+00          | ---- ET5CBL: Thread 0: Rewriting DAG-aware netlist    ---- (Time: 4.94 s   Mem: 2008.52 MB)
 00          | >>     Minimizing:
-00          | >>     Reduction in #ANDs:  5.90 %
-00          | >>     Core shrink time  : 1.47 s
+00          | >>     Reduction in #ANDs:  9.40 %
+00          | >>     Core shrink time  : 3.64 s
 00          | >>     Globally redundant: 0
-00          | ---- ET5CBL: Thread 0: Technology mapping             ---- (Time: 3.21 s   Mem: 1628.93 MB)
+00          | ---- ET5CBL: Thread 0: Technology mapping             ---- (Time: 8.82 s   Mem: 2072.52 MB)
 00          | >> ========================================
 00          | >> ==         TECHNOLOGY MAPPING         ==
 00          | >> ========================================
 00          | >>
-00          | >> Netlist stats.: #Gates=122689  (#And=69158  #PadR=1154  #PadW=1204  #MemR=12  #MemW=37  #Pin=11389  #Loop=8724  #FD01=12892  #Force=18117)  #Garb=1
-00          | >> Initialization: 0.04 s
+00          | >> Netlist stats.: #Gates=282250  (#And=166969  #PadR=2444  #PadW=2858  #MemR=15  #MemW=52  #Pin=27233  #Loop=3428  #FD01=29914  #Force=49335)  #Garb=1
+00          | >> Initialization: 0.12 s
 00          | >>
 00          | >>     Iter  |  2-Luts   3-Luts   4-Luts   |    Total     Wires   Delay
 00          | >>     ------+-----------------------------+---------------------------
-00          | >>        0  |    2164     8339    14753   |    25256     88357      47    (Time: 0.15 s)
-00          | >>        1  |    2529     9122    10807   |    22458     75652      56    (Time: 0.02 s)
-00          | >>        2  |    2276     8887    11011   |    22174     75257      56    (Time: 0.02 s)
+00          | >>        0  |    5359    22564    32684   |    60607    209146      80    (Time: 0.54 s)
+00          | >>        1  |    7067    23631    24780   |    55478    184147      96    (Time: 0.20 s)
+00          | >>        2  |    6500    23104    25333   |    54937    183644      96    (Time: 0.20 s)
 00          | >>
 00          | >> Instantiating LUTs.
 00          | >> Eliminating negations.
-00          | >>   -- added 107 LUTs
+00          | >>   -- added 146 LUTs
 00          | >> Packing 4-MUXes.
-00          | >>   -- 0 rewrites, saving 0 gates (= 0.00 % reduction)
-00          | >> Netlist stats.: #Gates=75812  (#Lut=22281  #PadR=1154  #PadW=1204  #MemR=12  #MemW=37  #Pin=11389  #Loop=8724  #FD01=12892  #Force=18117)  #Garb=1
-00          | >> Techmap CPU Time: 0.25 s
-00          | ---- ET5CBL: Thread 0: Eliminating forcible gates     ---- (Time: 3.46 s   Mem: 1628.93 MB)
-00          |   -- Forcible logic not leading to duplication : 2390
-00          |   -- Forcible flops not leading to duplication : 13660
-00          |   -- Forcible gates leading to duplication     : 6
-00          |   -- Forcible buffers inserted after non-logic : 2061 (superfluous: 1784)
-00          |   -- Forcible buffers inserted after constants : 0
-00          |   -- Forcible buffers stacked due to keep-nets : 284
-00          | ---- ET5CBL: Thread 0: Recreating final database      ---- (Time: 3.48 s   Mem: 1628.93 MB)
-00          | >> Names preserved through simplification: 44463 / 56165  (= 79.2 %)
-00          | >> Probes restored: 1889 IO, 11507 FF probes.
+00          | >>   -- 36 rewrites, saving 36 gates (= 0.02 % reduction)
+00          | >> Netlist stats.: #Gates=170328  (#Lut=55047  #PadR=2444  #PadW=2858  #MemR=15  #MemW=52  #Pin=27233  #Loop=3428  #FD01=29914  #Force=49335)  #Garb=1
+00          | >> Techmap CPU Time: 1.38 s
+00          | ---- ET5CBL: Thread 0: Eliminating forcible gates     ---- (Time: 10.20 s   Mem: 2264.52 MB)
+00          |   -- Forcible logic not leading to duplication : 14548
+00          |   -- Forcible flops not leading to duplication : 25212
+00          |   -- Forcible gates leading to duplication     : 260
+00          |   -- Forcible buffers inserted after non-logic : 4585 (superfluous: 3485)
+00          |   -- Forcible buffers inserted after constants : 4730
+00          |   -- Forcible buffers stacked due to keep-nets : 3216
+00          | ---- ET5CBL: Thread 0: Recreating final database      ---- (Time: 10.29 s   Mem: 2200.52 MB)
+00          | >> Names preserved through simplification: 100139 / 121930  (= 82.1 %)
+00          | >> Probes restored: 5071 IO, 17525 FF probes.
 00          | >> Boxes with non-zero flags restored = 0
 00          | >> Restoring box keyword BOX_LEVELS
-00          | >> Box keyword BOX_LEVELS has 42629 non-zero values restored
-00          | >> Removed 453 superflous buffers added for forcible boxes
-00          | >> IO boxes found: 2358, keepnet info fixed: 146
-00          | >>     #Gates=59762  (#Lut=24348  #PadR=1154  #PadW=1204  #MemR=12  #MemW=37  #Pin=11389  #Loop=8724  #FD01=12892)  #Garb=18118
-00          | ---- ET5CBL: Thread 0: Disposing netlist              ---- (Time: 3.51 s   Mem: 1628.93 MB)
+00          | >> Box keyword BOX_LEVELS has 85272 non-zero values restored
+00          | >> Removed 1048 superflous buffers added for forcible boxes
+00          | >> IO boxes found: 5302, keepnet info fixed: 229
+00          | >>     #Gates=130568  (#Lut=64622  #PadR=2444  #PadW=2858  #MemR=15  #MemW=52  #Pin=27233  #Loop=3428  #FD01=29914)  #Garb=49336
+00          | ---- ET5CBL: Thread 0: Disposing netlist              ---- (Time: 10.58 s   Mem: 2168.49 MB)
 00          | 
 00          | ==========================================================================================================
-00          | ---- ET5CBL: Thread 1: Started                        ---- (Time: 0.73 s   Mem: 1597.27 MB)
-00          | >>     #Gates=93087  (#Lut=31568  #PadR=1402  #PadW=945  #MemR=14  #MemW=29  #Pin=13617  #Loop=6510  #FD01=16088  #Force=22912)  #Garb=1
-00          | ---- ET5CBL: Thread 1: Adding name listener           ---- (Time: 0.75 s   Mem: 1597.27 MB)
-00          | ---- ET5CBL: Thread 1: Checking iterator consistency  ---- (Time: 0.76 s   Mem: 1597.27 MB)
-00          | ---- ET5CBL: Thread 1: Expanding LUTs into ANDs       ---- (Time: 0.81 s   Mem: 1597.27 MB)
-00          | ---- ET5CBL: Thread 1: Removing redundant logic       ---- (Time: 1.34 s   Mem: 1613.10 MB)
-00          | ---- ET5CBL: Thread 1: Rewriting DAG-aware netlist    ---- (Time: 1.43 s   Mem: 1628.93 MB)
+00          | ---- ET5CBL: Thread 1: Started                        ---- (Time: 1.94 s   Mem: 2008.52 MB)
+00          | >>     #Gates=204591  (#Lut=85976  #PadR=3733  #PadW=1592  #MemR=15  #MemW=39  #Pin=30070  #Loop=3116  #FD01=28688  #Force=51360)  #Garb=1
+00          | ---- ET5CBL: Thread 1: Adding name listener           ---- (Time: 2.04 s   Mem: 2008.52 MB)
+00          | ---- ET5CBL: Thread 1: Checking iterator consistency  ---- (Time: 2.07 s   Mem: 2008.52 MB)
+00          | ---- ET5CBL: Thread 1: Expanding LUTs into ANDs       ---- (Time: 2.30 s   Mem: 2008.52 MB)
+00          | ---- ET5CBL: Thread 1: Removing redundant logic       ---- (Time: 4.68 s   Mem: 2008.52 MB)
+00          | ---- ET5CBL: Thread 1: Rewriting DAG-aware netlist    ---- (Time: 4.93 s   Mem: 2008.52 MB)
 00          | >>     Minimizing:
-00          | >>     Reduction in #ANDs:  6.57 %
-00          | >>     Core shrink time  : 1.48 s
+00          | >>     Reduction in #ANDs:  6.05 %
+00          | >>     Core shrink time  : 3.31 s
 00          | >>     Globally redundant: 0
-00          | ---- ET5CBL: Thread 1: Technology mapping             ---- (Time: 2.98 s   Mem: 1628.93 MB)
+00          | ---- ET5CBL: Thread 1: Technology mapping             ---- (Time: 8.45 s   Mem: 2072.52 MB)
 00          | >> ========================================
 00          | >> ==         TECHNOLOGY MAPPING         ==
 00          | >> ========================================
 00          | >>
-00          | >> Netlist stats.: #Gates=113219  (#And=51700  #PadR=1402  #PadW=945  #MemR=14  #MemW=29  #Pin=13617  #Loop=6510  #FD01=16088  #Force=22912)  #Garb=1
-00          | >> Initialization: 0.04 s
+00          | >> Netlist stats.: #Gates=304150  (#And=185535  #PadR=3733  #PadW=1592  #MemR=15  #MemW=39  #Pin=30070  #Loop=3116  #FD01=28688  #Force=51360)  #Garb=1
+00          | >> Initialization: 0.13 s
 00          | >>
 00          | >>     Iter  |  2-Luts   3-Luts   4-Luts   |    Total     Wires   Delay
 00          | >>     ------+-----------------------------+---------------------------
-00          | >>        0  |    2433     7946     8095   |    18474     61084      43    (Time: 0.14 s)
-00          | >>        1  |    2921     8311     6047   |    17279     54963      51    (Time: 0.04 s)
-00          | >>        2  |    2600     8155     6241   |    16996     54629      51    (Time: 0.04 s)
+00          | >>        0  |    4425    20503    35764   |    60692    213415      32    (Time: 0.55 s)
+00          | >>        1  |    3519    24016    28994   |    56529    195062      37    (Time: 0.22 s)
+00          | >>        2  |    2964    23544    29552   |    56060    194768      36    (Time: 0.20 s)
 00          | >>
 00          | >> Instantiating LUTs.
 00          | >> Eliminating negations.
-00          | >>   -- added 45 LUTs
+00          | >>   -- added 23 LUTs
 00          | >> Packing 4-MUXes.
-00          | >>   -- 0 rewrites, saving 0 gates (= 0.00 % reduction)
-00          | >> Netlist stats.: #Gates=78560  (#Lut=17041  #PadR=1402  #PadW=945  #MemR=14  #MemW=29  #Pin=13617  #Loop=6510  #FD01=16088  #Force=22912)  #Garb=1
-00          | >> Techmap CPU Time: 0.32 s
-00          | ---- ET5CBL: Thread 1: Eliminating forcible gates     ---- (Time: 3.30 s   Mem: 1628.93 MB)
-00          |   -- Forcible logic not leading to duplication : 2390
-00          |   -- Forcible flops not leading to duplication : 14774
-00          |   -- Forcible gates leading to duplication     : 68
-00          |   -- Forcible buffers inserted after non-logic : 5675 (superfluous: 5206)
-00          |   -- Forcible buffers inserted after constants : 5
-00          |   -- Forcible buffers stacked due to keep-nets : 434
-00          | ---- ET5CBL: Thread 1: Recreating final database      ---- (Time: 3.51 s   Mem: 1628.93 MB)
-00          | >> Names preserved through simplification: 45644 / 56157  (= 81.3 %)
-00          | >> Probes restored: 3144 IO, 8395 FF probes.
-00          | >> Boxes with non-zero flags restored = 0
-00          | >> Restoring box keyword BOX_LEVELS
-00          | >> Box keyword BOX_LEVELS has 38120 non-zero values restored
-00          | >> Removed 508 superflous buffers added for forcible boxes
-00          | >> IO boxes found: 4705, keepnet info fixed: 317
-00          | >>     #Gates=61396  (#Lut=22789  #PadR=1402  #PadW=945  #MemR=14  #MemW=29  #Pin=13617  #Loop=6510  #FD01=16088)  #Garb=22913
-00          | ---- ET5CBL: Thread 1: Disposing netlist              ---- (Time: 3.55 s   Mem: 1621.02 MB)
-00          | 
-00          | ==========================================================================================================
-00          | ---- ET5CBL: Thread 2: Started                        ---- (Time: 0.73 s   Mem: 1597.27 MB)
-00          | >>     #Gates=87629  (#Lut=35481  #PadR=983  #PadW=313  #MemR=6  #MemW=15  #Pin=11474  #Loop=4619  #FD01=13727  #Force=21009)  #Garb=1
-00          | ---- ET5CBL: Thread 2: Adding name listener           ---- (Time: 0.75 s   Mem: 1597.27 MB)
-00          | ---- ET5CBL: Thread 2: Checking iterator consistency  ---- (Time: 0.76 s   Mem: 1597.27 MB)
-00          | ---- ET5CBL: Thread 2: Expanding LUTs into ANDs       ---- (Time: 0.80 s   Mem: 1597.27 MB)
-00          | ---- ET5CBL: Thread 2: Removing redundant logic       ---- (Time: 1.40 s   Mem: 1628.93 MB)
-00          | ---- ET5CBL: Thread 2: Rewriting DAG-aware netlist    ---- (Time: 1.48 s   Mem: 1628.93 MB)
-00          | >>     Minimizing:
-00          | >>     Reduction in #ANDs:  6.56 %
-00          | >>     Core shrink time  : 0.88 s
-00          | >>     Globally redundant: 0
-00          | ---- ET5CBL: Thread 2: Technology mapping             ---- (Time: 2.42 s   Mem: 1628.93 MB)
-00          | >> ========================================
-00          | >> ==         TECHNOLOGY MAPPING         ==
-00          | >> ========================================
-00          | >>
-00          | >> Netlist stats.: #Gates=105855  (#And=53707  #PadR=983  #PadW=313  #MemR=6  #MemW=15  #Pin=11474  #Loop=4619  #FD01=13727  #Force=21009)  #Garb=1
-00          | >> Initialization: 0.04 s
-00          | >>
-00          | >>     Iter  |  2-Luts   3-Luts   4-Luts   |    Total     Wires   Delay
-00          | >>     ------+-----------------------------+---------------------------
-00          | >>        0  |     911     8078     8703   |    17692     60868      33    (Time: 0.14 s)
-00          | >>        1  |     712     8400     7857   |    16969     58052      37    (Time: 0.05 s)
-00          | >>        2  |     583     6419     9909   |    16911     60059      37    (Time: 0.04 s)
-00          | >>
-00          | >> Instantiating LUTs.
-00          | >> Eliminating negations.
-00          | >>   -- added 8 LUTs
-00          | >> Packing 4-MUXes.
-00          | >>   -- 0 rewrites, saving 0 gates (= 0.00 % reduction)
-00          | >> Netlist stats.: #Gates=69067  (#Lut=16919  #PadR=983  #PadW=313  #MemR=6  #MemW=15  #Pin=11474  #Loop=4619  #FD01=13727  #Force=21009)  #Garb=1
-00          | >> Techmap CPU Time: 0.35 s
-00          | ---- ET5CBL: Thread 2: Eliminating forcible gates     ---- (Time: 2.77 s   Mem: 1628.93 MB)
-00          |   -- Forcible logic not leading to duplication : 2144
-00          |   -- Forcible flops not leading to duplication : 11685
+00          | >>   -- 10 rewrites, saving 10 gates (= 0.01 % reduction)
+00          | >> Netlist stats.: #Gates=174688  (#Lut=56073  #PadR=3733  #PadW=1592  #MemR=15  #MemW=39  #Pin=30070  #Loop=3116  #FD01=28688  #Force=51360)  #Garb=1
+00          | >> Techmap CPU Time: 1.47 s
+00          | ---- ET5CBL: Thread 1: Eliminating forcible gates     ---- (Time: 9.92 s   Mem: 2264.52 MB)
+00          |   -- Forcible logic not leading to duplication : 16929
+00          |   -- Forcible flops not leading to duplication : 22357
 00          |   -- Forcible gates leading to duplication     : 0
-00          |   -- Forcible buffers inserted after non-logic : 4094 (superfluous: 686)
-00          |   -- Forcible buffers inserted after constants : 3086
-00          |   -- Forcible buffers stacked due to keep-nets : 3414
-00          | ---- ET5CBL: Thread 2: Recreating final database      ---- (Time: 3.55 s   Mem: 1621.02 MB)
-00          | >> Names preserved through simplification: 42743 / 54129  (= 79.0 %)
-00          | >> Probes restored: 1759 IO, 7311 FF probes.
+00          |   -- Forcible buffers inserted after non-logic : 12074 (superfluous: 4032)
+00          |   -- Forcible buffers inserted after constants : 0
+00          |   -- Forcible buffers stacked due to keep-nets : 6710
+00          | ---- ET5CBL: Thread 1: Recreating final database      ---- (Time: 10.58 s   Mem: 2168.49 MB)
+00          | >> Names preserved through simplification: 98343 / 118993  (= 82.6 %)
+00          | >> Probes restored: 2929 IO, 18825 FF probes.
 00          | >> Boxes with non-zero flags restored = 0
 00          | >> Restoring box keyword BOX_LEVELS
-00          | >> Box keyword BOX_LEVELS has 38100 non-zero values restored
-00          | >> Removed 484 superflous buffers added for forcible boxes
-00          | >> IO boxes found: 6001, keepnet info fixed: 99
-00          | >>     #Gates=55238  (#Lut=24099  #PadR=983  #PadW=313  #MemR=6  #MemW=15  #Pin=11474  #Loop=4619  #FD01=13727)  #Garb=21010
-00          | ---- ET5CBL: Thread 2: Disposing netlist              ---- (Time: 3.61 s   Mem: 1613.10 MB)
+00          | >> Box keyword BOX_LEVELS has 88742 non-zero values restored
+00          | >> Removed 1130 superflous buffers added for forcible boxes
+00          | >> IO boxes found: 10627, keepnet info fixed: 605
+00          | >>     #Gates=135402  (#Lut=68147  #PadR=3733  #PadW=1592  #MemR=15  #MemW=39  #Pin=30070  #Loop=3116  #FD01=28688)  #Garb=51361
+00          | ---- ET5CBL: Thread 1: Disposing netlist              ---- (Time: 10.91 s   Mem: 2168.49 MB)
 00          | 
 00          | ==========================================================================================================
-00          | ---- ET5CBL: Thread 3: Started                        ---- (Time: 0.73 s   Mem: 1597.27 MB)
-00          | >>     #Gates=84203  (#Lut=32910  #PadR=807  #PadW=1436  #MemR=18  #MemW=16  #Pin=13179  #Loop=10839  #FD01=11231  #Force=13765)  #Garb=1
-00          | ---- ET5CBL: Thread 3: Adding name listener           ---- (Time: 0.75 s   Mem: 1597.27 MB)
-00          | ---- ET5CBL: Thread 3: Checking iterator consistency  ---- (Time: 0.76 s   Mem: 1597.27 MB)
-00          | ---- ET5CBL: Thread 3: Expanding LUTs into ANDs       ---- (Time: 0.81 s   Mem: 1597.27 MB)
-00          | ---- ET5CBL: Thread 3: Removing redundant logic       ---- (Time: 1.47 s   Mem: 1628.93 MB)
-00          | ---- ET5CBL: Thread 3: Rewriting DAG-aware netlist    ---- (Time: 1.55 s   Mem: 1628.93 MB)
+00          | ---- ET5CBL: Thread 2: Started                        ---- (Time: 1.94 s   Mem: 2008.52 MB)
+00          | >>     #Gates=191990  (#Lut=97486  #PadR=2770  #PadW=3032  #MemR=29  #MemW=67  #Pin=26125  #Loop=2823  #FD01=23002  #Force=36654)  #Garb=1
+00          | ---- ET5CBL: Thread 2: Adding name listener           ---- (Time: 2.03 s   Mem: 2008.52 MB)
+00          | ---- ET5CBL: Thread 2: Checking iterator consistency  ---- (Time: 2.07 s   Mem: 2008.52 MB)
+00          | ---- ET5CBL: Thread 2: Expanding LUTs into ANDs       ---- (Time: 2.30 s   Mem: 2008.52 MB)
+00          | ---- ET5CBL: Thread 2: Removing redundant logic       ---- (Time: 4.94 s   Mem: 2008.52 MB)
+00          | ---- ET5CBL: Thread 2: Rewriting DAG-aware netlist    ---- (Time: 5.26 s   Mem: 2008.52 MB)
 00          | >>     Minimizing:
-00          | >>     Reduction in #ANDs:  6.80 %
-00          | >>     Core shrink time  : 1.42 s
+00          | >>     Reduction in #ANDs:  7.69 %
+00          | >>     Core shrink time  : 4.97 s
 00          | >>     Globally redundant: 0
-00          | ---- ET5CBL: Thread 3: Technology mapping             ---- (Time: 3.02 s   Mem: 1628.93 MB)
+00          | ---- ET5CBL: Thread 2: Technology mapping             ---- (Time: 10.45 s   Mem: 2168.49 MB)
 00          | >> ========================================
 00          | >> ==         TECHNOLOGY MAPPING         ==
 00          | >> ========================================
 00          | >>
-00          | >> Netlist stats.: #Gates=110945  (#And=59652  #PadR=807  #PadW=1436  #MemR=18  #MemW=16  #Pin=13179  #Loop=10839  #FD01=11231  #Force=13765)  #Garb=1
-00          | >> Initialization: 0.03 s
+00          | >> Netlist stats.: #Gates=319142  (#And=224638  #PadR=2770  #PadW=3032  #MemR=29  #MemW=67  #Pin=26125  #Loop=2823  #FD01=23002  #Force=36654)  #Garb=1
+00          | >> Initialization: 0.15 s
 00          | >>
 00          | >>     Iter  |  2-Luts   3-Luts   4-Luts   |    Total     Wires   Delay
 00          | >>     ------+-----------------------------+---------------------------
-00          | >>        0  |    2620     5786    13233   |    21639     75530      46    (Time: 0.16 s)
-00          | >>        1  |    2447     7205    10276   |    19928     67613      55    (Time: 0.06 s)
-00          | >>        2  |    2225     6893    10566   |    19684     67393      47    (Time: 0.05 s)
+00          | >>        0  |    6642    19062    51793   |    77497    277642      51    (Time: 0.43 s)
+00          | >>        1  |    5764    22531    41720   |    70015    246001      61    (Time: 0.12 s)
+00          | >>        2  |    5049    22208    42089   |    69346    245078      61    (Time: 0.11 s)
 00          | >>
 00          | >> Instantiating LUTs.
 00          | >> Eliminating negations.
-00          | >>   -- added 30 LUTs
+00          | >>   -- added 106 LUTs
 00          | >> Packing 4-MUXes.
 00          | >>   -- 0 rewrites, saving 0 gates (= 0.00 % reduction)
-00          | >> Netlist stats.: #Gates=71007  (#Lut=19714  #PadR=807  #PadW=1436  #MemR=18  #MemW=16  #Pin=13179  #Loop=10839  #FD01=11231  #Force=13765)  #Garb=1
-00          | >> Techmap CPU Time: 0.35 s
-00          | ---- ET5CBL: Thread 3: Eliminating forcible gates     ---- (Time: 3.37 s   Mem: 1628.93 MB)
-00          |   -- Forcible logic not leading to duplication : 748
-00          |   -- Forcible flops not leading to duplication : 12468
-00          |   -- Forcible gates leading to duplication     : 1
-00          |   -- Forcible buffers inserted after non-logic : 548 (superfluous: 430)
+00          | >> Netlist stats.: #Gates=163956  (#Lut=69452  #PadR=2770  #PadW=3032  #MemR=29  #MemW=67  #Pin=26125  #Loop=2823  #FD01=23002  #Force=36654)  #Garb=1
+00          | >> Techmap CPU Time: 0.97 s
+00          | ---- ET5CBL: Thread 2: Eliminating forcible gates     ---- (Time: 11.42 s   Mem: 2104.49 MB)
+00          |   -- Forcible logic not leading to duplication : 24740
+00          |   -- Forcible flops not leading to duplication : 9696
+00          |   -- Forcible gates leading to duplication     : 2
+00          |   -- Forcible buffers inserted after non-logic : 2216 (superfluous: 1659)
 00          |   -- Forcible buffers inserted after constants : 0
-00          |   -- Forcible buffers stacked due to keep-nets : 9
-00          | ---- ET5CBL: Thread 3: Recreating final database      ---- (Time: 3.61 s   Mem: 1613.10 MB)
-00          | >> Names preserved through simplification: 44642 / 58309  (= 76.6 %)
-00          | >> Probes restored: 3426 IO, 12451 FF probes.
+00          |   -- Forcible buffers stacked due to keep-nets : 159
+00          | ---- ET5CBL: Thread 2: Recreating final database      ---- (Time: 11.45 s   Mem: 2104.49 MB)
+00          | >> Names preserved through simplification: 94203 / 122386  (= 77.0 %)
+00          | >> Probes restored: 3075 IO, 16460 FF probes.
 00          | >> Boxes with non-zero flags restored = 0
 00          | >> Restoring box keyword BOX_LEVELS
-00          | >> Box keyword BOX_LEVELS has 40931 non-zero values restored
-00          | >> Removed 288 superflous buffers added for forcible boxes
-00          | >> IO boxes found: 8244, keepnet info fixed: 118
-00          | >>     #Gates=57791  (#Lut=20263  #PadR=807  #PadW=1436  #MemR=18  #MemW=16  #Pin=13179  #Loop=10839  #FD01=11231)  #Garb=13766
-00          | ---- ET5CBL: Thread 3: Disposing netlist              ---- (Time: 3.65 s   Mem: 1605.19 MB)
+00          | >> Box keyword BOX_LEVELS has 90306 non-zero values restored
+00          | >> Removed 1317 superflous buffers added for forcible boxes
+00          | >> IO boxes found: 16429, keepnet info fixed: 477
+00          | >>     #Gates=129520  (#Lut=71670  #PadR=2770  #PadW=3032  #MemR=29  #MemW=67  #Pin=26125  #Loop=2823  #FD01=23002)  #Garb=36655
+00          | ---- ET5CBL: Thread 2: Disposing netlist              ---- (Time: 11.59 s   Mem: 2104.49 MB)
+00          | 
+00          | ==========================================================================================================
+00          | ---- ET5CBL: Thread 3: Started                        ---- (Time: 1.94 s   Mem: 2008.52 MB)
+00          | >>     #Gates=173656  (#Lut=98158  #PadR=1998  #PadW=1970  #MemR=21  #MemW=23  #Pin=22843  #Loop=3660  #FD01=19313  #Force=25668)  #Garb=1
+00          | ---- ET5CBL: Thread 3: Adding name listener           ---- (Time: 1.99 s   Mem: 2008.52 MB)
+00          | ---- ET5CBL: Thread 3: Checking iterator consistency  ---- (Time: 2.01 s   Mem: 2008.52 MB)
+00          | ---- ET5CBL: Thread 3: Expanding LUTs into ANDs       ---- (Time: 2.16 s   Mem: 2008.52 MB)
+00          | ---- ET5CBL: Thread 3: Removing redundant logic       ---- (Time: 4.46 s   Mem: 2008.52 MB)
+00          | ---- ET5CBL: Thread 3: Rewriting DAG-aware netlist    ---- (Time: 4.71 s   Mem: 2008.52 MB)
+00          | >>     Minimizing:
+00          | >>     Reduction in #ANDs:  6.70 %
+00          | >>     Core shrink time  : 4.17 s
+00          | >>     Globally redundant: 0
+00          | ---- ET5CBL: Thread 3: Technology mapping             ---- (Time: 9.08 s   Mem: 2136.52 MB)
+00          | >> ========================================
+00          | >> ==         TECHNOLOGY MAPPING         ==
+00          | >> ========================================
+00          | >>
+00          | >> Netlist stats.: #Gates=264549  (#And=189051  #PadR=1998  #PadW=1970  #MemR=21  #MemW=23  #Pin=22843  #Loop=3660  #FD01=19313  #Force=25668)  #Garb=1
+00          | >> Initialization: 0.13 s
+00          | >>
+00          | >>     Iter  |  2-Luts   3-Luts   4-Luts   |    Total     Wires   Delay
+00          | >>     ------+-----------------------------+---------------------------
+00          | >>        0  |    6422    17971    41621   |    66014    233241      58    (Time: 0.79 s)
+00          | >>        1  |    3712    21805    33766   |    59283    207903      69    (Time: 0.23 s)
+00          | >>        2  |    3163    19528    36132   |    58823    209438      64    (Time: 0.20 s)
+00          | >>
+00          | >> Instantiating LUTs.
+00          | >> Eliminating negations.
+00          | >>   -- added 32 LUTs
+00          | >> Packing 4-MUXes.
+00          | >>   -- 0 rewrites, saving 0 gates (= 0.00 % reduction)
+00          | >> Netlist stats.: #Gates=134353  (#Lut=58855  #PadR=1998  #PadW=1970  #MemR=21  #MemW=23  #Pin=22843  #Loop=3660  #FD01=19313  #Force=25668)  #Garb=1
+00          | >> Techmap CPU Time: 1.69 s
+00          | ---- ET5CBL: Thread 3: Eliminating forcible gates     ---- (Time: 10.77 s   Mem: 2168.49 MB)
+00          |   -- Forcible logic not leading to duplication : 15432
+00          |   -- Forcible flops not leading to duplication : 8807
+00          |   -- Forcible gates leading to duplication     : 0
+00          |   -- Forcible buffers inserted after non-logic : 1429 (superfluous: 1114)
+00          |   -- Forcible buffers inserted after constants : 0
+00          |   -- Forcible buffers stacked due to keep-nets : 57
+00          | ---- ET5CBL: Thread 3: Recreating final database      ---- (Time: 11.59 s   Mem: 2104.49 MB)
+00          | >> Names preserved through simplification: 89300 / 126070  (= 70.8 %)
+00          | >> Probes restored: 5527 IO, 14558 FF probes.
+00          | >> Boxes with non-zero flags restored = 0
+00          | >> Restoring box keyword BOX_LEVELS
+00          | >> Box keyword BOX_LEVELS has 79386 non-zero values restored
+00          | >> Removed 799 superflous buffers added for forcible boxes
+00          | >> IO boxes found: 20397, keepnet info fixed: 315
+00          | >>     #Gates=110114  (#Lut=60284  #PadR=1998  #PadW=1970  #MemR=21  #MemW=23  #Pin=22843  #Loop=3660  #FD01=19313)  #Garb=25669
+00          | ---- ET5CBL: Thread 3: Disposing netlist              ---- (Time: 11.69 s   Mem: 2104.49 MB)
 00 ET5CBL   | ==========================================================================================================
 00 ET5CBL   | 
-00 ET5CBL   | ---- ET5CBL: Joined 4 optimization threads            ---- (Time: 3.65 s   Mem: 1597.27 MB)
-00 ET5CBL   | ---- ET5CBL: Merging DADB database                    ---- (Time: 3.65 s   Mem: 1597.27 MB)
-00 ET5CBL   | Merged 3554 groups of PI/POs
+00 ET5CBL   | ---- ET5CBL: Joined 4 optimization threads            ---- (Time: 11.70 s   Mem: 2104.49 MB)
+00 ET5CBL   | ---- ET5CBL: Merging DADB database                    ---- (Time: 11.70 s   Mem: 2104.49 MB)
+00 ET5CBL   | Merged 9283 groups of PI/POs
 00 ET5CBL   | Restored 0 net properties
-00 ET5CBL   | ---- ET5CBL: CBL Done                                 ---- (Time: 3.68 s   Mem: 1597.27 MB)
-00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et5cbl' (Elapsed time 1.81s (3.69u+0.12s), Memory used 1628 Mb) on 05/02/2024 13:45:12
+00 ET5CBL   | ---- ET5CBL: CBL Done                                 ---- (Time: 11.79 s   Mem: 2104.49 MB)
+00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et5cbl' (Elapsed time 5.42s (11.79u+0.53s), Memory used 2264 Mb) on 05/20/2024 11:38:04
 00 ET5NLOPT | Transformed 0 (0 selfloop) special DELAY boxes back to do not touch logic boxes
 00 ET5NLOPT | Restored memloop bits for 0 memory ports
 00 ET5NLOPT | unmarked 0 nets as transitional logic and set as keepnet before CBL
 00 ET5NLOPT | setting multipath mode OFF
-00 ET5NLOPT | levelized boxes = 174459, size = 65536, mask = 0xffff
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box297
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box53134
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box53135
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box53136
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box53151
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box53152
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box53153
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box53155
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box53156
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box53157
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box53159
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box53160
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box53162
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box53163
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box53164
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box53165
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box96411
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box96412
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box96413
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box96414
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box96415
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box96417
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box96418
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box96419
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box96420
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box96421
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box96422
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box96423
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box96424
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box96425
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box96426
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101467
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101468
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101469
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101470
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101471
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101472
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101473
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101474
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101475
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101480
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101481
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101482
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101483
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101498
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101499
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101500
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101501
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101502
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101503
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101504
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101505
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101506
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101507
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101508
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101509
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101510
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101511
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101512
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101513
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101514
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101515
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box144443
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box144444
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box144445
-00 ET5NLOPT | propagated 174459 boxes, consumed 0 seconds
-00 ET5NLOPT | deleted boxes = 649, merged_logic = (0, 0, 4, 0, 0, 0, 0), merged_loop = 0, merged_flop = 25 (LB 0), pushed constant flop = 105
-00 ET5NLOPT | round 1 area gain: 0.3%
-00 ET5NLOPT | Done FW logic levelization on 173810 boxes, max logic level = 56, in 0.021 seconds
+00 ET5NLOPT | levelized boxes = 373252, size = 131072, mask = 0x1ffff
+00 ET5NLOPT | propagated 373252 boxes, consumed 1 seconds
+00 ET5NLOPT | deleted boxes = 6684, merged_logic = (0, 0, 27, 8, 3, 0, 0), merged_loop = 0, merged_flop = 25 (LB 0), pushed constant flop = 40
+00 ET5NLOPT | round 1 area gain: 1.7%
+00 ET5NLOPT | Done FW logic levelization on 366568 boxes, max logic level = 99, in 0.059 seconds
 00 ET5NLOPT | 
 00 ET5NLOPT | setting sinks_limit to 1
-00 ET5NLOPT | levelized boxes = 173810, size = 65536, mask = 0xffff
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box297
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box53134
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box53135
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box53136
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box53151
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box53152
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box53153
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box53155
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box53156
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box53157
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box53159
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box53160
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box53162
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box53163
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box53164
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box53165
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box96411
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box96412
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box96413
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box96414
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box96415
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box96417
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box96418
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box96419
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box96420
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box96421
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box96422
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box96423
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box96424
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box96425
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box96426
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101467
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101468
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101469
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101470
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101471
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101472
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101473
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101474
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101475
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101480
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101481
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101482
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101483
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101498
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101499
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101500
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101501
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101502
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101503
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101504
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101505
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101506
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101507
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101508
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101509
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101510
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101511
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101512
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101513
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101514
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box101515
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box144443
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box144444
-00 ET5NLOPT | propagated GND D-to-Q at FD01 box144445
-00 ET5NLOPT | propagated 173810 boxes, consumed 0 seconds
-00 ET5NLOPT | deleted boxes = 15, merged_logic = (0, 0, 0, 0, 0, 0, 0), merged_loop = 0, merged_flop = 1 (LB 0), pushed constant flop = 170
+00 ET5NLOPT | levelized boxes = 366568, size = 131072, mask = 0x1ffff
+00 ET5NLOPT | propagated 366568 boxes, consumed 0 seconds
+00 ET5NLOPT | deleted boxes = 17, merged_logic = (0, 0, 0, 0, 0, 0, 0), merged_loop = 0, merged_flop = 1 (LB 0), pushed constant flop = 40
 00 ET5NLOPT | round 2 area gain: 0.0%
-00 ET5NLOPT | Done FW logic levelization on 173795 boxes, max logic level = 56, in 0.020 seconds
+00 ET5NLOPT | Done FW logic levelization on 366551 boxes, max logic level = 99, in 0.058 seconds
 00 ET5NLOPT | 
 00 ET5NLOPT | setting sinks_limit to 1
-00 ET5NLOPT | Connected constants to the input pin of 144 flops with input tied.
-00 ET5NLOPT | Connected the sync-in pins of 92 memories.
+00 ET5NLOPT | Connected constants to the input pin of 47 flops with input tied.
+00 ET5NLOPT | Connected the sync-in pins of 99 memories.
 00 ET5NLOPT | Compressing proto
-00 ET5NLOPT | Retimed 82 keynodes, 242 gates, created 109 muxes and 162 dupflops
-00 ET5NLOPT | Done FW logic levelization on 174214 boxes, max logic level = 56, in 0.013 seconds
+00 ET5NLOPT | Retimed 249 keynodes, 668 gates, created 337 muxes and 552 dupflops
+00 ET5NLOPT | Done FW logic levelization on 367491 boxes, max logic level = 99, in 0.049 seconds
 00 ET5NLOPT | 
 00 ET5NLOPT | Removed 1 complex redundant boxes
 00 ET5NLOPT | Inserted 0 buffers on force nets
 00 ET5NLOPT | 
 00 ET5NLOPT | Stage                     Begin       Prelim          CBL      Round 1      Round 2        Final
 00 ET5NLOPT | ------------------------------------------------------------------------------------------------
-00 ET5NLOPT | Tie-downs                    60 ->        60 ->         1 ->      8804 ->      8804 ->      8934
-00 ET5NLOPT | Tie-ups                       0 ->         0 ->         1 ->        22 ->        14 ->        31
-00 ET5NLOPT | Buffers                   16504 ->     14941 ->     13131 ->      4320 ->      4319 ->      4319
-00 ET5NLOPT | Inverters                   759 ->       736 ->       190 ->       173 ->       173 ->       173
-00 ET5NLOPT | 2-input gates             67598 ->     62418 ->      7684 ->      7729 ->      7727 ->      7728
-00 ET5NLOPT | 3-input gates             73132 ->     56180 ->     39820 ->     39343 ->     39343 ->     39452
-00 ET5NLOPT | 4-input gates             21341 ->     31474 ->     58953 ->     58863 ->     58860 ->     58860
-00 ET5NLOPT | Flip-flops                53988 ->     53938 ->     53938 ->     53815 ->     53814 ->     28368
+00 ET5NLOPT | Tie-downs                    61 ->        61 ->         1 ->     10036 ->     10036 ->     10079
+00 ET5NLOPT | Tie-ups                       0 ->         0 ->         1 ->        60 ->        52 ->        59
+00 ET5NLOPT | Buffers                   23297 ->     21664 ->     19376 ->     15275 ->     15274 ->     15274
+00 ET5NLOPT | Inverters                  4236 ->      4193 ->       307 ->       630 ->       630 ->       630
+00 ET5NLOPT | 2-input gates            155080 ->    134874 ->     17676 ->     17689 ->     17685 ->     17686
+00 ET5NLOPT | 3-input gates            198473 ->    144491 ->    101273 ->     94377 ->     94379 ->     94716
+00 ET5NLOPT | 4-input gates             48065 ->     76436 ->    133198 ->    132805 ->    132800 ->    132800
+00 ET5NLOPT | Flip-flops               100969 ->    100917 ->    100917 ->     95193 ->     95192 ->     71266
 00 ET5NLOPT | Primary outputs               1 ->         1 ->         1 ->         1 ->         1 ->         1
 00 ET5NLOPT | Cross-partition XBOB         22 ->        22 ->        22 ->        22 ->        22 ->        22
-00 ET5NLOPT | DAS inputs DBIB             250 ->       250 ->       250 ->       250 ->       250 ->       250
-00 ET5NLOPT | DAS outputs DBOB            321 ->       321 ->       321 ->       321 ->       321 ->       321
-00 ET5NLOPT | Memory reads                 50 ->        50 ->        50 ->        50 ->        50 ->        50
-00 ET5NLOPT | Memory writes                97 ->        97 ->        97 ->        97 ->        97 ->        97
-00 ET5NLOPT | All box types            234123 ->    220488 ->    174459 ->    173810 ->    173795 ->    148606 (= 36.5% Reduction)
-00 ET5NLOPT | Self-looping logic        30692 ->     30692 ->     30692 ->     30692 ->     30692 ->     30622
-00 ET5NLOPT | Logic levels                152 ->       138 ->        58 ->        57 ->        57 ->        57 (= 62.5% Reduction)
-00 ET5NLOPT | Sinks count              566459 ->    544109 ->    509757 ->    495505 ->    495486 ->    496373 (= 12.4% Reduction)
+00 ET5NLOPT | DAS inputs DBIB              73 ->        73 ->        73 ->        73 ->        73 ->        73
+00 ET5NLOPT | DAS outputs DBOB            146 ->       146 ->       146 ->       146 ->       146 ->       146
+00 ET5NLOPT | Memory reads                 80 ->        80 ->        80 ->        80 ->        80 ->        80
+00 ET5NLOPT | Memory writes               181 ->       181 ->       181 ->       181 ->       181 ->       181
+00 ET5NLOPT | All box types            530684 ->    483139 ->    373252 ->    366568 ->    366551 ->    343013 (= 35.4% Reduction)
+00 ET5NLOPT | Self-looping logic        13027 ->     13027 ->     13027 ->     12948 ->     12948 ->     12888
+00 ET5NLOPT | Logic levels                229 ->       227 ->       101 ->       100 ->       100 ->       100 (= 56.3% Reduction)
+00 ET5NLOPT | Sinks count             1318205 ->   1227881 ->   1125697 ->   1084131 ->   1084106 ->   1086367 (= 17.6% Reduction)
 00 ET5NLOPT | ------------------------------------------------------------------------------------------------
-00 ET5NLOPT | CPU time (sec)             0.00 ->      0.22 ->      4.14 ->      4.30 ->      4.43 ->      4.64
-00 ET5NLOPT | Estimated size           260177 ->    246542 ->    200513 ->    199864 ->    199849 ->    174660 (= 32.9% Reduction)
+00 ET5NLOPT | CPU time (sec)             0.00 ->      1.21 ->     13.86 ->     14.32 ->     14.68 ->     15.25
+00 ET5NLOPT | Estimated size           575812 ->    528267 ->    418380 ->    411696 ->    411679 ->    388141 (= 32.6% Reduction)
 00 ET5NLOPT | Available configuration                                                                 1 domain
-00 ET5NLOPT | Estimated instruction usage                                                                11.28%
+00 ET5NLOPT | Estimated instruction usage                                                                25.07%
 00 ET5NLOPT | ------------------------------------------------------------------------------------------------
 00 ET5NLOPT | 
-00 ET5NLOPT | This design contains 148606 ET primitives (boxes).
+00 ET5NLOPT | This design contains 343013 ET primitives (boxes).
 00 ET5NLOPT | Assuming instruction usage 80%, the design requires at least 1 domain.
 00 ET5NLOPT | 
-00 ET5NLOPT | Elapsed: init  0.00, ALU  0.00, CBL  2.00, SCBL  0.00, core  0.00
-00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et5nlopt' (Elapsed time 2.45s (4.54u+0.20s), Memory used 1807 Mb) on 05/02/2024 13:45:12
-00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et3critpath' on 05/02/2024 13:45:12
+00 ET5NLOPT | Elapsed: init  0.00, ALU  0.00, CBL  5.00, SCBL  0.00, core  2.00
+00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et5nlopt' (Elapsed time 7.63s (15.11u+0.73s), Memory used 2264 Mb) on 05/20/2024 11:38:05
+00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et3critpath' on 05/20/2024 11:38:05
 00 DATABASE | Parms: ''
 00 ET3CRIT* |                                    
 00 ET3CRIT* |                        ET CRITICAL PATH FINDER
@@ -647,64 +517,108 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00 ET3CRIT* |                          All rights reserved
 00 ET3CRIT* |                                    
 00 ET3CRIT* | ET3critpath created on Aug  3 2023 at 22:05:33.
-00 ET3CRIT* | 56(    2): ET00000000000003CF->qt_init_emul_cycle_r[62]
-00 ET3CRIT* | 55(    6): ET0000000000000FF0->qt_init_emul_cycle_w[62]
-00 ET3CRIT* | 54(    9): ET0000000000000042->_ABTou
-00 ET3CRIT* | 53(   12): ET0000000000000042->_ABToq
-00 ET3CRIT* | 52(   19): ET0000000000000080->_ABTon
-00 ET3CRIT* | 51(   30): ET0000000000000080->_ABToi
-00 ET3CRIT* | 50(   88): ET0000000000000056->_ABToe
-00 ET3CRIT* | 49(   12): ET0000000000000056->_ABToc
-00 ET3CRIT* | 48(   13): ET0000000000000056->_ABToZ
-00 ET3CRIT* | 47(   17): ET0000000000000056->_ABToY
-00 ET3CRIT* | 46(   26): ET0000000000000056->_ABToW
-00 ET3CRIT* | 45(   43): ET0000000000000056->_ABToV
-00 ET3CRIT* | 44(   47): ET0000000000000056->_ABToT
-00 ET3CRIT* | 43(   49): ET0000000000000056->_ABToS
-00 ET3CRIT* | 42(   49): ET0000000000000056->_ABToQ
-00 ET3CRIT* | 41(   58): ET0000000000000056->_ABToP
-00 ET3CRIT* | 40(  193): ET0000000000000056->_ABToN
-00 ET3CRIT* | 39(   60): ET0000000000000056->_ABToM
-00 ET3CRIT* | 38(  138): ET0000000000000056->_ABToJ
-00 ET3CRIT* | 37(  147): ET0000000000000042->_ABToH
-00 ET3CRIT* | 36(   94): ET0000000000000056->_ABToE
-00 ET3CRIT* | 35(   88): ET0000000000000042->_ABToD
-00 ET3CRIT* | 34(  155): ET0000000000000056->_ABToA
-00 ET3CRIT* | 33(  136): ET0000000000000042->_ABTny
-00 ET3CRIT* | 32(  134): ET0000000000000056->_ABTnv
-00 ET3CRIT* | 31(  158): ET0000000000000042->_ABTns
-00 ET3CRIT* | 30(  184): ET0000000000000056->_ABTnp
-00 ET3CRIT* | 29(  232): ET0000000000000042->_ABTno
-00 ET3CRIT* | 28(  184): ET0000000000000056->_ABTnl
-00 ET3CRIT* | 27(  246): ET0000000000000042->_ABTnj
-00 ET3CRIT* | 26(  274): ET0000000000000056->_ABTng
-00 ET3CRIT* | 25(  341): ET0000000000000042->_ABTnf
-00 ET3CRIT* | 24(  673): ET0000000000000056->_ABTna
-00 ET3CRIT* | 23(  420): ET0000000000000042->_ABTnZ
-00 ET3CRIT* | 22(  421): ET0000000000000056->_ABTnW
-00 ET3CRIT* | 21( 1808): ET0000000000000042->_ABTnU
-00 ET3CRIT* | 20(  880): ET0000000000000056->_ABTnR
-00 ET3CRIT* | 19( 1552): ET0000000000000042->_ABTnQ
-00 ET3CRIT* | 18( 1733): ET0000000000000056->_ABTpA
-00 ET3CRIT* | 17( 1533): ET0000000000000042->_ABToz
-00 ET3CRIT* | 16( 2769): ET0000000000000056->_ABTor
-00 ET3CRIT* | 15( 2620): ET0000000000000042->_ABTob
-00 ET3CRIT* | 14( 4259): ET0000000000000056->_ABTnu
-00 ET3CRIT* | 13( 4715): ET0000000000000056->_ABTnd
-00 ET3CRIT* | 12( 4755): ET0000000000000056->_ABTnN
-00 ET3CRIT* | 11( 4182): ET0000000000000056->_ABTnK
-00 ET3CRIT* | 10( 4831): ET00000000000000F3->_ABTYO
-00 ET3CRIT* |  9( 3043): ET0000000000008AAA->_ABTYT
-00 ET3CRIT* |  8( 5156): ET0000000000000F00->_ABTXV
-00 ET3CRIT* |  7( 5081): ET0000000000007775->_ABTZr
-00 ET3CRIT* |  6( 4763): ET0000000000000001->_ABTzf$inv3107
-00 ET3CRIT* |  5( 3656): ET0000000000000001->
-00 ET3CRIT* |  4( 7503): ET0000000000008421->
-00 ET3CRIT* |  3(17871): ET000000000000000F->_ABTFc
-00 ET3CRIT* |  2(23234): ET000000000000F00F->_ABUXp
-00 ET3CRIT* |  1(63190): FD01->_CVA_UA_CYCLE_COUNTER_RESET_READ_
-00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et3critpath' (Elapsed time 0.03s (0.02u+0.00s), Memory used 1807 Mb) on 05/02/2024 13:45:12
-00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et5mpart' on 05/02/2024 13:45:12
+00 ET3CRIT* | 100(     1): ET00000000000003CF->_AAAA[25950]
+00 ET3CRIT* |  99(     2): ET00000000000044F3->_AAAA[25949]
+00 ET3CRIT* |  98(     3): ET0000000000005746->
+00 ET3CRIT* |  97(     6): ET00000000000003FC->_AAAA[25758]$inv5675
+00 ET3CRIT* |  96(    11): ET000000000000A53C->_AAAA[25697]$inv5674
+00 ET3CRIT* |  95(    17): ET0000000000000300->_AAAA[28509]
+00 ET3CRIT* |  94(    28): ET000000000000000F->_AAAA[25663]
+00 ET3CRIT* |  93(    39): ET000000000000000F->_AAAA[25661]
+00 ET3CRIT* |  92(    42): ET000000000000000F->_AAAA[25659]
+00 ET3CRIT* |  91(    45): ET000000000000000F->_AAAA[25657]
+00 ET3CRIT* |  90(    48): ET000000000000000F->_AAAA[25655]
+00 ET3CRIT* |  89(    58): ET000000000000000F->_AAAA[25653]
+00 ET3CRIT* |  88(    59): ET000000000000000F->_AAAA[25651]
+00 ET3CRIT* |  87(    58): ET000000000000000F->_AAAA[25649]
+00 ET3CRIT* |  86(    59): ET000000000000000F->_AAAA[25647]
+00 ET3CRIT* |  85(    61): ET000000000000000F->_AAAA[25645]
+00 ET3CRIT* |  84(   112): ET000000000000000F->_AAAA[25643]
+00 ET3CRIT* |  83(   192): ET000000000000000F->_AAAA[25641]
+00 ET3CRIT* |  82(   116): ET000000000000000F->_AAAA[25639]
+00 ET3CRIT* |  81(   133): ET000000000000000F->_AAAA[25637]
+00 ET3CRIT* |  80(   222): ET000000000000000F->_AAAA[25635]
+00 ET3CRIT* |  79(   177): ET000000000000000F->_AAAA[25633]
+00 ET3CRIT* |  78(   172): ET000000000000000F->_AAAA[25631]
+00 ET3CRIT* |  77(   166): ET000000000000000F->_AAAA[25629]
+00 ET3CRIT* |  76(   286): ET000000000000000F->_AAAA[25627]
+00 ET3CRIT* |  75(   369): ET000000000000000F->_AAAA[25625]
+00 ET3CRIT* |  74(   328): ET000000000000000F->_AAAA[25623]
+00 ET3CRIT* |  73(   562): ET000000000000000F->_AAAA[25621]
+00 ET3CRIT* |  72(   273): ET000000000000000F->_AAAA[25619]
+00 ET3CRIT* |  71(   993): ET000000000000000F->_AAAA[25617]
+00 ET3CRIT* |  70(   242): ET000000000000000F->_AAAA[25615]
+00 ET3CRIT* |  69(  1411): ET000000000000000F->_AAAA[25613]
+00 ET3CRIT* |  68(   853): ET000000000000000F->_AAAA[25611]
+00 ET3CRIT* |  67(  1958): ET000000000000000F->_AAAA[25609]
+00 ET3CRIT* |  66(  1478): ET000000000000000F->_AAAA[25607]
+00 ET3CRIT* |  65(  1391): ET000000000000330F->_AAAA[25575]
+00 ET3CRIT* |  64(  2183): ET0000000000000FF0->_AAAA[25513]
+00 ET3CRIT* |  63(  2646): ET0000000000000C3F->_AAAA[25482]
+00 ET3CRIT* |  62(  2813): ET0000000000000C3F->_AAAA[25450]
+00 ET3CRIT* |  61(  2562): ET0000000000000FF0->_AAAA[25356]
+00 ET3CRIT* |  60(  4261): ET00000000000003CF->_AAAA[25324]
+00 ET3CRIT* |  59(  3144): ET000000000000660F->_AAAA[25292]
+00 ET3CRIT* |  58(  3029): ET0000000000009C36->_AAAA[25229]
+00 ET3CRIT* |  57(  3235): ET000000000000FE00->_AAAA[26094]
+00 ET3CRIT* |  56(  3134): ET0000000000000001->_AAAA[24854]
+00 ET3CRIT* |  55(  4517): ET0000000000000009->
+00 ET3CRIT* |  54(  3623): ET0000000000000009->_AAAA[24846]
+00 ET3CRIT* |  53(  4820): ET0000000000000041->
+00 ET3CRIT* |  52(  3202): ET00000000000000C3->_AAAA[24826]
+00 ET3CRIT* |  51(  8937): ET0000000000008421->
+00 ET3CRIT* |  50( 16631): ET0000000000001B00->_AAAB[57591]
+00 ET3CRIT* |  49(  7363): ET0000000000000100->_ADYSc
+00 ET3CRIT* |  48(   919): ET0000000000003000->_ADMgD
+00 ET3CRIT* |  47(   448): ET00000000000000FF->tb_top.kme_tb_dut.my_clk
+00 ET3CRIT* |  46(   879): ET00000000000000FF->my_clks.ixcg_0._zy_simnet_clk_0_w$
+00 ET3CRIT* |  45(   650): ET0000000000000FF0->my_clks.ixcg_0.clk
+00 ET3CRIT* |  44(   635): ET000000000000000F->
+00 ET3CRIT* |  43(  1478): ET0000000000006000->_ADHnI
+00 ET3CRIT* |  42(   527): ET0000000000000FF0->xc_top.eClkR
+00 ET3CRIT* |  41(   617): ET0000000000005333->xc_top.simTimeEnable@QTshadow
+00 ET3CRIT* |  40(   602): ET00000000000000C0->_AAAE[43147]
+00 ET3CRIT* |  39(   653): ET0000000000001000->_AAAE[43082]
+00 ET3CRIT* |  38(  1877): ET0000000000007FFF->xc_top.xpHold@QTshadow
+00 ET3CRIT* |  37(  3177): ET000000000000000F->xc_top.holdEcmC@QTshadow
+00 ET3CRIT* |  36(  1691): ET000000000000FF3F->_AAAE[41775]
+00 ET3CRIT* |  35(  1436): ET00000000000000F0->_AAAE[41776]$inv4542
+00 ET3CRIT* |  34(  2583): ET0000000000008000->_AAAE[6295]$inv4541
+00 ET3CRIT* |  33(  2355): ET0000000000000031->_AAAE[6296]
+00 ET3CRIT* |  32(  2183): ET00000000000000F1->
+00 ET3CRIT* |  31(  4150): ET000000000000000D->_AAAE[5664]$inv11168
+00 ET3CRIT* |  30(  2288): ET000000000000F351->_AAAE[5642]$inv11165
+00 ET3CRIT* |  29(  2264): ET0000000000000013->_AAAE[5640]
+00 ET3CRIT* |  28(  3474): ET0000000000000007->_AAAE[5639]
+00 ET3CRIT* |  27(  3574): ET00000000000000D7->_AAAE[6258]
+00 ET3CRIT* |  26(  7607): ET000000000000030F->_AAAE[6252]
+00 ET3CRIT* |  25(  3706): ET0000000000002A3F->_AAAE[6251]
+00 ET3CRIT* |  24(  2768): ET000000000000F00F->_AAAE[6301]$inv11160
+00 ET3CRIT* |  23(  3291): ET0000000000000001->_AAAE[5837]
+00 ET3CRIT* |  22(  5097): ET0000000000000001->_AAAE[6245]
+00 ET3CRIT* |  21(  5731): ET0000000000000001->_AAAE[6239]
+00 ET3CRIT* |  20(  3058): ET0000000000000001->_AAAE[6233]
+00 ET3CRIT* |  19(  2619): ET0000000000000001->_AAAE[6227]
+00 ET3CRIT* |  18(  3924): ET0000000000000001->_AAAE[6221]
+00 ET3CRIT* |  17(  5190): ET0000000000000001->_AAAE[6215]
+00 ET3CRIT* |  16(  7598): ET0000000000000001->_AAAE[6209]
+00 ET3CRIT* |  15( 22381): ET0000000000000001->_AAAE[6203]
+00 ET3CRIT* |  14(  3167): ET0000000000000001->_AAAE[6197]
+00 ET3CRIT* |  13(  2230): ET0000000000000001->_AAAE[6191]
+00 ET3CRIT* |  12(  1076): ET0000000000000001->_AAAE[6185]
+00 ET3CRIT* |  11(  2335): ET0000000000000001->_AAAE[6179]
+00 ET3CRIT* |  10(  3084): ET0000000000000001->_AAAE[6173]
+00 ET3CRIT* |   9(  2828): ET0000000000000001->_AAAE[6167]
+00 ET3CRIT* |   8(  1427): ET0000000000000001->_AAAE[6161]
+00 ET3CRIT* |   7(  2363): ET0000000000000001->_AAAE[6155]
+00 ET3CRIT* |   6(  2101): ET0000000000000001->_AAAE[6149]
+00 ET3CRIT* |   5(  3032): ET0000000000000001->_AAAE[6143]
+00 ET3CRIT* |   4(  3936): ET0000000000000001->_AAAE[6137]
+00 ET3CRIT* |   3( 12060): ET0000000000000001->_AAAE[6131]
+00 ET3CRIT* |   2( 22181): ET00000000000000FF->IXC_GFIFO.HOLDTOP.ecmTsP[3]@QTshadow
+00 ET3CRIT* |   1(106023): FD01->_ADekl
+00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et3critpath' (Elapsed time 0.07s (0.07u+0.00s), Memory used 2264 Mb) on 05/20/2024 11:38:05
+00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et5mpart' on 05/20/2024 11:38:05
 00 DATABASE | Parms: '-memTransform'
 00 ET5MPART |  
 00 ET5MPART |                                    
@@ -721,6 +635,9 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00 ET5MPART | Gfifo list parsing ...
 00 ET5MPART | gfifo create_groups() finished sucessfully
 00 ET5MPART | done
+00 ET5MPART | Slicing special GFIFO memory (64-bit wide) into 64-bt wide: ET5_V1_H1.IXC_GFIFO.I.I.ixc_gfm_ififo
+00 ET5MPART | Slicing special GFIFO memory (64-bit wide) into 64-bt wide: ET5_V1_H1.IXC_GFIFO.I.I.ixc_gfm_ofifo
+00 ET5MPART | Slicing special GFIFO memory (64-bit wide) into 64-bt wide: ET5_V1_H1.IXC_GFIFO.O.O.ixc_gfm_ofifo
 00 ET5MPART | Gfifo slices properties propagation ...
 00 ET5MPART | done
 00 ET5MPART | ENGLICENSE is absent.
@@ -734,7 +651,7 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00 ET5MPART | Each INTRAM has capacity of 128 K words (64-bit words)
 00 ET5MPART | Each EXTRAM has capacity of 1024 M words (64-bit words)
 00 ET5MPART | ------------------------
-00 ET5MPART | INTRAM needed    =  16 (if no EXTRAM is available)
+00 ET5MPART | INTRAM needed    =  20 (if no EXTRAM is available)
 00 ET5MPART | INTRAM available =  48
 00 ET5MPART | EXTRAM needed    =   0
 00 ET5MPART | EXTRAM available =   1
@@ -742,58 +659,70 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00 ET5MPART | INTRAM available (adjusted) = 48
 00 ET5MPART | There is enough INTRAM.
 00 ET5MPART | Number of valid option entries for module mpart = 0
-00 ET5MPART | Found 147 memory ports.
-00 ET5MPART | Found 92 memory instances.
+00 ET5MPART | Found 330 memory ports.
+00 ET5MPART | Found 108 memory instances.
 00 ET5MPART | 
 00 ET5MPART | List of 'DO_NOT_TOUCH' memory instances:
 00 ET5MPART | ----------------------------------------
 00 ET5MPART | ET5_V1_H1.IXC_GFIFO.DUMMY.ctrl
 00 ET5MPART | ET5_V1_H1.IXC_GFIFO.HOLDTOP.ctrl
+00 ET5MPART | ET5_V1_H1.IXC_GFIFO.I.I.ixc_gfm_ififo
+00 ET5MPART | ET5_V1_H1.IXC_GFIFO.I.I.ixc_gfm_ofifo
+00 ET5MPART | ET5_V1_H1.IXC_GFIFO.I.O.ixc_gfm_ctl
+00 ET5MPART | ET5_V1_H1.IXC_GFIFO.I.O.ixc_gfm_ofifo
+00 ET5MPART | ET5_V1_H1.IXC_GFIFO.O.O.ixc_gfm_ack
+00 ET5MPART | ET5_V1_H1.IXC_GFIFO.O.O.ixc_gfm_ctl
+00 ET5MPART | ET5_V1_H1.IXC_GFIFO.O.O.ixc_gfm_ofifo
 00 ET5MPART | ET5_V1_H1.IXC_GFIFO.OSF1.OMB_0._zyevMem
 00 ET5MPART | ET5_V1_H1.ixc_time._zzcmds
 00 ET5MPART | ET5_V1_H1.ixc_time._zzmiopis
 00 ET5MPART | ET5_V1_H1.ixc_time._zzmiopos
-00 ET5MPART | ET5_V1_H1.kme_tb.apb_xactor._zzixc_tfport_0_0._zyh2smem
-00 ET5MPART | ET5_V1_H1.kme_tb.apb_xactor._zzixc_tfport_0_0._zys2hmem
-00 ET5MPART | ET5_V1_H1.kme_tb.apb_xactor._zzixc_tfport_0_1._zyh2smem
-00 ET5MPART | ET5_V1_H1.kme_tb.apb_xactor._zzixc_tfport_0_1._zys2hmem
-00 ET5MPART | ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.ckv_indirect_access.u_cntrl._zzixc_ctxrd_0._zymem
-00 ET5MPART | ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.kim_indirect_access.u_cntrl._zzixc_ctxrd_0._zymem
-00 ET5MPART | ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_COUNT._zzixc_ctxrd_0._zymem
-00 ET5MPART | ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_COUNT.u_cntrl._zzixc_ctxrd_0._zymem
-00 ET5MPART | ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzixc_ctxrd_0._zymem
-00 ET5MPART | ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzixc_ctxwr_1._zymem
-00 ET5MPART | ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_CTRL.u_cntrl._zzixc_ctxrd_0._zymem
-00 ET5MPART | ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_SNAPSHOT._zzixc_ctxrd_0._zymem
-00 ET5MPART | ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_SNAPSHOT.u_cntrl._zzixc_ctxrd_0._zymem
-00 ET5MPART | ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip0._zzixc_ctxrd_0._zymem
-00 ET5MPART | ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip0.u_cntrl._zzixc_ctxrd_0._zymem
-00 ET5MPART | ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip1._zzixc_ctxrd_0._zymem
-00 ET5MPART | ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip1.u_cntrl._zzixc_ctxrd_0._zymem
-00 ET5MPART | ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip2._zzixc_ctxrd_0._zymem
-00 ET5MPART | ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip2.u_cntrl._zzixc_ctxrd_0._zymem
-00 ET5MPART | ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip3._zzixc_ctxrd_0._zymem
-00 ET5MPART | ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip3.u_cntrl._zzixc_ctxrd_0._zymem
-00 ET5MPART | ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip0._zzixc_ctxrd_0._zymem
-00 ET5MPART | ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip0.u_cntrl._zzixc_ctxrd_0._zymem
-00 ET5MPART | ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip1._zzixc_ctxrd_0._zymem
-00 ET5MPART | ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip1.u_cntrl._zzixc_ctxrd_0._zymem
-00 ET5MPART | ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip2._zzixc_ctxrd_0._zymem
-00 ET5MPART | ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip2.u_cntrl._zzixc_ctxrd_0._zymem
-00 ET5MPART | ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip3._zzixc_ctxrd_0._zymem
-00 ET5MPART | ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip3.u_cntrl._zzixc_ctxrd_0._zymem
+00 ET5MPART | ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.ckv_indirect_access.u_cntrl._zzixc_ctxrd_0._zymem
+00 ET5MPART | ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.kim_indirect_access.u_cntrl._zzixc_ctxrd_0._zymem
+00 ET5MPART | ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_COUNT._zzixc_ctxrd_0._zymem
+00 ET5MPART | ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_COUNT.u_cntrl._zzixc_ctxrd_0._zymem
+00 ET5MPART | ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzixc_ctxrd_0._zymem
+00 ET5MPART | ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzixc_ctxwr_1._zymem
+00 ET5MPART | ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_CTRL.u_cntrl._zzixc_ctxrd_0._zymem
+00 ET5MPART | ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_SNAPSHOT._zzixc_ctxrd_0._zymem
+00 ET5MPART | ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_SNAPSHOT.u_cntrl._zzixc_ctxrd_0._zymem
+00 ET5MPART | ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip0._zzixc_ctxrd_0._zymem
+00 ET5MPART | ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip0.u_cntrl._zzixc_ctxrd_0._zymem
+00 ET5MPART | ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip1._zzixc_ctxrd_0._zymem
+00 ET5MPART | ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip1.u_cntrl._zzixc_ctxrd_0._zymem
+00 ET5MPART | ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip2._zzixc_ctxrd_0._zymem
+00 ET5MPART | ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip2.u_cntrl._zzixc_ctxrd_0._zymem
+00 ET5MPART | ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip3._zzixc_ctxrd_0._zymem
+00 ET5MPART | ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip3.u_cntrl._zzixc_ctxrd_0._zymem
+00 ET5MPART | ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip0._zzixc_ctxrd_0._zymem
+00 ET5MPART | ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip0.u_cntrl._zzixc_ctxrd_0._zymem
+00 ET5MPART | ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip1._zzixc_ctxrd_0._zymem
+00 ET5MPART | ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip1.u_cntrl._zzixc_ctxrd_0._zymem
+00 ET5MPART | ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip2._zzixc_ctxrd_0._zymem
+00 ET5MPART | ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip2.u_cntrl._zzixc_ctxrd_0._zymem
+00 ET5MPART | ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip3._zzixc_ctxrd_0._zymem
+00 ET5MPART | ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip3.u_cntrl._zzixc_ctxrd_0._zymem
+00 ET5MPART | ET5_V2_H1.IXC_GFIFO.I.I.ixc_gfm_ififo
+00 ET5MPART | ET5_V3_H1.IXC_GFIFO.I.I.ixc_gfm_ififo
+00 ET5MPART | ET5_V4_H1.IXC_GFIFO.I.I.ixc_gfm_ififo
+00 ET5MPART | ET5_V2_H1.IXC_GFIFO.I.I.ixc_gfm_ofifo
+00 ET5MPART | ET5_V3_H1.IXC_GFIFO.I.I.ixc_gfm_ofifo
+00 ET5MPART | ET5_V4_H1.IXC_GFIFO.I.I.ixc_gfm_ofifo
+00 ET5MPART | ET5_V2_H1.IXC_GFIFO.O.O.ixc_gfm_ofifo
+00 ET5MPART | ET5_V3_H1.IXC_GFIFO.O.O.ixc_gfm_ofifo
+00 ET5MPART | ET5_V4_H1.IXC_GFIFO.O.O.ixc_gfm_ofifo
 00 ET5MPART | ----------------------------------------
-10 ET5MPART | Design contains 35 'DO_NOT_TOUCH' memory instances
+10 ET5MPART | Design contains 47 'DO_NOT_TOUCH' memory instances
 00 ET5MPART | ------------------------
-00 ET5MPART | Without compaction the design would require 15.168 Mbytes of emulator memory.
-00 ET5MPART | After full compaction it will require at least 14.870 Mbytes of emulator memory,
+00 ET5MPART | Without compaction the design would require 19.419 Mbytes of emulator memory.
+00 ET5MPART | After full compaction it will require at least 19.121 Mbytes of emulator memory,
 00 ET5MPART | so it will require at least 1 domain or at least 1 EXTRAM.
 00 ET5MPART | This is a preliminary estimation; the final numbers may be different.
 00 ET5MPART | ------------------------
-00 ET5MPART | Design contains 92 memory instances.
-00 ET5MPART | Design capacity (before memTransform): 173630
+00 ET5MPART | Design contains 108 memory instances.
+00 ET5MPART | Design capacity (before memTransform): 387249
 00 ET5MPART | HW capacity: 1548288
-00 ET5MPART | Instruction usage: 11.2
+00 ET5MPART | Instruction usage: 25.0
 00 ET5MPART | 
 00 ET5MPART | Platform is Palladium Z1.
 00 ET5MPART | Number of valid option entries for module mpart = 0
@@ -809,80 +738,86 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00 ET5MPART | Bit-merging with mutual WE signals 2 memory instances (Group 1: aw=6, numR=1, numW=0):
 00 ET5MPART | 
 00 ET5MPART | In total, 2 memory instances were merged into 1 merger.
-00 ET5MPART | New design capacity: 173623
+00 ET5MPART | New design capacity: 387242
 00 ET5MPART | HW capacity: 1548288
-00 ET5MPART | New instruction usage: 11.2
+00 ET5MPART | New instruction usage: 25.0
 00 ET5MPART | 
 00 ET5MPART | Number of valid option entries for module mpart = 0
 00 ET5MPART | Memory compaction relaxation:
 00 ET5MPART | Avail: INTRAM: 48, EXTRAM: 1
 00 ET5MPART | 
 00 ET5MPART | IntDepth: 131072, ExtDepth: 1073741824 
-00 ET5MPART | Needed INTRAM: 16, EXTRAM: 0 
-00 ET5MPART | Evaluation of current memory requirements: INTRAM: 16 (1 domains), EXTRAM (1): 1
+00 ET5MPART | Needed INTRAM: 20, EXTRAM: 0 
+00 ET5MPART | Evaluation of current memory requirements: INTRAM: 20 (1 domains), EXTRAM (1): 1
 00 ET5MPART | Enough INTRAM - no need for compaction at all
-00 ET5MPART | Mem: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip0_key_tlv_rsm .u_cr_tlvp2_rsm.u_cr_fifo_wrap2_tob.\ram_fifo.u_nx_fifo_ram_1r1w .ram.\_1r1wramDxWb.mem 
+00 ET5MPART | Mem: ET5_V1_H1.tb_top.kme_tb_dut._zygsfis_get_config_data_fifo
+00 ET5MPART |  (w: 72, a: 5, p: 4) not compacted 
+00 ET5MPART | Mem: ET5_V1_H1.tb_top.kme_tb_dut._zygsfis_ib_service_data_fifo
+00 ET5MPART |  (w: 136, a: 5, p: 3) not compacted 
+00 ET5MPART | Mem: ET5_V1_H1.tb_top.kme_tb_dut._zygsfis_ob_service_data_fifo
+00 ET5MPART |  (w: 136, a: 5, p: 3) not compacted 
+00 ET5MPART | Mem: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_core.\kme_is_core.cceip0_key_tlv_rsm .u_cr_tlvp2_rsm.u_cr_fifo_wrap2_tob.\ram_fifo.u_nx_fifo_ram_1r1w .ram.\_1r1wramDxWb.mem 
 00 ET5MPART |  (w: 83, a: 8, p: 3) not compacted 
-00 ET5MPART | Mem: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip0_key_tlv_rsm .u_cr_tlvp2_rsm.u_cr_fifo_wrap2_uobf.\reg_fifo.u_nx_fifo .\depth_n.r_data 
-00 ET5MPART |  (w: 106, a: 4, p: 2) not compacted 
-00 ET5MPART | Mem: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .gcm.bypass_fifo.std_fifo.\depth_n.r_data 
-00 ET5MPART |  (w: 132, a: 4, p: 2) not compacted 
-00 ET5MPART | Mem: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .gcm_cmd_fifo.std_fifo.\depth_n.r_data 
-00 ET5MPART |  (w: 611, a: 2, p: 2) not compacted 
-00 ET5MPART | Mem: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .gcm_tag_data_fifo.std_fifo.\depth_n.r_data 
+00 ET5MPART | Mem: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_core.\kme_is_core.cceip0_key_tlv_rsm .u_cr_tlvp2_rsm.u_cr_fifo_wrap2_uobf.\reg_fifo.u_nx_fifo .\depth_n.r_data 
+00 ET5MPART |  (w: 106, a: 4, p: 3) not compacted 
+00 ET5MPART | Mem: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .gcm.bypass_fifo.std_fifo.\depth_n.r_data 
+00 ET5MPART |  (w: 132, a: 4, p: 3) not compacted 
+00 ET5MPART | Mem: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .gcm_cmd_fifo.std_fifo.\depth_n.r_data 
+00 ET5MPART |  (w: 611, a: 2, p: 3) not compacted 
+00 ET5MPART | Mem: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .gcm_tag_data_fifo.std_fifo.\depth_n.r_data 
 00 ET5MPART |  (w: 96, a: 2, p: 2) not compacted 
-00 ET5MPART | Mem: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .kdf.gcm_key_fifo.std_fifo.\depth_n.r_data 
+00 ET5MPART | Mem: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .kdf.gcm_key_fifo.std_fifo.\depth_n.r_data 
 00 ET5MPART |  (w: 128, a: 2, p: 2) not compacted 
-00 ET5MPART | Mem: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .kdf.hash_key_fifo.std_fifo.\depth_n.r_data 
+00 ET5MPART | Mem: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .kdf.hash_key_fifo.std_fifo.\depth_n.r_data 
 00 ET5MPART |  (w: 256, a: 2, p: 2) not compacted 
-00 ET5MPART | Mem: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .kdfstream_cmd_fifo.std_fifo.\depth_n.r_data 
-00 ET5MPART |  (w: 263, a: 2, p: 2) not compacted 
-00 ET5MPART | Mem: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .tlv_sb_data_fifo.std_fifo.\depth_n.r_data 
-00 ET5MPART |  (w: 64, a: 4, p: 2) not compacted 
-00 ET5MPART | Mem: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop_fifo .ram_fifo.\ram_fifo.u_nx_fifo_ram_1r1w .ram.\_1r1wramDxWb.mem 
+00 ET5MPART | Mem: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .kdfstream_cmd_fifo.std_fifo.\depth_n.r_data 
+00 ET5MPART |  (w: 263, a: 2, p: 3) not compacted 
+00 ET5MPART | Mem: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .tlv_sb_data_fifo.std_fifo.\depth_n.r_data 
+00 ET5MPART |  (w: 64, a: 4, p: 3) not compacted 
+00 ET5MPART | Mem: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop_fifo .ram_fifo.\ram_fifo.u_nx_fifo_ram_1r1w .ram.\_1r1wramDxWb.mem 
 00 ET5MPART |  (w: 71, a: 11, p: 3) not compacted 
-00 ET5MPART | Mem: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .gcm.bypass_fifo.std_fifo.\depth_n.r_data 
-00 ET5MPART |  (w: 132, a: 4, p: 2) not compacted 
-00 ET5MPART | Mem: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .gcm_cmd_fifo.std_fifo.\depth_n.r_data 
-00 ET5MPART |  (w: 611, a: 2, p: 2) not compacted 
-00 ET5MPART | Mem: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .gcm_tag_data_fifo.std_fifo.\depth_n.r_data 
+00 ET5MPART | Mem: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .gcm.bypass_fifo.std_fifo.\depth_n.r_data 
+00 ET5MPART |  (w: 132, a: 4, p: 3) not compacted 
+00 ET5MPART | Mem: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .gcm_cmd_fifo.std_fifo.\depth_n.r_data 
+00 ET5MPART |  (w: 611, a: 2, p: 3) not compacted 
+00 ET5MPART | Mem: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .gcm_tag_data_fifo.std_fifo.\depth_n.r_data 
 00 ET5MPART |  (w: 96, a: 2, p: 2) not compacted 
-00 ET5MPART | Mem: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .kdf.gcm_key_fifo.std_fifo.\depth_n.r_data 
+00 ET5MPART | Mem: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .kdf.gcm_key_fifo.std_fifo.\depth_n.r_data 
 00 ET5MPART |  (w: 128, a: 2, p: 2) not compacted 
-00 ET5MPART | Mem: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .kdf.hash_key_fifo.std_fifo.\depth_n.r_data 
+00 ET5MPART | Mem: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .kdf.hash_key_fifo.std_fifo.\depth_n.r_data 
 00 ET5MPART |  (w: 256, a: 2, p: 2) not compacted 
-00 ET5MPART | Mem: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .kdfstream_cmd_fifo.std_fifo.\depth_n.r_data 
-00 ET5MPART |  (w: 263, a: 2, p: 2) not compacted 
-00 ET5MPART | Mem: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .tlv_sb_data_fifo.std_fifo.\depth_n.r_data 
-00 ET5MPART |  (w: 64, a: 4, p: 2) not compacted 
-00 ET5MPART | Mem: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop_fifo .ram_fifo.\ram_fifo.u_nx_fifo_ram_1r1w .ram.\_1r1wramDxWb.mem 
+00 ET5MPART | Mem: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .kdfstream_cmd_fifo.std_fifo.\depth_n.r_data 
+00 ET5MPART |  (w: 263, a: 2, p: 3) not compacted 
+00 ET5MPART | Mem: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .tlv_sb_data_fifo.std_fifo.\depth_n.r_data 
+00 ET5MPART |  (w: 64, a: 4, p: 3) not compacted 
+00 ET5MPART | Mem: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop_fifo .ram_fifo.\ram_fifo.u_nx_fifo_ram_1r1w .ram.\_1r1wramDxWb.mem 
 00 ET5MPART |  (w: 71, a: 11, p: 3) not compacted 
-00 ET5MPART | Mem: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.ckv_pipeline .guid_stitcher.aux_cmd_fifo.std_fifo.\depth_n.r_data 
-00 ET5MPART |  (w: 83, a: 5, p: 2) not compacted 
-00 ET5MPART | Mem: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.drng .drng.rnd_fifo.std_fifo.\depth_n.r_data 
-00 ET5MPART |  (w: 128, a: 3, p: 2) not compacted 
-00 ET5MPART | Mem: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.txc_axi_intf .u_cr_fifo_wrap2.\ram_fifo.u_nx_fifo_ram_1r1w .ram.\_1r1wramDxWb.mem 
+00 ET5MPART | Mem: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_core.\kme_is_core.ckv_pipeline .guid_stitcher.aux_cmd_fifo.std_fifo.\depth_n.r_data 
+00 ET5MPART |  (w: 83, a: 5, p: 3) not compacted 
+00 ET5MPART | Mem: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_core.\kme_is_core.drng .drng.rnd_fifo.std_fifo.\depth_n.r_data 
+00 ET5MPART |  (w: 128, a: 3, p: 3) not compacted 
+00 ET5MPART | Mem: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_core.\kme_is_core.txc_axi_intf .u_cr_fifo_wrap2.\ram_fifo.u_nx_fifo_ram_1r1w .ram.\_1r1wramDxWb.mem 
 00 ET5MPART |  (w: 83, a: 8, p: 3) not compacted 
-00 ET5MPART | Mem: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.ckv_indirect_access.u_ram.\g.mem 
-00 ET5MPART |  (w: 64, a: 15, p: 2) not compacted 
-00 ET5MPART | Mem: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.kim_indirect_access.u_ram.\g.mem 
-00 ET5MPART |  (w: 38, a: 14, p: 2) not compacted 
-00 ET5MPART | Mem: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip0.u_ram.\g.mem 
-00 ET5MPART |  (w: 96, a: 9, p: 2) not compacted 
-00 ET5MPART | Mem: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip1.u_ram.\g.mem 
-00 ET5MPART |  (w: 96, a: 9, p: 2) not compacted 
-00 ET5MPART | Mem: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip2.u_ram.\g.mem 
-00 ET5MPART |  (w: 96, a: 9, p: 2) not compacted 
-00 ET5MPART | Mem: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip3.u_ram.\g.mem 
-00 ET5MPART |  (w: 96, a: 9, p: 2) not compacted 
-00 ET5MPART | Mem: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip0.u_ram.\g.mem 
-00 ET5MPART |  (w: 96, a: 9, p: 2) not compacted 
-00 ET5MPART | Mem: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip1.u_ram.\g.mem 
-00 ET5MPART |  (w: 96, a: 9, p: 2) not compacted 
-00 ET5MPART | Mem: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip2.u_ram.\g.mem 
-00 ET5MPART |  (w: 96, a: 9, p: 2) not compacted 
-00 ET5MPART | Mem: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip3.u_ram.\g.mem 
-00 ET5MPART |  (w: 96, a: 9, p: 2) not compacted 
+00 ET5MPART | Mem: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.ckv_indirect_access.u_ram.\g.mem 
+00 ET5MPART |  (w: 64, a: 15, p: 3) not compacted 
+00 ET5MPART | Mem: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.kim_indirect_access.u_ram.\g.mem 
+00 ET5MPART |  (w: 38, a: 14, p: 3) not compacted 
+00 ET5MPART | Mem: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip0.u_ram.\g.mem 
+00 ET5MPART |  (w: 96, a: 9, p: 3) not compacted 
+00 ET5MPART | Mem: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip1.u_ram.\g.mem 
+00 ET5MPART |  (w: 96, a: 9, p: 3) not compacted 
+00 ET5MPART | Mem: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip2.u_ram.\g.mem 
+00 ET5MPART |  (w: 96, a: 9, p: 3) not compacted 
+00 ET5MPART | Mem: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip3.u_ram.\g.mem 
+00 ET5MPART |  (w: 96, a: 9, p: 3) not compacted 
+00 ET5MPART | Mem: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip0.u_ram.\g.mem 
+00 ET5MPART |  (w: 96, a: 9, p: 3) not compacted 
+00 ET5MPART | Mem: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip1.u_ram.\g.mem 
+00 ET5MPART |  (w: 96, a: 9, p: 3) not compacted 
+00 ET5MPART | Mem: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip2.u_ram.\g.mem 
+00 ET5MPART |  (w: 96, a: 9, p: 3) not compacted 
+00 ET5MPART | Mem: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip3.u_ram.\g.mem 
+00 ET5MPART |  (w: 96, a: 9, p: 3) not compacted 
 00 ET5MPART | Mem: ET5_V1_H1.QTLA%SDL.top.run_stop_ctl._sdlcmds
 00 ET5MPART |  (w: 64, a: 16, p: 4) not compacted 
 00 ET5MPART | Mem: ET5_V1_H1.QTLA%SDL.top.tsm_0.main_instr.tsm_lut_OPT
@@ -898,6 +833,8 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00 ET5MPART | Mem: ET5_V1_H1.QTLA%SDL.top.display.args_display_ram
 00 ET5MPART |  (w: 2048, a: 14, p: 1) not compacted 
 00 ET5MPART | Mem: ET5_V1_H1.QTLA%SDL.top.stwave_tstamp_ram
+00 ET5MPART |  (w: 64, a: 15, p: 1) not compacted 
+00 ET5MPART | Mem: ET5_V1_H1.QTLA%SDL.top.stwave_tstamp_ram_shadow
 00 ET5MPART |  (w: 64, a: 15, p: 1) not compacted 
 00 ET5MPART | Mem: ET5_V1_H1.QTLA%SDL.top.stwave_0_ram
 00 ET5MPART |  (w: 64, a: 15, p: 1) not compacted 
@@ -937,7 +874,7 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00 ET5MPART | A memory ET5_V1_H1.QTLA%SDL.top.tsm_0.main_instr.cnt1.cnt_cmpval_OPT.Merger1, previously merged can't be split now
 00 ET5MPART | 
 00 ET5MPART | ========New memory statistics after "memTransform"========
-00 ET5MPART | INTRAM needed    =  16 (if no EXTRAM is available)
+00 ET5MPART | INTRAM needed    =  20 (if no EXTRAM is available)
 00 ET5MPART | INTRAM available =  48
 00 ET5MPART | EXTRAM needed    =   0
 00 ET5MPART | EXTRAM available =   1
@@ -946,9 +883,9 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00 ET5MPART | Total "memory weight" change: -14
 00 ET5MPART | Created logic boxes during transformations: 0
 00 ET5MPART | Created FD01 boxes during transformations: 0
-00 ET5MPART | Design capacity: 173623
+00 ET5MPART | Design capacity: 387242
 00 ET5MPART | HW capacity: 1548288
-00 ET5MPART | Instruction usage: 11.2
+00 ET5MPART | Instruction usage: 25.0
 00 ET5MPART | Number of valid option entries for module mpart = 0
 00 ET5MPART | Comp Options: 
 00 ET5MPART | INTRAM util_factor: 0.000000
@@ -965,118 +902,420 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.HOLDTOP.ctrl was reformatted
 00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.HOLDTOP.U2006 dw=256, aw=2
 00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.HOLDTOP.U2006 was reformatted
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.I.ixc_gfm_ififo dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.I.ixc_gfm_ififo targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.I.U10463 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.I.U10463 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.I.U10464 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.I.U10464 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.I.U10465 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.I.U10465 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.I.ixc_gfm_ififo@QT36801 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.I.ixc_gfm_ififo@QT36801 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.I.U10463@QT36802 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.I.U10463@QT36802 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.I.U10464@QT36803 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.I.U10464@QT36803 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.I.U10465@QT36804 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.I.U10465@QT36804 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.I.U10466 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.I.U10466 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.I.ixc_gfm_ofifo dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.I.ixc_gfm_ofifo targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.I.U10459 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.I.U10459 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.I.U10460 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.I.U10460 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.I.U10461 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.I.U10461 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.I.ixc_gfm_ofifo@QT36805 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.I.ixc_gfm_ofifo@QT36805 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.I.U10459@QT36806 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.I.U10459@QT36806 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.I.U10460@QT36807 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.I.U10460@QT36807 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.I.U10461@QT36808 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.I.U10461@QT36808 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.O.ixc_gfm_ctl dw=64, aw=1
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.O.ixc_gfm_ctl targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.O.ixc_gfm_ctl@QT36809 dw=64, aw=1
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.O.ixc_gfm_ctl@QT36809 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.O.ixc_gfm_ofifo dw=64, aw=17
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.O.ixc_gfm_ofifo targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.O.U6035 dw=64, aw=17
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.O.U6035 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.O.U6036 dw=64, aw=17
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.O.U6036 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.O.U6037 dw=64, aw=17
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.O.U6037 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.O.U6038 dw=64, aw=17
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.O.U6038 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.O.U6039 dw=64, aw=17
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.O.U6039 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.O.U6040 dw=64, aw=17
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.O.U6040 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.O.U6041 dw=64, aw=17
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.O.U6041 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.O.U6042 dw=64, aw=17
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.O.U6042 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.O.ixc_gfm_ofifo@QT36810 dw=64, aw=17
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.O.ixc_gfm_ofifo@QT36810 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.O.U6035@QT36811 dw=64, aw=17
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.O.U6035@QT36811 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.O.U6036@QT36812 dw=64, aw=17
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.O.U6036@QT36812 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.O.U6037@QT36813 dw=64, aw=17
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.O.U6037@QT36813 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.O.U6038@QT36814 dw=64, aw=17
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.O.U6038@QT36814 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.O.U6039@QT36815 dw=64, aw=17
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.O.U6039@QT36815 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.O.U6040@QT36816 dw=64, aw=17
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.O.U6040@QT36816 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.O.U6041@QT36817 dw=64, aw=17
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.O.U6041@QT36817 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.O.U6042@QT36818 dw=64, aw=17
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.I.O.U6042@QT36818 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.O.O.ixc_gfm_ack dw=64, aw=1
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.O.O.ixc_gfm_ack targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.O.O.ixc_gfm_ctl dw=64, aw=2
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.O.O.ixc_gfm_ctl targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.O.O.U9489 dw=64, aw=2
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.O.O.U9489 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.O.O.U9490 dw=64, aw=2
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.O.O.U9490 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.O.O.U9491 dw=64, aw=2
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.O.O.U9491 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.O.O.ixc_gfm_ctl@QT36819 dw=64, aw=2
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.O.O.ixc_gfm_ctl@QT36819 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.O.O.U9489@QT36820 dw=64, aw=2
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.O.O.U9489@QT36820 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.O.O.U9490@QT36821 dw=64, aw=2
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.O.O.U9490@QT36821 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.O.O.U9491@QT36822 dw=64, aw=2
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.O.O.U9491@QT36822 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.O.O.ixc_gfm_ofifo dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.O.O.ixc_gfm_ofifo targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.O.O.U9486 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.O.O.U9486 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.O.O.U9487 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.O.O.U9487 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.O.O.ixc_gfm_ofifo@QT36823 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.O.O.ixc_gfm_ofifo@QT36823 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.O.O.U9486@QT36824 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.O.O.U9486@QT36824 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.O.O.U9487@QT36825 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.O.O.U9487@QT36825 targeted into INTRAM
 00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.OSF1.OMB_0._zyevMem dw=64, aw=1
 00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.OSF1.OMB_0._zyevMem targeted into INTRAM
 00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.OSF1.OMB_0.U13 dw=64, aw=1
 00 ET5MPART | Fast Memory: ET5_V1_H1.IXC_GFIFO.OSF1.OMB_0.U13 targeted into INTRAM
 00 ET5MPART | Fast Memory: ET5_V1_H1.ixc_time._zzcmds dw=64, aw=2
 00 ET5MPART | Fast Memory: ET5_V1_H1.ixc_time._zzcmds targeted into INTRAM
-00 ET5MPART | Fast Memory: ET5_V1_H1.ixc_time.U807 dw=64, aw=2
-00 ET5MPART | Fast Memory: ET5_V1_H1.ixc_time.U807 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.ixc_time.U1306 dw=64, aw=2
+00 ET5MPART | Fast Memory: ET5_V1_H1.ixc_time.U1306 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.ixc_time.U1306@QT36828 dw=64, aw=2
+00 ET5MPART | Fast Memory: ET5_V1_H1.ixc_time.U1306@QT36828 targeted into INTRAM
 00 ET5MPART | Fast Memory: ET5_V1_H1.ixc_time._zzmiopis dw=64, aw=2
 00 ET5MPART | Fast Memory: ET5_V1_H1.ixc_time._zzmiopis targeted into INTRAM
-00 ET5MPART | Fast Memory: ET5_V1_H1.ixc_time.U809 dw=64, aw=2
-00 ET5MPART | Fast Memory: ET5_V1_H1.ixc_time.U809 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.ixc_time.U1304 dw=64, aw=2
+00 ET5MPART | Fast Memory: ET5_V1_H1.ixc_time.U1304 targeted into INTRAM
 00 ET5MPART | Fast Memory: ET5_V1_H1.ixc_time._zzmiopos dw=64, aw=2
 00 ET5MPART | Fast Memory: ET5_V1_H1.ixc_time._zzmiopos targeted into INTRAM
-00 ET5MPART | Fast Memory: ET5_V1_H1.ixc_time.U811 dw=64, aw=2
-00 ET5MPART | Fast Memory: ET5_V1_H1.ixc_time.U811 targeted into INTRAM
-00 ET5MPART | Fast Memory: ET5_V1_H1.ixc_time.U812 dw=64, aw=2
-00 ET5MPART | Fast Memory: ET5_V1_H1.ixc_time.U812 targeted into INTRAM
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.apb_xactor._zzixc_tfport_0_0._zyh2smem dw=32, aw=1
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.apb_xactor._zzixc_tfport_0_0._zyh2smem targeted into INTRAM
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.apb_xactor._zzixc_tfport_0_0._zys2hmem dw=256, aw=1
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.apb_xactor._zzixc_tfport_0_0._zys2hmem was reformatted
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.apb_xactor._zzixc_tfport_0_1._zyh2smem dw=64, aw=1
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.apb_xactor._zzixc_tfport_0_1._zyh2smem targeted into INTRAM
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.apb_xactor._zzixc_tfport_0_1._zys2hmem dw=64, aw=1
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.apb_xactor._zzixc_tfport_0_1._zys2hmem targeted into INTRAM
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.apb_xactor._zzixc_tfport_0_1.U95 dw=64, aw=1
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.apb_xactor._zzixc_tfport_0_1.U95 targeted into INTRAM
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.ckv_indirect_access.u_cntrl._zzixc_ctxrd_0._zymem dw=32, aw=1
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.ckv_indirect_access.u_cntrl._zzixc_ctxrd_0._zymem targeted into INTRAM
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.kim_indirect_access.u_cntrl._zzixc_ctxrd_0._zymem dw=32, aw=1
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.kim_indirect_access.u_cntrl._zzixc_ctxrd_0._zymem targeted into INTRAM
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_COUNT._zzixc_ctxrd_0._zymem dw=512, aw=2
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_COUNT._zzixc_ctxrd_0._zymem was reformatted
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_COUNT._zzixc_ctxrd_0.U2 dw=512, aw=2
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_COUNT._zzixc_ctxrd_0.U2 was reformatted
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_COUNT._zzixc_ctxrd_0.U3 dw=512, aw=2
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_COUNT._zzixc_ctxrd_0.U3 was reformatted
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_COUNT._zzixc_ctxrd_0.U4 dw=512, aw=2
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_COUNT._zzixc_ctxrd_0.U4 was reformatted
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_COUNT.u_cntrl._zzixc_ctxrd_0._zymem dw=32, aw=1
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_COUNT.u_cntrl._zzixc_ctxrd_0._zymem targeted into INTRAM
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzixc_ctxrd_0._zymem dw=512, aw=1
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzixc_ctxrd_0._zymem was reformatted
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzixc_ctxrd_0.U2 dw=512, aw=1
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzixc_ctxrd_0.U2 was reformatted
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzixc_ctxwr_1._zymem dw=512, aw=2
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzixc_ctxwr_1._zymem was reformatted
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzixc_ctxwr_1.U8 dw=512, aw=2
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzixc_ctxwr_1.U8 was reformatted
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzixc_ctxwr_1.U9 dw=512, aw=2
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzixc_ctxwr_1.U9 was reformatted
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_CTRL.u_cntrl._zzixc_ctxrd_0._zymem dw=32, aw=1
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_CTRL.u_cntrl._zzixc_ctxrd_0._zymem targeted into INTRAM
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_SNAPSHOT._zzixc_ctxrd_0._zymem dw=512, aw=2
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_SNAPSHOT._zzixc_ctxrd_0._zymem was reformatted
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_SNAPSHOT._zzixc_ctxrd_0.U2 dw=512, aw=2
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_SNAPSHOT._zzixc_ctxrd_0.U2 was reformatted
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_SNAPSHOT._zzixc_ctxrd_0.U3 dw=512, aw=2
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_SNAPSHOT._zzixc_ctxrd_0.U3 was reformatted
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_SNAPSHOT._zzixc_ctxrd_0.U4 dw=512, aw=2
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_SNAPSHOT._zzixc_ctxrd_0.U4 was reformatted
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_SNAPSHOT.u_cntrl._zzixc_ctxrd_0._zymem dw=32, aw=1
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_SNAPSHOT.u_cntrl._zzixc_ctxrd_0._zymem targeted into INTRAM
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip0._zzixc_ctxrd_0._zymem dw=128, aw=1
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip0._zzixc_ctxrd_0._zymem was reformatted
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip0.u_cntrl._zzixc_ctxrd_0._zymem dw=32, aw=1
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip0.u_cntrl._zzixc_ctxrd_0._zymem targeted into INTRAM
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip1._zzixc_ctxrd_0._zymem dw=128, aw=1
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip1._zzixc_ctxrd_0._zymem was reformatted
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip1.u_cntrl._zzixc_ctxrd_0._zymem dw=32, aw=1
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip1.u_cntrl._zzixc_ctxrd_0._zymem targeted into INTRAM
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip2._zzixc_ctxrd_0._zymem dw=128, aw=1
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip2._zzixc_ctxrd_0._zymem was reformatted
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip2.u_cntrl._zzixc_ctxrd_0._zymem dw=32, aw=1
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip2.u_cntrl._zzixc_ctxrd_0._zymem targeted into INTRAM
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip3._zzixc_ctxrd_0._zymem dw=128, aw=1
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip3._zzixc_ctxrd_0._zymem was reformatted
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip3.u_cntrl._zzixc_ctxrd_0._zymem dw=32, aw=1
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip3.u_cntrl._zzixc_ctxrd_0._zymem targeted into INTRAM
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip0._zzixc_ctxrd_0._zymem dw=128, aw=1
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip0._zzixc_ctxrd_0._zymem was reformatted
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip0.u_cntrl._zzixc_ctxrd_0._zymem dw=32, aw=1
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip0.u_cntrl._zzixc_ctxrd_0._zymem targeted into INTRAM
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip1._zzixc_ctxrd_0._zymem dw=128, aw=1
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip1._zzixc_ctxrd_0._zymem was reformatted
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip1.u_cntrl._zzixc_ctxrd_0._zymem dw=32, aw=1
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip1.u_cntrl._zzixc_ctxrd_0._zymem targeted into INTRAM
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip2._zzixc_ctxrd_0._zymem dw=128, aw=1
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip2._zzixc_ctxrd_0._zymem was reformatted
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip2.u_cntrl._zzixc_ctxrd_0._zymem dw=32, aw=1
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip2.u_cntrl._zzixc_ctxrd_0._zymem targeted into INTRAM
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip3._zzixc_ctxrd_0._zymem dw=128, aw=1
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip3._zzixc_ctxrd_0._zymem was reformatted
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip3.u_cntrl._zzixc_ctxrd_0._zymem dw=32, aw=1
-00 ET5MPART | Fast Memory: ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip3.u_cntrl._zzixc_ctxrd_0._zymem targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.ixc_time.U1301 dw=64, aw=2
+00 ET5MPART | Fast Memory: ET5_V1_H1.ixc_time.U1301 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.ixc_time.U1302 dw=64, aw=2
+00 ET5MPART | Fast Memory: ET5_V1_H1.ixc_time.U1302 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.ixc_time._zzmiopos@QT36829 dw=64, aw=2
+00 ET5MPART | Fast Memory: ET5_V1_H1.ixc_time._zzmiopos@QT36829 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.ixc_time.U1301@QT36830 dw=64, aw=2
+00 ET5MPART | Fast Memory: ET5_V1_H1.ixc_time.U1301@QT36830 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.ixc_time.U1302@QT36831 dw=64, aw=2
+00 ET5MPART | Fast Memory: ET5_V1_H1.ixc_time.U1302@QT36831 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.ckv_indirect_access.u_cntrl._zzixc_ctxrd_0._zymem dw=32, aw=1
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.ckv_indirect_access.u_cntrl._zzixc_ctxrd_0._zymem targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.ckv_indirect_access.u_cntrl._zzixc_ctxrd_0._zymem@QT36849 dw=32, aw=1
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.ckv_indirect_access.u_cntrl._zzixc_ctxrd_0._zymem@QT36849 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.kim_indirect_access.u_cntrl._zzixc_ctxrd_0._zymem dw=32, aw=1
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.kim_indirect_access.u_cntrl._zzixc_ctxrd_0._zymem targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.kim_indirect_access.u_cntrl._zzixc_ctxrd_0._zymem@QT36851 dw=32, aw=1
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.kim_indirect_access.u_cntrl._zzixc_ctxrd_0._zymem@QT36851 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_COUNT._zzixc_ctxrd_0._zymem dw=512, aw=2
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_COUNT._zzixc_ctxrd_0._zymem was reformatted
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_COUNT._zzixc_ctxrd_0.U2 dw=512, aw=2
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_COUNT._zzixc_ctxrd_0.U2 was reformatted
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_COUNT._zzixc_ctxrd_0.U3 dw=512, aw=2
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_COUNT._zzixc_ctxrd_0.U3 was reformatted
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_COUNT._zzixc_ctxrd_0.U4 dw=512, aw=2
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_COUNT._zzixc_ctxrd_0.U4 was reformatted
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_COUNT._zzixc_ctxrd_0._zymem@QT36853 dw=512, aw=2
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_COUNT._zzixc_ctxrd_0._zymem@QT36853 was reformatted
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_COUNT._zzixc_ctxrd_0.U2@QT36854 dw=512, aw=2
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_COUNT._zzixc_ctxrd_0.U2@QT36854 was reformatted
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_COUNT._zzixc_ctxrd_0.U3@QT36855 dw=512, aw=2
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_COUNT._zzixc_ctxrd_0.U3@QT36855 was reformatted
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_COUNT._zzixc_ctxrd_0.U4@QT36856 dw=512, aw=2
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_COUNT._zzixc_ctxrd_0.U4@QT36856 was reformatted
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_COUNT.u_cntrl._zzixc_ctxrd_0._zymem dw=32, aw=1
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_COUNT.u_cntrl._zzixc_ctxrd_0._zymem targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_COUNT.u_cntrl._zzixc_ctxrd_0._zymem@QT36857 dw=32, aw=1
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_COUNT.u_cntrl._zzixc_ctxrd_0._zymem@QT36857 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzixc_ctxrd_0._zymem dw=512, aw=1
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzixc_ctxrd_0._zymem was reformatted
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzixc_ctxrd_0.U2 dw=512, aw=1
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzixc_ctxrd_0.U2 was reformatted
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzixc_ctxrd_0._zymem@QT37884 dw=512, aw=1
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzixc_ctxrd_0._zymem@QT37884 was reformatted
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzixc_ctxrd_0.U2@QT37885 dw=512, aw=1
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzixc_ctxrd_0.U2@QT37885 was reformatted
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzixc_ctxwr_1._zymem dw=512, aw=2
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzixc_ctxwr_1._zymem was reformatted
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzixc_ctxwr_1.U8 dw=512, aw=2
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzixc_ctxwr_1.U8 was reformatted
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzixc_ctxwr_1.U9 dw=512, aw=2
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzixc_ctxwr_1.U9 was reformatted
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_CTRL.u_cntrl._zzixc_ctxrd_0._zymem dw=32, aw=1
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_CTRL.u_cntrl._zzixc_ctxrd_0._zymem targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_CTRL.u_cntrl._zzixc_ctxrd_0._zymem@QT37886 dw=32, aw=1
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_CTRL.u_cntrl._zzixc_ctxrd_0._zymem@QT37886 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_SNAPSHOT._zzixc_ctxrd_0._zymem dw=512, aw=2
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_SNAPSHOT._zzixc_ctxrd_0._zymem was reformatted
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_SNAPSHOT._zzixc_ctxrd_0.U2 dw=512, aw=2
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_SNAPSHOT._zzixc_ctxrd_0.U2 was reformatted
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_SNAPSHOT._zzixc_ctxrd_0.U3 dw=512, aw=2
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_SNAPSHOT._zzixc_ctxrd_0.U3 was reformatted
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_SNAPSHOT._zzixc_ctxrd_0.U4 dw=512, aw=2
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_SNAPSHOT._zzixc_ctxrd_0.U4 was reformatted
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_SNAPSHOT._zzixc_ctxrd_0._zymem@QT37887 dw=512, aw=2
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_SNAPSHOT._zzixc_ctxrd_0._zymem@QT37887 was reformatted
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_SNAPSHOT._zzixc_ctxrd_0.U2@QT37888 dw=512, aw=2
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_SNAPSHOT._zzixc_ctxrd_0.U2@QT37888 was reformatted
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_SNAPSHOT._zzixc_ctxrd_0.U3@QT37889 dw=512, aw=2
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_SNAPSHOT._zzixc_ctxrd_0.U3@QT37889 was reformatted
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_SNAPSHOT._zzixc_ctxrd_0.U4@QT37890 dw=512, aw=2
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_SNAPSHOT._zzixc_ctxrd_0.U4@QT37890 was reformatted
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_SNAPSHOT.u_cntrl._zzixc_ctxrd_0._zymem dw=32, aw=1
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_SNAPSHOT.u_cntrl._zzixc_ctxrd_0._zymem targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_SNAPSHOT.u_cntrl._zzixc_ctxrd_0._zymem@QT37891 dw=32, aw=1
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_SNAPSHOT.u_cntrl._zzixc_ctxrd_0._zymem@QT37891 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip0._zzixc_ctxrd_0._zymem dw=128, aw=1
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip0._zzixc_ctxrd_0._zymem was reformatted
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip0._zzixc_ctxrd_0._zymem@QT37892 dw=128, aw=1
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip0._zzixc_ctxrd_0._zymem@QT37892 was reformatted
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip0.u_cntrl._zzixc_ctxrd_0._zymem dw=32, aw=1
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip0.u_cntrl._zzixc_ctxrd_0._zymem targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip0.u_cntrl._zzixc_ctxrd_0._zymem@QT37893 dw=32, aw=1
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip0.u_cntrl._zzixc_ctxrd_0._zymem@QT37893 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip1._zzixc_ctxrd_0._zymem dw=128, aw=1
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip1._zzixc_ctxrd_0._zymem was reformatted
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip1._zzixc_ctxrd_0._zymem@QT37895 dw=128, aw=1
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip1._zzixc_ctxrd_0._zymem@QT37895 was reformatted
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip1.u_cntrl._zzixc_ctxrd_0._zymem dw=32, aw=1
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip1.u_cntrl._zzixc_ctxrd_0._zymem targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip1.u_cntrl._zzixc_ctxrd_0._zymem@QT37896 dw=32, aw=1
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip1.u_cntrl._zzixc_ctxrd_0._zymem@QT37896 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip2._zzixc_ctxrd_0._zymem dw=128, aw=1
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip2._zzixc_ctxrd_0._zymem was reformatted
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip2._zzixc_ctxrd_0._zymem@QT37898 dw=128, aw=1
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip2._zzixc_ctxrd_0._zymem@QT37898 was reformatted
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip2.u_cntrl._zzixc_ctxrd_0._zymem dw=32, aw=1
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip2.u_cntrl._zzixc_ctxrd_0._zymem targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip2.u_cntrl._zzixc_ctxrd_0._zymem@QT37899 dw=32, aw=1
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip2.u_cntrl._zzixc_ctxrd_0._zymem@QT37899 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip3._zzixc_ctxrd_0._zymem dw=128, aw=1
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip3._zzixc_ctxrd_0._zymem was reformatted
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip3._zzixc_ctxrd_0._zymem@QT37901 dw=128, aw=1
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip3._zzixc_ctxrd_0._zymem@QT37901 was reformatted
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip3.u_cntrl._zzixc_ctxrd_0._zymem dw=32, aw=1
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip3.u_cntrl._zzixc_ctxrd_0._zymem targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip3.u_cntrl._zzixc_ctxrd_0._zymem@QT37902 dw=32, aw=1
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip3.u_cntrl._zzixc_ctxrd_0._zymem@QT37902 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip0._zzixc_ctxrd_0._zymem dw=128, aw=1
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip0._zzixc_ctxrd_0._zymem was reformatted
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip0._zzixc_ctxrd_0._zymem@QT37904 dw=128, aw=1
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip0._zzixc_ctxrd_0._zymem@QT37904 was reformatted
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip0.u_cntrl._zzixc_ctxrd_0._zymem dw=32, aw=1
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip0.u_cntrl._zzixc_ctxrd_0._zymem targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip0.u_cntrl._zzixc_ctxrd_0._zymem@QT37905 dw=32, aw=1
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip0.u_cntrl._zzixc_ctxrd_0._zymem@QT37905 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip1._zzixc_ctxrd_0._zymem dw=128, aw=1
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip1._zzixc_ctxrd_0._zymem was reformatted
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip1._zzixc_ctxrd_0._zymem@QT37907 dw=128, aw=1
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip1._zzixc_ctxrd_0._zymem@QT37907 was reformatted
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip1.u_cntrl._zzixc_ctxrd_0._zymem dw=32, aw=1
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip1.u_cntrl._zzixc_ctxrd_0._zymem targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip1.u_cntrl._zzixc_ctxrd_0._zymem@QT37908 dw=32, aw=1
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip1.u_cntrl._zzixc_ctxrd_0._zymem@QT37908 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip2._zzixc_ctxrd_0._zymem dw=128, aw=1
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip2._zzixc_ctxrd_0._zymem was reformatted
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip2._zzixc_ctxrd_0._zymem@QT37910 dw=128, aw=1
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip2._zzixc_ctxrd_0._zymem@QT37910 was reformatted
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip2.u_cntrl._zzixc_ctxrd_0._zymem dw=32, aw=1
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip2.u_cntrl._zzixc_ctxrd_0._zymem targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip2.u_cntrl._zzixc_ctxrd_0._zymem@QT37911 dw=32, aw=1
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip2.u_cntrl._zzixc_ctxrd_0._zymem@QT37911 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip3._zzixc_ctxrd_0._zymem dw=128, aw=1
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip3._zzixc_ctxrd_0._zymem was reformatted
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip3._zzixc_ctxrd_0._zymem@QT37913 dw=128, aw=1
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip3._zzixc_ctxrd_0._zymem@QT37913 was reformatted
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip3.u_cntrl._zzixc_ctxrd_0._zymem dw=32, aw=1
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip3.u_cntrl._zzixc_ctxrd_0._zymem targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip3.u_cntrl._zzixc_ctxrd_0._zymem@QT37914 dw=32, aw=1
+00 ET5MPART | Fast Memory: ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip3.u_cntrl._zzixc_ctxrd_0._zymem@QT37914 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V2_H1.IXC_GFIFO.I.I.ixc_gfm_ififo dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V2_H1.IXC_GFIFO.I.I.ixc_gfm_ififo targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V2_H1.IXC_GFIFO.I.I.U10463 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V2_H1.IXC_GFIFO.I.I.U10463 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V2_H1.IXC_GFIFO.I.I.U10464 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V2_H1.IXC_GFIFO.I.I.U10464 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V2_H1.IXC_GFIFO.I.I.U10465 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V2_H1.IXC_GFIFO.I.I.U10465 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V2_H1.IXC_GFIFO.I.I.ixc_gfm_ififo@QT36801 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V2_H1.IXC_GFIFO.I.I.ixc_gfm_ififo@QT36801 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V2_H1.IXC_GFIFO.I.I.U10463@QT36802 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V2_H1.IXC_GFIFO.I.I.U10463@QT36802 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V2_H1.IXC_GFIFO.I.I.U10464@QT36803 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V2_H1.IXC_GFIFO.I.I.U10464@QT36803 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V2_H1.IXC_GFIFO.I.I.U10465@QT36804 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V2_H1.IXC_GFIFO.I.I.U10465@QT36804 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V2_H1.IXC_GFIFO.I.I.U10466 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V2_H1.IXC_GFIFO.I.I.U10466 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V3_H1.IXC_GFIFO.I.I.ixc_gfm_ififo dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V3_H1.IXC_GFIFO.I.I.ixc_gfm_ififo targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V3_H1.IXC_GFIFO.I.I.U10463 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V3_H1.IXC_GFIFO.I.I.U10463 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V3_H1.IXC_GFIFO.I.I.U10464 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V3_H1.IXC_GFIFO.I.I.U10464 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V3_H1.IXC_GFIFO.I.I.U10465 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V3_H1.IXC_GFIFO.I.I.U10465 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V3_H1.IXC_GFIFO.I.I.ixc_gfm_ififo@QT36801 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V3_H1.IXC_GFIFO.I.I.ixc_gfm_ififo@QT36801 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V3_H1.IXC_GFIFO.I.I.U10463@QT36802 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V3_H1.IXC_GFIFO.I.I.U10463@QT36802 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V3_H1.IXC_GFIFO.I.I.U10464@QT36803 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V3_H1.IXC_GFIFO.I.I.U10464@QT36803 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V3_H1.IXC_GFIFO.I.I.U10465@QT36804 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V3_H1.IXC_GFIFO.I.I.U10465@QT36804 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V3_H1.IXC_GFIFO.I.I.U10466 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V3_H1.IXC_GFIFO.I.I.U10466 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V4_H1.IXC_GFIFO.I.I.ixc_gfm_ififo dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V4_H1.IXC_GFIFO.I.I.ixc_gfm_ififo targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V4_H1.IXC_GFIFO.I.I.U10463 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V4_H1.IXC_GFIFO.I.I.U10463 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V4_H1.IXC_GFIFO.I.I.U10464 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V4_H1.IXC_GFIFO.I.I.U10464 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V4_H1.IXC_GFIFO.I.I.U10465 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V4_H1.IXC_GFIFO.I.I.U10465 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V4_H1.IXC_GFIFO.I.I.ixc_gfm_ififo@QT36801 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V4_H1.IXC_GFIFO.I.I.ixc_gfm_ififo@QT36801 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V4_H1.IXC_GFIFO.I.I.U10463@QT36802 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V4_H1.IXC_GFIFO.I.I.U10463@QT36802 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V4_H1.IXC_GFIFO.I.I.U10464@QT36803 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V4_H1.IXC_GFIFO.I.I.U10464@QT36803 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V4_H1.IXC_GFIFO.I.I.U10465@QT36804 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V4_H1.IXC_GFIFO.I.I.U10465@QT36804 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V4_H1.IXC_GFIFO.I.I.U10466 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V4_H1.IXC_GFIFO.I.I.U10466 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V2_H1.IXC_GFIFO.I.I.ixc_gfm_ofifo dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V2_H1.IXC_GFIFO.I.I.ixc_gfm_ofifo targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V2_H1.IXC_GFIFO.I.I.U10459 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V2_H1.IXC_GFIFO.I.I.U10459 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V2_H1.IXC_GFIFO.I.I.U10460 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V2_H1.IXC_GFIFO.I.I.U10460 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V2_H1.IXC_GFIFO.I.I.U10461 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V2_H1.IXC_GFIFO.I.I.U10461 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V2_H1.IXC_GFIFO.I.I.ixc_gfm_ofifo@QT36805 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V2_H1.IXC_GFIFO.I.I.ixc_gfm_ofifo@QT36805 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V2_H1.IXC_GFIFO.I.I.U10459@QT36806 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V2_H1.IXC_GFIFO.I.I.U10459@QT36806 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V2_H1.IXC_GFIFO.I.I.U10460@QT36807 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V2_H1.IXC_GFIFO.I.I.U10460@QT36807 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V2_H1.IXC_GFIFO.I.I.U10461@QT36808 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V2_H1.IXC_GFIFO.I.I.U10461@QT36808 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V3_H1.IXC_GFIFO.I.I.ixc_gfm_ofifo dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V3_H1.IXC_GFIFO.I.I.ixc_gfm_ofifo targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V3_H1.IXC_GFIFO.I.I.U10459 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V3_H1.IXC_GFIFO.I.I.U10459 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V3_H1.IXC_GFIFO.I.I.U10460 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V3_H1.IXC_GFIFO.I.I.U10460 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V3_H1.IXC_GFIFO.I.I.U10461 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V3_H1.IXC_GFIFO.I.I.U10461 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V3_H1.IXC_GFIFO.I.I.ixc_gfm_ofifo@QT36805 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V3_H1.IXC_GFIFO.I.I.ixc_gfm_ofifo@QT36805 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V3_H1.IXC_GFIFO.I.I.U10459@QT36806 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V3_H1.IXC_GFIFO.I.I.U10459@QT36806 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V3_H1.IXC_GFIFO.I.I.U10460@QT36807 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V3_H1.IXC_GFIFO.I.I.U10460@QT36807 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V3_H1.IXC_GFIFO.I.I.U10461@QT36808 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V3_H1.IXC_GFIFO.I.I.U10461@QT36808 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V4_H1.IXC_GFIFO.I.I.ixc_gfm_ofifo dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V4_H1.IXC_GFIFO.I.I.ixc_gfm_ofifo targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V4_H1.IXC_GFIFO.I.I.U10459 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V4_H1.IXC_GFIFO.I.I.U10459 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V4_H1.IXC_GFIFO.I.I.U10460 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V4_H1.IXC_GFIFO.I.I.U10460 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V4_H1.IXC_GFIFO.I.I.U10461 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V4_H1.IXC_GFIFO.I.I.U10461 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V4_H1.IXC_GFIFO.I.I.ixc_gfm_ofifo@QT36805 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V4_H1.IXC_GFIFO.I.I.ixc_gfm_ofifo@QT36805 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V4_H1.IXC_GFIFO.I.I.U10459@QT36806 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V4_H1.IXC_GFIFO.I.I.U10459@QT36806 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V4_H1.IXC_GFIFO.I.I.U10460@QT36807 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V4_H1.IXC_GFIFO.I.I.U10460@QT36807 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V4_H1.IXC_GFIFO.I.I.U10461@QT36808 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V4_H1.IXC_GFIFO.I.I.U10461@QT36808 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V2_H1.IXC_GFIFO.O.O.ixc_gfm_ofifo dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V2_H1.IXC_GFIFO.O.O.ixc_gfm_ofifo targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V2_H1.IXC_GFIFO.O.O.U9486 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V2_H1.IXC_GFIFO.O.O.U9486 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V2_H1.IXC_GFIFO.O.O.U9487 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V2_H1.IXC_GFIFO.O.O.U9487 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V2_H1.IXC_GFIFO.O.O.ixc_gfm_ofifo@QT36823 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V2_H1.IXC_GFIFO.O.O.ixc_gfm_ofifo@QT36823 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V2_H1.IXC_GFIFO.O.O.U9486@QT36824 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V2_H1.IXC_GFIFO.O.O.U9486@QT36824 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V2_H1.IXC_GFIFO.O.O.U9487@QT36825 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V2_H1.IXC_GFIFO.O.O.U9487@QT36825 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V3_H1.IXC_GFIFO.O.O.ixc_gfm_ofifo dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V3_H1.IXC_GFIFO.O.O.ixc_gfm_ofifo targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V3_H1.IXC_GFIFO.O.O.U9486 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V3_H1.IXC_GFIFO.O.O.U9486 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V3_H1.IXC_GFIFO.O.O.U9487 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V3_H1.IXC_GFIFO.O.O.U9487 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V3_H1.IXC_GFIFO.O.O.ixc_gfm_ofifo@QT36823 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V3_H1.IXC_GFIFO.O.O.ixc_gfm_ofifo@QT36823 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V3_H1.IXC_GFIFO.O.O.U9486@QT36824 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V3_H1.IXC_GFIFO.O.O.U9486@QT36824 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V3_H1.IXC_GFIFO.O.O.U9487@QT36825 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V3_H1.IXC_GFIFO.O.O.U9487@QT36825 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V4_H1.IXC_GFIFO.O.O.ixc_gfm_ofifo dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V4_H1.IXC_GFIFO.O.O.ixc_gfm_ofifo targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V4_H1.IXC_GFIFO.O.O.U9486 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V4_H1.IXC_GFIFO.O.O.U9486 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V4_H1.IXC_GFIFO.O.O.U9487 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V4_H1.IXC_GFIFO.O.O.U9487 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V4_H1.IXC_GFIFO.O.O.ixc_gfm_ofifo@QT36823 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V4_H1.IXC_GFIFO.O.O.ixc_gfm_ofifo@QT36823 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V4_H1.IXC_GFIFO.O.O.U9486@QT36824 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V4_H1.IXC_GFIFO.O.O.U9486@QT36824 targeted into INTRAM
+00 ET5MPART | Fast Memory: ET5_V4_H1.IXC_GFIFO.O.O.U9487@QT36825 dw=64, aw=15
+00 ET5MPART | Fast Memory: ET5_V4_H1.IXC_GFIFO.O.O.U9487@QT36825 targeted into INTRAM
 00 ET5MPART | Number of valid option entries for module mpart = 0
 00 ET5MPART | inst : 0
 00 ET5MPART | inst : 0
 00 ET5MPART | total number of instances to extram : 0
 00 ET5MPART | instances per extram: 0
 00 ET5MPART | instances per bank: 0
-00 ET5MPART | Evaluation (depth):max: 32 avg:0
-00 ET5MPART | Depth driven spacing delay: 32
+00 ET5MPART | Evaluation (depth):max: 64 avg:0
+00 ET5MPART | Depth driven spacing delay: 64
 00 ET5MPART | Number of valid option entries for module mpart = 0
 00 ET5MPART | inst : 0
 00 ET5MPART | inst : 0
 00 ET5MPART | total number of instances to extram : 0
 00 ET5MPART | instances per extram: 0
 00 ET5MPART | instances per bank: 0
-00 ET5MPART | Evaluation (port):max: 32 avg:0
-00 ET5MPART | Port driven spacing delay: 32
+00 ET5MPART | Evaluation (port):max: 64 avg:0
+00 ET5MPART | Port driven spacing delay: 64
 00 ET5MPART | EDRAM_MAX value: 0
 00 ET5MPART | Depth driven algorithm selected for targeting
 00 ET5MPART | Physical DDR have 8192 Mbytes.
@@ -1086,76 +1325,81 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00 ET5MPART | ========================================================
 00 ET5MPART | Addr  Data  Port  Writ  Read  Targ  Name
 00 ET5MPART | --------------------------------------------------------
-00 ET5MPART |    1    32     1     1     0   INT  ET5_V1_H1.kme_tb.apb_xactor._zzixc_tfport_0_0._zyh2smem
-00 ET5MPART |    1    32     1     1     0   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.ckv_indirect_access.u_cntrl._zzixc_ctxrd_0._zymem
-00 ET5MPART |    1    32     1     1     0   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.kim_indirect_access.u_cntrl._zzixc_ctxrd_0._zymem
-00 ET5MPART |    1    32     1     1     0   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_COUNT.u_cntrl._zzixc_ctxrd_0._zymem
-00 ET5MPART |    1    32     1     1     0   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_CTRL.u_cntrl._zzixc_ctxrd_0._zymem
-00 ET5MPART |    1    32     1     1     0   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_SNAPSHOT.u_cntrl._zzixc_ctxrd_0._zymem
-00 ET5MPART |    1    32     1     1     0   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip0.u_cntrl._zzixc_ctxrd_0._zymem
-00 ET5MPART |    1    32     1     1     0   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip1.u_cntrl._zzixc_ctxrd_0._zymem
-00 ET5MPART |    1    32     1     1     0   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip2.u_cntrl._zzixc_ctxrd_0._zymem
-00 ET5MPART |    1    32     1     1     0   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip3.u_cntrl._zzixc_ctxrd_0._zymem
-00 ET5MPART |    1    32     1     1     0   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip0.u_cntrl._zzixc_ctxrd_0._zymem
-00 ET5MPART |    1    32     1     1     0   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip1.u_cntrl._zzixc_ctxrd_0._zymem
-00 ET5MPART |    1    32     1     1     0   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip2.u_cntrl._zzixc_ctxrd_0._zymem
-00 ET5MPART |    1    32     1     1     0   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip3.u_cntrl._zzixc_ctxrd_0._zymem
+00 ET5MPART |    1    32     2     2     0   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.ckv_indirect_access.u_cntrl._zzixc_ctxrd_0._zymem
+00 ET5MPART |    1    32     2     2     0   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.kim_indirect_access.u_cntrl._zzixc_ctxrd_0._zymem
+00 ET5MPART |    1    32     2     2     0   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_COUNT.u_cntrl._zzixc_ctxrd_0._zymem
+00 ET5MPART |    1    32     2     2     0   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_CTRL.u_cntrl._zzixc_ctxrd_0._zymem
+00 ET5MPART |    1    32     2     2     0   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_SNAPSHOT.u_cntrl._zzixc_ctxrd_0._zymem
+00 ET5MPART |    1    32     2     2     0   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip0.u_cntrl._zzixc_ctxrd_0._zymem
+00 ET5MPART |    1    32     2     2     0   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip1.u_cntrl._zzixc_ctxrd_0._zymem
+00 ET5MPART |    1    32     2     2     0   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip2.u_cntrl._zzixc_ctxrd_0._zymem
+00 ET5MPART |    1    32     2     2     0   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip3.u_cntrl._zzixc_ctxrd_0._zymem
+00 ET5MPART |    1    32     2     2     0   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip0.u_cntrl._zzixc_ctxrd_0._zymem
+00 ET5MPART |    1    32     2     2     0   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip1.u_cntrl._zzixc_ctxrd_0._zymem
+00 ET5MPART |    1    32     2     2     0   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip2.u_cntrl._zzixc_ctxrd_0._zymem
+00 ET5MPART |    1    32     2     2     0   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip3.u_cntrl._zzixc_ctxrd_0._zymem
+00 ET5MPART |    1    64     2     2     0   INT  ET5_V1_H1.IXC_GFIFO.I.O.ixc_gfm_ctl
+00 ET5MPART |    1    64     1     0     1   INT  ET5_V1_H1.IXC_GFIFO.O.O.ixc_gfm_ack
 00 ET5MPART |    1    64     2     2     0   INT  ET5_V1_H1.IXC_GFIFO.OSF1.OMB_0._zyevMem
-00 ET5MPART |    1    64     1     1     0   INT  ET5_V1_H1.kme_tb.apb_xactor._zzixc_tfport_0_1._zyh2smem
-00 ET5MPART |    1    64     2     0     2   INT  ET5_V1_H1.kme_tb.apb_xactor._zzixc_tfport_0_1._zys2hmem
-00 ET5MPART |    2    64     2     2     0   INT  ET5_V1_H1.ixc_time._zzcmds
+00 ET5MPART |    2    64     8     8     0   INT  ET5_V1_H1.IXC_GFIFO.O.O.ixc_gfm_ctl
+00 ET5MPART |    2    64     3     3     0   INT  ET5_V1_H1.ixc_time._zzcmds
 00 ET5MPART |    2    64     2     0     2   INT  ET5_V1_H1.ixc_time._zzmiopis
-00 ET5MPART |    2    64     3     3     0   INT  ET5_V1_H1.ixc_time._zzmiopos
-00 ET5MPART |    2    64     2     2     0   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip0._zzixc_ctxrd_0._zymem
-00 ET5MPART |    2    64     2     2     0   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip1._zzixc_ctxrd_0._zymem
-00 ET5MPART |    2    64     2     2     0   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip2._zzixc_ctxrd_0._zymem
-00 ET5MPART |    2    64     2     2     0   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip3._zzixc_ctxrd_0._zymem
-00 ET5MPART |    2    64     2     2     0   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip0._zzixc_ctxrd_0._zymem
-00 ET5MPART |    2    64     2     2     0   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip1._zzixc_ctxrd_0._zymem
-00 ET5MPART |    2    64     2     2     0   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip2._zzixc_ctxrd_0._zymem
-00 ET5MPART |    2    64     2     2     0   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip3._zzixc_ctxrd_0._zymem
-00 ET5MPART |    2    96     2     1     1   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .gcm_tag_data_fifo.std_fifo.\depth_n.r_data 
-00 ET5MPART |    2    96     2     1     1   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .gcm_tag_data_fifo.std_fifo.\depth_n.r_data 
-00 ET5MPART |    2   128     2     1     1   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .kdf.gcm_key_fifo.std_fifo.\depth_n.r_data 
-00 ET5MPART |    2   128     2     1     1   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .kdf.gcm_key_fifo.std_fifo.\depth_n.r_data 
-00 ET5MPART |    2   256     2     1     1   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .kdf.hash_key_fifo.std_fifo.\depth_n.r_data 
-00 ET5MPART |    2   256     2     1     1   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .kdf.hash_key_fifo.std_fifo.\depth_n.r_data 
-00 ET5MPART |    2   263     2     1     1   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .kdfstream_cmd_fifo.std_fifo.\depth_n.r_data 
-00 ET5MPART |    2   263     2     1     1   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .kdfstream_cmd_fifo.std_fifo.\depth_n.r_data 
-00 ET5MPART |    2   611     2     1     1   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .gcm_cmd_fifo.std_fifo.\depth_n.r_data 
-00 ET5MPART |    2   611     2     1     1   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .gcm_cmd_fifo.std_fifo.\depth_n.r_data 
-00 ET5MPART |    3    64     4     0     4   INT  ET5_V1_H1.kme_tb.apb_xactor._zzixc_tfport_0_0._zys2hmem
-00 ET5MPART |    3   128     2     1     1   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.drng .drng.rnd_fifo.std_fifo.\depth_n.r_data 
+00 ET5MPART |    2    64     6     6     0   INT  ET5_V1_H1.ixc_time._zzmiopos
+00 ET5MPART |    2    64     4     4     0   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip0._zzixc_ctxrd_0._zymem
+00 ET5MPART |    2    64     4     4     0   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip1._zzixc_ctxrd_0._zymem
+00 ET5MPART |    2    64     4     4     0   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip2._zzixc_ctxrd_0._zymem
+00 ET5MPART |    2    64     4     4     0   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip3._zzixc_ctxrd_0._zymem
+00 ET5MPART |    2    64     4     4     0   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip0._zzixc_ctxrd_0._zymem
+00 ET5MPART |    2    64     4     4     0   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip1._zzixc_ctxrd_0._zymem
+00 ET5MPART |    2    64     4     4     0   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip2._zzixc_ctxrd_0._zymem
+00 ET5MPART |    2    64     4     4     0   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip3._zzixc_ctxrd_0._zymem
+00 ET5MPART |    2    96     2     1     1   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .gcm_tag_data_fifo.std_fifo.\depth_n.r_data 
+00 ET5MPART |    2    96     2     1     1   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .gcm_tag_data_fifo.std_fifo.\depth_n.r_data 
+00 ET5MPART |    2   128     2     1     1   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .kdf.gcm_key_fifo.std_fifo.\depth_n.r_data 
+00 ET5MPART |    2   128     2     1     1   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .kdf.gcm_key_fifo.std_fifo.\depth_n.r_data 
+00 ET5MPART |    2   256     2     1     1   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .kdf.hash_key_fifo.std_fifo.\depth_n.r_data 
+00 ET5MPART |    2   256     2     1     1   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .kdf.hash_key_fifo.std_fifo.\depth_n.r_data 
+00 ET5MPART |    2   263     3     1     2   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .kdfstream_cmd_fifo.std_fifo.\depth_n.r_data 
+00 ET5MPART |    2   263     3     1     2   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .kdfstream_cmd_fifo.std_fifo.\depth_n.r_data 
+00 ET5MPART |    2   611     3     1     2   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .gcm_cmd_fifo.std_fifo.\depth_n.r_data 
+00 ET5MPART |    2   611     3     1     2   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .gcm_cmd_fifo.std_fifo.\depth_n.r_data 
+00 ET5MPART |    3   128     3     1     2   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_core.\kme_is_core.drng .drng.rnd_fifo.std_fifo.\depth_n.r_data 
 00 ET5MPART |    4    64     8     4     4   INT  ET5_V1_H1.IXC_GFIFO.DUMMY.ctrl
 00 ET5MPART |    4    64     8     4     4   INT  ET5_V1_H1.IXC_GFIFO.HOLDTOP.ctrl
-00 ET5MPART |    4    64     2     1     1   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .tlv_sb_data_fifo.std_fifo.\depth_n.r_data 
-00 ET5MPART |    4    64     2     1     1   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .tlv_sb_data_fifo.std_fifo.\depth_n.r_data 
-00 ET5MPART |    4    64    16    16     0   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzixc_ctxrd_0._zymem
-00 ET5MPART |    4   106     2     1     1   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip0_key_tlv_rsm .u_cr_tlvp2_rsm.u_cr_fifo_wrap2_uobf.\reg_fifo.u_nx_fifo .\depth_n.r_data 
-00 ET5MPART |    4   132     2     1     1   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .gcm.bypass_fifo.std_fifo.\depth_n.r_data 
-00 ET5MPART |    4   132     2     1     1   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .gcm.bypass_fifo.std_fifo.\depth_n.r_data 
-00 ET5MPART |    5    64    32    32     0   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_COUNT._zzixc_ctxrd_0._zymem
-00 ET5MPART |    5    64    24     0    24   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzixc_ctxwr_1._zymem
-00 ET5MPART |    5    64    32    32     0   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_SNAPSHOT._zzixc_ctxrd_0._zymem
-00 ET5MPART |    5    83     2     1     1   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.ckv_pipeline .guid_stitcher.aux_cmd_fifo.std_fifo.\depth_n.r_data 
+00 ET5MPART |    4    64     3     1     2   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .tlv_sb_data_fifo.std_fifo.\depth_n.r_data 
+00 ET5MPART |    4    64     3     1     2   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .tlv_sb_data_fifo.std_fifo.\depth_n.r_data 
+00 ET5MPART |    4    64    32    32     0   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzixc_ctxrd_0._zymem
+00 ET5MPART |    4   106     3     1     2   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_core.\kme_is_core.cceip0_key_tlv_rsm .u_cr_tlvp2_rsm.u_cr_fifo_wrap2_uobf.\reg_fifo.u_nx_fifo .\depth_n.r_data 
+00 ET5MPART |    4   132     3     1     2   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop .gcm.bypass_fifo.std_fifo.\depth_n.r_data 
+00 ET5MPART |    4   132     3     1     2   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop .gcm.bypass_fifo.std_fifo.\depth_n.r_data 
+00 ET5MPART |    5    64    64    64     0   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_COUNT._zzixc_ctxrd_0._zymem
+00 ET5MPART |    5    64    24     0    24   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_CTRL._zzixc_ctxwr_1._zymem
+00 ET5MPART |    5    64    64    64     0   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_SNAPSHOT._zzixc_ctxrd_0._zymem
+00 ET5MPART |    5    72     4     2     2   INT  ET5_V1_H1.tb_top.kme_tb_dut._zygsfis_get_config_data_fifo
+00 ET5MPART |    5    83     3     1     2   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_core.\kme_is_core.ckv_pipeline .guid_stitcher.aux_cmd_fifo.std_fifo.\depth_n.r_data 
+00 ET5MPART |    5   136     3     2     1   INT  ET5_V1_H1.tb_top.kme_tb_dut._zygsfis_ib_service_data_fifo
+00 ET5MPART |    5   136     3     2     1   INT  ET5_V1_H1.tb_top.kme_tb_dut._zygsfis_ob_service_data_fifo
 00 ET5MPART |    6    80     1     0     1   INT  ET5_V1_H1.QTLA%SDL.top.tsm_0.main_instr.cnt1.cnt_cmpval_OPT.Merger1
-00 ET5MPART |    8    83     3     1     2   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip0_key_tlv_rsm .u_cr_tlvp2_rsm.u_cr_fifo_wrap2_tob.\ram_fifo.u_nx_fifo_ram_1r1w .ram.\_1r1wramDxWb.mem 
-00 ET5MPART |    8    83     3     1     2   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.txc_axi_intf .u_cr_fifo_wrap2.\ram_fifo.u_nx_fifo_ram_1r1w .ram.\_1r1wramDxWb.mem 
-00 ET5MPART |    9    96     2     1     1   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip0.u_ram.\g.mem 
-00 ET5MPART |    9    96     2     1     1   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip1.u_ram.\g.mem 
-00 ET5MPART |    9    96     2     1     1   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip2.u_ram.\g.mem 
-00 ET5MPART |    9    96     2     1     1   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip3.u_ram.\g.mem 
-00 ET5MPART |    9    96     2     1     1   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip0.u_ram.\g.mem 
-00 ET5MPART |    9    96     2     1     1   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip1.u_ram.\g.mem 
-00 ET5MPART |    9    96     2     1     1   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip2.u_ram.\g.mem 
-00 ET5MPART |    9    96     2     1     1   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip3.u_ram.\g.mem 
-00 ET5MPART |   11    71     3     1     2   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop_fifo .ram_fifo.\ram_fifo.u_nx_fifo_ram_1r1w .ram.\_1r1wramDxWb.mem 
-00 ET5MPART |   11    71     3     1     2   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop_fifo .ram_fifo.\ram_fifo.u_nx_fifo_ram_1r1w .ram.\_1r1wramDxWb.mem 
+00 ET5MPART |    8    83     3     1     2   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_core.\kme_is_core.cceip0_key_tlv_rsm .u_cr_tlvp2_rsm.u_cr_fifo_wrap2_tob.\ram_fifo.u_nx_fifo_ram_1r1w .ram.\_1r1wramDxWb.mem 
+00 ET5MPART |    8    83     3     1     2   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_core.\kme_is_core.txc_axi_intf .u_cr_fifo_wrap2.\ram_fifo.u_nx_fifo_ram_1r1w .ram.\_1r1wramDxWb.mem 
+00 ET5MPART |    9    96     3     1     2   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip0.u_ram.\g.mem 
+00 ET5MPART |    9    96     3     1     2   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip1.u_ram.\g.mem 
+00 ET5MPART |    9    96     3     1     2   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip2.u_ram.\g.mem 
+00 ET5MPART |    9    96     3     1     2   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip3.u_ram.\g.mem 
+00 ET5MPART |    9    96     3     1     2   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip0.u_ram.\g.mem 
+00 ET5MPART |    9    96     3     1     2   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip1.u_ram.\g.mem 
+00 ET5MPART |    9    96     3     1     2   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip2.u_ram.\g.mem 
+00 ET5MPART |    9    96     3     1     2   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip3.u_ram.\g.mem 
+00 ET5MPART |   11    71     3     1     2   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_core.\kme_is_core.cceip_encrypt_kop_fifo .ram_fifo.\ram_fifo.u_nx_fifo_ram_1r1w .ram.\_1r1wramDxWb.mem 
+00 ET5MPART |   11    71     3     1     2   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_core.\kme_is_core.cceip_validate_kop_fifo .ram_fifo.\ram_fifo.u_nx_fifo_ram_1r1w .ram.\_1r1wramDxWb.mem 
 00 ET5MPART |   14    16     1     1     0   INT  ET5_V1_H1.QTLA%SDL.top.tsm_0.main_instr.tsm_display_ram
-00 ET5MPART |   14    38     2     1     1   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.kim_indirect_access.u_ram.\g.mem 
+00 ET5MPART |   14    38     3     1     2   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.kim_indirect_access.u_ram.\g.mem 
 00 ET5MPART |   14   168     1     1     0   INT  ET5_V1_H1.QTLA%SDL.top.tsm_0.tracer.trace_ram_OPT
 00 ET5MPART |   14   256     1     1     0   INT  ET5_V1_H1.QTLA%SDL.top.display.global_display_ram
 00 ET5MPART |   14  2048     1     1     0   INT  ET5_V1_H1.QTLA%SDL.top.display.args_display_ram
+00 ET5MPART |   15    64     9     2     7   INT  ET5_V1_H1.IXC_GFIFO.I.I.ixc_gfm_ififo
+00 ET5MPART |   15    64     8     8     0   INT  ET5_V1_H1.IXC_GFIFO.I.I.ixc_gfm_ofifo
+00 ET5MPART |   15    64     6     6     0   INT  ET5_V1_H1.IXC_GFIFO.O.O.ixc_gfm_ofifo
 00 ET5MPART |   15    64     1     1     0   INT  ET5_V1_H1.QTLA%SDL.top.stwave_0_ram
 00 ET5MPART |   15    64     1     1     0   INT  ET5_V1_H1.QTLA%SDL.top.stwave_10_ram
 00 ET5MPART |   15    64     1     1     0   INT  ET5_V1_H1.QTLA%SDL.top.stwave_11_ram
@@ -1173,71 +1417,104 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00 ET5MPART |   15    64     1     1     0   INT  ET5_V1_H1.QTLA%SDL.top.stwave_8_ram
 00 ET5MPART |   15    64     1     1     0   INT  ET5_V1_H1.QTLA%SDL.top.stwave_9_ram
 00 ET5MPART |   15    64     1     1     0   INT  ET5_V1_H1.QTLA%SDL.top.stwave_tstamp_ram
-00 ET5MPART |   15    64     2     1     1   INT  ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.ckv_indirect_access.u_ram.\g.mem 
+00 ET5MPART |   15    64     1     1     0   INT  ET5_V1_H1.QTLA%SDL.top.stwave_tstamp_ram_shadow
+00 ET5MPART |   15    64     3     1     2   INT  ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.ckv_indirect_access.u_ram.\g.mem 
+00 ET5MPART |   15    64     9     2     7   INT  ET5_V2_H1.IXC_GFIFO.I.I.ixc_gfm_ififo
+00 ET5MPART |   15    64     8     8     0   INT  ET5_V2_H1.IXC_GFIFO.I.I.ixc_gfm_ofifo
+00 ET5MPART |   15    64     6     6     0   INT  ET5_V2_H1.IXC_GFIFO.O.O.ixc_gfm_ofifo
+00 ET5MPART |   15    64     9     2     7   INT  ET5_V3_H1.IXC_GFIFO.I.I.ixc_gfm_ififo
+00 ET5MPART |   15    64     8     8     0   INT  ET5_V3_H1.IXC_GFIFO.I.I.ixc_gfm_ofifo
+00 ET5MPART |   15    64     6     6     0   INT  ET5_V3_H1.IXC_GFIFO.O.O.ixc_gfm_ofifo
+00 ET5MPART |   15    64     9     2     7   INT  ET5_V4_H1.IXC_GFIFO.I.I.ixc_gfm_ififo
+00 ET5MPART |   15    64     8     8     0   INT  ET5_V4_H1.IXC_GFIFO.I.I.ixc_gfm_ofifo
+00 ET5MPART |   15    64     6     6     0   INT  ET5_V4_H1.IXC_GFIFO.O.O.ixc_gfm_ofifo
 00 ET5MPART |   16    64     4     2     2   INT  ET5_V1_H1.QTLA%SDL.top.run_stop_ctl._sdlcmds
 00 ET5MPART |   16   104     1     0     1   INT  ET5_V1_H1.QTLA%SDL.top.tsm_0.main_instr.tsm_lut_OPT
 00 ET5MPART |   16   512     1     1     0   INT  ET5_V1_H1.QTLA%SDL.top.run_stop_ctl.debug_trace.debug_ram
+00 ET5MPART |   17    64    18    18     0   INT  ET5_V1_H1.IXC_GFIFO.I.O.ixc_gfm_ofifo
 00 ET5MPART | ========================================================
-00 ET5MPART | Targeted 91 memory instances to INTRAM, 0 to EXTRAM.
-00 ET5MPART | Intram utilization rate 31.60 percents
+00 ET5MPART | Targeted 107 memory instances to INTRAM, 0 to EXTRAM.
+00 ET5MPART | Intram utilization rate 40.46 percents
 00 ET5MPART | Extram utilization rate 0.00 percents
 00 ET5MPART | intram doms: 1
 00 ET5MPART | extram doms: 0
 00 ET5MPART | min doms: 1
+00 ET5MPART | memory ET5_V1_H1.IXC_GFIFO.I.I.ixc_gfm_ififo is GFIFO and cant be horizontally sliced
+00 ET5MPART | memory ET5_V1_H1.IXC_GFIFO.I.I.ixc_gfm_ofifo is GFIFO and cant be horizontally sliced
+00 ET5MPART | memory ET5_V1_H1.IXC_GFIFO.I.O.ixc_gfm_ctl is GFIFO and cant be horizontally sliced
+00 ET5MPART | memory ET5_V1_H1.IXC_GFIFO.I.O.ixc_gfm_ofifo is GFIFO and cant be horizontally sliced
+00 ET5MPART | memory ET5_V1_H1.IXC_GFIFO.O.O.ixc_gfm_ack is GFIFO and cant be horizontally sliced
+00 ET5MPART | memory ET5_V1_H1.IXC_GFIFO.O.O.ixc_gfm_ctl is GFIFO and cant be horizontally sliced
+00 ET5MPART | memory ET5_V1_H1.IXC_GFIFO.O.O.ixc_gfm_ofifo is GFIFO and cant be horizontally sliced
+00 ET5MPART | memory ET5_V2_H1.IXC_GFIFO.I.I.ixc_gfm_ififo is GFIFO and cant be horizontally sliced
+00 ET5MPART | memory ET5_V3_H1.IXC_GFIFO.I.I.ixc_gfm_ififo is GFIFO and cant be horizontally sliced
+00 ET5MPART | memory ET5_V4_H1.IXC_GFIFO.I.I.ixc_gfm_ififo is GFIFO and cant be horizontally sliced
+00 ET5MPART | memory ET5_V2_H1.IXC_GFIFO.I.I.ixc_gfm_ofifo is GFIFO and cant be horizontally sliced
+00 ET5MPART | memory ET5_V3_H1.IXC_GFIFO.I.I.ixc_gfm_ofifo is GFIFO and cant be horizontally sliced
+00 ET5MPART | memory ET5_V4_H1.IXC_GFIFO.I.I.ixc_gfm_ofifo is GFIFO and cant be horizontally sliced
+00 ET5MPART | memory ET5_V2_H1.IXC_GFIFO.O.O.ixc_gfm_ofifo is GFIFO and cant be horizontally sliced
+00 ET5MPART | memory ET5_V3_H1.IXC_GFIFO.O.O.ixc_gfm_ofifo is GFIFO and cant be horizontally sliced
+00 ET5MPART | memory ET5_V4_H1.IXC_GFIFO.O.O.ixc_gfm_ofifo is GFIFO and cant be horizontally sliced
 00 ET5MPART | No TCAM slices - no need for deeper horizontal slicing
 00 ET5MPART | =====================================
 00 ET5MPART | "memTransform" finished.
 00 ET5MPART | 
 00 ET5MPART | MEMORY TRANSFORMATIONS FINISHED
-00 ET5MPART | Instruction usage: 11.3
+00 ET5MPART | Instruction usage: 25.1
 00 ET5MPART | 
-00 ET5MPART | setting FAST memory mode 32-bit: addr bits 1 data bits 32, ET5_V1_H1.kme_tb.apb_xactor._zzixc_tfport_0_0._zyh2smem
-00 ET5MPART | setting FAST memory mode 32-bit: addr bits 1 data bits 32, ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.ckv_indirect_access.u_cntrl._zzixc_ctxrd_0._zymem
-00 ET5MPART | setting FAST memory mode 32-bit: addr bits 1 data bits 32, ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.kim_indirect_access.u_cntrl._zzixc_ctxrd_0._zymem
-00 ET5MPART | setting FAST memory mode 32-bit: addr bits 1 data bits 32, ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_COUNT.u_cntrl._zzixc_ctxrd_0._zymem
-00 ET5MPART | setting FAST memory mode 32-bit: addr bits 1 data bits 32, ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_CTRL.u_cntrl._zzixc_ctxrd_0._zymem
-00 ET5MPART | setting FAST memory mode 32-bit: addr bits 1 data bits 32, ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_SA_SNAPSHOT.u_cntrl._zzixc_ctxrd_0._zymem
-00 ET5MPART | setting FAST memory mode 32-bit: addr bits 1 data bits 32, ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip0.u_cntrl._zzixc_ctxrd_0._zymem
-00 ET5MPART | setting FAST memory mode 32-bit: addr bits 1 data bits 32, ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip1.u_cntrl._zzixc_ctxrd_0._zymem
-00 ET5MPART | setting FAST memory mode 32-bit: addr bits 1 data bits 32, ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip2.u_cntrl._zzixc_ctxrd_0._zymem
-00 ET5MPART | setting FAST memory mode 32-bit: addr bits 1 data bits 32, ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip3.u_cntrl._zzixc_ctxrd_0._zymem
-00 ET5MPART | setting FAST memory mode 32-bit: addr bits 1 data bits 32, ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip0.u_cntrl._zzixc_ctxrd_0._zymem
-00 ET5MPART | setting FAST memory mode 32-bit: addr bits 1 data bits 32, ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip1.u_cntrl._zzixc_ctxrd_0._zymem
-00 ET5MPART | setting FAST memory mode 32-bit: addr bits 1 data bits 32, ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip2.u_cntrl._zzixc_ctxrd_0._zymem
-00 ET5MPART | setting FAST memory mode 32-bit: addr bits 1 data bits 32, ET5_V1_H1.kme_tb.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip3.u_cntrl._zzixc_ctxrd_0._zymem
+00 ET5MPART | setting FAST memory mode 32-bit: addr bits 1 data bits 32, ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.ckv_indirect_access.u_cntrl._zzixc_ctxrd_0._zymem
+00 ET5MPART | setting FAST memory mode 32-bit: addr bits 1 data bits 32, ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.kim_indirect_access.u_cntrl._zzixc_ctxrd_0._zymem
+00 ET5MPART | setting FAST memory mode 32-bit: addr bits 1 data bits 32, ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_COUNT.u_cntrl._zzixc_ctxrd_0._zymem
+00 ET5MPART | setting FAST memory mode 32-bit: addr bits 1 data bits 32, ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_CTRL.u_cntrl._zzixc_ctxrd_0._zymem
+00 ET5MPART | setting FAST memory mode 32-bit: addr bits 1 data bits 32, ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_SA_SNAPSHOT.u_cntrl._zzixc_ctxrd_0._zymem
+00 ET5MPART | setting FAST memory mode 32-bit: addr bits 1 data bits 32, ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip0.u_cntrl._zzixc_ctxrd_0._zymem
+00 ET5MPART | setting FAST memory mode 32-bit: addr bits 1 data bits 32, ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip1.u_cntrl._zzixc_ctxrd_0._zymem
+00 ET5MPART | setting FAST memory mode 32-bit: addr bits 1 data bits 32, ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip2.u_cntrl._zzixc_ctxrd_0._zymem
+00 ET5MPART | setting FAST memory mode 32-bit: addr bits 1 data bits 32, ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cceip3.u_cntrl._zzixc_ctxrd_0._zymem
+00 ET5MPART | setting FAST memory mode 32-bit: addr bits 1 data bits 32, ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip0.u_cntrl._zzixc_ctxrd_0._zymem
+00 ET5MPART | setting FAST memory mode 32-bit: addr bits 1 data bits 32, ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip1.u_cntrl._zzixc_ctxrd_0._zymem
+00 ET5MPART | setting FAST memory mode 32-bit: addr bits 1 data bits 32, ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip2.u_cntrl._zzixc_ctxrd_0._zymem
+00 ET5MPART | setting FAST memory mode 32-bit: addr bits 1 data bits 32, ET5_V1_H1.tb_top.kme_tb_dut.kme_dut.u_cr_kme_regfile.u_nx_interface_monitor_cddip3.u_cntrl._zzixc_ctxrd_0._zymem
 00 ET5MPART |  
 00 ET5MPART | ----------------------------------------------------------------------------------------------
 00 ET5MPART |     User design memories statistics
 00 ET5MPART | ----------------------------------------------------------------------------------------------
-00 ET5MPART |    15 memories of  1 bits deep with   1 ports: total accesses    15 using       0.0001 MBytes.
-00 ET5MPART |     2 memories of  1 bits deep with   2 ports: total accesses     4 using       0.0000 MBytes.
-00 ET5MPART |    56 memories of  2 bits deep with   2 ports: total accesses   112 using       0.0016 MBytes.
-00 ET5MPART |     1 memories of  2 bits deep with   3 ports: total accesses     3 using       0.0000 MBytes.
-00 ET5MPART |     2 memories of  3 bits deep with   2 ports: total accesses     4 using       0.0001 MBytes.
-00 ET5MPART |     1 memories of  3 bits deep with   4 ports: total accesses     4 using       0.0001 MBytes.
-00 ET5MPART |    10 memories of  4 bits deep with   2 ports: total accesses    20 using       0.0011 MBytes.
+00 ET5MPART |     1 memories of  1 bits deep with   1 ports: total accesses     1 using       0.0000 MBytes.
+00 ET5MPART |    15 memories of  1 bits deep with   2 ports: total accesses    30 using       0.0001 MBytes.
+00 ET5MPART |    17 memories of  2 bits deep with   2 ports: total accesses    34 using       0.0005 MBytes.
+00 ET5MPART |    31 memories of  2 bits deep with   3 ports: total accesses    93 using       0.0009 MBytes.
+00 ET5MPART |     8 memories of  2 bits deep with   4 ports: total accesses    32 using       0.0002 MBytes.
+00 ET5MPART |     1 memories of  2 bits deep with   6 ports: total accesses     6 using       0.0000 MBytes.
+00 ET5MPART |     1 memories of  2 bits deep with   8 ports: total accesses     8 using       0.0000 MBytes.
+00 ET5MPART |     2 memories of  3 bits deep with   3 ports: total accesses     6 using       0.0001 MBytes.
+00 ET5MPART |    10 memories of  4 bits deep with   3 ports: total accesses    30 using       0.0011 MBytes.
 00 ET5MPART |     2 memories of  4 bits deep with   8 ports: total accesses    16 using       0.0002 MBytes.
-00 ET5MPART |     1 memories of  4 bits deep with  16 ports: total accesses    16 using       0.0001 MBytes.
-00 ET5MPART |     2 memories of  5 bits deep with   2 ports: total accesses     4 using       0.0004 MBytes.
+00 ET5MPART |     1 memories of  4 bits deep with  32 ports: total accesses    32 using       0.0001 MBytes.
+00 ET5MPART |     8 memories of  5 bits deep with   3 ports: total accesses    24 using       0.0016 MBytes.
+00 ET5MPART |     2 memories of  5 bits deep with   4 ports: total accesses     8 using       0.0004 MBytes.
 00 ET5MPART |     1 memories of  5 bits deep with  24 ports: total accesses    24 using       0.0002 MBytes.
-00 ET5MPART |     2 memories of  5 bits deep with  32 ports: total accesses    64 using       0.0005 MBytes.
+00 ET5MPART |     2 memories of  5 bits deep with  64 ports: total accesses   128 using       0.0005 MBytes.
 00 ET5MPART |     2 memories of  6 bits deep with   1 ports: total accesses     2 using       0.0007 MBytes.
 00 ET5MPART |     4 memories of  8 bits deep with   3 ports: total accesses    12 using       0.0059 MBytes.
-00 ET5MPART |    16 memories of  9 bits deep with   2 ports: total accesses    32 using       0.0469 MBytes.
+00 ET5MPART |    16 memories of  9 bits deep with   3 ports: total accesses    48 using       0.0469 MBytes.
 00 ET5MPART |     4 memories of 11 bits deep with   3 ports: total accesses    12 using       0.0469 MBytes.
 00 ET5MPART |    40 memories of 14 bits deep with   1 ports: total accesses    40 using       4.9375 MBytes.
-00 ET5MPART |     1 memories of 14 bits deep with   2 ports: total accesses     2 using       0.1250 MBytes.
-00 ET5MPART |    17 memories of 15 bits deep with   1 ports: total accesses    17 using       4.2500 MBytes.
-00 ET5MPART |     1 memories of 15 bits deep with   2 ports: total accesses     2 using       0.2500 MBytes.
+00 ET5MPART |     1 memories of 14 bits deep with   3 ports: total accesses     3 using       0.1250 MBytes.
+00 ET5MPART |    18 memories of 15 bits deep with   1 ports: total accesses    18 using       4.5000 MBytes.
+00 ET5MPART |     1 memories of 15 bits deep with   3 ports: total accesses     3 using       0.2500 MBytes.
+00 ET5MPART |     4 memories of 15 bits deep with   6 ports: total accesses    24 using       1.0000 MBytes.
+00 ET5MPART |     4 memories of 15 bits deep with   8 ports: total accesses    32 using       1.0000 MBytes.
+00 ET5MPART |     4 memories of 15 bits deep with   9 ports: total accesses    36 using       1.0000 MBytes.
 00 ET5MPART |    10 memories of 16 bits deep with   1 ports: total accesses    10 using       5.0000 MBytes.
 00 ET5MPART |     1 memories of 16 bits deep with   4 ports: total accesses     4 using       0.5000 MBytes.
+00 ET5MPART |     1 memories of 17 bits deep with  18 ports: total accesses    18 using       1.0000 MBytes.
 00 ET5MPART | ----------------------------------------------------------------------------------------------
-00 ET5MPART |   191 memories altogether      with            total accesses   419 using      15.1674 MBytes.
+00 ET5MPART |   212 memories altogether      with            total accesses   734 using      19.4190 MBytes.
 00 ET5MPART | ----------------------------------------------------------------------------------------------
 00 ET5MPART |  
-00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et5mpart' (Elapsed time 0.13s (0.09u+0.00s), Memory used 1807 Mb) on 05/02/2024 13:45:12
-00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/etupart' on 05/02/2024 13:45:12
-00 DATABASE | Parms: '-s 271448396'
+00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et5mpart' (Elapsed time 0.31s (0.24u+0.01s), Memory used 2264 Mb) on 05/20/2024 11:38:06
+00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/etupart' on 05/20/2024 11:38:06
+00 DATABASE | Parms: '-s 262034294'
 00 ETUPART  |                                    
 00 ETUPART  |                    Palladium Universal Partitioner
 00 ETUPART  |                            RELEASE 6.0.2.6
@@ -1247,9 +1524,9 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00 ETUPART  |                                    
 00 ETUPART  | etupart created on Aug  3 2023 at 22:05:56.
 00 ETUPART  |                                    
-00 ETUPART  | weighted fanout = 2.728163
+00 ETUPART  | weighted fanout = 2.859188
 00 ETUPART  | Number of valid option entries for module etupart = 0
-00 ETUPART  | Read option seed with value 271448396
+00 ETUPART  | Read option seed with value 262034294
 00 ETUPART  | Using default 'traceDepth' value 4096
 00 ETUPART  | Apollo config: board has 8 GB EXTRAM
 00 ETUPART  | total asic online = 1
@@ -1266,13 +1543,13 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00 ETUPART  | Host             = hsv-sc49
 00 ETUPART  | Number of CPUs   = 96
 00 ETUPART  | Physical memory  = 1031430 MB
-00 ETUPART  | Compilation Seed = 271448396
+00 ETUPART  | Compilation Seed = 262034294
 00 ETUPART  | Verbose level    = 1
 00 ETUPART  | Maximum threads  = 16
 00 ETUPART  | Found sliced memories
 00 ETUPART  | found 0 MDC inputs and 22 MDC outputs
 00 ETUPART  | Increased weights for 0 self-looping logic gates
-00 ETUPART  | Total weights = 175174
+00 ETUPART  | Total weights = 389245
 00 ETUPART  | Architecture APOLLO-12
 00 ETUPART  | System has a total on 1 online asics
 00 ETUPART  | 
@@ -1282,33 +1559,27 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00 ETUPART  | 
 00 ETUPART  | Total of    48.0000 megabytes of memory capacity on  48 online embedded DRAMs.
 00 ETUPART  | Total of  8192.0000 megabytes of memory capacity on   1 online external DRAMs on MEMORY CARDs.
-00 ETUPART  | Total user memory space required =    14.8424 MBytes
+00 ETUPART  | Total user memory space required =    19.0937 MBytes
 00 ETUPART  | Total physical memory available  =  8240.0000 MBytes
-00 ETUPART  | Memory utilization rate          =     0.18%
+00 ETUPART  | Memory utilization rate          =     0.23%
 00 ETUPART  | 
 00 ETUPART  | Breakpoint handling
 00 ETUPART  | Box-based levelization consumed 0.00 seconds
-00 ETUPART  | Levelized 174485 boxes forward, max_level = 65, total boxes 174485
-00 ETUPART  | CPU time: levelize  0.02, memgroup  0.00, box init  0.00
-00 ETUPART  | Number of memories to use REGULAR access mode: 156
-00 ETUPART  | Number of memories to use EDRAM_32 access mode: 35
-00 ETUPART  | 6212 boxes in xc_top.eClkR cone
-00 ETUPART  | 6212 boxes in xc_top.eClkR clique
+00 ETUPART  | Levelized 367963 boxes forward, max_level = 142, total boxes 367963
+00 ETUPART  | CPU time: levelize  0.08, memgroup  0.00, box init  0.00
+00 ETUPART  | Number of memories to use REGULAR access mode: 175
+00 ETUPART  | Number of memories to use EDRAM_32 access mode: 37
+00 ETUPART  | 2938 boxes in xc_top.eClkR cone
+00 ETUPART  | 2938 boxes in xc_top.eClkR clique
+00 ETUPART  | form DBIO clique head box ET6_DBIB_0_0_0, size 1
+00 ETUPART  | form DBIO clique head box ET6_DBIB_1_0_0, size 64
 00 ETUPART  | form DBIO clique head box ET6_DBIB_1_1_0, size 1
 00 ETUPART  | form DBIO clique head box ET6_DBIB_1_2_0, size 1
-00 ETUPART  | form DBIO clique head box ET6_DBIB_1_3_0, size 1
 00 ETUPART  | form DBIO clique head box ET6_DBIB_1_5_0, size 1
+00 ETUPART  | form DBIO clique head box ET6_DBIB_1_6_0, size 1
 00 ETUPART  | form DBIO clique head box ET6_DBIB_1_7_0, size 1
-00 ETUPART  | form DBIO clique head box ET6_DBIB_1_8_0, size 1
-00 ETUPART  | form DBIO clique head box ET6_DBIB_1_9_0, size 32
-00 ETUPART  | form DBIO clique head box ET6_DBIB_1_10_0, size 1
-00 ETUPART  | form DBIO clique head box ET6_DBIB_1_11_0, size 1
-00 ETUPART  | form DBIO clique head box ET6_DBIB_1_24_0, size 16
-00 ETUPART  | form DBIO clique head box ET6_DBIB_1_25_0, size 1
-00 ETUPART  | form DBIO clique head box ET6_DBIB_1_26_0, size 1
-00 ETUPART  | form DBIO clique head box ET6_DBIB_1_27_0, size 1
-00 ETUPART  | form DBIO clique head box ET6_DBIB_1_28_0, size 32
-00 ETUPART  | form DBIO clique head box ET6_DBIB_1_29_0, size 2
+00 ETUPART  | form DBIO clique head box ET6_DBIB_0_1_0, size 1
+00 ETUPART  | form DBIO clique head box ET6_DBOB_1_0_0, size 64
 00 ETUPART  | form DBIO clique head box ET6_DBOB_1_1_0, size 1
 00 ETUPART  | form DBIO clique head box ET6_DBOB_1_2_0, size 1
 00 ETUPART  | form DBIO clique head box ET6_DBOB_1_3_0, size 1
@@ -1321,86 +1592,63 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00 ETUPART  | form DBIO clique head box ET6_DBOB_1_10_0, size 1
 00 ETUPART  | form DBIO clique head box ET6_DBOB_1_11_0, size 1
 00 ETUPART  | form DBIO clique head box ET6_DBOB_1_12_0, size 1
-00 ETUPART  | form DBIO clique head box ET6_DBOB_1_13_0, size 20
-00 ETUPART  | form DBIO clique head box ET6_DBOB_1_14_0, size 32
+00 ETUPART  | form DBIO clique head box ET6_DBOB_1_13_0, size 1
+00 ETUPART  | form DBIO clique head box ET6_DBOB_1_14_0, size 64
 00 ETUPART  | form DBIO clique head box ET6_DBOB_1_15_0, size 1
 00 ETUPART  | form DBIO clique head box ET6_DBOB_1_16_0, size 1
 00 ETUPART  | form DBIO clique head box ET6_DBOB_1_17_0, size 1
-00 ETUPART  | form DBIO clique head box ET6_DBOB_1_24_0, size 32
-00 ETUPART  | form DBIO clique head box ET6_DBOB_1_25_0, size 1
-00 ETUPART  | form DBIO clique head box ET6_DBOB_1_26_0, size 1
-00 ETUPART  | form DBIO clique head box ET6_DBOB_1_27_0, size 1
-00 ETUPART  | form DBIO clique head box ET6_DBOB_1_28_0, size 2
-00 ETUPART  | form DBIO clique head box ET6_DBOB_1_29_0, size 1
-00 ETUPART  | form DBIO clique head box ET6_DBOB_1_30_0, size 1
-00 ETUPART  | form DBIO clique head box ET6_DBOB_1_32_0, size 1
-00 ETUPART  | form DBIO clique head box ET6_DBOB_1_33_0, size 1
-00 ETUPART  | form DBIO clique head box ET6_DBOB_1_34_0, size 1
-00 ETUPART  | form DBIO clique head box ET6_DBOB_1_35_0, size 1
-00 ETUPART  | form DBIO clique head box ET6_DBIB_0_0_0, size 1
-00 ETUPART  | form DBIO clique head box ET6_DBIB_1_0_0, size 64
-00 ETUPART  | form DBIO clique head box ET6_DBIB_1_6_0, size 1
-00 ETUPART  | form DBIO clique head box ET6_DBIB_1_17_0, size 1
-00 ETUPART  | form DBIO clique head box ET6_DBIB_1_18_0, size 1
-00 ETUPART  | form DBIO clique head box ET6_DBIB_1_19_0, size 1
-00 ETUPART  | form DBIO clique head box ET6_DBIB_1_20_0, size 8
-00 ETUPART  | form DBIO clique head box ET6_DBIB_1_21_0, size 8
-00 ETUPART  | form DBIO clique head box ET6_DBIB_1_22_0, size 64
-00 ETUPART  | form DBIO clique head box ET6_DBIB_1_23_0, size 1
-00 ETUPART  | form DBIO clique head box ET6_DBIB_0_1_0, size 1
-00 ETUPART  | form DBIO clique head box ET6_DBOB_1_0_0, size 64
 00 ETUPART  | form DBIO clique head box ET6_DBOB_1_18_0, size 1
-00 ETUPART  | form DBIO clique head box ET6_DBOB_1_19_0, size 1
-00 ETUPART  | form DBIO clique head box ET6_DBOB_1_20_0, size 1
-00 ETUPART  | form DBIO clique head box ET6_DBOB_1_21_0, size 8
-00 ETUPART  | form DBIO clique head box ET6_DBOB_1_22_0, size 8
-00 ETUPART  | form DBIO clique head box ET6_DBOB_1_23_0, size 64
-00 ETUPART  | form DBIO clique head box ET6_DBOB_1_31_0, size 64
+00 ETUPART  | form DBIO clique head box ET6_DBIB_1_3_0, size 1
 00 ETUPART  | form DBIO clique head box ET6_DBIB_1_4_0, size 1
-00 ETUPART  | form DBIO clique head box ET6_DBIB_1_12_0, size 1
-00 ETUPART  | form DBIO clique head box ET6_DBIB_1_13_0, size 1
-00 ETUPART  | form DBIO clique head box ET6_DBIB_1_14_0, size 1
-00 ETUPART  | form DBIO clique head box ET6_DBIB_1_15_0, size 1
-00 ETUPART  | form DBIO clique head box ET6_DBIB_1_16_0, size 1
-00 ETUPART  | Found mergeflops 25607, clustered 25235, missed 110
-00 ETUPART  | tree cliques size 2 has count 2728
-00 ETUPART  | tree cliques size 3 has count 475
-00 ETUPART  | tree cliques size 4 has count 97
-00 ETUPART  | tree cliques size 5 has count 59
-00 ETUPART  | tree cliques size 6 has count 31
-00 ETUPART  | tree cliques size 7 has count 13
-00 ETUPART  | tree cliques size 8 has count 7
-00 ETUPART  | tree cliques size 9 has count 15
-00 ETUPART  | tree cliques size 10 has count 5
-00 ETUPART  | tree cliques size 11 has count 1
-00 ETUPART  | tree cliques size 12 has count 10
-00 ETUPART  | tree cliques size 13 has count 6
-00 ETUPART  | tree cliques size 14 has count 3
-00 ETUPART  | tree cliques size 15 has count 1
-00 ETUPART  | tree cliques size 16 has count 2
-00 ETUPART  | tree cliques size 17 has count 5
-00 ETUPART  | tree cliques size 18 has count 1
-00 ETUPART  | tree cliques size 19 has count 4
-00 ETUPART  | tree cliques size 28 has count 2
-00 ETUPART  | tree cliques size 32 has count 4
-00 ETUPART  | cpm/cake  0.00, mem  0.01, manpart  0.00, alu  0.00, pio  0.00, dio  0.00, lb  0.00, td  0.03, tree  0.00, sgl  0.02
+00 ETUPART  | form DBIO clique head box ET6_DBOB_1_19_0, size 1
+00 ETUPART  | Found mergeflops 24477, clustered 24081, missed 12
+00 ETUPART  | tree cliques size 2 has count 9115
+00 ETUPART  | tree cliques size 3 has count 2054
+00 ETUPART  | tree cliques size 4 has count 1315
+00 ETUPART  | tree cliques size 5 has count 240
+00 ETUPART  | tree cliques size 6 has count 248
+00 ETUPART  | tree cliques size 7 has count 135
+00 ETUPART  | tree cliques size 8 has count 39
+00 ETUPART  | tree cliques size 9 has count 244
+00 ETUPART  | tree cliques size 10 has count 19
+00 ETUPART  | tree cliques size 11 has count 64
+00 ETUPART  | tree cliques size 12 has count 69
+00 ETUPART  | tree cliques size 13 has count 16
+00 ETUPART  | tree cliques size 14 has count 30
+00 ETUPART  | tree cliques size 15 has count 13
+00 ETUPART  | tree cliques size 16 has count 12
+00 ETUPART  | tree cliques size 17 has count 29
+00 ETUPART  | tree cliques size 18 has count 5
+00 ETUPART  | tree cliques size 19 has count 14
+00 ETUPART  | tree cliques size 20 has count 2
+00 ETUPART  | tree cliques size 21 has count 2
+00 ETUPART  | tree cliques size 22 has count 10
+00 ETUPART  | tree cliques size 23 has count 2
+00 ETUPART  | tree cliques size 25 has count 16
+00 ETUPART  | tree cliques size 27 has count 11
+00 ETUPART  | tree cliques size 28 has count 21
+00 ETUPART  | tree cliques size 29 has count 17
+00 ETUPART  | tree cliques size 30 has count 11
+00 ETUPART  | tree cliques size 31 has count 23
+00 ETUPART  | tree cliques size 32 has count 149
+00 ETUPART  | cpm/cake  0.00, mem  0.02, manpart  0.00, alu  0.00, pio  0.01, dio  0.00, lb  0.00, td  0.08, tree  0.02, sgl  0.05
 00 ETUPART  | CPM capture cliques       0
 00 ETUPART  | CAKE cliques              0
-00 ETUPART  | Memory cliques          191
+00 ETUPART  | Memory cliques          212
 00 ETUPART  | ALU cliques               0
 00 ETUPART  | PIO cliques              23
-00 ETUPART  | SA IO cliques            68
+00 ETUPART  | SA IO cliques            30
 00 ETUPART  | Selfloop cliques          0
 00 ETUPART  | Loopbreaker cliques       0
 00 ETUPART  | FMux cliques              0
 00 ETUPART  | Bus cliques               0
 00 ETUPART  | Hie name cliques          0
-00 ETUPART  | TD cliques            33784
-00 ETUPART  | Tree cliques           3469
-00 ETUPART  | Single box cliques    64215
+00 ETUPART  | TD cliques            68502
+00 ETUPART  | Tree cliques          13925
+00 ETUPART  | Single box cliques   133644
 00 ETUPART  | Up-down cliques           0
-00 ETUPART  | Total cliques        101750
-00 ETUPART  | CPU: opt&cfg  0.00, CSHR  0.00, boxinit  0.01, nodeinit  0.09
+00 ETUPART  | Total cliques        216336
+00 ETUPART  | CPU: opt&cfg  0.01, CSHR  0.00, boxinit  0.02, nodeinit  0.27
 00 ETUPART  | Default partitioning engine is METIS
 00 ETUPART  | Partitioning engine used at hierarchy System is CHP
 00 ETUPART  | fanout limits = (75, 75)
@@ -1410,7 +1658,7 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00 ETUPART  | Partitioning at System hierarchy
 00 ETUPART  | ===========================================
 00 ETUPART  |  num_engines = 1, num nodes = 1
-00 ETUPART  | Partitioning at System consumed   0.00 real seconds and   0.00 CPU seconds
+00 ETUPART  | Partitioning at System consumed   0.01 real seconds and   0.01 CPU seconds
 00 ETUPART  | 
 00 ETUPART  | set_info: sram_bytes: 0, int_bytes: 1048576, ext_bytes: 8589934592
 00 ETUPART  | hie BrdCluster, idx 0 INTRAM 50331648, EXTRAM 8589934592 
@@ -1418,7 +1666,7 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00 ETUPART  | Partitioning at Rack hierarchy
 00 ETUPART  | ===========================================
 00 ETUPART  |  num_engines = 1, num nodes = 1
-00 ETUPART  | Partitioning at Rack consumed   0.00 real seconds and   0.00 CPU seconds
+00 ETUPART  | Partitioning at Rack consumed   0.01 real seconds and   0.01 CPU seconds
 00 ETUPART  | 
 00 ETUPART  | set_info: sram_bytes: 0, int_bytes: 1048576, ext_bytes: 8589934592
 00 ETUPART  | hie Board, idx 0 INTRAM 50331648, EXTRAM 8589934592 
@@ -1426,7 +1674,7 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00 ETUPART  | Partitioning at BrdCluster hierarchy
 00 ETUPART  | ===========================================
 00 ETUPART  |  num_engines = 1, num nodes = 1
-00 ETUPART  | Partitioning at BrdCluster consumed   0.00 real seconds and   0.00 CPU seconds
+00 ETUPART  | Partitioning at BrdCluster consumed   0.01 real seconds and   0.01 CPU seconds
 00 ETUPART  | 
 00 ETUPART  | switching from physical index 0 to logical index 0 at Board
 00 ETUPART  | set_info: sram_bytes: 0, int_bytes: 1048576, ext_bytes: 8589934592
@@ -1435,11 +1683,11 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00 ETUPART  | Partitioning at Board hierarchy
 00 ETUPART  | ===========================================
 00 ETUPART  |  num_engines = 1, num nodes = 1
-00 ETUPART  | Partitioning at Board consumed   0.00 real seconds and   0.00 CPU seconds
+00 ETUPART  | Partitioning at Board consumed   0.01 real seconds and   0.01 CPU seconds
 00 ETUPART  | 
 00 ETUPART  | Breaking xc_top.eClkR clique at Asic hierarchy
 00 ETUPART  | 
-00 ETUPART  | num cons = 191, cons sz = 382
+00 ETUPART  | num cons = 212, cons sz = 424
 00 ETUPART  | ===========================================
 00 ETUPART  | Partitioning at Asic hierarchy
 00 ETUPART  | ===========================================
@@ -1463,54 +1711,54 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00 ETUPART  | part 5: INTRAM 8388608, EXTRAM 0
 00 ETUPART  | intram cap 1048576, total intram_cap (1.00) = 50331648
 00 ETUPART  | Converted 0 constraints into 0 new vertices
-00 ETUPART  | sml_cap_assigned = 15904192, avail sml cap = 50331648
-00 ETUPART  | Calling XMetis: Vertices 107962, Edges 436780, Total weight 175174, Num. constraints 191, metis balance = 1.03, limfanout = 75
+00 ETUPART  | sml_cap_assigned = 20362264, avail sml cap = 50331648
+00 ETUPART  | Calling XMetis: Vertices 219274, Edges 1089634, Total weight 389245, Num. constraints 212, metis balance = 1.03, limfanout = 75
 00 ETUPART  |    Total external connections = 22 on 22 vertices, extConn factor = 15
-00 ETUPART  | IO box 68198 set to partition 0 phy unit 0: ET6_XBOB_141
+00 ETUPART  | IO box 30821 set to partition 0 phy unit 0: ET6_XBOB_141
 00 ETUPART  | Thread 0 partition result:
 00 ETUPART  |  part  vertex   weight extconn tlane   type count   usage hard  soft  full  (limit hard  soft  full)
-00 ETUPART  |   0:    15762    28346       0     0 INTRAM    49      6423920    82     0  (   8388608    83     0) 
-00 ETUPART  |   1:    17239    28345       1     0 INTRAM    37      4588360    81     0  (   8388608    83     0) 
-00 ETUPART  |   2:    19493    30003      13     0 INTRAM    27      3015952    74     0  (   8388608    83     0) 
-00 ETUPART  |   3:    17516    30073       4     0 INTRAM    23      1068024    79     0  (   8388608    83     0) 
-00 ETUPART  |   4:    21055    30062       1     0 INTRAM    20        18768    36     0  (   8388608    83     0) 
-00 ETUPART  |   5:    16897    28345       3     0 INTRAM    35       789168    67     0  (   8388608    83     0) 
+00 ETUPART  |   0:    37403    64713       3     0 INTRAM    32      5506864   129     1  (   8388608   146     1) 
+00 ETUPART  |   1:    36154    63021       3     0 INTRAM    47      4272576   102     0  (   8388608   146     1) 
+00 ETUPART  |   2:    40095    66823       2     0 INTRAM    13      1705472   146     0  (   8388608   146     1) 
+00 ETUPART  |   3:    36581    63015       5     0 INTRAM    45      4341488   111     0  (   8388608   146     1) 
+00 ETUPART  |   4:    32195    66819       4     0 INTRAM    36      2022800   146     0  (   8388608   146     1) 
+00 ETUPART  |   5:    36846    64854       5     0 INTRAM    39      2513064   100     0  (   8388608   146     1) 
 00 ETUPART  | 
 00 ETUPART  |   Cutsize matrix
 00 ETUPART  | f\t:       0      1      2      3      4      5    ext
-00 ETUPART  |   0:       0    157    334    136     40    390      0
-00 ETUPART  |   1:     391      0   1158     68    260    326      0
-00 ETUPART  |   2:     536   1449      0     71     54    178      0
-00 ETUPART  |   3:     269    170    187      0    185     73      0
-00 ETUPART  |   4:     221    258     98    325      0    560      0
-00 ETUPART  |   5:     459    454    325    197    505      0      0
+00 ETUPART  |   0:       0    864    513    809    419    803      0
+00 ETUPART  |   1:     695      0    468    841    639    657      0
+00 ETUPART  |   2:     302    474      0    469    334    391      0
+00 ETUPART  |   3:     833   1001    826      0   1424   1259      0
+00 ETUPART  |   4:     686   1111    507   1520      0    748      0
+00 ETUPART  |   5:     695   1062    470    862   1178      0      0
 00 ETUPART  | ext:       0      0      0      0      0      0
-00 ETUPART  | wire util = 2%
+00 ETUPART  | wire util = 4%
 00 ETUPART  | 
-00 ETUPART  | trial 0 thread 0, edgecut 11972, balance  1.03, util pct 2, current best util pct 1000000
-00 ETUPART  | Best partition trial 0, seed 271448396: edgecut 11972, wire util pct 2, good enough N
-00 ETUPART  | Balancing Asic node idx 0, num parts 6, vertices 107962
-00 ETUPART  | Using target percentage 11.57% (ds_usage 11.49%, max ds_usage 11.83%)
-00 ETUPART  | part 0 target ds 29389, target is 2458
-00 ETUPART  | part 1 target ds 29389, target is 2458
-00 ETUPART  | part 2 target ds 29389, target is 2458
-00 ETUPART  | part 3 target ds 29389, target is 2458
-00 ETUPART  | part 4 target ds 29389, target is 2458
-00 ETUPART  | part 5 target ds 29389, target is 2458
+00 ETUPART  | trial 0 thread 0, edgecut 28599, balance  1.03, util pct 4, current best util pct 1000000
+00 ETUPART  | Best partition trial 0, seed 262034294: edgecut 28599, wire util pct 4, good enough N
+00 ETUPART  | Balancing Asic node idx 0, num parts 6, vertices 219274
+00 ETUPART  | Using target percentage 25.72% (ds_usage 25.53%, max ds_usage 26.30%)
+00 ETUPART  | part 0 target ds 65332, target is 4512
+00 ETUPART  | part 1 target ds 65332, target is 4512
+00 ETUPART  | part 2 target ds 65332, target is 4512
+00 ETUPART  | part 3 target ds 65332, target is 4512
+00 ETUPART  | part 4 target ds 65332, target is 4512
+00 ETUPART  | part 5 target ds 65332, target is 4512
 00 ETUPART  | -- before balancing -------------------------------------------------------------------------------
-00 ETUPART  |  0 >  28346:1876  28345:2488  30003:2102  30073:797   30062:1044  28345:1527 
+00 ETUPART  |  0 >  64713:3211  63021:4512  66823:2784  63015:4501  66819:3994  64854:3858 
 00 ETUPART  | ---------------------------------------------------------------------------------------------------
-00 ETUPART  | Total (175174:9834), ave ( 29195:1639), max ( 30073:2488), target ( 29389:2458)
+00 ETUPART  | Total (389245:22860), ave ( 64874:3810), max ( 66823:4512), target ( 65332:4512)
 00 ETUPART  | -- after balancing  -------------------------------------------------------------------------------
-00 ETUPART  |  0 >  28712:2580  28435:2580  29389:1825  29481:675   29975:1013  29182:2580 
+00 ETUPART  |  0 >  65332:3829  63351:4737  65332:2287  63324:4737  66574:3879  65332:4546 
 00 ETUPART  | ---------------------------------------------------------------------------------------------------
-00 ETUPART  | Total (175174:11253), ave ( 29195:1875), max ( 29975:2580)
+00 ETUPART  | Total (389245:24015), ave ( 64874:4002), max ( 66574:4737)
 00 ETUPART  | *** Restored to original partition due to bad result. ***
 00 ETUPART  | --------------------------------------------------------------------
-00 ETUPART  | Total vertices 107962, excess 1609, unmoved 585, moved 1024
+00 ETUPART  | Total vertices 219274, excess 680, unmoved 228, moved 452
 00 ETUPART  | ====================================================================
-00 ETUPART  | CPU time: map 0.07, partition 0.41, move&dup 0.00, balance 0.01, swap 0.00, total 0.49
-00 ETUPART  | Partitioning at Asic consumed   0.50 real seconds and   0.50 CPU seconds
+00 ETUPART  | CPU time: map 0.18, partition 0.99, move&dup 0.00, balance 0.02, swap 0.00, total 1.18
+00 ETUPART  | Partitioning at Asic consumed   1.20 real seconds and   1.20 CPU seconds
 00 ETUPART  | 
 00 ETUPART  | ===========================================
 00 ETUPART  | Partitioning at P512 hierarchy
@@ -1526,7 +1774,7 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00 ETUPART  | part 6: INTRAM 1048576, EXTRAM 0
 00 ETUPART  | part 7: INTRAM 1048576, EXTRAM 0
 00 ETUPART  | intram cap 1048576, total intram_cap (1.00) = 8388608
-00 ETUPART  | IO box 68198 set to partition 2 phy unit 2: ET6_XBOB_141
+00 ETUPART  | IO box 30821 set to partition 2 phy unit 2: ET6_XBOB_141
 00 ETUPART  | Fitting memories in AP at node P512 idx 1
 00 ETUPART  | part 0: INTRAM 1048576, EXTRAM 0
 00 ETUPART  | part 1: INTRAM 1048576, EXTRAM 0
@@ -1577,29 +1825,29 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00 ETUPART  | part 6: INTRAM 1048576, EXTRAM 0
 00 ETUPART  | part 7: INTRAM 1048576, EXTRAM 0
 00 ETUPART  | intram cap 1048576, total intram_cap (1) = 8388608
-00 ETUPART  | Partitioning at P512 consumed   0.38 real seconds and   1.36 CPU seconds
+00 ETUPART  | Partitioning at P512 consumed   0.85 real seconds and   3.76 CPU seconds
 00 ETUPART  | 
 00 ETUPART  | ===========================================
 00 ETUPART  | Partitioning at P64 hierarchy
 00 ETUPART  | ===========================================
 00 ETUPART  |  num_engines = 4, num nodes = 48
-00 ETUPART  | IO box 68198 set to partition 1 phy unit 17: ET6_XBOB_141
-00 ETUPART  | Partitioning at P64 consumed   0.19 real seconds and   0.57 CPU seconds
+00 ETUPART  | IO box 30821 set to partition 1 phy unit 17: ET6_XBOB_141
+00 ETUPART  | Partitioning at P64 consumed   0.45 real seconds and   1.37 CPU seconds
 00 ETUPART  | 
 00 ETUPART  | 
 00 ETUPART  | Message  2                     GET_BOX_EP processed:    72, cpu 0.0001, real 0.0002
-00 ETUPART  | Message  3                     SET_BOX_EP processed:   419, cpu 0.0004, real 0.0007
-00 ETUPART  | Message  7                    GET_MEM_LOC processed:   419, cpu 0.0004, real 0.0007
-00 ETUPART  | Message  8                    SET_MEM_LOC processed:   419, cpu 0.0086, real 0.0087
-00 ETUPART  | Message 12               MEMUTIL_SET_MODE processed:   191, cpu 0.0001, real 0.0003
-00 ETUPART  | Message 13              MEMUTIL_RM_UNUSED processed:   191, cpu 0.0003, real 0.0004
-00 ETUPART  | Message 14              MEMUTIL_GET_PORTS processed:   191, cpu 0.0002, real 0.0003
-00 ETUPART  | Message 23                     GET_MC_EPS processed:  4612, cpu 0.0092, real 0.0124
-00 ETUPART  | Message 24                     GET_MI_EPS processed:  1948, cpu 0.0022, real 0.0035
-00 ETUPART  |                                     Total processed:  8462, cpu 0.0215, real 0.0272
+00 ETUPART  | Message  3                     SET_BOX_EP processed:   734, cpu 0.0009, real 0.0011
+00 ETUPART  | Message  7                    GET_MEM_LOC processed:   734, cpu 0.0008, real 0.0011
+00 ETUPART  | Message  8                    SET_MEM_LOC processed:   734, cpu 0.0154, real 0.0158
+00 ETUPART  | Message 12               MEMUTIL_SET_MODE processed:   212, cpu 0.0002, real 0.0003
+00 ETUPART  | Message 13              MEMUTIL_RM_UNUSED processed:   212, cpu 0.0006, real 0.0006
+00 ETUPART  | Message 14              MEMUTIL_GET_PORTS processed:   212, cpu 0.0002, real 0.0003
+00 ETUPART  | Message 23                     GET_MC_EPS processed:  8562, cpu 0.0167, real 0.0226
+00 ETUPART  | Message 24                     GET_MI_EPS processed:  3254, cpu 0.0036, real 0.0058
+00 ETUPART  |                                     Total processed: 14726, cpu 0.0384, real 0.0480
 00 ETUPART  | 
 00 ETUPART  | xc_top.eClkR is in chip 0
-00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et5cpr' on 05/02/2024 13:45:14
+00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et5cpr' on 05/20/2024 11:38:09
 00 DATABASE | Parms: ''
 00 ET5CPR   |                                    
 00 ET5CPR   |                Cadence Palladium Critical Path Reducer
@@ -1614,66 +1862,76 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00 ET5CPR   | Number of valid option entries for module et5cpr = 0
 00 ET5CPR   | Running CPR duplication criteria -  1 
 00 ET5CPR   | Duplication is allowed
-00 ET5CPR   | num boxes 174066, max ep size 841, last asic 8, num_asic 1, max asicsize 221619
-00 ET5CPR   | total m_weight 221609, ave m_weight per asic 221609, ave m_weight per cluster 577, ave m_weight per ep 72
-00 ET5CPR   | max_lep size = 841, max asic size = 221619, hop hierachy at 4
-00 ET5CPR   | num boxes 174066, max cls size loada 508, last asic 8, num_asic 1, max asic size loada 162613
-00 ET5CPR   | total wgt loada 162613, ave wgt per asic 162613, ave wgt per cluster 423, ave wgt per ep 52
-00 ET5CPR   | cls limit loada = 559, asic limit loada = 25408, hop hierachy at 4
+00 ET5CPR   | num boxes 367229, max ep size 1377, last asic 8, num_asic 1, max asicsize 413082
+00 ET5CPR   | total m_weight 413072, ave m_weight per asic 413072, ave m_weight per cluster 1075, ave m_weight per ep 134
+00 ET5CPR   | max_lep size = 1377, max asic size = 413082, hop hierachy at 4
+00 ET5CPR   | num boxes 367229, max cls size loada 1118, last asic 8, num_asic 1, max asic size loada 365934
+00 ET5CPR   | total wgt loada 365934, ave wgt per asic 365934, ave wgt per cluster 952, ave wgt per ep 119
+00 ET5CPR   | cls limit loada = 1230, asic limit loada = 57177, hop hierachy at 4
 00 ET5CPR   | num_racks = 1, num brds = 1
 00 ET5CPR   | reducing hop at 4 hierarchy
 00 ET5CPR   | Reducing hop at epc level.
 00 ET5CPR   | max round = 100
-00 ET5CPR   | CPR round  1, maxlvl 125, path head  86446 lvl 121, tail 155290, len  37, m_is_marked   0, moved 20, NC 0 
-00 ET5CPR   | CPR round  2, maxlvl 122, path head 174073 lvl 122, tail 164746, len  51, m_is_marked   0, moved 25, NC 0 
-00 ET5CPR   | CPR round  3, maxlvl 118, path head  47434 lvl 104, tail 164749, len  43, m_is_marked   0, moved 14, NC 0 
-00 ET5CPR   | CPR round  4, maxlvl 102, path head 174073 lvl 101, tail 164746, len  47, m_is_marked   0, moved  6, NC 0 
-00 ET5CPR   | CPR round  5, maxlvl 100, path head 174073 lvl 100, tail 164746, len  47, m_is_marked   0, moved  3, NC 0 
-00 ET5CPR   | CPR round  6, maxlvl 100, path head 174073 lvl 100, tail 155290, len  48, m_is_marked   0, moved  2, NC 1 
-00 ET5CPR   | Round 7 path is empty.
-00 ET5CPR   | after restore, max level = 100
-00 ET5CPR   | Total relocated = 62
-00 ET5CPR   | max cls size loada 508, max asic size loada 162613
-00 ET5CPR   | total wgt loada 162613, ave wgt per asic 162613, ave wgt per cluster 423
-00 ET5CPR   | Maximum number of hops in all paths = 100
+00 ET5CPR   | CPR round  1, maxlvl 172, path head 367235 lvl 172, tail  80135, len  86, m_is_marked   0, moved 24, NC 0 
+00 ET5CPR   | CPR round  2, maxlvl 164, path head  30820 lvl 158, tail  76789, len  84, m_is_marked   0, moved 27, NC 0 
+00 ET5CPR   | CPR round  3, maxlvl 152, path head  30820 lvl 142, tail  83138, len  70, m_is_marked   0, moved 36, NC 0 
+00 ET5CPR   | CPR round  4, maxlvl 149, path head 367235 lvl 149, tail  78302, len  95, m_is_marked   0, moved  7, NC 0 
+00 ET5CPR   | CPR round  5, maxlvl 149, path head 367235 lvl 149, tail  78302, len  94, m_is_marked   0, moved  7, NC 1 
+00 ET5CPR   | CPR round  6, maxlvl 146, path head 367235 lvl 145, tail  78302, len  94, m_is_marked   0, moved  6, NC 0 
+00 ET5CPR   | CPR round  7, maxlvl 145, path head 367235 lvl 145, tail  78302, len  95, m_is_marked   0, moved  2, NC 0 
+00 ET5CPR   | CPR round  8, maxlvl 145, path head 367235 lvl 145, tail  78302, len  93, m_is_marked   0, moved  3, NC 1 
+00 ET5CPR   | CPR round  9, maxlvl 145, path head 367235 lvl 144, tail  78302, len  94, m_is_marked   0, moved  1, NC 2 
+00 ET5CPR   | CPR round 10, maxlvl 144, path head 367235 lvl 144, tail  78302, len  95, m_is_marked   0, moved  1, NC 0 
+00 ET5CPR   | CPR round 11, maxlvl 144, path head 367235 lvl 144, tail  78302, len  94, m_is_marked   0, moved  2, NC 1 
+00 ET5CPR   | CPR round 12, maxlvl 144, path head 367235 lvl 144, tail  78302, len  93, m_is_marked   0, moved  1, NC 2 
+00 ET5CPR   | CPR round 13, maxlvl 144, path head 367235 lvl 143, tail  78302, len  93, m_is_marked   0, moved  1, NC 3 
+00 ET5CPR   | CPR round 14, maxlvl 143, path head 367235 lvl 143, tail  78302, len  93, m_is_marked   0, moved  2, NC 0 
+00 ET5CPR   | CPR round 15, maxlvl 143, path head 367235 lvl 143, tail  78302, len  95, m_is_marked   0, moved  1, NC 1 
+00 ET5CPR   | CPR round 16, maxlvl 143, path head 367235 lvl 143, tail  78302, len  94, m_is_marked   0, moved  3, NC 2 
+00 ET5CPR   | CPR round 17, maxlvl 143, path head 367235 lvl 143, tail  78302, len  95, m_is_marked   0, moved  0, NC 3 
+00 ET5CPR   | Round 18 path is empty.
+00 ET5CPR   | Total relocated = 122
+00 ET5CPR   | max cls size loada 1118, max asic size loada 365934
+00 ET5CPR   | total wgt loada 365934, ave wgt per asic 365934, ave wgt per cluster 952
+00 ET5CPR   | Maximum number of hops in all paths = 143
 00 ET5CPR   |                                    
-00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et5cpr' (Elapsed time 0.17s (0.15u+0.00s), Memory used 1823 Mb) on 05/02/2024 13:45:14
-00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/etupart' (Elapsed time 1.45s (2.68u+0.06s), Memory used 1823 Mb) on 05/02/2024 13:45:14
-00 DATABASE | Calling 'svproto' on 05/02/2024 13:45:14
+00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et5cpr' (Elapsed time 0.32s (0.30u+0.00s), Memory used 2264 Mb) on 05/20/2024 11:38:09
+00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/etupart' (Elapsed time 3.28s (6.93u+0.12s), Memory used 2264 Mb) on 05/20/2024 11:38:09
+00 DATABASE | Calling 'svproto' on 05/20/2024 11:38:09
 00 DATABASE | Parms: 'qt_modular -remove_CMIO -optimize'
-00 DATABASE | Return from 'svproto' (Elapsed time 0.09s (0.07u+0.01s), Memory used 1823 Mb) on 05/02/2024 13:45:14
+00 DATABASE | Return from 'svproto' (Elapsed time 0.18s (0.12u+0.03s), Memory used 2264 Mb) on 05/20/2024 11:38:09
 00 DATABASE | Compiler Statistics:
-00 DATABASE | ENVRN |  MAX_LOGICAL_HOP | 100        | 
+00 DATABASE | ENVRN |  MAX_LOGICAL_HOP | 143        | 
 00 DATABASE | ENVRN |  ModuleCurrent   | 8          | None
-00 DATABASE | ENVRN |  MAX_LOGICAL_LEVEL | 65         | 
+00 DATABASE | ENVRN |  MAX_LOGICAL_LEVEL | 142        | 
 00 DATABASE | ENVRN |  ModuleLast      | 4          | None
 00 DATABASE | CONFG |  NumASICs        | 1          | 
 00 DATABASE | CONFG |  EmType          | 4          | ET6
 00 DATABASE | CONFG |  ModuleStatus    | 1          | Passed
 00 DATABASE | CONFG |  NumDomains      | 1          | 
 00 DATABASE | CONFG |  SAProtocol      | 5          | 
-00 DATABASE | NLOPT |  InitialGateCount | 234123     | 
-00 DATABASE | NLOPT |  FinalGateCount  | 148606     | 
-00 DATABASE | NLOPT |  UtilRate        | 12         | Percents
-00 DATABASE | NLOPT |  NumDBO          | 321        | 
+00 DATABASE | NLOPT |  InitialGateCount | 530684     | 
+00 DATABASE | NLOPT |  FinalGateCount  | 343013     | 
+00 DATABASE | NLOPT |  UtilRate        | 26         | Percents
+00 DATABASE | NLOPT |  NumDBO          | 146        | 
 00 DATABASE | NLOPT |  NumPI           | 0          | 
-00 DATABASE | NLOPT |  NumDBI          | 250        | 
+00 DATABASE | NLOPT |  NumDBI          | 73         | 
 00 DATABASE | NLOPT |  ModuleStatus    | 1          | Passed
 00 DATABASE | NLOPT |  NumPO           | 1          | 
 00 DATABASE | MPART |  totalDdrPorts   | 0          | 
-00 DATABASE | MPART |  INTRAMutil      | 32         | percents
+00 DATABASE | MPART |  INTRAMutil      | 41         | percents
 00 DATABASE | MPART |  totalXINTports  | 0          | 
 00 DATABASE | MPART |  totalBINTports  | 0          | 
 00 DATABASE | MPART |  ModuleStatus    | 1          | Passed
-00 DATABASE | MPART |  totalInstrNum   | 175174     | 
+00 DATABASE | MPART |  totalInstrNum   | 389245     | 
 00 DATABASE | MPART |  totalDDRports   | 0          | 
-00 DATABASE | MPART |  totalBintPorts  | 419        | 
+00 DATABASE | MPART |  totalBintPorts  | 734        | 
 00 DATABASE | MPART |  minDomainsForMemories | 1          | 
 00 DATABASE | MPART |  totalLPDDRports | 0          | 
 00 DATABASE | MPART |  totalSINTports  | 0          | 
 00 DATABASE | PARTR |  MemEmulator     | 8240       | MBytes
 00 DATABASE | PARTR |  ModuleStatus    | 1          | Passed
-00 DATABASE | PARTR |  MemUser         | 15         | MBytes
+00 DATABASE | PARTR |  MemUser         | 19         | MBytes
 00 DATABASE | PARTR |  BufferTree      | 512        | Max sinks
 00 DATABASE | OTHER |  ModuleStatus    | 1          | Passed
 00 DATABASE | Compile finished without errors, last module called was None

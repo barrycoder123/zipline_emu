@@ -5,4 +5,10 @@ DUMMY3 1xc_top.mioPOW_0 63 0
 DUMMY4 1xc_top.mioPOW_2 63 0
 DUMMY5 0xc_top.mioPIW_0
 DUMMY6 0xc_top.mioPIW_1
-DUMMY8 0{}
+DUMMY7 0xc_top.uClk
+DUMMY9 0{}
+lastClkTimeN_DUMMY0 0lastClkTimeN
+mt64_DUMMY1 0mt64
+ps0_DUMMY2 0ps0
+ps1_DUMMY3 0ps1
+c_DUMMY4 0c

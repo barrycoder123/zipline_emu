@@ -1,0 +1,42 @@
+
+module nx_ram_1rw_indirect_access_xcm124 ;
+//pragma CVASTRPROP MODULE SKELETON MODULEINFO "371.000000"
+nx_indirect_access_cntrl_v2_xcm126 u_cntrl ();
+nx_ram_1rw_xcm109 u_ram ();
+ixc_assign _zz_strnp_35 ();
+ixc_assign _zz_strnp_34 ();
+ixc_assign_64 _zz_strnp_33 ();
+ixc_assign_64 _zz_strnp_32 ();
+ixc_assign_15 _zz_strnp_31 ();
+ixc_assign _zz_strnp_30 ();
+ixc_assign _zz_strnp_29 ();
+ixc_assign_64 _zz_strnp_28 ();
+ixc_assign_15 _zz_strnp_27 ();
+ixc_assign _zz_strnp_26 ();
+ixc_assign_4 _zz_strnp_25 ();
+ixc_assign_16 _zz_strnp_24 ();
+ixc_assign_15 _zz_strnp_23 ();
+ixc_assign_5 _zz_strnp_22 ();
+ixc_assign_3 _zz_strnp_21 ();
+ixc_assign_64 _zz_strnp_20 ();
+ixc_assign _zz_strnp_19 ();
+ixc_assign _zz_strnp_18 ();
+ixc_assign_15 _zz_strnp_17 ();
+ixc_assign_64 _zz_strnp_16 ();
+ixc_assign_64 _zz_strnp_15 ();
+ixc_assign _zz_strnp_14 ();
+ixc_assign _zz_strnp_13 ();
+ixc_assign _zz_strnp_12 ();
+ixc_assign _zz_strnp_11 ();
+ixc_assign_64 _zz_strnp_10 ();
+ixc_assign _zz_strnp_9 ();
+ixc_assign _zz_strnp_8 ();
+ixc_assign _zz_strnp_7 ();
+ixc_assign_64 _zz_strnp_6 ();
+ixc_assign_4 _zz_strnp_5 ();
+ixc_assign_16 _zz_strnp_4 ();
+ixc_assign_15 _zz_strnp_3 ();
+ixc_assign_5 _zz_strnp_2 ();
+ixc_assign_3 _zz_strnp_1 ();
+ixc_assign _zz_strnp_0 ();
+endmodule

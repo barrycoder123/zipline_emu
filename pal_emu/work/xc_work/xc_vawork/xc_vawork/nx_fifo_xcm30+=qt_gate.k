@@ -1,6 +1,6 @@
 
 module nx_fifo_xcm30 ;
-//pragma CVASTRPROP MODULE SKELETON MODULEINFO "1657.000000"
+//pragma CVASTRPROP MODULE SKELETON MODULEINFO "1587.000000"
 ixc_assign _zz_strnp_3 ();
 ixc_assign _zz_strnp_2 ();
 nx_fifo_ctrl_xcm37 \depth_n.fifo_ctrl ();

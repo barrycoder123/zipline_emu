@@ -20,5 +20,5 @@ ixc_assign_132 _zz_strnp_15 ();
 ixc_assign _zz_strnp_16 ();
 ixc_assign _zz_strnp_17 ();
 AesSecIStub AesSecI ();
-cr_kme_fifo_xcm55 bypass_fifo ();
+cr_kme_fifo_xcm56 bypass_fifo ();
 endmodule

@@ -1,7 +1,7 @@
 architecture module of xcva_top is
   -- quickturn CVASTRPROP MODULE HDLICE PROP_IXCOM_MOD TRUE
   -- quickturn user_defined_generate_suffix bxcm 
-  component kme_tb
+  component tb_top
   end component ;
 
   component my_clks
@@ -33,7 +33,7 @@ architecture module of xcva_top is
 
 
 begin
-  DUMMY0 : kme_tb
+  DUMMY0 : tb_top
      ;
   DUMMY1 : my_clks
      ;

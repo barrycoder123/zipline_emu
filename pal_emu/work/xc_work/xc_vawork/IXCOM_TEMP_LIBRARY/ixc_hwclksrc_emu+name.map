@@ -1,4 +1,5 @@
-DUMMY0 0xc_top.hwClkEnable
-DUMMY1 0xc_top.hwClkDbgEn
-DUMMY2 0xc_top.hwClkHalt
-DUMMY3 0genblk1
+DUMMY0 0xc_top.uClk
+DUMMY1 0xc_top.hwClkEnable
+DUMMY2 0xc_top.hwClkDbgEn
+DUMMY3 0xc_top.hwClkHalt
+DUMMY4 0genblk1

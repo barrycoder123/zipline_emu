@@ -1,8 +1,12 @@
 // xc_work/v/19n.sv
-// /home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_guid_stitcher.v:20
+// /home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_ckv_pipeline.v:18
 // NOTE: This file corresponds to a module in the Hardware/DUT partition.
 `timescale 1ns/1ns
-module cr_kme_guid_stitcher(kme_slv_rd,stitcher_out,stitcher_empty,set_tlv_bip2_error_int,clk,rst_n,kme_slv_out,kme_slv_aempty,kme_slv_empty,stitcher_rd);
+module cr_kme_ckv_pipeline(kme_slv_rd,cceip_encrypt_in,cceip_encrypt_in_valid,cceip_validate_in,cceip_validate_in_valid,cddip_decrypt_in,cddip_decrypt_in_valid,ckv_rd,ckv_addr,kim_rd,
+kim_addr,drng_ack,stat_req_with_expired_seed,stat_aux_key_type_0,stat_aux_key_type_1,stat_aux_key_type_2,stat_aux_key_type_3,stat_aux_key_type_4,stat_aux_key_type_5,stat_aux_key_type_6,stat_aux_key_type_7,stat_aux_key_type_8,
+stat_aux_key_type_9,stat_aux_key_type_10,stat_aux_key_type_11,stat_aux_key_type_12,stat_aux_key_type_13,stat_aux_cmd_with_vf_pf_fail,tlv_parser_idle,tlv_parser_int_tlv_start_pulse,set_tlv_bip2_error_int,clk,rst_n,disable_debug_cmd_q,
+disable_unencrypted_keys,always_validate_kim_ref,kme_slv_out,kme_slv_aempty,kme_slv_empty,cceip_encrypt_in_stall,cceip_validate_in_stall,cddip_decrypt_in_stall,ckv_dout,ckv_mbe,kim_dout,kim_mbe,
+drng_seed_expired,drng_health_fail,drng_256_out,drng_valid);
 // pkg external : PKG - cr_kme_regfilePKG : DTYPE  
 typedef enum logic [1:0] {ENET=0,IPV4=1,IPV6=2,MPLS=3} pkt_hdr_e;
 typedef enum logic [3:0] {CMD_SIMPLE=0,COMPND_4K=5,COMPND_8K=6,COMPND_RSV=15} cmd_compound_cmd_frm_size_e;
@@ -920,64 +924,181 @@ localparam KIM_NUM_ENTRIES = 16384;
 localparam KIM_DATA_WIDTH = 38;
 input  clk;
 input  rst_n;
-output reg kme_slv_rd;
+input  disable_debug_cmd_q;
+input  disable_unencrypted_keys;
+input  always_validate_kim_ref;
+output  kme_slv_rd;
 input axi4s_dp_bus_t kme_slv_out;
 input  kme_slv_aempty;
 input  kme_slv_empty;
-input  stitcher_rd;
-output axi4s_dp_bus_t stitcher_out;
-output reg stitcher_empty;
-output reg set_tlv_bip2_error_int;
-typedef enum bit [2:0] {PASSTHROUGH=3'b0,AUX_WORD1=3'b01,AUX_WORD2=3'b011,BUFFER=3'b010,GUID_HDR=3'b110,KEEP_AUX_GUID=3'b111,INSERT_GUID=3'b101,DRAIN_BUFFER=3'b100} tlv_fsm;
-tlv_fsm cur_state, nxt_state;
-reg use_aux_guid;
-reg src_guid_present;
-reg fifo_in_valid;
-axi4s_dp_bus_t fifo_in;
-wire  fifo_out_valid;
-axi4s_dp_bus_t fifo_out;
-reg fifo_out_ack;
-tlv_rqe_word_0_t tlv_word0;
-tlv_cmd_word_1_t frame_word;
-wire  kme_slv_sot;
-wire  kme_slv_eot;
-wire  _zy_simnet_kme_slv_rd_0_w$;
-wire  [0:82] _zy_simnet_stitcher_out_1_w$ ;
-wire  _zy_simnet_stitcher_empty_2_w$;
-wire  _zy_simnet_set_tlv_bip2_error_int_3_w$;
-wire  _zy_simnet_dio_4;
-wire  [0:82] _zy_simnet_fifo_out_5_w$ ;
-wire  _zy_simnet_dio_6;
-wire  _zy_simnet_dio_7;
-wire  [0:82] _zy_simnet_fifo_in_8_w$ ;
-wire  _zy_simnet_fifo_in_valid_9_w$;
-wire  _zy_simnet_fifo_out_ack_10_w$;
-wire  _zy_simnet_cio_11;
-assign  kme_slv_sot = (kme_slv_out.tuser == 8'b01);
-assign  kme_slv_eot = (kme_slv_out.tuser == 8'b010);
-assign  tlv_word0 = kme_slv_out.tdata;
-assign  frame_word = kme_slv_out.tdata;
-assign  _zy_simnet_kme_slv_rd_0_w$ = kme_slv_rd;
-assign  _zy_simnet_stitcher_out_1_w$ = stitcher_out;
-assign  _zy_simnet_stitcher_empty_2_w$ = stitcher_empty;
-assign  _zy_simnet_set_tlv_bip2_error_int_3_w$ = set_tlv_bip2_error_int;
-assign  fifo_out = _zy_simnet_fifo_out_5_w$;
-assign  _zy_simnet_fifo_in_8_w$ = fifo_in;
-assign  _zy_simnet_fifo_in_valid_9_w$ = fifo_in_valid;
-assign  _zy_simnet_fifo_out_ack_10_w$ = fifo_out_ack;
-assign  _zy_simnet_cio_11 = 1'b0;
-cr_kme_fifo_xcm58 aux_cmd_fifo(
-  .fifo_in_stall(_zy_simnet_dio_4) ,
-  .fifo_out(_zy_simnet_fifo_out_5_w$) ,
-  .fifo_out_valid(fifo_out_valid) ,
-  .fifo_overflow(_zy_simnet_dio_6) ,
-  .fifo_underflow(_zy_simnet_dio_7) ,
+output kme_internal_t cceip_encrypt_in;
+output  cceip_encrypt_in_valid;
+input  cceip_encrypt_in_stall;
+output kme_internal_t cceip_validate_in;
+output  cceip_validate_in_valid;
+input  cceip_validate_in_stall;
+output kme_internal_t cddip_decrypt_in;
+output  cddip_decrypt_in_valid;
+input  cddip_decrypt_in_stall;
+output  ckv_rd;
+output  [14:0] ckv_addr ;
+input  [63:0] ckv_dout ;
+input  ckv_mbe;
+output  kim_rd;
+output  [13:0] kim_addr ;
+input kim_entry_t kim_dout;
+input  kim_mbe;
+input  drng_seed_expired;
+input  drng_health_fail;
+input  [127:0] drng_256_out ;
+input  drng_valid;
+output  drng_ack;
+output  stat_req_with_expired_seed;
+output  stat_aux_key_type_0;
+output  stat_aux_key_type_1;
+output  stat_aux_key_type_2;
+output  stat_aux_key_type_3;
+output  stat_aux_key_type_4;
+output  stat_aux_key_type_5;
+output  stat_aux_key_type_6;
+output  stat_aux_key_type_7;
+output  stat_aux_key_type_8;
+output  stat_aux_key_type_9;
+output  stat_aux_key_type_10;
+output  stat_aux_key_type_11;
+output  stat_aux_key_type_12;
+output  stat_aux_key_type_13;
+output  stat_aux_cmd_with_vf_pf_fail;
+output  tlv_parser_idle;
+output  tlv_parser_int_tlv_start_pulse;
+output  set_tlv_bip2_error_int;
+wire  ckvreader_kimreader_ack;
+kme_internal_t ckvreader_kopassigner_data;
+wire  ckvreader_kopassigner_valid;
+kme_internal_t kimreader_ckvreader_data;
+wire  kimreader_ckvreader_valid;
+wire  kimreader_parser_ack;
+wire  kopassigner_ckvreader_ack;
+kme_internal_t parser_kimreader_data;
+wire  parser_kimreader_valid;
+wire  stitcher_empty;
+axi4s_dp_bus_t stitcher_out;
+wire  stitcher_rd;
+wire  [0:70] _zy_simnet_cceip_encrypt_in_0_w$ ;
+wire  [0:70] _zy_simnet_cceip_validate_in_1_w$ ;
+wire  [0:70] _zy_simnet_cddip_decrypt_in_2_w$ ;
+wire  [0:82] _zy_simnet_stitcher_out_3_w$ ;
+wire  [0:70] _zy_simnet_parser_kimreader_data_4_w$ ;
+wire  [0:82] _zy_simnet_stitcher_out_5_w$ ;
+wire  [0:70] _zy_simnet_kimreader_ckvreader_data_6_w$ ;
+wire  [0:70] _zy_simnet_parser_kimreader_data_7_w$ ;
+wire  [0:70] _zy_simnet_ckvreader_kopassigner_data_8_w$ ;
+wire  [0:70] _zy_simnet_kimreader_ckvreader_data_9_w$ ;
+wire  [0:70] _zy_simnet_cceip_encrypt_in_10_w$ ;
+wire  [0:70] _zy_simnet_cceip_validate_in_11_w$ ;
+wire  [0:70] _zy_simnet_cddip_decrypt_in_12_w$ ;
+wire  [0:70] _zy_simnet_ckvreader_kopassigner_data_13_w$ ;
+assign  _zy_simnet_cceip_encrypt_in_0_w$ = cceip_encrypt_in;
+assign  _zy_simnet_cceip_validate_in_1_w$ = cceip_validate_in;
+assign  _zy_simnet_cddip_decrypt_in_2_w$ = cddip_decrypt_in;
+assign  stitcher_out = _zy_simnet_stitcher_out_3_w$;
+assign  parser_kimreader_data = _zy_simnet_parser_kimreader_data_4_w$;
+assign  _zy_simnet_stitcher_out_5_w$ = stitcher_out;
+assign  kimreader_ckvreader_data = _zy_simnet_kimreader_ckvreader_data_6_w$;
+assign  _zy_simnet_parser_kimreader_data_7_w$ = parser_kimreader_data;
+assign  ckvreader_kopassigner_data = _zy_simnet_ckvreader_kopassigner_data_8_w$;
+assign  _zy_simnet_kimreader_ckvreader_data_9_w$ = kimreader_ckvreader_data;
+assign  cceip_encrypt_in = _zy_simnet_cceip_encrypt_in_10_w$;
+assign  cceip_validate_in = _zy_simnet_cceip_validate_in_11_w$;
+assign  cddip_decrypt_in = _zy_simnet_cddip_decrypt_in_12_w$;
+assign  _zy_simnet_ckvreader_kopassigner_data_13_w$ = ckvreader_kopassigner_data;
+cr_kme_guid_stitcher guid_stitcher(
+  .kme_slv_rd(kme_slv_rd) ,
+  .stitcher_out(_zy_simnet_stitcher_out_3_w$) ,
+  .stitcher_empty(stitcher_empty) ,
+  .set_tlv_bip2_error_int(set_tlv_bip2_error_int) ,
   .clk(clk) ,
   .rst_n(rst_n) ,
-  .fifo_in(_zy_simnet_fifo_in_8_w$) ,
-  .fifo_in_valid(_zy_simnet_fifo_in_valid_9_w$) ,
-  .fifo_out_ack(_zy_simnet_fifo_out_ack_10_w$) ,
-  .fifo_in_stall_override(_zy_simnet_cio_11) ); 
+  .kme_slv_out(kme_slv_out) ,
+  .kme_slv_aempty(kme_slv_aempty) ,
+  .kme_slv_empty(kme_slv_empty) ,
+  .stitcher_rd(stitcher_rd) ); 
+cr_kme_tlv_parser tlv_parser(
+  .stitcher_rd(stitcher_rd) ,
+  .parser_kimreader_valid(parser_kimreader_valid) ,
+  .parser_kimreader_data(_zy_simnet_parser_kimreader_data_4_w$) ,
+  .tlv_parser_idle(tlv_parser_idle) ,
+  .tlv_parser_int_tlv_start_pulse(tlv_parser_int_tlv_start_pulse) ,
+  .clk(clk) ,
+  .rst_n(rst_n) ,
+  .disable_debug_cmd_q(disable_debug_cmd_q) ,
+  .always_validate_kim_ref(always_validate_kim_ref) ,
+  .stitcher_out(_zy_simnet_stitcher_out_5_w$) ,
+  .stitcher_empty(stitcher_empty) ,
+  .kimreader_parser_ack(kimreader_parser_ack) ); 
+cr_kme_kim_drng_reader kim_drng_reader(
+  .kimreader_parser_ack(kimreader_parser_ack) ,
+  .kimreader_ckvreader_valid(kimreader_ckvreader_valid) ,
+  .kimreader_ckvreader_data(_zy_simnet_kimreader_ckvreader_data_6_w$) ,
+  .drng_ack(drng_ack) ,
+  .kim_rd(kim_rd) ,
+  .kim_addr(kim_addr) ,
+  .stat_req_with_expired_seed(stat_req_with_expired_seed) ,
+  .stat_aux_key_type_0(stat_aux_key_type_0) ,
+  .stat_aux_key_type_1(stat_aux_key_type_1) ,
+  .stat_aux_key_type_2(stat_aux_key_type_2) ,
+  .stat_aux_key_type_3(stat_aux_key_type_3) ,
+  .stat_aux_key_type_4(stat_aux_key_type_4) ,
+  .stat_aux_key_type_5(stat_aux_key_type_5) ,
+  .stat_aux_key_type_6(stat_aux_key_type_6) ,
+  .stat_aux_key_type_7(stat_aux_key_type_7) ,
+  .stat_aux_key_type_8(stat_aux_key_type_8) ,
+  .stat_aux_key_type_9(stat_aux_key_type_9) ,
+  .stat_aux_key_type_10(stat_aux_key_type_10) ,
+  .stat_aux_key_type_11(stat_aux_key_type_11) ,
+  .stat_aux_key_type_12(stat_aux_key_type_12) ,
+  .stat_aux_key_type_13(stat_aux_key_type_13) ,
+  .stat_aux_cmd_with_vf_pf_fail(stat_aux_cmd_with_vf_pf_fail) ,
+  .clk(clk) ,
+  .rst_n(rst_n) ,
+  .parser_kimreader_valid(parser_kimreader_valid) ,
+  .parser_kimreader_data(_zy_simnet_parser_kimreader_data_7_w$) ,
+  .ckvreader_kimreader_ack(ckvreader_kimreader_ack) ,
+  .drng_seed_expired(drng_seed_expired) ,
+  .drng_health_fail(drng_health_fail) ,
+  .drng_256_out(drng_256_out) ,
+  .drng_valid(drng_valid) ,
+  .kim_dout(kim_dout) ,
+  .kim_mbe(kim_mbe) ,
+  .disable_unencrypted_keys(disable_unencrypted_keys) ); 
+cr_kme_ckv_reader ckv_reader(
+  .ckvreader_kimreader_ack(ckvreader_kimreader_ack) ,
+  .ckvreader_kopassigner_valid(ckvreader_kopassigner_valid) ,
+  .ckvreader_kopassigner_data(_zy_simnet_ckvreader_kopassigner_data_8_w$) ,
+  .ckv_rd(ckv_rd) ,
+  .ckv_addr(ckv_addr) ,
+  .clk(clk) ,
+  .rst_n(rst_n) ,
+  .kimreader_ckvreader_valid(kimreader_ckvreader_valid) ,
+  .kimreader_ckvreader_data(_zy_simnet_kimreader_ckvreader_data_9_w$) ,
+  .kopassigner_ckvreader_ack(kopassigner_ckvreader_ack) ,
+  .ckv_dout(ckv_dout) ,
+  .ckv_mbe(ckv_mbe) ); 
+cr_kme_kop_assigner kop_assigner(
+  .kopassigner_ckvreader_ack(kopassigner_ckvreader_ack) ,
+  .cceip_encrypt_in(_zy_simnet_cceip_encrypt_in_10_w$) ,
+  .cceip_encrypt_in_valid(cceip_encrypt_in_valid) ,
+  .cceip_validate_in(_zy_simnet_cceip_validate_in_11_w$) ,
+  .cceip_validate_in_valid(cceip_validate_in_valid) ,
+  .cddip_decrypt_in(_zy_simnet_cddip_decrypt_in_12_w$) ,
+  .cddip_decrypt_in_valid(cddip_decrypt_in_valid) ,
+  .clk(clk) ,
+  .rst_n(rst_n) ,
+  .ckvreader_kopassigner_valid(ckvreader_kopassigner_valid) ,
+  .ckvreader_kopassigner_data(_zy_simnet_ckvreader_kopassigner_data_13_w$) ,
+  .cceip_encrypt_in_stall(cceip_encrypt_in_stall) ,
+  .cceip_validate_in_stall(cceip_validate_in_stall) ,
+  .cddip_decrypt_in_stall(cddip_decrypt_in_stall) ); 
 
 function  [63:0] endian_switch;
  input reg [63:0] data ;
@@ -1059,295 +1180,5 @@ function  [6:0] strb_to_bits;
  endcase
 endfunction
 
-
-function  [1:0] get_bip2;
- input reg [63:0] data_in ;
- int evn;
- int odd;
- int i;
- logic [1:0] par ;
- evn = 0;
- odd = 0;
- for (i = 0;(i < 64); i = (i + 2))
-  begin
-   if ((data_in[i] == 1'b1))
-    begin
-     evn = (evn + 1);
-    end
-  end
- for (i = 1;(i < 64); i = (i + 2))
-  begin
-   if ((data_in[i] == 1'b1))
-    begin
-     odd = (odd + 1);
-    end
-  end
- if (((evn % 2) > 0))
-  par[0] = 1'b1;
- else
-  par[0] = 1'b0;
- if (((odd % 2) > 0))
-  par[1] = 1'b1;
- else
-  par[1] = 1'b0;
- get_bip2 = par;
-endfunction
-
-always 
- @(*)
-  begin
-   set_tlv_bip2_error_int = 1'b0;
-   if (kme_slv_rd)
-    begin
-     if (kme_slv_sot)
-      begin
-       set_tlv_bip2_error_int = (get_bip2(kme_slv_out.tdata) != 2'b0);
-      end
-    end
-  end
-always 
- @(posedge clk or negedge rst_n)
-  begin
-   if (( !rst_n ))
-    begin
-     cur_state <= PASSTHROUGH;
-    end
-   else
-    begin
-     cur_state <= nxt_state;
-    end
-  end
-always 
- @(*)
-  begin
-   nxt_state = cur_state;
-   case (cur_state)
-    PASSTHROUGH:
-     begin
-      if (kme_slv_rd)
-       begin
-        if ((tlv_word0.tlv_type != RQE))
-         begin
-          if (kme_slv_sot)
-          begin
-          nxt_state = AUX_WORD1;
-          end
-         end
-       end
-     end
-    AUX_WORD1:
-     begin
-      if (kme_slv_rd)
-       begin
-        nxt_state = AUX_WORD2;
-       end
-     end
-    AUX_WORD2:
-     begin
-      if (kme_slv_rd)
-       begin
-        if (kme_slv_out.tlast)
-         begin
-          nxt_state = PASSTHROUGH;
-         end
-        else
-         if (kme_slv_eot)
-          begin
-          nxt_state = GUID_HDR;
-          end
-         else
-          if (src_guid_present)
-          begin
-          nxt_state = BUFFER;
-          end
-          else
-          begin
-          nxt_state = PASSTHROUGH;
-          end
-       end
-     end
-    BUFFER:
-     begin
-      if (kme_slv_rd)
-       begin
-        if (kme_slv_out.tlast)
-         begin
-          nxt_state = DRAIN_BUFFER;
-         end
-        else
-         if (kme_slv_eot)
-          begin
-          nxt_state = GUID_HDR;
-          end
-       end
-     end
-    GUID_HDR:
-     begin
-      if (kme_slv_rd)
-       begin
-        if (use_aux_guid)
-         begin
-          nxt_state = KEEP_AUX_GUID;
-         end
-        else
-         begin
-          nxt_state = INSERT_GUID;
-         end
-       end
-     end
-    INSERT_GUID:
-     begin
-      if (kme_slv_rd)
-       begin
-        if (kme_slv_out.tlast)
-         begin
-          if (fifo_out_valid)
-          begin
-          nxt_state = DRAIN_BUFFER;
-          end
-          else
-          begin
-          nxt_state = PASSTHROUGH;
-          end
-         end
-       end
-     end
-    KEEP_AUX_GUID:
-     begin
-      if (kme_slv_rd)
-       begin
-        if (kme_slv_out.tlast)
-         begin
-          if ((fifo_out.tuser == 8'b010))
-          begin
-          nxt_state = PASSTHROUGH;
-          end
-          else
-          begin
-          nxt_state = DRAIN_BUFFER;
-          end
-         end
-       end
-     end
-    DRAIN_BUFFER:
-     begin
-      if (stitcher_rd)
-       begin
-        if (stitcher_out.tlast)
-         begin
-          nxt_state = PASSTHROUGH;
-         end
-       end
-     end
-   endcase
-  end
-always 
- @(posedge clk or negedge rst_n)
-  begin
-   if (( !rst_n ))
-    begin
-     use_aux_guid <= 1'b0;
-     src_guid_present <= 1'b0;
-    end
-   else
-    if ((cur_state == PASSTHROUGH))
-     begin
-      if (kme_slv_sot)
-       begin
-        case (tlv_word0.tlv_type)
-         AUX_CMD:
-          use_aux_guid <= 1'b0;
-         AUX_CMD_IV:
-          use_aux_guid <= 1'b0;
-         AUX_CMD_GUID:
-          use_aux_guid <= 1'b1;
-         AUX_CMD_GUID_IV:
-          use_aux_guid <= 1'b1;
-         default:
-          use_aux_guid <= 1'b0;
-        endcase
-       end
-     end
-    else
-     if ((cur_state == AUX_WORD1))
-      begin
-       src_guid_present <= (frame_word.src_guid_present == GUID_PRESENT);
-      end
-  end
-always 
- @(*)
-  begin
-   stitcher_out = 83'b0;
-   stitcher_empty = 1'b1;
-   kme_slv_rd = 1'b0;
-   fifo_in_valid = 1'b0;
-   fifo_in = 83'b0;
-   fifo_out_ack = 1'b0;
-   case (cur_state)
-    PASSTHROUGH,
-    AUX_WORD1:
-     begin
-      stitcher_out = kme_slv_out;
-      stitcher_empty = kme_slv_empty;
-      kme_slv_rd = stitcher_rd;
-     end
-    AUX_WORD2:
-     begin
-      stitcher_out = kme_slv_out;
-      stitcher_empty = kme_slv_empty;
-      kme_slv_rd = stitcher_rd;
-      if (kme_slv_eot)
-       begin
-        if (( !kme_slv_out.tlast ))
-         begin
-          stitcher_out.tuser = 8'b0;
-          stitcher_out.tlast = 1'b0;
-         end
-       end
-     end
-    BUFFER:
-     begin
-      fifo_in = kme_slv_out;
-      fifo_in_valid = ( ~kme_slv_empty );
-      kme_slv_rd = ( ~kme_slv_empty );
-     end
-    GUID_HDR:
-     begin
-      kme_slv_rd = ( ~kme_slv_empty );
-     end
-    KEEP_AUX_GUID:
-     begin
-      stitcher_out = fifo_out;
-      stitcher_empty = kme_slv_empty;
-      kme_slv_rd = stitcher_rd;
-      fifo_out_ack = stitcher_rd;
-      if ((fifo_out.tuser == 8'b010))
-       begin
-        stitcher_out.tlast = 1'b1;
-       end
-     end
-    INSERT_GUID:
-     begin
-      stitcher_out = kme_slv_out;
-      stitcher_empty = kme_slv_empty;
-      kme_slv_rd = stitcher_rd;
-      if (fifo_out_valid)
-       begin
-        stitcher_out.tuser = 8'b0;
-        stitcher_out.tlast = 1'b0;
-       end
-     end
-    DRAIN_BUFFER:
-     begin
-      stitcher_out = fifo_out;
-      stitcher_empty = 1'b0;
-      fifo_out_ack = stitcher_rd;
-      if ((fifo_out.tuser == 8'b010))
-       begin
-        stitcher_out.tlast = 1'b1;
-       end
-     end
-   endcase
-  end
 endmodule
 

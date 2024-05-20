@@ -1,14 +1,14 @@
 DUMMY2 0_zy_simnet_mem_wen_0_w$
-DUMMY3 1_zy_simnet_mem_waddr_1_w$ 0 7
-DUMMY4 1_zy_simnet_mem_wdata_2_w$ 0 82
+DUMMY3 1_zy_simnet_mem_waddr_1_w$ 0 10
+DUMMY4 1_zy_simnet_mem_wdata_2_w$ 0 70
 DUMMY5 0_zy_simnet_mem_ren_3_w$
-DUMMY6 1_zy_simnet_mem_raddr_4_w$ 0 7
+DUMMY6 1_zy_simnet_mem_raddr_4_w$ 0 10
 DUMMY7 0_zy_simnet_empty_5_w$
 DUMMY8 0_zy_simnet_full_6_w$
-DUMMY9 1_zy_simnet_used_slots_7_w$ 0 7
-DUMMY10 1_zy_simnet_free_slots_8_w$ 0 7
+DUMMY9 1_zy_simnet_used_slots_7_w$ 0 11
+DUMMY10 1_zy_simnet_free_slots_8_w$ 0 11
 DUMMY11 0_zy_simnet_rerr_9_w$
-DUMMY12 1_zy_simnet_rdata_10_w$ 0 82
+DUMMY12 1_zy_simnet_rdata_10_w$ 0 70
 DUMMY13 0_zy_simnet_underflow_11_w$
 DUMMY14 0_zy_simnet_overflow_12_w$
 DUMMY15 0{}
@@ -16,8 +16,8 @@ DUMMY16 0{}
 DUMMY17 0{}
 DUMMY18 0@_zy_sva_sblk_1_1._zy_sva_nts_1_1_pass
 DUMMY19 0@unmblk1.ii
-DUMMY20 3rerr *  rdata 82 0
-DUMMY21 3rerr *  rdata 82 0
+DUMMY20 3rerr *  rdata 70 0
+DUMMY21 3rerr *  rdata 70 0
 DUMMY22 0@unmblk2.ii
 c_mem_wptr_DUMMY0 0c_mem_wptr
 c_mem_rptr_DUMMY1 0c_mem_rptr

@@ -10,7 +10,7 @@ architecture module of cr_kme_kop_xcm68 is
 
   component cr_kme_kop_tlv_inspector_xcm70
     generic (
-      CCEIP_ENCRYPT_KOP : integer := 1 ;
+      CCEIP_ENCRYPT_KOP : integer := 0 ;
       subtype gcm_op_e is std_logic_vector(2 downto 0) ;
       constant PT_CKV : gcm_op_e := std_logic_vector'("000") ;
       constant PT_KEY_BLOB : gcm_op_e := std_logic_vector'("001") ;
@@ -79,7 +79,7 @@ architecture module of cr_kme_kop_xcm68 is
     tlv_sb_data_in_stall : in std_logic := 'X' ) ;
   end component ;
 
-  component cr_kme_kop_upsizer_x2_xcm72
+  component cr_kme_kop_upsizer_x2_xcm73
     generic (
       IN_DATA_SIZE : integer := 64
     ) ;
@@ -224,7 +224,7 @@ architecture module of cr_kme_kop_xcm68 is
     key_tlv_ob_afull : in std_logic := 'X' ) ;
   end component ;
 
-  component cr_kme_fifo_xcm50
+  component cr_kme_fifo_xcm51
     generic (
       DATA_SIZE : integer := 611 ;
       FIFO_DEPTH : integer := 4 ;
@@ -245,7 +245,7 @@ architecture module of cr_kme_kop_xcm68 is
     fifo_in_stall_override : in std_logic := 'X' ) ;
   end component ;
 
-  component cr_kme_fifo_xcm49
+  component cr_kme_fifo_xcm50
     generic (
       DATA_SIZE : integer := 1 ;
       FIFO_DEPTH : integer := 4 ;
@@ -266,7 +266,7 @@ architecture module of cr_kme_kop_xcm68 is
     fifo_in_stall_override : in std_logic := 'X' ) ;
   end component ;
 
-  component cr_kme_fifo_xcm48
+  component cr_kme_fifo_xcm49
     generic (
       DATA_SIZE : integer := 4 ;
       FIFO_DEPTH : integer := 4 ;
@@ -287,7 +287,7 @@ architecture module of cr_kme_kop_xcm68 is
     fifo_in_stall_override : in std_logic := 'X' ) ;
   end component ;
 
-  component cr_kme_fifo_xcm47
+  component cr_kme_fifo_xcm48
     generic (
       DATA_SIZE : integer := 263 ;
       FIFO_DEPTH : integer := 4 ;
@@ -308,7 +308,7 @@ architecture module of cr_kme_kop_xcm68 is
     fifo_in_stall_override : in std_logic := 'X' ) ;
   end component ;
 
-  component cr_kme_fifo_xcm46
+  component cr_kme_fifo_xcm47
     generic (
       DATA_SIZE : integer := 64 ;
       FIFO_DEPTH : integer := 16 ;
@@ -329,7 +329,7 @@ architecture module of cr_kme_kop_xcm68 is
     fifo_in_stall_override : in std_logic := 'X' ) ;
   end component ;
 
-  component cr_kme_fifo_xcm45
+  component cr_kme_fifo_xcm46
     generic (
       DATA_SIZE : integer := 96 ;
       FIFO_DEPTH : integer := 4 ;
@@ -1690,7 +1690,7 @@ begin
       ,kdf_cmd_in_stall => kdf_cmd_in_stall
       ,tlv_sb_data_in_stall => tlv_sb_data_in_stall
     ) ;
-  upsizer : cr_kme_kop_upsizer_x2_xcm72
+  upsizer : cr_kme_kop_upsizer_x2_xcm73
     port map (
        upsizer_in_stall => upsizer_inspector_stall
       ,upsizer_out_valid => upsizer_gcm_valid
@@ -1771,7 +1771,7 @@ begin
       ,key_tlv_ob_full => key_tlv_ob_full
       ,key_tlv_ob_afull => key_tlv_ob_afull
     ) ;
-  gcm_cmd_fifo : cr_kme_fifo_xcm50
+  gcm_cmd_fifo : cr_kme_fifo_xcm51
     port map (
        fifo_in_stall => gcm_cmd_in_stall
       ,fifo_out => cmdfifo_gcm_cmd
@@ -1785,7 +1785,7 @@ begin
       ,fifo_out_ack => gcm_cmdfifo_ack
       ,fifo_in_stall_override => kop_fifo_override(0)
     ) ;
-  keyfilter_cmd_fifo : cr_kme_fifo_xcm49
+  keyfilter_cmd_fifo : cr_kme_fifo_xcm50
     port map (
        fifo_in_stall => keyfilter_cmd_in_stall
       ,fifo_out => cmdfifo_keyfilter_cmd
@@ -1799,7 +1799,7 @@ begin
       ,fifo_out_ack => keyfilter_cmdfifo_ack
       ,fifo_in_stall_override => kop_fifo_override(2)
     ) ;
-  kdf_cmd_fifo : cr_kme_fifo_xcm48
+  kdf_cmd_fifo : cr_kme_fifo_xcm49
     port map (
        fifo_in_stall => kdf_cmd_in_stall
       ,fifo_out => cmdfifo_kdf_cmd
@@ -1813,7 +1813,7 @@ begin
       ,fifo_out_ack => kdf_cmdfifo_ack
       ,fifo_in_stall_override => kop_fifo_override(4)
     ) ;
-  kdfstream_cmd_fifo : cr_kme_fifo_xcm47
+  kdfstream_cmd_fifo : cr_kme_fifo_xcm48
     port map (
        fifo_in_stall => kdfstream_cmd_in_stall
       ,fifo_out => cmdfifo_kdfstream_cmd
@@ -1827,7 +1827,7 @@ begin
       ,fifo_out_ack => kdfstream_cmdfifo_ack
       ,fifo_in_stall_override => kop_fifo_override(3)
     ) ;
-  tlv_sb_data_fifo : cr_kme_fifo_xcm46
+  tlv_sb_data_fifo : cr_kme_fifo_xcm47
     port map (
        fifo_in_stall => tlv_sb_data_in_stall
       ,fifo_out => tlv_sb_data_out
@@ -1841,7 +1841,7 @@ begin
       ,fifo_out_ack => tlv_sb_data_out_ack
       ,fifo_in_stall_override => kop_fifo_override(5)
     ) ;
-  gcm_tag_data_fifo : cr_kme_fifo_xcm45
+  gcm_tag_data_fifo : cr_kme_fifo_xcm46
     port map (
        fifo_in_stall => gcm_tag_data_in_stall
       ,fifo_out => gcm_tag_data_out
@@ -1855,7 +1855,7 @@ begin
       ,fifo_out_ack => gcm_tag_data_out_ack
       ,fifo_in_stall_override => kop_fifo_override(1)
     ) ;
-  gcm_status_data_fifo : cr_kme_fifo_xcm49
+  gcm_status_data_fifo : cr_kme_fifo_xcm50
     port map (
        fifo_in_stall => gcm_status_data_in_stall
       ,fifo_out => gcm_status_data_out

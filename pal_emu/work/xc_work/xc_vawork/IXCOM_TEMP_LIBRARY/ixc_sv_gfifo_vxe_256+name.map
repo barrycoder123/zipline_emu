@@ -8,3 +8,19 @@ DUMMY6 0xc_top.GFGBfull
 DUMMY7 0xc_top.GFLock2
 DUMMY8 0xc_top.tbcPO
 DUMMY9 0xc_top.GFAck
+DUMMY13 0flushTbc_x$tbc
+DUMMY14 0{}
+DUMMY15 0{}
+DUMMY16 3ackLen *  ackIdNew *
+DUMMY17 3gfTsReqO *  gfTsValO *
+wLen_DUMMY0 0wLen
+rSync_DUMMY1 0rSync
+argLen_DUMMY2 0argLen
+shiftCount_DUMMY3 0shiftCount
+shiftedXdata_DUMMY4 0shiftedXdata
+oFillN_DUMMY5 0oFillN
+TsBuf_DUMMY6 0TsBuf
+LBwrI_DUMMY7 0LBwrI
+LBrd_DUMMY8 0LBrd
+LBfill_DUMMY9 0LBfill
+gfTsEn_DUMMY10 0gfTsEn

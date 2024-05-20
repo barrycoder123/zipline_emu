@@ -782,5 +782,4 @@ entity cr_kme is
   constant DECRYPT_DEK256_COMB : gcm_op_e := std_logic_vector'("101") ;
   constant DECRYPT_DEK512_COMB : gcm_op_e := std_logic_vector'("110") ;
   constant DECRYPT_DAK_COMB : gcm_op_e := std_logic_vector'("111") ;
-  signal clk_DUMMY0 : std_logic ;
 end cr_kme ;

@@ -1,6 +1,5 @@
-SW	kme_tb
-HW	kme_tb.apb_xactor
-HW	kme_tb.kme_dut
+SW	tb_top
+HW	tb_top.kme_tb_dut
 HW	my_clks
 HW	IXC_GFIFO
 HW	ixc_time

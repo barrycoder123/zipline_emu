@@ -15,14 +15,14 @@ architecture module of IXC_ISF is
   end component ;
 
   signal fclk : std_logic ;
-  signal pvec : std_logic_vector(1 downto 0) ;
+  signal pvec : std_logic_vector(0 downto 0) ;
   -- quickturn external_ref pvec
   signal DUMMY0 : std_logic ;
-  signal pvecEv : std_logic_vector(1 downto 0) ;
+  signal pvecEv : std_logic_vector(0 downto 0) ;
   attribute _2_state_ of pvecEv: signal is 1 ;
   signal pvecEvD : std_logic_vector(63 downto 0) ;
   attribute _2_state_ of pvecEvD: signal is 1 ;
-  signal _zyevPio : std_logic_vector(1 downto 0) ;
+  signal _zyevPio : std_logic_vector(0 downto 0) ;
   -- quickturn external_ref _zyevPio
   attribute _2_state_ of _zyevPio: signal is 1 ;
   signal isfBusy : std_logic ;
@@ -46,7 +46,7 @@ architecture module of IXC_ISF is
 begin
   DUMMY0 <= '1' when (((nd)='1' or (isfBusy)='1') or (isfBusyD)='1') else 'Z' ;
   _zz_strnp_0 : ixc_assign
-    generic map(W => 2)
+    generic map(W => 1)
     port map (
        pvec
       ,_zyevPio

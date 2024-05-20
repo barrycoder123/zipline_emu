@@ -1,1 +1,3 @@
 U O S GFtsReq
+M O MEM=1 PAK=2 ixc_gfm_ctl[%s] LB=0 RB=0 SIZE=64
+M O MEM=1 PAK=2 ixc_gfm_ofifo[%s] LB=0 RB=131071 SIZE=64

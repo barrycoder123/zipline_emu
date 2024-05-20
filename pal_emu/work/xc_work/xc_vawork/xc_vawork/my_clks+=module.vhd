@@ -20,16 +20,16 @@ architecture module of my_clks is
     phi1 : out std_logic ) ;
   end component ;
 
-  signal clock_0 : std_logic ;
+  signal my_clk_0 : std_logic ;
 
 begin
   ixcb_0 : ixc_cakebind
     port map (
        DUMMY0
-      ,clock_0
+      ,my_clk_0
     ) ;
   ixcg_0 : ixc_master_clock
     port map (
-       clock_0
+       my_clk_0
     ) ;
 end module;

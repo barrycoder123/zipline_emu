@@ -23,8 +23,8 @@ architecture module of nx_roreg_indirect_access_xcm130 is
   component nx_indirect_access_cntrl_xcm112
     generic (
       MEM_TYPE : std_logic_vector := std_logic_vector'("0010") ;
-      CMND_ADDRESS : std_logic_vector := std_logic_vector'("10000001100") ;
-      STAT_ADDRESS : std_logic_vector := std_logic_vector'("10000000000") ;
+      CMND_ADDRESS : std_logic_vector := std_logic_vector'("10000101000") ;
+      STAT_ADDRESS : std_logic_vector := std_logic_vector'("10000011100") ;
       ALIGNMENT : integer := 2 ;
       N_TIMER_BITS : integer := 0 ;
       N_REG_ADDR_BITS : integer := 11 ;
@@ -105,7 +105,7 @@ architecture module of nx_roreg_indirect_access_xcm130 is
   signal sw_we : std_logic ;
   signal addr_limit : std_logic_vector(4 downto 0) ;
   signal _zyixc_ctx_rdata_29 : DUMMY0(0 to 31) ;
-  signal _svmls_var_L189_0 : std_logic_vector(63 downto 0) ;
+  signal _svmls_var_L189_2 : std_logic_vector(63 downto 0) ;
   signal _svmls_mah_L0_0 : integer ;
   signal _svmls_dummy_ret : integer ;
   signal DUMMY20 : std_logic_vector(2047 downto 0) ;

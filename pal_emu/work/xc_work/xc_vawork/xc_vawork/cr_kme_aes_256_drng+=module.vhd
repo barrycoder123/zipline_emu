@@ -28,7 +28,7 @@ architecture module of cr_kme_aes_256_drng is
     rst_n : in std_logic := 'X' ) ;
   end component ;
 
-  component cr_kme_fifo_xcm59
+  component cr_kme_fifo_xcm60
     generic (
       DATA_SIZE : integer := 128 ;
       FIFO_DEPTH : integer := 6 ;
@@ -186,7 +186,7 @@ begin
       ,clk => clk
       ,rst_n => rst_n
     ) ;
-  rnd_fifo : cr_kme_fifo_xcm59
+  rnd_fifo : cr_kme_fifo_xcm60
     port map (
        fifo_in_stall => fifo_in_stall
       ,fifo_out => fifo_out

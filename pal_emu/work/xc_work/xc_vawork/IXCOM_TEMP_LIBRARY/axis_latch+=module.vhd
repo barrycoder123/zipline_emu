@@ -3,7 +3,7 @@ architecture module of axis_latch is
 
 begin
 
-  process --:o1288
+  process --:o1316
   (c,d,s,r)
   begin
     if (r = '0') then

@@ -10,6 +10,6 @@
 module ixc_uClkGen ( uclk);
 // pragma CVASTRPROP MODULE HDLICE HDL_MODULE_ATTRIBUTE "0 vlog"
 output uclk;
-Q_PULSE U0 ( .A(xc_top.uClkT), .Z(uclk));
+Q_ASSIGN U0 ( .B(xc_top.uClk), .A(uclk));
 // pragma CVASTRPROP MODULE HDLICE PROP_IXCOM_MOD TRUE
 endmodule

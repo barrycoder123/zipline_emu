@@ -1,9 +1,24 @@
 // xc_work/v/7.sv
-// /home/ibarry/Project-Zipline-master/rtl/common/cr_tlvp/cr_axi4s2_slv.v:37
+// /home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_core.v:21
 // NOTE: This file corresponds to a module in the Hardware/DUT partition.
 `timescale 1ns/1ns
-module cr_axi4s2_slv(axi4s_ib_out,axi4s_slv_out,axi4s_slv_empty,axi4s_slv_aempty,axi4s_slv_bimc_odat,axi4s_slv_bimc_osync,axi4s_slv_ro_uncorrectable_ecc_error,clk,rst_n,axi4s_ib_in,
-axi4s_slv_rd,axi4s_slv_bimc_idat,axi4s_slv_bimc_isync,bimc_rst_n);
+module cr_kme_core(kme_ib_out,kme_cceip0_ob_out,kme_cceip1_ob_out,kme_cceip2_ob_out,kme_cceip3_ob_out,kme_cddip0_ob_out,kme_cddip1_ob_out,kme_cddip2_ob_out,kme_cddip3_ob_out,ckv_rd,
+ckv_addr,kim_rd,kim_addr,cceip_encrypt_bimc_osync,cceip_encrypt_bimc_odat,cceip_encrypt_mbe,cceip_validate_bimc_osync,cceip_validate_bimc_odat,cceip_validate_mbe,cddip_decrypt_bimc_osync,cddip_decrypt_bimc_odat,cddip_decrypt_mbe,
+axi_bimc_osync,axi_bimc_odat,axi_mbe,seed0_invalidate,seed1_invalidate,set_txc_bp_int,set_gcm_tag_fail_int,set_key_tlv_miscmp_int,set_tlv_bip2_error_int,set_rsm_is_backpressuring,idle_components,sa_snapshot,
+sa_count,kme_idle,clk,rst_n,scan_en,scan_mode,scan_rst_n,disable_debug_cmd,disable_unencrypted_keys,suppress_key_tlvs,always_validate_kim_ref,kme_ib_in,
+kme_cceip0_ob_in,kme_cceip1_ob_in,kme_cceip2_ob_in,kme_cceip3_ob_in,kme_cddip0_ob_in,kme_cddip1_ob_in,kme_cddip2_ob_in,kme_cddip3_ob_in,ckv_dout,ckv_mbe,kim_dout,kim_mbe,
+bimc_rst_n,cceip_encrypt_bimc_isync,cceip_encrypt_bimc_idat,cceip_validate_bimc_isync,cceip_validate_bimc_idat,cddip_decrypt_bimc_isync,cddip_decrypt_bimc_idat,axi_bimc_isync,axi_bimc_idat,labels,seed0_valid,seed0_internal_state_key,
+seed0_internal_state_value,seed0_reseed_interval,seed1_valid,seed1_internal_state_key,seed1_internal_state_value,seed1_reseed_interval,tready_override,cceip_encrypt_kop_fifo_override,cceip_validate_kop_fifo_override,cddip_decrypt_kop_fifo_override,kdf_test_key_size,kdf_test_mode_en,
+sa_global_ctrl,sa_ctrl);
+// pkg external : PKG - cr_kme_regfilePKG : DTYPE  
+// pkg external : PKG - cr_kme_regfilePKG : DTYPE  
+// pkg external : PKG - cr_kme_regfilePKG : DTYPE  
+// pkg external : PKG - cr_kme_regfilePKG : DTYPE  
+// pkg external : PKG - cr_kme_regfilePKG : DTYPE  
+// pkg external : PKG - cr_kme_regfilePKG : DTYPE  
+// pkg external : PKG - cr_kme_regfilePKG : DTYPE  
+// pkg external : PKG - cr_kme_regfilePKG : DTYPE  
+parameter KME_STUB = 0;
 typedef enum logic [1:0] {ENET=0,IPV4=1,IPV6=2,MPLS=3} pkt_hdr_e;
 typedef enum logic [3:0] {CMD_SIMPLE=0,COMPND_4K=5,COMPND_8K=6,COMPND_RSV=15} cmd_compound_cmd_frm_size_e;
 typedef enum logic [0:0] {GUID_NOT_PRESENT=0,GUID_PRESENT=1} cmd_guid_present_e;
@@ -815,87 +830,588 @@ typedef struct packed {
  zipline_error_e error_code;
  logic [10:0] errored_frame_number ;
 } ftr_error_t;
-parameter N_ENTRIES = 168;
-parameter N_AFULL_VAL = 1;
-parameter N_AEMPTY_VAL = 1;
-parameter USE_RAM = 1;
-localparam N_DATA_BITS = 83;
+typedef struct packed {
+ logic [0:0] valid ;
+ logic [2:0] label_index ;
+ logic [1:0] ckv_length ;
+ logic [14:0] ckv_pointer ;
+ logic [3:0] pf_num ;
+ logic [11:0] vf_num ;
+ logic [0:0] vf_valid ;
+} kim_entry_t;
+typedef struct packed {
+ logic [0:0] guid_size ;
+ logic [5:0] label_size ;
+ logic [255:0] label ;
+ logic [0:0] delimiter_valid ;
+ logic [7:0] delimiter ;
+} label_t;
+typedef struct packed {
+ logic [0:0] valid ;
+ logic [2:0] label_index ;
+ logic [0:0] pf_num ;
+ logic [0:0] vf_valid ;
+ logic [8:0] vf_num ;
+ logic [511:0] ckv_key ;
+} kim_ckv_resp_t;
+typedef enum logic [3:0] {KME_WORD0=4'b0,KME_DEBUG_KEYHDR=4'b01,KME_IVTWEAK=4'b010,KME_GUID=4'b011,KME_KIM=4'b0100,KME_DEK_CKV0=4'b0101,KME_DEK_CKV1=4'b0110,KME_DAK_CKV=4'b0111,KME_EIV=4'b1000,KME_DEK0=4'b1001,
+KME_DEK1=4'b1010,KME_ETAG=4'b1011,KME_AIV=4'b1100,KME_DAK=4'b1101,KME_ATAG=4'b1110,KME_ERROR=4'b1111} kme_internal_id;
+typedef enum logic [5:0] {IDX_KME_WORD0=6'b0,IDX_KME_DEBUG_KEYHDR=6'b01,IDX_KME_GUID=6'b010,IDX_KME_IVTWEAK=6'b0110,IDX_KME_KIM=6'b01000,IDX_KME_DEK_CKV0=6'b01010,IDX_KME_DEK_CKV1=6'b01110,IDX_KME_DAK_CKV=6'b010010,IDX_KME_EIV=6'b010110,IDX_KME_DEK0=6'b011000,
+IDX_KME_DEK1=6'b011100,IDX_KME_ETAG=6'b100000,IDX_KME_AIV=6'b100010,IDX_KME_DAK=6'b100100,IDX_KME_ATAG=6'b101000,IDX_KME_ERROR=6'b101010} kme_internal_idx;
+typedef struct packed {
+ logic [0:0] sot ;
+ logic [0:0] eoi ;
+ logic [0:0] eot ;
+ kme_internal_id id;
+ logic [63:0] tdata ;
+} kme_internal_t;
+typedef struct packed {
+ logic [1:0] tlv_bip2 ;
+ logic [12:0] resv0 ;
+ logic [0:0] kdf_dek_iter ;
+ logic [0:0] keyless_algos ;
+ logic [0:0] needs_dek ;
+ logic [0:0] needs_dak ;
+ aux_key_type_e key_type;
+ logic [10:0] tlv_frame_num ;
+ logic [3:0] tlv_eng_id ;
+ logic [7:0] tlv_seq_num ;
+ logic [7:0] tlv_len ;
+ tlv_types_e tlv_type;
+} kme_internal_word_0_t;
+typedef struct packed {
+ kim_entry_t dek_kim_entry;
+ logic [5:0] unused ;
+ logic [0:0] missing_iv ;
+ logic [0:0] missing_guid ;
+ logic [0:0] validate_dek ;
+ logic [0:0] vf_valid ;
+ logic [3:0] pf_num ;
+ logic [11:0] vf_num ;
+} kme_internal_word_8_t;
+typedef struct packed {
+ kim_entry_t dak_kim_entry;
+ logic [7:0] unused ;
+ logic [0:0] validate_dak ;
+ logic [0:0] vf_valid ;
+ logic [3:0] pf_num ;
+ logic [11:0] vf_num ;
+} kme_internal_word_9_t;
+typedef struct packed {
+ logic [0:0] corrupt_crc32 ;
+ logic [46:0] unused ;
+ zipline_error_e error_code;
+} kme_internal_word_42_t;
+typedef enum logic [2:0] {PT_CKV=3'b0,PT_KEY_BLOB=3'b01,DECRYPT_DEK256=3'b010,DECRYPT_DEK512=3'b011,DECRYPT_DAK=3'b100,DECRYPT_DEK256_COMB=3'b101,DECRYPT_DEK512_COMB=3'b110,DECRYPT_DAK_COMB=3'b111} gcm_op_e;
+typedef struct packed {
+ logic [255:0] key0 ;
+ logic [255:0] key1 ;
+ logic [95:0] iv ;
+ gcm_op_e op;
+} gcm_cmd_t;
+typedef struct packed {
+ logic [0:0] tag_mismatch ;
+} gcm_status_t;
+typedef struct packed {
+ logic [0:0] combo_mode ;
+} keyfilter_cmd_t;
+typedef struct packed {
+ logic [0:0] kdf_dek_iter ;
+ logic [0:0] combo_mode ;
+ aux_key_op_e dek_key_op, dak_key_op;
+} kdf_cmd_t;
+typedef struct packed {
+ logic [0:0] combo_mode ;
+ logic [0:0] skip ;
+ logic [255:0] guid ;
+ logic [2:0] label_index ;
+ logic [1:0] num_iter ;
+} kdfstream_cmd_t;
+// synopsys translate_off
+import cr_kmePKG::* ;
+// synopsys translate_on
+import cr_kme_regfilePKG::* ;
+localparam CKV_NUM_ENTRIES = 32768;
+localparam CKV_DATA_WIDTH = 64;
+localparam KIM_NUM_ENTRIES = 16384;
+localparam KIM_DATA_WIDTH = 38;
 input  clk;
 input  rst_n;
-input axi4s_dp_bus_t axi4s_ib_in;
-output axi4s_dp_rdy_t axi4s_ib_out;
-input  axi4s_slv_rd;
-output axi4s_dp_bus_t axi4s_slv_out;
-output  axi4s_slv_empty;
-output  axi4s_slv_aempty;
-input  axi4s_slv_bimc_idat;
-input  axi4s_slv_bimc_isync;
+input  scan_en;
+input  scan_mode;
+input  scan_rst_n;
+input  disable_debug_cmd;
+input  disable_unencrypted_keys;
+input  suppress_key_tlvs;
+input  always_validate_kim_ref;
+input axi4s_dp_bus_t kme_ib_in;
+output axi4s_dp_rdy_t kme_ib_out;
+input axi4s_dp_rdy_t kme_cceip0_ob_in;
+output axi4s_dp_bus_t kme_cceip0_ob_out;
+input axi4s_dp_rdy_t kme_cceip1_ob_in;
+output axi4s_dp_bus_t kme_cceip1_ob_out;
+input axi4s_dp_rdy_t kme_cceip2_ob_in;
+output axi4s_dp_bus_t kme_cceip2_ob_out;
+input axi4s_dp_rdy_t kme_cceip3_ob_in;
+output axi4s_dp_bus_t kme_cceip3_ob_out;
+input axi4s_dp_rdy_t kme_cddip0_ob_in;
+output axi4s_dp_bus_t kme_cddip0_ob_out;
+input axi4s_dp_rdy_t kme_cddip1_ob_in;
+output axi4s_dp_bus_t kme_cddip1_ob_out;
+input axi4s_dp_rdy_t kme_cddip2_ob_in;
+output axi4s_dp_bus_t kme_cddip2_ob_out;
+input axi4s_dp_rdy_t kme_cddip3_ob_in;
+output axi4s_dp_bus_t kme_cddip3_ob_out;
+output  ckv_rd;
+output  [14:0] ckv_addr ;
+input  [63:0] ckv_dout ;
+input  ckv_mbe;
+output  kim_rd;
+output  [13:0] kim_addr ;
+input kim_entry_t kim_dout;
+input  kim_mbe;
 input  bimc_rst_n;
-output logic axi4s_slv_bimc_odat;
-output logic axi4s_slv_bimc_osync;
-output logic axi4s_slv_ro_uncorrectable_ecc_error;
-axi4s_dp_bus_t axi_datain;
-logic [82:0] axi4s_slv_datain ;
-logic axi4s_slv_wen;
-logic axi4s_slv_afull;
-logic axi4s_slv_full;
-wire  _zy_simnet_axi4s_ib_out_0_w$;
-wire  [0:82] _zy_simnet_axi4s_slv_out_1_w$ ;
-wire  _zy_simnet_axi4s_slv_bimc_odat_2_w$;
-wire  _zy_simnet_axi4s_slv_bimc_osync_3_w$;
-wire  _zy_simnet_axi4s_slv_ro_uncorrectable_ecc_error_4_w$;
-wire  _zy_simnet_axi4s_slv_full_5_w$;
-wire  _zy_simnet_axi4s_slv_afull_6_w$;
-wire  [0:82] _zy_simnet_axi4s_slv_out_7_w$ ;
-wire  _zy_simnet_axi4s_slv_bimc_odat_8_w$;
-wire  _zy_simnet_axi4s_slv_bimc_osync_9_w$;
-wire  _zy_simnet_axi4s_slv_ro_uncorrectable_ecc_error_10_w$;
-wire  [0:82] _zy_simnet_axi4s_slv_datain_11_w$ ;
-wire  _zy_simnet_axi4s_slv_wen_12_w$;
-assign  axi4s_ib_out.tready = ( ~axi4s_slv_afull );
-ixc_assign  #(1) _zz_strnp_0 (_zy_simnet_axi4s_ib_out_0_w$,axi4s_ib_out);
-ixc_assign  #(83) _zz_strnp_1 (_zy_simnet_axi4s_slv_out_1_w$,axi4s_slv_out);
-ixc_assign  #(1) _zz_strnp_2 (_zy_simnet_axi4s_slv_bimc_odat_2_w$,axi4s_slv_bimc_odat);
-ixc_assign  #(1) _zz_strnp_3 (_zy_simnet_axi4s_slv_bimc_osync_3_w$,axi4s_slv_bimc_osync);
-ixc_assign  #(1) _zz_strnp_4 (_zy_simnet_axi4s_slv_ro_uncorrectable_ecc_error_4_w$,axi4s_slv_ro_uncorrectable_ecc_error);
-ixc_assign  #(1) _zz_strnp_5 (axi4s_slv_full,_zy_simnet_axi4s_slv_full_5_w$);
-ixc_assign  #(1) _zz_strnp_6 (axi4s_slv_afull,_zy_simnet_axi4s_slv_afull_6_w$);
-ixc_assign  #(83) _zz_strnp_7 (axi4s_slv_out,_zy_simnet_axi4s_slv_out_7_w$);
-ixc_assign  #(1) _zz_strnp_8 (axi4s_slv_bimc_odat,_zy_simnet_axi4s_slv_bimc_odat_8_w$);
-ixc_assign  #(1) _zz_strnp_9 (axi4s_slv_bimc_osync,_zy_simnet_axi4s_slv_bimc_osync_9_w$);
-ixc_assign  #(1) _zz_strnp_10 (axi4s_slv_ro_uncorrectable_ecc_error,_zy_simnet_axi4s_slv_ro_uncorrectable_ecc_error_10_w$);
-ixc_assign  #(83) _zz_strnp_11 (_zy_simnet_axi4s_slv_datain_11_w$,axi4s_slv_datain);
-ixc_assign  #(1) _zz_strnp_12 (_zy_simnet_axi4s_slv_wen_12_w$,axi4s_slv_wen);
-cr_fifo_wrap2_xcm11 u_cr_fifo_wrap2(
-  .full(_zy_simnet_axi4s_slv_full_5_w$) ,
-  .afull(_zy_simnet_axi4s_slv_afull_6_w$) ,
-  .rdata(_zy_simnet_axi4s_slv_out_7_w$) ,
-  .empty(axi4s_slv_empty) ,
-  .aempty(axi4s_slv_aempty) ,
-  .bimc_odat(_zy_simnet_axi4s_slv_bimc_odat_8_w$) ,
-  .bimc_osync(_zy_simnet_axi4s_slv_bimc_osync_9_w$) ,
-  .ro_uncorrectable_ecc_error(_zy_simnet_axi4s_slv_ro_uncorrectable_ecc_error_10_w$) ,
-  .clk(clk) ,
-  .rst_n(rst_n) ,
-  .wdata(_zy_simnet_axi4s_slv_datain_11_w$) ,
-  .wen(_zy_simnet_axi4s_slv_wen_12_w$) ,
-  .ren(axi4s_slv_rd) ,
-  .bimc_idat(axi4s_slv_bimc_idat) ,
-  .bimc_isync(axi4s_slv_bimc_isync) ,
-  .bimc_rst_n(bimc_rst_n) ); 
-always 
- @(posedge clk or negedge rst_n)
-  begin
-   if (( ~rst_n ))
-    begin
-     axi4s_slv_datain <= 83'b0;
-     axi4s_slv_wen <= 1'b0;
-    end
-   else
-    begin
-     axi4s_slv_datain <= axi4s_ib_in;
-     axi4s_slv_wen <= (axi4s_ib_in.tvalid & axi4s_ib_out.tready);
-    end
-  end
+output  cceip_encrypt_bimc_osync;
+output  cceip_encrypt_bimc_odat;
+input  cceip_encrypt_bimc_isync;
+input  cceip_encrypt_bimc_idat;
+output  cceip_encrypt_mbe;
+output  cceip_validate_bimc_osync;
+output  cceip_validate_bimc_odat;
+input  cceip_validate_bimc_isync;
+input  cceip_validate_bimc_idat;
+output  cceip_validate_mbe;
+output  cddip_decrypt_bimc_osync;
+output  cddip_decrypt_bimc_odat;
+input  cddip_decrypt_bimc_isync;
+input  cddip_decrypt_bimc_idat;
+output  cddip_decrypt_mbe;
+output  axi_bimc_osync;
+output  axi_bimc_odat;
+input  axi_bimc_isync;
+input  axi_bimc_idat;
+output  axi_mbe;
+input label_t [7:0] labels ;
+input  seed0_valid;
+input  [255:0] seed0_internal_state_key ;
+input  [127:0] seed0_internal_state_value ;
+input  [47:0] seed0_reseed_interval ;
+input  seed1_valid;
+input  [255:0] seed1_internal_state_key ;
+input  [127:0] seed1_internal_state_value ;
+input  [47:0] seed1_reseed_interval ;
+output  seed0_invalidate;
+output  seed1_invalidate;
+output  set_txc_bp_int;
+output  set_gcm_tag_fail_int;
+output  set_key_tlv_miscmp_int;
+output  set_tlv_bip2_error_int;
+output  [7:0] set_rsm_is_backpressuring ;
+input cr_kme_regfilePKG::tready_override_t tready_override;
+input cr_kme_regfilePKG::kop_fifo_override_t cceip_encrypt_kop_fifo_override, cceip_validate_kop_fifo_override, cddip_decrypt_kop_fifo_override;
+output cr_kme_regfilePKG::idle_t idle_components;
+input  [31:0] kdf_test_key_size ;
+input  kdf_test_mode_en;
+input cr_kme_regfilePKG::sa_global_ctrl_t sa_global_ctrl;
+input cr_kme_regfilePKG::sa_ctrl_t sa_ctrl [31:0];
+output cr_kme_regfilePKG::sa_snapshot_t sa_snapshot [31:0];
+output cr_kme_regfilePKG::sa_count_t sa_count [31:0];
+output  kme_idle;
+wire  _zy_simnet_kme_ib_out_0_w$;
+wire  [0:82] _zy_simnet_kme_cceip0_ob_out_1_w$ ;
+wire  [0:82] _zy_simnet_kme_cceip1_ob_out_2_w$ ;
+wire  [0:82] _zy_simnet_kme_cceip2_ob_out_3_w$ ;
+wire  [0:82] _zy_simnet_kme_cceip3_ob_out_4_w$ ;
+wire  [0:82] _zy_simnet_kme_cddip0_ob_out_5_w$ ;
+wire  [0:82] _zy_simnet_kme_cddip1_ob_out_6_w$ ;
+wire  [0:82] _zy_simnet_kme_cddip2_ob_out_7_w$ ;
+wire  [0:82] _zy_simnet_kme_cddip3_ob_out_8_w$ ;
+wire  [0:31] _zy_simnet_idle_components_9_w$ ;
+ixc_assign  #(1) _zz_strnp_18 (_zy_simnet_kme_ib_out_0_w$,kme_ib_out);
+ixc_assign  #(83) _zz_strnp_19 (_zy_simnet_kme_cceip0_ob_out_1_w$,kme_cceip0_ob_out);
+ixc_assign  #(83) _zz_strnp_20 (_zy_simnet_kme_cceip1_ob_out_2_w$,kme_cceip1_ob_out);
+ixc_assign  #(83) _zz_strnp_21 (_zy_simnet_kme_cceip2_ob_out_3_w$,kme_cceip2_ob_out);
+ixc_assign  #(83) _zz_strnp_22 (_zy_simnet_kme_cceip3_ob_out_4_w$,kme_cceip3_ob_out);
+ixc_assign  #(83) _zz_strnp_23 (_zy_simnet_kme_cddip0_ob_out_5_w$,kme_cddip0_ob_out);
+ixc_assign  #(83) _zz_strnp_24 (_zy_simnet_kme_cddip1_ob_out_6_w$,kme_cddip1_ob_out);
+ixc_assign  #(83) _zz_strnp_25 (_zy_simnet_kme_cddip2_ob_out_7_w$,kme_cddip2_ob_out);
+ixc_assign  #(83) _zz_strnp_26 (_zy_simnet_kme_cddip3_ob_out_8_w$,kme_cddip3_ob_out);
+ixc_assign  #(32) _zz_strnp_27 (_zy_simnet_idle_components_9_w$,idle_components);
+//pragma CVASTRPROP MODULE HDLICE cva_for_generate "kme_is_core"
+//pragma RTLNAME "kme_is_core" "kme_is_core"
+if(1) begin: kme_is_core
+ wire  cceip_encrypt_gcm_tag_fail_int;
+ kme_internal_t cceip_encrypt_in;
+ wire  cceip_encrypt_in_stall;
+ wire  cceip_encrypt_in_valid;
+ wire  cceip_encrypt_ob_afull;
+ wire  cceip_encrypt_ob_full;
+ tlvp_if_bus_t cceip_encrypt_ob_tlv;
+ wire  cceip_encrypt_ob_wr;
+ wire  [70:0] cceip_encrypt_out ;
+ wire  cceip_encrypt_out_ack;
+ wire  cceip_encrypt_out_valid;
+ wire  [3:0] cceip_key_tlv_rsm_end_pulse ;
+ wire  [3:0] cceip_key_tlv_rsm_idle ;
+ wire  [3:0] cceip_ob_afull ;
+ wire  [3:0] cceip_ob_full ;
+ tlvp_if_bus_t [3:0] cceip_ob_tlv ;
+ wire  [3:0] cceip_ob_wr ;
+ wire  cceip_validate_gcm_tag_fail_int;
+ kme_internal_t cceip_validate_in;
+ wire  cceip_validate_in_stall;
+ wire  cceip_validate_in_valid;
+ wire  cceip_validate_ob_afull;
+ wire  cceip_validate_ob_full;
+ tlvp_if_bus_t cceip_validate_ob_tlv;
+ wire  cceip_validate_ob_wr;
+ wire  [70:0] cceip_validate_out ;
+ wire  cceip_validate_out_ack;
+ wire  cceip_validate_out_valid;
+ wire  cddip_decrypt_gcm_tag_fail_int;
+ kme_internal_t cddip_decrypt_in;
+ wire  cddip_decrypt_in_stall;
+ wire  cddip_decrypt_in_valid;
+ wire  [3:0] cddip_key_tlv_rsm_end_pulse ;
+ wire  [3:0] cddip_key_tlv_rsm_idle ;
+ wire  [3:0] cddip_ob_afull ;
+ axi4s_dp_rdy_t core_kme_ib_out;
+ wire  disable_debug_cmd_q;
+ wire  [127:0] drng_256_out ;
+ wire  drng_ack;
+ wire  drng_health_fail;
+ wire  drng_idle;
+ wire  drng_seed_expired;
+ wire  drng_valid;
+ wire  kme_slv_aempty;
+ wire  kme_slv_empty;
+ axi4s_dp_bus_t kme_slv_out;
+ wire  kme_slv_rd;
+ wire  stat_aux_cmd_with_vf_pf_fail;
+ wire  stat_aux_key_type_0;
+ wire  stat_aux_key_type_1;
+ wire  stat_aux_key_type_10;
+ wire  stat_aux_key_type_11;
+ wire  stat_aux_key_type_12;
+ wire  stat_aux_key_type_13;
+ wire  stat_aux_key_type_2;
+ wire  stat_aux_key_type_3;
+ wire  stat_aux_key_type_4;
+ wire  stat_aux_key_type_5;
+ wire  stat_aux_key_type_6;
+ wire  stat_aux_key_type_7;
+ wire  stat_aux_key_type_8;
+ wire  stat_aux_key_type_9;
+ wire  stat_cceip0_stall_on_valid_key;
+ wire  stat_cceip1_stall_on_valid_key;
+ wire  stat_cceip2_stall_on_valid_key;
+ wire  stat_cceip3_stall_on_valid_key;
+ wire  stat_cddip0_stall_on_valid_key;
+ wire  stat_cddip1_stall_on_valid_key;
+ wire  stat_cddip2_stall_on_valid_key;
+ wire  stat_cddip3_stall_on_valid_key;
+ wire  stat_drbg_reseed;
+ wire  stat_req_with_expired_seed;
+ wire  tlv_parser_idle;
+ wire  tlv_parser_int_tlv_start_pulse;
+ wire  [3:0] cddip_ob_full ;
+ wire  _zy_simnet_core_kme_ib_out_10_w$;
+ wire  [0:82] _zy_simnet_kme_slv_out_11_w$ ;
+ wire  [0:70] _zy_simnet_cceip_encrypt_in_12_w$ ;
+ wire  [0:70] _zy_simnet_cceip_validate_in_13_w$ ;
+ wire  [0:70] _zy_simnet_cddip_decrypt_in_14_w$ ;
+ wire  [0:82] _zy_simnet_kme_slv_out_15_w$ ;
+ wire  [0:70] _zy_simnet_cceip_encrypt_in_16_w$ ;
+ wire  [0:70] _zy_simnet_cceip_validate_in_17_w$ ;
+ wire  [0:105] _zy_simnet_cceip_encrypt_ob_tlv_18_w$ ;
+ wire  [0:105] _zy_simnet_cceip_validate_ob_tlv_19_w$ ;
+ wire tlvp_if_bus_t [3:0] _zy_simnet_tvar_20 ;
+ wire  [0:105] _zy_simnet_cceip_encrypt_ob_tlv_21_w$ ;
+ wire  [0:105] _zy_simnet_cceip_validate_ob_tlv_22_w$ ;
+ wire  [0:82] _zy_simnet_kme_cceip0_ob_out_23_w$ ;
+ wire  [0:105] _zy_simnet_cceip_ob_tlv_24_w$ ;
+ wire  _zy_simnet_kme_ib_out_25_w$;
+ wire  [0:31] _zy_simnet_idle_components_26_w$ ;
+ wire  _zy_simnet_core_kme_ib_out_27_w$;
+  assign  kme_cceip1_ob_out = 83'b0;
+  assign  kme_cceip2_ob_out = 83'b0;
+  assign  kme_cceip3_ob_out = 83'b0;
+  assign  kme_cddip0_ob_out = 83'b0;
+  assign  kme_cddip1_ob_out = 83'b0;
+  assign  kme_cddip2_ob_out = 83'b0;
+  assign  kme_cddip3_ob_out = 83'b0;
+  assign  cddip_decrypt_in_stall = 1'b0;
+  assign  stat_cceip1_stall_on_valid_key = 1'b0;
+  assign  stat_cceip2_stall_on_valid_key = 1'b0;
+  assign  stat_cceip3_stall_on_valid_key = 1'b0;
+  assign  stat_cddip0_stall_on_valid_key = 1'b0;
+  assign  stat_cddip1_stall_on_valid_key = 1'b0;
+  assign  stat_cddip2_stall_on_valid_key = 1'b0;
+  assign  stat_cddip3_stall_on_valid_key = 1'b0;
+  assign  cceip_key_tlv_rsm_end_pulse[3:1] = 3'b0;
+  assign  cddip_key_tlv_rsm_end_pulse[3:0] = 4'b0;
+  assign  cceip_key_tlv_rsm_idle[3:1] = 3'b0;
+  assign  cddip_key_tlv_rsm_idle[3:0] = 4'b0;
+  assign  cddip_decrypt_gcm_tag_fail_int = 1'b0;
+  assign  cddip_ob_full[3:0] = 4'b0;
+  assign  cddip_decrypt_bimc_osync = 1'b0;
+  assign  cddip_decrypt_bimc_odat = 1'b0;
+  assign  cddip_decrypt_mbe = 1'b0;
+  ixc_assign  #(1) _zz_strnp_0 (core_kme_ib_out,_zy_simnet_core_kme_ib_out_10_w$);
+  ixc_assign  #(83) _zz_strnp_1 (kme_slv_out,_zy_simnet_kme_slv_out_11_w$);
+  ixc_assign  #(71) _zz_strnp_2 (cceip_encrypt_in,_zy_simnet_cceip_encrypt_in_12_w$);
+  ixc_assign  #(71) _zz_strnp_3 (cceip_validate_in,_zy_simnet_cceip_validate_in_13_w$);
+  ixc_assign  #(71) _zz_strnp_4 (cddip_decrypt_in,_zy_simnet_cddip_decrypt_in_14_w$);
+  ixc_assign  #(83) _zz_strnp_5 (_zy_simnet_kme_slv_out_15_w$,kme_slv_out);
+  ixc_assign  #(71) _zz_strnp_6 (_zy_simnet_cceip_encrypt_in_16_w$,cceip_encrypt_in);
+  ixc_assign  #(71) _zz_strnp_7 (_zy_simnet_cceip_validate_in_17_w$,cceip_validate_in);
+  ixc_assign  #(106) _zz_strnp_8 (cceip_encrypt_ob_tlv,_zy_simnet_cceip_encrypt_ob_tlv_18_w$);
+  ixc_assign  #(106) _zz_strnp_9 (cceip_validate_ob_tlv,_zy_simnet_cceip_validate_ob_tlv_19_w$);
+  ixc_assign  #(424) _zz_strnp_10 (cceip_ob_tlv,_zy_simnet_tvar_20);
+  ixc_assign  #(106) _zz_strnp_11 (_zy_simnet_cceip_encrypt_ob_tlv_21_w$,cceip_encrypt_ob_tlv);
+  ixc_assign  #(106) _zz_strnp_12 (_zy_simnet_cceip_validate_ob_tlv_22_w$,cceip_validate_ob_tlv);
+  ixc_assign  #(83) _zz_strnp_13 (kme_cceip0_ob_out,_zy_simnet_kme_cceip0_ob_out_23_w$);
+  ixc_assign  #(106) _zz_strnp_14 (_zy_simnet_cceip_ob_tlv_24_w$,cceip_ob_tlv[0]);
+  ixc_assign  #(1) _zz_strnp_15 (kme_ib_out,_zy_simnet_kme_ib_out_25_w$);
+  ixc_assign  #(32) _zz_strnp_16 (idle_components,_zy_simnet_idle_components_26_w$);
+  ixc_assign  #(1) _zz_strnp_17 (_zy_simnet_core_kme_ib_out_27_w$,core_kme_ib_out);
+  cr_axi4s2_slv txc_axi_intf(
+   .axi4s_ib_out(_zy_simnet_core_kme_ib_out_10_w$) ,
+   .axi4s_slv_out(_zy_simnet_kme_slv_out_11_w$) ,
+   .axi4s_slv_empty(kme_slv_empty) ,
+   .axi4s_slv_aempty(kme_slv_aempty) ,
+   .axi4s_slv_bimc_odat(axi_bimc_odat) ,
+   .axi4s_slv_bimc_osync(axi_bimc_osync) ,
+   .axi4s_slv_ro_uncorrectable_ecc_error(axi_mbe) ,
+   .clk(clk) ,
+   .rst_n(rst_n) ,
+   .axi4s_ib_in(kme_ib_in) ,
+   .axi4s_slv_rd(kme_slv_rd) ,
+   .axi4s_slv_bimc_idat(axi_bimc_idat) ,
+   .axi4s_slv_bimc_isync(axi_bimc_isync) ,
+   .bimc_rst_n(bimc_rst_n) );
+  cr_kme_drng drng(
+   .drng_health_fail(drng_health_fail) ,
+   .drng_seed_expired(drng_seed_expired) ,
+   .drng_256_out(drng_256_out) ,
+   .drng_valid(drng_valid) ,
+   .seed0_invalidate(seed0_invalidate) ,
+   .seed1_invalidate(seed1_invalidate) ,
+   .stat_drbg_reseed(stat_drbg_reseed) ,
+   .drng_idle(drng_idle) ,
+   .clk(clk) ,
+   .rst_n(rst_n) ,
+   .drng_ack(drng_ack) ,
+   .seed0_valid(seed0_valid) ,
+   .seed0_internal_state_key(seed0_internal_state_key) ,
+   .seed0_internal_state_value(seed0_internal_state_value) ,
+   .seed0_reseed_interval(seed0_reseed_interval) ,
+   .seed1_valid(seed1_valid) ,
+   .seed1_internal_state_key(seed1_internal_state_key) ,
+   .seed1_internal_state_value(seed1_internal_state_value) ,
+   .seed1_reseed_interval(seed1_reseed_interval) );
+  cr_kme_ckv_pipeline ckv_pipeline(
+   .kme_slv_rd(kme_slv_rd) ,
+   .cceip_encrypt_in(_zy_simnet_cceip_encrypt_in_12_w$) ,
+   .cceip_encrypt_in_valid(cceip_encrypt_in_valid) ,
+   .cceip_validate_in(_zy_simnet_cceip_validate_in_13_w$) ,
+   .cceip_validate_in_valid(cceip_validate_in_valid) ,
+   .cddip_decrypt_in(_zy_simnet_cddip_decrypt_in_14_w$) ,
+   .cddip_decrypt_in_valid(cddip_decrypt_in_valid) ,
+   .ckv_rd(ckv_rd) ,
+   .ckv_addr(ckv_addr) ,
+   .kim_rd(kim_rd) ,
+   .kim_addr(kim_addr) ,
+   .drng_ack(drng_ack) ,
+   .stat_req_with_expired_seed(stat_req_with_expired_seed) ,
+   .stat_aux_key_type_0(stat_aux_key_type_0) ,
+   .stat_aux_key_type_1(stat_aux_key_type_1) ,
+   .stat_aux_key_type_2(stat_aux_key_type_2) ,
+   .stat_aux_key_type_3(stat_aux_key_type_3) ,
+   .stat_aux_key_type_4(stat_aux_key_type_4) ,
+   .stat_aux_key_type_5(stat_aux_key_type_5) ,
+   .stat_aux_key_type_6(stat_aux_key_type_6) ,
+   .stat_aux_key_type_7(stat_aux_key_type_7) ,
+   .stat_aux_key_type_8(stat_aux_key_type_8) ,
+   .stat_aux_key_type_9(stat_aux_key_type_9) ,
+   .stat_aux_key_type_10(stat_aux_key_type_10) ,
+   .stat_aux_key_type_11(stat_aux_key_type_11) ,
+   .stat_aux_key_type_12(stat_aux_key_type_12) ,
+   .stat_aux_key_type_13(stat_aux_key_type_13) ,
+   .stat_aux_cmd_with_vf_pf_fail(stat_aux_cmd_with_vf_pf_fail) ,
+   .tlv_parser_idle(tlv_parser_idle) ,
+   .tlv_parser_int_tlv_start_pulse(tlv_parser_int_tlv_start_pulse) ,
+   .set_tlv_bip2_error_int(set_tlv_bip2_error_int) ,
+   .clk(clk) ,
+   .rst_n(rst_n) ,
+   .disable_debug_cmd_q(disable_debug_cmd_q) ,
+   .disable_unencrypted_keys(disable_unencrypted_keys) ,
+   .always_validate_kim_ref(always_validate_kim_ref) ,
+   .kme_slv_out(_zy_simnet_kme_slv_out_15_w$) ,
+   .kme_slv_aempty(kme_slv_aempty) ,
+   .kme_slv_empty(kme_slv_empty) ,
+   .cceip_encrypt_in_stall(cceip_encrypt_in_stall) ,
+   .cceip_validate_in_stall(cceip_validate_in_stall) ,
+   .cddip_decrypt_in_stall(cddip_decrypt_in_stall) ,
+   .ckv_dout(ckv_dout) ,
+   .ckv_mbe(ckv_mbe) ,
+   .kim_dout(kim_dout) ,
+   .kim_mbe(kim_mbe) ,
+   .drng_seed_expired(drng_seed_expired) ,
+   .drng_health_fail(drng_health_fail) ,
+   .drng_256_out(drng_256_out) ,
+   .drng_valid(drng_valid) );
+  cr_kme_ram_fifo cceip_encrypt_kop_fifo(
+   .fifo_in_stall(cceip_encrypt_in_stall) ,
+   .fifo_out(cceip_encrypt_out) ,
+   .fifo_out_valid(cceip_encrypt_out_valid) ,
+   .fifo_bimc_osync(cceip_encrypt_bimc_osync) ,
+   .fifo_bimc_odat(cceip_encrypt_bimc_odat) ,
+   .fifo_mbe(cceip_encrypt_mbe) ,
+   .clk(clk) ,
+   .rst_n(rst_n) ,
+   .fifo_in(_zy_simnet_cceip_encrypt_in_16_w$) ,
+   .fifo_in_valid(cceip_encrypt_in_valid) ,
+   .fifo_out_ack(cceip_encrypt_out_ack) ,
+   .bimc_rst_n(bimc_rst_n) ,
+   .fifo_bimc_isync(cceip_encrypt_bimc_isync) ,
+   .fifo_bimc_idat(cceip_encrypt_bimc_idat) );
+  cr_kme_ram_fifo cceip_validate_kop_fifo(
+   .fifo_in_stall(cceip_validate_in_stall) ,
+   .fifo_out(cceip_validate_out) ,
+   .fifo_out_valid(cceip_validate_out_valid) ,
+   .fifo_bimc_osync(cceip_validate_bimc_osync) ,
+   .fifo_bimc_odat(cceip_validate_bimc_odat) ,
+   .fifo_mbe(cceip_validate_mbe) ,
+   .clk(clk) ,
+   .rst_n(rst_n) ,
+   .fifo_in(_zy_simnet_cceip_validate_in_17_w$) ,
+   .fifo_in_valid(cceip_validate_in_valid) ,
+   .fifo_out_ack(cceip_validate_out_ack) ,
+   .bimc_rst_n(bimc_rst_n) ,
+   .fifo_bimc_isync(cceip_validate_bimc_isync) ,
+   .fifo_bimc_idat(cceip_validate_bimc_idat) );
+  cr_kme_kop_xcm69 cceip_encrypt_kop(
+   .kme_internal_out_ack(cceip_encrypt_out_ack) ,
+   .key_tlv_ob_wr(cceip_encrypt_ob_wr) ,
+   .key_tlv_ob_tlv(_zy_simnet_cceip_encrypt_ob_tlv_18_w$) ,
+   .set_gcm_tag_fail_int(cceip_encrypt_gcm_tag_fail_int) ,
+   .clk(clk) ,
+   .rst_n(rst_n) ,
+   .scan_en(scan_en) ,
+   .scan_mode(scan_mode) ,
+   .scan_rst_n(scan_rst_n) ,
+   .labels(labels) ,
+   .kme_internal_out(cceip_encrypt_out) ,
+   .kme_internal_out_valid(cceip_encrypt_out_valid) ,
+   .key_tlv_ob_full(cceip_encrypt_ob_full) ,
+   .key_tlv_ob_afull(cceip_encrypt_ob_afull) ,
+   .kop_fifo_override(cceip_encrypt_kop_fifo_override) ,
+   .kdf_test_key_size(kdf_test_key_size) ,
+   .kdf_test_mode_en(kdf_test_mode_en) );
+  cr_kme_kop_xcm68 cceip_validate_kop(
+   .kme_internal_out_ack(cceip_validate_out_ack) ,
+   .key_tlv_ob_wr(cceip_validate_ob_wr) ,
+   .key_tlv_ob_tlv(_zy_simnet_cceip_validate_ob_tlv_19_w$) ,
+   .set_gcm_tag_fail_int(cceip_validate_gcm_tag_fail_int) ,
+   .clk(clk) ,
+   .rst_n(rst_n) ,
+   .scan_en(scan_en) ,
+   .scan_mode(scan_mode) ,
+   .scan_rst_n(scan_rst_n) ,
+   .labels(labels) ,
+   .kme_internal_out(cceip_validate_out) ,
+   .kme_internal_out_valid(cceip_validate_out_valid) ,
+   .key_tlv_ob_full(cceip_validate_ob_full) ,
+   .key_tlv_ob_afull(cceip_validate_ob_afull) ,
+   .kop_fifo_override(cceip_validate_kop_fifo_override) ,
+   .kdf_test_key_size(kdf_test_key_size) ,
+   .kdf_test_mode_en(kdf_test_mode_en) );
+  cr_kme_key_tlv_compare_split cceip_key_tlv_compare_split(
+   .set_key_tlv_miscmp_int(set_key_tlv_miscmp_int) ,
+   .cceip_encrypt_ob_full(cceip_encrypt_ob_full) ,
+   .cceip_encrypt_ob_afull(cceip_encrypt_ob_afull) ,
+   .cceip_validate_ob_full(cceip_validate_ob_full) ,
+   .cceip_validate_ob_afull(cceip_validate_ob_afull) ,
+   .cceip_ob_wr(cceip_ob_wr) ,
+   .cceip_ob_tlv(_zy_simnet_tvar_20) ,
+   .clk(clk) ,
+   .rst_n(rst_n) ,
+   .suppress_key_tlvs(suppress_key_tlvs) ,
+   .cceip_encrypt_ob_wr(cceip_encrypt_ob_wr) ,
+   .cceip_encrypt_ob_tlv(_zy_simnet_cceip_encrypt_ob_tlv_21_w$) ,
+   .cceip_validate_ob_wr(cceip_validate_ob_wr) ,
+   .cceip_validate_ob_tlv(_zy_simnet_cceip_validate_ob_tlv_22_w$) ,
+   .cceip_ob_full(cceip_ob_full) ,
+   .cceip_ob_afull(cceip_ob_afull) );
+  cr_kme_key_tlv_rsm cceip0_key_tlv_rsm(
+   .usr_ob_full(cceip_ob_full[0]) ,
+   .usr_ob_afull(cceip_ob_afull[0]) ,
+   .axi4s_ob_out(_zy_simnet_kme_cceip0_ob_out_23_w$) ,
+   .stat_stall_on_valid_key(stat_cceip0_stall_on_valid_key) ,
+   .key_tlv_rsm_end_pulse(cceip_key_tlv_rsm_end_pulse[0]) ,
+   .key_tlv_rsm_idle(cceip_key_tlv_rsm_idle[0]) ,
+   .clk(clk) ,
+   .rst_n(rst_n) ,
+   .usr_ob_wr(cceip_ob_wr[0]) ,
+   .usr_ob_tlv(_zy_simnet_cceip_ob_tlv_24_w$) ,
+   .axi4s_ob_in(kme_cceip0_ob_in) );
+  cr_kme_core_glue core_glue(
+   .disable_debug_cmd_q(disable_debug_cmd_q) ,
+   .set_gcm_tag_fail_int(set_gcm_tag_fail_int) ,
+   .set_txc_bp_int(set_txc_bp_int) ,
+   .set_rsm_is_backpressuring(set_rsm_is_backpressuring) ,
+   .kme_ib_out(_zy_simnet_kme_ib_out_25_w$) ,
+   .sa_snapshot(sa_snapshot) ,
+   .sa_count(sa_count) ,
+   .kme_idle(kme_idle) ,
+   .idle_components(_zy_simnet_idle_components_26_w$) ,
+   .clk(clk) ,
+   .rst_n(rst_n) ,
+   .disable_debug_cmd(disable_debug_cmd) ,
+   .cceip_encrypt_gcm_tag_fail_int(cceip_encrypt_gcm_tag_fail_int) ,
+   .cceip_validate_gcm_tag_fail_int(cceip_validate_gcm_tag_fail_int) ,
+   .cddip_decrypt_gcm_tag_fail_int(cddip_decrypt_gcm_tag_fail_int) ,
+   .cceip_ob_full(cceip_ob_full) ,
+   .cddip_ob_full(cddip_ob_full) ,
+   .tready_override(tready_override) ,
+   .core_kme_ib_out(_zy_simnet_core_kme_ib_out_27_w$) ,
+   .sa_global_ctrl(sa_global_ctrl) ,
+   .sa_ctrl(sa_ctrl) ,
+   .stat_drbg_reseed(stat_drbg_reseed) ,
+   .stat_req_with_expired_seed(stat_req_with_expired_seed) ,
+   .stat_aux_key_type_0(stat_aux_key_type_0) ,
+   .stat_aux_key_type_1(stat_aux_key_type_1) ,
+   .stat_aux_key_type_2(stat_aux_key_type_2) ,
+   .stat_aux_key_type_3(stat_aux_key_type_3) ,
+   .stat_aux_key_type_4(stat_aux_key_type_4) ,
+   .stat_aux_key_type_5(stat_aux_key_type_5) ,
+   .stat_aux_key_type_6(stat_aux_key_type_6) ,
+   .stat_aux_key_type_7(stat_aux_key_type_7) ,
+   .stat_aux_key_type_8(stat_aux_key_type_8) ,
+   .stat_aux_key_type_9(stat_aux_key_type_9) ,
+   .stat_aux_key_type_10(stat_aux_key_type_10) ,
+   .stat_aux_key_type_11(stat_aux_key_type_11) ,
+   .stat_aux_key_type_12(stat_aux_key_type_12) ,
+   .stat_aux_key_type_13(stat_aux_key_type_13) ,
+   .stat_cceip0_stall_on_valid_key(stat_cceip0_stall_on_valid_key) ,
+   .stat_cceip1_stall_on_valid_key(stat_cceip1_stall_on_valid_key) ,
+   .stat_cceip2_stall_on_valid_key(stat_cceip2_stall_on_valid_key) ,
+   .stat_cceip3_stall_on_valid_key(stat_cceip3_stall_on_valid_key) ,
+   .stat_cddip0_stall_on_valid_key(stat_cddip0_stall_on_valid_key) ,
+   .stat_cddip1_stall_on_valid_key(stat_cddip1_stall_on_valid_key) ,
+   .stat_cddip2_stall_on_valid_key(stat_cddip2_stall_on_valid_key) ,
+   .stat_cddip3_stall_on_valid_key(stat_cddip3_stall_on_valid_key) ,
+   .stat_aux_cmd_with_vf_pf_fail(stat_aux_cmd_with_vf_pf_fail) ,
+   .kme_slv_empty(kme_slv_empty) ,
+   .drng_idle(drng_idle) ,
+   .tlv_parser_idle(tlv_parser_idle) ,
+   .tlv_parser_int_tlv_start_pulse(tlv_parser_int_tlv_start_pulse) ,
+   .cceip_key_tlv_rsm_end_pulse(cceip_key_tlv_rsm_end_pulse) ,
+   .cddip_key_tlv_rsm_end_pulse(cddip_key_tlv_rsm_end_pulse) ,
+   .cceip_key_tlv_rsm_idle(cceip_key_tlv_rsm_idle) ,
+   .cddip_key_tlv_rsm_idle(cddip_key_tlv_rsm_idle) );
+end
+  //pragma CVASTRPROP MODULE HDLICE cva_for_generate_0 "-1 kme_is_core  "
 endmodule
 

@@ -1,0 +1,22 @@
+module nx_roreg_indirect_access_xcm131 nx_roreg_indirect_access_xcm131 7 14
+CMND_ADDRESS CMND_ADDRESS
+STAT_ADDRESS STAT_ADDRESS
+ALIGNMENT ALIGNMENT
+N_DATA_BITS N_DATA_BITS
+N_REG_ADDR_BITS N_REG_ADDR_BITS
+N_ENTRIES N_ENTRIES
+capabilities_t_set capabilities_t_set
+stat_code stat_code
+stat_datawords stat_datawords
+stat_addr stat_addr
+capability_lst capability_lst
+capability_type capability_type
+rd_dat rd_dat
+clk clk
+rst_n rst_n
+addr addr
+cmnd_op cmnd_op
+cmnd_addr cmnd_addr
+wr_stb wr_stb
+wr_dat wr_dat
+mem_a mem_a

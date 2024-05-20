@@ -16,5 +16,5 @@ ixc_sample_logic_1_3 _zz_zy_sva_b4 ();
 ixc_sample_logic_1_3 _zz_zy_sva_b5 ();
 ixc_sample_logic_1_3 _zz_zy_sva_b6 ();
 ixc_sample_logic_1_3 _zz_zy_sva_b7 ();
-cr_kme_fifo_xcm56 ckv_data_fifo ();
+cr_kme_fifo_xcm57 ckv_data_fifo ();
 endmodule

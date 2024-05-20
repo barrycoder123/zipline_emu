@@ -1195,9 +1195,9 @@ architecture module of cr_kme_kop_upsizer_x2_xcm72 is
   signal DUMMY2 : std_logic ;
   signal DUMMY3 : std_logic ;
   signal DUMMY4 : std_logic ;
-  signal DUMMY5 : std_logic_vector(0 to 127) ;
+  signal DUMMY5 : std_logic_vector(0 to 255) ;
   signal send_data : std_logic ;
-  signal DUMMY6 : std_logic_vector(63 downto 0) ;
+  signal DUMMY6 : std_logic_vector(127 downto 0) ;
 
 begin
   _zz_strnp_0 : ixc_assign
@@ -1219,7 +1219,7 @@ begin
       ,upsizer_out_eof
     ) ;
   _zz_strnp_3 : ixc_assign
-    generic map(W => 128)
+    generic map(W => 256)
     port map (
        DUMMY5
       ,upsizer_out_data
@@ -1230,7 +1230,8 @@ begin
   begin
     if (rst_n = '0') then
       DUMMY6 <=
-       "0000000000000000000000000000000000000000000000000000000000000000" ;
+       "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+       ;
       send_data <= '0' ;
     elsif (clk'event and clk = '1') then
       if ((send_data = '0')) then
@@ -1250,7 +1251,7 @@ begin
     upsizer_out_valid <= '0' ;
     upsizer_out_eof <= '0' ;
     upsizer_out_data <=
-     "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+     "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
      ;
     upsizer_in_stall <= out_upsizer_stall ;
     if ((out_upsizer_stall = '0')) then

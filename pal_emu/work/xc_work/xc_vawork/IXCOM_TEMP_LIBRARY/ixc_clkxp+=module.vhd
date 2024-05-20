@@ -19,7 +19,7 @@ architecture module of ixc_clkXp is
 begin
   rtlClkL <= rtlClk when DUMMY2 = '1' else _zzRtlR ;
 
-  process --:o1513
+  process --:o1543
   (fclk)
   begin
     if (fclk'event and fclk = '1') then
@@ -27,7 +27,7 @@ begin
     end if ;
   end process ;
 
-  process --:o1517
+  process --:o1547
   (fclk)
   begin
     if (fclk'event and fclk = '1') then
@@ -35,7 +35,7 @@ begin
     end if ;
   end process ;
 
-  process --:o1521
+  process --:o1551
   (*)
   begin
     _zzClkV <= it_cond_op((((rtlClkL xor _zzRtlR)='1') or (DUMMY0)='1'),not
@@ -44,7 +44,7 @@ begin
     NeEn <= (rtlClkL and DUMMY1) ;
   end process ;
 
-  process --:o1527
+  process --:o1557
   (**) -- always_comb
   begin
     $axis_pulse( clk, _zzClkV);

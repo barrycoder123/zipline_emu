@@ -15,7 +15,7 @@ architecture module of cr_kme_ckv_reader is
     R : in std_logic_vector((W - 1) downto 0) := (others => 'X') ) ;
   end component ;
 
-  component cr_kme_fifo_xcm56
+  component cr_kme_fifo_xcm57
     generic (
       DATA_SIZE : integer := 65 ;
       FIFO_DEPTH : integer := 2 ;
@@ -1493,7 +1493,7 @@ begin
        _zy_sva_b7
       ,_zy_sva_b7_t
     ) ;
-  ckv_data_fifo : cr_kme_fifo_xcm56
+  ckv_data_fifo : cr_kme_fifo_xcm57
     port map (
        fifo_in_stall => fifo_in_stall
       ,fifo_out => DUMMY9

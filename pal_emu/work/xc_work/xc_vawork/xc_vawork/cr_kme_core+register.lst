@@ -3,8 +3,8 @@ P O cr_kme_drng kme_is_core.drng ./xc_work/xc_vawork/xc_vawork/cr_kme_drng
 P O cr_kme_ckv_pipeline kme_is_core.ckv_pipeline ./xc_work/xc_vawork/xc_vawork/cr_kme_ckv_pipeline
 P O cr_kme_ram_fifo kme_is_core.cceip_encrypt_kop_fifo ./xc_work/xc_vawork/xc_vawork/cr_kme_ram_fifo
 P O cr_kme_ram_fifo kme_is_core.cceip_validate_kop_fifo ./xc_work/xc_vawork/xc_vawork/cr_kme_ram_fifo
-P O cr_kme_kop_xcm68 kme_is_core.cceip_encrypt_kop ./xc_work/xc_vawork/xc_vawork/cr_kme_kop_xcm68
-P O cr_kme_kop_xcm67 kme_is_core.cceip_validate_kop ./xc_work/xc_vawork/xc_vawork/cr_kme_kop_xcm67
+P O cr_kme_kop_xcm69 kme_is_core.cceip_encrypt_kop ./xc_work/xc_vawork/xc_vawork/cr_kme_kop_xcm69
+P O cr_kme_kop_xcm68 kme_is_core.cceip_validate_kop ./xc_work/xc_vawork/xc_vawork/cr_kme_kop_xcm68
 P O cr_kme_key_tlv_rsm kme_is_core.cceip0_key_tlv_rsm ./xc_work/xc_vawork/xc_vawork/cr_kme_key_tlv_rsm
 P O cr_kme_key_tlv_compare_split kme_is_core.cceip_key_tlv_compare_split ./xc_work/xc_vawork/xc_vawork/cr_kme_key_tlv_compare_split
 P O cr_kme_core_glue kme_is_core.core_glue ./xc_work/xc_vawork/xc_vawork/cr_kme_core_glue

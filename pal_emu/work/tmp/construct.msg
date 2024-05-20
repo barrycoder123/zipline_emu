@@ -10,7 +10,7 @@
  env MDA_DUMP - dump all MDA or non-cmm memory(memories blasted into gates) instances of a cell when the total number of instances exceeds MAX_MDA_PER_CELL
 
 
-===Collect construct messages at Thu May  2 13:45:10 2024
+===Collect construct messages at Mon May 20 11:37:57 2024
 
 Info 52150 - Number of MDA in a cell is more than max 16384
 Info 53409 - Number of constructs in a cell is more than max 16384
@@ -52,6 +52,9 @@ Update FIELD_PACKED_STRUCT '\cceip0_out_ia_wdata.r' m_range from (0 0) to (95 0)
 Update FIELD_PACKED_STRUCT '\cceip0_out_ia_wdata.f' m_range from (0 0) to (95 0)
 Update FIELD_PACKED_STRUCT '\tready_override.r' m_range from (0 0) to (8 0)
 Update FIELD_PACKED_STRUCT '\tready_override.f' m_range from (0 0) to (8 0)
+Update PACKED_STRUCT_ARRAY 'labels%s' m_range from (0 0) to (271 0)
+Update FIELD_PACKED_STRUCT '\kop_fifo_override.r' m_range from (0 0) to (6 0)
+Update FIELD_PACKED_STRUCT '\kop_fifo_override.f' m_range from (0 0) to (6 0)
 Update FIELD_PACKED_STRUCT '\im_status.available' m_range from (0 0) to (1 0)
 Update FIELD_PACKED_STRUCT '\im_din.data' m_range from (0 0) to (63 0)
 Update FIELD_PACKED_STRUCT '\im_din.desc' m_range from (0 0) to (31 0)
@@ -61,9 +64,11 @@ Update FIELD_PACKED_STRUCT '\tlv_word8.dek_kim_entry' m_range from (0 0) to (37 
 Update FIELD_PACKED_STRUCT '\nxt_tlv_word8.dek_kim_entry' m_range from (0 0) to (37 0)
 Update FIELD_PACKED_STRUCT '\tlv_word9.dak_kim_entry' m_range from (0 0) to (37 0)
 Update FIELD_PACKED_STRUCT '\nxt_tlv_word9.dak_kim_entry' m_range from (0 0) to (37 0)
-Update PACKED_STRUCT_ARRAY 'labels%s' m_range from (0 0) to (271 0)
-Update FIELD_PACKED_STRUCT '\kop_fifo_override.r' m_range from (0 0) to (6 0)
-Update FIELD_PACKED_STRUCT '\kop_fifo_override.f' m_range from (0 0) to (6 0)
+Update FIELD_PACKED_STRUCT '\im_status.available' m_range from (0 0) to (1 0)
+Update FIELD_PACKED_STRUCT '\im_din.data' m_range from (0 0) to (63 0)
+Update FIELD_PACKED_STRUCT '\im_din.desc' m_range from (0 0) to (31 0)
+Update FIELD_PACKED_STRUCT '\im_din_dly.data' m_range from (0 0) to (63 0)
+Update FIELD_PACKED_STRUCT '\im_din_dly.desc' m_range from (0 0) to (31 0)
 Info - Ignore nonCmm '\sa_snapshot' since '\sa_snapshot%s' array info is there
 Info - Ignore nonCmm '\sa_count' since '\sa_count%s' array info is there
 Info - Ignore nonCmm '\kme_is_core.cceip_ob_tlv' since '\kme_is_core.cceip_ob_tlv%s' array info is there
@@ -96,11 +101,6 @@ Update FIELD_PACKED_STRUCT '\sa_ctrl%s.r' m_range from (0 0) to (31 0)
 Update FIELD_PACKED_STRUCT '\sa_ctrl%s.f' m_range from (0 0) to (31 0)
 Update FIELD_PACKED_STRUCT '\frame_word.debug' m_range from (0 0) to (31 0)
 Update PACKED_STRUCT_ARRAY 'labels%s' m_range from (0 0) to (271 0)
-Update FIELD_PACKED_STRUCT '\im_status.available' m_range from (0 0) to (1 0)
-Update FIELD_PACKED_STRUCT '\im_din.data' m_range from (0 0) to (63 0)
-Update FIELD_PACKED_STRUCT '\im_din.desc' m_range from (0 0) to (31 0)
-Update FIELD_PACKED_STRUCT '\im_din_dly.data' m_range from (0 0) to (63 0)
-Update FIELD_PACKED_STRUCT '\im_din_dly.desc' m_range from (0 0) to (31 0)
 Update FIELD_PACKED_STRUCT '\frame_word.debug' m_range from (0 0) to (31 0)
 Update FIELD_PACKED_STRUCT '\kme_internal_dek_kim_word.dek_kim_entry' m_range from (0 0) to (37 0)
 Update FIELD_PACKED_STRUCT '\nxt_kme_internal_dek_kim_word.dek_kim_entry' m_range from (0 0) to (37 0)
@@ -374,8 +374,6 @@ Update FIELD_PACKED_STRUCT '\int_tlv_word9.dak_kim_entry' m_range from (0 0) to 
 
 Cell 'bimc_master' (0/0 records 0 arrays) prop(100)
 
-Cell 'nx_ram_1rw_xcm107' (0/0 records 0 arrays) prop(110)
-
 Cell 'nx_interface_monitor_xcm100' (10/26 records 0 arrays) prop(100)
 	     0:'im_available' (PACKED_STRUCT) fieldIndex: (-1 -1 )fields: ('\im_available.bank_hi' '\im_available.bank_lo' )srcDataBitRange[1 0]
 
@@ -563,12 +561,6 @@ Cell 'nx_interface_monitor_pipe' (6/16 records 0 arrays) prop(100)
 Cell 'cr_kme_fifo_xcm51' (0/0 records 0 arrays) prop(10)
 
 Cell 'nx_ram_1rw_indirect_access_xcm123' (0/0 records 0 arrays) prop(100)
-
-Cell 'nx_indirect_access_cntrl_v2_xcm124' (0/0 records 1 arrays) prop(110)
-	Array '\addr_limit' [0 0][13 0]
-
-
-Cell 'cr_kme_fifo_xcm44' (0/0 records 0 arrays) prop(10)
 
 Cell 'cr_kme_regfile_glue' (24/134 records 0 arrays) prop(0)
 	     0:'kme_cceip0_ob_out' (PACKED_STRUCT) fieldIndex: (-1 -1 24 25 26 27 )fields: ('\kme_cceip0_ob_out.tvalid' '\kme_cceip0_ob_out.tlast' '\kme_cceip0_ob_out.tid' '\kme_cceip0_ob_out.tstrb' '\kme_cceip0_ob_out.tuser' '\kme_cceip0_ob_out.tdata' )srcDataBitRange[82 0]
@@ -891,16 +883,110 @@ Cell 'cr_axi4s2_slv' (4/16 records 0 arrays) prop(0)
 
 
 Cell 'nx_fifo_xcm24' (0/0 records 1 arrays) prop(110)
-	Array '\depth_n.r_data' [3 0][0 0]
+	Array '\depth_n.r_data' [3 0][3 0]
 
 
-Cell 'nx_fifo_xcm33' (0/0 records 0 arrays) prop(110)
+Cell 'nx_fifo_xcm33' (0/0 records 1 arrays) prop(110)
+	Array '\depth_n.r_data' [1 0][70 0]
 
-Cell 'nx_fifo_xcm26' (0/0 records 1 arrays) prop(110)
-	Array '\depth_n.r_data' [2 0][127 0]
+
+Cell 'nx_fifo_xcm26' (0/0 records 0 arrays) prop(110)
+
+Cell 'cr_kme_kop_xcm69' (9/43 records 1 arrays) prop(0)
+	     0:'key_tlv_ob_tlv' (PACKED_STRUCT) fieldIndex: (-1 9 10 -1 -1 -1 11 12 13 14 )fields: ('\key_tlv_ob_tlv.insert' '\key_tlv_ob_tlv.ordern' '\key_tlv_ob_tlv.typen' '\key_tlv_ob_tlv.sot' '\key_tlv_ob_tlv.eot' '\key_tlv_ob_tlv.tlast' '\key_tlv_ob_tlv.tid' '\key_tlv_ob_tlv.tstrb' '\key_tlv_ob_tlv.tuser' '\key_tlv_ob_tlv.tdata' )srcDataBitRange[105 0]
+
+	     1:'labels%s'[7 0] (PACKED_STRUCT_ARRAY) fieldIndex: (15 16 17 18 19 )fields: ('\labels%s.guid_size' '\labels%s.label_size' '\labels%s.label' '\labels%s.delimiter_valid' '\labels%s.delimiter' )srcDataBitRange[271 0]
+
+	     2:'kme_internal_out' (PACKED_STRUCT) fieldIndex: (20 21 22 23 24 )fields: ('\kme_internal_out.sot' '\kme_internal_out.eoi' '\kme_internal_out.eot' '\kme_internal_out.id' '\kme_internal_out.tdata' )srcDataBitRange[70 0]
+
+	     3:'gcm_cmd_in' (PACKED_STRUCT) fieldIndex: (25 26 27 28 )fields: ('\gcm_cmd_in.key0' '\gcm_cmd_in.key1' '\gcm_cmd_in.iv' '\gcm_cmd_in.op' )srcDataBitRange[610 0]
+
+	     4:'gcm_status_data_in' (PACKED_STRUCT) fieldIndex: (29 )fields: ('\gcm_status_data_in.tag_mismatch' )srcDataBitRange[0 0]
+
+	     5:'kdf_cmd_in' (PACKED_STRUCT) fieldIndex: (30 31 32 33 )fields: ('\kdf_cmd_in.kdf_dek_iter' '\kdf_cmd_in.combo_mode' '\kdf_cmd_in.dek_key_op' '\kdf_cmd_in.dak_key_op' )srcDataBitRange[3 0]
+
+	     6:'kdfstream_cmd_in' (PACKED_STRUCT) fieldIndex: (34 35 36 37 38 )fields: ('\kdfstream_cmd_in.combo_mode' '\kdfstream_cmd_in.skip' '\kdfstream_cmd_in.guid' '\kdfstream_cmd_in.label_index' '\kdfstream_cmd_in.num_iter' )srcDataBitRange[262 0]
+
+	     7:'keyfilter_cmd_in' (PACKED_STRUCT) fieldIndex: (39 )fields: ('\keyfilter_cmd_in.combo_mode' )srcDataBitRange[0 0]
+
+	     8:'kop_fifo_override' (PACKED_UNION) fieldIndex: (40 42 )fields: ('\kop_fifo_override.r' '\kop_fifo_override.f' )srcDataBitRange[6 0]
+
+	     9:'\key_tlv_ob_tlv.ordern'[12 0] (FIELD_ARRAY)srcDataBitRange[12 0]
+
+	    10:'\key_tlv_ob_tlv.typen'[7 0] (FIELD_ARRAY)srcDataBitRange[7 0]
+
+	    11:'\key_tlv_ob_tlv.tid'[0 0] (FIELD_ARRAY)srcDataBitRange[0 0]
+
+	    12:'\key_tlv_ob_tlv.tstrb'[7 0] (FIELD_ARRAY)srcDataBitRange[7 0]
+
+	    13:'\key_tlv_ob_tlv.tuser'[7 0] (FIELD_ARRAY)srcDataBitRange[7 0]
+
+	    14:'\key_tlv_ob_tlv.tdata'[63 0] (FIELD_ARRAY)srcDataBitRange[63 0]
+
+	    15:'\labels%s.guid_size'[0 0] (FIELD_ARRAY)srcDataBitRange[0 0]
+
+	    16:'\labels%s.label_size'[5 0] (FIELD_ARRAY)srcDataBitRange[5 0]
+
+	    17:'\labels%s.label'[255 0] (FIELD_ARRAY)srcDataBitRange[255 0]
+
+	    18:'\labels%s.delimiter_valid'[0 0] (FIELD_ARRAY)srcDataBitRange[0 0]
+
+	    19:'\labels%s.delimiter'[7 0] (FIELD_ARRAY)srcDataBitRange[7 0]
+
+	    20:'\kme_internal_out.sot'[0 0] (FIELD_ARRAY)srcDataBitRange[0 0]
+
+	    21:'\kme_internal_out.eoi'[0 0] (FIELD_ARRAY)srcDataBitRange[0 0]
+
+	    22:'\kme_internal_out.eot'[0 0] (FIELD_ARRAY)srcDataBitRange[0 0]
+
+	    23:'\kme_internal_out.id'[3 0] (FIELD_ARRAY)srcDataBitRange[3 0]
+
+	    24:'\kme_internal_out.tdata'[63 0] (FIELD_ARRAY)srcDataBitRange[63 0]
+
+	    25:'\gcm_cmd_in.key0'[255 0] (FIELD_ARRAY)srcDataBitRange[255 0]
+
+	    26:'\gcm_cmd_in.key1'[255 0] (FIELD_ARRAY)srcDataBitRange[255 0]
+
+	    27:'\gcm_cmd_in.iv'[95 0] (FIELD_ARRAY)srcDataBitRange[95 0]
+
+	    28:'\gcm_cmd_in.op'[2 0] (FIELD_ARRAY)srcDataBitRange[2 0]
+
+	    29:'\gcm_status_data_in.tag_mismatch'[0 0] (FIELD_ARRAY)srcDataBitRange[0 0]
+
+	    30:'\kdf_cmd_in.kdf_dek_iter'[0 0] (FIELD_ARRAY)srcDataBitRange[0 0]
+
+	    31:'\kdf_cmd_in.combo_mode'[0 0] (FIELD_ARRAY)srcDataBitRange[0 0]
+
+	    32:'\kdf_cmd_in.dek_key_op'[0 0] (FIELD_ARRAY)srcDataBitRange[0 0]
+
+	    33:'\kdf_cmd_in.dak_key_op'[0 0] (FIELD_ARRAY)srcDataBitRange[0 0]
+
+	    34:'\kdfstream_cmd_in.combo_mode'[0 0] (FIELD_ARRAY)srcDataBitRange[0 0]
+
+	    35:'\kdfstream_cmd_in.skip'[0 0] (FIELD_ARRAY)srcDataBitRange[0 0]
+
+	    36:'\kdfstream_cmd_in.guid'[255 0] (FIELD_ARRAY)srcDataBitRange[255 0]
+
+	    37:'\kdfstream_cmd_in.label_index'[2 0] (FIELD_ARRAY)srcDataBitRange[2 0]
+
+	    38:'\kdfstream_cmd_in.num_iter'[1 0] (FIELD_ARRAY)srcDataBitRange[1 0]
+
+	    39:'\keyfilter_cmd_in.combo_mode'[0 0] (FIELD_ARRAY)srcDataBitRange[0 0]
+
+	    40:'\kop_fifo_override.r' (FIELD_PACKED_STRUCT) fieldIndex: (41 )fields: ('\kop_fifo_override.r.part0' )srcDataBitRange[6 0]
+
+	    41:'\kop_fifo_override.r.part0'[6 0] (FIELD_ARRAY)srcDataBitRange[6 0]
+
+	    42:'\kop_fifo_override.f' (FIELD_PACKED_STRUCT) fieldIndex: (-1 -1 -1 -1 -1 -1 -1 )fields: ('\kop_fifo_override.f.gcm_status_data_fifo' '\kop_fifo_override.f.tlv_sb_data_fifo' '\kop_fifo_override.f.kdf_cmd_fifo' '\kop_fifo_override.f.kdfstream_cmd_fifo' '\kop_fifo_override.f.keyfilter_cmd_fifo' '\kop_fifo_override.f.gcm_tag_data_fifo' '\kop_fifo_override.f.gcm_cmd_fifo' )srcDataBitRange[6 0]
+
+	Array '\labels' [7 0][271 0]
 
 
 Cell 'nx_fifo_xcm29' (0/0 records 0 arrays) prop(110)
+
+Cell 'nx_indirect_access_cntrl_v2_xcm126' (0/0 records 1 arrays) prop(110)
+	Array '\addr_limit' [0 0][14 0]
+
 
 Cell 'nx_interface_monitor_xcm99' (10/26 records 0 arrays) prop(100)
 	     0:'im_available' (PACKED_STRUCT) fieldIndex: (-1 -1 )fields: ('\im_available.bank_hi' '\im_available.bank_lo' )srcDataBitRange[1 0]
@@ -956,6 +1042,8 @@ Cell 'nx_interface_monitor_xcm99' (10/26 records 0 arrays) prop(100)
 	    25:'\sw_config.credit_limit'[9 0] (FIELD_ARRAY)srcDataBitRange[9 0]
 
 
+Cell 'nx_ram_1rw_indirect_access_xcm124' (0/0 records 0 arrays) prop(100)
+
 Cell 'nx_ram_1rw_xcm109' (0/0 records 0 arrays) prop(110)
 
 Cell 'nx_rbus_apb' (0/0 records 0 arrays) prop(100)
@@ -991,8 +1079,6 @@ Cell 'cr_kme_kop_gcm' (4/15 records 0 arrays) prop(0)
 
 	    14:'\fifo_out.eof'[0 0] (FIELD_ARRAY)srcDataBitRange[0 0]
 
-
-Cell 'nx_fifo_ctrl_xcm35' (0/0 records 0 arrays) prop(110)
 
 Cell 'cr_kme_fifo_xcm57' (0/0 records 0 arrays) prop(10)
 
@@ -1272,9 +1358,71 @@ Cell 'cr_kme_ckv_reader' (9/95 records 0 arrays) prop(10)
 	    94:'\aux_key_ctrl.dek_key_ref'[13 0] (FIELD_ARRAY)srcDataBitRange[13 0]
 
 
+Cell 'nx_interface_monitor_xcm105' (10/26 records 0 arrays) prop(100)
+	     0:'im_available' (PACKED_STRUCT) fieldIndex: (-1 -1 )fields: ('\im_available.bank_hi' '\im_available.bank_lo' )srcDataBitRange[1 0]
+
+	     1:'im_status' (PACKED_STRUCT) fieldIndex: (10 -1 11 )fields: ('\im_status.available' '\im_status.overflow' '\im_status.wr_pointer' )srcDataBitRange[11 0]
+
+	     2:'im_din' (PACKED_STRUCT) fieldIndex: (12 14 )fields: ('\im_din.data' '\im_din.desc' )srcDataBitRange[95 0]
+
+	     3:'im_consumed' (PACKED_STRUCT) fieldIndex: (-1 -1 )fields: ('\im_consumed.bank_hi' '\im_consumed.bank_lo' )srcDataBitRange[1 0]
+
+	     4:'im_config' (PACKED_STRUCT) fieldIndex: (17 18 )fields: ('\im_config.mode' '\im_config.wr_credit_config' )srcDataBitRange[11 0]
+
+	     5:'im_din_dly' (PACKED_STRUCT) fieldIndex: (19 21 )fields: ('\im_din_dly.data' '\im_din_dly.desc' )srcDataBitRange[95 0]
+
+	     6:'im_available_pre' (PACKED_STRUCT) fieldIndex: (-1 -1 )fields: ('\im_available_pre.bank_hi' '\im_available_pre.bank_lo' )srcDataBitRange[1 0]
+
+	     7:'im_consumed_reg' (PACKED_STRUCT) fieldIndex: (-1 -1 )fields: ('\im_consumed_reg.bank_hi' '\im_consumed_reg.bank_lo' )srcDataBitRange[1 0]
+
+	     8:'hw_status' (PACKED_STRUCT) fieldIndex: (-1 -1 24 )fields: ('\hw_status.used_err' '\hw_status.return_err' '\hw_status.credit_issued' )srcDataBitRange[11 0]
+
+	     9:'sw_config' (PACKED_STRUCT) fieldIndex: (-1 -1 25 )fields: ('\sw_config.dis_used' '\sw_config.dis_return' '\sw_config.credit_limit' )srcDataBitRange[11 0]
+
+	    10:'\im_status.available' (FIELD_PACKED_STRUCT) fieldIndex: (-1 -1 )fields: ('\im_status.available.bank_hi' '\im_status.available.bank_lo' )srcDataBitRange[1 0]
+
+	    11:'\im_status.wr_pointer'[8 0] (FIELD_ARRAY)srcDataBitRange[8 0]
+
+	    12:'\im_din.data' (FIELD_PACKED_STRUCT) fieldIndex: (13 )fields: ('\im_din.data.data' )srcDataBitRange[63 0]
+
+	    13:'\im_din.data.data'[63 0] (FIELD_ARRAY)srcDataBitRange[63 0]
+
+	    14:'\im_din.desc' (FIELD_PACKED_STRUCT) fieldIndex: (-1 15 16 )fields: ('\im_din.desc.eob' '\im_din.desc.bytes_vld' '\im_din.desc.im_meta' )srcDataBitRange[31 0]
+
+	    15:'\im_din.desc.bytes_vld'[7 0] (FIELD_ARRAY)srcDataBitRange[7 0]
+
+	    16:'\im_din.desc.im_meta'[22 0] (FIELD_ARRAY)srcDataBitRange[22 0]
+
+	    17:'\im_config.mode'[1 0] (FIELD_ARRAY)srcDataBitRange[1 0]
+
+	    18:'\im_config.wr_credit_config'[9 0] (FIELD_ARRAY)srcDataBitRange[9 0]
+
+	    19:'\im_din_dly.data' (FIELD_PACKED_STRUCT) fieldIndex: (20 )fields: ('\im_din_dly.data.data' )srcDataBitRange[63 0]
+
+	    20:'\im_din_dly.data.data'[63 0] (FIELD_ARRAY)srcDataBitRange[63 0]
+
+	    21:'\im_din_dly.desc' (FIELD_PACKED_STRUCT) fieldIndex: (-1 22 23 )fields: ('\im_din_dly.desc.eob' '\im_din_dly.desc.bytes_vld' '\im_din_dly.desc.im_meta' )srcDataBitRange[31 0]
+
+	    22:'\im_din_dly.desc.bytes_vld'[7 0] (FIELD_ARRAY)srcDataBitRange[7 0]
+
+	    23:'\im_din_dly.desc.im_meta'[22 0] (FIELD_ARRAY)srcDataBitRange[22 0]
+
+	    24:'\hw_status.credit_issued'[9 0] (FIELD_ARRAY)srcDataBitRange[9 0]
+
+	    25:'\sw_config.credit_limit'[9 0] (FIELD_ARRAY)srcDataBitRange[9 0]
+
+
 Cell 'nx_fifo_xcm22' (0/0 records 0 arrays) prop(110)
 
-Cell 'nx_fifo_ram_1r1w_xcm12' (0/0 records 0 arrays) prop(110)
+Cell 'nx_fifo_ctrl_ram_1r1w_xcm18' (0/0 records 4 arrays) prop(100)
+	Array '\c_mem_prefetch_wptr_dly' [2 0][2 0]
+
+	Array '\c_prefetch_data' [2 0][83 0]
+
+	Array '\r_mem_prefetch_wptr_dly' [2 0][2 0]
+
+	Array '\r_prefetch_data' [2 0][83 0]
+
 
 Cell 'nx_roreg_indirect_access_xcm130' (0/0 records 1 arrays) prop(100)
 	Array '\mem_a' [0 31][63 0]
@@ -1282,98 +1430,8 @@ Cell 'nx_roreg_indirect_access_xcm130' (0/0 records 1 arrays) prop(100)
 
 Cell 'nx_fifo_ctrl_xcm38' (0/0 records 0 arrays) prop(110)
 
-Cell 'cr_fifo_wrap2_xcm8' (0/0 records 0 arrays) prop(110)
-
-Cell 'nx_fifo_xcm28' (0/0 records 0 arrays) prop(110)
-
-Cell 'cr_kme_kop_xcm67' (9/43 records 1 arrays) prop(0)
-	     0:'key_tlv_ob_tlv' (PACKED_STRUCT) fieldIndex: (-1 9 10 -1 -1 -1 11 12 13 14 )fields: ('\key_tlv_ob_tlv.insert' '\key_tlv_ob_tlv.ordern' '\key_tlv_ob_tlv.typen' '\key_tlv_ob_tlv.sot' '\key_tlv_ob_tlv.eot' '\key_tlv_ob_tlv.tlast' '\key_tlv_ob_tlv.tid' '\key_tlv_ob_tlv.tstrb' '\key_tlv_ob_tlv.tuser' '\key_tlv_ob_tlv.tdata' )srcDataBitRange[105 0]
-
-	     1:'labels%s'[7 0] (PACKED_STRUCT_ARRAY) fieldIndex: (15 16 17 18 19 )fields: ('\labels%s.guid_size' '\labels%s.label_size' '\labels%s.label' '\labels%s.delimiter_valid' '\labels%s.delimiter' )srcDataBitRange[271 0]
-
-	     2:'kme_internal_out' (PACKED_STRUCT) fieldIndex: (20 21 22 23 24 )fields: ('\kme_internal_out.sot' '\kme_internal_out.eoi' '\kme_internal_out.eot' '\kme_internal_out.id' '\kme_internal_out.tdata' )srcDataBitRange[70 0]
-
-	     3:'gcm_cmd_in' (PACKED_STRUCT) fieldIndex: (25 26 27 28 )fields: ('\gcm_cmd_in.key0' '\gcm_cmd_in.key1' '\gcm_cmd_in.iv' '\gcm_cmd_in.op' )srcDataBitRange[610 0]
-
-	     4:'gcm_status_data_in' (PACKED_STRUCT) fieldIndex: (29 )fields: ('\gcm_status_data_in.tag_mismatch' )srcDataBitRange[0 0]
-
-	     5:'kdf_cmd_in' (PACKED_STRUCT) fieldIndex: (30 31 32 33 )fields: ('\kdf_cmd_in.kdf_dek_iter' '\kdf_cmd_in.combo_mode' '\kdf_cmd_in.dek_key_op' '\kdf_cmd_in.dak_key_op' )srcDataBitRange[3 0]
-
-	     6:'kdfstream_cmd_in' (PACKED_STRUCT) fieldIndex: (34 35 36 37 38 )fields: ('\kdfstream_cmd_in.combo_mode' '\kdfstream_cmd_in.skip' '\kdfstream_cmd_in.guid' '\kdfstream_cmd_in.label_index' '\kdfstream_cmd_in.num_iter' )srcDataBitRange[262 0]
-
-	     7:'keyfilter_cmd_in' (PACKED_STRUCT) fieldIndex: (39 )fields: ('\keyfilter_cmd_in.combo_mode' )srcDataBitRange[0 0]
-
-	     8:'kop_fifo_override' (PACKED_UNION) fieldIndex: (40 42 )fields: ('\kop_fifo_override.r' '\kop_fifo_override.f' )srcDataBitRange[6 0]
-
-	     9:'\key_tlv_ob_tlv.ordern'[12 0] (FIELD_ARRAY)srcDataBitRange[12 0]
-
-	    10:'\key_tlv_ob_tlv.typen'[7 0] (FIELD_ARRAY)srcDataBitRange[7 0]
-
-	    11:'\key_tlv_ob_tlv.tid'[0 0] (FIELD_ARRAY)srcDataBitRange[0 0]
-
-	    12:'\key_tlv_ob_tlv.tstrb'[7 0] (FIELD_ARRAY)srcDataBitRange[7 0]
-
-	    13:'\key_tlv_ob_tlv.tuser'[7 0] (FIELD_ARRAY)srcDataBitRange[7 0]
-
-	    14:'\key_tlv_ob_tlv.tdata'[63 0] (FIELD_ARRAY)srcDataBitRange[63 0]
-
-	    15:'\labels%s.guid_size'[0 0] (FIELD_ARRAY)srcDataBitRange[0 0]
-
-	    16:'\labels%s.label_size'[5 0] (FIELD_ARRAY)srcDataBitRange[5 0]
-
-	    17:'\labels%s.label'[255 0] (FIELD_ARRAY)srcDataBitRange[255 0]
-
-	    18:'\labels%s.delimiter_valid'[0 0] (FIELD_ARRAY)srcDataBitRange[0 0]
-
-	    19:'\labels%s.delimiter'[7 0] (FIELD_ARRAY)srcDataBitRange[7 0]
-
-	    20:'\kme_internal_out.sot'[0 0] (FIELD_ARRAY)srcDataBitRange[0 0]
-
-	    21:'\kme_internal_out.eoi'[0 0] (FIELD_ARRAY)srcDataBitRange[0 0]
-
-	    22:'\kme_internal_out.eot'[0 0] (FIELD_ARRAY)srcDataBitRange[0 0]
-
-	    23:'\kme_internal_out.id'[3 0] (FIELD_ARRAY)srcDataBitRange[3 0]
-
-	    24:'\kme_internal_out.tdata'[63 0] (FIELD_ARRAY)srcDataBitRange[63 0]
-
-	    25:'\gcm_cmd_in.key0'[255 0] (FIELD_ARRAY)srcDataBitRange[255 0]
-
-	    26:'\gcm_cmd_in.key1'[255 0] (FIELD_ARRAY)srcDataBitRange[255 0]
-
-	    27:'\gcm_cmd_in.iv'[95 0] (FIELD_ARRAY)srcDataBitRange[95 0]
-
-	    28:'\gcm_cmd_in.op'[2 0] (FIELD_ARRAY)srcDataBitRange[2 0]
-
-	    29:'\gcm_status_data_in.tag_mismatch'[0 0] (FIELD_ARRAY)srcDataBitRange[0 0]
-
-	    30:'\kdf_cmd_in.kdf_dek_iter'[0 0] (FIELD_ARRAY)srcDataBitRange[0 0]
-
-	    31:'\kdf_cmd_in.combo_mode'[0 0] (FIELD_ARRAY)srcDataBitRange[0 0]
-
-	    32:'\kdf_cmd_in.dek_key_op'[0 0] (FIELD_ARRAY)srcDataBitRange[0 0]
-
-	    33:'\kdf_cmd_in.dak_key_op'[0 0] (FIELD_ARRAY)srcDataBitRange[0 0]
-
-	    34:'\kdfstream_cmd_in.combo_mode'[0 0] (FIELD_ARRAY)srcDataBitRange[0 0]
-
-	    35:'\kdfstream_cmd_in.skip'[0 0] (FIELD_ARRAY)srcDataBitRange[0 0]
-
-	    36:'\kdfstream_cmd_in.guid'[255 0] (FIELD_ARRAY)srcDataBitRange[255 0]
-
-	    37:'\kdfstream_cmd_in.label_index'[2 0] (FIELD_ARRAY)srcDataBitRange[2 0]
-
-	    38:'\kdfstream_cmd_in.num_iter'[1 0] (FIELD_ARRAY)srcDataBitRange[1 0]
-
-	    39:'\keyfilter_cmd_in.combo_mode'[0 0] (FIELD_ARRAY)srcDataBitRange[0 0]
-
-	    40:'\kop_fifo_override.r' (FIELD_PACKED_STRUCT) fieldIndex: (41 )fields: ('\kop_fifo_override.r.part0' )srcDataBitRange[6 0]
-
-	    41:'\kop_fifo_override.r.part0'[6 0] (FIELD_ARRAY)srcDataBitRange[6 0]
-
-	    42:'\kop_fifo_override.f' (FIELD_PACKED_STRUCT) fieldIndex: (-1 -1 -1 -1 -1 -1 -1 )fields: ('\kop_fifo_override.f.gcm_status_data_fifo' '\kop_fifo_override.f.tlv_sb_data_fifo' '\kop_fifo_override.f.kdf_cmd_fifo' '\kop_fifo_override.f.kdfstream_cmd_fifo' '\kop_fifo_override.f.keyfilter_cmd_fifo' '\kop_fifo_override.f.gcm_tag_data_fifo' '\kop_fifo_override.f.gcm_cmd_fifo' )srcDataBitRange[6 0]
-
-	Array '\labels' [7 0][271 0]
+Cell 'nx_fifo_xcm28' (0/0 records 1 arrays) prop(110)
+	Array '\depth_n.r_data' [1 0][33 0]
 
 
 Cell 'nx_fifo_ctrl_xcm40' (0/0 records 0 arrays) prop(110)
@@ -1444,13 +1502,11 @@ Cell 'cr_tlvp2_rsm' (5/31 records 0 arrays) prop(0)
 
 Cell 'nx_fifo_ctrl_xcm37' (0/0 records 0 arrays) prop(110)
 
-Cell 'nx_ram_1r1w_xcm14' (0/0 records 1 arrays) prop(110)
-	Array '\_1r1wramDxWb.dout_r' [0 0][70 0]
-
-
 Cell 'nx_indirect_access_cntrl_v2_xcm125' (0/0 records 1 arrays) prop(110)
-	Array '\addr_limit' [0 0][14 0]
+	Array '\addr_limit' [0 0][13 0]
 
+
+Cell 'cr_fifo_wrap2_xcm12' (0/0 records 0 arrays) prop(110)
 
 Cell 'cr_kme_core' (38/162 records 5 arrays) prop(10)
 	     0:'kme_ib_out' (PACKED_STRUCT) fieldIndex: (-1 )fields: ('\kme_ib_out.tready' )srcDataBitRange[0 0]
@@ -1948,65 +2004,9 @@ Cell 'nx_indirect_access_cntrl_xcm119' (0/0 records 1 arrays) prop(110)
 	Array '\addr_limit' [0 0][8 0]
 
 
-Cell 'nx_fifo_xcm31' (0/0 records 1 arrays) prop(110)
-	Array '\depth_n.r_data' [1 0][64 0]
-
+Cell 'nx_fifo_xcm31' (0/0 records 0 arrays) prop(110)
 
 Cell 'cr_fifo_wrap2_xcm11' (0/0 records 0 arrays) prop(110)
-
-Cell 'nx_interface_monitor_xcm97' (10/26 records 0 arrays) prop(100)
-	     0:'im_available' (PACKED_STRUCT) fieldIndex: (-1 -1 )fields: ('\im_available.bank_hi' '\im_available.bank_lo' )srcDataBitRange[1 0]
-
-	     1:'im_status' (PACKED_STRUCT) fieldIndex: (10 -1 11 )fields: ('\im_status.available' '\im_status.overflow' '\im_status.wr_pointer' )srcDataBitRange[11 0]
-
-	     2:'im_din' (PACKED_STRUCT) fieldIndex: (12 14 )fields: ('\im_din.data' '\im_din.desc' )srcDataBitRange[95 0]
-
-	     3:'im_consumed' (PACKED_STRUCT) fieldIndex: (-1 -1 )fields: ('\im_consumed.bank_hi' '\im_consumed.bank_lo' )srcDataBitRange[1 0]
-
-	     4:'im_config' (PACKED_STRUCT) fieldIndex: (17 18 )fields: ('\im_config.mode' '\im_config.wr_credit_config' )srcDataBitRange[11 0]
-
-	     5:'im_din_dly' (PACKED_STRUCT) fieldIndex: (19 21 )fields: ('\im_din_dly.data' '\im_din_dly.desc' )srcDataBitRange[95 0]
-
-	     6:'im_available_pre' (PACKED_STRUCT) fieldIndex: (-1 -1 )fields: ('\im_available_pre.bank_hi' '\im_available_pre.bank_lo' )srcDataBitRange[1 0]
-
-	     7:'im_consumed_reg' (PACKED_STRUCT) fieldIndex: (-1 -1 )fields: ('\im_consumed_reg.bank_hi' '\im_consumed_reg.bank_lo' )srcDataBitRange[1 0]
-
-	     8:'hw_status' (PACKED_STRUCT) fieldIndex: (-1 -1 24 )fields: ('\hw_status.used_err' '\hw_status.return_err' '\hw_status.credit_issued' )srcDataBitRange[11 0]
-
-	     9:'sw_config' (PACKED_STRUCT) fieldIndex: (-1 -1 25 )fields: ('\sw_config.dis_used' '\sw_config.dis_return' '\sw_config.credit_limit' )srcDataBitRange[11 0]
-
-	    10:'\im_status.available' (FIELD_PACKED_STRUCT) fieldIndex: (-1 -1 )fields: ('\im_status.available.bank_hi' '\im_status.available.bank_lo' )srcDataBitRange[1 0]
-
-	    11:'\im_status.wr_pointer'[8 0] (FIELD_ARRAY)srcDataBitRange[8 0]
-
-	    12:'\im_din.data' (FIELD_PACKED_STRUCT) fieldIndex: (13 )fields: ('\im_din.data.data' )srcDataBitRange[63 0]
-
-	    13:'\im_din.data.data'[63 0] (FIELD_ARRAY)srcDataBitRange[63 0]
-
-	    14:'\im_din.desc' (FIELD_PACKED_STRUCT) fieldIndex: (-1 15 16 )fields: ('\im_din.desc.eob' '\im_din.desc.bytes_vld' '\im_din.desc.im_meta' )srcDataBitRange[31 0]
-
-	    15:'\im_din.desc.bytes_vld'[7 0] (FIELD_ARRAY)srcDataBitRange[7 0]
-
-	    16:'\im_din.desc.im_meta'[22 0] (FIELD_ARRAY)srcDataBitRange[22 0]
-
-	    17:'\im_config.mode'[1 0] (FIELD_ARRAY)srcDataBitRange[1 0]
-
-	    18:'\im_config.wr_credit_config'[9 0] (FIELD_ARRAY)srcDataBitRange[9 0]
-
-	    19:'\im_din_dly.data' (FIELD_PACKED_STRUCT) fieldIndex: (20 )fields: ('\im_din_dly.data.data' )srcDataBitRange[63 0]
-
-	    20:'\im_din_dly.data.data'[63 0] (FIELD_ARRAY)srcDataBitRange[63 0]
-
-	    21:'\im_din_dly.desc' (FIELD_PACKED_STRUCT) fieldIndex: (-1 22 23 )fields: ('\im_din_dly.desc.eob' '\im_din_dly.desc.bytes_vld' '\im_din_dly.desc.im_meta' )srcDataBitRange[31 0]
-
-	    22:'\im_din_dly.desc.bytes_vld'[7 0] (FIELD_ARRAY)srcDataBitRange[7 0]
-
-	    23:'\im_din_dly.desc.im_meta'[22 0] (FIELD_ARRAY)srcDataBitRange[22 0]
-
-	    24:'\hw_status.credit_issued'[9 0] (FIELD_ARRAY)srcDataBitRange[9 0]
-
-	    25:'\sw_config.credit_limit'[9 0] (FIELD_ARRAY)srcDataBitRange[9 0]
-
 
 Cell 'sync_fifo' (0/0 records 2 arrays) prop(110)
 	Array '\mem_nxt' [7 0][95 0]
@@ -2764,7 +2764,9 @@ Cell 'cr_kme' (47/172 records 4 arrays) prop(0)
 
 Cell 'nx_ram_1rw_xcm108' (0/0 records 0 arrays) prop(110)
 
-Cell 'nx_fifo_xcm25' (0/0 records 0 arrays) prop(110)
+Cell 'nx_fifo_xcm25' (0/0 records 1 arrays) prop(110)
+	Array '\depth_n.r_data' [3 0][0 0]
+
 
 Cell 'cr_tlvp2_rsm_core' (7/49 records 0 arrays) prop(0)
 	     0:'tlvp_rsm_ob_wdata' (PACKED_STRUCT) fieldIndex: (-1 -1 7 8 9 10 )fields: ('\tlvp_rsm_ob_wdata.tvalid' '\tlvp_rsm_ob_wdata.tlast' '\tlvp_rsm_ob_wdata.tid' '\tlvp_rsm_ob_wdata.tstrb' '\tlvp_rsm_ob_wdata.tuser' '\tlvp_rsm_ob_wdata.tdata' )srcDataBitRange[82 0]
@@ -2870,14 +2872,12 @@ Cell 'cr_kme_fifo_xcm49' (0/0 records 0 arrays) prop(10)
 
 Cell 'nx_fifo_ctrl_xcm36' (0/0 records 0 arrays) prop(110)
 
-Cell 'nx_fifo_xcm19' (0/0 records 0 arrays) prop(110)
-
-Cell 'nx_roreg_indirect_access_xcm129' (0/0 records 1 arrays) prop(100)
-	Array '\mem_a' [0 31][63 0]
+Cell 'nx_fifo_xcm19' (0/0 records 1 arrays) prop(110)
+	Array '\depth_n.r_data' [1 0][105 0]
 
 
 Cell 'nx_fifo_xcm32' (0/0 records 1 arrays) prop(110)
-	Array '\depth_n.r_data' [1 0][70 0]
+	Array '\depth_n.r_data' [1 0][64 0]
 
 
 Cell 'nx_fifo_ctrl_xcm39' (0/0 records 0 arrays) prop(110)
@@ -2935,6 +2935,8 @@ Cell 'nx_interface_monitor_xcm98' (10/26 records 0 arrays) prop(100)
 
 	    25:'\sw_config.credit_limit'[9 0] (FIELD_ARRAY)srcDataBitRange[9 0]
 
+
+Cell 'nx_fifo_ram_1r1w_xcm14' (0/0 records 0 arrays) prop(110)
 
 Cell 'cr_kme_kop_xcm68' (9/43 records 1 arrays) prop(0)
 	     0:'key_tlv_ob_tlv' (PACKED_STRUCT) fieldIndex: (-1 9 10 -1 -1 -1 11 12 13 14 )fields: ('\key_tlv_ob_tlv.insert' '\key_tlv_ob_tlv.ordern' '\key_tlv_ob_tlv.typen' '\key_tlv_ob_tlv.sot' '\key_tlv_ob_tlv.eot' '\key_tlv_ob_tlv.tlast' '\key_tlv_ob_tlv.tid' '\key_tlv_ob_tlv.tstrb' '\key_tlv_ob_tlv.tuser' '\key_tlv_ob_tlv.tdata' )srcDataBitRange[105 0]
@@ -3146,6 +3148,10 @@ Cell 'cr_axi4s_mstr' (7/27 records 0 arrays) prop(0)
 	    25:'\axi4s_ob_out_payload.tuser'[7 0] (FIELD_ARRAY)srcDataBitRange[7 0]
 
 	    26:'\axi4s_ob_out_payload.tdata'[63 0] (FIELD_ARRAY)srcDataBitRange[63 0]
+
+
+Cell 'nx_ram_1r1w_xcm16' (0/0 records 1 arrays) prop(110)
+	Array '\_1r1wramDxWb.dout_r' [0 0][82 0]
 
 
 Cell 'cr_kme_kop_tlv_inspector_xcm70' (18/123 records 1 arrays) prop(10)
@@ -3399,19 +3405,7 @@ Cell 'cr_kme_kop_tlv_inspector_xcm70' (18/123 records 1 arrays) prop(10)
 
 
 Cell 'nx_fifo_xcm27' (0/0 records 1 arrays) prop(110)
-	Array '\depth_n.r_data' [1 0][33 0]
-
-
-Cell 'nx_ram_1rw_indirect_access_xcm122' (0/0 records 0 arrays) prop(100)
-
-Cell 'nx_fifo_ctrl_ram_1r1w_xcm16' (0/0 records 4 arrays) prop(100)
-	Array '\c_mem_prefetch_wptr_dly' [2 0][2 0]
-
-	Array '\c_prefetch_data' [2 0][71 0]
-
-	Array '\r_mem_prefetch_wptr_dly' [2 0][2 0]
-
-	Array '\r_prefetch_data' [2 0][71 0]
+	Array '\depth_n.r_data' [2 0][127 0]
 
 
 Cell 'nx_rbus_ring' (0/0 records 0 arrays) prop(110)
@@ -5219,14 +5213,18 @@ Cell 'cr_kme_regfile' (155/845 records 5 arrays) prop(0)
 Cell 'nx_fifo_ctrl_ram_1r1w_xcm17' (0/0 records 4 arrays) prop(100)
 	Array '\c_mem_prefetch_wptr_dly' [2 0][2 0]
 
-	Array '\c_prefetch_data' [2 0][83 0]
+	Array '\c_prefetch_data' [2 0][71 0]
 
 	Array '\r_mem_prefetch_wptr_dly' [2 0][2 0]
 
-	Array '\r_prefetch_data' [2 0][83 0]
+	Array '\r_prefetch_data' [2 0][71 0]
 
 
 Cell 'nx_indirect_access_cntrl_xcm113' (0/0 records 1 arrays) prop(110)
+	Array '\addr_limit' [0 0][4 0]
+
+
+Cell 'nx_indirect_access_cntrl_xcm121' (0/0 records 1 arrays) prop(110)
 	Array '\addr_limit' [0 0][8 0]
 
 
@@ -5429,7 +5427,7 @@ Cell 'nx_indirect_access_cntrl_xcm117' (0/0 records 1 arrays) prop(110)
 
 
 Cell 'nx_ram_1r1w_xcm15' (0/0 records 1 arrays) prop(110)
-	Array '\_1r1wramDxWb.dout_r' [0 0][82 0]
+	Array '\_1r1wramDxWb.dout_r' [0 0][70 0]
 
 
 Cell 'cr_kme_fifo_xcm59' (0/0 records 0 arrays) prop(10)
@@ -5644,10 +5642,6 @@ Cell 'cr_kme_key_tlv_rsm' (4/18 records 0 arrays) prop(0)
 	    17:'\tlvp_ob.tdata'[63 0] (FIELD_ARRAY)srcDataBitRange[63 0]
 
 
-Cell 'nx_fifo_xcm18' (0/0 records 1 arrays) prop(110)
-	Array '\depth_n.r_data' [1 0][105 0]
-
-
 Cell 'cr_sa_counter' (0/0 records 1 arrays) prop(0)
 	Array '\sa_events' [15 0][63 0]
 
@@ -5707,6 +5701,8 @@ Cell 'nx_interface_monitor_xcm103' (10/26 records 0 arrays) prop(100)
 
 
 Cell 'cr_kme_fifo_xcm48' (0/0 records 0 arrays) prop(10)
+
+Cell 'cr_kme_fifo_xcm60' (0/0 records 0 arrays) prop(10)
 
 Cell 'nx_reg_indirect_access' (0/0 records 2 arrays) prop(100)
 	Array '\mem_a' [0 31][31 0]
@@ -5814,9 +5810,105 @@ Cell 'cr_kme_kop_kdf_keyfilter' (1/2 records 0 arrays) prop(0)
 	     1:'\cmdfifo_keyfilter_cmd.combo_mode'[0 0] (FIELD_ARRAY)srcDataBitRange[0 0]
 
 
+Cell 'nx_fifo_xcm35' (0/0 records 0 arrays) prop(110)
+
 Cell 'nx_fifo_xcm30' (0/0 records 0 arrays) prop(110)
 
-Cell 'cr_kme_kop_tlv_inspector_xcm69' (18/123 records 1 arrays) prop(10)
+Cell 'cr_kme_kop_keybuilder' (7/41 records 0 arrays) prop(0)
+	     0:'key_tlv_ob_tlv' (PACKED_STRUCT) fieldIndex: (-1 7 8 -1 -1 -1 9 10 11 12 )fields: ('\key_tlv_ob_tlv.insert' '\key_tlv_ob_tlv.ordern' '\key_tlv_ob_tlv.typen' '\key_tlv_ob_tlv.sot' '\key_tlv_ob_tlv.eot' '\key_tlv_ob_tlv.tlast' '\key_tlv_ob_tlv.tid' '\key_tlv_ob_tlv.tstrb' '\key_tlv_ob_tlv.tuser' '\key_tlv_ob_tlv.tdata' )srcDataBitRange[105 0]
+
+	     1:'gcm_status_data_out' (PACKED_STRUCT) fieldIndex: (13 )fields: ('\gcm_status_data_out.tag_mismatch' )srcDataBitRange[0 0]
+
+	     2:'key_tlv_word0' (PACKED_STRUCT) fieldIndex: (14 15 16 17 18 19 20 21 )fields: ('\key_tlv_word0.tlv_bip2' '\key_tlv_word0.resv0' '\key_tlv_word0.tlv_frame_num' '\key_tlv_word0.resv1' '\key_tlv_word0.tlv_eng_id' '\key_tlv_word0.tlv_seq_num' '\key_tlv_word0.tlv_len' '\key_tlv_word0.tlv_type' )srcDataBitRange[63 0]
+
+	     3:'key_tlv_word19' (PACKED_STRUCT) fieldIndex: (22 23 )fields: ('\key_tlv_word19.rsvd' '\key_tlv_word19.kme_errors' )srcDataBitRange[63 0]
+
+	     4:'key_tlv_word20' (PACKED_STRUCT) fieldIndex: (24 25 )fields: ('\key_tlv_word20.rsvd' '\key_tlv_word20.crc32' )srcDataBitRange[63 0]
+
+	     5:'int_tlv_word0' (PACKED_STRUCT) fieldIndex: (26 27 28 29 30 31 32 33 34 35 36 37 )fields: ('\int_tlv_word0.tlv_bip2' '\int_tlv_word0.resv0' '\int_tlv_word0.kdf_dek_iter' '\int_tlv_word0.keyless_algos' '\int_tlv_word0.needs_dek' '\int_tlv_word0.needs_dak' '\int_tlv_word0.key_type' '\int_tlv_word0.tlv_frame_num' '\int_tlv_word0.tlv_eng_id' '\int_tlv_word0.tlv_seq_num' '\int_tlv_word0.tlv_len' '\int_tlv_word0.tlv_type' )srcDataBitRange[63 0]
+
+	     6:'int_tlv_word42' (PACKED_STRUCT) fieldIndex: (38 39 40 )fields: ('\int_tlv_word42.corrupt_crc32' '\int_tlv_word42.unused' '\int_tlv_word42.error_code' )srcDataBitRange[55 0]
+
+	     7:'\key_tlv_ob_tlv.ordern'[12 0] (FIELD_ARRAY)srcDataBitRange[12 0]
+
+	     8:'\key_tlv_ob_tlv.typen'[7 0] (FIELD_ARRAY)srcDataBitRange[7 0]
+
+	     9:'\key_tlv_ob_tlv.tid'[0 0] (FIELD_ARRAY)srcDataBitRange[0 0]
+
+	    10:'\key_tlv_ob_tlv.tstrb'[7 0] (FIELD_ARRAY)srcDataBitRange[7 0]
+
+	    11:'\key_tlv_ob_tlv.tuser'[7 0] (FIELD_ARRAY)srcDataBitRange[7 0]
+
+	    12:'\key_tlv_ob_tlv.tdata'[63 0] (FIELD_ARRAY)srcDataBitRange[63 0]
+
+	    13:'\gcm_status_data_out.tag_mismatch'[0 0] (FIELD_ARRAY)srcDataBitRange[0 0]
+
+	    14:'\key_tlv_word0.tlv_bip2'[1 0] (FIELD_ARRAY)srcDataBitRange[1 0]
+
+	    15:'\key_tlv_word0.resv0'[18 0] (FIELD_ARRAY)srcDataBitRange[18 0]
+
+	    16:'\key_tlv_word0.tlv_frame_num'[10 0] (FIELD_ARRAY)srcDataBitRange[10 0]
+
+	    17:'\key_tlv_word0.resv1'[3 0] (FIELD_ARRAY)srcDataBitRange[3 0]
+
+	    18:'\key_tlv_word0.tlv_eng_id'[3 0] (FIELD_ARRAY)srcDataBitRange[3 0]
+
+	    19:'\key_tlv_word0.tlv_seq_num'[7 0] (FIELD_ARRAY)srcDataBitRange[7 0]
+
+	    20:'\key_tlv_word0.tlv_len'[7 0] (FIELD_ARRAY)srcDataBitRange[7 0]
+
+	    21:'\key_tlv_word0.tlv_type'[7 0] (FIELD_ARRAY)srcDataBitRange[7 0]
+
+	    22:'\key_tlv_word19.rsvd'[55 0] (FIELD_ARRAY)srcDataBitRange[55 0]
+
+	    23:'\key_tlv_word19.kme_errors'[7 0] (FIELD_ARRAY)srcDataBitRange[7 0]
+
+	    24:'\key_tlv_word20.rsvd'[31 0] (FIELD_ARRAY)srcDataBitRange[31 0]
+
+	    25:'\key_tlv_word20.crc32'[31 0] (FIELD_ARRAY)srcDataBitRange[31 0]
+
+	    26:'\int_tlv_word0.tlv_bip2'[1 0] (FIELD_ARRAY)srcDataBitRange[1 0]
+
+	    27:'\int_tlv_word0.resv0'[12 0] (FIELD_ARRAY)srcDataBitRange[12 0]
+
+	    28:'\int_tlv_word0.kdf_dek_iter'[0 0] (FIELD_ARRAY)srcDataBitRange[0 0]
+
+	    29:'\int_tlv_word0.keyless_algos'[0 0] (FIELD_ARRAY)srcDataBitRange[0 0]
+
+	    30:'\int_tlv_word0.needs_dek'[0 0] (FIELD_ARRAY)srcDataBitRange[0 0]
+
+	    31:'\int_tlv_word0.needs_dak'[0 0] (FIELD_ARRAY)srcDataBitRange[0 0]
+
+	    32:'\int_tlv_word0.key_type'[5 0] (FIELD_ARRAY)srcDataBitRange[5 0]
+
+	    33:'\int_tlv_word0.tlv_frame_num'[10 0] (FIELD_ARRAY)srcDataBitRange[10 0]
+
+	    34:'\int_tlv_word0.tlv_eng_id'[3 0] (FIELD_ARRAY)srcDataBitRange[3 0]
+
+	    35:'\int_tlv_word0.tlv_seq_num'[7 0] (FIELD_ARRAY)srcDataBitRange[7 0]
+
+	    36:'\int_tlv_word0.tlv_len'[7 0] (FIELD_ARRAY)srcDataBitRange[7 0]
+
+	    37:'\int_tlv_word0.tlv_type'[7 0] (FIELD_ARRAY)srcDataBitRange[7 0]
+
+	    38:'\int_tlv_word42.corrupt_crc32'[0 0] (FIELD_ARRAY)srcDataBitRange[0 0]
+
+	    39:'\int_tlv_word42.unused'[46 0] (FIELD_ARRAY)srcDataBitRange[46 0]
+
+	    40:'\int_tlv_word42.error_code'[7 0] (FIELD_ARRAY)srcDataBitRange[7 0]
+
+
+Cell 'nx_ram_1rw_xcm110' (0/0 records 0 arrays) prop(110)
+
+Cell 'nx_roreg_indirect_access_xcm131' (0/0 records 1 arrays) prop(100)
+	Array '\mem_a' [0 31][63 0]
+
+
+Cell 'nx_fifo_xcm23' (0/0 records 0 arrays) prop(110)
+
+Cell 'nx_fifo_ctrl_xcm41' (0/0 records 0 arrays) prop(110)
+
+Cell 'cr_kme_kop_tlv_inspector_xcm71' (18/123 records 1 arrays) prop(10)
 	     0:'gcm_cmd_in' (PACKED_STRUCT) fieldIndex: (18 19 20 21 )fields: ('\gcm_cmd_in.key0' '\gcm_cmd_in.key1' '\gcm_cmd_in.iv' '\gcm_cmd_in.op' )srcDataBitRange[610 0]
 
 	     1:'keyfilter_cmd_in' (PACKED_STRUCT) fieldIndex: (22 )fields: ('\keyfilter_cmd_in.combo_mode' )srcDataBitRange[0 0]
@@ -6066,100 +6158,8 @@ Cell 'cr_kme_kop_tlv_inspector_xcm69' (18/123 records 1 arrays) prop(10)
 	Array '\labels' [7 0][271 0]
 
 
-Cell 'cr_kme_kop_keybuilder' (7/41 records 0 arrays) prop(0)
-	     0:'key_tlv_ob_tlv' (PACKED_STRUCT) fieldIndex: (-1 7 8 -1 -1 -1 9 10 11 12 )fields: ('\key_tlv_ob_tlv.insert' '\key_tlv_ob_tlv.ordern' '\key_tlv_ob_tlv.typen' '\key_tlv_ob_tlv.sot' '\key_tlv_ob_tlv.eot' '\key_tlv_ob_tlv.tlast' '\key_tlv_ob_tlv.tid' '\key_tlv_ob_tlv.tstrb' '\key_tlv_ob_tlv.tuser' '\key_tlv_ob_tlv.tdata' )srcDataBitRange[105 0]
-
-	     1:'gcm_status_data_out' (PACKED_STRUCT) fieldIndex: (13 )fields: ('\gcm_status_data_out.tag_mismatch' )srcDataBitRange[0 0]
-
-	     2:'key_tlv_word0' (PACKED_STRUCT) fieldIndex: (14 15 16 17 18 19 20 21 )fields: ('\key_tlv_word0.tlv_bip2' '\key_tlv_word0.resv0' '\key_tlv_word0.tlv_frame_num' '\key_tlv_word0.resv1' '\key_tlv_word0.tlv_eng_id' '\key_tlv_word0.tlv_seq_num' '\key_tlv_word0.tlv_len' '\key_tlv_word0.tlv_type' )srcDataBitRange[63 0]
-
-	     3:'key_tlv_word19' (PACKED_STRUCT) fieldIndex: (22 23 )fields: ('\key_tlv_word19.rsvd' '\key_tlv_word19.kme_errors' )srcDataBitRange[63 0]
-
-	     4:'key_tlv_word20' (PACKED_STRUCT) fieldIndex: (24 25 )fields: ('\key_tlv_word20.rsvd' '\key_tlv_word20.crc32' )srcDataBitRange[63 0]
-
-	     5:'int_tlv_word0' (PACKED_STRUCT) fieldIndex: (26 27 28 29 30 31 32 33 34 35 36 37 )fields: ('\int_tlv_word0.tlv_bip2' '\int_tlv_word0.resv0' '\int_tlv_word0.kdf_dek_iter' '\int_tlv_word0.keyless_algos' '\int_tlv_word0.needs_dek' '\int_tlv_word0.needs_dak' '\int_tlv_word0.key_type' '\int_tlv_word0.tlv_frame_num' '\int_tlv_word0.tlv_eng_id' '\int_tlv_word0.tlv_seq_num' '\int_tlv_word0.tlv_len' '\int_tlv_word0.tlv_type' )srcDataBitRange[63 0]
-
-	     6:'int_tlv_word42' (PACKED_STRUCT) fieldIndex: (38 39 40 )fields: ('\int_tlv_word42.corrupt_crc32' '\int_tlv_word42.unused' '\int_tlv_word42.error_code' )srcDataBitRange[55 0]
-
-	     7:'\key_tlv_ob_tlv.ordern'[12 0] (FIELD_ARRAY)srcDataBitRange[12 0]
-
-	     8:'\key_tlv_ob_tlv.typen'[7 0] (FIELD_ARRAY)srcDataBitRange[7 0]
-
-	     9:'\key_tlv_ob_tlv.tid'[0 0] (FIELD_ARRAY)srcDataBitRange[0 0]
-
-	    10:'\key_tlv_ob_tlv.tstrb'[7 0] (FIELD_ARRAY)srcDataBitRange[7 0]
-
-	    11:'\key_tlv_ob_tlv.tuser'[7 0] (FIELD_ARRAY)srcDataBitRange[7 0]
-
-	    12:'\key_tlv_ob_tlv.tdata'[63 0] (FIELD_ARRAY)srcDataBitRange[63 0]
-
-	    13:'\gcm_status_data_out.tag_mismatch'[0 0] (FIELD_ARRAY)srcDataBitRange[0 0]
-
-	    14:'\key_tlv_word0.tlv_bip2'[1 0] (FIELD_ARRAY)srcDataBitRange[1 0]
-
-	    15:'\key_tlv_word0.resv0'[18 0] (FIELD_ARRAY)srcDataBitRange[18 0]
-
-	    16:'\key_tlv_word0.tlv_frame_num'[10 0] (FIELD_ARRAY)srcDataBitRange[10 0]
-
-	    17:'\key_tlv_word0.resv1'[3 0] (FIELD_ARRAY)srcDataBitRange[3 0]
-
-	    18:'\key_tlv_word0.tlv_eng_id'[3 0] (FIELD_ARRAY)srcDataBitRange[3 0]
-
-	    19:'\key_tlv_word0.tlv_seq_num'[7 0] (FIELD_ARRAY)srcDataBitRange[7 0]
-
-	    20:'\key_tlv_word0.tlv_len'[7 0] (FIELD_ARRAY)srcDataBitRange[7 0]
-
-	    21:'\key_tlv_word0.tlv_type'[7 0] (FIELD_ARRAY)srcDataBitRange[7 0]
-
-	    22:'\key_tlv_word19.rsvd'[55 0] (FIELD_ARRAY)srcDataBitRange[55 0]
-
-	    23:'\key_tlv_word19.kme_errors'[7 0] (FIELD_ARRAY)srcDataBitRange[7 0]
-
-	    24:'\key_tlv_word20.rsvd'[31 0] (FIELD_ARRAY)srcDataBitRange[31 0]
-
-	    25:'\key_tlv_word20.crc32'[31 0] (FIELD_ARRAY)srcDataBitRange[31 0]
-
-	    26:'\int_tlv_word0.tlv_bip2'[1 0] (FIELD_ARRAY)srcDataBitRange[1 0]
-
-	    27:'\int_tlv_word0.resv0'[12 0] (FIELD_ARRAY)srcDataBitRange[12 0]
-
-	    28:'\int_tlv_word0.kdf_dek_iter'[0 0] (FIELD_ARRAY)srcDataBitRange[0 0]
-
-	    29:'\int_tlv_word0.keyless_algos'[0 0] (FIELD_ARRAY)srcDataBitRange[0 0]
-
-	    30:'\int_tlv_word0.needs_dek'[0 0] (FIELD_ARRAY)srcDataBitRange[0 0]
-
-	    31:'\int_tlv_word0.needs_dak'[0 0] (FIELD_ARRAY)srcDataBitRange[0 0]
-
-	    32:'\int_tlv_word0.key_type'[5 0] (FIELD_ARRAY)srcDataBitRange[5 0]
-
-	    33:'\int_tlv_word0.tlv_frame_num'[10 0] (FIELD_ARRAY)srcDataBitRange[10 0]
-
-	    34:'\int_tlv_word0.tlv_eng_id'[3 0] (FIELD_ARRAY)srcDataBitRange[3 0]
-
-	    35:'\int_tlv_word0.tlv_seq_num'[7 0] (FIELD_ARRAY)srcDataBitRange[7 0]
-
-	    36:'\int_tlv_word0.tlv_len'[7 0] (FIELD_ARRAY)srcDataBitRange[7 0]
-
-	    37:'\int_tlv_word0.tlv_type'[7 0] (FIELD_ARRAY)srcDataBitRange[7 0]
-
-	    38:'\int_tlv_word42.corrupt_crc32'[0 0] (FIELD_ARRAY)srcDataBitRange[0 0]
-
-	    39:'\int_tlv_word42.unused'[46 0] (FIELD_ARRAY)srcDataBitRange[46 0]
-
-	    40:'\int_tlv_word42.error_code'[7 0] (FIELD_ARRAY)srcDataBitRange[7 0]
-
-
-Cell 'nx_indirect_access_cntrl_xcm110' (0/0 records 1 arrays) prop(110)
-	Array '\addr_limit' [0 0][4 0]
-
-
-Cell 'nx_fifo_xcm23' (0/0 records 1 arrays) prop(110)
-	Array '\depth_n.r_data' [3 0][3 0]
-
-
 Cell 'enough_data_status' (0/0 records 1 arrays) prop(0)
 	Array '\constval' [0 15][3 0]
 
 ===
-Collecting construct messages done at Thu May  2 13:45:10 2024
+Collecting construct messages done at Mon May 20 11:37:57 2024

@@ -1,8 +1,8 @@
 
 module cr_kme_key_tlv_compare_split ;
 //pragma CVASTRPROP MODULE SKELETON MODULEINFO "1244.000000"
-cr_kme_fifo_xcm44 validate_fifo ();
-cr_kme_fifo_xcm44 encrypt_fifo ();
+cr_kme_fifo_xcm45 validate_fifo ();
+cr_kme_fifo_xcm45 encrypt_fifo ();
 ixc_sample_logic_1_3 _zz_zy_sva_b3 ();
 ixc_sample_logic_1_3 _zz_zy_sva_b2 ();
 ixc_sample_logic_1_3 _zz_zy_sva_b1 ();

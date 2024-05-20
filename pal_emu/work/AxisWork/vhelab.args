@@ -1,9 +1,10 @@
  -ua 
  -timescale 1ps/1ps 
- -top kme_tb 
+ -top tb_top 
  -top my_clks 
- +dut+cr_kme+my_clks+apb_xactor 
- +gfifoDisp+kme_tb+apb_xactor 
+ +1xua 
+ +dut+kme_tb+cr_kme+my_clks+apb_xactor 
+ +gfifoDisp+kme_tb+tb_top 
  -z1 
  -ccom gcc 
  -ixc_xlm_ver 23.09-a071 

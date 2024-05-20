@@ -1,49 +1,63 @@
 // xc_work/v/70n.sv
-// /home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_fifo.v:18
+// /home/ibarry/Project-Zipline-master/rtl/common/nx_library/nx_fifo.v:10
 // NOTE: This file corresponds to a module in the Hardware/DUT partition.
 `timescale 1ns/1ns
-module cr_kme_fifo_xcm47(fifo_in_stall,fifo_out,fifo_out_valid,fifo_overflow,fifo_underflow,clk,rst_n,fifo_in,fifo_in_valid,fifo_out_ack,
-fifo_in_stall_override);
-parameter DATA_SIZE = 263;
-parameter FIFO_DEPTH = 4;
-parameter OVERRIDE_EN = 1;
-parameter STALL_AT = 0;
+(* celldefine = 1 *)
+module nx_fifo_xcm24(empty,full,underflow,overflow,used_slots,free_slots,rdata,clk,rst_n,wen,
+ren,clear,wdata);
+parameter DEPTH = 4;
+parameter WIDTH = 4;
+parameter DATA_RESET = 1;
+parameter UNDERFLOW_ASSERT = 1;
+parameter OVERFLOW_ASSERT = 1;
 input  clk;
 input  rst_n;
-input  [262:0] fifo_in ;
-input  fifo_in_valid;
-output  fifo_in_stall;
-output  [262:0] fifo_out ;
-output  fifo_out_valid;
-input  fifo_out_ack;
-output  fifo_overflow;
-output  fifo_underflow;
-input  fifo_in_stall_override;
-wire  ren;
-wire  empty;
-wire  [2:0] free_slots ;
-wire  _zy_simnet_dio_0;
-wire  [0:2] _zy_simnet_dio_1 ;
-wire  _zy_simnet_cio_2;
-assign  fifo_out_valid = ( !empty );
-assign  ren = (fifo_out_valid & fifo_out_ack);
-assign  _zy_simnet_cio_2 = 1'b0;
-nx_fifo_xcm22 std_fifo(
-  .empty(empty) ,
-  .full(_zy_simnet_dio_0) ,
-  .underflow(fifo_underflow) ,
-  .overflow(fifo_overflow) ,
-  .used_slots(_zy_simnet_dio_1) ,
-  .free_slots(free_slots) ,
-  .rdata(fifo_out) ,
-  .clk(clk) ,
-  .rst_n(rst_n) ,
-  .wen(fifo_in_valid) ,
-  .ren(ren) ,
-  .clear(_zy_simnet_cio_2) ,
-  .wdata(fifo_in) ); 
-if(1) begin: genblk1
-  assign  fifo_in_stall = (({1'b0,free_slots} <= 32'b0) | fifo_in_stall_override);
+input  wen;
+input  ren;
+input  clear;
+input  [3:0] wdata ;
+output  empty;
+output  full;
+output logic underflow;
+output logic overflow;
+output  [2:0] used_slots ;
+output  [2:0] free_slots ;
+output  [3:0] rdata ;
+wire  _zy_simnet_underflow_0_w$;
+wire  _zy_simnet_overflow_1_w$;
+assign  _zy_simnet_underflow_0_w$ = underflow;
+assign  _zy_simnet_overflow_1_w$ = overflow;
+if(1) begin: depth_n
+ wire  [1:0] rptr ;
+ wire  [1:0] wptr ;
+ reg [3:0] r_data [3:0];
+ wire  _zy_simnet_underflow_2_w$;
+ wire  _zy_simnet_overflow_3_w$;
+  assign  underflow = _zy_simnet_underflow_2_w$;
+  assign  overflow = _zy_simnet_overflow_3_w$;
+ if(1) begin: genblk1
+    assign  rdata = (empty ? 32'b0 : r_data[rptr]);
+ end
+ always 
+  @(posedge clk)
+   begin
+    if ((wen && ( !full )))
+     r_data[wptr] <= wdata;
+   end
+  nx_fifo_ctrl_xcm37 fifo_ctrl(
+   .empty(empty) ,
+   .full(full) ,
+   .used_slots(used_slots) ,
+   .free_slots(free_slots) ,
+   .rptr(rptr) ,
+   .wptr(wptr) ,
+   .underflow(_zy_simnet_underflow_2_w$) ,
+   .overflow(_zy_simnet_overflow_3_w$) ,
+   .clk(clk) ,
+   .rst_n(rst_n) ,
+   .wen(wen) ,
+   .ren(ren) ,
+   .clear(clear) );
 end
 endmodule
 

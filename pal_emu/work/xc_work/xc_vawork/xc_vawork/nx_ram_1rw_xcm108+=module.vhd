@@ -1,5 +1,5 @@
 architecture module of nx_ram_1rw_xcm108 is
-  type DUMMY0 is array(integer range <>) of std_logic_vector(63 downto 0) ;
+  type DUMMY0 is array(integer range <>) of std_logic_vector(37 downto 0) ;
   -- quickturn CVASTRPROP MODULE HDLICE cva_for_generate "g"
   -- quickturn CVASTRPROP MODULE HDLICE cva_for_generate "g.u_ram"
   -- quickturn CVASTRPROP MODULE HDLICE cva_for_generate_0 "-1 g  "
@@ -29,7 +29,7 @@ architecture module of nx_ram_1rw_xcm108 is
   signal web : std_logic ;
   signal ro_mem_ecc_error_ev : std_logic ;
   signal ro_mem_ecc_corrected : std_logic ;
-  signal ro_mem_ecc_error_addr : std_logic_vector(14 downto 0) ;
+  signal ro_mem_ecc_error_addr : std_logic_vector(13 downto 0) ;
 
 begin
   _zz_strnp_4 : ixc_assign
@@ -82,17 +82,17 @@ begin
       ,ro_uncorrectable_ecc_error
     ) ;
   Generate1 : if g : (TRUE) generate
-    signal add_r : std_logic_vector(14 downto 0) ;
-    signal dat_r : std_logic_vector(63 downto 0) ;
-    signal dout_i : std_logic_vector(63 downto 0) ;
-    signal din_i : std_logic_vector(63 downto 0) ;
-    signal we_clk : std_logic_vector(32767 downto 0) ;
-    signal we_gate : std_logic_vector(32767 downto 0) ;
-    signal mem : DUMMY0(0 to 32767) ;
-    signal DUMMY4 : std_logic_vector(63 downto 0) ;
+    signal add_r : std_logic_vector(13 downto 0) ;
+    signal dat_r : std_logic_vector(37 downto 0) ;
+    signal dout_i : std_logic_vector(37 downto 0) ;
+    signal din_i : std_logic_vector(37 downto 0) ;
+    signal we_clk : std_logic_vector(16383 downto 0) ;
+    signal we_gate : std_logic_vector(16383 downto 0) ;
+    signal mem : DUMMY0(0 to 16383) ;
+    signal DUMMY4 : std_logic_vector(37 downto 0) ;
   begin
     _zz_strnp_0 : ixc_assign
-      generic map(W => 64)
+      generic map(W => 38)
       port map (
          dout_i
         ,DUMMY4
@@ -100,7 +100,7 @@ begin
     DUMMY4 <= mem(conv_integer(add)) ;
     din_i <= ((dout_i and not(bwe)) or (din and bwe)) ;
     _zz_strnp_1 : ixc_assign
-      generic map(W => 64)
+      generic map(W => 38)
       port map (
          dout
         ,dat_r
@@ -118,10 +118,10 @@ begin
         ,bimc_isync
       ) ;
     ro_uncorrectable_ecc_error <= '0' ;
-    we_clk <= it_multiple_concat(clk,32768) ;
+    we_clk <= it_multiple_concat(clk,16384) ;
     Generate2 : if u_ram : (TRUE) generate
-      signal _zyictd_sysfunc_11_L263_3 : integer ;
-      -- quickturn keep_net _zyictd_sysfunc_11_L263_3
+      signal _zyictd_sysfunc_11_L263_10 : integer ;
+      -- quickturn keep_net _zyictd_sysfunc_11_L263_10
     begin
 
       process --:o67
@@ -139,8 +139,7 @@ begin
     (clk,rst_n)
     begin
       if (rst_n = '0') then
-        dat_r <=
-         "0000000000000000000000000000000000000000000000000000000000000000" ;
+        dat_r <= "00000000000000000000000000000000000000" ;
       elsif (clk'event and clk = '1') then
         if (cs = '1') then
           dat_r <= it_cond_op((we)='1',din_i,dout_i) ;

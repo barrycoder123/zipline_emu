@@ -1,89 +1,370 @@
 //
-// Module apb_xactor at line 10 in /home/ibarry/Project-Zipline-master/dv/agents/apb/apb_xactor.v 
-//   id:2, beh export task
+// Module kme_tb at line 10 in /home/ibarry/Project-Zipline-master/dv/KME/run/kme_tb.sv 
+//   id:2, iscD2D, export func, beh export task
 //
 
-// Proc at line F1:61 before fsm:
+// Proc at line F1:324 before fsm:
+always 
+ begin
+  @(posedge clk)
+   begin
+   end
+  if ((config_ready == 32'b01))
+   begin
+    begin:_zygfifotfiCscp0_L326_get_config_data_isf
+     _zyxr_L206_tfiV3_M2_pbcG3 = 0;
+     if ((_zygsfis_get_config_data_rptr != _zygsfis_get_config_data_wptr))
+      begin
+       _zyxr_L206_tfiV3_M2_pbcG3[0] = 1'b1;
+       {_zyoperation_L206_tfiV0_M2_pbcG0,_zyaddress_L206_tfiV1_M2_pbcG1,_zydata_L206_tfiV2_M2_pbcG2} = _zygsfis_get_config_data_fifo[_zygsfis_get_config_data_rptr];
+       _zygsfis_get_config_data_rptr = (_zygsfis_get_config_data_rptr + 32'b01);
+       _zygsfis_get_config_data_space = (_zygsfis_get_config_data_space + 32'b01);
+      end
+     _zyxr_L206_tfiV3_M2_pbcG3[1] = ((_zygsfis_get_config_data_rptr == _zygsfis_get_config_data_wptr) & _zygsfis_get_config_data_eos);
+     if (( ~_zyxr_L206_tfiV3_M2_pbcG3[1] ))
+      begin
+       if ((_zygsfis_get_config_data_req == _zygsfis_get_config_data_ack))
+        _zygsfis_get_config_data_space = ( ~(_zygsfis_get_config_data_wptr - _zygsfis_get_config_data_rptr) );
+       if ((_zygsfis_get_config_data_space >= 32'b01000))
+        begin
+         _zygsfis_get_config_data_req = (_zygsfis_get_config_data_req + 32'b01);
+         _zyGfifoF0_L324_s3_cbid_1 = _zyGfifo_get_config_data_2_zyprefetch_m2_cbid;
+         _zyGfifoF0_L324_s3_len_1 = 12'b01;
+         _zyGfifoF0_L324_s3_data_1[95:0] = 96'b0;
+         _zyGfifoF0_L324_s3_data_1[31:0] = _zygsfis_get_config_data_space;
+         _zyGfifoF0_L324_s3_req_1 = (_zyGfifo_get_config_data_2_zyprefetch_m2_gfOff == _zyGfifoF0_L324_s3_req_1);
+// synopsys translate_off
+         xc_gfifo_sim(_zyGfifo_get_config_data_2_zyprefetch_m2_cbid,32'b01,_zyGfifoF0_L324_s3_data_1);
+// synopsys translate_on
+         _zygsfis_get_config_data_space = 5'b0;
+        end
+      end
+     _zyL326_tfiRv17 = _zyxr_L206_tfiV3_M2_pbcG3;
+     operation = _zyoperation_L206_tfiV0_M2_pbcG0;
+     address = _zyaddress_L206_tfiV1_M2_pbcG1;
+     data = _zydata_L206_tfiV2_M2_pbcG2;
+    end
+    retval = _zyL326_tfiRv17;
+    _zyGfifoF1_L324_s2_cbid_2 = _zyGfifo__gfdL327_30_P0_m2_cbid;
+    _zyGfifoF1_L324_s2_data_2[31:0] = 32'b0;
+    _zyGfifoF1_L324_s2_data_2[31:0] = retval;
+    _zyGfifoF1_L324_s2_req_2 = (_zyGfifo__gfdL327_30_P0_m2_gfOff == _zyGfifoF1_L324_s2_req_2);
+// synopsys translate_off
+    xc_gfifo_sim(_zyGfifo__gfdL327_30_P0_m2_cbid,32'b01,_zyGfifoF1_L324_s2_data_2);
+// synopsys translate_on
+    if ((retval == 1))
+     begin
+      _zyGfifoF2_L324_s2_cbid_3 = _zyGfifo__gfdL330_29_P0_m2_cbid;
+      _zyGfifoF2_L324_s2_len_3 = 12'b011;
+      _zyGfifoF2_L324_s2_data_3[71:0] = 72'b0;
+      _zyGfifoF2_L324_s2_data_3[71:64] = operation;
+      _zyGfifoF2_L324_s2_data_3[63:32] = address;
+      _zyGfifoF2_L324_s2_data_3[31:0] = data;
+      _zyGfifoF2_L324_s2_req_3 = (_zyGfifo__gfdL330_29_P0_m2_gfOff == _zyGfifoF2_L324_s2_req_3);
+// synopsys translate_off
+      xc_gfifo_sim(_zyGfifo__gfdL330_29_P0_m2_cbid,32'b011,_zyGfifoF2_L324_s2_data_3);
+// synopsys translate_on
+      if (((((operation == 8'b01110010) || (operation == 8'b01010010)) || (operation == 8'b01110111)) || (operation == 8'b01010111)))
+       begin
+        if (((operation == 8'b01110010) || (operation == 8'b01010010)))
+         begin
+          _zyL94_iscX1c0_i0 = address;
+          _zyL94_iscX1c0_s = _zyL94_iscX1c0_n;
+          _zyL94_iscX1c0_n = ( ~_zyL94_iscX1c0_n );
+          @(_zyL94_iscX1c0_f)
+          begin
+          end
+          returned_data = _zyL94_iscX1c0_o1;
+          response = _zyL94_iscX1c0_o2;
+          _zyGfifoF0_L324_s3_cbid_1 = _zyGfifo__gfdL334_28_P0_m2_cbid;
+          _zyGfifoF0_L324_s3_len_1 = 12'b011;
+          _zyGfifoF0_L324_s3_data_1[95:0] = 96'b0;
+          _zyGfifoF0_L324_s3_data_1[95:64] = address;
+          _zyGfifoF0_L324_s3_data_1[63:32] = data;
+          _zyGfifoF0_L324_s3_data_1[31:0] = returned_data;
+          _zyGfifoF0_L324_s3_req_1 = (_zyGfifo__gfdL334_28_P0_m2_gfOff == _zyGfifoF0_L324_s3_req_1);
+// synopsys translate_off
+          xc_gfifo_sim(_zyGfifo__gfdL334_28_P0_m2_cbid,32'b011,_zyGfifoF0_L324_s3_data_1);
+// synopsys translate_on
+          if ((response !== 32'b0))
+          begin
+          _zyGfifoF1_L324_s2_cbid_2 = _zyGfifo__gfdL336_27_P0_m2_cbid;
+          _zyGfifoF1_L324_s2_data_2[31:0] = 32'b0;
+          _zyGfifoF1_L324_s2_data_2[31:0] = address;
+          _zyGfifoF1_L324_s2_req_2 = (_zyGfifo__gfdL336_27_P0_m2_gfOff == _zyGfifoF1_L324_s2_req_2);
+// synopsys translate_off
+          xc_gfifo_sim(_zyGfifo__gfdL336_27_P0_m2_cbid,32'b01,_zyGfifoF1_L324_s2_data_2);
+// synopsys translate_on
+          _zyictd_finish_L338_1 = 1'b1;
+          end
+          if ((returned_data !== data))
+          begin
+          _zyGfifoF2_L324_s2_cbid_3 = _zyGfifo__gfdL341_26_P0_m2_cbid;
+          _zyGfifoF2_L324_s2_len_3 = 12'b010;
+          _zyGfifoF2_L324_s2_data_3[71:0] = 72'b0;
+          _zyGfifoF2_L324_s2_data_3[63:32] = returned_data;
+          _zyGfifoF2_L324_s2_data_3[31:0] = data;
+          _zyGfifoF2_L324_s2_req_3 = (_zyGfifo__gfdL341_26_P0_m2_gfOff == _zyGfifoF2_L324_s2_req_3);
+// synopsys translate_off
+          xc_gfifo_sim(_zyGfifo__gfdL341_26_P0_m2_cbid,32'b010,_zyGfifoF2_L324_s2_data_3);
+// synopsys translate_on
+          error_cntr = (error_cntr + 1);
+          if ((error_cntr > 10))
+          begin
+          _zyictd_finish_L338_1 = 1'b1;
+          end
+          end
+         end
+        else
+         if (((operation == 8'b01110111) || (operation == 8'b01010111)))
+          begin
+          _zyL61_iscX2c0_i0 = address;
+          _zyL61_iscX2c0_i1 = data;
+          _zyL61_iscX2c0_s = _zyL61_iscX2c0_n;
+          _zyL61_iscX2c0_n = ( ~_zyL61_iscX2c0_n );
+          @(_zyL61_iscX2c0_f)
+          begin
+          end
+          response = _zyL61_iscX2c0_o2;
+          if ((response !== 32'b0))
+          begin
+          _zyGfifoF0_L324_s3_cbid_1 = _zyGfifo__gfdL351_25_P0_m2_cbid;
+          _zyGfifoF0_L324_s3_len_1 = 12'b01;
+          _zyGfifoF0_L324_s3_data_1[95:0] = 96'b0;
+          _zyGfifoF0_L324_s3_data_1[31:0] = address;
+          _zyGfifoF0_L324_s3_req_1 = (_zyGfifo__gfdL351_25_P0_m2_gfOff == _zyGfifoF0_L324_s3_req_1);
+// synopsys translate_off
+          xc_gfifo_sim(_zyGfifo__gfdL351_25_P0_m2_cbid,32'b01,_zyGfifoF0_L324_s3_data_1);
+// synopsys translate_on
+          _zyictd_finish_L338_1 = 1'b1;
+          end
+          end
+        @(posedge clk)
+         begin
+         end
+       end
+     end
+   end
+ end
+
+// Proc at line F1:253 before fsm:
 always 
  begin
   @(_zyixc_port_0_0_req)
    begin
    end
   begin:_zzblk_0_0
-   begin:_zyifsyneCscp0_L61
-    _zyaddr_L62_tfiV0_M2_pbcG0 = _zyixc_port_0_0_s2h[63:0];
-    _zydata_L63_tfiV1_M2_pbcG1 = _zyixc_port_0_0_s2h[95:64];
-    psel <= 1'b1;
-    penable <= 1'b0;
-    pwrite <= 1'b1;
-    paddr <= _zyaddr_L62_tfiV0_M2_pbcG0[31:0];
-    pwdata <= _zydata_L63_tfiV1_M2_pbcG1[31:0];
+   begin:_zyifsyneCscp1_L253
+    error_cntr = 0;
+    rst_n = 1'b0;
+    if (_zyictd_sysfunc_11_L257_2)
+     begin
+      seed = _zyictd_sysfunc_36_L258_0;
+      _zz_58_258_2 = _zyictd_sysfunc_36_L258_1;
+     end
+    else
+     begin
+      seed = 280'b0110001;
+     end
+    if (_zyictd_sysfunc_11_L263_5)
+     begin
+      testname = _zyictd_sysfunc_36_L264_3;
+      _zz_58_264_3 = _zyictd_sysfunc_36_L264_4;
+      _zyGfifoF0_L253_s4_cbid_6 = _zyGfifo__gfdL265_5_P0_m2_cbid;
+      _zyGfifoF0_L253_s4_len_6 = 12'b010010;
+      _zyGfifoF0_L253_s4_data_6[559:0] = {560{1'b0}};
+      _zyGfifoF0_L253_s4_data_6[559:280] = testname;
+      _zyGfifoF0_L253_s4_data_6[279:0] = seed;
+      _zyGfifoF0_L253_s4_req_6 = (_zyGfifo__gfdL265_5_P0_m2_gfOff == _zyGfifoF0_L253_s4_req_6);
+// synopsys translate_off
+      xc_gfifo_sim(_zyGfifo__gfdL265_5_P0_m2_cbid,32'b010010,_zyGfifoF0_L253_s4_data_6);
+// synopsys translate_on
+     end
+    else
+     begin
+      testname = 280'b01110101011011100110101101101110011011110111011101101110;
+      _zyGfifoF0_L253_s4_cbid_6 = _zyGfifo__gfdL268_4_P0_m2_cbid;
+      _zyGfifoF0_L253_s4_len_6 = 12'b010010;
+      _zyGfifoF0_L253_s4_data_6[559:0] = {560{1'b0}};
+      _zyGfifoF0_L253_s4_data_6[559:280] = 280'b01110101011011100110101101101110011011110111011101101110;
+      _zyGfifoF0_L253_s4_data_6[279:0] = seed;
+      _zyGfifoF0_L253_s4_req_6 = (_zyGfifo__gfdL268_4_P0_m2_gfOff == _zyGfifoF0_L253_s4_req_6);
+// synopsys translate_off
+      xc_gfifo_sim(_zyGfifo__gfdL268_4_P0_m2_cbid,32'b010010,_zyGfifoF0_L253_s4_data_6);
+// synopsys translate_on
+     end
+    _zyGfifoF1_L253_s2_cbid_7 = _zyGfifo__gfdL271_3_P0_m2_cbid;
+    _zyGfifoF1_L253_s2_req_7 = (_zyGfifo__gfdL271_3_P0_m2_gfOff == _zyGfifoF1_L253_s2_req_7);
+// synopsys translate_off
+    xc_gfifo_sim(_zyGfifo__gfdL271_3_P0_m2_cbid,32'b0,_zyGfifo_mod2_simData);
+// synopsys translate_on
+    begin
+     _zyM2L273_pbcT0 = 125;
+     while ((_zyM2L273_pbcT0 > 1'b0))
+      begin
+       @(posedge clk)
+        begin
+        end
+       _zyM2L273_pbcT0 = (_zyM2L273_pbcT0 - 1'b1);
+      end
+    end
+    _zyGfifoF0_L253_s4_cbid_6 = _zyGfifo__gfdL276_2_P0_m2_cbid;
+    _zyGfifoF0_L253_s4_len_6 = 12'b0;
+    _zyGfifoF0_L253_s4_data_6[559:0] = {560{1'b0}};
+    _zyGfifoF0_L253_s4_req_6 = (_zyGfifo__gfdL276_2_P0_m2_gfOff == _zyGfifoF0_L253_s4_req_6);
+// synopsys translate_off
+    xc_gfifo_sim(_zyGfifo__gfdL276_2_P0_m2_cbid,32'b0,_zyGfifo_mod2_simData);
+// synopsys translate_on
+    kme_ib_tid <= 1'b0;
+    kme_ib_tvalid <= 1'b0;
+    kme_ib_tlast <= 1'b0;
+    kme_ib_tdata <= 64'b0;
+    kme_ib_tstrb <= 8'b0;
+    kme_ib_tuser <= 8'b0;
+    kme_ob_tready <= 1'b1;
+    begin
+     _zyM2L286_pbcT1 = 63;
+     while ((_zyM2L286_pbcT1 > 1'b0))
+      begin
+       @(posedge clk)
+        begin
+        end
+       _zyM2L286_pbcT1 = (_zyM2L286_pbcT1 - 1'b1);
+      end
+    end
+    _zyGfifoF1_L253_s2_cbid_7 = _zyGfifo__gfdL289_1_P0_m2_cbid;
+    _zyGfifoF1_L253_s2_req_7 = (_zyGfifo__gfdL289_1_P0_m2_gfOff == _zyGfifoF1_L253_s2_req_7);
+// synopsys translate_off
+    xc_gfifo_sim(_zyGfifo__gfdL289_1_P0_m2_cbid,32'b0,_zyGfifo_mod2_simData);
+// synopsys translate_on
+    rst_n = 1'b1;
+    begin
+     _zyM2L292_pbcT2 = 125;
+     while ((_zyM2L292_pbcT2 > 1'b0))
+      begin
+       @(posedge clk)
+        begin
+        end
+       _zyM2L292_pbcT2 = (_zyM2L292_pbcT2 - 1'b1);
+      end
+    end
     @(posedge clk)
      begin
      end
-    penable <= 1'b1;
-    while ((( !pready ) && (bus_timer < 32'b01100100)))
-     begin
-      bus_timer <= (bus_timer + 32'b01);
-      @(posedge clk)
-       begin
-       end
-     end
-    bus_timer <= 8'b0;
-    psel <= 1'b0;
-    penable <= 1'b0;
-    pwrite <= 1'b0;
-    paddr <= 20'b0;
-    pwdata <= 32'b0;
-    _zyresponse_L64_tfiV2_M2_pbcG2 <= (pslverr | (bus_timer == 32'b01100100));
-    @(posedge clk)
-     begin
-     end
-    _zyixc_port_0_0_h2s[7:0] = _zyresponse_L64_tfiV2_M2_pbcG2;
+    begin:_zyifsyneCscp0_L296_do_kme_config
+     config_ready = 1'b1;
+     @(posedge clk)
+      begin
+      end
+     _zyGfifoF0_L253_s4_cbid_6 = _zyGfifo__gfdL365_0_P0_m2_cbid;
+     _zyGfifoF0_L253_s4_len_6 = 12'b0;
+     _zyGfifoF0_L253_s4_data_6[559:0] = {560{1'b0}};
+     _zyGfifoF0_L253_s4_req_6 = (_zyGfifo__gfdL365_0_P0_m2_gfOff == _zyGfifoF0_L253_s4_req_6);
+// synopsys translate_off
+     xc_gfifo_sim(_zyGfifo__gfdL365_0_P0_m2_cbid,32'b0,_zyGfifo_mod2_simData);
+// synopsys translate_on
+    end
+    config_done = 1'b1;
+    begin
+     _zyM2L299_pbcT3 = 13;
+     while ((_zyM2L299_pbcT3 > 1'b0))
+      begin
+       @(posedge clk)
+        begin
+        end
+       _zyM2L299_pbcT3 = (_zyM2L299_pbcT3 - 1'b1);
+      end
+    end
    end
    _zyixc_port_0_0_ack = ( ~_zyixc_port_0_0_ack );
   end
  end
 
-// Proc at line F1:94 before fsm:
+
+//
+// Module apb_xactor at line 10 in /home/ibarry/Project-Zipline-master/dv/agents/apb/apb_xactor.v 
+//   id:3, iscD2D
+//
+
+// Proc at line 94 before fsm:
 always 
  begin
-  @(_zyixc_port_0_1_req)
+  @(_zyL94_iscX1c0_s)
    begin
    end
-  begin:_zzblk_0_1
-   begin:_zyifsyneCscp1_L94
-    _zyaddr_L95_tfiV3_M2_pbcG3 = _zyixc_port_0_1_s2h[63:0];
-    psel <= 1'b1;
-    penable <= 1'b0;
-    pwrite <= 1'b0;
-    paddr <= _zyaddr_L95_tfiV3_M2_pbcG3[31:0];
-    @(posedge clk)
-     begin
-     end
-    penable <= 1'b1;
-    while ((( !pready ) && (bus_timer < 32'b01100100)))
-     begin
-      bus_timer <= (bus_timer + 32'b01);
-      @(posedge clk)
-       begin
-       end
-     end
-    bus_timer <= 8'b0;
-    psel <= 1'b0;
-    penable <= 1'b0;
-    pwrite <= 1'b0;
-    paddr <= 20'b0;
-    _zydata_L96_tfiV4_M2_pbcG4 <= prdata;
-    _zyresponse_L97_tfiV5_M2_pbcG5 <= (pslverr | (bus_timer == 32'b01100100));
-    @(posedge clk)
-     begin
-     end
-    _zyixc_port_0_1_h2s[31:0] = _zydata_L96_tfiV4_M2_pbcG4;
-    _zyixc_port_0_1_h2s[39:32] = _zyresponse_L97_tfiV5_M2_pbcG5;
-   end
-   _zyixc_port_0_1_ack = ( ~_zyixc_port_0_1_ack );
+  begin:_zypbctfiCscp0_L94_read
+   _zyaddr_L95_tfiV0_M3_pbcG0 = _zyL94_iscX1c0_i0;
+   psel <= 1'b1;
+   penable <= 1'b0;
+   pwrite <= 1'b0;
+   paddr <= _zyaddr_L95_tfiV0_M3_pbcG0[31:0];
+   @(posedge clk)
+    begin
+    end
+   penable <= 1'b1;
+   while ((( !pready ) && (bus_timer < 32'b01100100)))
+    begin
+     bus_timer <= (bus_timer + 32'b01);
+     @(posedge clk)
+      begin
+      end
+    end
+   bus_timer <= 8'b0;
+   psel <= 1'b0;
+   penable <= 1'b0;
+   pwrite <= 1'b0;
+   paddr <= 20'b0;
+   _zydata_L96_tfiV1_M3_pbcG1 <= prdata;
+   _zyresponse_L97_tfiV2_M3_pbcG2 <= (pslverr | (bus_timer == 32'b01100100));
+   @(posedge clk)
+    begin
+    end
+   _zyL94_iscX1c0_o1 = _zydata_L96_tfiV1_M3_pbcG1;
+   _zyL94_iscX1c0_o2 = _zyresponse_L97_tfiV2_M3_pbcG2;
   end
+  _zyL94_iscX1c0_f = _zyL94_iscX1c0_n;
+  _zyL94_iscX1c0_n = ( ~_zyL94_iscX1c0_n );
+ end
+
+// Proc at line 61 before fsm:
+always 
+ begin
+  @(_zyL61_iscX2c0_s)
+   begin
+   end
+  begin:_zypbctfiCscp1_L61_write
+   _zyaddr_L62_tfiV3_M3_pbcG3 = _zyL61_iscX2c0_i0;
+   _zydata_L63_tfiV4_M3_pbcG4 = _zyL61_iscX2c0_i1;
+   psel <= 1'b1;
+   penable <= 1'b0;
+   pwrite <= 1'b1;
+   paddr <= _zyaddr_L62_tfiV3_M3_pbcG3[31:0];
+   pwdata <= _zydata_L63_tfiV4_M3_pbcG4[31:0];
+   @(posedge clk)
+    begin
+    end
+   penable <= 1'b1;
+   while ((( !pready ) && (bus_timer < 32'b01100100)))
+    begin
+     bus_timer <= (bus_timer + 32'b01);
+     @(posedge clk)
+      begin
+      end
+    end
+   bus_timer <= 8'b0;
+   psel <= 1'b0;
+   penable <= 1'b0;
+   pwrite <= 1'b0;
+   paddr <= 20'b0;
+   pwdata <= 32'b0;
+   _zyresponse_L64_tfiV5_M3_pbcG5 <= (pslverr | (bus_timer == 32'b01100100));
+   @(posedge clk)
+    begin
+    end
+   _zyL61_iscX2c0_o2 = _zyresponse_L64_tfiV5_M3_pbcG5;
+  end
+  _zyL61_iscX2c0_f = _zyL61_iscX2c0_n;
+  _zyL61_iscX2c0_n = ( ~_zyL61_iscX2c0_n );
  end
 
 

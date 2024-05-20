@@ -4401,7 +4401,7 @@ AesSecIStub AesSecI ( .AesCiphOutR( ciph_out[127:0]), .AesCiphOutVldR(
 	.KeyIn( _zy_simnet_key_in_15_w$[0:255]), .KeyInitVldR( 
 	_zy_simnet_key_in_vld_16_w$), .AesCiphOutStall( 
 	_zy_simnet_ciph_out_stall_17_w$), .clk( clk), .rst_n( rst_n));
-cr_kme_fifo_xcm55 bypass_fifo ( .fifo_in_stall( fifo_in_stall), .fifo_out( 
+cr_kme_fifo_xcm56 bypass_fifo ( .fifo_in_stall( fifo_in_stall), .fifo_out( 
 	_zy_simnet_fifo_out_18_w$[0:131]), .fifo_out_valid( fifo_out_vld), 
 	.fifo_overflow( _zy_simnet_dio_19), .fifo_underflow( 
 	_zy_simnet_dio_20), .clk( clk), .rst_n( rst_n), .fifo_in( 

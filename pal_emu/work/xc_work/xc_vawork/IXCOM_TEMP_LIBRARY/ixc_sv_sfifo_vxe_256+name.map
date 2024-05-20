@@ -8,3 +8,17 @@ DUMMY7 0tId
 DUMMY8 0vlen
 DUMMY9 0odly
 DUMMY10 0vmode
+ififoXdata_DUMMY0 0ififoXdata
+xval_DUMMY1 0xval
+newMarkBits_DUMMY2 0newMarkBits
+dataBits_DUMMY3 0dataBits
+ififoRdata_DUMMY4 0ififoRdata
+tmpData_DUMMY5 0tmpData
+DUMMY10_DUMMY6 0vmode
+head_DUMMY7 0head
+DUMMY7_DUMMY8 0tId
+rptrN_DUMMY9 0rptrN
+vlenN_DUMMY10 0vlenN
+oFill_DUMMY11 0oFill
+shiftCount_DUMMY12 0shiftCount
+shiftedOData_DUMMY13 0shiftedOData

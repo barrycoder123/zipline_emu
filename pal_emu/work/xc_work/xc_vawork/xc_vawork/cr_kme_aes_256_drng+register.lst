@@ -5,5 +5,5 @@ V O V internal_state_key SIZE=256
 V O V internal_state_value SIZE=128
 V O V in_count SIZE=3
 V O V out_count SIZE=3
-P O cr_kme_fifo_xcm59 rnd_fifo ./xc_work/xc_vawork/xc_vawork/cr_kme_fifo_xcm59
+P O cr_kme_fifo_xcm60 rnd_fifo ./xc_work/xc_vawork/xc_vawork/cr_kme_fifo_xcm60
 P O AesSecIStub AesSecIStub ./xc_work/xc_vawork/xc_vawork/aessecistub

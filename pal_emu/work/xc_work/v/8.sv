@@ -1,15 +1,9 @@
 // xc_work/v/8.sv
-// /home/ibarry/Project-Zipline-master/rtl/common/fifo/cr_fifo_wrap2.v:39
+// /home/ibarry/Project-Zipline-master/rtl/common/cr_tlvp/cr_axi4s2_slv.v:37
 // NOTE: This file corresponds to a module in the Hardware/DUT partition.
 `timescale 1ns/1ns
-(* celldefine = 1 *)
-module cr_fifo_wrap2_xcm11(full,afull,rdata,empty,aempty,bimc_odat,bimc_osync,ro_uncorrectable_ecc_error,clk,rst_n,
-wdata,wen,ren,bimc_idat,bimc_isync,bimc_rst_n);
-parameter N_DATA_BITS = 83;
-parameter N_ENTRIES = 168;
-parameter N_AFULL_VAL = 1;
-parameter N_AEMPTY_VAL = 1;
-parameter USE_RAM = 1;
+module cr_axi4s2_slv(axi4s_ib_out,axi4s_slv_out,axi4s_slv_empty,axi4s_slv_aempty,axi4s_slv_bimc_odat,axi4s_slv_bimc_osync,axi4s_slv_ro_uncorrectable_ecc_error,clk,rst_n,axi4s_ib_in,
+axi4s_slv_rd,axi4s_slv_bimc_idat,axi4s_slv_bimc_isync,bimc_rst_n);
 typedef enum logic [1:0] {ENET=0,IPV4=1,IPV6=2,MPLS=3} pkt_hdr_e;
 typedef enum logic [3:0] {CMD_SIMPLE=0,COMPND_4K=5,COMPND_8K=6,COMPND_RSV=15} cmd_compound_cmd_frm_size_e;
 typedef enum logic [0:0] {GUID_NOT_PRESENT=0,GUID_PRESENT=1} cmd_guid_present_e;
@@ -821,128 +815,87 @@ typedef struct packed {
  zipline_error_e error_code;
  logic [10:0] errored_frame_number ;
 } ftr_error_t;
+parameter N_ENTRIES = 168;
+parameter N_AFULL_VAL = 1;
+parameter N_AEMPTY_VAL = 1;
+parameter USE_RAM = 1;
+localparam N_DATA_BITS = 83;
 input  clk;
 input  rst_n;
-input  [82:0] wdata ;
-input  wen;
-output  full;
-output  afull;
-output  [82:0] rdata ;
-input  ren;
-output  empty;
-output  aempty;
-input  bimc_idat;
-input  bimc_isync;
+input axi4s_dp_bus_t axi4s_ib_in;
+output axi4s_dp_rdy_t axi4s_ib_out;
+input  axi4s_slv_rd;
+output axi4s_dp_bus_t axi4s_slv_out;
+output  axi4s_slv_empty;
+output  axi4s_slv_aempty;
+input  axi4s_slv_bimc_idat;
+input  axi4s_slv_bimc_isync;
 input  bimc_rst_n;
-output logic bimc_odat;
-output logic bimc_osync;
-output logic ro_uncorrectable_ecc_error;
-logic afull_r;
-logic aempty_r;
-localparam IN_FLOP = 1;
-localparam OUT_FLOP = 1;
-localparam RD_LATENCY = 1;
-localparam REN_COMB = 1;
-localparam RDATA_COMB = 1;
-localparam PREFETCH_DEPTH = 3;
-logic [7:0] free_slots ;
-logic overflow;
-logic rerr;
-logic underflow;
-logic [7:0] used_slots ;
-wire  _zy_simnet_bimc_odat_0_w$;
-wire  _zy_simnet_bimc_osync_1_w$;
-wire  _zy_simnet_ro_uncorrectable_ecc_error_2_w$;
-ixc_assign  #(1) _zz_strnp_10 (_zy_simnet_bimc_odat_0_w$,bimc_odat);
-ixc_assign  #(1) _zz_strnp_11 (_zy_simnet_bimc_osync_1_w$,bimc_osync);
-ixc_assign  #(1) _zz_strnp_12 (_zy_simnet_ro_uncorrectable_ecc_error_2_w$,ro_uncorrectable_ecc_error);
-//pragma CVASTRPROP MODULE HDLICE cva_for_generate "aflags_entries_gt0"
-//pragma RTLNAME "aflags_entries_gt0" "aflags_entries_gt0"
-if(1) begin: aflags_entries_gt0
-  ixc_assign  #(1) _zz_strnp_0 (afull,afull_r);
-  ixc_assign  #(1) _zz_strnp_1 (aempty,aempty_r);
- always 
-  @(posedge clk or negedge rst_n)
-   begin
-    if (( ~rst_n ))
-     begin
-      afull_r <= 1'b0;
-      aempty_r <= 1'b1;
-     end
-    else
-     begin
-      if (((free_slots <= 32'b01) | (((free_slots == 32'b010) & wen) & ( ~ren ))))
-       begin
-        afull_r <= 1'b1;
-       end
-      else
-       begin
-        afull_r <= 1'b0;
-       end
-      if (((used_slots <= 32'b01) | (((used_slots == 32'b010) & ( ~wen )) & ren)))
-       begin
-        aempty_r <= 1'b1;
-       end
-      else
-       begin
-        aempty_r <= 1'b0;
-       end
-     end
-   end
-end
-//pragma CVASTRPROP MODULE HDLICE cva_for_generate "ram_fifo"
-//pragma RTLNAME "ram_fifo" "ram_fifo"
-if(1) begin: ram_fifo
- wire  [0:7] _zy_simnet_used_slots_3_w$ ;
- wire  [0:7] _zy_simnet_free_slots_4_w$ ;
- wire  _zy_simnet_rerr_5_w$;
- wire  _zy_simnet_underflow_6_w$;
- wire  _zy_simnet_overflow_7_w$;
- wire  _zy_simnet_bimc_odat_8_w$;
- wire  _zy_simnet_bimc_osync_9_w$;
- wire  _zy_simnet_ro_uncorrectable_ecc_error_10_w$;
- wire  _zy_simnet_cio_11;
- wire  _zy_simnet_cio_12;
- wire  _zy_simnet_cio_13;
- wire  _zy_simnet_cio_14;
-  ixc_assign  #(8) _zz_strnp_2 (used_slots,_zy_simnet_used_slots_3_w$);
-  ixc_assign  #(8) _zz_strnp_3 (free_slots,_zy_simnet_free_slots_4_w$);
-  ixc_assign  #(1) _zz_strnp_4 (rerr,_zy_simnet_rerr_5_w$);
-  ixc_assign  #(1) _zz_strnp_5 (underflow,_zy_simnet_underflow_6_w$);
-  ixc_assign  #(1) _zz_strnp_6 (overflow,_zy_simnet_overflow_7_w$);
-  ixc_assign  #(1) _zz_strnp_7 (bimc_odat,_zy_simnet_bimc_odat_8_w$);
-  ixc_assign  #(1) _zz_strnp_8 (bimc_osync,_zy_simnet_bimc_osync_9_w$);
-  ixc_assign  #(1) _zz_strnp_9 (ro_uncorrectable_ecc_error,_zy_simnet_ro_uncorrectable_ecc_error_10_w$);
-  assign  _zy_simnet_cio_11 = 1'b0;
-  assign  _zy_simnet_cio_12 = 1'b0;
-  assign  _zy_simnet_cio_13 = 1'b0;
-  assign  _zy_simnet_cio_14 = 1'b0;
-  nx_fifo_ram_1r1w_xcm13 u_nx_fifo_ram_1r1w(
-   .empty(empty) ,
-   .full(full) ,
-   .used_slots(_zy_simnet_used_slots_3_w$) ,
-   .free_slots(_zy_simnet_free_slots_4_w$) ,
-   .rerr(_zy_simnet_rerr_5_w$) ,
-   .rdata(rdata) ,
-   .underflow(_zy_simnet_underflow_6_w$) ,
-   .overflow(_zy_simnet_overflow_7_w$) ,
-   .bimc_odat(_zy_simnet_bimc_odat_8_w$) ,
-   .bimc_osync(_zy_simnet_bimc_osync_9_w$) ,
-   .ro_uncorrectable_ecc_error(_zy_simnet_ro_uncorrectable_ecc_error_10_w$) ,
-   .clk(clk) ,
-   .rst_n(rst_n) ,
-   .wen(wen) ,
-   .wdata(wdata) ,
-   .ren(ren) ,
-   .clear(_zy_simnet_cio_11) ,
-   .bimc_idat(bimc_idat) ,
-   .bimc_isync(bimc_isync) ,
-   .bimc_rst_n(bimc_rst_n) ,
-   .lvm(_zy_simnet_cio_12) ,
-   .mlvm(_zy_simnet_cio_13) ,
-   .mrdten(_zy_simnet_cio_14) );
-end
-  //pragma CVASTRPROP MODULE HDLICE cva_for_generate_0 "-1 aflags_entries_gt0  "
-  //pragma CVASTRPROP MODULE HDLICE cva_for_generate_1 "-1 ram_fifo  "
+output logic axi4s_slv_bimc_odat;
+output logic axi4s_slv_bimc_osync;
+output logic axi4s_slv_ro_uncorrectable_ecc_error;
+axi4s_dp_bus_t axi_datain;
+logic [82:0] axi4s_slv_datain ;
+logic axi4s_slv_wen;
+logic axi4s_slv_afull;
+logic axi4s_slv_full;
+wire  _zy_simnet_axi4s_ib_out_0_w$;
+wire  [0:82] _zy_simnet_axi4s_slv_out_1_w$ ;
+wire  _zy_simnet_axi4s_slv_bimc_odat_2_w$;
+wire  _zy_simnet_axi4s_slv_bimc_osync_3_w$;
+wire  _zy_simnet_axi4s_slv_ro_uncorrectable_ecc_error_4_w$;
+wire  _zy_simnet_axi4s_slv_full_5_w$;
+wire  _zy_simnet_axi4s_slv_afull_6_w$;
+wire  [0:82] _zy_simnet_axi4s_slv_out_7_w$ ;
+wire  _zy_simnet_axi4s_slv_bimc_odat_8_w$;
+wire  _zy_simnet_axi4s_slv_bimc_osync_9_w$;
+wire  _zy_simnet_axi4s_slv_ro_uncorrectable_ecc_error_10_w$;
+wire  [0:82] _zy_simnet_axi4s_slv_datain_11_w$ ;
+wire  _zy_simnet_axi4s_slv_wen_12_w$;
+assign  axi4s_ib_out.tready = ( ~axi4s_slv_afull );
+ixc_assign  #(1) _zz_strnp_0 (_zy_simnet_axi4s_ib_out_0_w$,axi4s_ib_out);
+ixc_assign  #(83) _zz_strnp_1 (_zy_simnet_axi4s_slv_out_1_w$,axi4s_slv_out);
+ixc_assign  #(1) _zz_strnp_2 (_zy_simnet_axi4s_slv_bimc_odat_2_w$,axi4s_slv_bimc_odat);
+ixc_assign  #(1) _zz_strnp_3 (_zy_simnet_axi4s_slv_bimc_osync_3_w$,axi4s_slv_bimc_osync);
+ixc_assign  #(1) _zz_strnp_4 (_zy_simnet_axi4s_slv_ro_uncorrectable_ecc_error_4_w$,axi4s_slv_ro_uncorrectable_ecc_error);
+ixc_assign  #(1) _zz_strnp_5 (axi4s_slv_full,_zy_simnet_axi4s_slv_full_5_w$);
+ixc_assign  #(1) _zz_strnp_6 (axi4s_slv_afull,_zy_simnet_axi4s_slv_afull_6_w$);
+ixc_assign  #(83) _zz_strnp_7 (axi4s_slv_out,_zy_simnet_axi4s_slv_out_7_w$);
+ixc_assign  #(1) _zz_strnp_8 (axi4s_slv_bimc_odat,_zy_simnet_axi4s_slv_bimc_odat_8_w$);
+ixc_assign  #(1) _zz_strnp_9 (axi4s_slv_bimc_osync,_zy_simnet_axi4s_slv_bimc_osync_9_w$);
+ixc_assign  #(1) _zz_strnp_10 (axi4s_slv_ro_uncorrectable_ecc_error,_zy_simnet_axi4s_slv_ro_uncorrectable_ecc_error_10_w$);
+ixc_assign  #(83) _zz_strnp_11 (_zy_simnet_axi4s_slv_datain_11_w$,axi4s_slv_datain);
+ixc_assign  #(1) _zz_strnp_12 (_zy_simnet_axi4s_slv_wen_12_w$,axi4s_slv_wen);
+cr_fifo_wrap2_xcm12 u_cr_fifo_wrap2(
+  .full(_zy_simnet_axi4s_slv_full_5_w$) ,
+  .afull(_zy_simnet_axi4s_slv_afull_6_w$) ,
+  .rdata(_zy_simnet_axi4s_slv_out_7_w$) ,
+  .empty(axi4s_slv_empty) ,
+  .aempty(axi4s_slv_aempty) ,
+  .bimc_odat(_zy_simnet_axi4s_slv_bimc_odat_8_w$) ,
+  .bimc_osync(_zy_simnet_axi4s_slv_bimc_osync_9_w$) ,
+  .ro_uncorrectable_ecc_error(_zy_simnet_axi4s_slv_ro_uncorrectable_ecc_error_10_w$) ,
+  .clk(clk) ,
+  .rst_n(rst_n) ,
+  .wdata(_zy_simnet_axi4s_slv_datain_11_w$) ,
+  .wen(_zy_simnet_axi4s_slv_wen_12_w$) ,
+  .ren(axi4s_slv_rd) ,
+  .bimc_idat(axi4s_slv_bimc_idat) ,
+  .bimc_isync(axi4s_slv_bimc_isync) ,
+  .bimc_rst_n(bimc_rst_n) ); 
+always 
+ @(posedge clk or negedge rst_n)
+  begin
+   if (( ~rst_n ))
+    begin
+     axi4s_slv_datain <= 83'b0;
+     axi4s_slv_wen <= 1'b0;
+    end
+   else
+    begin
+     axi4s_slv_datain <= axi4s_ib_in;
+     axi4s_slv_wen <= (axi4s_ib_in.tvalid & axi4s_ib_out.tready);
+    end
+  end
 endmodule
 

@@ -3,8 +3,8 @@ architecture module of cr_kme_fifo_xcm52 is
   -- quickturn CVASTRPROP MODULE HDLICE cva_for_generate_0 "-1 genblk1  "
   component nx_fifo_xcm27
     generic (
-      DEPTH : integer := 2 ;
-      WIDTH : integer := 34 ;
+      DEPTH : integer := 3 ;
+      WIDTH : integer := 128 ;
       DATA_RESET : integer := 1 ;
       UNDERFLOW_ASSERT : integer := 1 ;
       OVERFLOW_ASSERT : integer := 1
@@ -16,13 +16,13 @@ architecture module of cr_kme_fifo_xcm52 is
       overflow : out std_logic ;
       used_slots : out std_logic_vector(1 downto 0) ;
       free_slots : out std_logic_vector(1 downto 0) ;
-      rdata : out std_logic_vector(33 downto 0) ;
+      rdata : out std_logic_vector(127 downto 0) ;
       clk : in std_logic := 'X' ;
       rst_n : in std_logic := 'X' ;
       wen : in std_logic := 'X' ;
       ren : in std_logic := 'X' ;
       clear : in std_logic := 'X' ;
-    wdata : in std_logic_vector(33 downto 0) := (others => 'X') ) ;
+    wdata : in std_logic_vector(127 downto 0) := (others => 'X') ) ;
   end component ;
 
   signal ren : std_logic ;

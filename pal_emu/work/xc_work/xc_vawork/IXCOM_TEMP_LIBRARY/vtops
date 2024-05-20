@@ -16,7 +16,6 @@ ixc_hwclksrc_emu
 ixc_tcov_1
 ixc_fc_delay
 ixc_capU
-ixc_gfifo_cico
 ixc_gfifo_port
 ixc_gfifo_merge_port
 ixc_ml_gfifo_root_port

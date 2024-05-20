@@ -10,10 +10,10 @@
 module IXC_ISF ;
 // pragma CVASTRPROP MODULE HDLICE HDL_MODULE_ATTRIBUTE "0 vlog"
 wire fclk;
-wire [1:0] pvec;
-`_2_ wire [1:0] pvecEv;
+wire [0:0] pvec;
+`_2_ wire [0:0] pvecEv;
 `_2_ wire [63:0] pvecEvD;
-`_2_ wire [1:0] _zyevPio;
+`_2_ wire [0:0] _zyevPio;
 `_2_ wire isfBusy;
 `_2_ wire isfBusyD;
 `_2_ wire [8:0] rptr;
@@ -56,7 +56,7 @@ Q_FDP0UA U29 ( .D(n19), .QTFCLK( ), .Q(rptr[7]));
 Q_MX02 U30 ( .S(n6), .A0(n21), .A1(rptr[8]), .Z(n20));
 Q_FDP0UA U31 ( .D(n20), .QTFCLK( ), .Q(rptr[8]));
 Q_FDP0UA U32 ( .D(pvecEv[0]), .QTFCLK( ), .Q(pvecEvD[0]));
-Q_FDP0UA U33 ( .D(pvecEv[1]), .QTFCLK( ), .Q(pvecEvD[1]));
+Q_FDP0UA U33 ( .D(n50), .QTFCLK( ), .Q(pvecEvD[1]));
 Q_FDP0UA U34 ( .D(n50), .QTFCLK( ), .Q(pvecEvD[2]));
 Q_FDP0UA U35 ( .D(n50), .QTFCLK( ), .Q(pvecEvD[3]));
 Q_FDP0UA U36 ( .D(n50), .QTFCLK( ), .Q(pvecEvD[4]));
@@ -146,7 +146,7 @@ Q_NR02 U119 ( .A0(nd), .A1(isfBusy), .Z(n53));
 Q_INV U120 ( .A(isfBusyD), .Z(n52));
 Q_ND02 U121 ( .A0(n53), .A1(n52), .Z(n51));
 Q_BUFZP U122 ( .OE(n51), .A(n54), .Z(xcva_top.xc_top.isfWait));
-ixc_assign_2 _zz_strnp_0 ( pvec[1:0], _zyevPio[1:0]);
+ixc_assign _zz_strnp_0 ( pvec[0], _zyevPio[0]);
 Q_NOT_TOUCH _zzqnthw ( .sig());
 // pragma CVASTRPROP MODULE HDLICE PROP_IXCOM_MOD TRUE
 endmodule

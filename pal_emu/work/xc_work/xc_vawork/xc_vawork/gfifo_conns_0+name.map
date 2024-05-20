@@ -1,0 +1,13 @@
+DUMMY0 0tb_top.kme_tb_dut._zyGfifo_mod2_dflt_ci
+DUMMY1 0tb_top.kme_tb_dut._zyGfifo_mod2_dflt_co
+DUMMY2 0xc_top.GFLock2
+DUMMY3 0xcva_top.IXC_GFIFO.O.O.GFreq
+DUMMY4 0xcva_top.IXC_GFIFO.O.O.hasMultiLevelGFIFO
+DUMMY5 1tb_top.kme_tb_dut._zyGfifo_SGFcbid 19 0
+DUMMY6 1xcva_top.IXC_GFIFO.O.O.GFcbid 19 0
+DUMMY7 1tb_top.kme_tb_dut._zyGfifo_SGFlen 11 0
+DUMMY8 1xcva_top.IXC_GFIFO.O.O.GFlen 11 0
+DUMMY9 1tb_top.kme_tb_dut._zyGfifo_SGFidata 511 0
+DUMMY10 1xcva_top.IXC_GFIFO.O.O.GFidata 511 0
+DUMMY11 0{}
+DUMMY12 0{}

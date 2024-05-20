@@ -184,5 +184,5 @@ ixc_sample_logic_1_3 _zz_zy_sva_b174 ();
 ixc_sample_logic_1_3 _zz_zy_sva_b175 ();
 ixc_sample_logic_1_3 _zz_zy_sva_b176 ();
 ixc_sample_logic_1_3 _zz_zy_sva_b177 ();
-cr_kme_fifo_xcm57 parser_fifo ();
+cr_kme_fifo_xcm58 parser_fifo ();
 endmodule

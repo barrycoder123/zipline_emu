@@ -1,7 +1,7 @@
 
 module cr_axi4s2_slv ;
 //pragma CVASTRPROP MODULE SKELETON MODULEINFO "673.000000"
-cr_fifo_wrap2_xcm11 u_cr_fifo_wrap2 ();
+cr_fifo_wrap2_xcm12 u_cr_fifo_wrap2 ();
 ixc_assign _zz_strnp_12 ();
 ixc_assign_83 _zz_strnp_11 ();
 ixc_assign _zz_strnp_10 ();

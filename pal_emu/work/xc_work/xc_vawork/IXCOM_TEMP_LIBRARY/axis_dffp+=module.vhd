@@ -3,7 +3,7 @@ architecture module of axis_dffp is
 
 begin
 
-  process --:o1310
+  process --:o1338
   (c,r,s)
   begin
     if (r = '0') then

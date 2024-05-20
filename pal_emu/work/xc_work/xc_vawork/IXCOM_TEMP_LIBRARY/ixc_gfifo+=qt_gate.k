@@ -9,5 +9,7 @@ ixcEcmHold HOLDTOP ();
 ixcEcmHoldOtb DUMMY ();
 IXC_SV_GFIFO O ();
 IXC_SV_SFIFO I ();
+gfifo_conns _zyGfifo_gfifo_conns ();
+sfifo_conns _zyGfifo_sfifo_conns ();
 ifsyn_conns _ifsyn_conns ();
 endmodule

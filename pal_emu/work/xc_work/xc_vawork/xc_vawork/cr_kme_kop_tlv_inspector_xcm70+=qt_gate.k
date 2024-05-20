@@ -1,6 +1,6 @@
 
 module cr_kme_kop_tlv_inspector_xcm70 ;
-//pragma CVASTRPROP MODULE SKELETON MODULEINFO "23232.000000"
+//pragma CVASTRPROP MODULE SKELETON MODULEINFO "23237.000000"
 ixc_assign _zz_strnp_0 ();
 ixc_assign_611 _zz_strnp_1 ();
 ixc_assign _zz_strnp_2 ();

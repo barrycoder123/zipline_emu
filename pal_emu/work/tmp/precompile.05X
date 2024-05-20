@@ -1,0 +1,5 @@
+*** Legend: (pwr) - net is power at hidden subcycles,
+            (gnd) - net is ground at hidden subcycles,
+            (any) - value at hidden subcycles unknown.
+
+xc_top.fclk (gnd)

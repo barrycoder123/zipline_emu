@@ -1,8 +1,10 @@
 // xc_work/v/39n.sv
-// /home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kop_upsizer_x2.v:18
+// /home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kop_tlv_inspector.v:18
 // NOTE: This file corresponds to a module in the Hardware/DUT partition.
 `timescale 1ns/1ns
-module cr_kme_kop_upsizer_x2_xcm72(upsizer_in_stall,upsizer_out_valid,upsizer_out_eof,upsizer_out_data,clk,rst_n,in_upsizer_valid,in_upsizer_eof,in_upsizer_data,out_upsizer_stall);
+module cr_kme_kop_tlv_inspector_xcm71(kme_internal_out_ack,gcm_cmd_in,gcm_cmd_in_valid,gcm_tag_data_in,gcm_tag_data_in_valid,inspector_upsizer_valid,inspector_upsizer_eof,inspector_upsizer_data,keyfilter_cmd_in,keyfilter_cmd_in_valid,
+kdfstream_cmd_in,kdfstream_cmd_in_valid,kdf_cmd_in,kdf_cmd_in_valid,tlv_sb_data_in,tlv_sb_data_in_valid,clk,rst_n,labels,kme_internal_out,kme_internal_out_valid,gcm_cmd_in_stall,
+gcm_tag_data_in_stall,upsizer_inspector_stall,keyfilter_cmd_in_stall,kdfstream_cmd_in_stall,kdf_cmd_in_stall,tlv_sb_data_in_stall);
 // pkg external : PKG - cr_kme_regfilePKG : DTYPE  
 typedef enum logic [1:0] {ENET=0,IPV4=1,IPV6=2,MPLS=3} pkt_hdr_e;
 typedef enum logic [3:0] {CMD_SIMPLE=0,COMPND_4K=5,COMPND_8K=6,COMPND_RSV=15} cmd_compound_cmd_frm_size_e;
@@ -918,27 +920,790 @@ localparam CKV_NUM_ENTRIES = 32768;
 localparam CKV_DATA_WIDTH = 64;
 localparam KIM_NUM_ENTRIES = 16384;
 localparam KIM_DATA_WIDTH = 38;
-parameter IN_DATA_SIZE = 64;
+parameter CCEIP_ENCRYPT_KOP = 1;
 input  clk;
 input  rst_n;
-input  in_upsizer_valid;
-input  in_upsizer_eof;
-input  [63:0] in_upsizer_data ;
-output reg upsizer_in_stall;
-output reg upsizer_out_valid;
-output reg upsizer_out_eof;
-output reg [127:0] upsizer_out_data ;
-input wire  out_upsizer_stall;
-reg send_data;
-reg [63:0] buffer ;
-wire  _zy_simnet_upsizer_in_stall_0_w$;
-wire  _zy_simnet_upsizer_out_valid_1_w$;
-wire  _zy_simnet_upsizer_out_eof_2_w$;
-wire  [0:127] _zy_simnet_upsizer_out_data_3_w$ ;
-assign  _zy_simnet_upsizer_in_stall_0_w$ = upsizer_in_stall;
-assign  _zy_simnet_upsizer_out_valid_1_w$ = upsizer_out_valid;
-assign  _zy_simnet_upsizer_out_eof_2_w$ = upsizer_out_eof;
-assign  _zy_simnet_upsizer_out_data_3_w$ = upsizer_out_data;
+input label_t [7:0] labels ;
+input kme_internal_t kme_internal_out;
+input  kme_internal_out_valid;
+output reg kme_internal_out_ack;
+output gcm_cmd_t gcm_cmd_in;
+output reg gcm_cmd_in_valid;
+input wire  gcm_cmd_in_stall;
+output reg [95:0] gcm_tag_data_in ;
+output reg gcm_tag_data_in_valid;
+input wire  gcm_tag_data_in_stall;
+output reg inspector_upsizer_valid;
+output reg inspector_upsizer_eof;
+output reg [63:0] inspector_upsizer_data ;
+input wire  upsizer_inspector_stall;
+output keyfilter_cmd_t keyfilter_cmd_in;
+output reg keyfilter_cmd_in_valid;
+input wire  keyfilter_cmd_in_stall;
+output kdfstream_cmd_t kdfstream_cmd_in;
+output reg kdfstream_cmd_in_valid;
+input wire  kdfstream_cmd_in_stall;
+output kdf_cmd_t kdf_cmd_in;
+output reg kdf_cmd_in_valid;
+input wire  kdf_cmd_in_stall;
+output reg [63:0] tlv_sb_data_in ;
+output reg tlv_sb_data_in_valid;
+input  tlv_sb_data_in_stall;
+cmd_debug_t debug_cmd;
+kme_internal_word_0_t int_tlv_word0;
+kme_internal_word_8_t int_tlv_word8;
+kme_internal_word_9_t int_tlv_word9;
+kme_internal_word_42_t int_tlv_word42;
+aux_key_ctrl_t key_header;
+kdfstream_cmd_t stream_cmd_in, stream_cmd_in_nxt;
+gcm_cmd_t gcm_dek_cmd_in, gcm_dek_cmd_in_nxt, gcm_dak_cmd_in, gcm_dak_cmd_in_nxt;
+reg skip_dek_kdf;
+reg skip_dek_kdf_nxt;
+reg skip_dak_kdf;
+reg skip_dak_kdf_nxt;
+reg [95:0] gcm_dek_tag ;
+reg [95:0] gcm_dek_tag_nxt ;
+reg [95:0] gcm_dak_tag ;
+reg [95:0] gcm_dak_tag_nxt ;
+reg corrupt_kme_error_bit_0;
+reg rst_corrupt_kme_error_bit_0;
+reg corrupt_crc32;
+reg rst_corrupt_crc32;
+reg kdf_dek_iter_nxt;
+reg kdf_dek_iter;
+reg [1:0] dek_ckv_length_q ;
+reg kek_tag_q;
+genvar ii;
+genvar jj;
+wire  _zy_simnet_kme_internal_out_ack_0_w$;
+wire  [0:610] _zy_simnet_gcm_cmd_in_1_w$ ;
+wire  _zy_simnet_gcm_cmd_in_valid_2_w$;
+wire  [0:95] _zy_simnet_gcm_tag_data_in_3_w$ ;
+wire  _zy_simnet_gcm_tag_data_in_valid_4_w$;
+wire  _zy_simnet_inspector_upsizer_valid_5_w$;
+wire  _zy_simnet_inspector_upsizer_eof_6_w$;
+wire  [0:63] _zy_simnet_inspector_upsizer_data_7_w$ ;
+wire  _zy_simnet_keyfilter_cmd_in_8_w$;
+wire  _zy_simnet_keyfilter_cmd_in_valid_9_w$;
+wire  [0:262] _zy_simnet_kdfstream_cmd_in_10_w$ ;
+wire  _zy_simnet_kdfstream_cmd_in_valid_11_w$;
+wire  [0:3] _zy_simnet_kdf_cmd_in_12_w$ ;
+wire  _zy_simnet_kdf_cmd_in_valid_13_w$;
+wire  [0:63] _zy_simnet_tlv_sb_data_in_14_w$ ;
+wire  _zy_simnet_tlv_sb_data_in_valid_15_w$;
+wire  _zy_sva_brcm_gcm_dek256_with_512bit_key_1_reset_or;
+bit [0:0]  _zy_sva_brcm_gcm_dek256_with_512bit_key_1_ccheck = 1'b0;
+bit [0:0]  _zy_sva_brcm_gcm_dek256_with_512bit_key_1_cpass = 1'b0;
+bit _zy_sva_b0;
+wire  _zy_sva_brcm_gcm_dek512_with_512bit_key_2_reset_or;
+bit [0:0]  _zy_sva_brcm_gcm_dek512_with_512bit_key_2_ccheck = 1'b0;
+bit [0:0]  _zy_sva_brcm_gcm_dek512_with_512bit_key_2_cpass = 1'b0;
+bit _zy_sva_b1;
+wire  _zy_sva_brcm_gcm_dek256dak_with_512bit_key_3_reset_or;
+bit [0:0]  _zy_sva_brcm_gcm_dek256dak_with_512bit_key_3_ccheck = 1'b0;
+bit [0:0]  _zy_sva_brcm_gcm_dek256dak_with_512bit_key_3_cpass = 1'b0;
+bit _zy_sva_b2;
+wire  _zy_sva_brcm_gcm_dek512dak_with_512bit_key_4_reset_or;
+bit [0:0]  _zy_sva_brcm_gcm_dek512dak_with_512bit_key_4_ccheck = 1'b0;
+bit [0:0]  _zy_sva_brcm_gcm_dek512dak_with_512bit_key_4_cpass = 1'b0;
+bit _zy_sva_b3;
+wire  _zy_sva_brcm_gcm_enc_dek256_no_kbk_5_reset_or;
+bit [0:0]  _zy_sva_brcm_gcm_enc_dek256_no_kbk_5_ccheck = 1'b0;
+bit [0:0]  _zy_sva_brcm_gcm_enc_dek256_no_kbk_5_cpass = 1'b0;
+bit _zy_sva_b4;
+wire  _zy_sva_brcm_gcm_enc_dek512_no_kbk_6_reset_or;
+bit [0:0]  _zy_sva_brcm_gcm_enc_dek512_no_kbk_6_ccheck = 1'b0;
+bit [0:0]  _zy_sva_brcm_gcm_enc_dek512_no_kbk_6_cpass = 1'b0;
+bit _zy_sva_b5;
+wire  _zy_sva_brcm_gcm_enc_dek256_comb_no_kbk_7_reset_or;
+bit [0:0]  _zy_sva_brcm_gcm_enc_dek256_comb_no_kbk_7_ccheck = 1'b0;
+bit [0:0]  _zy_sva_brcm_gcm_enc_dek256_comb_no_kbk_7_cpass = 1'b0;
+bit _zy_sva_b6;
+wire  _zy_sva_brcm_gcm_enc_dek512_comb_no_kbk_8_reset_or;
+bit [0:0]  _zy_sva_brcm_gcm_enc_dek512_comb_no_kbk_8_ccheck = 1'b0;
+bit [0:0]  _zy_sva_brcm_gcm_enc_dek512_comb_no_kbk_8_cpass = 1'b0;
+bit _zy_sva_b7;
+wire  _zy_sva_brcm_tlv_sb_stall_on_guid_9_reset_or;
+bit [0:0]  _zy_sva_brcm_tlv_sb_stall_on_guid_9_ccheck = 1'b0;
+bit [0:0]  _zy_sva_brcm_tlv_sb_stall_on_guid_9_cpass = 1'b0;
+bit _zy_sva_b8;
+wire  _zy_sva_brcm_gcm_10_reset_or;
+bit [0:0]  _zy_sva_brcm_gcm_10_ccheck = 1'b0;
+bit [0:0]  _zy_sva_brcm_gcm_10_cpass = 1'b0;
+bit _zy_sva_b9;
+wire  _zy_sva_brcm_gcm_11_reset_or;
+bit [0:0]  _zy_sva_brcm_gcm_11_ccheck = 1'b0;
+bit [0:0]  _zy_sva_brcm_gcm_11_cpass = 1'b0;
+bit _zy_sva_b10;
+wire  _zy_sva_brcm_gcm_12_reset_or;
+bit [0:0]  _zy_sva_brcm_gcm_12_ccheck = 1'b0;
+bit [0:0]  _zy_sva_brcm_gcm_12_cpass = 1'b0;
+bit _zy_sva_b11;
+wire  _zy_sva_brcm_gcm_13_reset_or;
+bit [0:0]  _zy_sva_brcm_gcm_13_ccheck = 1'b0;
+bit [0:0]  _zy_sva_brcm_gcm_13_cpass = 1'b0;
+bit _zy_sva_b12;
+wire  _zy_sva_brcm_gcm_14_reset_or;
+bit [0:0]  _zy_sva_brcm_gcm_14_ccheck = 1'b0;
+bit [0:0]  _zy_sva_brcm_gcm_14_cpass = 1'b0;
+bit _zy_sva_b13;
+wire  _zy_sva_brcm_gcm_15_reset_or;
+bit [0:0]  _zy_sva_brcm_gcm_15_ccheck = 1'b0;
+bit [0:0]  _zy_sva_brcm_gcm_15_cpass = 1'b0;
+bit _zy_sva_b14;
+wire  _zy_sva_brcm_gcm_16_reset_or;
+bit [0:0]  _zy_sva_brcm_gcm_16_ccheck = 1'b0;
+bit [0:0]  _zy_sva_brcm_gcm_16_cpass = 1'b0;
+bit _zy_sva_b15;
+wire  _zy_sva_brcm_gcm_17_reset_or;
+bit [0:0]  _zy_sva_brcm_gcm_17_ccheck = 1'b0;
+bit [0:0]  _zy_sva_brcm_gcm_17_cpass = 1'b0;
+bit _zy_sva_b16;
+wire  _zy_sva_brcm_kdf_label0_8_18_reset_or;
+bit [0:0]  _zy_sva_brcm_kdf_label0_8_18_ccheck = 1'b0;
+bit [0:0]  _zy_sva_brcm_kdf_label0_8_18_cpass = 1'b0;
+bit _zy_sva_b17;
+wire  _zy_sva_brcm_kdf_label9_16_19_reset_or;
+bit [0:0]  _zy_sva_brcm_kdf_label9_16_19_ccheck = 1'b0;
+bit [0:0]  _zy_sva_brcm_kdf_label9_16_19_cpass = 1'b0;
+bit _zy_sva_b18;
+wire  _zy_sva_brcm_kdf_label17_24_20_reset_or;
+bit [0:0]  _zy_sva_brcm_kdf_label17_24_20_ccheck = 1'b0;
+bit [0:0]  _zy_sva_brcm_kdf_label17_24_20_cpass = 1'b0;
+bit _zy_sva_b19;
+wire  _zy_sva_brcm_kdf_label25_32_21_reset_or;
+bit [0:0]  _zy_sva_brcm_kdf_label25_32_21_ccheck = 1'b0;
+bit [0:0]  _zy_sva_brcm_kdf_label25_32_21_cpass = 1'b0;
+bit _zy_sva_b20;
+wire  _zy_sva_brcm_kdf_label0_8_22_reset_or;
+bit [0:0]  _zy_sva_brcm_kdf_label0_8_22_ccheck = 1'b0;
+bit [0:0]  _zy_sva_brcm_kdf_label0_8_22_cpass = 1'b0;
+bit _zy_sva_b21;
+wire  _zy_sva_brcm_kdf_label9_16_23_reset_or;
+bit [0:0]  _zy_sva_brcm_kdf_label9_16_23_ccheck = 1'b0;
+bit [0:0]  _zy_sva_brcm_kdf_label9_16_23_cpass = 1'b0;
+bit _zy_sva_b22;
+wire  _zy_sva_brcm_kdf_label17_24_24_reset_or;
+bit [0:0]  _zy_sva_brcm_kdf_label17_24_24_ccheck = 1'b0;
+bit [0:0]  _zy_sva_brcm_kdf_label17_24_24_cpass = 1'b0;
+bit _zy_sva_b23;
+wire  _zy_sva_brcm_kdf_label25_32_25_reset_or;
+bit [0:0]  _zy_sva_brcm_kdf_label25_32_25_ccheck = 1'b0;
+bit [0:0]  _zy_sva_brcm_kdf_label25_32_25_cpass = 1'b0;
+bit _zy_sva_b24;
+wire  _zy_sva_brcm_kdf_label0_8_26_reset_or;
+bit [0:0]  _zy_sva_brcm_kdf_label0_8_26_ccheck = 1'b0;
+bit [0:0]  _zy_sva_brcm_kdf_label0_8_26_cpass = 1'b0;
+bit _zy_sva_b25;
+wire  _zy_sva_brcm_kdf_label9_16_27_reset_or;
+bit [0:0]  _zy_sva_brcm_kdf_label9_16_27_ccheck = 1'b0;
+bit [0:0]  _zy_sva_brcm_kdf_label9_16_27_cpass = 1'b0;
+bit _zy_sva_b26;
+wire  _zy_sva_brcm_kdf_label17_24_28_reset_or;
+bit [0:0]  _zy_sva_brcm_kdf_label17_24_28_ccheck = 1'b0;
+bit [0:0]  _zy_sva_brcm_kdf_label17_24_28_cpass = 1'b0;
+bit _zy_sva_b27;
+wire  _zy_sva_brcm_kdf_label25_32_29_reset_or;
+bit [0:0]  _zy_sva_brcm_kdf_label25_32_29_ccheck = 1'b0;
+bit [0:0]  _zy_sva_brcm_kdf_label25_32_29_cpass = 1'b0;
+bit _zy_sva_b28;
+wire  _zy_sva_brcm_kdf_label0_8_30_reset_or;
+bit [0:0]  _zy_sva_brcm_kdf_label0_8_30_ccheck = 1'b0;
+bit [0:0]  _zy_sva_brcm_kdf_label0_8_30_cpass = 1'b0;
+bit _zy_sva_b29;
+wire  _zy_sva_brcm_kdf_label9_16_31_reset_or;
+bit [0:0]  _zy_sva_brcm_kdf_label9_16_31_ccheck = 1'b0;
+bit [0:0]  _zy_sva_brcm_kdf_label9_16_31_cpass = 1'b0;
+bit _zy_sva_b30;
+wire  _zy_sva_brcm_kdf_label17_24_32_reset_or;
+bit [0:0]  _zy_sva_brcm_kdf_label17_24_32_ccheck = 1'b0;
+bit [0:0]  _zy_sva_brcm_kdf_label17_24_32_cpass = 1'b0;
+bit _zy_sva_b31;
+wire  _zy_sva_brcm_kdf_label25_32_33_reset_or;
+bit [0:0]  _zy_sva_brcm_kdf_label25_32_33_ccheck = 1'b0;
+bit [0:0]  _zy_sva_brcm_kdf_label25_32_33_cpass = 1'b0;
+bit _zy_sva_b32;
+// synopsys translate_off
+wire  _sva_placeholder_clk;
+wire  _sva_placeholder_expr;
+// synopsys translate_on
+wire  _zy_sva_b0_t;
+wire  _zy_sva_b1_t;
+wire  _zy_sva_b2_t;
+wire  _zy_sva_b3_t;
+wire  _zy_sva_b4_t;
+wire  _zy_sva_b5_t;
+wire  _zy_sva_b6_t;
+wire  _zy_sva_b7_t;
+wire  _zy_sva_b8_t;
+wire  _zy_sva_b9_t;
+wire  _zy_sva_b10_t;
+wire  _zy_sva_b11_t;
+wire  _zy_sva_b12_t;
+wire  _zy_sva_b13_t;
+wire  _zy_sva_b14_t;
+wire  _zy_sva_b15_t;
+wire  _zy_sva_b16_t;
+wire  _zy_sva_b17_t;
+wire  _zy_sva_b18_t;
+wire  _zy_sva_b19_t;
+wire  _zy_sva_b20_t;
+wire  _zy_sva_b21_t;
+wire  _zy_sva_b22_t;
+wire  _zy_sva_b23_t;
+wire  _zy_sva_b24_t;
+wire  _zy_sva_b25_t;
+wire  _zy_sva_b26_t;
+wire  _zy_sva_b27_t;
+wire  _zy_sva_b28_t;
+wire  _zy_sva_b29_t;
+wire  _zy_sva_b30_t;
+wire  _zy_sva_b31_t;
+wire  _zy_sva_b32_t;
+assign  _zy_simnet_kme_internal_out_ack_0_w$ = kme_internal_out_ack;
+assign  _zy_simnet_gcm_cmd_in_1_w$ = gcm_cmd_in;
+assign  _zy_simnet_gcm_cmd_in_valid_2_w$ = gcm_cmd_in_valid;
+assign  _zy_simnet_gcm_tag_data_in_3_w$ = gcm_tag_data_in;
+assign  _zy_simnet_gcm_tag_data_in_valid_4_w$ = gcm_tag_data_in_valid;
+assign  _zy_simnet_inspector_upsizer_valid_5_w$ = inspector_upsizer_valid;
+assign  _zy_simnet_inspector_upsizer_eof_6_w$ = inspector_upsizer_eof;
+assign  _zy_simnet_inspector_upsizer_data_7_w$ = inspector_upsizer_data;
+assign  _zy_simnet_keyfilter_cmd_in_8_w$ = keyfilter_cmd_in;
+assign  _zy_simnet_keyfilter_cmd_in_valid_9_w$ = keyfilter_cmd_in_valid;
+assign  _zy_simnet_kdfstream_cmd_in_10_w$ = kdfstream_cmd_in;
+assign  _zy_simnet_kdfstream_cmd_in_valid_11_w$ = kdfstream_cmd_in_valid;
+assign  _zy_simnet_kdf_cmd_in_12_w$ = kdf_cmd_in;
+assign  _zy_simnet_kdf_cmd_in_valid_13_w$ = kdf_cmd_in_valid;
+assign  _zy_simnet_tlv_sb_data_in_14_w$ = tlv_sb_data_in;
+assign  _zy_simnet_tlv_sb_data_in_valid_15_w$ = tlv_sb_data_in_valid;
+assign  _zy_sva_brcm_gcm_dek256_with_512bit_key_1_reset_or = (rst_n !== 32'b01);
+assign  _zy_sva_brcm_gcm_dek512_with_512bit_key_2_reset_or = (rst_n !== 32'b01);
+assign  _zy_sva_brcm_gcm_dek256dak_with_512bit_key_3_reset_or = (rst_n !== 32'b01);
+assign  _zy_sva_brcm_gcm_dek512dak_with_512bit_key_4_reset_or = (rst_n !== 32'b01);
+assign  _zy_sva_brcm_gcm_enc_dek256_no_kbk_5_reset_or = (rst_n !== 32'b01);
+assign  _zy_sva_brcm_gcm_enc_dek512_no_kbk_6_reset_or = (rst_n !== 32'b01);
+assign  _zy_sva_brcm_gcm_enc_dek256_comb_no_kbk_7_reset_or = (rst_n !== 32'b01);
+assign  _zy_sva_brcm_gcm_enc_dek512_comb_no_kbk_8_reset_or = (rst_n !== 32'b01);
+assign  _zy_sva_brcm_tlv_sb_stall_on_guid_9_reset_or = (rst_n !== 32'b01);
+assign  _zy_sva_brcm_gcm_10_reset_or = (rst_n !== 32'b01);
+assign  _zy_sva_brcm_gcm_11_reset_or = (rst_n !== 32'b01);
+assign  _zy_sva_brcm_gcm_12_reset_or = (rst_n !== 32'b01);
+assign  _zy_sva_brcm_gcm_13_reset_or = (rst_n !== 32'b01);
+assign  _zy_sva_brcm_gcm_14_reset_or = (rst_n !== 32'b01);
+assign  _zy_sva_brcm_gcm_15_reset_or = (rst_n !== 32'b01);
+assign  _zy_sva_brcm_gcm_16_reset_or = (rst_n !== 32'b01);
+assign  _zy_sva_brcm_gcm_17_reset_or = (rst_n !== 32'b01);
+assign  _zy_sva_brcm_kdf_label0_8_18_reset_or = (rst_n !== 32'b01);
+assign  _zy_sva_brcm_kdf_label9_16_19_reset_or = (rst_n !== 32'b01);
+assign  _zy_sva_brcm_kdf_label17_24_20_reset_or = (rst_n !== 32'b01);
+assign  _zy_sva_brcm_kdf_label25_32_21_reset_or = (rst_n !== 32'b01);
+assign  _zy_sva_brcm_kdf_label0_8_22_reset_or = (rst_n !== 32'b01);
+assign  _zy_sva_brcm_kdf_label9_16_23_reset_or = (rst_n !== 32'b01);
+assign  _zy_sva_brcm_kdf_label17_24_24_reset_or = (rst_n !== 32'b01);
+assign  _zy_sva_brcm_kdf_label25_32_25_reset_or = (rst_n !== 32'b01);
+assign  _zy_sva_brcm_kdf_label0_8_26_reset_or = (rst_n !== 32'b01);
+assign  _zy_sva_brcm_kdf_label9_16_27_reset_or = (rst_n !== 32'b01);
+assign  _zy_sva_brcm_kdf_label17_24_28_reset_or = (rst_n !== 32'b01);
+assign  _zy_sva_brcm_kdf_label25_32_29_reset_or = (rst_n !== 32'b01);
+assign  _zy_sva_brcm_kdf_label0_8_30_reset_or = (rst_n !== 32'b01);
+assign  _zy_sva_brcm_kdf_label9_16_31_reset_or = (rst_n !== 32'b01);
+assign  _zy_sva_brcm_kdf_label17_24_32_reset_or = (rst_n !== 32'b01);
+assign  _zy_sva_brcm_kdf_label25_32_33_reset_or = (rst_n !== 32'b01);
+assign  _zy_sva_b0_t = ((gcm_cmd_in_valid & (dek_ckv_length_q == 32'b010)) & (gcm_cmd_in.op == DECRYPT_DEK256));
+assign  _zy_sva_b1_t = ((gcm_cmd_in_valid & (dek_ckv_length_q == 32'b010)) & (gcm_cmd_in.op == DECRYPT_DEK512));
+assign  _zy_sva_b2_t = ((gcm_cmd_in_valid & (dek_ckv_length_q == 32'b010)) & (gcm_cmd_in.op == DECRYPT_DEK256_COMB));
+assign  _zy_sva_b3_t = ((gcm_cmd_in_valid & (dek_ckv_length_q == 32'b010)) & (gcm_cmd_in.op == DECRYPT_DEK512_COMB));
+assign  _zy_sva_b4_t = ((gcm_cmd_in_valid & ( !kek_tag_q )) & (gcm_cmd_in.op == DECRYPT_DEK256));
+assign  _zy_sva_b5_t = ((gcm_cmd_in_valid & ( !kek_tag_q )) & (gcm_cmd_in.op == DECRYPT_DEK512));
+assign  _zy_sva_b6_t = ((gcm_cmd_in_valid & ( !kek_tag_q )) & (gcm_cmd_in.op == DECRYPT_DEK256_COMB));
+assign  _zy_sva_b7_t = ((gcm_cmd_in_valid & ( !kek_tag_q )) & (gcm_cmd_in.op == DECRYPT_DEK512_COMB));
+assign  _zy_sva_b8_t = (((kme_internal_out.id == KME_GUID) & kme_internal_out_valid) & tlv_sb_data_in_stall);
+assign  _zy_sva_b9_t = (gcm_cmd_in_valid & (gcm_cmd_in.op == 32'b0));
+assign  _zy_sva_b10_t = (gcm_cmd_in_valid & (gcm_cmd_in.op == 32'b01));
+assign  _zy_sva_b11_t = (gcm_cmd_in_valid & (gcm_cmd_in.op == 32'b010));
+assign  _zy_sva_b12_t = (gcm_cmd_in_valid & (gcm_cmd_in.op == 32'b011));
+assign  _zy_sva_b13_t = (gcm_cmd_in_valid & (gcm_cmd_in.op == 32'b0100));
+assign  _zy_sva_b14_t = (gcm_cmd_in_valid & (gcm_cmd_in.op == 32'b0101));
+assign  _zy_sva_b15_t = (gcm_cmd_in_valid & (gcm_cmd_in.op == 32'b0110));
+assign  _zy_sva_b16_t = (gcm_cmd_in_valid & (gcm_cmd_in.op == 32'b0111));
+assign  _zy_sva_b17_t = ((((kdfstream_cmd_in_valid & (labels[kdfstream_cmd_in.label_index].guid_size == 32'b0)) & (labels[kdfstream_cmd_in.label_index].delimiter_valid == 32'b0)) & (labels[kdfstream_cmd_in.label_index].label_size >= 32'b0)) & (labels[kdfstream_cmd_in.label_index].label_size <= 32'b01000));
+assign  _zy_sva_b18_t = ((((kdfstream_cmd_in_valid & (labels[kdfstream_cmd_in.label_index].guid_size == 32'b0)) & (labels[kdfstream_cmd_in.label_index].delimiter_valid == 32'b0)) & (labels[kdfstream_cmd_in.label_index].label_size >= 32'b01001)) & (labels[kdfstream_cmd_in.label_index].label_size <= 32'b010000));
+assign  _zy_sva_b19_t = ((((kdfstream_cmd_in_valid & (labels[kdfstream_cmd_in.label_index].guid_size == 32'b0)) & (labels[kdfstream_cmd_in.label_index].delimiter_valid == 32'b0)) & (labels[kdfstream_cmd_in.label_index].label_size >= 32'b010001)) & (labels[kdfstream_cmd_in.label_index].label_size <= 32'b011000));
+assign  _zy_sva_b20_t = ((((kdfstream_cmd_in_valid & (labels[kdfstream_cmd_in.label_index].guid_size == 32'b0)) & (labels[kdfstream_cmd_in.label_index].delimiter_valid == 32'b0)) & (labels[kdfstream_cmd_in.label_index].label_size >= 32'b011001)) & (labels[kdfstream_cmd_in.label_index].label_size <= 32'b0100000));
+assign  _zy_sva_b21_t = ((((kdfstream_cmd_in_valid & (labels[kdfstream_cmd_in.label_index].guid_size == 32'b0)) & (labels[kdfstream_cmd_in.label_index].delimiter_valid == 32'b01)) & (labels[kdfstream_cmd_in.label_index].label_size >= 32'b0)) & (labels[kdfstream_cmd_in.label_index].label_size <= 32'b01000));
+assign  _zy_sva_b22_t = ((((kdfstream_cmd_in_valid & (labels[kdfstream_cmd_in.label_index].guid_size == 32'b0)) & (labels[kdfstream_cmd_in.label_index].delimiter_valid == 32'b01)) & (labels[kdfstream_cmd_in.label_index].label_size >= 32'b01001)) & (labels[kdfstream_cmd_in.label_index].label_size <= 32'b010000));
+assign  _zy_sva_b23_t = ((((kdfstream_cmd_in_valid & (labels[kdfstream_cmd_in.label_index].guid_size == 32'b0)) & (labels[kdfstream_cmd_in.label_index].delimiter_valid == 32'b01)) & (labels[kdfstream_cmd_in.label_index].label_size >= 32'b010001)) & (labels[kdfstream_cmd_in.label_index].label_size <= 32'b011000));
+assign  _zy_sva_b24_t = ((((kdfstream_cmd_in_valid & (labels[kdfstream_cmd_in.label_index].guid_size == 32'b0)) & (labels[kdfstream_cmd_in.label_index].delimiter_valid == 32'b01)) & (labels[kdfstream_cmd_in.label_index].label_size >= 32'b011001)) & (labels[kdfstream_cmd_in.label_index].label_size <= 32'b0100000));
+assign  _zy_sva_b25_t = ((((kdfstream_cmd_in_valid & (labels[kdfstream_cmd_in.label_index].guid_size == 32'b01)) & (labels[kdfstream_cmd_in.label_index].delimiter_valid == 32'b0)) & (labels[kdfstream_cmd_in.label_index].label_size >= 32'b0)) & (labels[kdfstream_cmd_in.label_index].label_size <= 32'b01000));
+assign  _zy_sva_b26_t = ((((kdfstream_cmd_in_valid & (labels[kdfstream_cmd_in.label_index].guid_size == 32'b01)) & (labels[kdfstream_cmd_in.label_index].delimiter_valid == 32'b0)) & (labels[kdfstream_cmd_in.label_index].label_size >= 32'b01001)) & (labels[kdfstream_cmd_in.label_index].label_size <= 32'b010000));
+assign  _zy_sva_b27_t = ((((kdfstream_cmd_in_valid & (labels[kdfstream_cmd_in.label_index].guid_size == 32'b01)) & (labels[kdfstream_cmd_in.label_index].delimiter_valid == 32'b0)) & (labels[kdfstream_cmd_in.label_index].label_size >= 32'b010001)) & (labels[kdfstream_cmd_in.label_index].label_size <= 32'b011000));
+assign  _zy_sva_b28_t = ((((kdfstream_cmd_in_valid & (labels[kdfstream_cmd_in.label_index].guid_size == 32'b01)) & (labels[kdfstream_cmd_in.label_index].delimiter_valid == 32'b0)) & (labels[kdfstream_cmd_in.label_index].label_size >= 32'b011001)) & (labels[kdfstream_cmd_in.label_index].label_size <= 32'b0100000));
+assign  _zy_sva_b29_t = ((((kdfstream_cmd_in_valid & (labels[kdfstream_cmd_in.label_index].guid_size == 32'b01)) & (labels[kdfstream_cmd_in.label_index].delimiter_valid == 32'b01)) & (labels[kdfstream_cmd_in.label_index].label_size >= 32'b0)) & (labels[kdfstream_cmd_in.label_index].label_size <= 32'b01000));
+assign  _zy_sva_b30_t = ((((kdfstream_cmd_in_valid & (labels[kdfstream_cmd_in.label_index].guid_size == 32'b01)) & (labels[kdfstream_cmd_in.label_index].delimiter_valid == 32'b01)) & (labels[kdfstream_cmd_in.label_index].label_size >= 32'b01001)) & (labels[kdfstream_cmd_in.label_index].label_size <= 32'b010000));
+assign  _zy_sva_b31_t = ((((kdfstream_cmd_in_valid & (labels[kdfstream_cmd_in.label_index].guid_size == 32'b01)) & (labels[kdfstream_cmd_in.label_index].delimiter_valid == 32'b01)) & (labels[kdfstream_cmd_in.label_index].label_size >= 32'b010001)) & (labels[kdfstream_cmd_in.label_index].label_size <= 32'b011000));
+assign  _zy_sva_b32_t = ((((kdfstream_cmd_in_valid & (labels[kdfstream_cmd_in.label_index].guid_size == 32'b01)) & (labels[kdfstream_cmd_in.label_index].delimiter_valid == 32'b01)) & (labels[kdfstream_cmd_in.label_index].label_size >= 32'b011001)) & (labels[kdfstream_cmd_in.label_index].label_size <= 32'b0100000));
+/* ++ ixc_sample  #(1) _zz_zy_sva_b0 (_zy_sva_b0, _zy_sva_b0_t); */
+reg _zy__zz_zy_sva_b0_r;
+initial 
+ _zy__zz_zy_sva_b0_r = _zy_sva_b0_t;
+assign _zy_sva_b0 = _zy__zz_zy_sva_b0_r;
+always 
+ @(_zy_sva_b0_t)
+  begin
+   xc_top.xcSchEotQ;
+   @(xc_top.eotQEvent) ;
+   _zy__zz_zy_sva_b0_r = _zy_sva_b0_t;
+  end
+// -- ixc_sample
+
+/* ++ ixc_sample  #(1) _zz_zy_sva_b1 (_zy_sva_b1, _zy_sva_b1_t); */
+reg _zy__zz_zy_sva_b1_r;
+initial 
+ _zy__zz_zy_sva_b1_r = _zy_sva_b1_t;
+assign _zy_sva_b1 = _zy__zz_zy_sva_b1_r;
+always 
+ @(_zy_sva_b1_t)
+  begin
+   xc_top.xcSchEotQ;
+   @(xc_top.eotQEvent) ;
+   _zy__zz_zy_sva_b1_r = _zy_sva_b1_t;
+  end
+// -- ixc_sample
+
+/* ++ ixc_sample  #(1) _zz_zy_sva_b2 (_zy_sva_b2, _zy_sva_b2_t); */
+reg _zy__zz_zy_sva_b2_r;
+initial 
+ _zy__zz_zy_sva_b2_r = _zy_sva_b2_t;
+assign _zy_sva_b2 = _zy__zz_zy_sva_b2_r;
+always 
+ @(_zy_sva_b2_t)
+  begin
+   xc_top.xcSchEotQ;
+   @(xc_top.eotQEvent) ;
+   _zy__zz_zy_sva_b2_r = _zy_sva_b2_t;
+  end
+// -- ixc_sample
+
+/* ++ ixc_sample  #(1) _zz_zy_sva_b3 (_zy_sva_b3, _zy_sva_b3_t); */
+reg _zy__zz_zy_sva_b3_r;
+initial 
+ _zy__zz_zy_sva_b3_r = _zy_sva_b3_t;
+assign _zy_sva_b3 = _zy__zz_zy_sva_b3_r;
+always 
+ @(_zy_sva_b3_t)
+  begin
+   xc_top.xcSchEotQ;
+   @(xc_top.eotQEvent) ;
+   _zy__zz_zy_sva_b3_r = _zy_sva_b3_t;
+  end
+// -- ixc_sample
+
+/* ++ ixc_sample  #(1) _zz_zy_sva_b4 (_zy_sva_b4, _zy_sva_b4_t); */
+reg _zy__zz_zy_sva_b4_r;
+initial 
+ _zy__zz_zy_sva_b4_r = _zy_sva_b4_t;
+assign _zy_sva_b4 = _zy__zz_zy_sva_b4_r;
+always 
+ @(_zy_sva_b4_t)
+  begin
+   xc_top.xcSchEotQ;
+   @(xc_top.eotQEvent) ;
+   _zy__zz_zy_sva_b4_r = _zy_sva_b4_t;
+  end
+// -- ixc_sample
+
+/* ++ ixc_sample  #(1) _zz_zy_sva_b5 (_zy_sva_b5, _zy_sva_b5_t); */
+reg _zy__zz_zy_sva_b5_r;
+initial 
+ _zy__zz_zy_sva_b5_r = _zy_sva_b5_t;
+assign _zy_sva_b5 = _zy__zz_zy_sva_b5_r;
+always 
+ @(_zy_sva_b5_t)
+  begin
+   xc_top.xcSchEotQ;
+   @(xc_top.eotQEvent) ;
+   _zy__zz_zy_sva_b5_r = _zy_sva_b5_t;
+  end
+// -- ixc_sample
+
+/* ++ ixc_sample  #(1) _zz_zy_sva_b6 (_zy_sva_b6, _zy_sva_b6_t); */
+reg _zy__zz_zy_sva_b6_r;
+initial 
+ _zy__zz_zy_sva_b6_r = _zy_sva_b6_t;
+assign _zy_sva_b6 = _zy__zz_zy_sva_b6_r;
+always 
+ @(_zy_sva_b6_t)
+  begin
+   xc_top.xcSchEotQ;
+   @(xc_top.eotQEvent) ;
+   _zy__zz_zy_sva_b6_r = _zy_sva_b6_t;
+  end
+// -- ixc_sample
+
+/* ++ ixc_sample  #(1) _zz_zy_sva_b7 (_zy_sva_b7, _zy_sva_b7_t); */
+reg _zy__zz_zy_sva_b7_r;
+initial 
+ _zy__zz_zy_sva_b7_r = _zy_sva_b7_t;
+assign _zy_sva_b7 = _zy__zz_zy_sva_b7_r;
+always 
+ @(_zy_sva_b7_t)
+  begin
+   xc_top.xcSchEotQ;
+   @(xc_top.eotQEvent) ;
+   _zy__zz_zy_sva_b7_r = _zy_sva_b7_t;
+  end
+// -- ixc_sample
+
+/* ++ ixc_sample  #(1) _zz_zy_sva_b8 (_zy_sva_b8, _zy_sva_b8_t); */
+reg _zy__zz_zy_sva_b8_r;
+initial 
+ _zy__zz_zy_sva_b8_r = _zy_sva_b8_t;
+assign _zy_sva_b8 = _zy__zz_zy_sva_b8_r;
+always 
+ @(_zy_sva_b8_t)
+  begin
+   xc_top.xcSchEotQ;
+   @(xc_top.eotQEvent) ;
+   _zy__zz_zy_sva_b8_r = _zy_sva_b8_t;
+  end
+// -- ixc_sample
+
+/* ++ ixc_sample  #(1) _zz_zy_sva_b9 (_zy_sva_b9, _zy_sva_b9_t); */
+reg _zy__zz_zy_sva_b9_r;
+initial 
+ _zy__zz_zy_sva_b9_r = _zy_sva_b9_t;
+assign _zy_sva_b9 = _zy__zz_zy_sva_b9_r;
+always 
+ @(_zy_sva_b9_t)
+  begin
+   xc_top.xcSchEotQ;
+   @(xc_top.eotQEvent) ;
+   _zy__zz_zy_sva_b9_r = _zy_sva_b9_t;
+  end
+// -- ixc_sample
+
+/* ++ ixc_sample  #(1) _zz_zy_sva_b10 (_zy_sva_b10, _zy_sva_b10_t); */
+reg _zy__zz_zy_sva_b10_r;
+initial 
+ _zy__zz_zy_sva_b10_r = _zy_sva_b10_t;
+assign _zy_sva_b10 = _zy__zz_zy_sva_b10_r;
+always 
+ @(_zy_sva_b10_t)
+  begin
+   xc_top.xcSchEotQ;
+   @(xc_top.eotQEvent) ;
+   _zy__zz_zy_sva_b10_r = _zy_sva_b10_t;
+  end
+// -- ixc_sample
+
+/* ++ ixc_sample  #(1) _zz_zy_sva_b11 (_zy_sva_b11, _zy_sva_b11_t); */
+reg _zy__zz_zy_sva_b11_r;
+initial 
+ _zy__zz_zy_sva_b11_r = _zy_sva_b11_t;
+assign _zy_sva_b11 = _zy__zz_zy_sva_b11_r;
+always 
+ @(_zy_sva_b11_t)
+  begin
+   xc_top.xcSchEotQ;
+   @(xc_top.eotQEvent) ;
+   _zy__zz_zy_sva_b11_r = _zy_sva_b11_t;
+  end
+// -- ixc_sample
+
+/* ++ ixc_sample  #(1) _zz_zy_sva_b12 (_zy_sva_b12, _zy_sva_b12_t); */
+reg _zy__zz_zy_sva_b12_r;
+initial 
+ _zy__zz_zy_sva_b12_r = _zy_sva_b12_t;
+assign _zy_sva_b12 = _zy__zz_zy_sva_b12_r;
+always 
+ @(_zy_sva_b12_t)
+  begin
+   xc_top.xcSchEotQ;
+   @(xc_top.eotQEvent) ;
+   _zy__zz_zy_sva_b12_r = _zy_sva_b12_t;
+  end
+// -- ixc_sample
+
+/* ++ ixc_sample  #(1) _zz_zy_sva_b13 (_zy_sva_b13, _zy_sva_b13_t); */
+reg _zy__zz_zy_sva_b13_r;
+initial 
+ _zy__zz_zy_sva_b13_r = _zy_sva_b13_t;
+assign _zy_sva_b13 = _zy__zz_zy_sva_b13_r;
+always 
+ @(_zy_sva_b13_t)
+  begin
+   xc_top.xcSchEotQ;
+   @(xc_top.eotQEvent) ;
+   _zy__zz_zy_sva_b13_r = _zy_sva_b13_t;
+  end
+// -- ixc_sample
+
+/* ++ ixc_sample  #(1) _zz_zy_sva_b14 (_zy_sva_b14, _zy_sva_b14_t); */
+reg _zy__zz_zy_sva_b14_r;
+initial 
+ _zy__zz_zy_sva_b14_r = _zy_sva_b14_t;
+assign _zy_sva_b14 = _zy__zz_zy_sva_b14_r;
+always 
+ @(_zy_sva_b14_t)
+  begin
+   xc_top.xcSchEotQ;
+   @(xc_top.eotQEvent) ;
+   _zy__zz_zy_sva_b14_r = _zy_sva_b14_t;
+  end
+// -- ixc_sample
+
+/* ++ ixc_sample  #(1) _zz_zy_sva_b15 (_zy_sva_b15, _zy_sva_b15_t); */
+reg _zy__zz_zy_sva_b15_r;
+initial 
+ _zy__zz_zy_sva_b15_r = _zy_sva_b15_t;
+assign _zy_sva_b15 = _zy__zz_zy_sva_b15_r;
+always 
+ @(_zy_sva_b15_t)
+  begin
+   xc_top.xcSchEotQ;
+   @(xc_top.eotQEvent) ;
+   _zy__zz_zy_sva_b15_r = _zy_sva_b15_t;
+  end
+// -- ixc_sample
+
+/* ++ ixc_sample  #(1) _zz_zy_sva_b16 (_zy_sva_b16, _zy_sva_b16_t); */
+reg _zy__zz_zy_sva_b16_r;
+initial 
+ _zy__zz_zy_sva_b16_r = _zy_sva_b16_t;
+assign _zy_sva_b16 = _zy__zz_zy_sva_b16_r;
+always 
+ @(_zy_sva_b16_t)
+  begin
+   xc_top.xcSchEotQ;
+   @(xc_top.eotQEvent) ;
+   _zy__zz_zy_sva_b16_r = _zy_sva_b16_t;
+  end
+// -- ixc_sample
+
+/* ++ ixc_sample  #(1) _zz_zy_sva_b17 (_zy_sva_b17, _zy_sva_b17_t); */
+reg _zy__zz_zy_sva_b17_r;
+initial 
+ _zy__zz_zy_sva_b17_r = _zy_sva_b17_t;
+assign _zy_sva_b17 = _zy__zz_zy_sva_b17_r;
+always 
+ @(_zy_sva_b17_t)
+  begin
+   xc_top.xcSchEotQ;
+   @(xc_top.eotQEvent) ;
+   _zy__zz_zy_sva_b17_r = _zy_sva_b17_t;
+  end
+// -- ixc_sample
+
+/* ++ ixc_sample  #(1) _zz_zy_sva_b18 (_zy_sva_b18, _zy_sva_b18_t); */
+reg _zy__zz_zy_sva_b18_r;
+initial 
+ _zy__zz_zy_sva_b18_r = _zy_sva_b18_t;
+assign _zy_sva_b18 = _zy__zz_zy_sva_b18_r;
+always 
+ @(_zy_sva_b18_t)
+  begin
+   xc_top.xcSchEotQ;
+   @(xc_top.eotQEvent) ;
+   _zy__zz_zy_sva_b18_r = _zy_sva_b18_t;
+  end
+// -- ixc_sample
+
+/* ++ ixc_sample  #(1) _zz_zy_sva_b19 (_zy_sva_b19, _zy_sva_b19_t); */
+reg _zy__zz_zy_sva_b19_r;
+initial 
+ _zy__zz_zy_sva_b19_r = _zy_sva_b19_t;
+assign _zy_sva_b19 = _zy__zz_zy_sva_b19_r;
+always 
+ @(_zy_sva_b19_t)
+  begin
+   xc_top.xcSchEotQ;
+   @(xc_top.eotQEvent) ;
+   _zy__zz_zy_sva_b19_r = _zy_sva_b19_t;
+  end
+// -- ixc_sample
+
+/* ++ ixc_sample  #(1) _zz_zy_sva_b20 (_zy_sva_b20, _zy_sva_b20_t); */
+reg _zy__zz_zy_sva_b20_r;
+initial 
+ _zy__zz_zy_sva_b20_r = _zy_sva_b20_t;
+assign _zy_sva_b20 = _zy__zz_zy_sva_b20_r;
+always 
+ @(_zy_sva_b20_t)
+  begin
+   xc_top.xcSchEotQ;
+   @(xc_top.eotQEvent) ;
+   _zy__zz_zy_sva_b20_r = _zy_sva_b20_t;
+  end
+// -- ixc_sample
+
+/* ++ ixc_sample  #(1) _zz_zy_sva_b21 (_zy_sva_b21, _zy_sva_b21_t); */
+reg _zy__zz_zy_sva_b21_r;
+initial 
+ _zy__zz_zy_sva_b21_r = _zy_sva_b21_t;
+assign _zy_sva_b21 = _zy__zz_zy_sva_b21_r;
+always 
+ @(_zy_sva_b21_t)
+  begin
+   xc_top.xcSchEotQ;
+   @(xc_top.eotQEvent) ;
+   _zy__zz_zy_sva_b21_r = _zy_sva_b21_t;
+  end
+// -- ixc_sample
+
+/* ++ ixc_sample  #(1) _zz_zy_sva_b22 (_zy_sva_b22, _zy_sva_b22_t); */
+reg _zy__zz_zy_sva_b22_r;
+initial 
+ _zy__zz_zy_sva_b22_r = _zy_sva_b22_t;
+assign _zy_sva_b22 = _zy__zz_zy_sva_b22_r;
+always 
+ @(_zy_sva_b22_t)
+  begin
+   xc_top.xcSchEotQ;
+   @(xc_top.eotQEvent) ;
+   _zy__zz_zy_sva_b22_r = _zy_sva_b22_t;
+  end
+// -- ixc_sample
+
+/* ++ ixc_sample  #(1) _zz_zy_sva_b23 (_zy_sva_b23, _zy_sva_b23_t); */
+reg _zy__zz_zy_sva_b23_r;
+initial 
+ _zy__zz_zy_sva_b23_r = _zy_sva_b23_t;
+assign _zy_sva_b23 = _zy__zz_zy_sva_b23_r;
+always 
+ @(_zy_sva_b23_t)
+  begin
+   xc_top.xcSchEotQ;
+   @(xc_top.eotQEvent) ;
+   _zy__zz_zy_sva_b23_r = _zy_sva_b23_t;
+  end
+// -- ixc_sample
+
+/* ++ ixc_sample  #(1) _zz_zy_sva_b24 (_zy_sva_b24, _zy_sva_b24_t); */
+reg _zy__zz_zy_sva_b24_r;
+initial 
+ _zy__zz_zy_sva_b24_r = _zy_sva_b24_t;
+assign _zy_sva_b24 = _zy__zz_zy_sva_b24_r;
+always 
+ @(_zy_sva_b24_t)
+  begin
+   xc_top.xcSchEotQ;
+   @(xc_top.eotQEvent) ;
+   _zy__zz_zy_sva_b24_r = _zy_sva_b24_t;
+  end
+// -- ixc_sample
+
+/* ++ ixc_sample  #(1) _zz_zy_sva_b25 (_zy_sva_b25, _zy_sva_b25_t); */
+reg _zy__zz_zy_sva_b25_r;
+initial 
+ _zy__zz_zy_sva_b25_r = _zy_sva_b25_t;
+assign _zy_sva_b25 = _zy__zz_zy_sva_b25_r;
+always 
+ @(_zy_sva_b25_t)
+  begin
+   xc_top.xcSchEotQ;
+   @(xc_top.eotQEvent) ;
+   _zy__zz_zy_sva_b25_r = _zy_sva_b25_t;
+  end
+// -- ixc_sample
+
+/* ++ ixc_sample  #(1) _zz_zy_sva_b26 (_zy_sva_b26, _zy_sva_b26_t); */
+reg _zy__zz_zy_sva_b26_r;
+initial 
+ _zy__zz_zy_sva_b26_r = _zy_sva_b26_t;
+assign _zy_sva_b26 = _zy__zz_zy_sva_b26_r;
+always 
+ @(_zy_sva_b26_t)
+  begin
+   xc_top.xcSchEotQ;
+   @(xc_top.eotQEvent) ;
+   _zy__zz_zy_sva_b26_r = _zy_sva_b26_t;
+  end
+// -- ixc_sample
+
+/* ++ ixc_sample  #(1) _zz_zy_sva_b27 (_zy_sva_b27, _zy_sva_b27_t); */
+reg _zy__zz_zy_sva_b27_r;
+initial 
+ _zy__zz_zy_sva_b27_r = _zy_sva_b27_t;
+assign _zy_sva_b27 = _zy__zz_zy_sva_b27_r;
+always 
+ @(_zy_sva_b27_t)
+  begin
+   xc_top.xcSchEotQ;
+   @(xc_top.eotQEvent) ;
+   _zy__zz_zy_sva_b27_r = _zy_sva_b27_t;
+  end
+// -- ixc_sample
+
+/* ++ ixc_sample  #(1) _zz_zy_sva_b28 (_zy_sva_b28, _zy_sva_b28_t); */
+reg _zy__zz_zy_sva_b28_r;
+initial 
+ _zy__zz_zy_sva_b28_r = _zy_sva_b28_t;
+assign _zy_sva_b28 = _zy__zz_zy_sva_b28_r;
+always 
+ @(_zy_sva_b28_t)
+  begin
+   xc_top.xcSchEotQ;
+   @(xc_top.eotQEvent) ;
+   _zy__zz_zy_sva_b28_r = _zy_sva_b28_t;
+  end
+// -- ixc_sample
+
+/* ++ ixc_sample  #(1) _zz_zy_sva_b29 (_zy_sva_b29, _zy_sva_b29_t); */
+reg _zy__zz_zy_sva_b29_r;
+initial 
+ _zy__zz_zy_sva_b29_r = _zy_sva_b29_t;
+assign _zy_sva_b29 = _zy__zz_zy_sva_b29_r;
+always 
+ @(_zy_sva_b29_t)
+  begin
+   xc_top.xcSchEotQ;
+   @(xc_top.eotQEvent) ;
+   _zy__zz_zy_sva_b29_r = _zy_sva_b29_t;
+  end
+// -- ixc_sample
+
+/* ++ ixc_sample  #(1) _zz_zy_sva_b30 (_zy_sva_b30, _zy_sva_b30_t); */
+reg _zy__zz_zy_sva_b30_r;
+initial 
+ _zy__zz_zy_sva_b30_r = _zy_sva_b30_t;
+assign _zy_sva_b30 = _zy__zz_zy_sva_b30_r;
+always 
+ @(_zy_sva_b30_t)
+  begin
+   xc_top.xcSchEotQ;
+   @(xc_top.eotQEvent) ;
+   _zy__zz_zy_sva_b30_r = _zy_sva_b30_t;
+  end
+// -- ixc_sample
+
+/* ++ ixc_sample  #(1) _zz_zy_sva_b31 (_zy_sva_b31, _zy_sva_b31_t); */
+reg _zy__zz_zy_sva_b31_r;
+initial 
+ _zy__zz_zy_sva_b31_r = _zy_sva_b31_t;
+assign _zy_sva_b31 = _zy__zz_zy_sva_b31_r;
+always 
+ @(_zy_sva_b31_t)
+  begin
+   xc_top.xcSchEotQ;
+   @(xc_top.eotQEvent) ;
+   _zy__zz_zy_sva_b31_r = _zy_sva_b31_t;
+  end
+// -- ixc_sample
+
+/* ++ ixc_sample  #(1) _zz_zy_sva_b32 (_zy_sva_b32, _zy_sva_b32_t); */
+reg _zy__zz_zy_sva_b32_r;
+initial 
+ _zy__zz_zy_sva_b32_r = _zy_sva_b32_t;
+assign _zy_sva_b32 = _zy__zz_zy_sva_b32_r;
+always 
+ @(_zy_sva_b32_t)
+  begin
+   xc_top.xcSchEotQ;
+   @(xc_top.eotQEvent) ;
+   _zy__zz_zy_sva_b32_r = _zy_sva_b32_t;
+  end
+// -- ixc_sample
+
 
 function  [63:0] endian_switch;
  input reg [63:0] data ;
@@ -1020,48 +1785,1178 @@ function  [6:0] strb_to_bits;
  endcase
 endfunction
 
-always_ff 
+always 
+ @(posedge clk or posedge _zy_sva_brcm_gcm_dek256_with_512bit_key_1_reset_or)
+  begin
+   if (_zy_sva_brcm_gcm_dek256_with_512bit_key_1_reset_or)
+    begin
+    end
+   else
+    begin:_zy_sva_sblk_1_1
+     bit _zy_sva_nts_1_1_pass;
+     _zy_sva_nts_1_1_pass = _zy_sva_b0;
+     _zy_sva_brcm_gcm_dek256_with_512bit_key_1_ccheck = 1'b1;
+     if (_zy_sva_nts_1_1_pass)
+      begin
+       _zy_sva_brcm_gcm_dek256_with_512bit_key_1_cpass = 1'b1;
+      end
+    end
+  end
+always 
+ @(posedge clk or posedge _zy_sva_brcm_gcm_dek512_with_512bit_key_2_reset_or)
+  begin
+   if (_zy_sva_brcm_gcm_dek512_with_512bit_key_2_reset_or)
+    begin
+    end
+   else
+    begin:_zy_sva_sblk_2_1
+     bit _zy_sva_nts_2_1_pass;
+     _zy_sva_nts_2_1_pass = _zy_sva_b1;
+     _zy_sva_brcm_gcm_dek512_with_512bit_key_2_ccheck = 1'b1;
+     if (_zy_sva_nts_2_1_pass)
+      begin
+       _zy_sva_brcm_gcm_dek512_with_512bit_key_2_cpass = 1'b1;
+      end
+    end
+  end
+always 
+ @(posedge clk or posedge _zy_sva_brcm_gcm_dek256dak_with_512bit_key_3_reset_or)
+  begin
+   if (_zy_sva_brcm_gcm_dek256dak_with_512bit_key_3_reset_or)
+    begin
+    end
+   else
+    begin:_zy_sva_sblk_3_1
+     bit _zy_sva_nts_3_1_pass;
+     _zy_sva_nts_3_1_pass = _zy_sva_b2;
+     _zy_sva_brcm_gcm_dek256dak_with_512bit_key_3_ccheck = 1'b1;
+     if (_zy_sva_nts_3_1_pass)
+      begin
+       _zy_sva_brcm_gcm_dek256dak_with_512bit_key_3_cpass = 1'b1;
+      end
+    end
+  end
+always 
+ @(posedge clk or posedge _zy_sva_brcm_gcm_dek512dak_with_512bit_key_4_reset_or)
+  begin
+   if (_zy_sva_brcm_gcm_dek512dak_with_512bit_key_4_reset_or)
+    begin
+    end
+   else
+    begin:_zy_sva_sblk_4_1
+     bit _zy_sva_nts_4_1_pass;
+     _zy_sva_nts_4_1_pass = _zy_sva_b3;
+     _zy_sva_brcm_gcm_dek512dak_with_512bit_key_4_ccheck = 1'b1;
+     if (_zy_sva_nts_4_1_pass)
+      begin
+       _zy_sva_brcm_gcm_dek512dak_with_512bit_key_4_cpass = 1'b1;
+      end
+    end
+  end
+always 
+ @(posedge clk or posedge _zy_sva_brcm_gcm_enc_dek256_no_kbk_5_reset_or)
+  begin
+   if (_zy_sva_brcm_gcm_enc_dek256_no_kbk_5_reset_or)
+    begin
+    end
+   else
+    begin:_zy_sva_sblk_5_1
+     bit _zy_sva_nts_5_1_pass;
+     _zy_sva_nts_5_1_pass = _zy_sva_b4;
+     _zy_sva_brcm_gcm_enc_dek256_no_kbk_5_ccheck = 1'b1;
+     if (_zy_sva_nts_5_1_pass)
+      begin
+       _zy_sva_brcm_gcm_enc_dek256_no_kbk_5_cpass = 1'b1;
+      end
+    end
+  end
+always 
+ @(posedge clk or posedge _zy_sva_brcm_gcm_enc_dek512_no_kbk_6_reset_or)
+  begin
+   if (_zy_sva_brcm_gcm_enc_dek512_no_kbk_6_reset_or)
+    begin
+    end
+   else
+    begin:_zy_sva_sblk_6_1
+     bit _zy_sva_nts_6_1_pass;
+     _zy_sva_nts_6_1_pass = _zy_sva_b5;
+     _zy_sva_brcm_gcm_enc_dek512_no_kbk_6_ccheck = 1'b1;
+     if (_zy_sva_nts_6_1_pass)
+      begin
+       _zy_sva_brcm_gcm_enc_dek512_no_kbk_6_cpass = 1'b1;
+      end
+    end
+  end
+always 
+ @(posedge clk or posedge _zy_sva_brcm_gcm_enc_dek256_comb_no_kbk_7_reset_or)
+  begin
+   if (_zy_sva_brcm_gcm_enc_dek256_comb_no_kbk_7_reset_or)
+    begin
+    end
+   else
+    begin:_zy_sva_sblk_7_1
+     bit _zy_sva_nts_7_1_pass;
+     _zy_sva_nts_7_1_pass = _zy_sva_b6;
+     _zy_sva_brcm_gcm_enc_dek256_comb_no_kbk_7_ccheck = 1'b1;
+     if (_zy_sva_nts_7_1_pass)
+      begin
+       _zy_sva_brcm_gcm_enc_dek256_comb_no_kbk_7_cpass = 1'b1;
+      end
+    end
+  end
+always 
+ @(posedge clk or posedge _zy_sva_brcm_gcm_enc_dek512_comb_no_kbk_8_reset_or)
+  begin
+   if (_zy_sva_brcm_gcm_enc_dek512_comb_no_kbk_8_reset_or)
+    begin
+    end
+   else
+    begin:_zy_sva_sblk_8_1
+     bit _zy_sva_nts_8_1_pass;
+     _zy_sva_nts_8_1_pass = _zy_sva_b7;
+     _zy_sva_brcm_gcm_enc_dek512_comb_no_kbk_8_ccheck = 1'b1;
+     if (_zy_sva_nts_8_1_pass)
+      begin
+       _zy_sva_brcm_gcm_enc_dek512_comb_no_kbk_8_cpass = 1'b1;
+      end
+    end
+  end
+always 
+ @(posedge clk or posedge _zy_sva_brcm_tlv_sb_stall_on_guid_9_reset_or)
+  begin
+   if (_zy_sva_brcm_tlv_sb_stall_on_guid_9_reset_or)
+    begin
+    end
+   else
+    begin:_zy_sva_sblk_9_1
+     bit _zy_sva_nts_9_1_pass;
+     _zy_sva_nts_9_1_pass = _zy_sva_b8;
+     _zy_sva_brcm_tlv_sb_stall_on_guid_9_ccheck = 1'b1;
+     if (_zy_sva_nts_9_1_pass)
+      begin
+       _zy_sva_brcm_tlv_sb_stall_on_guid_9_cpass = 1'b1;
+      end
+    end
+  end
+always 
+ @(posedge clk or posedge _zy_sva_brcm_gcm_10_reset_or)
+  begin
+   if (_zy_sva_brcm_gcm_10_reset_or)
+    begin
+    end
+   else
+    begin:_zy_sva_sblk_10_1
+     bit _zy_sva_nts_10_1_pass;
+     _zy_sva_nts_10_1_pass = _zy_sva_b9;
+     _zy_sva_brcm_gcm_10_ccheck = 1'b1;
+     if (_zy_sva_nts_10_1_pass)
+      begin
+       _zy_sva_brcm_gcm_10_cpass = 1'b1;
+      end
+    end
+  end
+always 
+ @(posedge clk or posedge _zy_sva_brcm_gcm_11_reset_or)
+  begin
+   if (_zy_sva_brcm_gcm_11_reset_or)
+    begin
+    end
+   else
+    begin:_zy_sva_sblk_11_1
+     bit _zy_sva_nts_11_1_pass;
+     _zy_sva_nts_11_1_pass = _zy_sva_b10;
+     _zy_sva_brcm_gcm_11_ccheck = 1'b1;
+     if (_zy_sva_nts_11_1_pass)
+      begin
+       _zy_sva_brcm_gcm_11_cpass = 1'b1;
+      end
+    end
+  end
+always 
+ @(posedge clk or posedge _zy_sva_brcm_gcm_12_reset_or)
+  begin
+   if (_zy_sva_brcm_gcm_12_reset_or)
+    begin
+    end
+   else
+    begin:_zy_sva_sblk_12_1
+     bit _zy_sva_nts_12_1_pass;
+     _zy_sva_nts_12_1_pass = _zy_sva_b11;
+     _zy_sva_brcm_gcm_12_ccheck = 1'b1;
+     if (_zy_sva_nts_12_1_pass)
+      begin
+       _zy_sva_brcm_gcm_12_cpass = 1'b1;
+      end
+    end
+  end
+always 
+ @(posedge clk or posedge _zy_sva_brcm_gcm_13_reset_or)
+  begin
+   if (_zy_sva_brcm_gcm_13_reset_or)
+    begin
+    end
+   else
+    begin:_zy_sva_sblk_13_1
+     bit _zy_sva_nts_13_1_pass;
+     _zy_sva_nts_13_1_pass = _zy_sva_b12;
+     _zy_sva_brcm_gcm_13_ccheck = 1'b1;
+     if (_zy_sva_nts_13_1_pass)
+      begin
+       _zy_sva_brcm_gcm_13_cpass = 1'b1;
+      end
+    end
+  end
+always 
+ @(posedge clk or posedge _zy_sva_brcm_gcm_14_reset_or)
+  begin
+   if (_zy_sva_brcm_gcm_14_reset_or)
+    begin
+    end
+   else
+    begin:_zy_sva_sblk_14_1
+     bit _zy_sva_nts_14_1_pass;
+     _zy_sva_nts_14_1_pass = _zy_sva_b13;
+     _zy_sva_brcm_gcm_14_ccheck = 1'b1;
+     if (_zy_sva_nts_14_1_pass)
+      begin
+       _zy_sva_brcm_gcm_14_cpass = 1'b1;
+      end
+    end
+  end
+always 
+ @(posedge clk or posedge _zy_sva_brcm_gcm_15_reset_or)
+  begin
+   if (_zy_sva_brcm_gcm_15_reset_or)
+    begin
+    end
+   else
+    begin:_zy_sva_sblk_15_1
+     bit _zy_sva_nts_15_1_pass;
+     _zy_sva_nts_15_1_pass = _zy_sva_b14;
+     _zy_sva_brcm_gcm_15_ccheck = 1'b1;
+     if (_zy_sva_nts_15_1_pass)
+      begin
+       _zy_sva_brcm_gcm_15_cpass = 1'b1;
+      end
+    end
+  end
+always 
+ @(posedge clk or posedge _zy_sva_brcm_gcm_16_reset_or)
+  begin
+   if (_zy_sva_brcm_gcm_16_reset_or)
+    begin
+    end
+   else
+    begin:_zy_sva_sblk_16_1
+     bit _zy_sva_nts_16_1_pass;
+     _zy_sva_nts_16_1_pass = _zy_sva_b15;
+     _zy_sva_brcm_gcm_16_ccheck = 1'b1;
+     if (_zy_sva_nts_16_1_pass)
+      begin
+       _zy_sva_brcm_gcm_16_cpass = 1'b1;
+      end
+    end
+  end
+always 
+ @(posedge clk or posedge _zy_sva_brcm_gcm_17_reset_or)
+  begin
+   if (_zy_sva_brcm_gcm_17_reset_or)
+    begin
+    end
+   else
+    begin:_zy_sva_sblk_17_1
+     bit _zy_sva_nts_17_1_pass;
+     _zy_sva_nts_17_1_pass = _zy_sva_b16;
+     _zy_sva_brcm_gcm_17_ccheck = 1'b1;
+     if (_zy_sva_nts_17_1_pass)
+      begin
+       _zy_sva_brcm_gcm_17_cpass = 1'b1;
+      end
+    end
+  end
+always 
+ @(posedge clk or posedge _zy_sva_brcm_kdf_label0_8_18_reset_or)
+  begin
+   if (_zy_sva_brcm_kdf_label0_8_18_reset_or)
+    begin
+    end
+   else
+    begin:_zy_sva_sblk_18_1
+     bit _zy_sva_nts_18_1_pass;
+     _zy_sva_nts_18_1_pass = _zy_sva_b17;
+     _zy_sva_brcm_kdf_label0_8_18_ccheck = 1'b1;
+     if (_zy_sva_nts_18_1_pass)
+      begin
+       _zy_sva_brcm_kdf_label0_8_18_cpass = 1'b1;
+      end
+    end
+  end
+always 
+ @(posedge clk or posedge _zy_sva_brcm_kdf_label9_16_19_reset_or)
+  begin
+   if (_zy_sva_brcm_kdf_label9_16_19_reset_or)
+    begin
+    end
+   else
+    begin:_zy_sva_sblk_19_1
+     bit _zy_sva_nts_19_1_pass;
+     _zy_sva_nts_19_1_pass = _zy_sva_b18;
+     _zy_sva_brcm_kdf_label9_16_19_ccheck = 1'b1;
+     if (_zy_sva_nts_19_1_pass)
+      begin
+       _zy_sva_brcm_kdf_label9_16_19_cpass = 1'b1;
+      end
+    end
+  end
+always 
+ @(posedge clk or posedge _zy_sva_brcm_kdf_label17_24_20_reset_or)
+  begin
+   if (_zy_sva_brcm_kdf_label17_24_20_reset_or)
+    begin
+    end
+   else
+    begin:_zy_sva_sblk_20_1
+     bit _zy_sva_nts_20_1_pass;
+     _zy_sva_nts_20_1_pass = _zy_sva_b19;
+     _zy_sva_brcm_kdf_label17_24_20_ccheck = 1'b1;
+     if (_zy_sva_nts_20_1_pass)
+      begin
+       _zy_sva_brcm_kdf_label17_24_20_cpass = 1'b1;
+      end
+    end
+  end
+always 
+ @(posedge clk or posedge _zy_sva_brcm_kdf_label25_32_21_reset_or)
+  begin
+   if (_zy_sva_brcm_kdf_label25_32_21_reset_or)
+    begin
+    end
+   else
+    begin:_zy_sva_sblk_21_1
+     bit _zy_sva_nts_21_1_pass;
+     _zy_sva_nts_21_1_pass = _zy_sva_b20;
+     _zy_sva_brcm_kdf_label25_32_21_ccheck = 1'b1;
+     if (_zy_sva_nts_21_1_pass)
+      begin
+       _zy_sva_brcm_kdf_label25_32_21_cpass = 1'b1;
+      end
+    end
+  end
+always 
+ @(posedge clk or posedge _zy_sva_brcm_kdf_label0_8_22_reset_or)
+  begin
+   if (_zy_sva_brcm_kdf_label0_8_22_reset_or)
+    begin
+    end
+   else
+    begin:_zy_sva_sblk_22_1
+     bit _zy_sva_nts_22_1_pass;
+     _zy_sva_nts_22_1_pass = _zy_sva_b21;
+     _zy_sva_brcm_kdf_label0_8_22_ccheck = 1'b1;
+     if (_zy_sva_nts_22_1_pass)
+      begin
+       _zy_sva_brcm_kdf_label0_8_22_cpass = 1'b1;
+      end
+    end
+  end
+always 
+ @(posedge clk or posedge _zy_sva_brcm_kdf_label9_16_23_reset_or)
+  begin
+   if (_zy_sva_brcm_kdf_label9_16_23_reset_or)
+    begin
+    end
+   else
+    begin:_zy_sva_sblk_23_1
+     bit _zy_sva_nts_23_1_pass;
+     _zy_sva_nts_23_1_pass = _zy_sva_b22;
+     _zy_sva_brcm_kdf_label9_16_23_ccheck = 1'b1;
+     if (_zy_sva_nts_23_1_pass)
+      begin
+       _zy_sva_brcm_kdf_label9_16_23_cpass = 1'b1;
+      end
+    end
+  end
+always 
+ @(posedge clk or posedge _zy_sva_brcm_kdf_label17_24_24_reset_or)
+  begin
+   if (_zy_sva_brcm_kdf_label17_24_24_reset_or)
+    begin
+    end
+   else
+    begin:_zy_sva_sblk_24_1
+     bit _zy_sva_nts_24_1_pass;
+     _zy_sva_nts_24_1_pass = _zy_sva_b23;
+     _zy_sva_brcm_kdf_label17_24_24_ccheck = 1'b1;
+     if (_zy_sva_nts_24_1_pass)
+      begin
+       _zy_sva_brcm_kdf_label17_24_24_cpass = 1'b1;
+      end
+    end
+  end
+always 
+ @(posedge clk or posedge _zy_sva_brcm_kdf_label25_32_25_reset_or)
+  begin
+   if (_zy_sva_brcm_kdf_label25_32_25_reset_or)
+    begin
+    end
+   else
+    begin:_zy_sva_sblk_25_1
+     bit _zy_sva_nts_25_1_pass;
+     _zy_sva_nts_25_1_pass = _zy_sva_b24;
+     _zy_sva_brcm_kdf_label25_32_25_ccheck = 1'b1;
+     if (_zy_sva_nts_25_1_pass)
+      begin
+       _zy_sva_brcm_kdf_label25_32_25_cpass = 1'b1;
+      end
+    end
+  end
+always 
+ @(posedge clk or posedge _zy_sva_brcm_kdf_label0_8_26_reset_or)
+  begin
+   if (_zy_sva_brcm_kdf_label0_8_26_reset_or)
+    begin
+    end
+   else
+    begin:_zy_sva_sblk_26_1
+     bit _zy_sva_nts_26_1_pass;
+     _zy_sva_nts_26_1_pass = _zy_sva_b25;
+     _zy_sva_brcm_kdf_label0_8_26_ccheck = 1'b1;
+     if (_zy_sva_nts_26_1_pass)
+      begin
+       _zy_sva_brcm_kdf_label0_8_26_cpass = 1'b1;
+      end
+    end
+  end
+always 
+ @(posedge clk or posedge _zy_sva_brcm_kdf_label9_16_27_reset_or)
+  begin
+   if (_zy_sva_brcm_kdf_label9_16_27_reset_or)
+    begin
+    end
+   else
+    begin:_zy_sva_sblk_27_1
+     bit _zy_sva_nts_27_1_pass;
+     _zy_sva_nts_27_1_pass = _zy_sva_b26;
+     _zy_sva_brcm_kdf_label9_16_27_ccheck = 1'b1;
+     if (_zy_sva_nts_27_1_pass)
+      begin
+       _zy_sva_brcm_kdf_label9_16_27_cpass = 1'b1;
+      end
+    end
+  end
+always 
+ @(posedge clk or posedge _zy_sva_brcm_kdf_label17_24_28_reset_or)
+  begin
+   if (_zy_sva_brcm_kdf_label17_24_28_reset_or)
+    begin
+    end
+   else
+    begin:_zy_sva_sblk_28_1
+     bit _zy_sva_nts_28_1_pass;
+     _zy_sva_nts_28_1_pass = _zy_sva_b27;
+     _zy_sva_brcm_kdf_label17_24_28_ccheck = 1'b1;
+     if (_zy_sva_nts_28_1_pass)
+      begin
+       _zy_sva_brcm_kdf_label17_24_28_cpass = 1'b1;
+      end
+    end
+  end
+always 
+ @(posedge clk or posedge _zy_sva_brcm_kdf_label25_32_29_reset_or)
+  begin
+   if (_zy_sva_brcm_kdf_label25_32_29_reset_or)
+    begin
+    end
+   else
+    begin:_zy_sva_sblk_29_1
+     bit _zy_sva_nts_29_1_pass;
+     _zy_sva_nts_29_1_pass = _zy_sva_b28;
+     _zy_sva_brcm_kdf_label25_32_29_ccheck = 1'b1;
+     if (_zy_sva_nts_29_1_pass)
+      begin
+       _zy_sva_brcm_kdf_label25_32_29_cpass = 1'b1;
+      end
+    end
+  end
+always 
+ @(posedge clk or posedge _zy_sva_brcm_kdf_label0_8_30_reset_or)
+  begin
+   if (_zy_sva_brcm_kdf_label0_8_30_reset_or)
+    begin
+    end
+   else
+    begin:_zy_sva_sblk_30_1
+     bit _zy_sva_nts_30_1_pass;
+     _zy_sva_nts_30_1_pass = _zy_sva_b29;
+     _zy_sva_brcm_kdf_label0_8_30_ccheck = 1'b1;
+     if (_zy_sva_nts_30_1_pass)
+      begin
+       _zy_sva_brcm_kdf_label0_8_30_cpass = 1'b1;
+      end
+    end
+  end
+always 
+ @(posedge clk or posedge _zy_sva_brcm_kdf_label9_16_31_reset_or)
+  begin
+   if (_zy_sva_brcm_kdf_label9_16_31_reset_or)
+    begin
+    end
+   else
+    begin:_zy_sva_sblk_31_1
+     bit _zy_sva_nts_31_1_pass;
+     _zy_sva_nts_31_1_pass = _zy_sva_b30;
+     _zy_sva_brcm_kdf_label9_16_31_ccheck = 1'b1;
+     if (_zy_sva_nts_31_1_pass)
+      begin
+       _zy_sva_brcm_kdf_label9_16_31_cpass = 1'b1;
+      end
+    end
+  end
+always 
+ @(posedge clk or posedge _zy_sva_brcm_kdf_label17_24_32_reset_or)
+  begin
+   if (_zy_sva_brcm_kdf_label17_24_32_reset_or)
+    begin
+    end
+   else
+    begin:_zy_sva_sblk_32_1
+     bit _zy_sva_nts_32_1_pass;
+     _zy_sva_nts_32_1_pass = _zy_sva_b31;
+     _zy_sva_brcm_kdf_label17_24_32_ccheck = 1'b1;
+     if (_zy_sva_nts_32_1_pass)
+      begin
+       _zy_sva_brcm_kdf_label17_24_32_cpass = 1'b1;
+      end
+    end
+  end
+always 
+ @(posedge clk or posedge _zy_sva_brcm_kdf_label25_32_33_reset_or)
+  begin
+   if (_zy_sva_brcm_kdf_label25_32_33_reset_or)
+    begin
+    end
+   else
+    begin:_zy_sva_sblk_33_1
+     bit _zy_sva_nts_33_1_pass;
+     _zy_sva_nts_33_1_pass = _zy_sva_b32;
+     _zy_sva_brcm_kdf_label25_32_33_ccheck = 1'b1;
+     if (_zy_sva_nts_33_1_pass)
+      begin
+       _zy_sva_brcm_kdf_label25_32_33_cpass = 1'b1;
+      end
+    end
+  end
+always 
  @(posedge clk or negedge rst_n)
   begin
    if (( !rst_n ))
     begin
-     buffer <= 64'b0;
-     send_data <= 1'b0;
+     stream_cmd_in <= {263{1'b0}};
+     gcm_dek_cmd_in <= {611{1'b0}};
+     gcm_dak_cmd_in <= {611{1'b0}};
+     gcm_dek_tag <= 96'b0;
+     gcm_dak_tag <= 96'b0;
+     skip_dek_kdf <= 1'b0;
+     skip_dak_kdf <= 1'b0;
+     kdf_dek_iter <= 1'b0;
     end
    else
-    if (( !send_data ))
+    begin
+     stream_cmd_in <= stream_cmd_in_nxt;
+     gcm_dek_cmd_in <= gcm_dek_cmd_in_nxt;
+     gcm_dak_cmd_in <= gcm_dak_cmd_in_nxt;
+     gcm_dek_tag <= gcm_dek_tag_nxt;
+     gcm_dak_tag <= gcm_dak_tag_nxt;
+     skip_dek_kdf <= skip_dek_kdf_nxt;
+     skip_dak_kdf <= skip_dak_kdf_nxt;
+     kdf_dek_iter <= kdf_dek_iter_nxt;
+    end
+  end
+always 
+ @(posedge clk or negedge rst_n)
+  begin
+   if (( !rst_n ))
+    begin
+     corrupt_kme_error_bit_0 <= 1'b0;
+     rst_corrupt_kme_error_bit_0 <= 1'b0;
+     corrupt_crc32 <= 1'b0;
+     rst_corrupt_crc32 <= 1'b0;
+    end
+   else
+    if (kme_internal_out_ack)
      begin
-      if (in_upsizer_valid)
+      if ((kme_internal_out.id == KME_DEBUG_KEYHDR))
        begin
-        buffer <= in_upsizer_data;
-        send_data <= 1'b1;
+        if ((debug_cmd.tlvp_corrupt == USER))
+         begin
+          if ((debug_cmd.module_id == 5'b11111))
+          begin
+          if ((debug_cmd.cmd_type == FUNCTIONAL_ERROR))
+          begin
+          if ((debug_cmd.cmd_mode == SINGLE_ERR))
+          begin
+          case (debug_cmd.byte_msk[0])
+          1'b0:
+          begin
+          corrupt_kme_error_bit_0 <= 1'b1;
+          rst_corrupt_kme_error_bit_0 <= 1'b1;
+          end
+          1'b1:
+          begin
+          corrupt_crc32 <= 1'b1;
+          rst_corrupt_crc32 <= 1'b1;
+          end
+          endcase
+          end
+          if ((debug_cmd.cmd_mode == CONTINUOUS_ERROR))
+          begin
+          case (debug_cmd.byte_msk[0])
+          1'b0:
+          corrupt_kme_error_bit_0 <= 1'b1;
+          1'b1:
+          corrupt_crc32 <= 1'b1;
+          endcase
+          end
+          if ((debug_cmd.cmd_mode == STOP))
+          begin
+          case (debug_cmd.byte_msk[0])
+          1'b0:
+          corrupt_kme_error_bit_0 <= 1'b0;
+          1'b1:
+          corrupt_crc32 <= 1'b0;
+          endcase
+          end
+          end
+          end
+         end
+       end
+      if ((kme_internal_out.id == KME_ERROR))
+       begin
+        if (rst_corrupt_kme_error_bit_0)
+         begin
+          corrupt_kme_error_bit_0 <= 1'b0;
+          rst_corrupt_kme_error_bit_0 <= 1'b0;
+         end
+        if (rst_corrupt_crc32)
+         begin
+          corrupt_crc32 <= 1'b0;
+          rst_corrupt_crc32 <= 1'b0;
+         end
        end
      end
-    else
-     if (in_upsizer_valid)
-      begin
-       send_data <= 1'b0;
-      end
   end
 always 
  @(*)
   begin
-   upsizer_out_valid = 1'b0;
-   upsizer_out_eof = 1'b0;
-   upsizer_out_data = 128'b0;
-   upsizer_in_stall = out_upsizer_stall;
-   if (( !out_upsizer_stall ))
+   inspector_upsizer_valid = 1'b0;
+   inspector_upsizer_eof = 1'b0;
+   inspector_upsizer_data = 64'b0;
+   gcm_cmd_in_valid = 1'b0;
+   gcm_cmd_in = {611{1'b0}};
+   gcm_tag_data_in = 96'b0;
+   gcm_tag_data_in_valid = 1'b0;
+   keyfilter_cmd_in_valid = 1'b0;
+   keyfilter_cmd_in = 1'b0;
+   kdf_cmd_in_valid = 1'b0;
+   kdf_cmd_in = 4'b0;
+   kdfstream_cmd_in_valid = 1'b0;
+   kdfstream_cmd_in = {263{1'b0}};
+   tlv_sb_data_in_valid = 1'b0;
+   tlv_sb_data_in = 64'b0;
+   int_tlv_word0 = kme_internal_out.tdata;
+   int_tlv_word8 = kme_internal_out.tdata;
+   int_tlv_word9 = kme_internal_out.tdata;
+   int_tlv_word42 = kme_internal_out.tdata;
+   debug_cmd = kme_internal_out.tdata[63:32];
+   key_header = kme_internal_out.tdata[31:0];
+   stream_cmd_in_nxt = stream_cmd_in;
+   gcm_dek_cmd_in_nxt = gcm_dek_cmd_in;
+   gcm_dak_cmd_in_nxt = gcm_dak_cmd_in;
+   gcm_dek_tag_nxt = gcm_dek_tag;
+   gcm_dak_tag_nxt = gcm_dak_tag;
+   skip_dek_kdf_nxt = skip_dek_kdf;
+   skip_dak_kdf_nxt = skip_dak_kdf;
+   kdf_dek_iter_nxt = kdf_dek_iter;
+   int_tlv_word42.corrupt_crc32 = corrupt_crc32;
+   if (corrupt_kme_error_bit_0)
     begin
-     if (send_data)
+     int_tlv_word42[0] = ( ~kme_internal_out.tdata[0] );
+    end
+   kme_internal_out_ack = kme_internal_out_valid;
+   if (((kme_internal_out.id == KME_DEK0) & upsizer_inspector_stall))
+    kme_internal_out_ack = 1'b0;
+   if (((kme_internal_out.id == KME_DEK1) & upsizer_inspector_stall))
+    kme_internal_out_ack = 1'b0;
+   if (((kme_internal_out.id == KME_DAK) & upsizer_inspector_stall))
+    kme_internal_out_ack = 1'b0;
+   if ((((kme_internal_out.id == KME_EIV) & kme_internal_out.eoi) & gcm_cmd_in_stall))
+    kme_internal_out_ack = 1'b0;
+   if ((((kme_internal_out.id == KME_AIV) & kme_internal_out.eoi) & gcm_cmd_in_stall))
+    kme_internal_out_ack = 1'b0;
+   if ((((kme_internal_out.id == KME_ETAG) & kme_internal_out.eoi) & gcm_tag_data_in_stall))
+    kme_internal_out_ack = 1'b0;
+   if ((((kme_internal_out.id == KME_ATAG) & kme_internal_out.eoi) & gcm_tag_data_in_stall))
+    kme_internal_out_ack = 1'b0;
+   if ((((kme_internal_out.id == KME_DEBUG_KEYHDR) & kme_internal_out.eoi) & kdf_cmd_in_stall))
+    kme_internal_out_ack = 1'b0;
+   if ((((kme_internal_out.id == KME_DEBUG_KEYHDR) & kme_internal_out.eoi) & keyfilter_cmd_in_stall))
+    kme_internal_out_ack = 1'b0;
+   if (((kme_internal_out.id == KME_KIM) & kdfstream_cmd_in_stall))
+    kme_internal_out_ack = 1'b0;
+   if ((((kme_internal_out.id == KME_WORD0) & kme_internal_out.eoi) & tlv_sb_data_in_stall))
+    kme_internal_out_ack = 1'b0;
+   if ((((kme_internal_out.id == KME_GUID) & kme_internal_out_valid) & tlv_sb_data_in_stall))
+    kme_internal_out_ack = 1'b0;
+   if ((((kme_internal_out.id == KME_IVTWEAK) & kme_internal_out_valid) & tlv_sb_data_in_stall))
+    kme_internal_out_ack = 1'b0;
+   if ((((kme_internal_out.id == KME_ERROR) & kme_internal_out_valid) & tlv_sb_data_in_stall))
+    kme_internal_out_ack = 1'b0;
+   if (kme_internal_out_ack)
+    begin
+     if ((kme_internal_out.id == KME_DEK0))
       begin
-       if (in_upsizer_valid)
+       inspector_upsizer_valid = 1'b1;
+       inspector_upsizer_data = kme_internal_out.tdata;
+      end
+     if ((kme_internal_out.id == KME_DEK1))
+      begin
+       inspector_upsizer_valid = 1'b1;
+       inspector_upsizer_eof = kme_internal_out.eoi;
+       inspector_upsizer_data = kme_internal_out.tdata;
+      end
+     if ((kme_internal_out.id == KME_DAK))
+      begin
+       inspector_upsizer_valid = 1'b1;
+       inspector_upsizer_eof = kme_internal_out.eoi;
+       inspector_upsizer_data = kme_internal_out.tdata;
+      end
+    end
+   if (kme_internal_out_ack)
+    begin
+     if ((kme_internal_out.id == KME_WORD0))
+      begin
+       gcm_dek_cmd_in_nxt = {611{1'b0}};
+       gcm_dak_cmd_in_nxt = {611{1'b0}};
+       kdf_dek_iter_nxt = int_tlv_word0.kdf_dek_iter;
+       case (int_tlv_word0.key_type)
+        NO_AUX_KEY:
+         gcm_dek_cmd_in_nxt.op = PT_KEY_BLOB;
+        AUX_KEY_ONLY:
+         gcm_dek_cmd_in_nxt.op = PT_CKV;
+        DEK256:
+         gcm_dek_cmd_in_nxt.op = PT_KEY_BLOB;
+        DEK512:
+         gcm_dek_cmd_in_nxt.op = PT_KEY_BLOB;
+        DAK:
+         gcm_dek_cmd_in_nxt.op = PT_CKV;
+        DEK256_DAK:
+         gcm_dek_cmd_in_nxt.op = PT_KEY_BLOB;
+        DEK512_DAK:
+         gcm_dek_cmd_in_nxt.op = PT_KEY_BLOB;
+        ENC_DEK256:
+         gcm_dek_cmd_in_nxt.op = DECRYPT_DEK256;
+        ENC_DEK512:
+         gcm_dek_cmd_in_nxt.op = DECRYPT_DEK512;
+        ENC_DAK:
+         gcm_dek_cmd_in_nxt.op = PT_CKV;
+        ENC_DEK256_DAK:
+         gcm_dek_cmd_in_nxt.op = DECRYPT_DEK256;
+        ENC_DEK512_DAK:
+         gcm_dek_cmd_in_nxt.op = DECRYPT_DEK512;
+        ENC_DEK256_DAK_COMB:
+         gcm_dek_cmd_in_nxt.op = DECRYPT_DEK256_COMB;
+        ENC_DEK512_DAK_COMB:
+         gcm_dek_cmd_in_nxt.op = DECRYPT_DEK512_COMB;
+       endcase
+       case (int_tlv_word0.key_type)
+        NO_AUX_KEY:
+         gcm_dak_cmd_in_nxt.op = PT_KEY_BLOB;
+        AUX_KEY_ONLY:
+         gcm_dak_cmd_in_nxt.op = PT_CKV;
+        DEK256:
+         gcm_dak_cmd_in_nxt.op = PT_CKV;
+        DEK512:
+         gcm_dak_cmd_in_nxt.op = PT_CKV;
+        DAK:
+         gcm_dak_cmd_in_nxt.op = PT_KEY_BLOB;
+        DEK256_DAK:
+         gcm_dak_cmd_in_nxt.op = PT_KEY_BLOB;
+        DEK512_DAK:
+         gcm_dak_cmd_in_nxt.op = PT_KEY_BLOB;
+        ENC_DEK256:
+         gcm_dak_cmd_in_nxt.op = PT_CKV;
+        ENC_DEK512:
+         gcm_dak_cmd_in_nxt.op = PT_CKV;
+        ENC_DAK:
+         gcm_dak_cmd_in_nxt.op = DECRYPT_DAK;
+        ENC_DEK256_DAK:
+         gcm_dak_cmd_in_nxt.op = DECRYPT_DAK;
+        ENC_DEK512_DAK:
+         gcm_dak_cmd_in_nxt.op = DECRYPT_DAK;
+        ENC_DEK256_DAK_COMB:
+         gcm_dak_cmd_in_nxt.op = DECRYPT_DAK_COMB;
+        ENC_DEK512_DAK_COMB:
+         gcm_dak_cmd_in_nxt.op = DECRYPT_DAK_COMB;
+       endcase
+      end
+     if ((kme_internal_out.id == KME_DEK_CKV0))
+      begin
+       gcm_dek_cmd_in_nxt.key0 = {gcm_dek_cmd_in_nxt.key0[32'sd191:32'sd0],kme_internal_out.tdata};
+      end
+     if ((kme_internal_out.id == KME_DEK_CKV1))
+      begin
+       gcm_dek_cmd_in_nxt.key1 = {gcm_dek_cmd_in_nxt.key1[32'sd191:32'sd0],kme_internal_out.tdata};
+      end
+     if ((kme_internal_out.id == KME_DAK_CKV))
+      begin
+       gcm_dak_cmd_in_nxt.key0 = {gcm_dak_cmd_in_nxt.key0[32'sd191:32'sd0],kme_internal_out.tdata};
+       gcm_dak_cmd_in_nxt.key1 = {gcm_dak_cmd_in_nxt.key1[32'sd191:32'sd0],kme_internal_out.tdata};
+      end
+     if ((kme_internal_out.id == KME_EIV))
+      begin
+       case (kme_internal_out.eoi)
+        1'b0:
+         gcm_dek_cmd_in_nxt.iv[95:32] = kme_internal_out.tdata;
+        1'b1:
+         gcm_dek_cmd_in_nxt.iv[31:0] = kme_internal_out.tdata[63:32];
+       endcase
+       if (kme_internal_out.eoi)
+        gcm_cmd_in_valid = 1'b1;
+       if (kme_internal_out.eoi)
+        gcm_cmd_in = gcm_dek_cmd_in_nxt;
+      end
+     if ((kme_internal_out.id == KME_AIV))
+      begin
+       case (kme_internal_out.eoi)
+        1'b0:
+         gcm_dak_cmd_in_nxt.iv[95:32] = kme_internal_out.tdata;
+        1'b1:
+         gcm_dak_cmd_in_nxt.iv[31:0] = kme_internal_out.tdata[63:32];
+       endcase
+       if (kme_internal_out.eoi)
+        gcm_cmd_in_valid = 1'b1;
+       if (kme_internal_out.eoi)
+        gcm_cmd_in = gcm_dak_cmd_in_nxt;
+      end
+    end
+   if (kme_internal_out_ack)
+    begin
+     if ((kme_internal_out.id == KME_ETAG))
+      begin
+       case (kme_internal_out.eoi)
+        1'b0:
+         gcm_dek_tag_nxt[95:32] = kme_internal_out.tdata;
+        1'b1:
+         gcm_dek_tag_nxt[31:0] = kme_internal_out.tdata[63:32];
+       endcase
+       if (kme_internal_out.eoi)
+        gcm_tag_data_in_valid = 1'b1;
+       if (kme_internal_out.eoi)
+        gcm_tag_data_in = gcm_dek_tag_nxt;
+      end
+     if ((kme_internal_out.id == KME_ATAG))
+      begin
+       case (kme_internal_out.eoi)
+        1'b0:
+         gcm_dak_tag_nxt[95:32] = kme_internal_out.tdata;
+        1'b1:
+         gcm_dak_tag_nxt[31:0] = kme_internal_out.tdata[63:32];
+       endcase
+       if (kme_internal_out.eoi)
+        gcm_tag_data_in_valid = 1'b1;
+       if (kme_internal_out.eoi)
+        gcm_tag_data_in = gcm_dak_tag_nxt;
+      end
+    end
+   if (kme_internal_out_ack)
+    begin
+     if ((kme_internal_out.id == KME_DEBUG_KEYHDR))
+      begin
+       kdf_cmd_in_valid = 1'b1;
+       kdf_cmd_in.dek_key_op = key_header.dek_key_op;
+       kdf_cmd_in.dak_key_op = key_header.dak_key_op;
+       kdf_cmd_in.combo_mode = ((key_header.kdf_mode == KDF_MODE_COMB_GUID) | (key_header.kdf_mode == KDF_MODE_COMB_RGUID));
+       skip_dek_kdf_nxt = (key_header.dek_key_op == NOOP);
+       skip_dak_kdf_nxt = (key_header.dak_key_op == NOOP);
+       kdf_cmd_in.kdf_dek_iter = kdf_dek_iter;
+       keyfilter_cmd_in_valid = 1'b1;
+       keyfilter_cmd_in.combo_mode = ((key_header.kdf_mode == KDF_MODE_COMB_GUID) | (key_header.kdf_mode == KDF_MODE_COMB_RGUID));
+      end
+    end
+   if (kme_internal_out_ack)
+    begin
+     if ((kme_internal_out.id == KME_DEBUG_KEYHDR))
+      begin
+       stream_cmd_in_nxt = {263{1'b0}};
+       if (((key_header.kdf_mode == KDF_MODE_GUID) || (key_header.kdf_mode == KDF_MODE_RGUID)))
         begin
-         upsizer_out_valid = 1'b1;
-         upsizer_out_eof = in_upsizer_eof;
-         upsizer_out_data = {buffer,in_upsizer_data};
+         stream_cmd_in_nxt.num_iter = (2'b01 + {1'b0,kdf_dek_iter});
+         stream_cmd_in_nxt.combo_mode = 1'b0;
+        end
+       else
+        begin
+         stream_cmd_in_nxt.num_iter = (2'b10 + {1'b0,kdf_dek_iter});
+         stream_cmd_in_nxt.combo_mode = 1'b1;
+        end
+      end
+     if ((kme_internal_out.id == KME_GUID))
+      begin
+       stream_cmd_in_nxt.guid = {stream_cmd_in.guid[32'sd191:32'sd0],kme_internal_out.tdata};
+      end
+     if ((kme_internal_out.id == KME_KIM))
+      begin
+       if ((kme_internal_out.eoi == 1'b0))
+        begin
+         kdfstream_cmd_in_valid = 1'b1;
+         kdfstream_cmd_in = stream_cmd_in;
+         kdfstream_cmd_in.label_index = int_tlv_word8.dek_kim_entry.label_index;
+         if (( !stream_cmd_in.combo_mode ))
+          begin
+          kdfstream_cmd_in.skip = skip_dek_kdf;
+          end
+        end
+       else
+        begin
+         if (( !stream_cmd_in.combo_mode ))
+          begin
+          kdfstream_cmd_in_valid = 1'b1;
+          kdfstream_cmd_in = stream_cmd_in;
+          kdfstream_cmd_in.label_index = int_tlv_word9.dak_kim_entry.label_index;
+          kdfstream_cmd_in.num_iter = 2'b01;
+          kdfstream_cmd_in.skip = skip_dak_kdf;
+          end
         end
       end
     end
+   if (kme_internal_out_ack)
+    begin
+     if ((kme_internal_out.id == KME_WORD0))
+      begin
+       tlv_sb_data_in_valid = 1'b1;
+       tlv_sb_data_in = kme_internal_out.tdata;
+      end
+     if ((kme_internal_out.id == KME_GUID))
+      begin
+       tlv_sb_data_in_valid = 1'b1;
+       tlv_sb_data_in = kme_internal_out.tdata;
+      end
+     if ((kme_internal_out.id == KME_IVTWEAK))
+      begin
+       tlv_sb_data_in_valid = 1'b1;
+       tlv_sb_data_in = kme_internal_out.tdata;
+      end
+     if ((kme_internal_out.id == KME_ERROR))
+      begin
+       tlv_sb_data_in_valid = 1'b1;
+       tlv_sb_data_in = int_tlv_word42;
+      end
+    end
   end
+always 
+ @(posedge clk or negedge rst_n)
+  begin
+   if (( !rst_n ))
+    begin
+     dek_ckv_length_q <= 2'b0;
+     kek_tag_q <= 1'b0;
+    end
+   else
+    if (kme_internal_out_ack)
+     begin
+      if ((kme_internal_out.id == KME_KIM))
+       begin
+        if ((kme_internal_out.eoi == 1'b0))
+         begin
+          dek_ckv_length_q <= int_tlv_word8.dek_kim_entry.ckv_length;
+          kek_tag_q <= int_tlv_word8.pf_num[3];
+         end
+       end
+     end
+  end
+initial 
+ begin
+ end
+genvar ii$0; 
+for ( ii$0 = 0 ; (ii$0 <= 7) ; ii$0 = (ii$0 + 1) ) begin: op
+end
+genvar ii$1; 
+// pragma cva_vlog_forgen op 
+for ( ii$1 = 0 ; (ii$1 <= 0) ; ii$1 = (ii$1 + 1) ) begin: op_0_
+ localparam integer ii = 0;
+  axis_assert("brcm_gcm",1'b0,2'b10,,,,,,,_zy_sva_brcm_gcm_10_cpass,,_zy_sva_brcm_gcm_10_ccheck,,"/home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kop_tlv_inspector.v",573,3'b000);
+ brcm_gcm:cover property (@( posedge clk ) disable iff ((rst_n !== 32'b01)) (gcm_cmd_in_valid & (gcm_cmd_in.op == 32'b0)))
+    begin
+  end
+end
+genvar ii$2; 
+// pragma cva_vlog_forgen op 
+for ( ii$2 = 1 ; (ii$2 <= 1) ; ii$2 = (ii$2 + 1) ) begin: op_1_
+ localparam integer ii = 1;
+  axis_assert("brcm_gcm",1'b0,2'b10,,,,,,,_zy_sva_brcm_gcm_11_cpass,,_zy_sva_brcm_gcm_11_ccheck,,"/home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kop_tlv_inspector.v",573,3'b000);
+ brcm_gcm:cover property (@( posedge clk ) disable iff ((rst_n !== 32'b01)) (gcm_cmd_in_valid & (gcm_cmd_in.op == 32'b01)))
+    begin
+  end
+end
+genvar ii$3; 
+// pragma cva_vlog_forgen op 
+for ( ii$3 = 2 ; (ii$3 <= 2) ; ii$3 = (ii$3 + 1) ) begin: op_2_
+ localparam integer ii = 2;
+  axis_assert("brcm_gcm",1'b0,2'b10,,,,,,,_zy_sva_brcm_gcm_12_cpass,,_zy_sva_brcm_gcm_12_ccheck,,"/home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kop_tlv_inspector.v",573,3'b000);
+ brcm_gcm:cover property (@( posedge clk ) disable iff ((rst_n !== 32'b01)) (gcm_cmd_in_valid & (gcm_cmd_in.op == 32'b010)))
+    begin
+  end
+end
+genvar ii$4; 
+// pragma cva_vlog_forgen op 
+for ( ii$4 = 3 ; (ii$4 <= 3) ; ii$4 = (ii$4 + 1) ) begin: op_3_
+ localparam integer ii = 3;
+  axis_assert("brcm_gcm",1'b0,2'b10,,,,,,,_zy_sva_brcm_gcm_13_cpass,,_zy_sva_brcm_gcm_13_ccheck,,"/home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kop_tlv_inspector.v",573,3'b000);
+ brcm_gcm:cover property (@( posedge clk ) disable iff ((rst_n !== 32'b01)) (gcm_cmd_in_valid & (gcm_cmd_in.op == 32'b011)))
+    begin
+  end
+end
+genvar ii$5; 
+// pragma cva_vlog_forgen op 
+for ( ii$5 = 4 ; (ii$5 <= 4) ; ii$5 = (ii$5 + 1) ) begin: op_4_
+ localparam integer ii = 4;
+  axis_assert("brcm_gcm",1'b0,2'b10,,,,,,,_zy_sva_brcm_gcm_14_cpass,,_zy_sva_brcm_gcm_14_ccheck,,"/home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kop_tlv_inspector.v",573,3'b000);
+ brcm_gcm:cover property (@( posedge clk ) disable iff ((rst_n !== 32'b01)) (gcm_cmd_in_valid & (gcm_cmd_in.op == 32'b0100)))
+    begin
+  end
+end
+genvar ii$6; 
+// pragma cva_vlog_forgen op 
+for ( ii$6 = 5 ; (ii$6 <= 5) ; ii$6 = (ii$6 + 1) ) begin: op_5_
+ localparam integer ii = 5;
+  axis_assert("brcm_gcm",1'b0,2'b10,,,,,,,_zy_sva_brcm_gcm_15_cpass,,_zy_sva_brcm_gcm_15_ccheck,,"/home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kop_tlv_inspector.v",573,3'b000);
+ brcm_gcm:cover property (@( posedge clk ) disable iff ((rst_n !== 32'b01)) (gcm_cmd_in_valid & (gcm_cmd_in.op == 32'b0101)))
+    begin
+  end
+end
+genvar ii$7; 
+// pragma cva_vlog_forgen op 
+for ( ii$7 = 6 ; (ii$7 <= 6) ; ii$7 = (ii$7 + 1) ) begin: op_6_
+ localparam integer ii = 6;
+  axis_assert("brcm_gcm",1'b0,2'b10,,,,,,,_zy_sva_brcm_gcm_16_cpass,,_zy_sva_brcm_gcm_16_ccheck,,"/home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kop_tlv_inspector.v",573,3'b000);
+ brcm_gcm:cover property (@( posedge clk ) disable iff ((rst_n !== 32'b01)) (gcm_cmd_in_valid & (gcm_cmd_in.op == 32'b0110)))
+    begin
+  end
+end
+genvar ii$8; 
+// pragma cva_vlog_forgen op 
+for ( ii$8 = 7 ; (ii$8 <= 7) ; ii$8 = (ii$8 + 1) ) begin: op_7_
+ localparam integer ii = 7;
+  axis_assert("brcm_gcm",1'b0,2'b10,,,,,,,_zy_sva_brcm_gcm_17_cpass,,_zy_sva_brcm_gcm_17_ccheck,,"/home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kop_tlv_inspector.v",573,3'b000);
+ brcm_gcm:cover property (@( posedge clk ) disable iff ((rst_n !== 32'b01)) (gcm_cmd_in_valid & (gcm_cmd_in.op == 32'b0111)))
+    begin
+  end
+end
+genvar ii$9; 
+for ( ii$9 = 0 ; (ii$9 <= 1) ; ii$9 = (ii$9 + 1) ) begin: guid
+end
+genvar ii$10; 
+// pragma cva_vlog_forgen guid 
+for ( ii$10 = 0 ; (ii$10 <= 0) ; ii$10 = (ii$10 + 1) ) begin: guid_0_
+ localparam integer ii = 0;
+ genvar jj$11; 
+ for ( jj$11 = 0 ; (jj$11 <= 1) ; jj$11 = (jj$11 + 1) ) begin: delimiter
+ end
+ genvar jj$12; 
+// pragma cva_vlog_forgen delimiter 
+ for ( jj$12 = 0 ; (jj$12 <= 0) ; jj$12 = (jj$12 + 1) ) begin: delimiter_0_
+  localparam integer jj = 0;
+    axis_assert("brcm_kdf_label0_8",1'b0,2'b10,,,,,,,_zy_sva_brcm_kdf_label0_8_18_cpass,,_zy_sva_brcm_kdf_label0_8_18_ccheck,,"/home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kop_tlv_inspector.v",595,3'b000);
+  brcm_kdf_label0_8:cover property ( @(posedge _sva_placeholder_clk) (_sva_placeholder_expr));
+    axis_assert("brcm_kdf_label9_16",1'b0,2'b10,,,,,,,_zy_sva_brcm_kdf_label9_16_19_cpass,,_zy_sva_brcm_kdf_label9_16_19_ccheck,,"/home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kop_tlv_inspector.v",600,3'b000);
+  brcm_kdf_label9_16:cover property ( @(posedge _sva_placeholder_clk) (_sva_placeholder_expr));
+    axis_assert("brcm_kdf_label17_24",1'b0,2'b10,,,,,,,_zy_sva_brcm_kdf_label17_24_20_cpass,,_zy_sva_brcm_kdf_label17_24_20_ccheck,,"/home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kop_tlv_inspector.v",605,3'b000);
+  brcm_kdf_label17_24:cover property ( @(posedge _sva_placeholder_clk) (_sva_placeholder_expr));
+    axis_assert("brcm_kdf_label25_32",1'b0,2'b10,,,,,,,_zy_sva_brcm_kdf_label25_32_21_cpass,,_zy_sva_brcm_kdf_label25_32_21_ccheck,,"/home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kop_tlv_inspector.v",610,3'b000);
+  brcm_kdf_label25_32:cover property ( @(posedge _sva_placeholder_clk) (_sva_placeholder_expr));
+ end
+ genvar jj$13; 
+// pragma cva_vlog_forgen delimiter 
+ for ( jj$13 = 1 ; (jj$13 <= 1) ; jj$13 = (jj$13 + 1) ) begin: delimiter_1_
+  localparam integer jj = 1;
+    axis_assert("brcm_kdf_label0_8",1'b0,2'b10,,,,,,,_zy_sva_brcm_kdf_label0_8_22_cpass,,_zy_sva_brcm_kdf_label0_8_22_ccheck,,"/home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kop_tlv_inspector.v",595,3'b000);
+  brcm_kdf_label0_8:cover property ( @(posedge _sva_placeholder_clk) (_sva_placeholder_expr));
+    axis_assert("brcm_kdf_label9_16",1'b0,2'b10,,,,,,,_zy_sva_brcm_kdf_label9_16_23_cpass,,_zy_sva_brcm_kdf_label9_16_23_ccheck,,"/home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kop_tlv_inspector.v",600,3'b000);
+  brcm_kdf_label9_16:cover property ( @(posedge _sva_placeholder_clk) (_sva_placeholder_expr));
+    axis_assert("brcm_kdf_label17_24",1'b0,2'b10,,,,,,,_zy_sva_brcm_kdf_label17_24_24_cpass,,_zy_sva_brcm_kdf_label17_24_24_ccheck,,"/home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kop_tlv_inspector.v",605,3'b000);
+  brcm_kdf_label17_24:cover property ( @(posedge _sva_placeholder_clk) (_sva_placeholder_expr));
+    axis_assert("brcm_kdf_label25_32",1'b0,2'b10,,,,,,,_zy_sva_brcm_kdf_label25_32_25_cpass,,_zy_sva_brcm_kdf_label25_32_25_ccheck,,"/home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kop_tlv_inspector.v",610,3'b000);
+  brcm_kdf_label25_32:cover property ( @(posedge _sva_placeholder_clk) (_sva_placeholder_expr));
+ end
+end
+genvar ii$14; 
+// pragma cva_vlog_forgen guid 
+for ( ii$14 = 1 ; (ii$14 <= 1) ; ii$14 = (ii$14 + 1) ) begin: guid_1_
+ localparam integer ii = 1;
+ genvar jj$15; 
+ for ( jj$15 = 0 ; (jj$15 <= 1) ; jj$15 = (jj$15 + 1) ) begin: delimiter
+ end
+ genvar jj$16; 
+// pragma cva_vlog_forgen delimiter 
+ for ( jj$16 = 0 ; (jj$16 <= 0) ; jj$16 = (jj$16 + 1) ) begin: delimiter_0_
+  localparam integer jj = 0;
+    axis_assert("brcm_kdf_label0_8",1'b0,2'b10,,,,,,,_zy_sva_brcm_kdf_label0_8_26_cpass,,_zy_sva_brcm_kdf_label0_8_26_ccheck,,"/home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kop_tlv_inspector.v",595,3'b000);
+  brcm_kdf_label0_8:cover property ( @(posedge _sva_placeholder_clk) (_sva_placeholder_expr));
+    axis_assert("brcm_kdf_label9_16",1'b0,2'b10,,,,,,,_zy_sva_brcm_kdf_label9_16_27_cpass,,_zy_sva_brcm_kdf_label9_16_27_ccheck,,"/home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kop_tlv_inspector.v",600,3'b000);
+  brcm_kdf_label9_16:cover property ( @(posedge _sva_placeholder_clk) (_sva_placeholder_expr));
+    axis_assert("brcm_kdf_label17_24",1'b0,2'b10,,,,,,,_zy_sva_brcm_kdf_label17_24_28_cpass,,_zy_sva_brcm_kdf_label17_24_28_ccheck,,"/home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kop_tlv_inspector.v",605,3'b000);
+  brcm_kdf_label17_24:cover property ( @(posedge _sva_placeholder_clk) (_sva_placeholder_expr));
+    axis_assert("brcm_kdf_label25_32",1'b0,2'b10,,,,,,,_zy_sva_brcm_kdf_label25_32_29_cpass,,_zy_sva_brcm_kdf_label25_32_29_ccheck,,"/home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kop_tlv_inspector.v",610,3'b000);
+  brcm_kdf_label25_32:cover property ( @(posedge _sva_placeholder_clk) (_sva_placeholder_expr));
+ end
+ genvar jj$17; 
+// pragma cva_vlog_forgen delimiter 
+ for ( jj$17 = 1 ; (jj$17 <= 1) ; jj$17 = (jj$17 + 1) ) begin: delimiter_1_
+  localparam integer jj = 1;
+    axis_assert("brcm_kdf_label0_8",1'b0,2'b10,,,,,,,_zy_sva_brcm_kdf_label0_8_30_cpass,,_zy_sva_brcm_kdf_label0_8_30_ccheck,,"/home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kop_tlv_inspector.v",595,3'b000);
+  brcm_kdf_label0_8:cover property ( @(posedge _sva_placeholder_clk) (_sva_placeholder_expr));
+    axis_assert("brcm_kdf_label9_16",1'b0,2'b10,,,,,,,_zy_sva_brcm_kdf_label9_16_31_cpass,,_zy_sva_brcm_kdf_label9_16_31_ccheck,,"/home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kop_tlv_inspector.v",600,3'b000);
+  brcm_kdf_label9_16:cover property ( @(posedge _sva_placeholder_clk) (_sva_placeholder_expr));
+    axis_assert("brcm_kdf_label17_24",1'b0,2'b10,,,,,,,_zy_sva_brcm_kdf_label17_24_32_cpass,,_zy_sva_brcm_kdf_label17_24_32_ccheck,,"/home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kop_tlv_inspector.v",605,3'b000);
+  brcm_kdf_label17_24:cover property ( @(posedge _sva_placeholder_clk) (_sva_placeholder_expr));
+    axis_assert("brcm_kdf_label25_32",1'b0,2'b10,,,,,,,_zy_sva_brcm_kdf_label25_32_33_cpass,,_zy_sva_brcm_kdf_label25_32_33_ccheck,,"/home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kop_tlv_inspector.v",610,3'b000);
+  brcm_kdf_label25_32:cover property ( @(posedge _sva_placeholder_clk) (_sva_placeholder_expr));
+ end
+end
+axis_assert("brcm_gcm_dek256_with_512bit_key",1'b0,2'b10,,,,,,,_zy_sva_brcm_gcm_dek256_with_512bit_key_1_cpass,,_zy_sva_brcm_gcm_dek256_with_512bit_key_1_ccheck,,"/home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kop_tlv_inspector.v",577,3'b000);
+brcm_gcm_dek256_with_512bit_key:cover property (@( posedge clk ) disable iff ((rst_n !== 32'b01)) ((gcm_cmd_in_valid & (dek_ckv_length_q == 32'b010)) & (gcm_cmd_in.op == DECRYPT_DEK256)))
+  begin
+ end
+axis_assert("brcm_gcm_dek512_with_512bit_key",1'b0,2'b10,,,,,,,_zy_sva_brcm_gcm_dek512_with_512bit_key_2_cpass,,_zy_sva_brcm_gcm_dek512_with_512bit_key_2_ccheck,,"/home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kop_tlv_inspector.v",578,3'b000);
+brcm_gcm_dek512_with_512bit_key:cover property (@( posedge clk ) disable iff ((rst_n !== 32'b01)) ((gcm_cmd_in_valid & (dek_ckv_length_q == 32'b010)) & (gcm_cmd_in.op == DECRYPT_DEK512)))
+  begin
+ end
+axis_assert("brcm_gcm_dek256dak_with_512bit_key",1'b0,2'b10,,,,,,,_zy_sva_brcm_gcm_dek256dak_with_512bit_key_3_cpass,,_zy_sva_brcm_gcm_dek256dak_with_512bit_key_3_ccheck,,"/home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kop_tlv_inspector.v",579,3'b000);
+brcm_gcm_dek256dak_with_512bit_key:cover property (@( posedge clk ) disable iff ((rst_n !== 32'b01)) ((gcm_cmd_in_valid & (dek_ckv_length_q == 32'b010)) & (gcm_cmd_in.op == DECRYPT_DEK256_COMB)))
+  begin
+ end
+axis_assert("brcm_gcm_dek512dak_with_512bit_key",1'b0,2'b10,,,,,,,_zy_sva_brcm_gcm_dek512dak_with_512bit_key_4_cpass,,_zy_sva_brcm_gcm_dek512dak_with_512bit_key_4_ccheck,,"/home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kop_tlv_inspector.v",580,3'b000);
+brcm_gcm_dek512dak_with_512bit_key:cover property (@( posedge clk ) disable iff ((rst_n !== 32'b01)) ((gcm_cmd_in_valid & (dek_ckv_length_q == 32'b010)) & (gcm_cmd_in.op == DECRYPT_DEK512_COMB)))
+  begin
+ end
+axis_assert("brcm_gcm_enc_dek256_no_kbk",1'b0,2'b10,,,,,,,_zy_sva_brcm_gcm_enc_dek256_no_kbk_5_cpass,,_zy_sva_brcm_gcm_enc_dek256_no_kbk_5_ccheck,,"/home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kop_tlv_inspector.v",583,3'b000);
+brcm_gcm_enc_dek256_no_kbk:cover property (@( posedge clk ) disable iff ((rst_n !== 32'b01)) ((gcm_cmd_in_valid & ( !kek_tag_q )) & (gcm_cmd_in.op == DECRYPT_DEK256)))
+  begin
+ end
+axis_assert("brcm_gcm_enc_dek512_no_kbk",1'b0,2'b10,,,,,,,_zy_sva_brcm_gcm_enc_dek512_no_kbk_6_cpass,,_zy_sva_brcm_gcm_enc_dek512_no_kbk_6_ccheck,,"/home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kop_tlv_inspector.v",584,3'b000);
+brcm_gcm_enc_dek512_no_kbk:cover property (@( posedge clk ) disable iff ((rst_n !== 32'b01)) ((gcm_cmd_in_valid & ( !kek_tag_q )) & (gcm_cmd_in.op == DECRYPT_DEK512)))
+  begin
+ end
+axis_assert("brcm_gcm_enc_dek256_comb_no_kbk",1'b0,2'b10,,,,,,,_zy_sva_brcm_gcm_enc_dek256_comb_no_kbk_7_cpass,,_zy_sva_brcm_gcm_enc_dek256_comb_no_kbk_7_ccheck,,"/home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kop_tlv_inspector.v",585,3'b000);
+brcm_gcm_enc_dek256_comb_no_kbk:cover property (@( posedge clk ) disable iff ((rst_n !== 32'b01)) ((gcm_cmd_in_valid & ( !kek_tag_q )) & (gcm_cmd_in.op == DECRYPT_DEK256_COMB)))
+  begin
+ end
+axis_assert("brcm_gcm_enc_dek512_comb_no_kbk",1'b0,2'b10,,,,,,,_zy_sva_brcm_gcm_enc_dek512_comb_no_kbk_8_cpass,,_zy_sva_brcm_gcm_enc_dek512_comb_no_kbk_8_ccheck,,"/home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kop_tlv_inspector.v",586,3'b000);
+brcm_gcm_enc_dek512_comb_no_kbk:cover property (@( posedge clk ) disable iff ((rst_n !== 32'b01)) ((gcm_cmd_in_valid & ( !kek_tag_q )) & (gcm_cmd_in.op == DECRYPT_DEK512_COMB)))
+  begin
+ end
+axis_assert("brcm_tlv_sb_stall_on_guid",1'b0,2'b10,,,,,,,_zy_sva_brcm_tlv_sb_stall_on_guid_9_cpass,,_zy_sva_brcm_tlv_sb_stall_on_guid_9_ccheck,,"/home/ibarry/Project-Zipline-master/rtl/cr_kme/cr_kme_kop_tlv_inspector.v",615,3'b000);
+brcm_tlv_sb_stall_on_guid:cover property (@( posedge clk ) disable iff ((rst_n !== 32'b01)) (((kme_internal_out.id == KME_GUID) & kme_internal_out_valid) & tlv_sb_data_in_stall))
+  begin
+ end
 endmodule
 
