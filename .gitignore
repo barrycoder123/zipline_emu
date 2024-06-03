@@ -4,3 +4,8 @@ pal_emu/work/QTDB/hdldb.llib
 *.db
 *.sdb
 pal_emu/work/QTDB/hdldb.llib
+pal_emu/work/precompile.failed.pdb
+pal_emu/final_ck2_stats/xeDebug.log
+pal_emu/work/xeDebug.log
+pal_emu/work/xeDebug.log
+pal_emu/final_ck1_stats/xeDebug.log
