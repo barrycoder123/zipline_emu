@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ﻿## Project Zipline
 
 ## Introduction
