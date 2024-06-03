@@ -7,7 +7,11 @@ module tb_top;
 kme_tb kme_tb_dut(); 
 initial 
  begin
-  kme_tb_dut.tb_task;
+  fork
+   begin
+    kme_tb_dut.tb_task;
+   end
+  join_none
  end
 endmodule
 

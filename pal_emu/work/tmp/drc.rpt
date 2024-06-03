@@ -1,4 +1,4 @@
-DRC started at Mon May 20 11:37:42 2024
+DRC started at Tue May 21 16:18:46 2024
 
 INFO: Added UCDB "input (no delay)" logic to "IXC_GFIFO.ISF._zyevPio[0]".
 INFO: Added UCDB "input (no delay)" logic to "xc_top.callEmuPI".
@@ -2513,4 +2513,4 @@ Info #100051: tri-state net with 28 drivers: IXC_GFIFO.O.O.GFlen[9]
 Info #100051: tri-state net with 27 drivers: IXC_GFIFO.O.O.LBreq
 Info #100051: tri-state net with 20 drivers: IXC_GFIFO.OSF1.osfTbc
 
-DRC finished at Mon May 20 11:37:45 2024
+DRC finished at Tue May 21 16:18:50 2024

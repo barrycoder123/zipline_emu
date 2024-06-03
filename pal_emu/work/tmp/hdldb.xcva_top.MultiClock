@@ -1,4 +1,4 @@
-### hdldb.xcva_top.MultiClock ### START: Mon May 20 11:37:41 2024
+### hdldb.xcva_top.MultiClock ### START: Tue May 21 16:18:45 2024
 
 Found IXCOM RTL cell hdldb:ASSERTION
 
@@ -96,10 +96,10 @@ Fix Scoped Nets elapsed time: 0 sec.
 Init Stubs elapsed time: 0 sec.
 Build Hierarchy elapsed time: 0 sec.
 Clear Stubs elapsed time: 0 sec.
-Build Nets elapsed time: 0 sec.
+Build Nets elapsed time: 1 sec.
 Presort Nets elapsed time: 0 sec.
 Setup UD elapsed time: 0 sec.
-OOMRs elapsed time: 1 sec.
+OOMRs elapsed time: 0 sec.
 Info : Have 0 misses when searching nodes/nets in the presorted container.
 Unsort Nets elapsed time: 0 sec.
 Fix OWTIs elapsed time: 0 sec.
@@ -487,7 +487,7 @@ elapsed time: 0 sec.
 } // Reading CLOCK_SOURCES
 
 DRC {
-flat nets = 553284, primitives = 470847, nodes = 334945; resident memory size: 407 MB (PDB pools size: 592 MB).
+flat nets = 553284, primitives = 470847, nodes = 334945; resident memory size: 408 MB (PDB pools size: 592 MB).
 
 unset UCDB keepnets (nets) mt-16 {
 
@@ -504,7 +504,7 @@ elapsed time: 0 sec.
 } // set UCDB keepnets (subaction: finish)
 elapsed time: 0 sec.
 } // set UCDB keepnets (nets) mt-16
-elapsed time: 0 sec.
+elapsed time: 1 sec.
 created 5120 unnamed nets and 3072 unnamed primitives.
 flat nets = 456159, primitives = 445756, nodes = 336017; resident memory size: 3485 MB (PDB pools size: 768 MB).
 } // DRC
@@ -542,16 +542,16 @@ elapsed time: 0 sec.
 } // unset UCDB keepnets (nets) mt-16
 Clear all markers (primitives) mt-16 {
 Clear all markers (subaction: finish) {
-elapsed time: 0 sec; resident memory size: 418 MB.
+elapsed time: 0 sec; resident memory size: 419 MB.
 } // Clear all markers (subaction: finish)
-elapsed time: 0 sec; resident memory size: 418 MB.
+elapsed time: 0 sec; resident memory size: 419 MB.
 } // Clear all markers (primitives) mt-16
 InitNetsQueueMT {
 Initialize cleaning (nets) mt-16 {
 Initialize cleaning (subaction: finish) {
-elapsed time: 0 sec; resident memory size: 418 MB.
+elapsed time: 0 sec; resident memory size: 419 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 418 MB.
+elapsed time: 0 sec; resident memory size: 419 MB.
 } // Initialize cleaning (nets) mt-16
 Initialize cleaning (primitives) mt-16 {
 Initialize cleaning (subaction: finish) {
@@ -562,11 +562,11 @@ elapsed time: 0 sec; resident memory size: 425 MB.
 Reconnect buf/inv mt-16 {
 Reconnect buf/inv (subaction: finish) {
 Number of nets processed: 46738
-elapsed time: 0 sec; resident memory size: 425 MB.
+elapsed time: 0 sec; resident memory size: 426 MB.
 } // Reconnect buf/inv (subaction: finish)
-elapsed time: 0 sec; resident memory size: 425 MB.
+elapsed time: 0 sec; resident memory size: 426 MB.
 } // Reconnect buf/inv mt-16
-elapsed time: 1 sec; resident memory size: 431 MB.
+elapsed time: 0 sec; resident memory size: 432 MB.
 } // InitNetsQueueMT
 Merge common expressions (primitives) mt-16 {
 Merge common expressions (subaction: finish) {
@@ -576,1040 +576,1040 @@ elapsed time: 0 sec; resident memory size: 431 MB.
 } // Merge common expressions (primitives) mt-16
 Merge common expressions (nets) mt-16 {
 Merge common expressions (subaction: finish) {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Merge common expressions (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Merge common expressions (nets) mt-16
 AssignConstantsAndMerge {
 Assign constants mt-16 {
 Assign constants (subaction: finish) {
 Number of nets processed: 6224
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Assign constants (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Assign constants mt-16
 Reconnect buf/inv mt-16 {
 Reconnect buf/inv (subaction: finish) {
 Number of nets processed: 993
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // AssignConstantsAndMerge
 ProcessMergeMT {
 Merge common expressions mt-16 {
 Merge common expressions (subaction: finish) {
 Number of primitives processed: 11644
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Merge common expressions (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Merge common expressions mt-16
 Merge common expressions mt-16 {
 Merge common expressions (subaction: finish) {
 Number of nets processed: 3555
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Merge common expressions (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Merge common expressions mt-16
 AssignConstantsAndMerge {
 Assign constants mt-16 {
 Assign constants (subaction: finish) {
 Number of nets processed: 3061
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Assign constants (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Assign constants mt-16
 Reconnect buf/inv mt-16 {
 Reconnect buf/inv (subaction: finish) {
 Number of nets processed: 180
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // AssignConstantsAndMerge
 Merge common expressions mt-16 {
 Merge common expressions (subaction: finish) {
 Number of primitives processed: 9706
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Merge common expressions (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Merge common expressions mt-16
 Merge common expressions mt-16 {
 Merge common expressions (subaction: finish) {
 Number of nets processed: 4019
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Merge common expressions (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Merge common expressions mt-16
 AssignConstantsAndMerge {
 Assign constants mt-16 {
 Assign constants (subaction: finish) {
 Number of nets processed: 1579
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Assign constants (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Assign constants mt-16
 Reconnect buf/inv mt-16 {
 Reconnect buf/inv (subaction: finish) {
 Number of nets processed: 90
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // AssignConstantsAndMerge
 Merge common expressions mt-16 {
 Merge common expressions (subaction: finish) {
 Number of primitives processed: 3162
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Merge common expressions (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Merge common expressions mt-16
 Merge common expressions mt-16 {
 Merge common expressions (subaction: finish) {
 Number of nets processed: 2157
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Merge common expressions (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Merge common expressions mt-16
 AssignConstantsAndMerge {
 Assign constants mt-16 {
 Assign constants (subaction: finish) {
 Number of nets processed: 838
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Assign constants (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Assign constants mt-16
 Reconnect buf/inv mt-16 {
 Reconnect buf/inv (subaction: finish) {
 Number of nets processed: 67
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // AssignConstantsAndMerge
 Merge common expressions mt-16 {
 Merge common expressions (subaction: finish) {
 Number of primitives processed: 994
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Merge common expressions (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Merge common expressions mt-16
 Merge common expressions mt-16 {
 Merge common expressions (subaction: finish) {
 Number of nets processed: 790
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Merge common expressions (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Merge common expressions mt-16
 AssignConstantsAndMerge {
 Assign constants mt-16 {
 Assign constants (subaction: finish) {
 Number of nets processed: 104
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Assign constants (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Assign constants mt-16
 Reconnect buf/inv mt-16 {
 Reconnect buf/inv (subaction: finish) {
 Number of nets processed: 37
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // AssignConstantsAndMerge
 Merge common expressions mt-16 {
 Merge common expressions (subaction: finish) {
 Number of primitives processed: 177
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Merge common expressions (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Merge common expressions mt-16
 Merge common expressions mt-16 {
 Merge common expressions (subaction: finish) {
 Number of nets processed: 101
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Merge common expressions (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Merge common expressions mt-16
 AssignConstantsAndMerge {
 Assign constants mt-16 {
 Assign constants (subaction: finish) {
 Number of nets processed: 26
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Assign constants (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Assign constants mt-16
 Reconnect buf/inv mt-16 {
 Reconnect buf/inv (subaction: finish) {
 Number of nets processed: 23
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // AssignConstantsAndMerge
 Merge common expressions mt-16 {
 Merge common expressions (subaction: finish) {
 Number of primitives processed: 191
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Merge common expressions (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Merge common expressions mt-16
 Merge common expressions mt-16 {
 Merge common expressions (subaction: finish) {
 Number of nets processed: 93
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Merge common expressions (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Merge common expressions mt-16
 AssignConstantsAndMerge {
 Assign constants mt-16 {
 Assign constants (subaction: finish) {
 Number of nets processed: 69
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Assign constants (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Assign constants mt-16
 Reconnect buf/inv mt-16 {
 Reconnect buf/inv (subaction: finish) {
 Number of nets processed: 13
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // AssignConstantsAndMerge
 Merge common expressions mt-16 {
 Merge common expressions (subaction: finish) {
 Number of primitives processed: 299
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Merge common expressions (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Merge common expressions mt-16
 Merge common expressions mt-16 {
 Merge common expressions (subaction: finish) {
 Number of nets processed: 36
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Merge common expressions (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Merge common expressions mt-16
 AssignConstantsAndMerge {
 Assign constants mt-16 {
 Assign constants (subaction: finish) {
 Number of nets processed: 117
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Assign constants (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Assign constants mt-16
 Reconnect buf/inv mt-16 {
 Reconnect buf/inv (subaction: finish) {
 Number of nets processed: 124
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // AssignConstantsAndMerge
 Number of merging steps: 8.
 ProcessNetsQueueMT {
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 575
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 Reconnect buf/inv mt-16 {
 Reconnect buf/inv (subaction: finish) {
 Number of nets processed: 116
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 253
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 Reconnect buf/inv mt-16 {
 Reconnect buf/inv (subaction: finish) {
 Number of nets processed: 12
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 29
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 Reconnect buf/inv mt-16 {
 Reconnect buf/inv (subaction: finish) {
 Number of nets processed: 4
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 29
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 Reconnect buf/inv mt-16 {
 Reconnect buf/inv (subaction: finish) {
 Number of nets processed: 12
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 29
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 Reconnect buf/inv mt-16 {
 Reconnect buf/inv (subaction: finish) {
 Number of nets processed: 4
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 29
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 Reconnect buf/inv mt-16 {
 Reconnect buf/inv (subaction: finish) {
 Number of nets processed: 12
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 28
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 Reconnect buf/inv mt-16 {
 Reconnect buf/inv (subaction: finish) {
 Number of nets processed: 4
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 11
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 Reconnect buf/inv mt-16 {
 Reconnect buf/inv (subaction: finish) {
 Number of nets processed: 3
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 10
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 Reconnect buf/inv mt-16 {
 Reconnect buf/inv (subaction: finish) {
 Number of nets processed: 3
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 1 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 10
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 Reconnect buf/inv mt-16 {
 Reconnect buf/inv (subaction: finish) {
 Number of nets processed: 3
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 10
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 Reconnect buf/inv mt-16 {
 Reconnect buf/inv (subaction: finish) {
 Number of nets processed: 3
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 10
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 Reconnect buf/inv mt-16 {
 Reconnect buf/inv (subaction: finish) {
 Number of nets processed: 3
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 10
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 Reconnect buf/inv mt-16 {
 Reconnect buf/inv (subaction: finish) {
 Number of nets processed: 3
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 10
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 Reconnect buf/inv mt-16 {
 Reconnect buf/inv (subaction: finish) {
 Number of nets processed: 3
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 10
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 Reconnect buf/inv mt-16 {
 Reconnect buf/inv (subaction: finish) {
 Number of nets processed: 3
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 10
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 Reconnect buf/inv mt-16 {
 Reconnect buf/inv (subaction: finish) {
 Number of nets processed: 3
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 10
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 Reconnect buf/inv mt-16 {
 Reconnect buf/inv (subaction: finish) {
 Number of nets processed: 3
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 10
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 Reconnect buf/inv mt-16 {
 Reconnect buf/inv (subaction: finish) {
 Number of nets processed: 3
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 10
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 Reconnect buf/inv mt-16 {
 Reconnect buf/inv (subaction: finish) {
 Number of nets processed: 3
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 10
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 Reconnect buf/inv mt-16 {
 Reconnect buf/inv (subaction: finish) {
 Number of nets processed: 3
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 10
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 Reconnect buf/inv mt-16 {
 Reconnect buf/inv (subaction: finish) {
 Number of nets processed: 3
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 10
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 Reconnect buf/inv mt-16 {
 Reconnect buf/inv (subaction: finish) {
 Number of nets processed: 3
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 10
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 Reconnect buf/inv mt-16 {
 Reconnect buf/inv (subaction: finish) {
 Number of nets processed: 3
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 10
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 Reconnect buf/inv mt-16 {
 Reconnect buf/inv (subaction: finish) {
 Number of nets processed: 3
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 10
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 Reconnect buf/inv mt-16 {
 Reconnect buf/inv (subaction: finish) {
 Number of nets processed: 3
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 10
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 Reconnect buf/inv mt-16 {
 Reconnect buf/inv (subaction: finish) {
 Number of nets processed: 3
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 8
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 Reconnect buf/inv mt-16 {
 Reconnect buf/inv (subaction: finish) {
 Number of nets processed: 3
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 6
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 Reconnect buf/inv mt-16 {
 Reconnect buf/inv (subaction: finish) {
 Number of nets processed: 1
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 3
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 Reconnect buf/inv mt-16 {
 Reconnect buf/inv (subaction: finish) {
 Number of nets processed: 1
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Reconnect buf/inv mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 2
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 1
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 1
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 1
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 1
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 1
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 1
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 1
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 1
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 1
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 1
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 1
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 1
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 1
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 1
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 1
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 1
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 1
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 1
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 1
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 1
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 1
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 1
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 1
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Initialize cleaning mt-16 {
 Initialize cleaning (subaction: finish) {
 Number of primitives processed: 1
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // Initialize cleaning mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 0 sec; resident memory size: 735 MB.
 } // CollectParentNets
 Number of cleaning steps: 63.
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 1 sec; resident memory size: 735 MB.
 } // ProcessNetsQueueMT
-elapsed time: 0 sec; resident memory size: 734 MB.
+elapsed time: 1 sec; resident memory size: 735 MB.
 } // ProcessMergeMT
 Collect disabled RAMs (primitives) mt-16 {
 Collect disabled RAMs (subaction: finish) {
-elapsed time: 0 sec; resident memory size: 431 MB.
+elapsed time: 0 sec; resident memory size: 432 MB.
 } // Collect disabled RAMs (subaction: finish)
-elapsed time: 0 sec; resident memory size: 431 MB.
+elapsed time: 0 sec; resident memory size: 432 MB.
 } // Collect disabled RAMs (primitives) mt-16
 MT base (disconnect) mt-16 {
 MT base (subaction: finish) {
-elapsed time: 0 sec; resident memory size: 431 MB.
+elapsed time: 0 sec; resident memory size: 432 MB.
 } // MT base (subaction: finish)
-elapsed time: 0 sec; resident memory size: 431 MB.
+elapsed time: 0 sec; resident memory size: 432 MB.
 } // MT base (disconnect) mt-16
 MT base (detach) mt-16 {
 MT base (subaction: finish) {
-elapsed time: 0 sec; resident memory size: 433 MB.
+elapsed time: 0 sec; resident memory size: 434 MB.
 } // MT base (subaction: finish)
-elapsed time: 0 sec; resident memory size: 433 MB.
+elapsed time: 0 sec; resident memory size: 434 MB.
 } // MT base (detach) mt-16
 
 MC cross-bucket constant propagation {
-flat nets = 215290, primitives = 204472, nodes = 336017; resident memory size: 433 MB (PDB pools size: 592 MB).
+flat nets = 215290, primitives = 204472, nodes = 336017; resident memory size: 434 MB (PDB pools size: 592 MB).
 
 Clear all markers (nets) mt-16 {
 
@@ -1619,7 +1619,7 @@ elapsed time: 0 sec.
 elapsed time: 0 sec.
 } // Clear all markers (nets) mt-16
 elapsed time: 0 sec.
-flat nets = 215290, primitives = 204472, nodes = 336017; resident memory size: 433 MB (PDB pools size: 592 MB).
+flat nets = 215290, primitives = 204472, nodes = 336017; resident memory size: 434 MB (PDB pools size: 592 MB).
 } // MC cross-bucket constant propagation
 
 set UCDB keepnets (nets) mt-16 {
@@ -1630,7 +1630,7 @@ elapsed time: 0 sec.
 elapsed time: 0 sec.
 } // set UCDB keepnets (nets) mt-16
 elapsed time: 1 sec.
-flat nets = 215290, primitives = 204472, nodes = 336017; resident memory size: 433 MB (PDB pools size: 592 MB).
+flat nets = 215290, primitives = 204472, nodes = 336017; resident memory size: 434 MB (PDB pools size: 592 MB).
 } // Cleaning
 
 Compressing PDB {
@@ -1651,7 +1651,7 @@ flat nets = 215290, primitives = 204472, nodes = 336017; resident memory size: 3
 Check bad syncs (primitives) mt-16 {
 
 Check bad syncs (subaction: close pools) {
-flat nets = 215306, primitives = 204472, nodes = 336033; resident memory size: 388 MB (PDB pools size: 560 MB).
+flat nets = 215306, primitives = 204472, nodes = 336033; resident memory size: 390 MB (PDB pools size: 560 MB).
 elapsed time: 0 sec.
 flat nets = 215378, primitives = 204472, nodes = 336033; resident memory size: 404 MB (PDB pools size: 560 MB).
 } // Check bad syncs (subaction: close pools)
@@ -1671,10 +1671,10 @@ INFO (multclk-1277): Detected Z1 hardware configuration.
 /lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/qtlib/mclk.llib elapsed time: 0 sec.
 
 Initializing MultiClock {
-flat nets = 215379, primitives = 204473, nodes = 336033; resident memory size: 408 MB (PDB pools size: 560 MB).
+flat nets = 215379, primitives = 204473, nodes = 336033; resident memory size: 410 MB (PDB pools size: 560 MB).
 
 unset unnamed keepnets (nets) mt-16 {
-flat nets = 215379, primitives = 204473, nodes = 336033; resident memory size: 408 MB (PDB pools size: 560 MB).
+flat nets = 215379, primitives = 204473, nodes = 336033; resident memory size: 410 MB (PDB pools size: 560 MB).
 
 unset unnamed keepnets (subaction: finish) {
 elapsed time: 0 sec.
@@ -1744,7 +1744,7 @@ elapsed time: 0 sec.
 } // SearchExclusiveCD_C0 (subaction: finish)
 elapsed time: 0 sec.
 } // SearchExclusiveCD_C0 (nets) mt-16
-Marked 177722 nets that do not belong to clock domains.
+Marked 177720 nets that do not belong to clock domains.
 
 SearchExclusiveCD_C {
 
@@ -1779,7 +1779,7 @@ elapsed time: 0 sec.
 } // Exclusivity what-if analysis (subaction: finish)
 elapsed time: 0 sec.
 } // Exclusivity what-if analysis (nets) mt-16
-Visited 7807 nets during constant propagations.
+Visited 7804 nets during constant propagations.
 
 TraverseClearMarkers.ForEachCell {
 elapsed time: 0 sec.
@@ -1825,40 +1825,40 @@ elapsed time: 0 sec.
 } // Collecting exclusivity points
 
 Inserting invertors {
-flat nets = 215379, primitives = 204473, nodes = 336033; resident memory size: 413 MB (PDB pools size: 560 MB).
+flat nets = 215379, primitives = 204473, nodes = 336033; resident memory size: 415 MB (PDB pools size: 560 MB).
 
 Insert D-input invertors (nets) mt-16 {
 
 Insert D-input invertors (subaction: close pools) {
-flat nets = 215395, primitives = 204473, nodes = 336049; resident memory size: 431 MB (PDB pools size: 720 MB).
+flat nets = 215395, primitives = 204473, nodes = 336049; resident memory size: 436 MB (PDB pools size: 720 MB).
 elapsed time: 0 sec.
-flat nets = 216701, primitives = 205779, nodes = 336049; resident memory size: 496 MB (PDB pools size: 720 MB).
+flat nets = 216701, primitives = 205779, nodes = 336049; resident memory size: 498 MB (PDB pools size: 720 MB).
 } // Insert D-input invertors (subaction: close pools)
 
 Insert D-input invertors (subaction: finish) {
-flat nets = 216701, primitives = 205779, nodes = 336049; resident memory size: 496 MB (PDB pools size: 720 MB).
+flat nets = 216701, primitives = 205779, nodes = 336049; resident memory size: 498 MB (PDB pools size: 720 MB).
 elapsed time: 0 sec.
-flat nets = 216701, primitives = 205779, nodes = 336049; resident memory size: 496 MB (PDB pools size: 720 MB).
+flat nets = 216701, primitives = 205779, nodes = 336049; resident memory size: 498 MB (PDB pools size: 720 MB).
 } // Insert D-input invertors (subaction: finish)
 elapsed time: 0 sec.
-flat nets = 216701, primitives = 205779, nodes = 336049; resident memory size: 496 MB (PDB pools size: 720 MB).
+flat nets = 216701, primitives = 205779, nodes = 336049; resident memory size: 498 MB (PDB pools size: 720 MB).
 } // Insert D-input invertors (nets) mt-16
 elapsed time: 0 sec.
-flat nets = 216701, primitives = 205779, nodes = 336049; resident memory size: 496 MB (PDB pools size: 720 MB).
+flat nets = 216701, primitives = 205779, nodes = 336049; resident memory size: 498 MB (PDB pools size: 720 MB).
 } // Inserting invertors
 
 TraverseClearNetsUCDB.ForEachPrimSafe {
-flat nets = 216701, primitives = 205779, nodes = 336049; resident memory size: 496 MB (PDB pools size: 720 MB).
+flat nets = 216701, primitives = 205779, nodes = 336049; resident memory size: 498 MB (PDB pools size: 720 MB).
 elapsed time: 0 sec.
 created 0 unnamed nets and 7374 unnamed primitives.
-flat nets = 216701, primitives = 213153, nodes = 336049; resident memory size: 496 MB (PDB pools size: 720 MB).
+flat nets = 216701, primitives = 213153, nodes = 336049; resident memory size: 498 MB (PDB pools size: 720 MB).
 } // TraverseClearNetsUCDB.ForEachPrimSafe
 
 Initializing nets {
-flat nets = 216701, primitives = 213153, nodes = 336049; resident memory size: 496 MB (PDB pools size: 720 MB).
+flat nets = 216701, primitives = 213153, nodes = 336049; resident memory size: 498 MB (PDB pools size: 720 MB).
 
 Initialize MultiClock (nets) mt-16 {
-flat nets = 216701, primitives = 213153, nodes = 336049; resident memory size: 496 MB (PDB pools size: 720 MB).
+flat nets = 216701, primitives = 213153, nodes = 336049; resident memory size: 498 MB (PDB pools size: 720 MB).
 
 Initialize MultiClock (subaction: finish) {
 elapsed time: 0 sec.
@@ -1866,7 +1866,7 @@ elapsed time: 0 sec.
 elapsed time: 0 sec.
 } // Initialize MultiClock (nets) mt-16
 elapsed time: 0 sec.
-flat nets = 216701, primitives = 213153, nodes = 336049; resident memory size: 496 MB (PDB pools size: 720 MB).
+flat nets = 216701, primitives = 213153, nodes = 336049; resident memory size: 498 MB (PDB pools size: 720 MB).
 } // Initializing nets
 
 Reading clock info {
@@ -1875,7 +1875,7 @@ elapsed time: 0 sec.
 } // Reading clock info
 
 Initializing primitives {
-flat nets = 216701, primitives = 213151, nodes = 336049; resident memory size: 496 MB (PDB pools size: 720 MB).
+flat nets = 216701, primitives = 213151, nodes = 336049; resident memory size: 498 MB (PDB pools size: 720 MB).
 Write-enable is blocked for level sensitive memories only.
 Q_CCLKCHK primitive: (Q_CCLKCHK) IXC_GFIFO.O.O.tbcx.\genblk1.cchk .U0 (axis_tbcall_BP_1)
    attached to net: IXC_GFIFO.O.O.flushTbc
@@ -1988,13 +1988,13 @@ REPORT (legacy-38382): Flip-flops: 43814 (R: 21003 S: 221 RS: 0); latches: 12592
        Total number of state devices: 66666; clock edges: 20; primary inputs: 71; memory outputs: 7962.
 Total UCDB V-entries: 0.
 elapsed time: 0 sec.
-flat nets = 216701, primitives = 213151, nodes = 336049; resident memory size: 496 MB (PDB pools size: 720 MB).
+flat nets = 216701, primitives = 213151, nodes = 336049; resident memory size: 498 MB (PDB pools size: 720 MB).
 } // Initializing primitives
 REPORT (legacy-1311): Internal database gate count originally (for statistics only): 781757 (including memory access instrumentation: 806767).
 REPORT (legacy-1311): Internal database gate count after remodeling and cleaning (for statistics only): 592509 (including memory access instrumentation: 617519).
 elapsed time: 0 sec.
 created 0 unnamed nets and 7374 unnamed primitives.
-flat nets = 216701, primitives = 213151, nodes = 336049; resident memory size: 496 MB (PDB pools size: 720 MB).
+flat nets = 216701, primitives = 213151, nodes = 336049; resident memory size: 498 MB (PDB pools size: 720 MB).
 } // Initializing MultiClock
 
 Setting clock and data paths {
@@ -2028,21 +2028,21 @@ elapsed time: 0 sec.
 } // Setting exclusivity points
 
 TraverseConnectUCDBswap.ForEachPrimSafe {
-flat nets = 216701, primitives = 213151, nodes = 336049; resident memory size: 497 MB (PDB pools size: 720 MB).
+flat nets = 216701, primitives = 213151, nodes = 336049; resident memory size: 499 MB (PDB pools size: 720 MB).
 elapsed time: 0 sec.
 created 40 unnamed nets and 0 unnamed primitives.
-flat nets = 216741, primitives = 213191, nodes = 336049; resident memory size: 497 MB (PDB pools size: 720 MB).
+flat nets = 216741, primitives = 213191, nodes = 336049; resident memory size: 499 MB (PDB pools size: 720 MB).
 } // TraverseConnectUCDBswap.ForEachPrimSafe
 
 TraverseConnectUCDBswap.ForEachNetSafe {
-flat nets = 216741, primitives = 213191, nodes = 336049; resident memory size: 497 MB (PDB pools size: 720 MB).
-elapsed time: 1 sec.
+flat nets = 216741, primitives = 213191, nodes = 336049; resident memory size: 499 MB (PDB pools size: 720 MB).
+elapsed time: 0 sec.
 created 1324 unnamed nets and 1324 unnamed primitives.
-flat nets = 218065, primitives = 214515, nodes = 336049; resident memory size: 497 MB (PDB pools size: 720 MB).
+flat nets = 218065, primitives = 214515, nodes = 336049; resident memory size: 499 MB (PDB pools size: 720 MB).
 } // TraverseConnectUCDBswap.ForEachNetSafe
 
 Collecting ALWAYS_ON flip-flops {
-flat nets = 218065, primitives = 214515, nodes = 336049; resident memory size: 497 MB (PDB pools size: 720 MB).
+flat nets = 218065, primitives = 214515, nodes = 336049; resident memory size: 499 MB (PDB pools size: 720 MB).
 Example of ALWAYS_ON flip-flop:
 FDRSE (Q_FDP0) xc_top.\nextDutTimeP_REG[9] .U01 (xc_top_1)
   <-- Q xc_top.nextDutTimeP[9]
@@ -11434,7 +11434,7 @@ ALWAYS_ON clock 'xc_top.bClk' controls 64 ALWAYS_ON and 96 normal flip-flops.
 Found 4 ALWAYS_ON clocks, out of which 2 partial.
 elapsed time: 0 sec.
 created 0 unnamed nets and 2 unnamed primitives.
-flat nets = 218067, primitives = 214517, nodes = 336049; resident memory size: 497 MB (PDB pools size: 720 MB).
+flat nets = 218067, primitives = 214517, nodes = 336049; resident memory size: 499 MB (PDB pools size: 720 MB).
 } // Collecting ALWAYS_ON flip-flops
 
 1X mode analysis {
@@ -11460,20 +11460,20 @@ Propagating 1X constants {
 } // Propagating 1X constants
 
 Propagating clocks {
-flat nets = 218067, primitives = 214517, nodes = 336049; resident memory size: 497 MB (PDB pools size: 720 MB).
+flat nets = 218067, primitives = 214517, nodes = 336049; resident memory size: 499 MB (PDB pools size: 720 MB).
 elapsed time: 0 sec.
-flat nets = 218067, primitives = 214517, nodes = 336049; resident memory size: 497 MB (PDB pools size: 720 MB).
+flat nets = 218067, primitives = 214517, nodes = 336049; resident memory size: 499 MB (PDB pools size: 720 MB).
 } // Propagating clocks
 
 TraverseClr05X.ForEachNet {
-elapsed time: 0 sec.
+elapsed time: 1 sec.
 } // TraverseClr05X.ForEachNet
 
 Propagating 1X constants {
 } // Propagating 1X constants
 
 Propagating clocks {
-flat nets = 218067, primitives = 214517, nodes = 336049; resident memory size: 497 MB (PDB pools size: 720 MB).
+flat nets = 218067, primitives = 214517, nodes = 336049; resident memory size: 499 MB (PDB pools size: 720 MB).
 Setting p=pos restriction at the following pin:
 O2 xc_top.!COMBO.smCombo_U4565_U0 (xc_top_1)
   <-- O xc_top.n3667
@@ -11967,7 +11967,7 @@ O2 xc_top.!COMBO.smCombo_U4544_U0 (xc_top_1)
   --> I0 ixc_time.nextDutTime[0]
 ---
 elapsed time: 0 sec.
-flat nets = 218067, primitives = 214517, nodes = 336049; resident memory size: 498 MB (PDB pools size: 720 MB).
+flat nets = 218067, primitives = 214517, nodes = 336049; resident memory size: 501 MB (PDB pools size: 720 MB).
 } // Propagating clocks
 
 TraverseBlockedLatches.ForEachPrim {
@@ -11975,13 +11975,13 @@ elapsed time: 0 sec.
 } // TraverseBlockedLatches.ForEachPrim
 
 Propagating data {
-flat nets = 218067, primitives = 214517, nodes = 336049; resident memory size: 498 MB (PDB pools size: 720 MB).
+flat nets = 218067, primitives = 214517, nodes = 336049; resident memory size: 501 MB (PDB pools size: 720 MB).
 
 TraverseLatchPaths.ForEachPrim {
 elapsed time: 0 sec.
 } // TraverseLatchPaths.ForEachPrim
 elapsed time: 0 sec.
-flat nets = 218067, primitives = 214517, nodes = 336049; resident memory size: 498 MB (PDB pools size: 720 MB).
+flat nets = 218067, primitives = 214517, nodes = 336049; resident memory size: 501 MB (PDB pools size: 720 MB).
 } // Propagating data
 
 TraverseClrPrimConst.ForEachNet {
@@ -11995,7 +11995,7 @@ TraverseMarkLPulses1X.ForEachPrim {
 elapsed time: 0 sec.
 } // TraverseMarkLPulses1X.ForEachPrim
 Processed 0 deposit edge detectors.
-elapsed time: 0 sec.
+elapsed time: 1 sec.
 } // 1X mode analysis
 
 Delete data (nets) mt-16 {
@@ -12009,10 +12009,10 @@ elapsed time: 0 sec.
 Breaking feedback loops {
 
 TraverseConvertTriRegLatches.ForEachPrimSafe {
-flat nets = 218067, primitives = 214517, nodes = 336049; resident memory size: 499 MB (PDB pools size: 720 MB).
+flat nets = 218067, primitives = 214517, nodes = 336049; resident memory size: 501 MB (PDB pools size: 720 MB).
 elapsed time: 0 sec.
 created 1024 unnamed nets and 2048 unnamed primitives.
-flat nets = 219091, primitives = 216565, nodes = 336049; resident memory size: 499 MB (PDB pools size: 720 MB).
+flat nets = 219091, primitives = 216565, nodes = 336049; resident memory size: 501 MB (PDB pools size: 720 MB).
 } // TraverseConvertTriRegLatches.ForEachPrimSafe
 REPORT (legacy-38385): Total number of IXCOM and CAKE clocks: 8.
 
@@ -12035,7 +12035,7 @@ elapsed time: 0 sec.
 } // Clear logical markers
 
 Duplicating and breaking combinational feedback loops {
-flat nets = 219091, primitives = 216565, nodes = 336049; resident memory size: 499 MB (PDB pools size: 720 MB).
+flat nets = 219091, primitives = 216565, nodes = 336049; resident memory size: 501 MB (PDB pools size: 720 MB).
 
 Clear secondary markers (nets) mt-16 {
 
@@ -12059,7 +12059,7 @@ elapsed time: 0 sec.
 *** start SCC log ***
 *** end SCC log ***
 elapsed time: 0 sec.
-flat nets = 219091, primitives = 216565, nodes = 336049; resident memory size: 499 MB (PDB pools size: 720 MB).
+flat nets = 219091, primitives = 216565, nodes = 336049; resident memory size: 501 MB (PDB pools size: 720 MB).
 } // Duplicating and breaking combinational feedback loops
 
 Breaking clock feedback loops {
@@ -12172,7 +12172,7 @@ elapsed time: 0 sec.
 } // Breaking feedback loops
 
 Synthesizing registers {
-flat nets = 219091, primitives = 216565, nodes = 336049; resident memory size: 499 MB (PDB pools size: 720 MB).
+flat nets = 219091, primitives = 216565, nodes = 336049; resident memory size: 501 MB (PDB pools size: 720 MB).
 INFO (multclk-1137): Design will be emulated in fast mode.
 Converted 3081 pulse-driven flip-flops to latches.
 
@@ -12242,9 +12242,9 @@ elapsed time: 0 sec.
 } // Collect shadows statistics
 
 TraverseBuildNets.ForEachNetSafe {
-flat nets = 219091, primitives = 216565, nodes = 336049; resident memory size: 499 MB (PDB pools size: 720 MB).
-elapsed time: 0 sec.
-flat nets = 414041, primitives = 216565, nodes = 336049; resident memory size: 507 MB (PDB pools size: 736 MB).
+flat nets = 219091, primitives = 216565, nodes = 336049; resident memory size: 501 MB (PDB pools size: 720 MB).
+elapsed time: 1 sec.
+flat nets = 414041, primitives = 216565, nodes = 336049; resident memory size: 509 MB (PDB pools size: 736 MB).
 } // TraverseBuildNets.ForEachNetSafe
 Created 0 invertors.
 
@@ -12257,10 +12257,10 @@ elapsed time: 0 sec.
 } // Set main markers (primitives) mt-16
 
 TraverseBuildPrims.ForEachPrimSafe {
-flat nets = 414062, primitives = 216586, nodes = 336049; resident memory size: 507 MB (PDB pools size: 736 MB).
-elapsed time: 1 sec.
+flat nets = 414062, primitives = 216586, nodes = 336049; resident memory size: 509 MB (PDB pools size: 736 MB).
+elapsed time: 0 sec.
 created 146232 unnamed nets and 385750 unnamed primitives.
-flat nets = 560301, primitives = 609477, nodes = 336049; resident memory size: 563 MB (PDB pools size: 784 MB).
+flat nets = 560301, primitives = 609477, nodes = 336049; resident memory size: 565 MB (PDB pools size: 784 MB).
 } // TraverseBuildPrims.ForEachPrimSafe
 Created 0 invertors.
 
@@ -12274,7 +12274,7 @@ elapsed time: 0 sec.
 /lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/qtlib/qtCAKE.llib elapsed time: 0 sec.
 
 Flattening {
-flat nets = 560304, primitives = 609479, nodes = 336049; resident memory size: 565 MB (PDB pools size: 784 MB).
+flat nets = 560304, primitives = 609479, nodes = 336049; resident memory size: 569 MB (PDB pools size: 784 MB).
 
 Flattening (nodes) mt-16 {
 
@@ -12293,12 +12293,12 @@ elapsed time: 0 sec.
 } // Flattening (nets) mt-16
 
 Delete saved prims {
-flat nets = 567481, primitives = 618704, nodes = 341178; resident memory size: 565 MB (PDB pools size: 784 MB).
+flat nets = 567481, primitives = 618704, nodes = 341178; resident memory size: 569 MB (PDB pools size: 784 MB).
 elapsed time: 0 sec.
-flat nets = 567481, primitives = 617678, nodes = 341178; resident memory size: 565 MB (PDB pools size: 784 MB).
+flat nets = 567481, primitives = 617678, nodes = 341178; resident memory size: 569 MB (PDB pools size: 784 MB).
 } // Delete saved prims
 elapsed time: 0 sec.
-flat nets = 567481, primitives = 617678, nodes = 341178; resident memory size: 565 MB (PDB pools size: 784 MB).
+flat nets = 567481, primitives = 617678, nodes = 341178; resident memory size: 569 MB (PDB pools size: 784 MB).
 } // Flattening
 
 Generating lps report {
@@ -12306,7 +12306,7 @@ elapsed time: 0 sec.
 } // Generating lps report
 
 Cleaning {
-flat nets = 567484, primitives = 617681, nodes = 341178; resident memory size: 565 MB (PDB pools size: 784 MB).
+flat nets = 567484, primitives = 617681, nodes = 341178; resident memory size: 569 MB (PDB pools size: 784 MB).
 Common expressions are merged.
 
 unset UCDB keepnets (nets) mt-16 {
@@ -12318,125 +12318,125 @@ elapsed time: 0 sec.
 } // unset UCDB keepnets (nets) mt-16
 Clear all markers (primitives) mt-16 {
 Clear all markers (subaction: finish) {
-elapsed time: 0 sec; resident memory size: 565 MB.
+elapsed time: 0 sec; resident memory size: 569 MB.
 } // Clear all markers (subaction: finish)
-elapsed time: 0 sec; resident memory size: 565 MB.
+elapsed time: 0 sec; resident memory size: 569 MB.
 } // Clear all markers (primitives) mt-16
 InitNetsQueueMT {
 Initialize cleaning (nets) mt-16 {
 Initialize cleaning (subaction: finish) {
-elapsed time: 0 sec; resident memory size: 612 MB.
+elapsed time: 0 sec; resident memory size: 619 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 612 MB.
+elapsed time: 0 sec; resident memory size: 619 MB.
 } // Initialize cleaning (nets) mt-16
 Initialize cleaning (primitives) mt-16 {
 Initialize cleaning (subaction: finish) {
-elapsed time: 0 sec; resident memory size: 612 MB.
+elapsed time: 0 sec; resident memory size: 619 MB.
 } // Initialize cleaning (subaction: finish)
-elapsed time: 0 sec; resident memory size: 612 MB.
+elapsed time: 0 sec; resident memory size: 619 MB.
 } // Initialize cleaning (primitives) mt-16
 Reconnect buf/inv mt-16 {
 Reconnect buf/inv (subaction: finish) {
 Number of nets processed: 441
-elapsed time: 0 sec; resident memory size: 612 MB.
+elapsed time: 0 sec; resident memory size: 619 MB.
 } // Reconnect buf/inv (subaction: finish)
-elapsed time: 0 sec; resident memory size: 612 MB.
+elapsed time: 0 sec; resident memory size: 619 MB.
 } // Reconnect buf/inv mt-16
-elapsed time: 0 sec; resident memory size: 612 MB.
+elapsed time: 0 sec; resident memory size: 619 MB.
 } // InitNetsQueueMT
 Merge common expressions (primitives) mt-16 {
 Merge common expressions (subaction: finish) {
-elapsed time: 0 sec; resident memory size: 612 MB.
+elapsed time: 0 sec; resident memory size: 619 MB.
 } // Merge common expressions (subaction: finish)
-elapsed time: 0 sec; resident memory size: 612 MB.
+elapsed time: 0 sec; resident memory size: 619 MB.
 } // Merge common expressions (primitives) mt-16
 Merge common expressions (nets) mt-16 {
 Merge common expressions (subaction: finish) {
-elapsed time: 0 sec; resident memory size: 901 MB.
+elapsed time: 0 sec; resident memory size: 909 MB.
 } // Merge common expressions (subaction: finish)
-elapsed time: 0 sec; resident memory size: 3549 MB.
+elapsed time: 0 sec; resident memory size: 3550 MB.
 } // Merge common expressions (nets) mt-16
 AssignConstantsAndMerge {
 Reconnect buf/inv mt-16 {
 Reconnect buf/inv (subaction: finish) {
 Number of nets processed: 8004
-elapsed time: 0 sec; resident memory size: 901 MB.
+elapsed time: 0 sec; resident memory size: 909 MB.
 } // Reconnect buf/inv (subaction: finish)
-elapsed time: 0 sec; resident memory size: 3550 MB.
+elapsed time: 0 sec; resident memory size: 3551 MB.
 } // Reconnect buf/inv mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 901 MB.
+elapsed time: 0 sec; resident memory size: 909 MB.
 } // CollectParentNets
-elapsed time: 0 sec; resident memory size: 3550 MB.
+elapsed time: 0 sec; resident memory size: 3551 MB.
 } // AssignConstantsAndMerge
 ProcessMergeMT {
 Merge common expressions mt-16 {
 Merge common expressions (subaction: finish) {
 Number of primitives processed: 22418
-elapsed time: 0 sec; resident memory size: 901 MB.
+elapsed time: 0 sec; resident memory size: 909 MB.
 } // Merge common expressions (subaction: finish)
-elapsed time: 0 sec; resident memory size: 901 MB.
+elapsed time: 0 sec; resident memory size: 909 MB.
 } // Merge common expressions mt-16
 Merge common expressions mt-16 {
 Merge common expressions (subaction: finish) {
 Number of nets processed: 4695
-elapsed time: 0 sec; resident memory size: 901 MB.
+elapsed time: 0 sec; resident memory size: 909 MB.
 } // Merge common expressions (subaction: finish)
-elapsed time: 0 sec; resident memory size: 901 MB.
+elapsed time: 0 sec; resident memory size: 909 MB.
 } // Merge common expressions mt-16
 AssignConstantsAndMerge {
 Reconnect buf/inv mt-16 {
 Reconnect buf/inv (subaction: finish) {
 Number of nets processed: 399
-elapsed time: 0 sec; resident memory size: 901 MB.
+elapsed time: 0 sec; resident memory size: 909 MB.
 } // Reconnect buf/inv (subaction: finish)
-elapsed time: 0 sec; resident memory size: 901 MB.
+elapsed time: 0 sec; resident memory size: 909 MB.
 } // Reconnect buf/inv mt-16
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 901 MB.
+elapsed time: 0 sec; resident memory size: 909 MB.
 } // CollectParentNets
-elapsed time: 0 sec; resident memory size: 901 MB.
+elapsed time: 0 sec; resident memory size: 909 MB.
 } // AssignConstantsAndMerge
 Merge common expressions mt-16 {
 Merge common expressions (subaction: finish) {
 Number of primitives processed: 3516
-elapsed time: 0 sec; resident memory size: 901 MB.
+elapsed time: 0 sec; resident memory size: 909 MB.
 } // Merge common expressions (subaction: finish)
-elapsed time: 0 sec; resident memory size: 901 MB.
+elapsed time: 0 sec; resident memory size: 909 MB.
 } // Merge common expressions mt-16
 Merge common expressions mt-16 {
 Merge common expressions (subaction: finish) {
 Number of nets processed: 2884
-elapsed time: 0 sec; resident memory size: 901 MB.
+elapsed time: 0 sec; resident memory size: 909 MB.
 } // Merge common expressions (subaction: finish)
-elapsed time: 0 sec; resident memory size: 901 MB.
+elapsed time: 0 sec; resident memory size: 909 MB.
 } // Merge common expressions mt-16
 AssignConstantsAndMerge {
 CollectParentNets {
-elapsed time: 0 sec; resident memory size: 901 MB.
+elapsed time: 0 sec; resident memory size: 909 MB.
 } // CollectParentNets
-elapsed time: 0 sec; resident memory size: 901 MB.
+elapsed time: 0 sec; resident memory size: 909 MB.
 } // AssignConstantsAndMerge
 Number of merging steps: 3.
-elapsed time: 0 sec; resident memory size: 901 MB.
+elapsed time: 0 sec; resident memory size: 909 MB.
 } // ProcessMergeMT
 MT base (disconnect) mt-16 {
 MT base (subaction: finish) {
-elapsed time: 0 sec; resident memory size: 901 MB.
+elapsed time: 0 sec; resident memory size: 909 MB.
 } // MT base (subaction: finish)
-elapsed time: 0 sec; resident memory size: 901 MB.
+elapsed time: 0 sec; resident memory size: 909 MB.
 } // MT base (disconnect) mt-16
 Set main markers (nets) mt-16 {
 Set main markers (subaction: finish) {
-elapsed time: 0 sec; resident memory size: 901 MB.
+elapsed time: 0 sec; resident memory size: 909 MB.
 } // Set main markers (subaction: finish)
-elapsed time: 0 sec; resident memory size: 901 MB.
+elapsed time: 0 sec; resident memory size: 909 MB.
 } // Set main markers (nets) mt-16
 MT base (detach) mt-16 {
 MT base (subaction: finish) {
-elapsed time: 0 sec; resident memory size: 901 MB.
+elapsed time: 0 sec; resident memory size: 909 MB.
 } // MT base (subaction: finish)
-elapsed time: 0 sec; resident memory size: 901 MB.
+elapsed time: 0 sec; resident memory size: 909 MB.
 } // MT base (detach) mt-16
 
 set UCDB keepnets (nets) mt-16 {
@@ -12448,60 +12448,60 @@ elapsed time: 0 sec.
 } // set UCDB keepnets (nets) mt-16
 elapsed time: 0 sec.
 created 0 unnamed nets and 16 unnamed primitives.
-flat nets = 495873, primitives = 481971, nodes = 341178; resident memory size: 3550 MB (PDB pools size: 784 MB).
+flat nets = 495873, primitives = 481971, nodes = 341178; resident memory size: 3551 MB (PDB pools size: 784 MB).
 } // Cleaning
 
 Insert invertors (nets) mt-16 {
 
 Insert invertors (subaction: close pools) {
-flat nets = 495889, primitives = 481971, nodes = 341194; resident memory size: 910 MB (PDB pools size: 944 MB).
+flat nets = 495889, primitives = 481971, nodes = 341194; resident memory size: 917 MB (PDB pools size: 944 MB).
 elapsed time: 0 sec.
-flat nets = 496123, primitives = 482205, nodes = 341194; resident memory size: 971 MB (PDB pools size: 944 MB).
+flat nets = 496123, primitives = 482205, nodes = 341194; resident memory size: 979 MB (PDB pools size: 944 MB).
 } // Insert invertors (subaction: close pools)
 
 Insert invertors (subaction: finish) {
-flat nets = 496123, primitives = 482205, nodes = 341194; resident memory size: 971 MB (PDB pools size: 944 MB).
+flat nets = 496123, primitives = 482205, nodes = 341194; resident memory size: 979 MB (PDB pools size: 944 MB).
 elapsed time: 0 sec.
-flat nets = 496123, primitives = 482288, nodes = 341194; resident memory size: 971 MB (PDB pools size: 944 MB).
+flat nets = 496123, primitives = 482288, nodes = 341194; resident memory size: 979 MB (PDB pools size: 944 MB).
 } // Insert invertors (subaction: finish)
 elapsed time: 0 sec.
-flat nets = 496123, primitives = 482288, nodes = 341194; resident memory size: 971 MB (PDB pools size: 944 MB).
+flat nets = 496123, primitives = 482288, nodes = 341194; resident memory size: 979 MB (PDB pools size: 944 MB).
 } // Insert invertors (nets) mt-16
 
 TraverseCollectShadows.ForEachNet {
-flat nets = 496123, primitives = 482288, nodes = 341194; resident memory size: 971 MB (PDB pools size: 944 MB).
+flat nets = 496123, primitives = 482288, nodes = 341194; resident memory size: 979 MB (PDB pools size: 944 MB).
 elapsed time: 0 sec.
-flat nets = 496124, primitives = 482320, nodes = 341194; resident memory size: 971 MB (PDB pools size: 944 MB).
+flat nets = 496124, primitives = 482320, nodes = 341194; resident memory size: 979 MB (PDB pools size: 944 MB).
 } // TraverseCollectShadows.ForEachNet
 Shadows statistics: 4 in clock cones, 113254 in data cones, 22405 in mixed clock/data cones, 5235 ECM and 28759 instrumentation nets.
 
 Presorting nets {
-flat nets = 496124, primitives = 482320, nodes = 341194; resident memory size: 971 MB (PDB pools size: 944 MB).
-elapsed time: 0 sec.
-flat nets = 496124, primitives = 482320, nodes = 341194; resident memory size: 989 MB (PDB pools size: 992 MB).
+flat nets = 496124, primitives = 482320, nodes = 341194; resident memory size: 979 MB (PDB pools size: 944 MB).
+elapsed time: 1 sec.
+flat nets = 496124, primitives = 482320, nodes = 341194; resident memory size: 997 MB (PDB pools size: 992 MB).
 } // Presorting nets
 
 Collecting internal probes {
-flat nets = 496124, primitives = 482320, nodes = 341194; resident memory size: 989 MB (PDB pools size: 992 MB).
+flat nets = 496124, primitives = 482320, nodes = 341194; resident memory size: 997 MB (PDB pools size: 992 MB).
 Marked 0 internal probes.
 elapsed time: 0 sec.
-flat nets = 496124, primitives = 482320, nodes = 341194; resident memory size: 989 MB (PDB pools size: 992 MB).
+flat nets = 496124, primitives = 482320, nodes = 341194; resident memory size: 997 MB (PDB pools size: 992 MB).
 } // Collecting internal probes
 Info : Have 0 misses when searching nodes/nets in the presorted container.
-elapsed time: 1 sec.
+elapsed time: 2 sec.
 created 146239 unnamed nets and 385892 unnamed primitives.
-flat nets = 496124, primitives = 482320, nodes = 341194; resident memory size: 3698 MB (PDB pools size: 944 MB).
+flat nets = 496124, primitives = 482320, nodes = 341194; resident memory size: 3699 MB (PDB pools size: 944 MB).
 } // Synthesizing registers
 
 Setting keepnets and probes {
-flat nets = 496124, primitives = 482320, nodes = 341194; resident memory size: 989 MB (PDB pools size: 944 MB).
+flat nets = 496124, primitives = 482320, nodes = 341194; resident memory size: 997 MB (PDB pools size: 944 MB).
 
 FV instrumentation {
-flat nets = 496137, primitives = 482329, nodes = 341194; resident memory size: 989 MB (PDB pools size: 944 MB).
+flat nets = 496137, primitives = 482329, nodes = 341194; resident memory size: 997 MB (PDB pools size: 944 MB).
 Connected IXCOM cycle counter bus xc_top._ET3_COMPILER_RESERVED_NAME_QT_CURR_EMUL_CYCLE_.
 
 Set probes (primitives) mt-16 {
-flat nets = 496779, primitives = 482388, nodes = 341194; resident memory size: 989 MB (PDB pools size: 944 MB).
+flat nets = 496779, primitives = 482388, nodes = 341194; resident memory size: 997 MB (PDB pools size: 944 MB).
 
 Set probes (subaction: finish) {
 MTsetProbesMc: added 103 user nets for memory inputs.
@@ -12529,7 +12529,7 @@ Clear secondary markers by mask (nets) mt-16 {
 Clear secondary markers by mask (subaction: finish) {
 elapsed time: 0 sec.
 } // Clear secondary markers by mask (subaction: finish)
-elapsed time: 1 sec.
+elapsed time: 0 sec.
 } // Clear secondary markers by mask (nets) mt-16
 
 TraverseMarkUser.ForEachNet {
@@ -12540,7 +12540,7 @@ TraverseClearProbes.ForEachNet {
 elapsed time: 0 sec.
 } // TraverseClearProbes.ForEachNet
 Number of virtual probes: 67245 -> 66989 (0.4% reduction).
-elapsed time: 1 sec.
+elapsed time: 0 sec.
 } // Clearing internal probes
 
 Marking FV enabled regions {
@@ -12568,22 +12568,22 @@ elapsed time: 0 sec.
 REPORT (legacy-38397): Precompiler set 12204 input and 65072 virtual probes.
 elapsed time: 0 sec.
 } // Storing probes
-elapsed time: 1 sec.
+elapsed time: 0 sec.
 created 2 unnamed nets and 125 unnamed primitives.
-flat nets = 496783, primitives = 482392, nodes = 341194; resident memory size: 3726 MB (PDB pools size: 944 MB).
+flat nets = 496783, primitives = 482392, nodes = 341194; resident memory size: 3727 MB (PDB pools size: 944 MB).
 } // FV instrumentation
-elapsed time: 1 sec.
+elapsed time: 0 sec.
 created 4 unnamed nets and 133 unnamed primitives.
-flat nets = 496783, primitives = 482392, nodes = 341194; resident memory size: 3726 MB (PDB pools size: 944 MB).
+flat nets = 496783, primitives = 482392, nodes = 341194; resident memory size: 3727 MB (PDB pools size: 944 MB).
 } // Setting keepnets and probes
 
 Inserting instrumentation logic {
-flat nets = 496783, primitives = 482392, nodes = 341194; resident memory size: 992 MB (PDB pools size: 944 MB).
+flat nets = 496783, primitives = 482392, nodes = 341194; resident memory size: 1000 MB (PDB pools size: 944 MB).
 /lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/qtlib/sdl_ua.llib elapsed time: 0 sec.
 REPORT (legacy-47659): Inserted 1 SDL instance for dynamic events.
 
 Flattening {
-flat nets = 496990, primitives = 482589, nodes = 341194; resident memory size: 1032 MB (PDB pools size: 960 MB).
+flat nets = 496990, primitives = 482589, nodes = 341194; resident memory size: 1040 MB (PDB pools size: 960 MB).
 
 Flattening (nodes) mt-16 {
 
@@ -12602,24 +12602,24 @@ elapsed time: 0 sec.
 } // Flattening (nets) mt-16
 
 Delete saved prims {
-flat nets = 529182, primitives = 509881, nodes = 366453; resident memory size: 1036 MB (PDB pools size: 960 MB).
+flat nets = 529182, primitives = 509881, nodes = 366453; resident memory size: 1044 MB (PDB pools size: 960 MB).
 elapsed time: 0 sec.
-flat nets = 529182, primitives = 509877, nodes = 366453; resident memory size: 1036 MB (PDB pools size: 960 MB).
+flat nets = 529182, primitives = 509877, nodes = 366453; resident memory size: 1044 MB (PDB pools size: 960 MB).
 } // Delete saved prims
 elapsed time: 0 sec.
-flat nets = 529182, primitives = 509877, nodes = 366453; resident memory size: 1036 MB (PDB pools size: 960 MB).
+flat nets = 529182, primitives = 509877, nodes = 366453; resident memory size: 1044 MB (PDB pools size: 960 MB).
 } // Flattening
 
 Setting SDL keepnets {
-elapsed time: 1 sec.
+elapsed time: 0 sec.
 } // Setting SDL keepnets
 elapsed time: 1 sec.
 created 1835 unnamed nets and 2043 unnamed primitives.
-flat nets = 542009, primitives = 518334, nodes = 366453; resident memory size: 1036 MB (PDB pools size: 960 MB).
+flat nets = 542009, primitives = 518334, nodes = 366453; resident memory size: 1044 MB (PDB pools size: 960 MB).
 } // Inserting instrumentation logic
 
 Fixing IO {
-flat nets = 542009, primitives = 518334, nodes = 366453; resident memory size: 1036 MB (PDB pools size: 960 MB).
+flat nets = 542009, primitives = 518334, nodes = 366453; resident memory size: 1044 MB (PDB pools size: 960 MB).
 
 Read-before-write memory ports {
 instance: IXC_GFIFO.I.I.ixc_gfm_ififo port: IXC_GFIFO.I.I.U10465
@@ -12629,7 +12629,7 @@ instance: tb_top.kme_tb_dut._zygsfis_get_config_data_fifo port: tb_top.kme_tb_du
 } // Read-before-write memory ports
 elapsed time: 0 sec.
 created 960 unnamed nets and 2381 unnamed primitives.
-flat nets = 544507, primitives = 520832, nodes = 366453; resident memory size: 1036 MB (PDB pools size: 960 MB).
+flat nets = 544507, primitives = 520832, nodes = 366453; resident memory size: 1044 MB (PDB pools size: 960 MB).
 } // Fixing IO
 
 Building enables {
@@ -12649,49 +12649,49 @@ Connecting enables {
 Connect enables (nets) mt-16 {
 
 Connect enables (subaction: close pools) {
-flat nets = 544533, primitives = 520843, nodes = 366469; resident memory size: 1036 MB (PDB pools size: 1024 MB).
+flat nets = 544533, primitives = 520843, nodes = 366469; resident memory size: 1044 MB (PDB pools size: 1024 MB).
 elapsed time: 0 sec.
-flat nets = 544543, primitives = 520853, nodes = 366469; resident memory size: 1076 MB (PDB pools size: 1024 MB).
+flat nets = 544543, primitives = 520853, nodes = 366469; resident memory size: 1084 MB (PDB pools size: 1024 MB).
 } // Connect enables (subaction: close pools)
 
 Connect enables (subaction: finish) {
-flat nets = 544543, primitives = 520853, nodes = 366469; resident memory size: 1076 MB (PDB pools size: 1024 MB).
+flat nets = 544543, primitives = 520853, nodes = 366469; resident memory size: 1084 MB (PDB pools size: 1024 MB).
 elapsed time: 0 sec.
-flat nets = 544543, primitives = 520853, nodes = 366469; resident memory size: 1076 MB (PDB pools size: 1024 MB).
+flat nets = 544543, primitives = 520853, nodes = 366469; resident memory size: 1084 MB (PDB pools size: 1024 MB).
 } // Connect enables (subaction: finish)
-elapsed time: 1 sec.
-flat nets = 544543, primitives = 520853, nodes = 366469; resident memory size: 1076 MB (PDB pools size: 1024 MB).
+elapsed time: 0 sec.
+flat nets = 544543, primitives = 520853, nodes = 366469; resident memory size: 1084 MB (PDB pools size: 1024 MB).
 } // Connect enables (nets) mt-16
 
 Connect enables (primitives) mt-16 {
-flat nets = 544543, primitives = 520853, nodes = 366469; resident memory size: 1076 MB (PDB pools size: 1024 MB).
+flat nets = 544543, primitives = 520853, nodes = 366469; resident memory size: 1084 MB (PDB pools size: 1024 MB).
 
 Connect enables (subaction: close pools) {
-flat nets = 544559, primitives = 520853, nodes = 366485; resident memory size: 1080 MB (PDB pools size: 1184 MB).
+flat nets = 544559, primitives = 520853, nodes = 366485; resident memory size: 1086 MB (PDB pools size: 1184 MB).
 elapsed time: 0 sec.
-flat nets = 544568, primitives = 520862, nodes = 366485; resident memory size: 1158 MB (PDB pools size: 1184 MB).
+flat nets = 544568, primitives = 520862, nodes = 366485; resident memory size: 1164 MB (PDB pools size: 1184 MB).
 } // Connect enables (subaction: close pools)
 
 Connect enables (subaction: finish) {
-flat nets = 544568, primitives = 520862, nodes = 366485; resident memory size: 1158 MB (PDB pools size: 1184 MB).
+flat nets = 544568, primitives = 520862, nodes = 366485; resident memory size: 1164 MB (PDB pools size: 1184 MB).
 elapsed time: 0 sec.
-flat nets = 544568, primitives = 520862, nodes = 366485; resident memory size: 1158 MB (PDB pools size: 1184 MB).
+flat nets = 544568, primitives = 520862, nodes = 366485; resident memory size: 1164 MB (PDB pools size: 1184 MB).
 } // Connect enables (subaction: finish)
 elapsed time: 0 sec.
-flat nets = 544568, primitives = 520862, nodes = 366485; resident memory size: 3948 MB (PDB pools size: 1184 MB).
+flat nets = 544568, primitives = 520862, nodes = 366485; resident memory size: 3949 MB (PDB pools size: 1184 MB).
 } // Connect enables (primitives) mt-16
-elapsed time: 1 sec.
-flat nets = 544568, primitives = 520862, nodes = 366485; resident memory size: 1158 MB (PDB pools size: 1184 MB).
+elapsed time: 0 sec.
+flat nets = 544568, primitives = 520862, nodes = 366485; resident memory size: 1164 MB (PDB pools size: 1184 MB).
 } // Connecting enables
-elapsed time: 1 sec.
-flat nets = 544568, primitives = 520862, nodes = 366485; resident memory size: 1158 MB (PDB pools size: 1184 MB).
+elapsed time: 0 sec.
+flat nets = 544568, primitives = 520862, nodes = 366485; resident memory size: 1164 MB (PDB pools size: 1184 MB).
 } // Creating and connecting enables
-elapsed time: 1 sec.
-flat nets = 544571, primitives = 520864, nodes = 366485; resident memory size: 1158 MB (PDB pools size: 1184 MB).
+elapsed time: 0 sec.
+flat nets = 544571, primitives = 520864, nodes = 366485; resident memory size: 1164 MB (PDB pools size: 1184 MB).
 } // Building enables
 
 Unset FV probes (nets) mt-16 {
-flat nets = 544571, primitives = 520865, nodes = 366485; resident memory size: 1158 MB (PDB pools size: 1184 MB).
+flat nets = 544571, primitives = 520865, nodes = 366485; resident memory size: 1164 MB (PDB pools size: 1184 MB).
 
 Unset FV probes (subaction: finish) {
 elapsed time: 0 sec.
@@ -12700,13 +12700,13 @@ elapsed time: 0 sec.
 } // Unset FV probes (nets) mt-16
 
 Disconnecting dangling buffers {
-flat nets = 544571, primitives = 520865, nodes = 366485; resident memory size: 1158 MB (PDB pools size: 1184 MB).
+flat nets = 544571, primitives = 520865, nodes = 366485; resident memory size: 1164 MB (PDB pools size: 1184 MB).
 elapsed time: 0 sec.
-flat nets = 544571, primitives = 520865, nodes = 366485; resident memory size: 1158 MB (PDB pools size: 1184 MB).
+flat nets = 544571, primitives = 520865, nodes = 366485; resident memory size: 1164 MB (PDB pools size: 1184 MB).
 } // Disconnecting dangling buffers
 
 Fixing sourceless nets {
-flat nets = 544571, primitives = 520865, nodes = 366485; resident memory size: 1158 MB (PDB pools size: 1184 MB).
+flat nets = 544571, primitives = 520865, nodes = 366485; resident memory size: 1164 MB (PDB pools size: 1184 MB).
 
 fix sourceless nets (nets) mt-16 {
 
@@ -12717,13 +12717,13 @@ elapsed time: 0 sec.
 } // fix sourceless nets (nets) mt-16
 elapsed time: 0 sec.
 created 0 unnamed nets and 7788 unnamed primitives.
-flat nets = 544571, primitives = 528653, nodes = 366485; resident memory size: 1160 MB (PDB pools size: 1184 MB).
+flat nets = 544571, primitives = 528653, nodes = 366485; resident memory size: 1166 MB (PDB pools size: 1184 MB).
 } // Fixing sourceless nets
 
 Saving deep logic {
-flat nets = 544571, primitives = 528653, nodes = 366485; resident memory size: 1160 MB (PDB pools size: 1184 MB).
+flat nets = 544571, primitives = 528653, nodes = 366485; resident memory size: 1166 MB (PDB pools size: 1184 MB).
 elapsed time: 0 sec.
-flat nets = 546218, primitives = 530299, nodes = 366486; resident memory size: 1162 MB (PDB pools size: 1184 MB).
+flat nets = 546218, primitives = 530299, nodes = 366486; resident memory size: 1168 MB (PDB pools size: 1184 MB).
 } // Saving deep logic
 
 Calculate gate count (primitives) mt-16 {
@@ -12731,7 +12731,7 @@ Calculate gate count (primitives) mt-16 {
 Calculate gate count (subaction: finish) {
 elapsed time: 0 sec.
 } // Calculate gate count (subaction: finish)
-elapsed time: 0 sec.
+elapsed time: 1 sec.
 } // Calculate gate count (primitives) mt-16
 
 Calculate gate count (nets) mt-16 {
@@ -12745,7 +12745,7 @@ REPORT (legacy-1311): Internal database gate count after transformations (for st
 Number of DLY/DLYE = 100965; Number of PI probes = 15644; Number of FF probes = 65072 (out of which 21 are PI probes for verification).
 
 Marking auto partitions {
-flat nets = 546218, primitives = 530299, nodes = 366486; resident memory size: 1162 MB (PDB pools size: 1184 MB).
+flat nets = 546218, primitives = 530299, nodes = 366486; resident memory size: 1168 MB (PDB pools size: 1184 MB).
 
 Saving net markers {
 
@@ -12800,7 +12800,7 @@ elapsed time: 0 sec.
 } // Post partition optimization
 elapsed time: 1 sec.
 created 2 unnamed nets and 2 unnamed primitives.
-flat nets = 546220, primitives = 530301, nodes = 366486; resident memory size: 4016 MB (PDB pools size: 1280 MB).
+flat nets = 546220, primitives = 530301, nodes = 366486; resident memory size: 4017 MB (PDB pools size: 1280 MB).
 } // Marking auto partitions
 
 Setting partition groups {
@@ -12811,7 +12811,7 @@ elapsed time: 0 sec.
 } // Creating partitions infrastructure
 
 Marking auto partitions {
-flat nets = 546220, primitives = 530301, nodes = 366486; resident memory size: 1234 MB (PDB pools size: 1280 MB).
+flat nets = 546220, primitives = 530301, nodes = 366486; resident memory size: 1231 MB (PDB pools size: 1280 MB).
 
 Saving net markers {
 
@@ -12866,7 +12866,7 @@ elapsed time: 0 sec.
 } // Post partition optimization
 elapsed time: 0 sec.
 created 2 unnamed nets and 2 unnamed primitives.
-flat nets = 546222, primitives = 530301, nodes = 366486; resident memory size: 1266 MB (PDB pools size: 1280 MB).
+flat nets = 546222, primitives = 530301, nodes = 366486; resident memory size: 1265 MB (PDB pools size: 1280 MB).
 } // Marking auto partitions
 
 Update cross partition nets properties {
@@ -12892,15 +12892,15 @@ collect partitions stat (primitives) mt-16 {
 collect partitions stat (subaction: finish) {
 elapsed time: 0 sec.
 } // collect partitions stat (subaction: finish)
-elapsed time: 1 sec.
+elapsed time: 0 sec.
 } // collect partitions stat (primitives) mt-16
-elapsed time: 1 sec.
+elapsed time: 0 sec.
 } // Logging partitions information
 
 Saving partition markers {
 elapsed time: 0 sec.
 } // Saving partition markers
-elapsed time: 1 sec.
+elapsed time: 0 sec.
 } // Setting partition groups
 
 Building Registry {
@@ -12912,12 +12912,12 @@ elapsed time: 0 sec.
 } // Optimizing Registry
 
 Collecting ids and names {
-flat nets = 546222, primitives = 530301, nodes = 366486; resident memory size: 1266 MB (PDB pools size: 1280 MB).
+flat nets = 546222, primitives = 530301, nodes = 366486; resident memory size: 1265 MB (PDB pools size: 1280 MB).
 
 Initializing RT data {
-Init smNetIDs) elapsed time: 0 sec.
+Init smNetIDs) elapsed time: 1 sec.
 Collecting 47849 names: 0 sec.
-elapsed time: 0 sec.
+elapsed time: 1 sec.
 } // Initializing RT data
 
 Collecting IXCOM instrumentation nets {
@@ -12925,16 +12925,16 @@ elapsed time: 0 sec.
 } // Collecting IXCOM instrumentation nets
 
 Writing deep logic {
-flat nets = 546222, primitives = 530301, nodes = 366486; resident memory size: 1269 MB (PDB pools size: 1280 MB).
+flat nets = 546222, primitives = 530301, nodes = 366486; resident memory size: 1267 MB (PDB pools size: 1280 MB).
 elapsed time: 0 sec.
-flat nets = 546222, primitives = 530301, nodes = 366486; resident memory size: 1269 MB (PDB pools size: 1280 MB).
+flat nets = 546222, primitives = 530301, nodes = 366486; resident memory size: 1267 MB (PDB pools size: 1280 MB).
 } // Writing deep logic
-elapsed time: 0 sec.
-flat nets = 546222, primitives = 530301, nodes = 366486; resident memory size: 1269 MB (PDB pools size: 1280 MB).
+elapsed time: 1 sec.
+flat nets = 546222, primitives = 530301, nodes = 366486; resident memory size: 1268 MB (PDB pools size: 1280 MB).
 } // Collecting ids and names
 
 Saving netlist {
-flat nets = 546222, primitives = 530301, nodes = 366486; resident memory size: 1269 MB (PDB pools size: 1280 MB).
+flat nets = 546222, primitives = 530301, nodes = 366486; resident memory size: 1268 MB (PDB pools size: 1280 MB).
 
 Special nets {
 qt_runback_ff_enable : '_ET3_COMPILER_RESERVED_NAME_DESIGN_FREEZE_'
@@ -12955,7 +12955,7 @@ elapsed time: 0 sec.
 } // Saving net markers
 
 Creating BEDB {
-flat nets = 546222, primitives = 530301, nodes = 366486; resident memory size: 1271 MB (PDB pools size: 1280 MB).
+flat nets = 546222, primitives = 530301, nodes = 366486; resident memory size: 1270 MB (PDB pools size: 1280 MB).
 Create Side Files elapsed time: 0 sec.
 
 Creating MDC infrastructure {
@@ -12987,13 +12987,13 @@ elapsed time: 0 sec.
 } // Restoring net markers (nets) mt-16
 elapsed time: 0 sec.
 } // Restoring net markers
-elapsed time: 0 sec.
+elapsed time: 1 sec.
 } // Running MDC jobs
 Create Initial Proto elapsed time: 2 sec.
 elapsed time: 2 sec.
 } // Creating MDC infrastructure
 elapsed time: 2 sec.
-flat nets = 546222, primitives = 530301, nodes = 366486; resident memory size: 4020 MB (PDB pools size: 1280 MB).
+flat nets = 546222, primitives = 530301, nodes = 366486; resident memory size: 4021 MB (PDB pools size: 1280 MB).
 } // Creating BEDB
 
 Creating RT PDB {
@@ -13020,12 +13020,12 @@ Save PoolVector elapsed time: 0 sec.
 Saving rtPoolVector core2 elapsed time: 0 sec.
 Saving rtPoolVector core1 elapsed time: 0 sec.
 Saving rtPoolVector core3 elapsed time: 0 sec.
-Saving rtPoolVector core5 elapsed time: 0 sec.
-Save Flat2SynVector elapsed time: 0 sec.
 Saving rtPoolVector core4 elapsed time: 0 sec.
+Saving rtPoolVector core5 elapsed time: 0 sec.
+Save TopSignalsMap elapsed time: 0 sec.
 Saving rtPoolVector core6 elapsed time: 0 sec.
 Saving rtPoolVector core7 elapsed time: 0 sec.
-Save TopSignalsMap elapsed time: 0 sec.
+Save Flat2SynVector elapsed time: 0 sec.
 Save Nets elapsed time: 0 sec.
 Saving rtPoolVector core0 elapsed time: 0 sec.
 Save Signalsmap elapsed time: 1 sec.
@@ -13079,28 +13079,32 @@ elapsed time: 0 sec.
 elapsed time: 2 sec.
 } // Creating RT PDB
 elapsed time: 4 sec.
-flat nets = 546222, primitives = 530301, nodes = 366486; resident memory size: 4584 MB (PDB pools size: 1344 MB).
+flat nets = 546222, primitives = 530301, nodes = 366486; resident memory size: 4601 MB (PDB pools size: 1344 MB).
 } // Saving netlist
 
 Saving DADB snapshot {
 Init smNetIDs) elapsed time: 1 sec.
 elapsed time: 1 sec.
 } // Saving DADB snapshot
-Precompiler elapsed time: 11 sec
-  Flattening DUT: 1 sec (9.1%)
-  Cleaning: 1 sec (9.1%)
-  Building netlist: 2 sec (18.2%)
-  Setting probes: 1 sec (9.1%)
-  SDL instrumentation: 1 sec (9.1%)
-  Partitioning: 2 sec (18.2%)
-  Saving BEDB: 2 sec (18.2%)
-  PDB internals: 1 sec (9.1%)
-Resident memory peak 4020 MB is reached at exit from 'Creating BEDB'.
+Precompiler elapsed time: 12 sec
+  Flattening DUT: 1 sec (8.3%)
+  DRC: 1 sec (8.3%)
+  Cleaning: 1 sec (8.3%)
+  1X mode analysis: 1 sec (8.3%)
+  Building netlist: 1 sec (8.3%)
+  Collecting names: 1 sec (8.3%)
+  SDL instrumentation: 1 sec (8.3%)
+  PDB sorting: 1 sec (8.3%)
+  PPC operations: 1 sec (8.3%)
+  Partitioning: 1 sec (8.3%)
+  Saving BEDB: 1 sec (8.3%)
+  PDB internals: 1 sec (8.3%)
+Resident memory peak 4021 MB is reached at exit from 'Creating BEDB'.
 --------
 Post-precompiler extras (+3 sec):
-  Saving PDB: +3 sec (+27.3%)
-Resident memory peak 4584 MB is reached at exit from 'Saving netlist'.
+  Saving PDB: +3 sec (+25.0%)
+Resident memory peak 4601 MB is reached at exit from 'Saving netlist'.
 --------
 
-### STOP: Mon May 20 11:37:55 2024
+### STOP: Tue May 21 16:19:00 2024
 

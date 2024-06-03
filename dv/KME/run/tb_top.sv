@@ -11,7 +11,7 @@ module tb_top;
     kme_tb kme_tb_dut();
     // call new kme_tb.sv task here
     initial begin
-        kme_tb_dut.tb_task;
+        fork begin kme_tb_dut.tb_task; end join_none
         //$finish;
     end
 endmodule: tb_top

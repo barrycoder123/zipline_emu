@@ -1,4 +1,4 @@
-Log started on host: hsv-sc49 pid: 3896369 at: Mon May 20 11:39:00 2024
+Log started on host: hsv-sc49 pid: 725041 at: Tue May 21 16:19:42 2024
 
 libxcrt IXCOM, V23.03.131.s001             (compiled with XCELIUM-22.09-s001, loaded with  XCELIUM-23.09-a071)
 
@@ -10,19 +10,19 @@ INFO: target platform:Z1, execution platform:Z1
 =========================================================================
 IXCOM Performance and Design Profile
 -------------------------------------------------------------------------
---- Maximum HW operating speed (compiler fclk freq): 2685.50 KHz
---- HW executed total fclk cycles  (      275739 ) : time = 0.10 sec, (cfclks/fclks: 0.12%)
+--- Maximum HW operating speed (compiler fclk freq): 2578.10 KHz
+--- HW executed total fclk cycles  (      257700 ) : time = 0.10 sec, (cfclks/fclks: 0.12%)
 --- Clocking Mode: +1xua is enabled.
 
---- HW execution command line session time: 0.30 sec (0.05 CPU sec)
+--- HW execution command line session time: 0.28 sec (0.04 CPU sec)
 
---- HW execution wall clock time          : 0.30 sec (0.05 CPU sec)
+--- HW execution wall clock time          : 0.28 sec (0.04 CPU sec)
 
---- Simulation acceleration speed achieved: 2.12 KHz (2124.77 evals/sec)
+--- Simulation acceleration speed achieved: 2.27 KHz (2265.68 evals/sec)
 
 --- HW executed
-    --        321 ECM controlled fclk cycles      @ 1.08 KHz (1077.49 cfclks/sec)
-    --        633 Eval (or sim-timestep) cycles   @ 2.12 KHz (2124.77 evals/sec)
+    --        321 ECM controlled fclk cycles      @ 1.15 KHz (1148.95 cfclks/sec)
+    --        633 Eval (or sim-timestep) cycles   @ 2.27 KHz (2265.68 evals/sec)
 
        --          9 Gfifo wait cycles           : 0.00 sec (0.00% total)
                |--          9 Gfifo tbsync waits : 0.00 sec (0.00% total)
@@ -34,17 +34,16 @@ IXCOM Performance and Design Profile
 
 
 --- xc Profile: (%)
-	    83.33         XCRT-OH (Elapsed: 0.25 sec)
+	    80.00         XCRT-OH (Elapsed: 0.22 sec)
 
-	    12.50          SW-SIM (Elapsed: 0.04 sec)
-	                    |----  MARG (66.67 %, 0.02 sec)
-
-	     4.17    HW-EMU-TBRUN (Elapsed: 0.01 sec)
+	    20.00          SW-SIM (Elapsed: 0.06 sec)
+	                    |---- GFIFO (40.00 %, 0.02 sec)
+	                             |-- GFIFO-USER-CODE (100.00 %, 0.02 sec)
+	                    |----  MARG (40.00 %, 0.02 sec)
 
 
 	--- XCRT-OH    : IXCOM runtime overhead.
 	--- SW-SIM     : TB and TBCall execution in sw simulator.
-	--- HW-EMU     : HW evaluations and Synchronization Latency.
 
 
 --- Primary Inputs  (bits): INPUT(0) FORCE(0)DEPOSIT(3 :dut=2 + dpi=1 + ixcom=0).
@@ -76,7 +75,7 @@ GFIFO (import) profile
 ---               14   78.57%     5.36     0.00         0  Total
 -------------------------------------------------------------------------
       Num polls = 5, Num bytes polled = 120, Time for polls = 0.00 sec, Polling back off time = 0.00 sec
-      Ave poll time = 9.15 us, Min poll time = 7.09 us, Max poll time = 13.41 us
+      Ave poll time = 8.44 us, Min poll time = 6.23 us, Max poll time = 14.17 us
       Polling distribution:
           5.00 us to  10.00 us 4 polls
          10.00 us to  15.00 us 1 polls
@@ -98,7 +97,7 @@ GFIFO (import) profile
 ---               75 Total
 -------------------------------------------------------------------------
       Num polls = 1, Num bytes polled = 32, Time for polls = 0.00 sec
-      Ave poll time = 7.98 us, Min poll time = 7.98 us, Max poll time = 7.98 us
+      Ave poll time = 8.32 us, Min poll time = 8.32 us, Max poll time = 8.32 us
       Polling distribution:
         5.00 us to 10.00 us 1 polls
 =========================================================================
@@ -120,27 +119,27 @@ GFIFO (import) profile
 -------------------------------------------------------------------------
          Count           Bytes            sec     MB/sec  Name
 -------------------------------------------------------------------------
-            13              52         0.0205      0.003  IXCOM Generated Internal Memories
+            13              52         0.0196      0.003  IXCOM Generated Internal Memories
 -------------------------------------------------------------------------
----         13              52         0.0205      0.003  Total
+---         13              52         0.0196      0.003  Total
 -------------------------------------------------------------------------
 =========================================================================
 
-xcProfiler report generated on: Mon May 20 11:39:22 2024
+xcProfiler report generated on: Tue May 21 16:20:05 2024
 
 =========================================================================
 
---- pollEmu PO usec: avg:29.24, max:60.47, min:7.70 #polls:3 (>1ms 0), tot:0.00s
+--- pollEmu PO usec: avg:31.46, max:69.47, min:7.68 #polls:3 (>1ms 0), tot:0.00s
 ======================================================
 	get resource usage report
 ------------------------------------------------------
 user time used: 0.05 sec
 system time used: 0.00 sec
-maximum resident set size: 773684 (232)
+maximum resident set size: 773004 (108)
 integral shared memory size: 0
 integral unshared data size: 0
 integral unshared stack size: 0
-page reclaims: 209
+page reclaims: 174
 page faults: 1
 swaps: 0
 block input operations: 184
@@ -148,18 +147,18 @@ block output operations: 8
 messages sent: 0
 messages received: 0
 signals received: 0
-voluntary context switches: 123
-involuntary context switches: 1
+voluntary context switches: 122
+involuntary context switches: 0
 ======================================================
 
 ================= xcib statistics ====================
                    UART     BYPASS           
       thread      count      count   cpu time
 --------------------------------------------------------
-        main         13          0       0.36
+        main         13          0       0.41
 --------------------------------------------------------
 
 xcmempio = 0.
 
-Log end: Mon May 20 11:39:22 2024
+Log end: Tue May 21 16:20:05 2024
 

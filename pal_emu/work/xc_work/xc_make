@@ -34,9 +34,9 @@ libgfifo_mchk.so: $(IXC_DIR)/xc_work/c/gfifo_mchk.c
 xmvlog: xc_pkg xc_cnt libixcg.so
 	@/bin/rm -rf $(IXC_DIR)/xc_work/xrun.log
 	xmvlog $(HDLVAR) $(XMVLOG_OPTIONS) -WORK xc_ncwork  -sv -f $(IXC_DIR)/xc_work/v/SWModel_vlogAnalyzer-xc_ncwork-1-systemverilog.f
-	xmvlog $(HDLVAR) $(XMVLOG_OPTIONS) -WORK xc_ncwork  -sv -f $(IXC_DIR)/xc_work/v/SWModel_vlogAnalyzer-xc_ncwork-76-systemverilog.f
+	xmvlog $(HDLVAR) $(XMVLOG_OPTIONS) -WORK xc_ncwork  -sv -f $(IXC_DIR)/xc_work/v/SWModel_vlogAnalyzer-xc_ncwork-77-systemverilog.f
 	xmvlog $(HDLVAR) $(XMVLOG_OPTIONS) -WORK IXCOM_TEMP_LIBRARY  -f $(IXC_DIR)/xc_work/v/SWModel_vlogAnalyzer-IXCOM_TEMP_LIBRARY-v2001.f
-	xmvlog $(HDLVAR) $(XMVLOG_OPTIONS) -WORK IXCOM_TEMP_LIBRARY  -sv -f $(IXC_DIR)/xc_work/v/SWModel_vlogAnalyzer-IXCOM_TEMP_LIBRARY-3-systemverilog.f
+	xmvlog $(HDLVAR) $(XMVLOG_OPTIONS) -WORK IXCOM_TEMP_LIBRARY  -sv -f $(IXC_DIR)/xc_work/v/SWModel_vlogAnalyzer-IXCOM_TEMP_LIBRARY-5-systemverilog.f
 	xmvlog $(HDLVAR) $(XMVLOG_OPTIONS) -WORK xc_ncwork -sv $(IXC_DIR)/xc_work/v/gfifo_conns.sv
 	xmvlog $(HDLVAR) $(XMVLOG_OPTIONS) -WORK xc_ncwork -sv $(IXC_DIR)/xc_work/v/sfifo_conns.sv
 	xmvlog  -DEFINE IXCOM_UA -DEFINE USE_IXC_TIME -DEFINE USE_IXC_GFIFO  $(HDLVAR) $(XMVLOG_OPTIONS) -WORK xc_ncwork -sv $(IXC_DIR)/xc_work/v/xc_top.v -incdir $(XHOME)/etc/ixcom

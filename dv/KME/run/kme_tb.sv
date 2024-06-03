@@ -333,8 +333,8 @@ module kme_tb;
                       apb_xactor.read(address, returned_data, response);
                       $display("MY INFO: curr address: 0x%h --> data_from_config: 0x%h --> data_from_apb: 0x%h\n", address, data, returned_data);
                       if ( response !== 0 ) begin
-                         $display ("\n\nAPB_FATAL:  @time:%-d   Slave ERROR and/or TIMEOUT on the READ operation to address 0x%h\n\n",
-                                           $time, address );
+                      $display ("\n\nAPB_FATAL:  @time:%-d   Slave ERROR and/or TIMEOUT on the READ operation to address 0x%h\n\n",
+                              $time, address );
                          $finish;
                       end 
                       if ( returned_data !== data ) begin

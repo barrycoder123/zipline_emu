@@ -1,4 +1,4 @@
-00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et3lib' on 05/20/2024 11:37:56
+00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et3lib' on 05/21/2024 16:19:01
 00 DATABASE | Parms: '-client'
 00 ET3LIB   |                                    
 00 ET3LIB   |                              ET3 LIBRARY
@@ -8,17 +8,17 @@
 00 ET3LIB   |            See files in <rootdir>/share/vxe/install/Copyrights
 00 ET3LIB   |                                    
 00 ET3LIB   | ET3lib created on Aug  3 2023 at 22:13:09.
-00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et3lib' (Elapsed time 0.00s (0.00u+0.00s), Memory used 1307 Mb) on 05/20/2024 11:37:56
-00 DATABASE | Calling 'ldproto' on 05/20/2024 11:37:56
+00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et3lib' (Elapsed time 0.00s (0.00u+0.00s), Memory used 1307 Mb) on 05/21/2024 16:19:01
+00 DATABASE | Calling 'ldproto' on 05/21/2024 16:19:01
 00 DATABASE | Parms: 'qt2dadb -modular -rename xcva_top'
-00 DATABASE | Reading file './dbFiles/qt2dadb.ffproto' created on Mon May 20 11:37:51 2024
+00 DATABASE | Reading file './dbFiles/qt2dadb.ffproto' created on Tue May 21 16:18:56 2024
 00 DATABASE | 
-00 DATABASE | Proto size = 2586083
+00 DATABASE | Proto size = 2586092
 Info: 543424 ffDB nets have been restored
 Info: 530300 ffDB boxes have been restored
-00 DATABASE | Return from 'ldproto' (Elapsed time 0.36s (0.20u+0.07s), Memory used 2015 Mb) on 05/20/2024 11:37:57
-00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et3confg' on 05/20/2024 11:37:57
-00 DATABASE | Parms: '-client xcva_top -seed 262034294 -reserve_epc 63 -compilerEffort 991010 -visionMode FV -num_cycles_per_capture_frame 32'
+00 DATABASE | Return from 'ldproto' (Elapsed time 0.27s (0.20u+0.06s), Memory used 1631 Mb) on 05/21/2024 16:19:01
+00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et3confg' on 05/21/2024 16:19:01
+00 DATABASE | Parms: '-client xcva_top -seed 266172613 -reserve_epc 63 -compilerEffort 991010 -visionMode FV -num_cycles_per_capture_frame 32'
 00 ET3CONFG | Default SA Protocol - Classic
 00 ET3CONFG | DBI's P5 limit (90% utilization): 33177, DBIs in CTL: 72 (max index: 72), DBO's P5 limit (90% utilization) 88473, DBO in CTL: 147 (max index: 147)
 00 ET3CONFG | THIS IS /lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/bin/64bit/xeCompile RUNNING.
@@ -33,13 +33,13 @@ Info: 530300 ffDB boxes have been restored
 00 ET3CONFG | et6confg created on Aug  3 2023 at 22:13:09.
 00 ET3CONFG | Reading configuration file "./dbFiles/xcva_top.et3confg"
 00 ET3CONFG | --> USING LD8 CLUSTER TABLES
-00 ET3CONFG | ***** MB/XB wire table initialization took 0.000755 seconds.
+00 ET3CONFG | ***** MB/XB wire table initialization took 0.000624 seconds.
 00 ET3CONFG | ***** Found 0000000  MBO->MBI  possible links in this configuration.
 00 ET3CONFG | ***** HIGHEST board found in emulation configuration is 0
 00 ET3CONFG | load_module_version()          = 30
 00 ET3CONFG | num_cycles_per_capture_frame   = 32
 00 ET3CONFG | das_protocol()                 = 5
-00 ET3CONFG | COMPILED ON 05/20/2024 AT 11:37:57
+00 ET3CONFG | COMPILED ON 05/21/2024 AT 16:19:01
 00 ET3CONFG | +   1 BOARD ET6E
 00 ET3CONFG | +   1 MEMORY_CARD_V1
 00 ET3CONFG | +   1 MEMORY_CARD_V1  on BOARD 0
@@ -58,7 +58,7 @@ Info: 530300 ffDB boxes have been restored
 00 ET3CONFG | 
 00 ET3CONFG | Running in little-endian mode
 00 ET3CONFG | BEDB loaded client memutil
-00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/omlib' on 05/20/2024 11:37:57
+00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/omlib' on 05/21/2024 16:19:01
 00 DATABASE | Parms: ''
 00 OMLIB    |                                    
 00 OMLIB    |                           VXE, VEngineering
@@ -68,7 +68,7 @@ Info: 530300 ffDB boxes have been restored
 00 OMLIB    |                                    
 00 OMLIB    | omlib created on Aug  3 2023 at 22:05:33
 00 OMLIB    | 
-00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/omlib' (Elapsed time 0.00s (0.00u+0.00s), Memory used 2015 Mb) on 05/20/2024 11:37:57
+00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/omlib' (Elapsed time 0.01s (0.00u+0.00s), Memory used 1631 Mb) on 05/21/2024 16:19:01
 00 ET3CONFG |                                    
 00 ET3CONFG |                           VXE, VEngineering
 00 ET3CONFG |             Copyright(C) 1995-2021, Cadence Design Systems
@@ -79,8 +79,8 @@ Info: 530300 ffDB boxes have been restored
 00 ET3CONFG | SCschedlib created on Aug  3 2023 at 22:13:09
 00 ET3CONFG | 
 00 ET3CONFG | BEDB loaded client SCschedlib
-00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et3confg' (Elapsed time 0.46s (0.02u+0.01s), Memory used 2015 Mb) on 05/20/2024 11:37:57
-00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et6ctl' on 05/20/2024 11:37:57
+00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et3confg' (Elapsed time 0.29s (0.02u+0.00s), Memory used 1631 Mb) on 05/21/2024 16:19:01
+00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et6ctl' on 05/21/2024 16:19:01
 00 DATABASE | Parms: ''
 00 ET6CTL   | reading compOptions file
 00 ET6CTL   | Number of valid option entries for module etctl = 0
@@ -125,8 +125,8 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00 ET6CTL   | Partition utilization:
 00 ET6CTL   | 	DBI utilization: 73/36864 (0.0%)
 00 ET6CTL   | 	DBO utilization: 146/98304 (0.0%)
-00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et6ctl' (Elapsed time 0.07s (0.04u+0.01s), Memory used 2015 Mb) on 05/20/2024 11:37:57
-00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et5nlopt' on 05/20/2024 11:37:57
+00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et6ctl' (Elapsed time 0.05s (0.03u+0.01s), Memory used 1631 Mb) on 05/21/2024 16:19:01
+00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et5nlopt' on 05/21/2024 16:19:01
 00 DATABASE | Parms: '-retiming ON'
 00 ET5NLOPT |                                    
 00 ET5NLOPT |                         ET5 NETLIST OPTIMIZER
@@ -176,7 +176,7 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00 ET5NLOPT | ----------------------------------------------
 00 ET5NLOPT | "ALU optimizer" started...
 00 ET5NLOPT | File "xcva_top.aluRules" not found, use default options.
-00 ET5NLOPT | Done FW logic levelization on 530684 boxes, max logic level = 228, in 0.116 seconds
+00 ET5NLOPT | Done FW logic levelization on 530684 boxes, max logic level = 228, in 0.076 seconds
 00 ET5NLOPT | 
 00 ET5NLOPT | Removed 33284 redundant boxes
 00 ET5NLOPT | Removed 72 complex redundant boxes
@@ -186,7 +186,7 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00 ET5NLOPT | Muxes simplified 0, transformation 14189 (215 with mismatched level)
 00 ET5NLOPT | Muxes broken 148, tranformed = 14189, muxes swapped = 3572
 00 ET5NLOPT | Mux optimization reduced logical levels from 228 to 226
-00 ET5NLOPT | Done FW logic levelization on 483139 boxes, max logic level = 226, in 0.104 seconds
+00 ET5NLOPT | Done FW logic levelization on 483139 boxes, max logic level = 226, in 0.065 seconds
 00 ET5NLOPT | 
 00 ET5NLOPT | Using level dependency vector for propagation order
 00 ET5NLOPT | CBL option is 2
@@ -195,7 +195,7 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00 ET5NLOPT | Transformed 0 (0 selfloop) do not touch boxes into DELAY boxes
 00 ET5NLOPT | Saved memloop bits for 0 memory ports
 00 ET5NLOPT | marked 0 nets as transitional logic and set as keepnet before CBL
-00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et5cbl' on 05/20/2024 11:37:59
+00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et5cbl' on 05/21/2024 16:19:02
 00 DATABASE | Parms: '-O2'
 00 ET5CBL   | 
 00 ET5CBL   |                        CBL Netlist Optimizer
@@ -205,16 +205,16 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00 ET5CBL   |             Copyright(C) 1995-2021, Cadence Design Systems
 00 ET5CBL   |                          All rights reserved
 00 ET5CBL   | 
-00 ET5CBL   | ---- ET5CBL: Parameters: -O2                          ---- (Time: 0.00 s   Mem: 1879.47 MB)
+00 ET5CBL   | ---- ET5CBL: Parameters: -O2                          ---- (Time: 0.00 s   Mem: 2135.34 MB)
 00 ET5CBL   | ==== ET5CBL: compiled: Aug  3 2023 (22:05:58)
-00 ET5CBL   | ==== ET5CBL: run     : May 20 2024 (11:37:59) on host hsv-sc49
+00 ET5CBL   | ==== ET5CBL: run     : May 21 2024 (16:19:02) on host hsv-sc49
 00 ET5CBL   | ==== ET5CBL: optimization level: 2
-00 ET5CBL   | ---- ET5CBL: Cleaning up database                     ---- (Time: 0.01 s   Mem: 1879.47 MB)
+00 ET5CBL   | ---- ET5CBL: Cleaning up database                     ---- (Time: 0.01 s   Mem: 2135.34 MB)
 00 ET5CBL   | WARNING! Connected 10207 logic gate inputs to LOW with net attribute GROUND
 00 ET5CBL   | WARNING! Connected 16466 logic gate inputs to HIGH with net attribute POWER.
 00 ET5CBL   | Found 0 boxes with non-zero box flags
 00 ET5CBL   | Saved 0 net properties
-00 ET5CBL   | ---- ET5CBL: Partitioning database into 4 parts       ---- (Time: 0.08 s   Mem: 1879.47 MB)
+00 ET5CBL   | ---- ET5CBL: Partitioning database into 4 parts       ---- (Time: 0.06 s   Mem: 2135.34 MB)
 00 ET5CBL   | Initializing XMETIS engine.
 00 ET5CBL   | XMETIS created on Aug  3 2023 at 22:05:50
 00 ET5CBL   | METIS is Copyright 1997, Regents of the University of Minnesota
@@ -227,29 +227,29 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00 ET5CBL   | >>    part 1: vertices = 117848
 00 ET5CBL   | >>    part 2: vertices = 123349
 00 ET5CBL   | >>    part 3: vertices = 121149
-00 ET5CBL   | ---- ET5CBL: Maximum 4 threads to run concurrently    ---- (Time: 0.80 s   Mem: 1924.32 MB)
+00 ET5CBL   | ---- ET5CBL: Maximum 4 threads to run concurrently    ---- (Time: 0.70 s   Mem: 2180.33 MB)
 00 ET5CBL   | Created 9283 PI/PO groups on cross-partition signals
-00 ET5CBL   | ---- ET5CBL: Converting database to netlists          ---- (Time: 0.98 s   Mem: 1924.32 MB)
+00 ET5CBL   | ---- ET5CBL: Converting database to netlists          ---- (Time: 0.84 s   Mem: 2180.33 MB)
 00 ET5CBL   | Found box keyword BOX_LEVELS, size = 4 bytes
 00 ET5CBL   | Altogether found 1 box keywords
 00 ET5CBL   | >> Probes stored: 16602 IO, 67368 FF probes.
 00 ET5CBL   | >> Number of boxes with non-zero box_flags = 0
 00 ET5CBL   | >> Number of nonzero box keywords saved = 460721
-00 ET5CBL   | ---- ET5CBL: Clearing database                        ---- (Time: 1.70 s   Mem: 2008.52 MB)
+00 ET5CBL   | ---- ET5CBL: Clearing database                        ---- (Time: 1.43 s   Mem: 2264.52 MB)
 00          | 
 00          | ==========================================================================================================
-00          | ---- ET5CBL: Thread 0: Started                        ---- (Time: 1.94 s   Mem: 2008.52 MB)
+00          | ---- ET5CBL: Thread 0: Started                        ---- (Time: 1.68 s   Mem: 2264.52 MB)
 00          | >>     #Gates=202355  (#Lut=87074  #PadR=2444  #PadW=2858  #MemR=15  #MemW=52  #Pin=27233  #Loop=3428  #FD01=29914  #Force=49335)  #Garb=1
-00          | ---- ET5CBL: Thread 0: Adding name listener           ---- (Time: 2.04 s   Mem: 2008.52 MB)
-00          | ---- ET5CBL: Thread 0: Checking iterator consistency  ---- (Time: 2.07 s   Mem: 2008.52 MB)
-00          | ---- ET5CBL: Thread 0: Expanding LUTs into ANDs       ---- (Time: 2.31 s   Mem: 2008.52 MB)
-00          | ---- ET5CBL: Thread 0: Removing redundant logic       ---- (Time: 4.69 s   Mem: 2008.52 MB)
-00          | ---- ET5CBL: Thread 0: Rewriting DAG-aware netlist    ---- (Time: 4.94 s   Mem: 2008.52 MB)
+00          | ---- ET5CBL: Thread 0: Adding name listener           ---- (Time: 1.75 s   Mem: 2264.52 MB)
+00          | ---- ET5CBL: Thread 0: Checking iterator consistency  ---- (Time: 1.78 s   Mem: 2264.52 MB)
+00          | ---- ET5CBL: Thread 0: Expanding LUTs into ANDs       ---- (Time: 1.97 s   Mem: 2264.52 MB)
+00          | ---- ET5CBL: Thread 0: Removing redundant logic       ---- (Time: 4.08 s   Mem: 2264.52 MB)
+00          | ---- ET5CBL: Thread 0: Rewriting DAG-aware netlist    ---- (Time: 4.44 s   Mem: 2264.52 MB)
 00          | >>     Minimizing:
 00          | >>     Reduction in #ANDs:  9.40 %
-00          | >>     Core shrink time  : 3.64 s
+00          | >>     Core shrink time  : 3.72 s
 00          | >>     Globally redundant: 0
-00          | ---- ET5CBL: Thread 0: Technology mapping             ---- (Time: 8.82 s   Mem: 2072.52 MB)
+00          | ---- ET5CBL: Thread 0: Technology mapping             ---- (Time: 8.34 s   Mem: 2328.52 MB)
 00          | >> ========================================
 00          | >> ==         TECHNOLOGY MAPPING         ==
 00          | >> ========================================
@@ -259,9 +259,9 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00          | >>
 00          | >>     Iter  |  2-Luts   3-Luts   4-Luts   |    Total     Wires   Delay
 00          | >>     ------+-----------------------------+---------------------------
-00          | >>        0  |    5359    22564    32684   |    60607    209146      80    (Time: 0.54 s)
-00          | >>        1  |    7067    23631    24780   |    55478    184147      96    (Time: 0.20 s)
-00          | >>        2  |    6500    23104    25333   |    54937    183644      96    (Time: 0.20 s)
+00          | >>        0  |    5359    22564    32684   |    60607    209146      80    (Time: 0.58 s)
+00          | >>        1  |    7067    23631    24780   |    55478    184147      96    (Time: 0.26 s)
+00          | >>        2  |    6500    23104    25333   |    54937    183644      96    (Time: 0.24 s)
 00          | >>
 00          | >> Instantiating LUTs.
 00          | >> Eliminating negations.
@@ -269,15 +269,15 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00          | >> Packing 4-MUXes.
 00          | >>   -- 36 rewrites, saving 36 gates (= 0.02 % reduction)
 00          | >> Netlist stats.: #Gates=170328  (#Lut=55047  #PadR=2444  #PadW=2858  #MemR=15  #MemW=52  #Pin=27233  #Loop=3428  #FD01=29914  #Force=49335)  #Garb=1
-00          | >> Techmap CPU Time: 1.38 s
-00          | ---- ET5CBL: Thread 0: Eliminating forcible gates     ---- (Time: 10.20 s   Mem: 2264.52 MB)
+00          | >> Techmap CPU Time: 1.69 s
+00          | ---- ET5CBL: Thread 0: Eliminating forcible gates     ---- (Time: 10.03 s   Mem: 2520.52 MB)
 00          |   -- Forcible logic not leading to duplication : 14548
 00          |   -- Forcible flops not leading to duplication : 25212
 00          |   -- Forcible gates leading to duplication     : 260
 00          |   -- Forcible buffers inserted after non-logic : 4585 (superfluous: 3485)
 00          |   -- Forcible buffers inserted after constants : 4730
 00          |   -- Forcible buffers stacked due to keep-nets : 3216
-00          | ---- ET5CBL: Thread 0: Recreating final database      ---- (Time: 10.29 s   Mem: 2200.52 MB)
+00          | ---- ET5CBL: Thread 0: Recreating final database      ---- (Time: 10.14 s   Mem: 2520.52 MB)
 00          | >> Names preserved through simplification: 100139 / 121930  (= 82.1 %)
 00          | >> Probes restored: 5071 IO, 17525 FF probes.
 00          | >> Boxes with non-zero flags restored = 0
@@ -286,33 +286,33 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00          | >> Removed 1048 superflous buffers added for forcible boxes
 00          | >> IO boxes found: 5302, keepnet info fixed: 229
 00          | >>     #Gates=130568  (#Lut=64622  #PadR=2444  #PadW=2858  #MemR=15  #MemW=52  #Pin=27233  #Loop=3428  #FD01=29914)  #Garb=49336
-00          | ---- ET5CBL: Thread 0: Disposing netlist              ---- (Time: 10.58 s   Mem: 2168.49 MB)
+00          | ---- ET5CBL: Thread 0: Disposing netlist              ---- (Time: 10.49 s   Mem: 2424.49 MB)
 00          | 
 00          | ==========================================================================================================
-00          | ---- ET5CBL: Thread 1: Started                        ---- (Time: 1.94 s   Mem: 2008.52 MB)
+00          | ---- ET5CBL: Thread 1: Started                        ---- (Time: 1.68 s   Mem: 2264.52 MB)
 00          | >>     #Gates=204591  (#Lut=85976  #PadR=3733  #PadW=1592  #MemR=15  #MemW=39  #Pin=30070  #Loop=3116  #FD01=28688  #Force=51360)  #Garb=1
-00          | ---- ET5CBL: Thread 1: Adding name listener           ---- (Time: 2.04 s   Mem: 2008.52 MB)
-00          | ---- ET5CBL: Thread 1: Checking iterator consistency  ---- (Time: 2.07 s   Mem: 2008.52 MB)
-00          | ---- ET5CBL: Thread 1: Expanding LUTs into ANDs       ---- (Time: 2.30 s   Mem: 2008.52 MB)
-00          | ---- ET5CBL: Thread 1: Removing redundant logic       ---- (Time: 4.68 s   Mem: 2008.52 MB)
-00          | ---- ET5CBL: Thread 1: Rewriting DAG-aware netlist    ---- (Time: 4.93 s   Mem: 2008.52 MB)
+00          | ---- ET5CBL: Thread 1: Adding name listener           ---- (Time: 1.73 s   Mem: 2264.52 MB)
+00          | ---- ET5CBL: Thread 1: Checking iterator consistency  ---- (Time: 1.76 s   Mem: 2264.52 MB)
+00          | ---- ET5CBL: Thread 1: Expanding LUTs into ANDs       ---- (Time: 1.90 s   Mem: 2264.52 MB)
+00          | ---- ET5CBL: Thread 1: Removing redundant logic       ---- (Time: 4.06 s   Mem: 2264.52 MB)
+00          | ---- ET5CBL: Thread 1: Rewriting DAG-aware netlist    ---- (Time: 4.36 s   Mem: 2264.52 MB)
 00          | >>     Minimizing:
 00          | >>     Reduction in #ANDs:  6.05 %
-00          | >>     Core shrink time  : 3.31 s
+00          | >>     Core shrink time  : 3.42 s
 00          | >>     Globally redundant: 0
-00          | ---- ET5CBL: Thread 1: Technology mapping             ---- (Time: 8.45 s   Mem: 2072.52 MB)
+00          | ---- ET5CBL: Thread 1: Technology mapping             ---- (Time: 8.02 s   Mem: 2328.52 MB)
 00          | >> ========================================
 00          | >> ==         TECHNOLOGY MAPPING         ==
 00          | >> ========================================
 00          | >>
 00          | >> Netlist stats.: #Gates=304150  (#And=185535  #PadR=3733  #PadW=1592  #MemR=15  #MemW=39  #Pin=30070  #Loop=3116  #FD01=28688  #Force=51360)  #Garb=1
-00          | >> Initialization: 0.13 s
+00          | >> Initialization: 0.14 s
 00          | >>
 00          | >>     Iter  |  2-Luts   3-Luts   4-Luts   |    Total     Wires   Delay
 00          | >>     ------+-----------------------------+---------------------------
-00          | >>        0  |    4425    20503    35764   |    60692    213415      32    (Time: 0.55 s)
-00          | >>        1  |    3519    24016    28994   |    56529    195062      37    (Time: 0.22 s)
-00          | >>        2  |    2964    23544    29552   |    56060    194768      36    (Time: 0.20 s)
+00          | >>        0  |    4425    20503    35764   |    60692    213415      32    (Time: 0.56 s)
+00          | >>        1  |    3519    24016    28994   |    56529    195062      37    (Time: 0.24 s)
+00          | >>        2  |    2964    23544    29552   |    56060    194768      36    (Time: 0.25 s)
 00          | >>
 00          | >> Instantiating LUTs.
 00          | >> Eliminating negations.
@@ -320,15 +320,15 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00          | >> Packing 4-MUXes.
 00          | >>   -- 10 rewrites, saving 10 gates (= 0.01 % reduction)
 00          | >> Netlist stats.: #Gates=174688  (#Lut=56073  #PadR=3733  #PadW=1592  #MemR=15  #MemW=39  #Pin=30070  #Loop=3116  #FD01=28688  #Force=51360)  #Garb=1
-00          | >> Techmap CPU Time: 1.47 s
-00          | ---- ET5CBL: Thread 1: Eliminating forcible gates     ---- (Time: 9.92 s   Mem: 2264.52 MB)
+00          | >> Techmap CPU Time: 1.67 s
+00          | ---- ET5CBL: Thread 1: Eliminating forcible gates     ---- (Time: 9.70 s   Mem: 2520.52 MB)
 00          |   -- Forcible logic not leading to duplication : 16929
 00          |   -- Forcible flops not leading to duplication : 22357
 00          |   -- Forcible gates leading to duplication     : 0
 00          |   -- Forcible buffers inserted after non-logic : 12074 (superfluous: 4032)
 00          |   -- Forcible buffers inserted after constants : 0
 00          |   -- Forcible buffers stacked due to keep-nets : 6710
-00          | ---- ET5CBL: Thread 1: Recreating final database      ---- (Time: 10.58 s   Mem: 2168.49 MB)
+00          | ---- ET5CBL: Thread 1: Recreating final database      ---- (Time: 10.49 s   Mem: 2424.49 MB)
 00          | >> Names preserved through simplification: 98343 / 118993  (= 82.6 %)
 00          | >> Probes restored: 2929 IO, 18825 FF probes.
 00          | >> Boxes with non-zero flags restored = 0
@@ -337,21 +337,21 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00          | >> Removed 1130 superflous buffers added for forcible boxes
 00          | >> IO boxes found: 10627, keepnet info fixed: 605
 00          | >>     #Gates=135402  (#Lut=68147  #PadR=3733  #PadW=1592  #MemR=15  #MemW=39  #Pin=30070  #Loop=3116  #FD01=28688)  #Garb=51361
-00          | ---- ET5CBL: Thread 1: Disposing netlist              ---- (Time: 10.91 s   Mem: 2168.49 MB)
+00          | ---- ET5CBL: Thread 1: Disposing netlist              ---- (Time: 10.85 s   Mem: 2360.49 MB)
 00          | 
 00          | ==========================================================================================================
-00          | ---- ET5CBL: Thread 2: Started                        ---- (Time: 1.94 s   Mem: 2008.52 MB)
+00          | ---- ET5CBL: Thread 2: Started                        ---- (Time: 1.68 s   Mem: 2264.52 MB)
 00          | >>     #Gates=191990  (#Lut=97486  #PadR=2770  #PadW=3032  #MemR=29  #MemW=67  #Pin=26125  #Loop=2823  #FD01=23002  #Force=36654)  #Garb=1
-00          | ---- ET5CBL: Thread 2: Adding name listener           ---- (Time: 2.03 s   Mem: 2008.52 MB)
-00          | ---- ET5CBL: Thread 2: Checking iterator consistency  ---- (Time: 2.07 s   Mem: 2008.52 MB)
-00          | ---- ET5CBL: Thread 2: Expanding LUTs into ANDs       ---- (Time: 2.30 s   Mem: 2008.52 MB)
-00          | ---- ET5CBL: Thread 2: Removing redundant logic       ---- (Time: 4.94 s   Mem: 2008.52 MB)
-00          | ---- ET5CBL: Thread 2: Rewriting DAG-aware netlist    ---- (Time: 5.26 s   Mem: 2008.52 MB)
+00          | ---- ET5CBL: Thread 2: Adding name listener           ---- (Time: 1.75 s   Mem: 2264.52 MB)
+00          | ---- ET5CBL: Thread 2: Checking iterator consistency  ---- (Time: 1.78 s   Mem: 2264.52 MB)
+00          | ---- ET5CBL: Thread 2: Expanding LUTs into ANDs       ---- (Time: 1.97 s   Mem: 2264.52 MB)
+00          | ---- ET5CBL: Thread 2: Removing redundant logic       ---- (Time: 4.61 s   Mem: 2264.52 MB)
+00          | ---- ET5CBL: Thread 2: Rewriting DAG-aware netlist    ---- (Time: 5.18 s   Mem: 2264.52 MB)
 00          | >>     Minimizing:
 00          | >>     Reduction in #ANDs:  7.69 %
-00          | >>     Core shrink time  : 4.97 s
+00          | >>     Core shrink time  : 5.15 s
 00          | >>     Globally redundant: 0
-00          | ---- ET5CBL: Thread 2: Technology mapping             ---- (Time: 10.45 s   Mem: 2168.49 MB)
+00          | ---- ET5CBL: Thread 2: Technology mapping             ---- (Time: 10.59 s   Mem: 2360.49 MB)
 00          | >> ========================================
 00          | >> ==         TECHNOLOGY MAPPING         ==
 00          | >> ========================================
@@ -361,9 +361,9 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00          | >>
 00          | >>     Iter  |  2-Luts   3-Luts   4-Luts   |    Total     Wires   Delay
 00          | >>     ------+-----------------------------+---------------------------
-00          | >>        0  |    6642    19062    51793   |    77497    277642      51    (Time: 0.43 s)
-00          | >>        1  |    5764    22531    41720   |    70015    246001      61    (Time: 0.12 s)
-00          | >>        2  |    5049    22208    42089   |    69346    245078      61    (Time: 0.11 s)
+00          | >>        0  |    6642    19062    51793   |    77497    277642      51    (Time: 0.30 s)
+00          | >>        1  |    5764    22531    41720   |    70015    246001      61    (Time: 0.09 s)
+00          | >>        2  |    5049    22208    42089   |    69346    245078      61    (Time: 0.09 s)
 00          | >>
 00          | >> Instantiating LUTs.
 00          | >> Eliminating negations.
@@ -371,15 +371,15 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00          | >> Packing 4-MUXes.
 00          | >>   -- 0 rewrites, saving 0 gates (= 0.00 % reduction)
 00          | >> Netlist stats.: #Gates=163956  (#Lut=69452  #PadR=2770  #PadW=3032  #MemR=29  #MemW=67  #Pin=26125  #Loop=2823  #FD01=23002  #Force=36654)  #Garb=1
-00          | >> Techmap CPU Time: 0.97 s
-00          | ---- ET5CBL: Thread 2: Eliminating forcible gates     ---- (Time: 11.42 s   Mem: 2104.49 MB)
+00          | >> Techmap CPU Time: 0.76 s
+00          | ---- ET5CBL: Thread 2: Eliminating forcible gates     ---- (Time: 11.35 s   Mem: 2360.49 MB)
 00          |   -- Forcible logic not leading to duplication : 24740
 00          |   -- Forcible flops not leading to duplication : 9696
 00          |   -- Forcible gates leading to duplication     : 2
 00          |   -- Forcible buffers inserted after non-logic : 2216 (superfluous: 1659)
 00          |   -- Forcible buffers inserted after constants : 0
 00          |   -- Forcible buffers stacked due to keep-nets : 159
-00          | ---- ET5CBL: Thread 2: Recreating final database      ---- (Time: 11.45 s   Mem: 2104.49 MB)
+00          | ---- ET5CBL: Thread 2: Recreating final database      ---- (Time: 11.38 s   Mem: 2360.49 MB)
 00          | >> Names preserved through simplification: 94203 / 122386  (= 77.0 %)
 00          | >> Probes restored: 3075 IO, 16460 FF probes.
 00          | >> Boxes with non-zero flags restored = 0
@@ -388,33 +388,33 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00          | >> Removed 1317 superflous buffers added for forcible boxes
 00          | >> IO boxes found: 16429, keepnet info fixed: 477
 00          | >>     #Gates=129520  (#Lut=71670  #PadR=2770  #PadW=3032  #MemR=29  #MemW=67  #Pin=26125  #Loop=2823  #FD01=23002)  #Garb=36655
-00          | ---- ET5CBL: Thread 2: Disposing netlist              ---- (Time: 11.59 s   Mem: 2104.49 MB)
+00          | ---- ET5CBL: Thread 2: Disposing netlist              ---- (Time: 11.51 s   Mem: 2360.49 MB)
 00          | 
 00          | ==========================================================================================================
-00          | ---- ET5CBL: Thread 3: Started                        ---- (Time: 1.94 s   Mem: 2008.52 MB)
+00          | ---- ET5CBL: Thread 3: Started                        ---- (Time: 1.68 s   Mem: 2264.52 MB)
 00          | >>     #Gates=173656  (#Lut=98158  #PadR=1998  #PadW=1970  #MemR=21  #MemW=23  #Pin=22843  #Loop=3660  #FD01=19313  #Force=25668)  #Garb=1
-00          | ---- ET5CBL: Thread 3: Adding name listener           ---- (Time: 1.99 s   Mem: 2008.52 MB)
-00          | ---- ET5CBL: Thread 3: Checking iterator consistency  ---- (Time: 2.01 s   Mem: 2008.52 MB)
-00          | ---- ET5CBL: Thread 3: Expanding LUTs into ANDs       ---- (Time: 2.16 s   Mem: 2008.52 MB)
-00          | ---- ET5CBL: Thread 3: Removing redundant logic       ---- (Time: 4.46 s   Mem: 2008.52 MB)
-00          | ---- ET5CBL: Thread 3: Rewriting DAG-aware netlist    ---- (Time: 4.71 s   Mem: 2008.52 MB)
+00          | ---- ET5CBL: Thread 3: Adding name listener           ---- (Time: 1.73 s   Mem: 2264.52 MB)
+00          | ---- ET5CBL: Thread 3: Checking iterator consistency  ---- (Time: 1.75 s   Mem: 2264.52 MB)
+00          | ---- ET5CBL: Thread 3: Expanding LUTs into ANDs       ---- (Time: 1.89 s   Mem: 2264.52 MB)
+00          | ---- ET5CBL: Thread 3: Removing redundant logic       ---- (Time: 3.94 s   Mem: 2264.52 MB)
+00          | ---- ET5CBL: Thread 3: Rewriting DAG-aware netlist    ---- (Time: 4.25 s   Mem: 2264.52 MB)
 00          | >>     Minimizing:
 00          | >>     Reduction in #ANDs:  6.70 %
-00          | >>     Core shrink time  : 4.17 s
+00          | >>     Core shrink time  : 4.55 s
 00          | >>     Globally redundant: 0
-00          | ---- ET5CBL: Thread 3: Technology mapping             ---- (Time: 9.08 s   Mem: 2136.52 MB)
+00          | ---- ET5CBL: Thread 3: Technology mapping             ---- (Time: 9.01 s   Mem: 2456.52 MB)
 00          | >> ========================================
 00          | >> ==         TECHNOLOGY MAPPING         ==
 00          | >> ========================================
 00          | >>
 00          | >> Netlist stats.: #Gates=264549  (#And=189051  #PadR=1998  #PadW=1970  #MemR=21  #MemW=23  #Pin=22843  #Loop=3660  #FD01=19313  #Force=25668)  #Garb=1
-00          | >> Initialization: 0.13 s
+00          | >> Initialization: 0.14 s
 00          | >>
 00          | >>     Iter  |  2-Luts   3-Luts   4-Luts   |    Total     Wires   Delay
 00          | >>     ------+-----------------------------+---------------------------
-00          | >>        0  |    6422    17971    41621   |    66014    233241      58    (Time: 0.79 s)
-00          | >>        1  |    3712    21805    33766   |    59283    207903      69    (Time: 0.23 s)
-00          | >>        2  |    3163    19528    36132   |    58823    209438      64    (Time: 0.20 s)
+00          | >>        0  |    6422    17971    41621   |    66014    233241      58    (Time: 0.84 s)
+00          | >>        1  |    3712    21805    33766   |    59283    207903      69    (Time: 0.20 s)
+00          | >>        2  |    3163    19528    36132   |    58823    209438      64    (Time: 0.19 s)
 00          | >>
 00          | >> Instantiating LUTs.
 00          | >> Eliminating negations.
@@ -422,15 +422,15 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00          | >> Packing 4-MUXes.
 00          | >>   -- 0 rewrites, saving 0 gates (= 0.00 % reduction)
 00          | >> Netlist stats.: #Gates=134353  (#Lut=58855  #PadR=1998  #PadW=1970  #MemR=21  #MemW=23  #Pin=22843  #Loop=3660  #FD01=19313  #Force=25668)  #Garb=1
-00          | >> Techmap CPU Time: 1.69 s
-00          | ---- ET5CBL: Thread 3: Eliminating forcible gates     ---- (Time: 10.77 s   Mem: 2168.49 MB)
+00          | >> Techmap CPU Time: 1.71 s
+00          | ---- ET5CBL: Thread 3: Eliminating forcible gates     ---- (Time: 10.72 s   Mem: 2360.49 MB)
 00          |   -- Forcible logic not leading to duplication : 15432
 00          |   -- Forcible flops not leading to duplication : 8807
 00          |   -- Forcible gates leading to duplication     : 0
 00          |   -- Forcible buffers inserted after non-logic : 1429 (superfluous: 1114)
 00          |   -- Forcible buffers inserted after constants : 0
 00          |   -- Forcible buffers stacked due to keep-nets : 57
-00          | ---- ET5CBL: Thread 3: Recreating final database      ---- (Time: 11.59 s   Mem: 2104.49 MB)
+00          | ---- ET5CBL: Thread 3: Recreating final database      ---- (Time: 11.51 s   Mem: 2360.49 MB)
 00          | >> Names preserved through simplification: 89300 / 126070  (= 70.8 %)
 00          | >> Probes restored: 5527 IO, 14558 FF probes.
 00          | >> Boxes with non-zero flags restored = 0
@@ -439,38 +439,38 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00          | >> Removed 799 superflous buffers added for forcible boxes
 00          | >> IO boxes found: 20397, keepnet info fixed: 315
 00          | >>     #Gates=110114  (#Lut=60284  #PadR=1998  #PadW=1970  #MemR=21  #MemW=23  #Pin=22843  #Loop=3660  #FD01=19313)  #Garb=25669
-00          | ---- ET5CBL: Thread 3: Disposing netlist              ---- (Time: 11.69 s   Mem: 2104.49 MB)
+00          | ---- ET5CBL: Thread 3: Disposing netlist              ---- (Time: 11.62 s   Mem: 2360.49 MB)
 00 ET5CBL   | ==========================================================================================================
 00 ET5CBL   | 
-00 ET5CBL   | ---- ET5CBL: Joined 4 optimization threads            ---- (Time: 11.70 s   Mem: 2104.49 MB)
-00 ET5CBL   | ---- ET5CBL: Merging DADB database                    ---- (Time: 11.70 s   Mem: 2104.49 MB)
+00 ET5CBL   | ---- ET5CBL: Joined 4 optimization threads            ---- (Time: 11.63 s   Mem: 2296.49 MB)
+00 ET5CBL   | ---- ET5CBL: Merging DADB database                    ---- (Time: 11.63 s   Mem: 2296.49 MB)
 00 ET5CBL   | Merged 9283 groups of PI/POs
 00 ET5CBL   | Restored 0 net properties
-00 ET5CBL   | ---- ET5CBL: CBL Done                                 ---- (Time: 11.79 s   Mem: 2104.49 MB)
-00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et5cbl' (Elapsed time 5.42s (11.79u+0.53s), Memory used 2264 Mb) on 05/20/2024 11:38:04
+00 ET5CBL   | ---- ET5CBL: CBL Done                                 ---- (Time: 11.72 s   Mem: 2296.49 MB)
+00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et5cbl' (Elapsed time 5.14s (11.73u+0.39s), Memory used 2584 Mb) on 05/21/2024 16:19:07
 00 ET5NLOPT | Transformed 0 (0 selfloop) special DELAY boxes back to do not touch logic boxes
 00 ET5NLOPT | Restored memloop bits for 0 memory ports
 00 ET5NLOPT | unmarked 0 nets as transitional logic and set as keepnet before CBL
 00 ET5NLOPT | setting multipath mode OFF
 00 ET5NLOPT | levelized boxes = 373252, size = 131072, mask = 0x1ffff
-00 ET5NLOPT | propagated 373252 boxes, consumed 1 seconds
+00 ET5NLOPT | propagated 373252 boxes, consumed 0 seconds
 00 ET5NLOPT | deleted boxes = 6684, merged_logic = (0, 0, 27, 8, 3, 0, 0), merged_loop = 0, merged_flop = 25 (LB 0), pushed constant flop = 40
 00 ET5NLOPT | round 1 area gain: 1.7%
-00 ET5NLOPT | Done FW logic levelization on 366568 boxes, max logic level = 99, in 0.059 seconds
+00 ET5NLOPT | Done FW logic levelization on 366568 boxes, max logic level = 99, in 0.060 seconds
 00 ET5NLOPT | 
 00 ET5NLOPT | setting sinks_limit to 1
 00 ET5NLOPT | levelized boxes = 366568, size = 131072, mask = 0x1ffff
 00 ET5NLOPT | propagated 366568 boxes, consumed 0 seconds
 00 ET5NLOPT | deleted boxes = 17, merged_logic = (0, 0, 0, 0, 0, 0, 0), merged_loop = 0, merged_flop = 1 (LB 0), pushed constant flop = 40
 00 ET5NLOPT | round 2 area gain: 0.0%
-00 ET5NLOPT | Done FW logic levelization on 366551 boxes, max logic level = 99, in 0.058 seconds
+00 ET5NLOPT | Done FW logic levelization on 366551 boxes, max logic level = 99, in 0.080 seconds
 00 ET5NLOPT | 
 00 ET5NLOPT | setting sinks_limit to 1
 00 ET5NLOPT | Connected constants to the input pin of 47 flops with input tied.
 00 ET5NLOPT | Connected the sync-in pins of 99 memories.
 00 ET5NLOPT | Compressing proto
 00 ET5NLOPT | Retimed 249 keynodes, 668 gates, created 337 muxes and 552 dupflops
-00 ET5NLOPT | Done FW logic levelization on 367491 boxes, max logic level = 99, in 0.049 seconds
+00 ET5NLOPT | Done FW logic levelization on 367491 boxes, max logic level = 99, in 0.064 seconds
 00 ET5NLOPT | 
 00 ET5NLOPT | Removed 1 complex redundant boxes
 00 ET5NLOPT | Inserted 0 buffers on force nets
@@ -496,7 +496,7 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00 ET5NLOPT | Logic levels                229 ->       227 ->       101 ->       100 ->       100 ->       100 (= 56.3% Reduction)
 00 ET5NLOPT | Sinks count             1318205 ->   1227881 ->   1125697 ->   1084131 ->   1084106 ->   1086367 (= 17.6% Reduction)
 00 ET5NLOPT | ------------------------------------------------------------------------------------------------
-00 ET5NLOPT | CPU time (sec)             0.00 ->      1.21 ->     13.86 ->     14.32 ->     14.68 ->     15.25
+00 ET5NLOPT | CPU time (sec)             0.00 ->      0.71 ->     13.12 ->     13.62 ->     14.14 ->     14.88
 00 ET5NLOPT | Estimated size           575812 ->    528267 ->    418380 ->    411696 ->    411679 ->    388141 (= 32.6% Reduction)
 00 ET5NLOPT | Available configuration                                                                 1 domain
 00 ET5NLOPT | Estimated instruction usage                                                                25.07%
@@ -506,8 +506,8 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00 ET5NLOPT | Assuming instruction usage 80%, the design requires at least 1 domain.
 00 ET5NLOPT | 
 00 ET5NLOPT | Elapsed: init  0.00, ALU  0.00, CBL  5.00, SCBL  0.00, core  2.00
-00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et5nlopt' (Elapsed time 7.63s (15.11u+0.73s), Memory used 2264 Mb) on 05/20/2024 11:38:05
-00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et3critpath' on 05/20/2024 11:38:05
+00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et5nlopt' (Elapsed time 7.01s (14.74u+0.50s), Memory used 2584 Mb) on 05/21/2024 16:19:09
+00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et3critpath' on 05/21/2024 16:19:09
 00 DATABASE | Parms: ''
 00 ET3CRIT* |                                    
 00 ET3CRIT* |                        ET CRITICAL PATH FINDER
@@ -617,8 +617,8 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00 ET3CRIT* |   3( 12060): ET0000000000000001->_AAAE[6131]
 00 ET3CRIT* |   2( 22181): ET00000000000000FF->IXC_GFIFO.HOLDTOP.ecmTsP[3]@QTshadow
 00 ET3CRIT* |   1(106023): FD01->_ADekl
-00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et3critpath' (Elapsed time 0.07s (0.07u+0.00s), Memory used 2264 Mb) on 05/20/2024 11:38:05
-00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et5mpart' on 05/20/2024 11:38:05
+00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et3critpath' (Elapsed time 0.09s (0.09u+0.01s), Memory used 2584 Mb) on 05/21/2024 16:19:09
+00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et5mpart' on 05/21/2024 16:19:09
 00 DATABASE | Parms: '-memTransform'
 00 ET5MPART |  
 00 ET5MPART |                                    
@@ -1512,9 +1512,9 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00 ET5MPART |   212 memories altogether      with            total accesses   734 using      19.4190 MBytes.
 00 ET5MPART | ----------------------------------------------------------------------------------------------
 00 ET5MPART |  
-00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et5mpart' (Elapsed time 0.31s (0.24u+0.01s), Memory used 2264 Mb) on 05/20/2024 11:38:06
-00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/etupart' on 05/20/2024 11:38:06
-00 DATABASE | Parms: '-s 262034294'
+00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et5mpart' (Elapsed time 0.38s (0.35u+0.01s), Memory used 2584 Mb) on 05/21/2024 16:19:09
+00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/etupart' on 05/21/2024 16:19:09
+00 DATABASE | Parms: '-s 266172613'
 00 ETUPART  |                                    
 00 ETUPART  |                    Palladium Universal Partitioner
 00 ETUPART  |                            RELEASE 6.0.2.6
@@ -1526,7 +1526,7 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00 ETUPART  |                                    
 00 ETUPART  | weighted fanout = 2.859188
 00 ETUPART  | Number of valid option entries for module etupart = 0
-00 ETUPART  | Read option seed with value 262034294
+00 ETUPART  | Read option seed with value 266172613
 00 ETUPART  | Using default 'traceDepth' value 4096
 00 ETUPART  | Apollo config: board has 8 GB EXTRAM
 00 ETUPART  | total asic online = 1
@@ -1543,7 +1543,7 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00 ETUPART  | Host             = hsv-sc49
 00 ETUPART  | Number of CPUs   = 96
 00 ETUPART  | Physical memory  = 1031430 MB
-00 ETUPART  | Compilation Seed = 262034294
+00 ETUPART  | Compilation Seed = 266172613
 00 ETUPART  | Verbose level    = 1
 00 ETUPART  | Maximum threads  = 16
 00 ETUPART  | Found sliced memories
@@ -1566,7 +1566,7 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00 ETUPART  | Breakpoint handling
 00 ETUPART  | Box-based levelization consumed 0.00 seconds
 00 ETUPART  | Levelized 367963 boxes forward, max_level = 142, total boxes 367963
-00 ETUPART  | CPU time: levelize  0.08, memgroup  0.00, box init  0.00
+00 ETUPART  | CPU time: levelize  0.12, memgroup  0.00, box init  0.01
 00 ETUPART  | Number of memories to use REGULAR access mode: 175
 00 ETUPART  | Number of memories to use EDRAM_32 access mode: 37
 00 ETUPART  | 2938 boxes in xc_top.eClkR cone
@@ -1631,7 +1631,7 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00 ETUPART  | tree cliques size 30 has count 11
 00 ETUPART  | tree cliques size 31 has count 23
 00 ETUPART  | tree cliques size 32 has count 149
-00 ETUPART  | cpm/cake  0.00, mem  0.02, manpart  0.00, alu  0.00, pio  0.01, dio  0.00, lb  0.00, td  0.08, tree  0.02, sgl  0.05
+00 ETUPART  | cpm/cake  0.00, mem  0.03, manpart  0.00, alu  0.00, pio  0.01, dio  0.01, lb  0.00, td  0.12, tree  0.03, sgl  0.06
 00 ETUPART  | CPM capture cliques       0
 00 ETUPART  | CAKE cliques              0
 00 ETUPART  | Memory cliques          212
@@ -1648,7 +1648,7 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00 ETUPART  | Single box cliques   133644
 00 ETUPART  | Up-down cliques           0
 00 ETUPART  | Total cliques        216336
-00 ETUPART  | CPU: opt&cfg  0.01, CSHR  0.00, boxinit  0.02, nodeinit  0.27
+00 ETUPART  | CPU: opt&cfg  0.01, CSHR  0.00, boxinit  0.03, nodeinit  0.41
 00 ETUPART  | Default partitioning engine is METIS
 00 ETUPART  | Partitioning engine used at hierarchy System is CHP
 00 ETUPART  | fanout limits = (75, 75)
@@ -1717,53 +1717,64 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00 ETUPART  | IO box 30821 set to partition 0 phy unit 0: ET6_XBOB_141
 00 ETUPART  | Thread 0 partition result:
 00 ETUPART  |  part  vertex   weight extconn tlane   type count   usage hard  soft  full  (limit hard  soft  full)
-00 ETUPART  |   0:    37403    64713       3     0 INTRAM    32      5506864   129     1  (   8388608   146     1) 
-00 ETUPART  |   1:    36154    63021       3     0 INTRAM    47      4272576   102     0  (   8388608   146     1) 
-00 ETUPART  |   2:    40095    66823       2     0 INTRAM    13      1705472   146     0  (   8388608   146     1) 
-00 ETUPART  |   3:    36581    63015       5     0 INTRAM    45      4341488   111     0  (   8388608   146     1) 
-00 ETUPART  |   4:    32195    66819       4     0 INTRAM    36      2022800   146     0  (   8388608   146     1) 
-00 ETUPART  |   5:    36846    64854       5     0 INTRAM    39      2513064   100     0  (   8388608   146     1) 
+00 ETUPART  |   0:    32803    62984       3     0 INTRAM    51      6825616   138     1  (   8388608   146     1) 
+00 ETUPART  |   1:    35029    66820       5     0 INTRAM    31      1331944   142     0  (   8388608   146     1) 
+00 ETUPART  |   2:    35201    63892       4     0 INTRAM    36      1993720   125     0  (   8388608   146     1) 
+00 ETUPART  |   3:    40591    65014       5     0 INTRAM    33      2427240    80     0  (   8388608   146     1) 
+00 ETUPART  |   4:    38543    66829       0     0 INTRAM    33      3032000   129     0  (   8388608   146     1) 
+00 ETUPART  |   5:    37107    63706       5     0 INTRAM    28      4751744   120     0  (   8388608   146     1) 
 00 ETUPART  | 
 00 ETUPART  |   Cutsize matrix
 00 ETUPART  | f\t:       0      1      2      3      4      5    ext
-00 ETUPART  |   0:       0    864    513    809    419    803      0
-00 ETUPART  |   1:     695      0    468    841    639    657      0
-00 ETUPART  |   2:     302    474      0    469    334    391      0
-00 ETUPART  |   3:     833   1001    826      0   1424   1259      0
-00 ETUPART  |   4:     686   1111    507   1520      0    748      0
-00 ETUPART  |   5:     695   1062    470    862   1178      0      0
+00 ETUPART  |   0:       0   1002   1115    882    564    511      0
+00 ETUPART  |   1:    1331      0    778    783    429    791      0
+00 ETUPART  |   2:    1367    746      0    824    529    523      0
+00 ETUPART  |   3:     868    658    500      0   1984   2413      0
+00 ETUPART  |   4:     350    820    457    989      0   1292      0
+00 ETUPART  |   5:     621    632    318    679   2912      0      0
 00 ETUPART  | ext:       0      0      0      0      0      0
-00 ETUPART  | wire util = 4%
+00 ETUPART  | wire util = 5%
 00 ETUPART  | 
-00 ETUPART  | trial 0 thread 0, edgecut 28599, balance  1.03, util pct 4, current best util pct 1000000
-00 ETUPART  | Best partition trial 0, seed 262034294: edgecut 28599, wire util pct 4, good enough N
+00 ETUPART  | trial 0 thread 0, edgecut 34676, balance  1.03, util pct 5, current best util pct 1000000
+00 ETUPART  | Best partition trial 0, seed 266172613: edgecut 34676, wire util pct 5, good enough N
 00 ETUPART  | Balancing Asic node idx 0, num parts 6, vertices 219274
 00 ETUPART  | Using target percentage 25.72% (ds_usage 25.53%, max ds_usage 26.30%)
-00 ETUPART  | part 0 target ds 65332, target is 4512
-00 ETUPART  | part 1 target ds 65332, target is 4512
-00 ETUPART  | part 2 target ds 65332, target is 4512
-00 ETUPART  | part 3 target ds 65332, target is 4512
-00 ETUPART  | part 4 target ds 65332, target is 4512
-00 ETUPART  | part 5 target ds 65332, target is 4512
+00 ETUPART  | part 0 target ds 65332, target is 6418
+00 ETUPART  | part 1 target ds 65332, target is 6418
+00 ETUPART  | part 2 target ds 65332, target is 6418
+00 ETUPART  | part 3 target ds 65332, target is 6418
+00 ETUPART  | part 4 target ds 65332, target is 6418
+00 ETUPART  | part 5 target ds 65332, target is 6418
 00 ETUPART  | -- before balancing -------------------------------------------------------------------------------
-00 ETUPART  |  0 >  64713:3211  63021:4512  66823:2784  63015:4501  66819:3994  64854:3858 
+00 ETUPART  |  0 >  62984:4537  66820:3858  63892:3168  65014:4157  66829:6418  63706:5530 
 00 ETUPART  | ---------------------------------------------------------------------------------------------------
-00 ETUPART  | Total (389245:22860), ave ( 64874:3810), max ( 66823:4512), target ( 65332:4512)
+00 ETUPART  | Total (389245:27668), ave ( 64874:4611), max ( 66829:6418), target ( 65332:6418)
 00 ETUPART  | -- after balancing  -------------------------------------------------------------------------------
-00 ETUPART  |  0 >  65332:3829  63351:4737  65332:2287  63324:4737  66574:3879  65332:4546 
+00 ETUPART  |  0 >  64126:5670  65332:3133  65332:4723  65332:4613  65314:5901  63809:5671 
 00 ETUPART  | ---------------------------------------------------------------------------------------------------
-00 ETUPART  | Total (389245:24015), ave ( 64874:4002), max ( 66574:4737)
-00 ETUPART  | *** Restored to original partition due to bad result. ***
+00 ETUPART  | Total (389245:29711), ave ( 64874:4951), max ( 65332:5901)
+00 ETUPART  |   Balanced:    vertices 219274, moved  582, ave DS 64874, ave IS 4951
 00 ETUPART  | --------------------------------------------------------------------
-00 ETUPART  | Total vertices 219274, excess 680, unmoved 228, moved 452
+00 ETUPART  | Total vertices 219274, excess 582, unmoved 0, moved 582
 00 ETUPART  | ====================================================================
-00 ETUPART  | CPU time: map 0.18, partition 0.99, move&dup 0.00, balance 0.02, swap 0.00, total 1.18
-00 ETUPART  | Partitioning at Asic consumed   1.20 real seconds and   1.20 CPU seconds
+00 ETUPART  | CPU time: map 0.19, partition 1.09, move&dup 0.00, balance 0.02, swap 0.00, total 1.29
+00 ETUPART  | Partitioning at Asic consumed   1.32 real seconds and   1.31 CPU seconds
 00 ETUPART  | 
 00 ETUPART  | ===========================================
 00 ETUPART  | Partitioning at P512 hierarchy
 00 ETUPART  | ===========================================
 00 ETUPART  |  num_engines = 6, num nodes = 6
+00 ETUPART  | Fitting memories in AP at node P512 idx 0
+00 ETUPART  | part 0: INTRAM 1048576, EXTRAM 0
+00 ETUPART  | part 1: INTRAM 1048576, EXTRAM 0
+00 ETUPART  | part 2: INTRAM 1048576, EXTRAM 0
+00 ETUPART  | part 3: INTRAM 1048576, EXTRAM 0
+00 ETUPART  | part 4: INTRAM 1048576, EXTRAM 0
+00 ETUPART  | part 5: INTRAM 1048576, EXTRAM 0
+00 ETUPART  | part 6: INTRAM 1048576, EXTRAM 0
+00 ETUPART  | part 7: INTRAM 1048576, EXTRAM 0
+00 ETUPART  | intram cap 1048576, total intram_cap (1.00) = 8388608
+00 ETUPART  | Slicing memory 366578 horizontally: id  10, type DRAM fxd, mode 0, ab 16, db 64, full 0, bp 0, ports 1, mid 76, vid 1, hid 1, group 0, fast 0, strobes 0, size    0.50MB
 00 ETUPART  | Fitting memories in AP at node P512 idx 0
 00 ETUPART  | part 0: INTRAM 1048576, EXTRAM 0
 00 ETUPART  | part 1: INTRAM 1048576, EXTRAM 0
@@ -1825,29 +1836,34 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00 ETUPART  | part 6: INTRAM 1048576, EXTRAM 0
 00 ETUPART  | part 7: INTRAM 1048576, EXTRAM 0
 00 ETUPART  | intram cap 1048576, total intram_cap (1) = 8388608
-00 ETUPART  | Partitioning at P512 consumed   0.85 real seconds and   3.76 CPU seconds
+00 ETUPART  | Partitioning at P512 consumed   0.93 real seconds and   3.92 CPU seconds
 00 ETUPART  | 
 00 ETUPART  | ===========================================
 00 ETUPART  | Partitioning at P64 hierarchy
 00 ETUPART  | ===========================================
 00 ETUPART  |  num_engines = 4, num nodes = 48
 00 ETUPART  | IO box 30821 set to partition 1 phy unit 17: ET6_XBOB_141
-00 ETUPART  | Partitioning at P64 consumed   0.45 real seconds and   1.37 CPU seconds
+00 ETUPART  | Partitioning at P64 consumed   0.42 real seconds and   1.29 CPU seconds
 00 ETUPART  | 
 00 ETUPART  | 
-00 ETUPART  | Message  2                     GET_BOX_EP processed:    72, cpu 0.0001, real 0.0002
-00 ETUPART  | Message  3                     SET_BOX_EP processed:   734, cpu 0.0009, real 0.0011
-00 ETUPART  | Message  7                    GET_MEM_LOC processed:   734, cpu 0.0008, real 0.0011
-00 ETUPART  | Message  8                    SET_MEM_LOC processed:   734, cpu 0.0154, real 0.0158
-00 ETUPART  | Message 12               MEMUTIL_SET_MODE processed:   212, cpu 0.0002, real 0.0003
-00 ETUPART  | Message 13              MEMUTIL_RM_UNUSED processed:   212, cpu 0.0006, real 0.0006
-00 ETUPART  | Message 14              MEMUTIL_GET_PORTS processed:   212, cpu 0.0002, real 0.0003
-00 ETUPART  | Message 23                     GET_MC_EPS processed:  8562, cpu 0.0167, real 0.0226
-00 ETUPART  | Message 24                     GET_MI_EPS processed:  3254, cpu 0.0036, real 0.0058
-00 ETUPART  |                                     Total processed: 14726, cpu 0.0384, real 0.0480
+00 ETUPART  | Message  2                     GET_BOX_EP processed:    72, cpu 0.0002, real 0.0002
+00 ETUPART  | Message  3                     SET_BOX_EP processed:   735, cpu 0.0007, real 0.0012
+00 ETUPART  | Message  7                    GET_MEM_LOC processed:   735, cpu 0.0006, real 0.0011
+00 ETUPART  | Message  8                    SET_MEM_LOC processed:   735, cpu 0.0194, real 0.0200
+00 ETUPART  | Message 12               MEMUTIL_SET_MODE processed:   212, cpu 0.0002, real 0.0004
+00 ETUPART  | Message 13              MEMUTIL_RM_UNUSED processed:   212, cpu 0.0007, real 0.0008
+00 ETUPART  | Message 14              MEMUTIL_GET_PORTS processed:   214, cpu 0.0002, real 0.0003
+00 ETUPART  | Message 15          MEMUTIL_GET_PORT_DATA processed:     2, cpu 0.0000, real 0.0000
+00 ETUPART  | Message 17                 SLICE_MEMORY_H processed:     1, cpu 0.0003, real 0.0003
+00 ETUPART  | Message 23                     GET_MC_EPS processed:  8583, cpu 0.0170, real 0.0229
+00 ETUPART  | Message 24                     GET_MI_EPS processed:  3254, cpu 0.0038, real 0.0060
+00 ETUPART  | Message 25                   GET_MEM_DATA processed:     2, cpu 0.0000, real 0.0000
+00 ETUPART  | Message 26                  GET_FIRST_SRC processed:     2, cpu 0.0000, real 0.0000
+00 ETUPART  | Message 27                EST_UMC_STROBES processed:     2, cpu 0.0000, real 0.0000
+00 ETUPART  |                                     Total processed: 14761, cpu 0.0430, real 0.0532
 00 ETUPART  | 
 00 ETUPART  | xc_top.eClkR is in chip 0
-00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et5cpr' on 05/20/2024 11:38:09
+00 DATABASE | Calling '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et5cpr' on 05/21/2024 16:19:12
 00 DATABASE | Parms: ''
 00 ET5CPR   |                                    
 00 ET5CPR   |                Cadence Palladium Critical Path Reducer
@@ -1862,46 +1878,52 @@ Parsing I/O source partition file (Pass 2) ... Done.
 00 ET5CPR   | Number of valid option entries for module et5cpr = 0
 00 ET5CPR   | Running CPR duplication criteria -  1 
 00 ET5CPR   | Duplication is allowed
-00 ET5CPR   | num boxes 367229, max ep size 1377, last asic 8, num_asic 1, max asicsize 413082
-00 ET5CPR   | total m_weight 413072, ave m_weight per asic 413072, ave m_weight per cluster 1075, ave m_weight per ep 134
-00 ET5CPR   | max_lep size = 1377, max asic size = 413082, hop hierachy at 4
-00 ET5CPR   | num boxes 367229, max cls size loada 1118, last asic 8, num_asic 1, max asic size loada 365934
-00 ET5CPR   | total wgt loada 365934, ave wgt per asic 365934, ave wgt per cluster 952, ave wgt per ep 119
-00 ET5CPR   | cls limit loada = 1230, asic limit loada = 57177, hop hierachy at 4
+00 ET5CPR   | num boxes 367231, max ep size 1207, last asic 8, num_asic 1, max asicsize 413163
+00 ET5CPR   | total m_weight 413153, ave m_weight per asic 413153, ave m_weight per cluster 1075, ave m_weight per ep 134
+00 ET5CPR   | max_lep size = 1207, max asic size = 413163, hop hierachy at 4
+00 ET5CPR   | num boxes 367231, max cls size loada 1098, last asic 8, num_asic 1, max asic size loada 365960
+00 ET5CPR   | total wgt loada 365960, ave wgt per asic 365960, ave wgt per cluster 953, ave wgt per ep 119
+00 ET5CPR   | cls limit loada = 1208, asic limit loada = 57181, hop hierachy at 4
 00 ET5CPR   | num_racks = 1, num brds = 1
 00 ET5CPR   | reducing hop at 4 hierarchy
 00 ET5CPR   | Reducing hop at epc level.
 00 ET5CPR   | max round = 100
-00 ET5CPR   | CPR round  1, maxlvl 172, path head 367235 lvl 172, tail  80135, len  86, m_is_marked   0, moved 24, NC 0 
-00 ET5CPR   | CPR round  2, maxlvl 164, path head  30820 lvl 158, tail  76789, len  84, m_is_marked   0, moved 27, NC 0 
-00 ET5CPR   | CPR round  3, maxlvl 152, path head  30820 lvl 142, tail  83138, len  70, m_is_marked   0, moved 36, NC 0 
-00 ET5CPR   | CPR round  4, maxlvl 149, path head 367235 lvl 149, tail  78302, len  95, m_is_marked   0, moved  7, NC 0 
-00 ET5CPR   | CPR round  5, maxlvl 149, path head 367235 lvl 149, tail  78302, len  94, m_is_marked   0, moved  7, NC 1 
-00 ET5CPR   | CPR round  6, maxlvl 146, path head 367235 lvl 145, tail  78302, len  94, m_is_marked   0, moved  6, NC 0 
-00 ET5CPR   | CPR round  7, maxlvl 145, path head 367235 lvl 145, tail  78302, len  95, m_is_marked   0, moved  2, NC 0 
-00 ET5CPR   | CPR round  8, maxlvl 145, path head 367235 lvl 145, tail  78302, len  93, m_is_marked   0, moved  3, NC 1 
-00 ET5CPR   | CPR round  9, maxlvl 145, path head 367235 lvl 144, tail  78302, len  94, m_is_marked   0, moved  1, NC 2 
-00 ET5CPR   | CPR round 10, maxlvl 144, path head 367235 lvl 144, tail  78302, len  95, m_is_marked   0, moved  1, NC 0 
-00 ET5CPR   | CPR round 11, maxlvl 144, path head 367235 lvl 144, tail  78302, len  94, m_is_marked   0, moved  2, NC 1 
-00 ET5CPR   | CPR round 12, maxlvl 144, path head 367235 lvl 144, tail  78302, len  93, m_is_marked   0, moved  1, NC 2 
-00 ET5CPR   | CPR round 13, maxlvl 144, path head 367235 lvl 143, tail  78302, len  93, m_is_marked   0, moved  1, NC 3 
-00 ET5CPR   | CPR round 14, maxlvl 143, path head 367235 lvl 143, tail  78302, len  93, m_is_marked   0, moved  2, NC 0 
-00 ET5CPR   | CPR round 15, maxlvl 143, path head 367235 lvl 143, tail  78302, len  95, m_is_marked   0, moved  1, NC 1 
-00 ET5CPR   | CPR round 16, maxlvl 143, path head 367235 lvl 143, tail  78302, len  94, m_is_marked   0, moved  3, NC 2 
-00 ET5CPR   | CPR round 17, maxlvl 143, path head 367235 lvl 143, tail  78302, len  95, m_is_marked   0, moved  0, NC 3 
-00 ET5CPR   | Round 18 path is empty.
-00 ET5CPR   | Total relocated = 122
-00 ET5CPR   | max cls size loada 1118, max asic size loada 365934
-00 ET5CPR   | total wgt loada 365934, ave wgt per asic 365934, ave wgt per cluster 952
-00 ET5CPR   | Maximum number of hops in all paths = 143
+00 ET5CPR   | CPR round  1, maxlvl 186, path head  87523 lvl 171, tail  80135, len  74, m_is_marked   0, moved 34, NC 0 
+00 ET5CPR   | CPR round  2, maxlvl 170, path head  24792 lvl 163, tail  76789, len  83, m_is_marked   0, moved 18, NC 0 
+00 ET5CPR   | CPR round  3, maxlvl 165, path head 367235 lvl 162, tail  80135, len  87, m_is_marked   0, moved 24, NC 0 
+00 ET5CPR   | CPR round  4, maxlvl 160, path head  30820 lvl 150, tail 279250, len  78, m_is_marked   0, moved 35, NC 0 
+00 ET5CPR   | CPR round  5, maxlvl 154, path head  87523 lvl 149, tail  76789, len  78, m_is_marked   0, moved 30, NC 0 
+00 ET5CPR   | CPR round  6, maxlvl 144, path head 284768 lvl 137, tail  80135, len  85, m_is_marked   0, moved  5, NC 0 
+00 ET5CPR   | CPR round  7, maxlvl 141, path head 367235 lvl 140, tail  80135, len  84, m_is_marked   0, moved  4, NC 0 
+00 ET5CPR   | CPR round  8, maxlvl 140, path head 367235 lvl 139, tail  80135, len  86, m_is_marked   0, moved  2, NC 0 
+00 ET5CPR   | CPR round  9, maxlvl 139, path head  30818 lvl 139, tail  76789, len  83, m_is_marked   0, moved 13, NC 0 
+00 ET5CPR   | CPR round 10, maxlvl 139, path head  30818 lvl 138, tail  80135, len  63, m_is_marked   0, moved  7, NC 1 
+00 ET5CPR   | CPR round 11, maxlvl 138, path head 367235 lvl 138, tail  78307, len  94, m_is_marked   0, moved  9, NC 0 
+00 ET5CPR   | CPR round 12, maxlvl 138, path head 367235 lvl 137, tail  78307, len  94, m_is_marked   0, moved  1, NC 1 
+00 ET5CPR   | CPR round 13, maxlvl 137, path head 367235 lvl 136, tail  78307, len  93, m_is_marked   0, moved  3, NC 0 
+00 ET5CPR   | CPR round 14, maxlvl 136, path head 367235 lvl 135, tail  78307, len  95, m_is_marked   0, moved  1, NC 0 
+00 ET5CPR   | CPR round 15, maxlvl 135, path head 367235 lvl 135, tail  78307, len  94, m_is_marked   0, moved  1, NC 0 
+00 ET5CPR   | CPR round 16, maxlvl 135, path head 367235 lvl 135, tail  78307, len  91, m_is_marked   0, moved  1, NC 1 
+00 ET5CPR   | CPR round 17, maxlvl 135, path head 367235 lvl 134, tail  78307, len  91, m_is_marked   0, moved  1, NC 2 
+00 ET5CPR   | CPR round 18, maxlvl 135, path head  30818 lvl 135, tail  76789, len  84, m_is_marked   0, moved 10, NC 3 
+00 ET5CPR   | CPR round 19, maxlvl 134, path head 367235 lvl 133, tail  76789, len  67, m_is_marked   0, moved 13, NC 0 
+00 ET5CPR   | CPR round 20, maxlvl 134, path head 367235 lvl 134, tail  76789, len  69, m_is_marked   0, moved  9, NC 1 
+00 ET5CPR   | CPR round 21, maxlvl 134, path head  30818 lvl 134, tail  80135, len  61, m_is_marked   0, moved  5, NC 2 
+00 ET5CPR   | CPR round 22, maxlvl 134, path head  30818 lvl 132, tail  80135, len  61, m_is_marked   0, moved  4, NC 3 
+00 ET5CPR   | CPR round 23, maxlvl 133, path head 367235 lvl 133, tail  78307, len  96, m_is_marked   0, moved  0, NC 0 
+00 ET5CPR   | Round 24 path is empty.
+00 ET5CPR   | Total relocated = 210
+00 ET5CPR   | max cls size loada 1098, max asic size loada 365960
+00 ET5CPR   | total wgt loada 365960, ave wgt per asic 365960, ave wgt per cluster 953
+00 ET5CPR   | Maximum number of hops in all paths = 133
 00 ET5CPR   |                                    
-00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et5cpr' (Elapsed time 0.32s (0.30u+0.00s), Memory used 2264 Mb) on 05/20/2024 11:38:09
-00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/etupart' (Elapsed time 3.28s (6.93u+0.12s), Memory used 2264 Mb) on 05/20/2024 11:38:09
-00 DATABASE | Calling 'svproto' on 05/20/2024 11:38:09
+00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/et5cpr' (Elapsed time 0.72s (0.70u+0.01s), Memory used 2584 Mb) on 05/21/2024 16:19:13
+00 DATABASE | Return from '/lan/cva_rel/vxe23h1/23.03.131.s001/tools.lnx86/lib/64bit/etupart' (Elapsed time 4.02s (7.65u+0.17s), Memory used 2584 Mb) on 05/21/2024 16:19:13
+00 DATABASE | Calling 'svproto' on 05/21/2024 16:19:13
 00 DATABASE | Parms: 'qt_modular -remove_CMIO -optimize'
-00 DATABASE | Return from 'svproto' (Elapsed time 0.18s (0.12u+0.03s), Memory used 2264 Mb) on 05/20/2024 11:38:09
+00 DATABASE | Return from 'svproto' (Elapsed time 0.20s (0.14u+0.03s), Memory used 2584 Mb) on 05/21/2024 16:19:13
 00 DATABASE | Compiler Statistics:
-00 DATABASE | ENVRN |  MAX_LOGICAL_HOP | 143        | 
+00 DATABASE | ENVRN |  MAX_LOGICAL_HOP | 133        | 
 00 DATABASE | ENVRN |  ModuleCurrent   | 8          | None
 00 DATABASE | ENVRN |  MAX_LOGICAL_LEVEL | 142        | 
 00 DATABASE | ENVRN |  ModuleLast      | 4          | None

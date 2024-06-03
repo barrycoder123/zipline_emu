@@ -1,10 +1,10 @@
-Computation started on Mon May 20 11:39:24 2024
+Computation started on Tue May 21 16:20:07 2024
 Update every 60 seconds
 1 seconds passed, 0% done, 0 tasks resubmitted.
 1 tasks are distributed to 1 hosts:
 Host(wide bit)                tasks(%)    time(s)  compNetTime(s)  outputTime(s)  IOtime(s) sockTime(s) sockData(K) sockSpeed(M/s) numCPU   mem(M) phyFileMem(M) CPUTime(s) activeTasks
 ---------------------------------------------------------------------------------------------------------------------
-hsv-sc49(64)                 1 (100%)      0.400       0.180          0.150      0.010       0.000           0          0.000          1     9583        0           1           1
+hsv-sc49(64)                 1 (100%)      0.370       0.150          0.140      0.020       0.000           0          0.000          1     9583        0           1           1
 1 tasks to run
 1 tasks to collect result
   task 0 started 1 seconds ago
